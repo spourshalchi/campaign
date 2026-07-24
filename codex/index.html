@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dood Mansion — Campaign Codex</title>
+<style>
+  :root{
+    --bg:#0c0a12; --panel:#15111f; --panel2:#1b1528; --edge:#2a2038;
+    --ink:#ece7f5; --mut:#a89cc0; --dim:#7d7196;
+    --blood:#d23a52; --purple:#9a6ff0; --gold:#e0aa3e; --green:#4fc08a;
+    --blue:#5b9bd5; --pink:#ec7ac0; --gray:#7c8496;
+    --shadow:0 8px 30px rgba(0,0,0,.5);
+    --f-display:"Georgia","Times New Roman",serif;
+    --f-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(154,111,240,.10), transparent 60%),
+      radial-gradient(900px 500px at 10% 110%, rgba(210,58,82,.10), transparent 55%),
+      var(--bg);
+    color:var(--ink); font-family:var(--f-body); line-height:1.55;
+    -webkit-font-smoothing:antialiased;}
+  a{color:var(--purple)}
+  .wrap{max-width:1180px;margin:0 auto;padding:26px 20px 80px}
+
+  header.hero{position:relative;border:1px solid var(--edge);border-radius:16px;
+    background:linear-gradient(160deg,#1a1330,#120e1c 60%);
+    padding:30px 30px 26px;box-shadow:var(--shadow);overflow:hidden}
+  header.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(600px 200px at 90% 0%, rgba(224,170,62,.10), transparent 70%)}
+  .kicker{letter-spacing:.28em;text-transform:uppercase;font-size:12px;color:var(--gold);margin:0 0 8px}
+  h1{font-family:var(--f-display);font-size:40px;line-height:1.05;margin:0 0 10px;
+    background:linear-gradient(90deg,#fff,#d9c9ff 40%,#f0a0b0);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .tagline{color:var(--mut);max-width:760px;margin:0}
+  .vibes{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .chip{font-size:12.5px;padding:5px 11px;border-radius:999px;border:1px solid var(--edge);
+    background:#0f0b18;color:var(--mut)}
+  .chip b{color:var(--ink);font-weight:600}
+
+  nav.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:22px 0 18px;position:sticky;top:0;z-index:20;
+    padding:10px;background:rgba(12,10,18,.82);backdrop-filter:blur(8px);border:1px solid var(--edge);border-radius:12px}
+  nav.tabs button{font-family:var(--f-body);font-size:14px;color:var(--mut);background:transparent;
+    border:1px solid transparent;padding:8px 14px;border-radius:8px;cursor:pointer;transition:.15s}
+  nav.tabs button:hover{color:var(--ink);background:#1a1428}
+  nav.tabs button.active{color:#fff;background:linear-gradient(180deg,#2a1f40,#20182f);border-color:#3a2c54}
+
+  section.tab{display:none;animation:fade .25s ease}
+  section.tab.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  h2.sec{font-family:var(--f-display);font-size:24px;margin:6px 0 4px}
+  .sub{color:var(--dim);margin:0 0 20px;font-size:14.5px}
+
+  .panel{background:var(--panel);border:1px solid var(--edge);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+  .grid{display:grid;gap:16px}
+
+  /* ---- relationship web ---- */
+  .web-layout{display:grid;grid-template-columns:1fr 320px;gap:16px}
+  @media(max-width:860px){.web-layout{grid-template-columns:1fr}}
+  #web-holder{background:radial-gradient(circle at 50% 40%,#140f22,#0c0912);border:1px solid var(--edge);
+    border-radius:12px;overflow:hidden}
+  #web{width:100%;height:auto;display:block;touch-action:none}
+  .node-label{font-family:var(--f-body);font-size:11.5px;fill:var(--ink);pointer-events:none;font-weight:600}
+  .node-sub{font-size:9px;fill:var(--dim);pointer-events:none}
+  .node circle{cursor:pointer;transition:.15s}
+  .node.dim{opacity:.18}
+  .edge.dim{opacity:.05}
+  .edge-lbl{font-size:9px;fill:var(--mut);pointer-events:none;opacity:0}
+
+  .legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:12px 2px 0;font-size:12px;color:var(--mut)}
+  .legend .lg{display:flex;align-items:center;gap:7px}
+  .swatch{width:22px;height:0;border-top-width:3px;border-top-style:solid;display:inline-block}
+  .dotn{width:12px;height:12px;border-radius:50%;display:inline-block;border:2px solid #0c0912}
+
+  .detail{background:var(--panel2);border:1px solid var(--edge);border-radius:12px;padding:16px;min-height:320px}
+  .detail h3{margin:0 0 3px;font-family:var(--f-display);font-size:19px}
+  .detail .role{color:var(--gold);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:12px}
+  .detail p{font-size:13.5px;color:var(--mut);margin:0 0 10px}
+  .detail .field{font-size:13px;margin:0 0 7px}
+  .detail .field b{color:var(--ink)}
+  .detail .empty{color:var(--dim);font-style:italic}
+  .rel-list{list-style:none;padding:0;margin:8px 0 0}
+  .rel-list li{font-size:12.5px;color:var(--mut);padding:6px 0;border-top:1px solid var(--edge)}
+  .rel-list li b{color:var(--ink)}
+  .tag{display:inline-block;font-size:10.5px;padding:2px 7px;border-radius:5px;margin-left:6px;vertical-align:middle}
+
+  /* ---- flow ---- */
+  .flow{display:flex;flex-direction:column;gap:0}
+  .stage{display:flex;gap:14px;align-items:stretch}
+  .rail{display:flex;flex-direction:column;align-items:center;width:40px;flex:none}
+  .rail .num{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:700;
+    font-family:var(--f-display);background:#1e1730;border:1px solid #3a2c54;color:var(--gold);font-size:15px}
+  .rail .line{flex:1;width:2px;background:linear-gradient(var(--edge),var(--edge));margin:4px 0;min-height:14px}
+  .stage:last-child .rail .line{display:none}
+  .card-flow{background:var(--panel);border:1px solid var(--edge);border-radius:12px;padding:14px 16px;margin-bottom:14px;flex:1}
+  .card-flow h4{margin:0 0 5px;font-size:16px;font-family:var(--f-display)}
+  .card-flow .where{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--purple);margin-bottom:6px}
+  .card-flow p{margin:0;color:var(--mut);font-size:13.5px}
+  .fork{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+  @media(max-width:680px){.fork{grid-template-columns:1fr}}
+  .branch{border-radius:10px;padding:12px 14px;border:1px solid}
+  .branch.a{border-color:#5a2b34;background:linear-gradient(180deg,#241119,#1a0f16)}
+  .branch.b{border-color:#25503f;background:linear-gradient(180deg,#0f1f18,#0c1712)}
+  .branch h5{margin:0 0 5px;font-size:14px}
+  .branch.a h5{color:var(--blood)} .branch.b h5{color:var(--green)}
+  .branch p{margin:0;font-size:12.5px;color:var(--mut)}
+  .pill{display:inline-block;font-size:10.5px;padding:2px 8px;border-radius:999px;background:#0f0b18;border:1px solid var(--edge);color:var(--mut);margin:0 5px 5px 0}
+
+  /* ---- cast cards ---- */
+  .cast-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+  .cc{background:var(--panel);border:1px solid var(--edge);border-radius:14px;padding:16px;position:relative;overflow:hidden}
+  .cc::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent,#666)}
+  .cc .who{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+  .cc h4{margin:0;font-family:var(--f-display);font-size:19px}
+  .cc .player{font-size:11px;color:var(--dim)}
+  .cc .arch{font-size:12.5px;color:var(--accent,#aaa);margin:3px 0 10px;font-weight:600}
+  .cc .stats{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+  .cc .stats span{font-size:11px;padding:3px 8px;border-radius:6px;background:#0f0b18;border:1px solid var(--edge);color:var(--mut)}
+  .cc p{font-size:12.8px;color:var(--mut);margin:0 0 9px}
+  .cc .hook{font-size:12px;color:var(--ink);background:#0f0b18;border-left:2px solid var(--accent,#666);
+    padding:7px 10px;border-radius:0 8px 8px 0}
+  .cc .hook b{color:var(--gold)}
+  .group-h{font-family:var(--f-display);font-size:16px;color:var(--mut);margin:24px 4px 4px;
+    text-transform:uppercase;letter-spacing:.12em;font-size:13px}
+
+  /* ---- session plan ---- */
+  .days{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:760px){.days{grid-template-columns:1fr}}
+  .day h3{font-family:var(--f-display);margin:0 0 2px;font-size:20px}
+  .day .dsub{color:var(--dim);font-size:12.5px;margin-bottom:14px}
+  .slot{display:flex;gap:12px;margin-bottom:12px}
+  .slot .bar{width:6px;border-radius:3px;flex:none;background:var(--sc,#555)}
+  .slot .body h5{margin:0 0 3px;font-size:14px}
+  .slot .body p{margin:0;font-size:12.5px;color:var(--mut)}
+  .slot .body .t{font-size:11px;color:var(--gold);letter-spacing:.05em}
+
+  /* ---- names ---- */
+  .name-block{margin-bottom:18px}
+  .name-block .nh{font-family:var(--f-display);font-size:17px;margin:0 0 3px}
+  .name-block .nh small{color:var(--dim);font-family:var(--f-body);font-size:12px;font-weight:normal}
+  .names{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .name{font-size:13px;padding:6px 12px;border-radius:8px;background:#0f0b18;border:1px solid var(--edge);color:var(--mut)}
+  .name.rec{border-color:var(--gold);color:var(--ink);background:linear-gradient(180deg,#1f1809,#161006)}
+  .name.rec::after{content:"★";color:var(--gold);margin-left:6px;font-size:11px}
+  .secret{margin-top:10px;font-size:13px;color:var(--mut)}
+  .secret b{color:var(--pink)}
+  .todo{list-style:none;padding:0;margin:0}
+  .todo li{font-size:13.5px;padding:9px 0;border-top:1px solid var(--edge);color:var(--mut);display:flex;gap:10px}
+  .todo li:first-child{border-top:none}
+  .todo li::before{content:"◆";color:var(--gold);font-size:11px;margin-top:3px}
+  .todo li b{color:var(--ink)}
+  .doc-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .docpill{font-size:12.5px;padding:8px 13px;border-radius:9px;background:linear-gradient(180deg,#211a30,#1a1428);
+    border:1px solid #3a2c54;color:var(--ink)}
+  .docpill small{display:block;color:var(--dim);font-size:11px}
+  .foot{color:var(--dim);font-size:12px;text-align:center;margin-top:30px}
+  .hint{font-size:12px;color:var(--dim);margin-top:10px;font-style:italic}
+</style>
+</head>
+<body data-palette="#5b9bd5,#9a6ff0,#4fc08a,#d23a52,#e0aa3e,#ec7ac0">
+<div class="wrap">
+
+  <header class="hero">
+    <p class="kicker">Scott &amp; Spencer · DnD Extravaganza</p>
+    <h1>Dood Mansion</h1>
+    <p class="tagline">A campy, early-2000s young-adult vampire mystery. Super-seniors at a fantasy high school in Transyltown, NY get mysterious invites to the abandoned Dutch mansion on the edge of town — and walk straight into a very obvious trap. <em>(Dood = "dead" in Dutch.)</em></p>
+    <div class="vibes">
+      <span class="chip"><b>Tone:</b> I Know What You Did Last Summer, but DnD</span>
+      <span class="chip"><b>Format:</b> One weekend · 2 sessions</span>
+      <span class="chip"><b>Twist:</b> the vampires are the good guys</span>
+      <span class="chip"><b>Big Bad:</b> DJ Poe Boy</span>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button data-tab="web" class="active">Relationship Web</button>
+    <button data-tab="flow">Story Flow</button>
+    <button data-tab="cast">The Cast</button>
+    <button data-tab="plan">Weekend Plan</button>
+    <button data-tab="names">Names &amp; Open Threads</button>
+  </nav>
+
+  <!-- ============ WEB ============ -->
+  <section class="tab active" id="tab-web">
+    <h2 class="sec">Who's tangled up with whom</h2>
+    <p class="sub">Click any character to trace their connections and read their thread. Everyone in the friend group is an "island of misfit toys" with a reason they ended up together.</p>
+    <div class="web-layout">
+      <div>
+        <div id="web-holder"><svg id="web" viewBox="0 0 1000 720" preserveAspectRatio="xMidYMid meet"></svg></div>
+        <div class="legend" id="legend"></div>
+        <p class="hint">Tip: click empty space to reset the view.</p>
+      </div>
+      <div class="detail" id="detail">
+        <h3>Click a character</h3>
+        <div class="role">Relationship browser</div>
+        <p>The web maps players (blue), the Bad Kids crew (purple), the three vampires (green), the malevolent forces haunting the house (red), and the townsfolk (grey). Edge <b>color + style</b> both encode the type of bond, so they stay legible even side by side.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FLOW ============ -->
+  <section class="tab" id="tab-flow">
+    <h2 class="sec">How the weekend unfolds</h2>
+    <p class="sub">A haunted-house structure: curiosity gets them in, the doors bolt shut, and everything after plays out inside Dood Mansion — until the fork that decides the whole climax.</p>
+    <div class="flow" id="flow"></div>
+  </section>
+
+  <!-- ============ CAST ============ -->
+  <section class="tab" id="tab-cast">
+    <h2 class="sec">The cast</h2>
+    <p class="sub">Quick-reference cards. Fields marked TBD are open decisions from the brainstorm docs (races, classes, the 4th crew member, Cody's PC).</p>
+    <div id="cast"></div>
+  </section>
+
+  <!-- ============ PLAN ============ -->
+  <section class="tab" id="tab-plan">
+    <h2 class="sec">The two-session weekend</h2>
+    <p class="sub">Roughly the first third-to-half of Saturday is town/exposition; the rest of Saturday and all of Sunday live in the mansion. Pacing target from Brainstorm Sesh 1.</p>
+    <div class="days" id="days"></div>
+    <div class="panel" style="margin-top:16px">
+      <h4 style="margin:0 0 8px;font-family:var(--f-display)">Table roles</h4>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 24px" id="roles"></div>
+    </div>
+  </section>
+
+  <!-- ============ NAMES ============ -->
+  <section class="tab" id="tab-names">
+    <h2 class="sec">Name picks &amp; loose ends</h2>
+    <p class="sub">You asked for input on names — my picks are starred. Below that, the open questions and the props still to build.</p>
+    <div class="grid" style="grid-template-columns:1fr 1fr;gap:16px" id="names-grid"></div>
+    <div class="panel" style="margin-top:16px">
+      <h4 style="margin:0 0 10px;font-family:var(--f-display)">Open threads to resolve</h4>
+      <ul class="todo" id="todo"></ul>
+    </div>
+    <div class="panel" style="margin-top:16px">
+      <h4 style="margin:0 0 4px;font-family:var(--f-display)">Props &amp; handouts to build</h4>
+      <p class="sub" style="margin:0 0 10px">Named in the docs — physical/printable materials for the table.</p>
+      <div class="doc-row" id="docs"></div>
+    </div>
+  </section>
+
+  <p class="foot">Built from the "Scott Spencer DnD Extravaganza" brainstorm docs · a living reference — say the word and I'll fold in Cody's PC, the 4th crew member, or the locked-in names.</p>
+</div>
+
+<script>
+/* ---------------- DATA ---------------- */
+const GROUPS = {
+  player:{c:"#5b9bd5",label:"Players"},
+  crew:{c:"#9a6ff0",label:"Bad Kids crew"},
+  vamp:{c:"#4fc08a",label:"Vampires (good)"},
+  force:{c:"#d23a52",label:"Malevolent forces"},
+  town:{c:"#7c8496",label:"Townsfolk"},
+  place:{c:"#e0aa3e",label:"The Mansion"}
+};
+const EDGE_TYPES = {
+  conflict:{c:"#e0555f",dash:"0",label:"Rivalry / conflict"},
+  romance:{c:"#ec7ac0",dash:"6 5",label:"Romance / almost"},
+  crew:{c:"#4fc08a",dash:"0",label:"Crew / ally"},
+  control:{c:"#b07be0",dash:"0",label:"Manipulation / control",arrow:true},
+  haunt:{c:"#e0aa3e",dash:"2 6",label:"Mansion encounter"},
+  family:{c:"#5b9bd5",dash:"7 6",label:"Backstory / family"}
+};
+
+// x,y on a 1000x720 canvas
+const NODES = [
+  {id:"bix", name:"Bix Grimlor", sub:"Will · Goblin Druid", g:"player", x:120, y:150,
+    role:"Player Character",
+    fields:{Race:"Goblin",Class:"Circle of Wildfire Druid",Vibe:"Antisocial pyromancer, quick to anger"},
+    desc:"Home life is quasi-nonexistent — parents killed by adventurers shortly after his birth. Ran from foster homes but keeps going to school because it's the one thing he's good at. Deals weed to get by, in too deep with bad people. Believes some things must be destroyed for better things to grow.",
+    hook:"Mansion connection: broke in one rainy night after running from a foster home and saw <b>spooky shit</b>. His account may be incomplete — a diary in the house could fill the gaps. Ties back to his parents." },
+  {id:"gnomey", name:"Gnomey Soprano", sub:"Julia · Gnome Rogue", g:"player", x:120, y:300,
+    role:"Player Character",
+    fields:{Race:"Gnome",Class:"Rogue",Vibe:"Cute & unseeming, secretly deadly — Puss in Boots energy"},
+    desc:"A crafty, petty schemer who idolizes mob bosses despite a wholesome family. Hustler who loves money, smart but not bookish — one teacher genuinely believes in him and he wavers between the street life and escaping to college. Sells cigarettes in the school bathroom.",
+    hook:"Ex-member of the Bad Kids crew. Fell out with Poe Boy over uneven cuts of their <b>silly-bandz racket</b>. As a kid the crew threw rocks at the mansion windows on dares — one Halloween, something went wrong." },
+  {id:"simone", name:"Simone's Warlock", sub:"Simone · Warlock", g:"player", x:120, y:450,
+    role:"Player Character",
+    fields:{Race:"TBD",Class:"Warlock (Devil patron)",Vibe:"Angsty goth loner, feared & misunderstood"},
+    desc:"Worships the Devil — who appears as an all-black goat with an upside-down red cross on its face — and draws magic from that worship. Regular-degular atheist suburban family thinks it's a phase. Frequent detention regular after the principal catches her doing spells on school grounds.",
+    hook:"Funds a satanic-metal-tour fund by charging classmates for <b>love spells</b> and <b>revenge spells</b>. Potential house thread: a love spell gone wrong / obsession vibes." },
+  {id:"cody", name:"Cody's PC", sub:"Not submitted yet", g:"player", x:120, y:600,
+    role:"Player Character — TBD",
+    fields:{Race:"TBD",Class:"TBD"},
+    desc:"", empty:"Cody hasn't sent a character outline yet. Placeholder node so the web is ready to wire them in — they'll want a reason they joined the misfit friend group and a sprinkle of mansion lore like everyone else." },
+
+  {id:"devil", name:"The Devil (Goat)", sub:"Simone's patron", g:"force", x:255, y:560,
+    role:"Otherworldly patron",
+    fields:{Form:"All-black goat, upside-down red cross"},
+    desc:"Source of Simone's warlock power. Not necessarily part of the mansion plot, but a lever for spell-based mischief and a possible 'obsession' thread." },
+
+  {id:"poe", name:"DJ Poe Boy", sub:"The Big Bad", g:"crew", x:480, y:210,
+    role:"Antagonist · Ringleader",
+    fields:{Race:"Gith or Kenku (TBD)",Class:"TBD",Alignment:"Chaotic Neutral",Type:"ENFJ"},
+    desc:"Way-too-cool-for-school personified: obnoxiously subversive, but with real underground cred. Ambitious and callous to the edge of psychopathy — not sadistic, just indifferent to suffering if it serves the work. Charismatic, subtly manipulative. Emancipated rich kid, deeply insecure about his upper-class parents who adore him anyway.",
+    hook:"The plan: lure the heroes to the mansion so his horror-movie score can <b>sample the screams of real beings terrorized by real monsters</b>. Secret embarrassing real name candidate: Upton Maximillion Livingsworth III." },
+  {id:"stinky", name:"Lil Stinky", sub:"School kingpin", g:"crew", x:430, y:470,
+    role:"Crew · Muscle / dealer",
+    fields:{Race:"Orc or Goliath (TBD)",Class:"Something tanky (TBD)",Vibe:"Stoner, bad rapper, honest to a fault"},
+    desc:"Dumb as bricks but genuinely charming — a hustler who isn't conniving. Into the dumbest conspiracy theories. The one crew member who needs no manipulation: he just wants to help his best friend, not knowing he's being used.",
+    hook:"Makes music with Poe Boy — they're tight. Runs the cigarette/weed trade at school, which is how <b>Gnomey's</b> world overlaps his." },
+  {id:"angelique", name:"Angelique", sub:"Can be saved", g:"crew", x:330, y:340,
+    role:"Crew · The redeemable one",
+    fields:{Race:"Changeling or Genasi (TBD)",Class:"TBD",Vibe:"Trad goth, nihilist with a soft spot"},
+    desc:"More authentically goth than Poe Boy — existential, hedonist, 'any second could be my last.' Smart but unsure of herself; Poe Boy exploits her low self-worth. If anyone can be pulled out of his orbit, it's her.",
+    hook:"At the gazebo she wants to warn the heroes but can't with everyone around — so she's the <b>first to find them in the mansion</b> and tells them to hide." },
+  {id:"crew4", name:"4th Crew Member", sub:"TBD · likely female", g:"crew", x:560, y:400,
+    role:"Crew — TBD",
+    fields:{},
+    desc:"", empty:"A fourth Bad Kid to round out the gazebo entourage — noted as probably female in the brainstorm. Open slot for a personality and a hook (and possibly a tie to Cody's PC)." },
+
+  {id:"mansion", name:"Dood Mansion", sub:"The haunted house", g:"place", x:660, y:330,
+    role:"Primary location",
+    fields:{Name:"'Dood' = dead (Dutch)",History:"Abandoned Dutch mansion on the edge of town"},
+    desc:"Where the whole back half plays out. Front door is boarded up haunted-house style (Poe Boy tips them on the real way in). Once they're inside, the doors bolt shut. Rooms are built around puzzles and one combat set-piece, ending in the food-stash reveal and a hidden room.",
+    hook:"Rumored haunted for two reasons: the vampires, and the <b>Gjenganger</b> — the original lonely owner. A real-estate company is circling to buy the land." },
+
+  {id:"orlok", name:"Vamp: Orlok", sub:"True-to-folklore", g:"vamp", x:880, y:150,
+    role:"Vampire (secretly good)",
+    fields:{Style:"Nosferatu / Count Orlok"},
+    desc:"The genuinely eerie one, straight from folklore. Like the others, actually harmless to the heroes." },
+  {id:"drac", name:"Vamp: Dracula", sub:"Kitschy & annoying", g:"vamp", x:915, y:290,
+    role:"Vampire (secretly good)",
+    fields:{Style:"Campy Count Dracula"},
+    desc:"The over-the-top theatrical one for comic relief." },
+  {id:"edward", name:"Vamp: Edward", sub:"Literally Twilight", g:"vamp", x:880, y:430,
+    role:"Vampire (secretly good)",
+    fields:{Style:"Just Edward from Twilight"},
+    desc:"Exactly what it says. The three of them share one goal and one secret." },
+
+  {id:"gjen", name:"The Gjenganger", sub:"Vengeful revenant", g:"force", x:790, y:560,
+    role:"Combat set-piece",
+    fields:{Origin:"Scandinavian folklore revenant",Danger:"Strong up close — spreads decay/sickness"},
+    desc:"The original mansion owner — never married, never had children, isolated himself and died by suicide from loneliness. A big reason the house was abandoned. As a monster it's deadly at close range (rotting touch), so the winning strategy is keeping distance.",
+    hook:"Mirrors <b>Bix's</b> antisocial arc — a character-development beat. Guards the way to the computer/spirit." },
+  {id:"spirit", name:"Spirit in the Computer", sub:"A past victim", g:"force", x:620, y:585,
+    role:"Clue-bearer",
+    fields:{State:"Trapped in the messaging chat"},
+    desc:"A person Poe Boy's crew already had the vampires kill — now haunting the computer the players interact with after the Gjenganger fight.",
+    hook:"Biggest clue in the house: he was <b>killed by a human</b>, not a monster — the thread that exonerates the vampires." },
+
+  {id:"teacher", name:"History Teacher", sub:"Inciting NPC", g:"town", x:340, y:80,
+    role:"Townsfolk · Motivation",
+    fields:{Function:"Assigns the local-history/folklore group project"},
+    desc:"Groups the heroes together for a project on local history — the reason they investigate, and the bookend when they present their findings (and the artifact) to the class.",
+    hook:"Also the teacher who believes in <b>Gnomey</b>, feeding his college-vs-street tension." },
+  {id:"librarian", name:"Records Keeper", sub:"The Harbinger", g:"town", x:700, y:80,
+    role:"Townsfolk · Warning",
+    fields:{Archetype:"Harbinger (with a modern spin)"},
+    desc:"Keeper of the library / hall of records — the one NPC who warns them against going to the mansion. The records hold Frisian history and the folklore method for killing a 'fampier': dig up the coffin, stake through the heart, rebury.",
+    hook:"The vampire-slaying lore here becomes the players' option on the <b>fight</b> branch of the fork." },
+  {id:"realestate", name:"Real-Estate Co.", sub:"Outside threat", g:"town", x:915, y:560,
+    role:"Townsfolk · Background threat",
+    fields:{Goal:"Buy the mansion land"},
+    desc:"A company scouting the property to purchase it — the real threat to the vampires' quiet existence. Poe Boy may have dangled 'help' against them and never followed through.",
+    hook:"Resolution beat: by the end, the company gets <b>scared off</b> the land." }
+];
+
+const EDGES = [
+  ["gnomey","poe","conflict","fell out over uneven cuts"],
+  ["gnomey","stinky","crew","cigarette-trade overlap"],
+  ["poe","stinky","crew","best friends / make music"],
+  ["poe","angelique","romance","'girlfriend' — no label"],
+  ["poe","crew4","crew","entourage"],
+  ["bix","angelique","romance","past almost-friendship, pushed away"],
+  ["poe","orlok","control","does his bidding"],
+  ["poe","drac","control","does his bidding"],
+  ["poe","edward","control","does his bidding"],
+  ["poe","spirit","control","had the vamps kill him"],
+  ["bix","mansion","haunt","stayed overnight, saw something"],
+  ["gnomey","mansion","haunt","childhood dares"],
+  ["gjen","mansion","haunt","the original owner"],
+  ["orlok","mansion","haunt","lives here"],
+  ["drac","mansion","haunt","lives here"],
+  ["edward","mansion","haunt","lives here"],
+  ["spirit","mansion","haunt","died here"],
+  ["realestate","mansion","conflict","wants to buy the land"],
+  ["bix","teacher","family","the class project"],
+  ["gnomey","teacher","family","believes in him"],
+  ["simone","teacher","family","the class project"],
+  ["cody","teacher","family","the class project"],
+  ["librarian","mansion","haunt","warns them away"],
+  ["simone","devil","family","patron / power"],
+  ["angelique","spirit","haunt","witness to the crew's kill"]
+];
+
+const FLOW = [
+  {n:1,title:"History class",where:"Fantasy high school",body:"The super-seniors get grouped for a local-history / folklore project. This is the motivation to investigate — and the bookend they'll return to at the end to 'present their oral project.'"},
+  {n:2,title:"Letters in the lockers",where:"Smash cut",body:"Everyone finds a mysterious invitation to a haunted house at the abandoned Dutch mansion. Ooo, spooky."},
+  {n:3,title:"Town detours",where:"Before the mansion",body:"The first third-to-half of Session 1. Two key stops: the Library / Hall of Records (Frisian lore + the vampire-slaying method + the Harbinger's warning) and the Gazebo where the Bad Kids smoke — where they meet DJ Poe Boy, who tips them on the real way into the boarded-up house."},
+  {n:4,title:"Enter Dood Mansion",where:"The trap springs",body:"They go in out of pure curiosity — and the doors bolt shut behind them. Everything from here plays out inside. (Invite says ~7PM; the DJ show flyer says 3AM — plenty of time to explore.)"},
+  {n:5,title:"First vampire encounter",where:"No fight — yet",body:"They meet the three vampires but don't fight. Investigation begins. Angelique may be the first to find them and tell them to hide."},
+  {fork:true,n:6,title:"THE FORK",where:"Choose your climax",body:"A crossroads in the investigation:",
+    branches:[
+      {k:"a",h:"Path A — Find an advantage",p:"Follow the records-hall lore: locate the vampires' coffins, stake the hearts, rebury. Sets up combat against the vampires (one, or all three)."},
+      {k:"b",h:"Path B — The vaguer path",p:"Discover they don't have to fight at all. Leads to the reveal that the vampires are good — and the climax becomes the boss fight with Poe Boy instead."}
+    ]},
+  {n:7,title:"Gjenganger combat",where:"Set-piece encounter",body:"Fight the vengeful revenant of the mansion's lonely original owner to reach the computer. It's brutal up close, so the smart play is fighting at range. Beating it unlocks the Spirit in the Computer — whose clue is that he was killed by a human."},
+  {n:8,title:"The food-stash puzzle",where:"Final room",body:"A puzzle reveals the vampires' food stash — the surprise being it's small animals, not people. Solving it releases a key to a hidden room. This is the proof that clears the vamps."},
+  {n:9,title:"Climax",where:"Boss fight",body:"Either the heroes confront DJ Poe Boy (with the vampires possibly helping), or — on the fight path — they battle the vampires themselves. Poe Boy's whole scheme was harvesting real screams for his horror score."},
+  {n:10,title:"Resolution & bookend",where:"Back to class",body:"They recover an ancient Dutch artifact (found after the boss fight, or with the vamps' help), the real-estate company is scared off the land, and they present the artifact in class — closing the loop opened in scene one."}
+];
+
+const PLAN = {
+  sat:{title:"Saturday · Session 1",sub:"Town & the threshold",slots:[
+    {t:"First ~third–half",c:"#9a6ff0",h:"Exposition & town",p:"Class recap, the locker letters, the Library / Hall of Records, and the gazebo meeting with the Bad Kids. Plant the lore and the warning."},
+    {t:"Remainder",c:"#e0aa3e",h:"Into the mansion",p:"Doors bolt shut. First vampire encounter (no fight), opening puzzles, and the start of the investigation toward the fork."}
+  ]},
+  sun:{title:"Sunday · Session 2",sub:"All mansion, all the way to the reveal",slots:[
+    {t:"Opening",c:"#5b9bd5",h:"The fork",p:"Players commit to the fight-them or don't-have-to path. Branch the rooms accordingly."},
+    {t:"Middle",c:"#d23a52",h:"Gjenganger & the computer",p:"The ranged combat set-piece, then the Spirit's 'killed by a human' clue."},
+    {t:"Late",c:"#4fc08a",h:"Reveal & climax",p:"The food-stash puzzle clears the vampires; the boss fight with Poe Boy (or the vamps) lands."},
+    {t:"Close",c:"#e0aa3e",h:"Artifact & bookend",p:"Recover the Dutch artifact, scare off the buyers, present to class."}
+  ]}
+};
+
+const ROLES = [
+  ["Scott","Story, lore, and voicing the NPCs (open to sharing voices)"],
+  ["Spencer","Puzzles & room design, running combat, officiating rules & feasibility"],
+  ["Shared — narration","Either can narrate; decide per scene"],
+  ["Shared — props","Printed letters, record excerpts, background slides & music"]
+];
+
+const NAMES = [
+  {h:"The DJ", note:"way-too-cool ringleader", opts:[
+    {n:"DJ Poe Boy",rec:true},{n:"DJ ACULA",rec:true},{n:"DJ RIP YOUR HEART OUT"},
+    {n:"MC USHER"},{n:"LIL BAUHAUS"},{n:"DJ DEADBOY"}],
+    secret:"Secret 'real' name to reveal later: <b>Upton Maximillion Livingsworth III</b> — embarrassingly uppity, perfect."},
+  {h:"The kingpin", note:"stoner / bad rapper", opts:[
+    {n:"Lil Stinky",rec:true},{n:"Lil Boom Boom"},{n:"Lil Pipsqueak"},
+    {n:"Lil Flat Earth"},{n:"Lil Bigboy"},{n:"Lil Dirty Diaper"}]},
+  {h:"The redeemable goth", note:"Poe Boy's 'girlfriend'", opts:[
+    {n:"Angelique",rec:true},{n:"Scarlett"},{n:"Coressa"},{n:"Angellica"}]}
+];
+
+const TODO = [
+  ["Cody's PC","Still not submitted — needs a character, a reason they joined the misfits, and a mansion-lore sprinkle."],
+  ["4th crew member","An open slot (likely female) to round out the gazebo entourage; possible tie to Cody."],
+  ["Why do the vampires help Poe Boy?","They're good and just want to be left alone — so his leverage over them needs nailing down. (Fed up with him is the current read.)"],
+  ["NPC races & classes","Poe Boy (Gith/Kenku + class), Lil Stinky (Orc/Goliath + tanky class), Angelique (Changeling/Genasi + class), Simone's race."],
+  ["Per-character house moment","Sesh 7 goal: one sprinkle of lore in the mansion tied to each PC — Bix↔parents, Gnomey↔mob/vamp, Simone↔love-spell obsession."],
+  ["Lock the names","Star picks above are my suggestions — your call to confirm."]
+];
+
+const DOCS = [
+  ["Haunted House Invite","home-made, clip-arty · ~7PM"],
+  ["DJ Show Flyer","leaned-out Memphis/Houston rap art, spooky · 3AM at Dood Mansion"],
+  ["Library History Clippings","Frisian lore + the fampier-slaying method"]
+];
+
+/* ---------------- RENDER: WEB ---------------- */
+const SVG="http://www.w3.org/2000/svg";
+const web=document.getElementById("web");
+const nodeById=Object.fromEntries(NODES.map(n=>[n.id,n]));
+
+// defs for arrowheads
+const defs=document.createElementNS(SVG,"defs");
+defs.innerHTML=`<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <path d="M0,0 L10,5 L0,10 z" fill="#b07be0"/></marker>`;
+web.appendChild(defs);
+
+const gEdges=document.createElementNS(SVG,"g");
+const gNodes=document.createElementNS(SVG,"g");
+web.appendChild(gEdges); web.appendChild(gNodes);
+
+const edgeEls=[];
+EDGES.forEach(([a,b,type,lbl])=>{
+  const A=nodeById[a],B=nodeById[b],t=EDGE_TYPES[type];
+  const line=document.createElementNS(SVG,"line");
+  line.setAttribute("x1",A.x);line.setAttribute("y1",A.y);
+  line.setAttribute("x2",B.x);line.setAttribute("y2",B.y);
+  line.setAttribute("stroke",t.c);line.setAttribute("stroke-width","2");
+  line.setAttribute("stroke-dasharray",t.dash);
+  line.setAttribute("stroke-linecap","round");
+  line.setAttribute("class","edge");
+  if(t.arrow)line.setAttribute("marker-end","url(#arrow)");
+  gEdges.appendChild(line);
+  edgeEls.push({el:line,a,b,type,lbl});
+});
+
+NODES.forEach(n=>{
+  const g=document.createElementNS(SVG,"g");
+  g.setAttribute("class","node");g.dataset.id=n.id;
+  const r=(n.g==="place")?26:(n.id==="poe"?22:18);
+  const c=document.createElementNS(SVG,"circle");
+  c.setAttribute("cx",n.x);c.setAttribute("cy",n.y);c.setAttribute("r",r);
+  c.setAttribute("fill",GROUPS[n.g].c);
+  c.setAttribute("stroke","#0c0912");c.setAttribute("stroke-width","3");
+  const tbd=n.empty?0.5:1; c.setAttribute("fill-opacity",tbd);
+  if(n.empty)c.setAttribute("stroke-dasharray","3 3");
+  g.appendChild(c);
+  const t=document.createElementNS(SVG,"text");
+  t.setAttribute("x",n.x);t.setAttribute("y",n.y+r+13);
+  t.setAttribute("text-anchor","middle");t.setAttribute("class","node-label");
+  t.textContent=n.name;g.appendChild(t);
+  const s=document.createElementNS(SVG,"text");
+  s.setAttribute("x",n.x);s.setAttribute("y",n.y+r+25);
+  s.setAttribute("text-anchor","middle");s.setAttribute("class","node-sub");
+  s.textContent=n.sub;g.appendChild(s);
+  g.addEventListener("click",e=>{e.stopPropagation();select(n.id)});
+  gNodes.appendChild(g);
+});
+
+function neighbors(id){
+  const set=new Set([id]);
+  EDGES.forEach(([a,b])=>{if(a===id)set.add(b);if(b===id)set.add(a);});
+  return set;
+}
+function select(id){
+  const keep=neighbors(id);
+  document.querySelectorAll(".node").forEach(g=>{
+    g.classList.toggle("dim",!keep.has(g.dataset.id));
+  });
+  edgeEls.forEach(({el,a,b})=>{
+    el.classList.toggle("dim",!(a===id||b===id));
+  });
+  renderDetail(id);
+}
+function resetWeb(){
+  document.querySelectorAll(".node").forEach(g=>g.classList.remove("dim"));
+  edgeEls.forEach(({el})=>el.classList.remove("dim"));
+}
+web.addEventListener("click",resetWeb);
+
+function renderDetail(id){
+  const n=nodeById[id];const d=document.getElementById("detail");
+  let rels="";
+  EDGES.forEach(([a,b,type,lbl])=>{
+    let other=null;
+    if(a===id)other=b; else if(b===id)other=a; else return;
+    const t=EDGE_TYPES[type];
+    rels+=`<li><b>${nodeById[other].name}</b> — ${lbl}
+      <span class="tag" style="background:${t.c}22;color:${t.c}">${t.label}</span></li>`;
+  });
+  let fields="";
+  for(const[k,v]of Object.entries(n.fields||{})){
+    fields+=`<div class="field"><b>${k}:</b> ${v}</div>`;
+  }
+  d.innerHTML=`<h3>${n.name}</h3><div class="role" style="color:${GROUPS[n.g].c}">${n.role}</div>
+    ${fields}
+    ${n.desc?`<p>${n.desc}</p>`:""}
+    ${n.empty?`<p class="empty">${n.empty}</p>`:""}
+    ${n.hook?`<p style="color:var(--ink)">${n.hook}</p>`:""}
+    ${rels?`<ul class="rel-list">${rels}</ul>`:""}`;
+}
+
+// legend
+const legend=document.getElementById("legend");
+let lg="";
+Object.values(GROUPS).forEach(g=>{lg+=`<span class="lg"><span class="dotn" style="background:${g.c}"></span>${g.label}</span>`;});
+lg+=`<span style="width:100%;height:0"></span>`;
+Object.values(EDGE_TYPES).forEach(t=>{
+  lg+=`<span class="lg"><span class="swatch" style="border-top-color:${t.c};${t.dash!=='0'?'border-top-style:dashed':''}"></span>${t.label}</span>`;
+});
+legend.innerHTML=lg;
+
+/* ---------------- RENDER: FLOW ---------------- */
+const flow=document.getElementById("flow");
+flow.innerHTML=FLOW.map(s=>{
+  let inner;
+  if(s.fork){
+    inner=`<div class="card-flow" style="border-color:#4a3a1e">
+      <div class="where">${s.where}</div><h4>${s.title}</h4><p>${s.body}</p>
+      <div class="fork">
+        ${s.branches.map(b=>`<div class="branch ${b.k}"><h5>${b.h}</h5><p>${b.p}</p></div>`).join("")}
+      </div></div>`;
+  }else{
+    inner=`<div class="card-flow"><div class="where">${s.where}</div><h4>${s.title}</h4><p>${s.body}</p></div>`;
+  }
+  return `<div class="stage"><div class="rail"><div class="num">${s.n}</div><div class="line"></div></div>${inner}</div>`;
+}).join("");
+
+/* ---------------- RENDER: CAST ---------------- */
+const cast=document.getElementById("cast");
+const order=[["player","Player Characters"],["crew","The Bad Kids Crew"],["vamp","The Vampires"],["force","Malevolent Forces"],["town","Townsfolk & Places"]];
+let castHTML="";
+order.forEach(([g,label])=>{
+  const members=NODES.filter(n=>n.g===g|| (g==="town"&&n.g==="place"));
+  if(g==="force"){/* keep devil+gjen+spirit here, mansion under town */}
+  const list=NODES.filter(n=>{
+    if(g==="town")return n.g==="town"||n.g==="place";
+    return n.g===g;
+  });
+  castHTML+=`<div class="group-h">${label}</div><div class="cast-grid">`;
+  list.forEach(n=>{
+    const c=GROUPS[n.g].c;
+    const stats=Object.entries(n.fields||{}).map(([k,v])=>`<span>${k}: ${v}</span>`).join("");
+    const body=n.empty?`<p class="empty" style="color:var(--dim);font-style:italic">${n.empty}</p>`:
+      `<p>${n.desc||""}</p>${n.hook?`<div class="hook">${n.hook}</div>`:""}`;
+    castHTML+=`<div class="cc" style="--accent:${c}">
+      <div class="who"><h4>${n.name}</h4><span class="player">${n.sub}</span></div>
+      <div class="arch">${n.role}</div>
+      ${stats?`<div class="stats">${stats}</div>`:""}
+      ${body}</div>`;
+  });
+  castHTML+=`</div>`;
+});
+cast.innerHTML=castHTML;
+
+/* ---------------- RENDER: PLAN ---------------- */
+const days=document.getElementById("days");
+days.innerHTML=[PLAN.sat,PLAN.sun].map(d=>`
+  <div class="day panel"><h3>${d.title}</h3><div class="dsub">${d.sub}</div>
+  ${d.slots.map(s=>`<div class="slot"><div class="bar" style="--sc:${s.c}"></div>
+    <div class="body"><div class="t">${s.t}</div><h5>${s.h}</h5><p>${s.p}</p></div></div>`).join("")}
+  </div>`).join("");
+document.getElementById("roles").innerHTML=ROLES.map(([who,what])=>
+  `<div><b style="color:var(--ink)">${who}</b><br><span style="color:var(--mut);font-size:13px">${what}</span></div>`).join("");
+
+/* ---------------- RENDER: NAMES ---------------- */
+document.getElementById("names-grid").innerHTML=NAMES.map(b=>`
+  <div class="panel name-block">
+    <div class="nh">${b.h} <small>· ${b.note}</small></div>
+    <div class="names">${b.opts.map(o=>`<span class="name ${o.rec?'rec':''}">${o.n}</span>`).join("")}</div>
+    ${b.secret?`<div class="secret">${b.secret}</div>`:""}
+  </div>`).join("");
+document.getElementById("todo").innerHTML=TODO.map(([t,d])=>`<li><span><b>${t}</b> — ${d}</span></li>`).join("");
+document.getElementById("docs").innerHTML=DOCS.map(([t,d])=>`<div class="docpill">${t}<small>${d}</small></div>`).join("");
+
+/* ---------------- TABS ---------------- */
+document.querySelectorAll("#tabs button").forEach(b=>{
+  b.addEventListener("click",()=>{
+    document.querySelectorAll("#tabs button").forEach(x=>x.classList.remove("active"));
+    document.querySelectorAll("section.tab").forEach(x=>x.classList.remove("active"));
+    b.classList.add("active");
+    document.getElementById("tab-"+b.dataset.tab).classList.add("active");
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
+});
+</script>
+</body>
+</html>
