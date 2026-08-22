@@ -68,20 +68,28 @@ in it. Her warning rests on two things:
 2. **The ward, which is sitting in her drawer.** She doesn't have to argue any
    folklore. She has a page that will not go back together.
 
-The second one is what makes her work. A harbinger who says "beware" is easy to
-ignore. A harbinger who says "watch what happens when you try to read that" and
-is immediately proved right has already won the argument — and they go anyway,
-because they're teenagers. That's the archetype landing without a raving crone
-anywhere near it.
+Her line, as she hands the drawer over:
 
-Ordering changes the line, not the beat:
+> "You can try to put it back together. But I'm guessing, by the magic on them
+> — someone doesn't want you finding that information."
 
-- **Warns first:** "Others have tried it. It doesn't come together. Leave it be."
-- **Warns after:** "Now you've seen it for yourself. Still want to go up there?"
+That's the whole character, and it's worth noticing what it declines to do:
 
-Worth deciding: does she know it's warded because she's watched someone try, or
-because she tried once herself and stopped? Either gives her a reason to keep
-the drawer shut without entangling her in the plot.
+- **She doesn't forbid them.** "You can try" hands them the drawer. There's
+  nothing to push against, so there's no argument for them to win.
+- **She hedges.** "I'm guessing" claims no authority and makes no prophecy.
+  She's a person reading a situation. That's the modern spin — the archetype
+  without the raving.
+- **She points at the evidence and stops.** The players draw the conclusion
+  themselves, so they own it.
+- **"Someone doesn't want you"** puts a person behind the ward. Not a curse,
+  not bad luck — somebody did this on purpose, and they are still out there.
+
+Because she says it at handover, the warning is already in the room before the
+timer starts, and then the puzzle proves her right without her doing anything.
+A harbinger who says "beware" gets ignored. One who is demonstrated correct
+thirty seconds later has won the argument — and they go anyway, because they're
+teenagers.
 
 ## Editing the copy
 
