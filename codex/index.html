@@ -260,7 +260,7 @@
   <!-- ============ CAST ============ -->
   <section class="tab" id="tab-cast">
     <h2 class="sec">The cast</h2>
-    <p class="sub">Quick-reference cards. Fields marked TBD are open decisions from the brainstorm docs (races, classes, the 4th crew member, Cody's PC).</p>
+    <p class="sub">Quick-reference cards. Fields marked TBD are open decisions from the brainstorm docs (races, classes, the 4th crew member, Cody's PC, and John's insecurity — which is his to name).</p>
     <div id="cast"></div>
   </section>
 
@@ -315,25 +315,30 @@ const EDGE_TYPES = {
 
 // x,y on a 1000x720 canvas
 const NODES = [
-  {id:"bix", name:"Bix Grimlor", sub:"Will · Goblin Druid", g:"player", x:120, y:150,
+  {id:"bix", name:"Bix Grimlor", sub:"Will · Goblin Druid", g:"player", x:120, y:130,
     role:"Player Character",
     fields:{Race:"Goblin",Class:"Circle of Wildfire Druid",Vibe:"Antisocial pyromancer, quick to anger"},
     desc:"Home life is quasi-nonexistent — parents killed by adventurers shortly after his birth. Ran from foster homes but keeps going to school because it's the one thing he's good at. Deals weed to get by, in too deep with bad people. Believes some things must be destroyed for better things to grow.",
     hook:"Mansion connection: broke in one rainy night after running from a foster home and saw <b>spooky shit</b>. His account may be incomplete — a diary in the house could fill the gaps. Ties back to his parents." },
-  {id:"gnomey", name:"Gnomey Soprano", sub:"Julia · Gnome Rogue", g:"player", x:120, y:300,
+  {id:"gnomey", name:"Gnomey Soprano", sub:"Julia · Gnome Rogue", g:"player", x:120, y:250,
     role:"Player Character",
     fields:{Race:"Gnome",Class:"Rogue",Vibe:"Cute & unseeming, secretly deadly — Puss in Boots energy"},
     desc:"A crafty, petty schemer who idolizes mob bosses despite a wholesome family. Hustler who loves money, smart but not bookish — one teacher genuinely believes in him and he wavers between the street life and escaping to college. Sells cigarettes in the school bathroom.",
     hook:"Ex-member of the Bad Kids crew. Fell out with Poe Boy over uneven cuts of their <b>silly-bandz racket</b>. As a kid the crew threw rocks at the mansion windows on dares — one Halloween, something went wrong." },
-  {id:"simone", name:"Simone's Warlock", sub:"Simone · Warlock", g:"player", x:120, y:450,
+  {id:"simone", name:"Simone's Warlock", sub:"Simone · Warlock", g:"player", x:120, y:370,
     role:"Player Character",
     fields:{Race:"TBD",Class:"Warlock (Devil patron)",Vibe:"Angsty goth loner, feared & misunderstood"},
     desc:"Worships the Devil — who appears as an all-black goat with an upside-down red cross on its face — and draws magic from that worship. Regular-degular atheist suburban family thinks it's a phase. Frequent detention regular after the principal catches her doing spells on school grounds.",
     hook:"Funds a satanic-metal-tour fund by charging classmates for <b>love spells</b> and <b>revenge spells</b>. Potential house thread: a love spell gone wrong / obsession vibes." },
-  {id:"cody", name:"Cody's PC", sub:"Not submitted yet", g:"player", x:120, y:600,
+  {id:"john", name:"John's Bard", sub:"John · Bully Bard", g:"player", x:120, y:490,
+    role:"Player Character",
+    fields:{Race:"TBD",Class:"Bard — College of Whispers (leaning)",Vibe:"School bully who fights with his mouth"},
+    desc:"The bully of the friend group — and mechanically that's literal: his words <i>are</i> the weapon. Cutting remarks land as real damage, and the same mouth that makes him feared is what talks the party through a locked door. Cruelty is the armor, not the character; underneath it sits a glaring insecurity that explains the whole act.",
+    hook:"<b>The insecurity is John's call — ask him what he wants it to be.</b> It's the thing that keeps this from being just a mean character, so it belongs to the player rather than the DM. Also open: a character name, race, and a mansion connection. Worth noting the rhyme — Poe Boy is canonically 'deeply insecure' behind the same kind of front, which makes John the one PC built to recognize what the villain is doing." },
+  {id:"cody", name:"Cody's PC", sub:"Not submitted yet", g:"player", x:120, y:610,
     role:"Player Character — TBD",
     fields:{Race:"TBD",Class:"TBD"},
-    desc:"", empty:"Cody hasn't sent a character outline yet. Placeholder node so the web is ready to wire them in — they'll want a reason they joined the misfit friend group and a sprinkle of mansion lore like everyone else." },
+    desc:"", empty:"Cody hasn't sent a character outline yet — Spencer texted both slow pokes in Sesh 5 and Simone's came in, his didn't. Placeholder node so the web is ready to wire them in — they'll want a reason they joined the misfit friend group and a sprinkle of mansion lore like everyone else." },
 
   {id:"devil", name:"The Devil (Goat)", sub:"Simone's patron", g:"force", x:255, y:560,
     role:"Otherworldly patron",
@@ -358,7 +363,7 @@ const NODES = [
   {id:"crew4", name:"4th Crew Member", sub:"TBD · likely female", g:"crew", x:560, y:400,
     role:"Crew — TBD",
     fields:{},
-    desc:"", empty:"A fourth Bad Kid to round out the gazebo entourage — noted as probably female in the brainstorm. Open slot for a personality and a hook (and possibly a tie to Cody's PC)." },
+    desc:"", empty:"A fourth Bad Kid to round out the gazebo entourage — noted as probably female in the brainstorm. Open slot for a personality and a hook (and possibly a tie to an open PC)." },
 
   {id:"mansion", name:"Dood Mansion", sub:"The haunted house", g:"place", x:660, y:330,
     role:"Primary location",
@@ -430,6 +435,10 @@ const EDGES = [
   ["bix","teacher","family","the class project"],
   ["gnomey","teacher","family","believes in him"],
   ["simone","teacher","family","the class project"],
+  ["john","teacher","family","the class project"],
+  ["john","gnomey","conflict","taxes the bathroom cigarette trade"],
+  ["john","poe","conflict","the one kid he cannot get a rise out of"],
+  ["john","mansion","haunt","TBD — still needs a connection"],
   ["cody","teacher","family","the class project"],
   ["librarian","mansion","haunt","warns them away"],
   ["simone","devil","family","patron / power"],
@@ -558,8 +567,9 @@ const NAMES = [
 ];
 
 const TODO = [
-  ["Cody's PC","Still not submitted — needs a character, a reason they joined the misfits, and a mansion-lore sprinkle."],
-  ["4th crew member","An open slot (likely female) to round out the gazebo entourage; possible tie to Cody."],
+  ["John's PC","Bard, bully archetype — his words are the weapon. The insecurity behind the act is deliberately John's to name — ask him. Open alongside it: a character name, race, and a mansion connection."],
+  ["Cody's PC","Still not submitted — needs a character, a reason they joined the misfits, and a mansion-lore sprinkle. Separate player from John; the party is five."],
+  ["4th crew member","An open slot (likely female) to round out the gazebo entourage; possible tie to one of the open PCs."],
   ["The dead kid's name","<b>Resolved:</b> why the vampires help him — they asked <i>him</i> for help against the mega-mall developers, and the haunted house is their plan to scare the buyers off. Still open: who the kid was. He needs a name, a year, and enough of a life that the players feel it."],
   ["Does anyone miss the kid?","The soul cage left no body, so there was never a search or a funeral. Decide what the school thinks happened to him — that's the version Angelique has been living with."],
   ["How the vamps learn the truth","They believe he went out a window. Decide whether the reveal comes from the Spirit directly, from Angelique, or from the players producing the recording."],
