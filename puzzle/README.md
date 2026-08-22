@@ -3,6 +3,19 @@
 The party's in-town research stop. A torn front page from the library's bound
 volumes: assemble it against the clock, then flip it to read page 2.
 
+**The fiction:** the page didn't just get torn — somebody *warded* the pieces so
+they'd never go back together. That's what the timer is. The players aren't
+racing a person walking back into the room, they're holding a working at bay
+long enough to read the thing.
+
+The prop never names who cast it, on purpose. The obvious candidate is the
+vampires: this article carries both the method for destroying them *and* the
+location of their coffins, so of course it's warded. That also pays off later —
+on the reveal, the thing standing between the party and the truth turns out to
+have been something frightened protecting itself, not a villain covering
+tracks. But nothing in the prop commits to that, so it can just as easily be
+the trust, Poe Boy, or the records keeper herself.
+
 Front page is a rendered image (it gets torn into pieces). Page 2 is live HTML
 (it has to stay legible at table distance) — so the lore copy is editable here
 without regenerating any art.

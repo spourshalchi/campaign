@@ -646,9 +646,11 @@
 <!-- ===== Splash ===== -->
 <div id="splash">
   <div class="note">
-    <h1>A torn page</h1>
-    <p>Someone tore this out of the bound volume.<br>The pieces are still in the drawer.<br><br>She's coming back.</p>
-    <button id="begin">Begin</button>
+    <h1>A warded page</h1>
+    <p>Someone tore this from the bound volume and said a word over the pieces,
+       so they would never sit together again.<br><br>
+       You can feel them straining apart in your hands.</p>
+    <button id="begin">Hold It Together</button>
   </div>
 </div>
 
@@ -656,7 +658,7 @@
 <div id="game" hidden>
   <div id="hud">
     <div id="timer" aria-label="time remaining">3:00</div>
-    <div id="hint">piece the page together</div>
+    <div id="hint">hold the pieces together</div>
   </div>
   <div id="workspace">
     <div id="frame-hint"></div>
@@ -669,7 +671,7 @@
         <div class="face back"><div id="page2-mini" class="page2"></div></div>
       </div>
     </div>
-    <div id="flip-hint"><span>swipe for page 2</span><span class="arrow">↔</span></div>
+    <div id="flip-hint"><span>it&rsquo;s holding &mdash; turn it over</span><span class="arrow">↔</span></div>
   </div>
 </div>
 
@@ -709,8 +711,9 @@
 
 <!-- ===== Fail ===== -->
 <div id="fail">
-  <h2>Footsteps in the stacks</h2>
-  <p>You sweep the pieces back into the drawer and slide it shut.</p>
+  <h2>The working holds</h2>
+  <p>Whatever was said over these pieces is stronger than you are.
+     They twist out of your hands and scatter, and it is a torn page again.</p>
   <button id="retry">Try Again</button>
 </div>
 
