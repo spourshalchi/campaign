@@ -404,8 +404,8 @@ const NODES = [
   {id:"realestate", name:"Real-Estate Co.", sub:"Outside threat", g:"town", x:915, y:560,
     role:"Townsfolk · Background threat",
     fields:{Goal:"Buy the mansion land"},
-    desc:"Wants to demolish the mansion and build a <b>mega mall</b>. The real threat to the vampires' quiet existence, and a genuine one — their daytime visits are the reason the vampires went looking for a human ally in the first place, since sunlight leaves them unable to answer or defend themselves.",
-    hook:"Resolution beat: by the end, the company gets <b>scared off</b> the land." }
+    desc:"Wants to demolish the mansion and build a <b>mega mall</b>. The real threat to the vampires' quiet existence, and a genuine one — their daytime visits are the reason the vampires went looking for a human ally in the first place, since sunlight leaves them unable to answer or defend themselves. Their leader also had the 1937 Crier front page <b>warded</b> in the records hall: a documented vampire incident is a liability on a site he intends to develop, so he paid to make it unreadable rather than argue with it. He can't ward word of mouth, which is why the town still talks and the Records Keeper still warns.",
+    hook:"Resolution beat: by the end, the company gets <b>scared off</b> the land — which is a personal defeat for a man whose whole play was making the haunting undocumentable. Runs on a completely different axis from Poe Boy: neither of them knows what the other is doing on that property." }
 ];
 
 const EDGES = [
@@ -435,6 +435,7 @@ const EDGES = [
   ["simone","devil","family","patron / power"],
   ["angelique","spirit","haunt","typed the messages that lured him"],
   ["realestate","orlok","conflict","daylight visits they can't answer"],
+  ["realestate","librarian","control","warded the 1937 page in her drawer"],
   ["simone","spirit","haunt","warlock — can name the soul cage"]
 ];
 
@@ -565,7 +566,8 @@ const TODO = [
   ["NPC races & classes","Poe Boy (Gith/Kenku + class), Lil Stinky (Orc/Goliath + tanky class), Angelique (Changeling/Genasi + class), Simone's race."],
   ["Per-character house moment","Sesh 7 goal: one sprinkle of lore in the mansion tied to each PC — Bix↔parents, Gnomey↔mob/vamp, Simone↔love-spell obsession. <b>Simone now has a second, stronger one:</b> as the party's warlock she's the one who can recognize a soul cage and say what was done in that room."],
   ["Coffin count vs. the 1937 page","<b>Contradiction.</b> The Crier has Wiegman finding <b>three</b> boxes, opening one on the heath and leaving <b>two</b> under the chapel floor — but there are three vampires now. Cleanest fix: one of them arrived after 1937 (Edward is the obvious candidate, and a recent turning explains why he still wants to be normal). Alternative: soften Wiegman's count to 'more than one', since he refused to go up to the house and can't have counted them himself."],
-  ["Who warded the library page?","The prop deliberately never says, and should stay that way — but the DM needs an answer. The vampires are now a weak candidate: they can't go out in daylight and the records hall is in town. <b>Poe Boy fits better</b> — he walks in during opening hours, he studies the occult, the soul cage proves he can actually do it, and that page carries both the method for destroying his monsters and the location of their coffins. It can still read as something frightened protecting itself if he did it at their asking — one more favor that mostly served him."],
+  ["Who warded the library page?","<b>Answered: the real-estate company's leader did it</b> — not to hide monsters, but to erase a documented 1937 vampire incident from the public record before he develops the site. A stigmatized property is a liability. The prop stays silent on this, correctly; it's the DM who needs to know. Still open: his name, and whether he actually believes any of it (the better version is that he doesn't — he's scrubbing a superstition for business reasons and has no idea what's really in that house)."],
+  ["The ward's accidental irony","He warded the one page carrying the method for destroying the vampires <i>and</i> the location of their coffins. The corporation trying to take the house has been protecting its tenants this whole time. Worth letting the players work that out."],
   ["Why does the Gjenganger walk?","The Crier says Cornelis Dood was buried with a runic marker by men taking care 'not for his sake, but for theirs' — so the ward was set correctly and held for decades. Something broke it. Poe Boy is the obvious candidate: months of poking around the property, and he found the Dutch relic in the house somewhere."],
   ["Soul cage or magic jar?","Working assumption is Poe Boy casting a badly-understood <b>soul cage</b>. Still open whether it's the spell proper, a magic jar variant, or channelled through the ancient Dutch artifact the players recover at the end — which would tie the endgame treasure to freeing the kid."],
   ["Lock the names","<b>Angelique is locked</b> (Scott, decision log in Sesh 7). Poe Boy and Lil Stinky are locked by usage across Sesh 5–7. Star picks elsewhere are still suggestions."]

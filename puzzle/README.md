@@ -13,13 +13,22 @@ period voice on purpose, but the splash and fail screens are the players
 speaking as themselves at a D&D table — "cast a spell" reads right there,
 "said a word over the pieces" does not.
 
-The prop never names who cast it, on purpose. The obvious candidate is the
-vampires: this article carries both the method for destroying them *and* the
-location of their coffins, so of course it's warded. That also pays off later —
-on the reveal, the thing standing between the party and the truth turns out to
-have been something frightened protecting itself, not a villain covering
-tracks. But nothing in the prop commits to that, so it can just as easily be
-the trust or Poe Boy.
+The prop never names who cast it, on purpose, and should stay that way.
+
+**For the DM: it was the real-estate company's leader.** Not to hide monsters —
+to erase a documented 1937 vampire incident from the public record before he
+develops the site. A stigmatized property is a liability, so he paid to make the
+page unreadable rather than argue with it. He can walk into a records hall in
+daylight, which the vampires cannot, and he almost certainly doesn't believe a
+word of the article. He can't ward word of mouth, which is why the town still
+talks and the harbinger still has her warning.
+
+The irony is worth playing: he warded the one page carrying both the method for
+destroying the vampires *and* the location of their coffins, so the company
+trying to take the house has been protecting its tenants the entire time.
+
+None of that is in the prop. The players just meet a page that won't go back
+together, and "someone doesn't want you finding that information" stays true.
 
 Front page is a rendered image (it gets torn into pieces). Page 2 is live HTML
 (it has to stay legible at table distance) — so the lore copy is editable here
