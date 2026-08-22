@@ -3,10 +3,15 @@
 The party's in-town research stop. A torn front page from the library's bound
 volumes: assemble it against the clock, then flip it to read page 2.
 
-**The fiction:** the page didn't just get torn — somebody *warded* the pieces so
-they'd never go back together. That's what the timer is. The players aren't
-racing a person walking back into the room, they're holding a working at bay
+**The fiction:** the page didn't just get torn — somebody cast a spell on the
+pieces so they'd never fit back together. That's what the timer is. The players
+aren't racing a person walking back into the room, they're holding a spell off
 long enough to read the thing.
+
+Keep this copy in plain present-day language. The 1937 article is written in
+period voice on purpose, but the splash and fail screens are the players
+speaking as themselves at a D&D table — "cast a spell" reads right there,
+"said a word over the pieces" does not.
 
 The prop never names who cast it, on purpose. The obvious candidate is the
 vampires: this article carries both the method for destroying them *and* the
