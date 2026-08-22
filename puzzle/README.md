@@ -19,7 +19,7 @@ location of their coffins, so of course it's warded. That also pays off later �
 on the reveal, the thing standing between the party and the truth turns out to
 have been something frightened protecting itself, not a villain covering
 tracks. But nothing in the prop commits to that, so it can just as easily be
-the trust, Poe Boy, or the records keeper herself.
+the trust or Poe Boy.
 
 Front page is a rendered image (it gets torn into pieces). Page 2 is live HTML
 (it has to stay legible at table distance) — so the lore copy is editable here
@@ -42,10 +42,9 @@ The three coffins match the crypt on the mansion floor plan
 
 Things deliberately left loose. All are one-line edits.
 
-- **"Aletta Bruin"** — the named child. Intended to become the 2004 records
-  keeper / harbinger: she was 11 in 1937, so she's ~78 at the table, and she's
-  read this page. That's the "modern spin on the archetype" — not a raving
-  crone, an archivist with a personal reason to send them home.
+- **"Aletta Bruin"** — the named child. Texture only; rename at will. She was
+  once going to grow up into the harbinger, but the records keeper is
+  deliberately *not* in this story any more — see below.
 - **"the Hoeck boy"** — open slot for a PC's great-grandparent, for the
   blood-tie-to-the-mansion hook. Waiting on Cody's PC.
 - **"Dood"** — mansion name, now used everywhere. The floor-plan art
@@ -56,6 +55,33 @@ Things deliberately left loose. All are one-line edits.
 Invented canon that needs sign-off, since players read this closely: Cornelis
 Dood built the house, it's been shuttered since **1904**, the incident was
 **October 1937**.
+
+## The harbinger
+
+The records keeper is the harbinger — the one NPC who tells them not to go up
+to the house. She has no personal stake in the 1937 story and does not appear
+in it. Her warning rests on two things:
+
+1. **What she's heard.** Decades of town talk about the Dood house. Nothing she
+   witnessed and nothing she can prove — which is exactly why the players are
+   free to shrug it off.
+2. **The ward, which is sitting in her drawer.** She doesn't have to argue any
+   folklore. She has a page that will not go back together.
+
+The second one is what makes her work. A harbinger who says "beware" is easy to
+ignore. A harbinger who says "watch what happens when you try to read that" and
+is immediately proved right has already won the argument — and they go anyway,
+because they're teenagers. That's the archetype landing without a raving crone
+anywhere near it.
+
+Ordering changes the line, not the beat:
+
+- **Warns first:** "Others have tried it. It doesn't come together. Leave it be."
+- **Warns after:** "Now you've seen it for yourself. Still want to go up there?"
+
+Worth deciding: does she know it's warded because she's watched someone try, or
+because she tried once herself and stopped? Either gives her a reason to keep
+the drawer shut without entangling her in the plot.
 
 ## Editing the copy
 
