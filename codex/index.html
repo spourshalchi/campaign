@@ -78,6 +78,11 @@
   .detail h3{margin:0 0 3px;font-family:var(--f-display);font-size:19px}
   .detail .role{color:var(--gold);font-size:12.5px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:12px}
   .detail p{font-size:13.5px;color:var(--mut);margin:0 0 10px}
+  .detail .npc-line{margin:0 0 12px;padding:9px 12px;font-size:13.5px;line-height:1.5;
+    font-family:var(--f-display);font-style:italic;color:var(--ink);
+    border-left:3px solid var(--gold);background:#ffffff08}
+  .detail .npc-line::before{content:"\201C"}
+  .detail .npc-line::after{content:"\201D"}
   .detail .field{font-size:13px;margin:0 0 7px}
   .detail .field b{color:var(--ink)}
   .detail .empty{color:var(--dim);font-style:italic}
@@ -393,8 +398,9 @@ const NODES = [
   {id:"librarian", name:"Records Keeper", sub:"The Harbinger", g:"town", x:700, y:80,
     role:"Townsfolk · Warning",
     fields:{Archetype:"Harbinger (with a modern spin)"},
-    desc:"Keeper of the library / hall of records — the one NPC who warns them against going to the mansion. The records hold Frisian history and the folklore method for killing a 'fampier': dig up the coffin, stake through the heart, rebury.",
-    hook:"The vampire-slaying lore here becomes the players' option on the <b>fight</b> branch of the fork." },
+    desc:"Keeper of the library / hall of records — the one NPC who warns them against going to the mansion. She has no personal stake in the 1937 story and does not appear in it. Her warning rests on decades of town talk plus the plainly wrong thing in her own drawer: a page someone spellbound so it would never fit back together.",
+    line:"You can try to put it back together. But I'm guessing, by the magic on them — someone doesn't want you finding that information.",
+    hook:"Said as she hands the drawer over, so the warning is in the room before the timer starts and the puzzle proves her right on its own. Note she never forbids them: 'you can try' leaves no argument to win, 'I'm guessing' claims no authority, and 'someone doesn't want you' puts a person behind the ward. The staking method they pull out of that page becomes their option on the <b>fight</b> branch." },
   {id:"realestate", name:"Real-Estate Co.", sub:"Outside threat", g:"town", x:915, y:560,
     role:"Townsfolk · Background threat",
     fields:{Goal:"Buy the mansion land"},
@@ -558,6 +564,9 @@ const TODO = [
   ["How the vamps learn the truth","They believe he went out a window. Decide whether the reveal comes from the Spirit directly, from Angelique, or from the players producing the recording."],
   ["NPC races & classes","Poe Boy (Gith/Kenku + class), Lil Stinky (Orc/Goliath + tanky class), Angelique (Changeling/Genasi + class), Simone's race."],
   ["Per-character house moment","Sesh 7 goal: one sprinkle of lore in the mansion tied to each PC — Bix↔parents, Gnomey↔mob/vamp, Simone↔love-spell obsession. <b>Simone now has a second, stronger one:</b> as the party's warlock she's the one who can recognize a soul cage and say what was done in that room."],
+  ["Coffin count vs. the 1937 page","<b>Contradiction.</b> The Crier has Wiegman finding <b>three</b> boxes, opening one on the heath and leaving <b>two</b> under the chapel floor — but there are three vampires now. Cleanest fix: one of them arrived after 1937 (Edward is the obvious candidate, and a recent turning explains why he still wants to be normal). Alternative: soften Wiegman's count to 'more than one', since he refused to go up to the house and can't have counted them himself."],
+  ["Who warded the library page?","The prop deliberately never says, and should stay that way — but the DM needs an answer. The vampires are now a weak candidate: they can't go out in daylight and the records hall is in town. <b>Poe Boy fits better</b> — he walks in during opening hours, he studies the occult, the soul cage proves he can actually do it, and that page carries both the method for destroying his monsters and the location of their coffins. It can still read as something frightened protecting itself if he did it at their asking — one more favor that mostly served him."],
+  ["Why does the Gjenganger walk?","The Crier says Cornelis Dood was buried with a runic marker by men taking care 'not for his sake, but for theirs' — so the ward was set correctly and held for decades. Something broke it. Poe Boy is the obvious candidate: months of poking around the property, and he found the Dutch relic in the house somewhere."],
   ["Soul cage or magic jar?","Working assumption is Poe Boy casting a badly-understood <b>soul cage</b>. Still open whether it's the spell proper, a magic jar variant, or channelled through the ancient Dutch artifact the players recover at the end — which would tie the endgame treasure to freeing the kid."],
   ["Lock the names","<b>Angelique is locked</b> (Scott, decision log in Sesh 7). Poe Boy and Lil Stinky are locked by usage across Sesh 5–7. Star picks elsewhere are still suggestions."]
 ];
@@ -565,7 +574,7 @@ const TODO = [
 const DOCS = [
   ["Haunted House Invite","home-made, clip-arty · ~7PM"],
   ["DJ Show Flyer","leaned-out Memphis/Houston rap art, spooky · 3AM at Dood Mansion · bills Poe Boy / Lil Stinky / Angelique / 4th member"],
-  ["Library History Clippings","Frisian lore + the fampier-slaying method"]
+  ["Library History Clippings","BUILT \u2014 /puzzle/ \u00b7 torn Crier front page, 1937; fampier method + the three coffins"]
 ];
 
 /* ---------------- RENDER: WEB ---------------- */
@@ -659,6 +668,7 @@ function renderDetail(id){
   d.innerHTML=`<h3>${n.name}</h3><div class="role" style="color:${GROUPS[n.g].c}">${n.role}</div>
     ${fields}
     ${n.desc?`<p>${n.desc}</p>`:""}
+    ${n.line?`<blockquote class="npc-line">${n.line}</blockquote>`:""}
     ${n.empty?`<p class="empty">${n.empty}</p>`:""}
     ${n.hook?`<p style="color:var(--ink)">${n.hook}</p>`:""}
     ${rels?`<ul class="rel-list">${rels}</ul>`:""}`;

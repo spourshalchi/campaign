@@ -12,7 +12,10 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 ├── aim/              ← Haunted AOL Instant Messenger prop
 │   ├── index.html
 │   └── sounds/
-├── puzzle/           ← Torn-photograph reassembly prop
+├── puzzle/           ← Torn newspaper page prop
+│   ├── index.html
+│   ├── README.md
+│   └── assets/
 ├── codex/            ← DM-facing campaign codex (not linked from the landing page)
 ├── CLAUDE.md         ← agent guide for adding new props
 ├── README.md         ← this file
@@ -24,8 +27,8 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 | Prop | Path | Vibe |
 |------|------|------|
 | AIM | `aim/` | Haunted 2000s AOL Instant Messenger. The buddy is the kid Poe Boy soul-caged into the machine — the branching tree lets the party pull the whole confession out of him, including the clue that clears the vampires. |
-| Photo | `puzzle/` | Torn photograph the players reassemble against a timer, then flip for the reverse side. |
-| Codex | `codex/` | DM reference — relationship web, locked backstory, story flow, cast, weekend plan, open threads. Deliberately **not** tiled on the landing page so it can't be opened at the table by accident. |
+| Torn Page | `puzzle/` | 1937 newspaper front page, torn up. Reassemble against the clock, flip for the page-2 lore. See [puzzle/README.md](puzzle/README.md) |
+| Codex | `codex/` | DM-facing campaign reference — relationship web, locked backstory, story flow, cast, session plan. Not a player prop, and deliberately not tiled on the landing page so it can't be opened at the table by accident. |
 
 ## Adding a new prop
 

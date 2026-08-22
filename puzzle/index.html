@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Photo">
+<meta name="apple-mobile-web-app-title" content="Clipping">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#2a1a10">
-<title>Torn Photograph</title>
+<meta name="theme-color" content="#191510">
+<title>Torn Page — The Transyltown Crier</title>
 <style>
   :root {
     --safe-top: env(safe-area-inset-top);
     --safe-bot: env(safe-area-inset-bottom);
     --safe-l: env(safe-area-inset-left);
     --safe-r: env(safe-area-inset-right);
-    --paper: #f4ecd6;
-    --ink: #2a1a10;
+    --paper: #e6dcc0;
+    --ink: #17140f;
   }
 
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -186,17 +186,30 @@
     top: 0; left: 0;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    background-color: #f4ecd6;
+    background-color: #e2d8bd;
     will-change: transform;
     touch-action: none;
     cursor: grab;
-    -webkit-filter: drop-shadow(0 3px 5px rgba(0,0,0,0.55));
-    filter: drop-shadow(0 3px 5px rgba(0,0,0,0.55));
+    /* Tight coloured drop-shadows trace the clip-path exactly, which gives
+       each rip an aged, fibrous rim -- newsprint browns along a tear. The
+       wide black one is the actual cast shadow. */
+    -webkit-filter:
+      drop-shadow(0 0 0.5px rgba(126,88,40,0.95))
+      drop-shadow(0 0 1.5px rgba(96,66,28,0.45))
+      drop-shadow(0 3px 5px rgba(0,0,0,0.55));
+    filter:
+      drop-shadow(0 0 0.5px rgba(126,88,40,0.95))
+      drop-shadow(0 0 1.5px rgba(96,66,28,0.45))
+      drop-shadow(0 3px 5px rgba(0,0,0,0.55));
   }
   .piece.dragging {
     cursor: grabbing;
-    -webkit-filter: drop-shadow(0 8px 14px rgba(0,0,0,0.75));
-    filter: drop-shadow(0 8px 14px rgba(0,0,0,0.75));
+    -webkit-filter:
+      drop-shadow(0 0 0.5px rgba(126,88,40,0.95))
+      drop-shadow(0 8px 14px rgba(0,0,0,0.75));
+    filter:
+      drop-shadow(0 0 0.5px rgba(126,88,40,0.95))
+      drop-shadow(0 8px 14px rgba(0,0,0,0.75));
   }
   .piece.snapping {
     transition: transform 0.32s cubic-bezier(.3, 1.4, .5, 1);
@@ -232,8 +245,20 @@
     opacity: 1;
     pointer-events: auto;
   }
+  /* Cast shadow, shaped like the torn page. Sits outside #photo-card so the
+     card's 3D subtree stays filter-free, and so the shadow stays put on the
+     table while the page turns. */
+  #card-shadow {
+    position: absolute; inset: 0;
+    background: rgba(0,0,0,0.72);
+    -webkit-filter: blur(13px);
+    filter: blur(13px);
+    transform: translateY(9px);
+    pointer-events: none;
+  }
   #photo-card {
     position: relative;
+    z-index: 1;
     width: 100%; height: 100%;
     transform-style: preserve-3d;
     transform: rotateY(0deg);
@@ -261,12 +286,220 @@
     background-repeat: no-repeat;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    box-shadow:
-      0 10px 28px rgba(0,0,0,0.65),
-      0 0 0 4px rgba(244, 236, 214, 0.04);
+    /* No box-shadow: clip-path removes it along with everything outside the
+       torn silhouette. The shadow lives on #card-shadow instead, which keeps
+       filters off this element so backface-visibility stays reliable on iOS. */
   }
   #photo-card .face.back {
     transform: rotateY(180deg);
+    background-color: #e2d8bd;
+    overflow: hidden;
+  }
+  /* Page 2 is longer than the card, so it gets clipped at the bottom edge.
+     Fade it out so that reads as "the column continues" rather than as a
+     rendering glitch. */
+  #photo-card .face.back::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: 0;
+    height: 70px;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(226,216,189,0), #e2d8bd 88%);
+  }
+  /* The back face renders page 2 shrunk to card size. It is deliberately
+     too small to read -- that is what sends the player into the reader. */
+  #page2-mini {
+    position: absolute; top: 0; left: 0;
+    transform-origin: top left;   /* width + scale set by fitPage2Mini() */
+    pointer-events: none;
+  }
+
+  /* ============== Reader (fullscreen page 2) ============== */
+  /* Kept as a flat 2D overlay, deliberately outside the 3D flip card:
+     scrolling text inside a preserve-3d subtree is unreliable on iOS. */
+  #reader {
+    position: fixed; inset: 0;
+    z-index: 160;
+    display: none;
+    /* No backdrop-filter here on purpose: blurring behind a full-screen
+       scrolling overlay forces a re-composite per frame on iOS and stutters
+       on older iPads. The flat alpha does the job. */
+    background: rgba(10,7,4,0.86);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding:
+      calc(var(--safe-top) + 18px) calc(var(--safe-r) + 16px)
+      calc(var(--safe-bot) + 40px) calc(var(--safe-l) + 16px);
+  }
+  #reader.show { display: block; opacity: 1; }
+
+  #reader-sheet {
+    position: relative;
+    width: 100%; max-width: 660px;
+    margin: 0 auto;
+    background:
+      radial-gradient(ellipse 60% 40% at 15% 8%,   rgba(150,120,70,0.10), transparent 70%),
+      radial-gradient(ellipse 50% 30% at 88% 62%,  rgba(140,110,60,0.12), transparent 70%),
+      linear-gradient(177deg, #ece3ca 0%, #e5dbc0 55%, #ddd2b3 100%);
+    color: var(--ink);
+    padding: 34px 32px 42px;
+    -webkit-user-select: text; user-select: text;
+    /* Ragged silhouette, generated in JS to match the tear on the front. */
+    -webkit-filter: drop-shadow(0 0 1px rgba(120,84,38,0.85)) drop-shadow(0 16px 40px rgba(0,0,0,0.75));
+    filter: drop-shadow(0 0 1px rgba(120,84,38,0.85)) drop-shadow(0 16px 40px rgba(0,0,0,0.75));
+  }
+  /* Newsprint: fibre grain, foxing, edge tanning, and the same fold crease
+     that runs down the front page. */
+  #reader-sheet::after {
+    content: "";
+    position: absolute; inset: 0;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    background:
+      linear-gradient(to right, rgba(122,88,42,0.30) 0%, transparent 9%),
+      linear-gradient(to left,  rgba(122,88,42,0.32) 0%, transparent 10%),
+      linear-gradient(to top,   rgba(112,80,38,0.34) 0%, transparent 8%),
+      linear-gradient(to bottom,rgba(112,80,38,0.26) 0%, transparent 6%),
+      repeating-linear-gradient(94deg, rgba(90,70,40,0.05) 0 1px, transparent 1px 4px),
+      radial-gradient(circle 9px  at 11% 14%, rgba(120,85,40,0.34), transparent 72%),
+      radial-gradient(circle 5px  at 84% 31%, rgba(120,85,40,0.38), transparent 70%),
+      radial-gradient(circle 13px at 68% 77%, rgba(110,80,38,0.28), transparent 74%),
+      radial-gradient(circle 6px  at 26% 58%, rgba(118,84,38,0.3),  transparent 72%);
+  }
+
+  /* Sits outside the clipped sheet so the torn edge can't eat the button. */
+  #reader-close {
+    position: fixed;
+    top: calc(var(--safe-top) + 14px);
+    right: calc(var(--safe-r) + 14px);
+    appearance: none;
+    background: var(--ink); color: var(--paper);
+    border: 1px solid #5a3a20;
+    width: 46px; height: 46px;
+    font-family: inherit; font-size: 22px; line-height: 1;
+    cursor: pointer; z-index: 5;
+    touch-action: manipulation;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.6);
+  }
+  #reader-close:active { background: #4a3322; }
+
+  /* ---------- shared page-2 newsprint styling ---------- */
+  .page2 {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  /* Folio line: page number hard left, nameplate centred, date hard right —
+     the way a real inside page is slugged. */
+  .page2 .folio {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .page2 .folio .np {
+    font-family: Didot, "Bodoni 72", Georgia, serif;
+    font-size: 17px; letter-spacing: 0.1em;
+    text-transform: none;
+  }
+  .page2 .folio-rule {
+    border-top: 4px solid var(--ink);
+    margin: 2px 0 20px;
+  }
+  .page2 h2 {
+    font-family: Didot, "Bodoni 72", Georgia, serif;
+    font-size: 40px; line-height: 1.02;
+    font-weight: normal; letter-spacing: 0.015em;
+    text-align: center;
+    margin: 0 0 6px;
+  }
+  .page2 .contd {
+    font-style: italic; font-size: 15px;
+    text-align: center;
+    padding-bottom: 12px; margin-bottom: 16px;
+    border-bottom: 1px solid rgba(23,20,15,0.5);
+  }
+  .page2 p {
+    margin: 0 0 9px; font-size: 17px; text-indent: 1.4em;
+    text-align: justify;
+    -webkit-hyphens: auto; hyphens: auto;
+  }
+  .page2 p:first-of-type { text-indent: 0; }
+  .page2 p.q {
+    text-indent: 0; font-style: italic;
+    padding: 4px 0 4px 16px;
+    border-left: 3px solid rgba(23,20,15,0.45);
+    margin: 12px 0;
+  }
+  .page2 p.big {
+    text-indent: 0; text-align: center;
+    font-size: 20px; font-style: italic;
+    padding: 12px 10px; margin: 14px 0;
+    border-top: 1px solid rgba(23,20,15,0.5);
+    border-bottom: 1px solid rgba(23,20,15,0.5);
+  }
+  .page2 .sub {
+    text-align: center;
+    font-family: "Bodoni 72 Smallcaps", Didot, Georgia, serif;
+    font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase;
+    margin: 20px 0 10px;
+  }
+  .page2 .sub::before { content: "\2014\2003"; }
+  .page2 .sub::after  { content: "\2003\2014"; }
+  .page2 .box {
+    border: 2px solid var(--ink);
+    padding: 15px 16px 13px;
+    margin-top: 26px;
+    background: rgba(255,250,235,0.28);
+  }
+  .page2 .box .bt {
+    font-family: "Bodoni 72 Smallcaps", Didot, Georgia, serif;
+    font-size: 15px; letter-spacing: 0.13em; text-transform: uppercase;
+    text-align: center; margin-bottom: 9px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid rgba(23,20,15,0.4);
+  }
+  .page2 .box p { font-size: 16px; }
+  .page2 .drop::first-letter {
+    font-family: Didot, "Big Caslon", Georgia, serif;
+    font-size: 52px; line-height: 0.8;
+    float: left; padding: 5px 7px 0 0;
+  }
+
+  /* ---------- halftone cut ---------- */
+  .page2 .cut {
+    margin: 20px 0 4px;
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    padding: 14px 0 10px;
+  }
+  .page2 .cut .plate {
+    position: relative;
+    border: 1px solid var(--ink);
+    overflow: hidden;
+    background: #d6ccb2;
+  }
+  .page2 .cut svg { display: block; width: 100%; height: auto; }
+  .page2 .cut .screen {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    opacity: 0.55;
+    background-image: radial-gradient(circle at 50% 50%, #100d08 1px, transparent 1.25px);
+    background-size: 3px 3px;
+  }
+  .page2 .cut .cap {
+    font-size: 14px; line-height: 1.35;
+    text-align: center; text-indent: 0;
+    padding: 9px 6px 0; margin: 0;
+    font-style: italic;
+  }
+  .page2 .cut .cap b {
+    font-family: "Bodoni 72 Smallcaps", Didot, Georgia, serif;
+    font-style: normal; font-weight: 400;
+    letter-spacing: 0.07em;
   }
 
   #photo-glow {
@@ -413,9 +646,11 @@
 <!-- ===== Splash ===== -->
 <div id="splash">
   <div class="note">
-    <h1>A torn photograph</h1>
-    <p>Pieces, scattered. The picture wants to be seen.<br>You won't have long.</p>
-    <button id="begin">Begin</button>
+    <h1>A warded page</h1>
+    <p>Someone tore this out of the bound volume and cast a spell on the pieces
+       so they&rsquo;d never fit back together.<br><br>
+       You can feel them fighting you.</p>
+    <button id="begin">Hold It Together</button>
   </div>
 </div>
 
@@ -423,19 +658,31 @@
 <div id="game" hidden>
   <div id="hud">
     <div id="timer" aria-label="time remaining">3:00</div>
-    <div id="hint">drag the pieces into place</div>
+    <div id="hint">hold the pieces together</div>
   </div>
   <div id="workspace">
     <div id="frame-hint"></div>
     <div id="pieces-layer"></div>
     <div id="photo-glow"></div>
     <div id="photo-anchor">
+      <div id="card-shadow"></div>
       <div id="photo-card">
         <div class="face front"></div>
-        <div class="face back"></div>
+        <div class="face back"><div id="page2-mini" class="page2"></div></div>
       </div>
     </div>
-    <div id="flip-hint"><span>swipe to flip</span><span class="arrow">↔</span></div>
+    <div id="flip-hint"><span>it&rsquo;s holding &mdash; turn it over</span><span class="arrow">↔</span></div>
+  </div>
+</div>
+
+<!-- ===== Reader — page 2 at readable size ===== -->
+<div id="reader">
+  <!-- Outside #reader-sheet: the sheet has a filter, which would make this
+       button's position:fixed resolve against the sheet instead of the
+       viewport and park it on top of the folio line. -->
+  <button id="reader-close" aria-label="close">&times;</button>
+  <div id="reader-sheet">
+    <div id="reader-body" class="page2"></div>
   </div>
 </div>
 
@@ -464,10 +711,139 @@
 
 <!-- ===== Fail ===== -->
 <div id="fail">
-  <h2>Time's up</h2>
-  <p>The fragments crumbled away before you could finish piecing them together.</p>
+  <h2>The spell holds</h2>
+  <p>Whatever was cast on these pieces is stronger than you are.
+     They twist out of your hands and scatter, and it&rsquo;s a torn page again.</p>
   <button id="retry">Try Again</button>
 </div>
+
+<!-- ============================================================
+     PAGE 2 ARTICLES
+     ============================================================
+     One <template> per clipping. The id is referenced by CLIPPINGS
+     below. The same markup is mounted twice: shrunk onto the back of
+     the flip card, and full-size in the reader overlay.
+
+     This is plain HTML on purpose -- edit the copy between sessions
+     without re-rendering any art.
+
+     Classes: .sub (small-caps subhead) .q (indented quote)
+              .big (boxed pull quote) .box (sidebar) .drop (drop cap)
+     ============================================================ -->
+<template id="article-heath">
+  <div class="folio">
+    <span>Page Two</span>
+    <span class="np">The Transyltown Crier</span>
+    <span>Oct. 28, 1937</span>
+  </div>
+  <div class="folio-rule"></div>
+
+  <h2>CHILDREN</h2>
+  <div class="contd">Continued from Page One</div>
+
+  <p>&hellip;insensible since Tuesday. Dr. Emmerich Vance, who has attended all three, reports the same findings in each: the skin cold to the touch, the breath shallow, the pulse slow past counting, and upon the left side of the throat two punctures no wider than a pin, ringed in white.</p>
+
+  <p class="q">&ldquo;They are not asleep,&rdquo; Dr. Vance said Wednesday. &ldquo;Sleep has a bottom to it. This does not.&rdquo;</p>
+
+  <p>At the request of the Dood trustees, the village sent to Kinderhook for Mr. Joost Wiegman, called in the Dutch fashion a <i>duivelbanner</i> &mdash; a banisher of devils &mdash; whose family has kept the old offices since before the patents.</p>
+
+  <div class="sub">Upon the Heath</div>
+
+  <p>Mr. Wiegman walked the heath at first light Wednesday and stopped some forty rods below the Dood house, where the ground had settled. Men were set to digging.</p>
+
+  <p>At a depth of three feet they uncovered a coffin of no great age, and within it a body neither swollen nor spoiled, the cheeks full and the mouth wet.</p>
+
+  <p class="big">&ldquo;This is the evil that has been found upon the heath.&rdquo;</p>
+
+  <p>He directed that the body be lifted into the new coffin, and that a splinter of whitethorn be set into the underside of the lid, positioned so that its point stood directly above the heart. The lid was then nailed down. Six men held it.</p>
+
+  <div class="cut">
+    <div class="plate">
+      <svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="earth" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+            <line x1="0" y1="0" x2="0" y2="9" stroke="#2a251b" stroke-width="1.1"/>
+          </pattern>
+          <pattern id="grainp" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-18)">
+            <line x1="0" y1="0" x2="0" y2="7" stroke="#3a3226" stroke-width="0.7"/>
+          </pattern>
+        </defs>
+
+        <rect x="0" y="0" width="600" height="250" fill="#ddd3b8"/>
+        <rect x="0" y="196" width="600" height="54" fill="url(#earth)" opacity="0.5"/>
+        <line x1="0" y1="196" x2="600" y2="196" stroke="#241f17" stroke-width="2"/>
+
+        <!-- the box -->
+        <path d="M96 122 L504 122 L486 194 L114 194 Z" fill="#cfc4a8" stroke="#241f17" stroke-width="2.4"/>
+        <path d="M96 122 L504 122 L500 134 L100 134 Z" fill="url(#grainp)" opacity="0.55" stroke="none"/>
+        <g stroke="#241f17" stroke-width="1" opacity="0.5">
+          <line x1="103" y1="150" x2="497" y2="150"/>
+          <line x1="107" y1="170" x2="493" y2="170"/>
+        </g>
+
+        <!-- the body within -->
+        <g stroke="#241f17" stroke-width="1.9" opacity="0.8">
+          <path d="M186 146 Q206 140 232 141 Q300 143 372 149 Q430 154 466 152
+                   L468 168 Q430 170 372 173 Q300 178 232 179 Q206 180 186 174 Z"
+                fill="#bfb397"/>
+          <circle cx="164" cy="160" r="20" fill="#bfb397"/>
+          <path d="M180 152 L188 158 M180 168 L188 162" fill="none"/>
+          <path d="M466 148 L474 142 M466 172 L474 178" fill="none"/>
+        </g>
+        <!-- hands folded on the chest -->
+        <path d="M258 156 Q268 150 278 156 Q268 162 258 156 Z"
+              fill="#a89b7e" stroke="#241f17" stroke-width="1.2" opacity="0.85"/>
+        <circle cx="243" cy="161" r="7" fill="none" stroke="#241f17" stroke-width="2"/>
+        <text x="262" y="184" font-family="Georgia,serif" font-size="19" font-style="italic" fill="#241f17">B</text>
+        <line x1="252" y1="166" x2="264" y2="176" stroke="#241f17" stroke-width="1.2"/>
+
+        <!-- the lid, lowering -->
+        <g transform="rotate(-2 300 78)">
+          <path d="M96 56 L504 56 L504 84 L96 84 Z" fill="#cfc4a8" stroke="#241f17" stroke-width="2.4"/>
+          <path d="M96 56 L504 56 L504 84 L96 84 Z" fill="url(#grainp)" opacity="0.4" stroke="none"/>
+          <!-- nails -->
+          <g stroke="#241f17" stroke-width="2">
+            <line x1="130" y1="50" x2="130" y2="60"/><line x1="215" y1="50" x2="215" y2="60"/>
+            <line x1="300" y1="50" x2="300" y2="60"/><line x1="385" y1="50" x2="385" y2="60"/>
+            <line x1="470" y1="50" x2="470" y2="60"/>
+          </g>
+          <!-- the splinter, set in the underside -->
+          <path d="M236 84 L250 84 L243 138 Z" fill="#241f17"/>
+        </g>
+        <text x="196" y="44" font-family="Georgia,serif" font-size="19" font-style="italic" fill="#241f17">A</text>
+        <line x1="212" y1="38" x2="238" y2="66" stroke="#241f17" stroke-width="1.2"/>
+
+        <!-- line of bearing, splinter tip to heart -->
+        <line x1="243" y1="140" x2="243" y2="154"
+              stroke="#241f17" stroke-width="1.4" stroke-dasharray="4 4"/>
+      </svg>
+      <div class="screen"></div>
+    </div>
+    <p class="cap"><b>The manner of the burial</b>, from a sketch made at the graveside.
+      (A) the splinter of whitethorn, set into the lid; (B) the heart, upon which its
+      point is brought to bear.</p>
+  </div>
+
+  <p>Those present report a howling and a wailing from inside the box that continued a quarter of an hour and was heard as far as the Vlietberg turn. When it stopped, the coffin was returned to the ground and covered over.</p>
+
+  <div class="sub">The Children Woke</div>
+
+  <p>All three opened their eyes before supper. Dr. Vance, who examined them within the hour, reports the marks upon their throats already closing, and expects a full recovery in each case.</p>
+
+  <p>Mr. Wiegman declined the village&rsquo;s payment. He would say only that the work was not finished.</p>
+
+  <p>Asked to explain himself, he said that the ground below the Dood house holds more than one such box; that he had found three and opened one; and that he would not go up to the house itself, not for any money the trustees cared to raise.</p>
+
+  <p class="q">&ldquo;The rest are not on the heath,&rdquo; he said. &ldquo;They are under the chapel floor. And they are not asleep either.&rdquo;</p>
+
+  <p>Mr. Wiegman left the village before dark and is not expected to return. The Dood house has stood shuttered since 1904. The trustees have declined to comment upon his statement.</p>
+
+  <div class="box">
+    <div class="bt">The Builder&rsquo;s Stone</div>
+    <p>Readers who walk the Vlietberg heath will know the single marker standing apart from the family plot, some yards inside the treeline. It bears no name and no date, only a line of characters cut in a foreign hand, which the late Rev. Ackerman took for Norse and not Dutch, and which he declined to translate for this paper.</p>
+    <p>It is said in the village that Cornelis Dood, who built the house and lived in it forty years without wife or child or company, was laid in the ground by men who took great care with <i>how</i> it was done &mdash; and that the care was not taken for his sake, but for theirs.</p>
+  </div>
+</template>
 
 <script>
 "use strict";
@@ -475,6 +851,19 @@
 // ============================================================
 // CONFIG — tweak between sessions
 // ============================================================
+// Each clipping is a torn front page plus the page-2 article behind it.
+// To add another: render a new front image (see assets/render-front.sh),
+// add a <template> above, add an entry here, then point ACTIVE at it.
+const CLIPPINGS = {
+  heath: {
+    front:   "assets/front-heath.jpg",
+    article: "article-heath",
+  },
+};
+
+// Which clipping this session is running.
+const ACTIVE = "heath";
+
 const CONFIG = {
   // Grid is N x N. Total pieces = N*N.
   // Common values: 3 (easy), 4 (medium), 5 (hard).
@@ -483,19 +872,34 @@ const CONFIG = {
   // Total seconds on the clock.
   TIME_SECONDS: 180,
 
-  // Image paths. Update as needed; falls back to placeholders if not found.
-  FRONT_IMAGE: "assets/front_1.png",
-  BACK_IMAGE:  "assets/back_1.png",
-
   // Snap tuning.
   SNAP_DISTANCE_PX: 38,   // how close (in pixels) before a piece locks in
 
-  // Tear-edge tuning.
-  EDGE_SEGMENTS: 6,       // number of jitter points per seam (more = more ragged)
-  EDGE_JITTER_FRAC: 0.16, // jitter relative to cell size (0..0.4 reasonable)
+  // Tear-edge tuning. More segments = finer, more fibrous rips.
+  EDGE_SEGMENTS: 13,      // number of jitter points per seam (more = more ragged)
+  EDGE_JITTER_FRAC: 0.115, // jitter relative to cell size (0..0.4 reasonable)
+
+  // The outside of the page is torn too — this was cut out of a bound
+  // volume, not trimmed. Outer seams only ever bite INWARD, because a
+  // piece cannot paint outside its own box.
+  OUTER_JITTER_FRAC: 0.07,
 
   // Initial scatter rotation range, in degrees.
   SCATTER_ROT_DEG: 14,
+
+  // Frame sizing. The page is portrait, so HEIGHT is the binding
+  // constraint -- capping width (as the photo version did) renders it
+  // tiny on a landscape iPad.
+  FRAME_MAX_W_FRAC: 0.62,
+  FRAME_MAX_H_FRAC: 0.82,
+  FRAME_MAX_H_PX:   680,
+
+  // Design width the page-2 article is authored against, used to scale
+  // it down onto the back of the card.
+  ARTICLE_WIDTH_PX: 660,
+
+  // How long after the card settles on the back before page 2 opens.
+  READER_AUTO_MS: 620,
 };
 
 // ============================================================
@@ -504,10 +908,10 @@ const CONFIG = {
 const N = CONFIG.TILE_COUNT;
 const TOTAL = N * N;
 
-const frontImage = CONFIG.FRONT_IMAGE;
-const backImage  = CONFIG.BACK_IMAGE;
-// Default aspect (4:3) used until the real image's dimensions resolve.
-let imgW = 4, imgH = 3;
+const clipping   = CLIPPINGS[ACTIVE];
+const frontImage = clipping.front;
+// Default aspect (portrait broadsheet) used until the real image resolves.
+let imgW = 1240, imgH = 1748;
 let frameW = 0, frameH = 0;    // render dimensions of the photo frame in workspace
 let cellW = 0, cellH = 0;      // per-piece cell size in pixels
 
@@ -528,6 +932,8 @@ let flipBaseAngle = 0;
 let flipDragStartX = 0;
 let flipDragging = false;
 let flipFirstUserAction = true;
+let readerAutoShown = false;   // page 2 auto-opens once, on the first flip
+let readerTimer = null;
 
 // Element refs
 const $splash = document.getElementById("splash");
@@ -542,7 +948,11 @@ const $photoCard = document.getElementById("photo-card");
 const $photoFront = $photoCard.querySelector(".face.front");
 const $photoBack  = $photoCard.querySelector(".face.back");
 const $photoGlow = document.getElementById("photo-glow");
+const $cardShadow = document.getElementById("card-shadow");
 const $flipHint = document.getElementById("flip-hint");
+const $page2Mini = document.getElementById("page2-mini");
+const $reader = document.getElementById("reader");
+const $readerBody = document.getElementById("reader-body");
 const $debug = document.getElementById("debug");
 const $dbgInfo = document.getElementById("dbg-info");
 const $fail = document.getElementById("fail");
@@ -561,12 +971,34 @@ function probeImage(src) {
 
 async function resolveImages() {
   // Probe only to learn natural dimensions for layout. If probing fails
-  // (e.g. inside a sandboxed preview), keep the default 4:3 ratio — the
-  // pieces still render the real image via background-image.
-  const f = await probeImage(CONFIG.FRONT_IMAGE);
+  // (e.g. inside a sandboxed preview), keep the default portrait ratio —
+  // the pieces still render the real image via background-image.
+  const f = await probeImage(frontImage);
   if (f.ok && f.w > 0 && f.h > 0) {
     imgW = f.w; imgH = f.h;
   }
+}
+
+// ============================================================
+// Page 2 — mounted twice from one <template>
+// ============================================================
+function mountArticle() {
+  const tpl = document.getElementById(clipping.article);
+  if (!tpl) return;
+  tearReaderSheet();
+  $readerBody.replaceChildren(tpl.content.cloneNode(true));
+  $page2Mini.replaceChildren(tpl.content.cloneNode(true));
+}
+
+// Shrink the full-size article onto the back of the card. It ends up far
+// too small to read, which is the point — it reads as a dense page of
+// newsprint and sends the player into the reader.
+function fitPage2Mini() {
+  const k = frameW / CONFIG.ARTICLE_WIDTH_PX;
+  $page2Mini.style.width = CONFIG.ARTICLE_WIDTH_PX + "px";
+  $page2Mini.style.transform = `scale(${k})`;
+  // Pad so the shrunken column doesn't run to the very edge of the card.
+  $page2Mini.style.padding = Math.round(22 / k) + "px";
 }
 
 // ============================================================
@@ -576,12 +1008,13 @@ function computeLayout() {
   const ws = $workspace.getBoundingClientRect();
   const aspect = imgW / imgH;
   // Frame should leave some perimeter room for scattered pieces.
-  const maxW = ws.width  * 0.70;
-  const maxH = ws.height * 0.65;
+  const maxW = ws.width  * CONFIG.FRAME_MAX_W_FRAC;
+  const maxH = ws.height * CONFIG.FRAME_MAX_H_FRAC;
   let w = maxW, h = w / aspect;
   if (h > maxH) { h = maxH; w = h * aspect; }
-  // Hard cap so it doesn't go silly on huge screens.
-  if (w > 560) { w = 560; h = w / aspect; }
+  // Hard cap so it doesn't go silly on huge screens. The page is portrait,
+  // so this caps HEIGHT — capping width would shrink it to nothing.
+  if (h > CONFIG.FRAME_MAX_H_PX) { h = CONFIG.FRAME_MAX_H_PX; w = h * aspect; }
   frameW = Math.floor(w);
   frameH = Math.floor(h);
   cellW = frameW / N;
@@ -595,7 +1028,7 @@ function computeLayout() {
   $photoAnchor.style.width  = frameW + "px";
   $photoAnchor.style.height = frameH + "px";
   $photoFront.style.backgroundImage = `url("${frontImage}")`;
-  $photoBack.style.backgroundImage  = `url("${backImage}")`;
+  fitPage2Mini();
 
   $photoGlow.style.width  = (frameW * 1.1) + "px";
   $photoGlow.style.height = (frameH * 1.1) + "px";
@@ -614,17 +1047,30 @@ function frameOriginInWorkspace() {
 // Tear-edge generation
 // ============================================================
 // Generate a jagged polyline from start to end, with jitter perpendicular to the line.
-function generateSeam(start, end, segments, jitter) {
+// bias 0 = wander both ways (interior rips).
+// bias +1 / -1 = only ever displace one way along the normal, used for the
+// outside of the page so the tear always bites into the sheet.
+function generateSeam(start, end, segments, jitter, bias = 0) {
   const pts = [{ x: start.x, y: start.y }];
   const dx = end.x - start.x;
   const dy = end.y - start.y;
   const len = Math.hypot(dx, dy) || 1;
   const nx = -dy / len, ny = dx / len; // perpendicular unit vector
+  // A real tear WANDERS -- it drifts off line and comes back, with fine fibre
+  // noise riding on top. Independent random offsets per point instead produce
+  // deep sawtooth spikes that read as starbursts, not paper. So the offset is
+  // a correlated random walk (memory 0.6) plus a small high-frequency term.
+  let walk = 0;
   for (let i = 1; i < segments; i++) {
     const t = i / segments;
     const baseX = start.x + dx * t;
     const baseY = start.y + dy * t;
-    const j = (Math.random() - 0.5) * 2 * jitter;
+    walk = walk * 0.6 + (Math.random() - 0.5) * 2 * jitter * 0.75;
+    const fibre = (Math.random() - 0.5) * 2 * jitter * 0.3;
+    // Ease the wander toward zero at both ends so shared seams stay tidy
+    // where four pieces meet at a corner.
+    let j = (walk + fibre) * (0.35 + 0.65 * Math.sin(Math.PI * t));
+    if (bias !== 0) j = bias * Math.abs(j);
     pts.push({ x: baseX + nx * j, y: baseY + ny * j });
   }
   pts.push({ x: end.x, y: end.y });
@@ -636,16 +1082,19 @@ function generateSeam(start, end, segments, jitter) {
 function buildSeams() {
   const segs = CONFIG.EDGE_SEGMENTS;
   const jitter = Math.min(cellW, cellH) * CONFIG.EDGE_JITTER_FRAC;
+  const outer  = Math.min(cellW, cellH) * CONFIG.OUTER_JITTER_FRAC;
 
+  // Which way "into the page" points along each outer seam's normal.
+  // The normal is (-dy, dx)/len, so with seams running L→R and T→B:
+  // top +y is inward, bottom +y is outward, left +x is outward, right +x is inward.
   const hSeams = []; // hSeams[r][c] = points for top edge of cell (r,c)
   for (let r = 0; r <= N; r++) {
     hSeams.push([]);
     for (let c = 0; c < N; c++) {
       const a = { x: c * cellW,       y: r * cellH };
       const b = { x: (c + 1) * cellW, y: r * cellH };
-      hSeams[r].push(
-        (r === 0 || r === N) ? [a, b] : generateSeam(a, b, segs, jitter)
-      );
+      const bias = r === 0 ? 1 : r === N ? -1 : 0;
+      hSeams[r].push(generateSeam(a, b, segs, bias ? outer : jitter, bias));
     }
   }
 
@@ -655,12 +1104,28 @@ function buildSeams() {
     for (let c = 0; c <= N; c++) {
       const a = { x: c * cellW, y: r * cellH };
       const b = { x: c * cellW, y: (r + 1) * cellH };
-      vSeams[r].push(
-        (c === 0 || c === N) ? [a, b] : generateSeam(a, b, segs, jitter)
-      );
+      const bias = c === 0 ? -1 : c === N ? 1 : 0;
+      vSeams[r].push(generateSeam(a, b, segs, bias ? outer : jitter, bias));
     }
   }
   return { hSeams, vSeams };
+}
+
+// Walk the outer seams into one closed polygon: the silhouette of the whole
+// torn page. Used to clip the assembled card so it matches the pieces.
+function buildPageOutline(hSeams, vSeams) {
+  const poly = [];
+  for (let c = 0; c < N; c++) for (const p of hSeams[0][c]) poly.push(p);
+  for (let r = 0; r < N; r++) for (const p of vSeams[r][N]) poly.push(p);
+  for (let c = N - 1; c >= 0; c--) {
+    const seam = hSeams[N][c];
+    for (let i = seam.length - 1; i >= 0; i--) poly.push(seam[i]);
+  }
+  for (let r = N - 1; r >= 0; r--) {
+    const seam = vSeams[r][0];
+    for (let i = seam.length - 1; i >= 0; i--) poly.push(seam[i]);
+  }
+  return poly;
 }
 
 // Construct each piece's polygon by walking top → right → bottom → left.
@@ -703,6 +1168,14 @@ function buildPieces() {
 
   const { hSeams, vSeams } = buildSeams();
   const polys = buildPolygons(hSeams, vSeams);
+
+  // The restored card has to share the pieces' torn silhouette, or the page
+  // visibly "heals" into a clean rectangle at the moment of the reveal.
+  const outline = polygonToClipPath(buildPageOutline(hSeams, vSeams));
+  for (const el of [$photoFront, $photoBack, $cardShadow]) {
+    el.style.clipPath = outline;
+    el.style.webkitClipPath = outline;
+  }
 
   for (let r = 0; r < N; r++) {
     for (let c = 0; c < N; c++) {
@@ -964,6 +1437,12 @@ function flipPointerUp(ev) {
   // Threshold: swept ~50deg = commit a flip. Otherwise spring back.
   if (swept >  50) newBase = flipBaseAngle + 180;
   if (swept < -50) newBase = flipBaseAngle - 180;
+
+  // A tap (rather than a drag) on the back re-opens page 2 after the
+  // player has closed it.
+  const wasTap = Math.abs(dx) < 8;
+  if (wasTap && showingBack()) openReader();
+
   flipBaseAngle = newBase;
   $photoCard.style.transform = `rotateY(${newBase}deg)`;
   // Once user has interacted, fade out the hint
@@ -971,6 +1450,53 @@ function flipPointerUp(ev) {
     flipFirstUserAction = false;
     $flipHint.classList.remove("show");
   }
+  scheduleReaderAuto();
+}
+
+// ============================================================
+// Reader
+// ============================================================
+// True when the card has settled with its back toward the player.
+function showingBack() {
+  const a = ((flipBaseAngle % 360) + 360) % 360;
+  return a > 90 && a < 270;
+}
+
+// The first time the card comes to rest on the back, open page 2 by
+// itself — that reveal is the whole payoff, it shouldn't need a second
+// gesture to find.
+function scheduleReaderAuto() {
+  if (readerAutoShown || !showingBack()) return;
+  readerAutoShown = true;
+  if (readerTimer) clearTimeout(readerTimer);
+  readerTimer = setTimeout(openReader, CONFIG.READER_AUTO_MS);
+}
+
+// Give the reader sheet the same torn silhouette as the page it came from.
+// Percentage units so it survives the sheet growing with its content.
+function tearReaderSheet() {
+  const $sheet = document.getElementById("reader-sheet");
+  const pts = [];
+  const push = (x, y) => pts.push(`${x.toFixed(2)}% ${y.toFixed(2)}%`);
+  const AMP_X = 1.5, AMP_Y = 0.55;   // bite depth, as a % of each axis
+  const STEPS = 22;
+  for (let i = 0; i <= STEPS; i++) push((i / STEPS) * 100, Math.random() * AMP_Y);
+  for (let i = 1; i <= STEPS; i++) push(100 - Math.random() * AMP_X, (i / STEPS) * 100);
+  for (let i = STEPS - 1; i >= 0; i--) push((i / STEPS) * 100, 100 - Math.random() * AMP_Y);
+  for (let i = STEPS - 1; i >= 1; i--) push(Math.random() * AMP_X, (i / STEPS) * 100);
+  const path = `polygon(${pts.join(", ")})`;
+  $sheet.style.clipPath = path;
+  $sheet.style.webkitClipPath = path;
+}
+
+function openReader() {
+  $reader.classList.add("show");
+  $reader.scrollTop = 0;
+  $flipHint.classList.remove("show");
+}
+
+function closeReader() {
+  $reader.classList.remove("show");
 }
 
 function enableFlipDrag() {
@@ -1044,6 +1570,7 @@ document.getElementById("dbg-rescatter").addEventListener("click", () => {
 // Start flow
 // ============================================================
 async function startGame() {
+  mountArticle();
   await resolveImages();
   $splash.style.display = "none";
   $game.hidden = false;
@@ -1059,6 +1586,9 @@ async function startGame() {
   restored = false;
   flipBaseAngle = 0;
   flipFirstUserAction = true;
+  readerAutoShown = false;
+  if (readerTimer) { clearTimeout(readerTimer); readerTimer = null; }
+  closeReader();
   $photoCard.style.transform = "rotateY(0deg)";
   $piecesLayer.classList.remove("faded");
   $photoAnchor.classList.remove("show");
@@ -1069,6 +1599,10 @@ async function startGame() {
 }
 
 document.getElementById("begin").addEventListener("click", startGame);
+document.getElementById("reader-close").addEventListener("click", closeReader);
+// Tapping the darkened surround closes page 2 too; taps on the sheet itself
+// must not, or you can't select the text.
+$reader.addEventListener("click", (e) => { if (e.target === $reader) closeReader(); });
 
 document.getElementById("retry").addEventListener("click", () => {
   $fail.classList.remove("show");
