@@ -94,7 +94,26 @@
     font-family:var(--f-display);background:#1e1730;border:1px solid #3a2c54;color:var(--gold);font-size:15px}
   .rail .line{flex:1;width:2px;background:linear-gradient(var(--edge),var(--edge));margin:4px 0;min-height:14px}
   .stage:last-child .rail .line{display:none}
-  .card-flow{background:var(--panel);border:1px solid var(--edge);border-radius:12px;padding:14px 16px;margin-bottom:14px;flex:1}
+  .stage-body{flex:1;display:flex;flex-direction:column;padding-bottom:14px}
+  .card-flow{background:var(--panel);border:1px solid var(--edge);border-radius:12px;padding:14px 16px;flex:none}
+  .bridge{margin-top:10px;padding:9px 13px 10px;border-left:2px solid var(--purple);border-radius:0 9px 9px 0;
+    background:linear-gradient(90deg,rgba(154,111,240,.09),rgba(154,111,240,0))}
+  .bridge .lbl{font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:var(--purple);
+    font-weight:700;margin-bottom:4px}
+  .bridge .cue{display:block;color:var(--ink);font-size:13.5px;line-height:1.45;margin-bottom:4px}
+  .bridge p{margin:0;color:var(--mut);font-size:12.5px;line-height:1.5}
+  .bridge .q{display:block;margin-top:7px;color:var(--gold);font-size:12.5px;line-height:1.5}
+  .bridge.open{border-left-style:dashed;border-left-color:var(--gold);
+    background:linear-gradient(90deg,rgba(224,170,62,.09),rgba(224,170,62,0))}
+  .bridge.open .lbl{color:var(--gold)}
+  .bridge .fb{margin-top:8px;border-top:1px dashed var(--edge);padding-top:7px}
+  .bridge .fb-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);margin-bottom:4px}
+  .bridge .fb-row{color:var(--ink);font-size:12.5px;line-height:1.5}
+  .bridge .fb-row + .fb-row{margin-top:5px;padding-top:5px;position:relative}
+  .bridge .fb-row + .fb-row:before{content:"or";display:block;font-size:10px;font-style:italic;
+    color:var(--mut);margin-bottom:2px}
+  .bridge .fb-row b{color:var(--purple)}
+  .bridge .fb-why{display:block;margin-top:2px;color:var(--mut);font-size:11.5px;font-style:italic;line-height:1.45}
   .card-flow h4{margin:0 0 5px;font-size:16px;font-family:var(--f-display)}
   .card-flow .where{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--purple);margin-bottom:6px}
   .card-flow p{margin:0;color:var(--mut);font-size:13.5px}
@@ -136,6 +155,20 @@
   .slot .body p{margin:0;font-size:12.5px;color:var(--mut)}
   .slot .body .t{font-size:11px;color:var(--gold);letter-spacing:.05em}
 
+  /* ---- backstory ---- */
+  .bs{margin-bottom:16px}
+  .bs .bh{font-family:var(--f-display);font-size:18px;margin:0 0 2px;display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+  .bs .bh .tag{font-family:var(--f-body);font-size:9.5px;font-weight:700;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--green);border:1px solid var(--green);border-radius:5px;padding:2px 6px}
+  .bs .bwhen{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--purple);margin-bottom:9px}
+  .bs ul{list-style:none;padding:0;margin:0}
+  .bs li{font-size:13.5px;line-height:1.55;color:var(--mut);padding:6px 0 6px 17px;position:relative}
+  .bs li:before{content:"";position:absolute;left:2px;top:14px;width:5px;height:5px;
+    border-radius:50%;background:var(--edge)}
+  .bs li b{color:var(--ink)}
+  .bs li.turn{color:var(--ink)}
+  .bs li.turn:before{background:var(--blood);box-shadow:0 0 0 3px rgba(210,58,82,.18)}
+
   /* ---- names ---- */
   .name-block{margin-bottom:18px}
   .name-block .nh{font-family:var(--f-display);font-size:17px;margin:0 0 3px}
@@ -144,6 +177,9 @@
   .name{font-size:13px;padding:6px 12px;border-radius:8px;background:#0f0b18;border:1px solid var(--edge);color:var(--mut)}
   .name.rec{border-color:var(--gold);color:var(--ink);background:linear-gradient(180deg,#1f1809,#161006)}
   .name.rec::after{content:"★";color:var(--gold);margin-left:6px;font-size:11px}
+  .name.lock{border-color:var(--green);color:var(--ink);background:linear-gradient(180deg,#0d1f16,#08160f)}
+  .name.lock::after{content:"LOCKED";color:var(--green);margin-left:7px;font-size:9px;font-weight:700;letter-spacing:.06em}
+  .name.out{opacity:.45;text-decoration:line-through;text-decoration-color:var(--dim)}
   .secret{margin-top:10px;font-size:13px;color:var(--mut)}
   .secret b{color:var(--pink)}
   .todo{list-style:none;padding:0;margin:0}
@@ -176,6 +212,7 @@
 
   <nav class="tabs" id="tabs">
     <button data-tab="web" class="active">Relationship Web</button>
+    <button data-tab="back">Backstory</button>
     <button data-tab="flow">Story Flow</button>
     <button data-tab="cast">The Cast</button>
     <button data-tab="plan">Weekend Plan</button>
@@ -200,10 +237,18 @@
     </div>
   </section>
 
+  <!-- ============ BACKSTORY ============ -->
+  <section class="tab" id="tab-back">
+    <h2 class="sec">What already happened</h2>
+    <p class="sub">Everything below is <b style="color:var(--green)">locked canon</b> — the history the players walk into. None of it is on screen during the sessions; it's what the clues in the mansion are clues <i>to</i>.</p>
+    <div id="backstory"></div>
+  </section>
+
   <!-- ============ FLOW ============ -->
   <section class="tab" id="tab-flow">
     <h2 class="sec">How the weekend unfolds</h2>
     <p class="sub">A haunted-house structure: curiosity gets them in, the doors bolt shut, and everything after plays out inside Dood Mansion — until the fork that decides the whole climax.</p>
+    <p class="sub">Between beats is a <b style="color:var(--purple)">transition note</b> — the in-fiction push to the next one. Ones we haven't cracked are <b style="color:var(--gold)">marked open</b>.</p>
     <div class="flow" id="flow"></div>
   </section>
 
@@ -294,17 +339,17 @@ const NODES = [
     role:"Antagonist · Ringleader",
     fields:{Race:"Gith or Kenku (TBD)",Class:"TBD",Alignment:"Chaotic Neutral",Type:"ENFJ"},
     desc:"Way-too-cool-for-school personified: obnoxiously subversive, but with real underground cred. Ambitious and callous to the edge of psychopathy — not sadistic, just indifferent to suffering if it serves the work. Charismatic, subtly manipulative. Emancipated rich kid, deeply insecure about his upper-class parents who adore him anyway.",
-    hook:"The plan: lure the heroes to the mansion so his horror-movie score can <b>sample the screams of real beings terrorized by real monsters</b>. Secret embarrassing real name candidate: Upton Maximillion Livingsworth III." },
+    hook:"The plan: invite everyone, lock them in, and <b>sample the screams of real beings terrorized by real monsters</b> for his horror score. He met the vampires by accident while recording spooky noises in the house, sold them a plan to scare off the mega-mall developers, then tested it on one kid — and found out he doesn't stop. Secret embarrassing real name candidate: Upton Maximillion Livingsworth III." },
   {id:"stinky", name:"Lil Stinky", sub:"School kingpin", g:"crew", x:430, y:470,
     role:"Crew · Muscle / dealer",
     fields:{Race:"Orc or Goliath (TBD)",Class:"Something tanky (TBD)",Vibe:"Stoner, bad rapper, honest to a fault"},
     desc:"Dumb as bricks but genuinely charming — a hustler who isn't conniving. Into the dumbest conspiracy theories. The one crew member who needs no manipulation: he just wants to help his best friend, not knowing he's being used.",
     hook:"Makes music with Poe Boy — they're tight. Runs the cigarette/weed trade at school, which is how <b>Gnomey's</b> world overlaps his." },
-  {id:"angelique", name:"Angelique", sub:"Can be saved", g:"crew", x:330, y:340,
+  {id:"angelique", name:"Angelique", sub:"The one who flips", g:"crew", x:330, y:340,
     role:"Crew · The redeemable one",
     fields:{Race:"Changeling or Genasi (TBD)",Class:"TBD",Vibe:"Trad goth, nihilist with a soft spot"},
     desc:"More authentically goth than Poe Boy — existential, hedonist, 'any second could be my last.' Smart but unsure of herself; Poe Boy exploits her low self-worth. If anyone can be pulled out of his orbit, it's her.",
-    hook:"At the gazebo she wants to warn the heroes but can't with everyone around — so she's the <b>first to find them in the mansion</b> and tells them to hide." },
+    hook:"She typed some of the fake screen-name messages that lured the first kid to the mansion — she thought it was a prank. When he stopped coming to school she started to suspect. She's at the mansion the night of the party <b>to find out for herself</b>, which is why she's already inside and is the first to find the heroes and tell them to hide. She can't say any of it out loud: accusing Poe Boy means admitting her part." },
   {id:"crew4", name:"4th Crew Member", sub:"TBD · likely female", g:"crew", x:560, y:400,
     role:"Crew — TBD",
     fields:{},
@@ -314,20 +359,20 @@ const NODES = [
     role:"Primary location",
     fields:{Name:"'Dood' = dead (Dutch)",History:"Abandoned Dutch mansion on the edge of town"},
     desc:"Where the whole back half plays out. Front door is boarded up haunted-house style (Poe Boy tips them on the real way in). Once they're inside, the doors bolt shut. Rooms are built around puzzles and one combat set-piece, ending in the food-stash reveal and a hidden room.",
-    hook:"Rumored haunted for two reasons: the vampires, and the <b>Gjenganger</b> — the original lonely owner. A real-estate company is circling to buy the land." },
+    hook:"Rumored haunted for two reasons: the vampires, and the <b>Gjenganger</b> — the original lonely owner. A real-estate company wants to demolish it for a <b>mega mall</b>, and has knocked in daylight several times — when the vampires can't answer the door or defend themselves at all." },
 
   {id:"orlok", name:"Vamp: Orlok", sub:"True-to-folklore", g:"vamp", x:880, y:150,
     role:"Vampire (secretly good)",
     fields:{Style:"Nosferatu / Count Orlok"},
-    desc:"The genuinely eerie one, straight from folklore. Like the others, actually harmless to the heroes." },
+    desc:"The genuinely eerie one, straight from folklore. Like the others, actually harmless to the heroes — and the one who does most of the actual frightening on Poe Boy's say-so." },
   {id:"drac", name:"Vamp: Dracula", sub:"Kitschy & annoying", g:"vamp", x:915, y:290,
     role:"Vampire (secretly good)",
     fields:{Style:"Campy Count Dracula"},
-    desc:"The over-the-top theatrical one for comic relief." },
+    desc:"The over-the-top theatrical one for comic relief. Treats the haunted-house plan as a performance and would happily brag the whole scheme to the heroes by accident." },
   {id:"edward", name:"Vamp: Edward", sub:"Literally Twilight", g:"vamp", x:880, y:430,
     role:"Vampire (secretly good)",
     fields:{Style:"Just Edward from Twilight"},
-    desc:"Exactly what it says. The three of them share one goal and one secret." },
+    desc:"Exactly what it says. All three want the same thing — to be left alone — and all three believe the kid who came up the hill that night ran off out a window. Nobody has told them he died, or that Poe Boy has had him in a machine ever since." },
 
   {id:"gjen", name:"The Gjenganger", sub:"Vengeful revenant", g:"force", x:790, y:560,
     role:"Combat set-piece",
@@ -336,9 +381,9 @@ const NODES = [
     hook:"Mirrors <b>Bix's</b> antisocial arc — a character-development beat. Guards the way to the computer/spirit." },
   {id:"spirit", name:"Spirit in the Computer", sub:"A past victim", g:"force", x:620, y:585,
     role:"Clue-bearer",
-    fields:{State:"Trapped in the messaging chat"},
-    desc:"A person Poe Boy's crew already had the vampires kill — now haunting the computer the players interact with after the Gjenganger fight.",
-    hook:"Biggest clue in the house: he was <b>killed by a human</b>, not a monster — the thread that exonerates the vampires." },
+    fields:{State:"Soul-caged into Poe Boy's computer",Name:"TBD"},
+    desc:"A kid from school, lured to the mansion by a fake AIM screen name as Poe Boy's test run. The vampires chased him exactly as agreed; he broke for the one lit room, got to the keyboard and started typing for help. Poe Boy saw the open AIM window, shut the door and held it. Then he panicked over the body and cast a half-understood <b>soul cage</b> with no vessel prepared — so the machine still recording the kid took all of him.",
+    hook:"Biggest clue in the house: he was <b>killed by a human</b>, not a monster — the thread that exonerates the vampires. He can name Poe Boy, and he's the reason the AIM prop exists: lured through a chat window, now answering through one." },
 
   {id:"teacher", name:"History Teacher", sub:"Inciting NPC", g:"town", x:340, y:80,
     role:"Townsfolk · Motivation",
@@ -353,7 +398,7 @@ const NODES = [
   {id:"realestate", name:"Real-Estate Co.", sub:"Outside threat", g:"town", x:915, y:560,
     role:"Townsfolk · Background threat",
     fields:{Goal:"Buy the mansion land"},
-    desc:"A company scouting the property to purchase it — the real threat to the vampires' quiet existence. Poe Boy may have dangled 'help' against them and never followed through.",
+    desc:"Wants to demolish the mansion and build a <b>mega mall</b>. The real threat to the vampires' quiet existence, and a genuine one — their daytime visits are the reason the vampires went looking for a human ally in the first place, since sunlight leaves them unable to answer or defend themselves.",
     hook:"Resolution beat: by the end, the company gets <b>scared off</b> the land." }
 ];
 
@@ -364,10 +409,10 @@ const EDGES = [
   ["poe","angelique","romance","'girlfriend' — no label"],
   ["poe","crew4","crew","entourage"],
   ["bix","angelique","romance","past almost-friendship, pushed away"],
-  ["poe","orlok","control","does his bidding"],
-  ["poe","drac","control","does his bidding"],
-  ["poe","edward","control","does his bidding"],
-  ["poe","spirit","control","had the vamps kill him"],
+  ["poe","orlok","control","scares on his say-so"],
+  ["poe","drac","control","scares on his say-so"],
+  ["poe","edward","control","scares on his say-so"],
+  ["poe","spirit","control","held the door, then caged him"],
   ["bix","mansion","haunt","stayed overnight, saw something"],
   ["gnomey","mansion","haunt","childhood dares"],
   ["gjen","mansion","haunt","the original owner"],
@@ -382,23 +427,52 @@ const EDGES = [
   ["cody","teacher","family","the class project"],
   ["librarian","mansion","haunt","warns them away"],
   ["simone","devil","family","patron / power"],
-  ["angelique","spirit","haunt","witness to the crew's kill"]
+  ["angelique","spirit","haunt","typed the messages that lured him"],
+  ["realestate","orlok","conflict","daylight visits they can't answer"],
+  ["simone","spirit","haunt","warlock — can name the soul cage"]
 ];
 
 const FLOW = [
-  {n:1,title:"History class",where:"Fantasy high school",body:"The super-seniors get grouped for a local-history / folklore project. This is the motivation to investigate — and the bookend they'll return to at the end to 'present their oral project.'"},
-  {n:2,title:"Letters in the lockers",where:"Smash cut",body:"Everyone finds a mysterious invitation to a haunted house at the abandoned Dutch mansion. Ooo, spooky."},
-  {n:3,title:"Town detours",where:"Before the mansion",body:"The first third-to-half of Session 1. Two key stops: the Library / Hall of Records (Frisian lore + the vampire-slaying method + the Harbinger's warning) and the Gazebo where the Bad Kids smoke — where they meet DJ Poe Boy, who tips them on the real way into the boarded-up house."},
-  {n:4,title:"Enter Dood Mansion",where:"The trap springs",body:"They go in out of pure curiosity — and the doors bolt shut behind them. Everything from here plays out inside. (Invite says ~7PM; the DJ show flyer says 3AM — plenty of time to explore.)"},
-  {n:5,title:"First vampire encounter",where:"No fight — yet",body:"They meet the three vampires but don't fight. Investigation begins. Angelique may be the first to find them and tell them to hide."},
+  {n:1,title:"History class",where:"Fantasy high school",body:"The super-seniors get grouped for a local-history / folklore project. This is the motivation to investigate — and the bookend they'll return to at the end to 'present their oral project.'",
+    bridge:{cue:"The bell rings — everyone's at their locker for next period.",
+      note:"Ends the scene on a clock, not a decision. Land the assignment constraint on the way out — <b>a primary source, not the internet</b> — so the Hall of Records is on the board before anyone sees a letter."}},
+  {n:2,title:"Letters in the lockers",where:"Smash cut",body:"Everyone finds a mysterious invitation to a haunted house at the abandoned Dutch mansion. Ooo, spooky.",
+    bridge:{cue:"The invite says 7PM. It's barely noon, and nobody knows the name on the card.",
+      note:"Hours to kill plus an unfamiliar Dutch name is the itch; the class project is the cover. If they head straight up the hill, the boarded front door bounces them back into town for a way in.",
+      fallbacks:{lbl:"If they don't bite, hand each detour to a PC",
+        items:[
+          {who:"Bix",say:"You're the one who actually likes school — you figure the Records Keeper would know a name that old.",
+            why:"School is his one competence, so the records hall is the one errand he'd volunteer for."},
+          {who:"Gnomey",say:"You know where your old crew is right now. The gazebo — and they hear everything about that house.",
+            why:"He's the ex-Bad Kid who fell out with Poe Boy over the silly-bandz cuts — walking up to the gazebo costs him something."}
+        ]}}},
+  {n:3,title:"Town detours",where:"Before the mansion",body:"The first third-to-half of Session 1. Two key stops: the Library / Hall of Records (Frisian lore + the vampire-slaying method + the Harbinger's warning) and the Gazebo where the Bad Kids smoke — where they meet DJ Poe Boy, who tips them on the real way into the boarded-up house.",
+    bridge:{cue:"Sundown — the invite's hour. Kids from school are already heading up the hill, and disappearing around the side of the house instead of the boarded front door.",
+      note:"Confirms the party is real, so curiosity beats the Records Keeper's warning and going in becomes the social default. Poe Boy's side-entrance tip pays off — they get to feel clever for the gazebo trip."}},
+  {n:4,title:"Enter Dood Mansion",where:"The trap springs",body:"They go in out of pure curiosity — and the doors bolt shut behind them. Everything from here plays out inside. (Invite says ~7PM; the DJ show flyer says 3AM — plenty of time to explore.)",
+    bridge:{cue:"The doors bolt. Footsteps overhead — then <b>Angelique</b> grabs them and hisses at them to get down.",
+      note:"Strands them without a fight and hands them a face they just met at the gazebo — one who's obviously hiding something. She isn't here for the party: she's here because a kid stopped coming to school and she thinks she helped put him in this house. <b>Hiding from what</b> starts the investigation on its own."}},
+  {n:5,title:"First vampire encounter",where:"No fight — yet",body:"They meet the three vampires but don't fight. Investigation begins. Play the vamps as hosts doing a job they agreed to: they think this is the big scare that saves their house, and they have no idea anyone has ever died here.",
+    bridge:{open:true,cue:"Proposed: from the hiding spot they overhear the three vampires mid-argument.",
+      note:"Two threads in one conversation. One gripes about going back down to <b>the boxes</b> in the cellar (Path A — coffins, matching the method they read at the records hall). Another worries about whether <b>they've</b> been fed, or about 3AM (Path B). Whichever thread they pull <i>is</i> the fork.",
+      q:"Open: is one scene enough, or does each path need its own clue in a different room so the fork survives a party split?"}},
   {fork:true,n:6,title:"THE FORK",where:"Choose your climax",body:"A crossroads in the investigation:",
     branches:[
       {k:"a",h:"Path A — Find an advantage",p:"Follow the records-hall lore: locate the vampires' coffins, stake the hearts, rebury. Sets up combat against the vampires (one, or all three)."},
       {k:"b",h:"Path B — The vaguer path",p:"Discover they don't have to fight at all. Leads to the reveal that the vampires are good — and the climax becomes the boss fight with Poe Boy instead."}
-    ]},
-  {n:7,title:"Gjenganger combat",where:"Set-piece encounter",body:"Fight the vengeful revenant of the mansion's lonely original owner to reach the computer. It's brutal up close, so the smart play is fighting at range. Beating it unlocks the Spirit in the Computer — whose clue is that he was killed by a human."},
-  {n:8,title:"The food-stash puzzle",where:"Final room",body:"A puzzle reveals the vampires' food stash — the surprise being it's small animals, not people. Solving it releases a key to a hidden room. This is the proof that clears the vamps."},
-  {n:9,title:"Climax",where:"Boss fight",body:"Either the heroes confront DJ Poe Boy (with the vampires possibly helping), or — on the fight path — they battle the vampires themselves. Poe Boy's whole scheme was harvesting real screams for his horror score."},
+    ],
+    bridge:{open:true,cue:"Unwritten — but both paths hit the same locked wing.",
+      note:"Convergence is the cheap fix: the cellar (Path A) and the computer room (Path B) sit behind one haunted corridor, so the Gjenganger is the toll either way and neither branch needs its own set-piece.",
+      q:"Open, Spencer's call: does the map support one shared choke point, and what makes a lonely revenant guard it?"}},
+  {n:7,title:"Gjenganger combat",where:"Set-piece encounter",body:"Fight the vengeful revenant of the mansion's lonely original owner to reach the computer. It's brutal up close, so the smart play is fighting at range. Beating it unlocks the Spirit in the Computer — the kid Poe Boy lured, held a door on, and soul-caged into the machine. He was killed by a human, and he can say whose name.",
+    bridge:{cue:"The Spirit's parting line: <i>“It wasn't them. A person did this to me.”</i>",
+      note:"Flips the question from <b>how do we kill three vampires</b> to <b>then what have they been eating?</b> Have the Spirit gesture at the locked door so the puzzle has an address. If Angelique is with them, this is where she learns what she helped do — and if Simone is with them, she's the one who can name a soul cage for what it is."}},
+  {n:8,title:"The food-stash puzzle",where:"Final room",body:"A puzzle reveals the vampires' food stash — the surprise being it's small animals, not people. Solving it releases a key to a hidden room. This is the proof that clears the vamps.",
+    bridge:{cue:"3AM. Every speaker in the house comes on at once.",
+      note:"The flyer planted this back in scene four, so it reads as a deadline landing rather than the DM calling a fight. Other kids are still in the house — that's what stops them from just leaving."}},
+  {n:9,title:"Climax",where:"Boss fight",body:"Either the heroes confront DJ Poe Boy (with the vampires possibly helping), or — on the fight path — they battle the vampires themselves. Poe Boy's whole scheme was harvesting real screams for his horror score. The vampires' turn is the hinge: they've believed all along that the kid ran off out a window, so the proof that he never left — and that Poe Boy has had him in a box the whole time — is what flips them.",
+    bridge:{cue:"Sunrise, the front doors give — and it's still only Sunday. The project is due Monday.",
+      note:"Mundane on purpose. An ancient Dutch artifact in someone's backpack is a show-and-tell item begging to be presented; the real-estate resolution can ride in on Monday's announcements."}},
   {n:10,title:"Resolution & bookend",where:"Back to class",body:"They recover an ancient Dutch artifact (found after the boss fight, or with the vamps' help), the real-estate company is scared off the land, and they present the artifact in class — closing the loop opened in scene one."}
 ];
 
@@ -414,6 +488,47 @@ const PLAN = {
     {t:"Close",c:"#e0aa3e",h:"Artifact & bookend",p:"Recover the Dutch artifact, scare off the buyers, present to class."}
   ]}
 };
+
+const BACKSTORY = [
+  {h:"The house and the buyers", when:"Before any of it",
+    items:[
+      "Dood Mansion has sat boarded and empty on the edge of town for as long as anyone can remember — haunted according to rumor, worthless according to everyone else.",
+      "A real-estate company wants to <b>demolish it and build a mega mall</b>.",
+      "They've knocked on the door in daylight several times. The vampires can't answer and can't defend themselves — burning in the sun and all."
+    ]},
+  {h:"How Poe Boy met the vampires", when:"The alliance",
+    items:[
+      "DJ Poe Boy first went to the house to sample spooky noises for his horror score, and stumbled onto the vamps.",
+      "They tried to scare him off. He wasn't scared — he's jaded, and he studies the occult.",
+      "Things start friendly. He comes over, samples, they talk. Eventually <b>the vamps ask him</b> if there's anything he can do about the real-estate agency.",
+      "He figures that if they can scare people badly enough, nobody will come near the house again."
+    ]},
+  {h:"The test run", when:"The night that ruins everyone",
+    items:[
+      "Before committing to a whole houseful, Poe Boy tests it on one person — a kid from school.",
+      "Fake screen name on AIM: flirting, then a dare. Go into Dood Mansion at night and prove you're not scared. <b>Angelique types some of the messages.</b> She thinks it's a prank.",
+      "Poe Boy tells the vamps a scout from the real-estate company is coming up the hill. They scare him exactly the way they'd all agreed to.",
+      "It works. And then he notices the thing that ruins him: <b>the more frightened the kid gets, the better the audio.</b>",
+      "The kid finally breaks for the one room with a light on — Poe Boy's setup. Gear, a mic, a computer. (The machine is Poe Boy's, hauled up there to record and edit. It's why there's a working computer in an abandoned house.)",
+      {t:"He isn't planning to do anything about it — not until he reaches the doorway and sees the <b>AIM window open and the kid already typing</b>. That's the turn. He pulls the door shut and holds it.", turn:true},
+      "The kid is alone in there with a microphone a few feet away, typing for help and screaming at the same time. It's the best audio he's ever gotten. And he can't get caught.",
+      "He panics and reaches for the occult he'd only been reading about — a <b>soul cage</b>, cast badly, with no vessel prepared.",
+      "The nearest thing holding the kid is the machine that's still recording him. It takes all of him. Soul, body, everything.",
+      "He tells the vamps the kid got out through a window. As far as the vampires know: the scare worked, a company scout ran off into the woods, and nobody died."
+    ]},
+  {h:"The plan they're running now", when:"Up to session one",
+    items:[
+      "Poe Boy and the vamps devise the real plan — the biggest, scariest haunted house they can stage. Scare everyone so badly they'll never come near the house again, and the buyers leave them alone.",
+      "<b>But Poe Boy has other plans.</b> He intends to invite everyone, lock them in, torture them, and sample their screams."
+    ]},
+  {h:"What Angelique knows", when:"The crack in the crew",
+    items:[
+      "Angelique is at home for all of it. She never goes near the mansion that night and never learns the kid died.",
+      "Weeks later she notices he's stopped coming to school. She knows what she helped write, and she starts to suspect what it was for.",
+      "She can't say it out loud — accusing Poe Boy means admitting her part. So she goes to the mansion the night of the party to find out for herself.",
+      "<b>That's why she's already inside when the players get locked in.</b>"
+    ]}
+];
 
 const ROLES = [
   ["Scott","Story, lore, and voicing the NPCs (open to sharing voices)"],
@@ -431,21 +546,25 @@ const NAMES = [
     {n:"Lil Stinky",rec:true},{n:"Lil Boom Boom"},{n:"Lil Pipsqueak"},
     {n:"Lil Flat Earth"},{n:"Lil Bigboy"},{n:"Lil Dirty Diaper"}]},
   {h:"The redeemable goth", note:"Poe Boy's 'girlfriend'", opts:[
-    {n:"Angelique",rec:true},{n:"Scarlett"},{n:"Coressa"},{n:"Angellica"}]}
+    {n:"Angelique",lock:true},{n:"Scarlett",out:true},{n:"Coressa",out:true},{n:"Angellica",out:true}],
+    secret:"<b>Locked.</b> Sesh 6's flyer billing says <i>Coressa</i> — that spec is superseded, so the printed DJ poster bills <b>Angelique</b>."}
 ];
 
 const TODO = [
   ["Cody's PC","Still not submitted — needs a character, a reason they joined the misfits, and a mansion-lore sprinkle."],
   ["4th crew member","An open slot (likely female) to round out the gazebo entourage; possible tie to Cody."],
-  ["Why do the vampires help Poe Boy?","They're good and just want to be left alone — so his leverage over them needs nailing down. (Fed up with him is the current read.)"],
+  ["The dead kid's name","<b>Resolved:</b> why the vampires help him — they asked <i>him</i> for help against the mega-mall developers, and the haunted house is their plan to scare the buyers off. Still open: who the kid was. He needs a name, a year, and enough of a life that the players feel it."],
+  ["Does anyone miss the kid?","The soul cage left no body, so there was never a search or a funeral. Decide what the school thinks happened to him — that's the version Angelique has been living with."],
+  ["How the vamps learn the truth","They believe he went out a window. Decide whether the reveal comes from the Spirit directly, from Angelique, or from the players producing the recording."],
   ["NPC races & classes","Poe Boy (Gith/Kenku + class), Lil Stinky (Orc/Goliath + tanky class), Angelique (Changeling/Genasi + class), Simone's race."],
-  ["Per-character house moment","Sesh 7 goal: one sprinkle of lore in the mansion tied to each PC — Bix↔parents, Gnomey↔mob/vamp, Simone↔love-spell obsession."],
-  ["Lock the names","Star picks above are my suggestions — your call to confirm."]
+  ["Per-character house moment","Sesh 7 goal: one sprinkle of lore in the mansion tied to each PC — Bix↔parents, Gnomey↔mob/vamp, Simone↔love-spell obsession. <b>Simone now has a second, stronger one:</b> as the party's warlock she's the one who can recognize a soul cage and say what was done in that room."],
+  ["Soul cage or magic jar?","Working assumption is Poe Boy casting a badly-understood <b>soul cage</b>. Still open whether it's the spell proper, a magic jar variant, or channelled through the ancient Dutch artifact the players recover at the end — which would tie the endgame treasure to freeing the kid."],
+  ["Lock the names","<b>Angelique is locked</b> (Scott, decision log in Sesh 7). Poe Boy and Lil Stinky are locked by usage across Sesh 5–7. Star picks elsewhere are still suggestions."]
 ];
 
 const DOCS = [
   ["Haunted House Invite","home-made, clip-arty · ~7PM"],
-  ["DJ Show Flyer","leaned-out Memphis/Houston rap art, spooky · 3AM at Dood Mansion"],
+  ["DJ Show Flyer","leaned-out Memphis/Houston rap art, spooky · 3AM at Dood Mansion · bills Poe Boy / Lil Stinky / Angelique / 4th member"],
   ["Library History Clippings","Frisian lore + the fampier-slaying method"]
 ];
 
@@ -557,7 +676,7 @@ legend.innerHTML=lg;
 
 /* ---------------- RENDER: FLOW ---------------- */
 const flow=document.getElementById("flow");
-flow.innerHTML=FLOW.map(s=>{
+flow.innerHTML=FLOW.map((s,i)=>{
   let inner;
   if(s.fork){
     inner=`<div class="card-flow" style="border-color:#4a3a1e">
@@ -568,7 +687,23 @@ flow.innerHTML=FLOW.map(s=>{
   }else{
     inner=`<div class="card-flow"><div class="where">${s.where}</div><h4>${s.title}</h4><p>${s.body}</p></div>`;
   }
-  return `<div class="stage"><div class="rail"><div class="num">${s.n}</div><div class="line"></div></div>${inner}</div>`;
+  let bridge="";
+  if(s.bridge){
+    const b=s.bridge, next=FLOW[i+1];
+    const lbl=`Getting them to ${next?`“${next.title}”`:"the next beat"}${b.open?" · still open":""}`;
+    bridge=`<div class="bridge${b.open?" open":""}">
+      <div class="lbl">↓ ${lbl}</div>
+      <span class="cue">${b.cue}</span>
+      <p>${b.note}</p>
+      ${b.fallbacks?`<div class="fb"><div class="fb-lbl">${b.fallbacks.lbl}</div>${
+        b.fallbacks.items.map(f=>`<div class="fb-row"><b>${f.who}</b> — ${f.say}${
+          f.why?`<span class="fb-why">${f.why}</span>`:""}</div>`).join("")
+      }</div>`:""}
+      ${b.q?`<span class="q">${b.q}</span>`:""}
+    </div>`;
+  }
+  return `<div class="stage"><div class="rail"><div class="num">${s.n}</div><div class="line"></div></div>`+
+         `<div class="stage-body">${inner}${bridge}</div></div>`;
 }).join("");
 
 /* ---------------- RENDER: CAST ---------------- */
@@ -608,11 +743,22 @@ days.innerHTML=[PLAN.sat,PLAN.sun].map(d=>`
 document.getElementById("roles").innerHTML=ROLES.map(([who,what])=>
   `<div><b style="color:var(--ink)">${who}</b><br><span style="color:var(--mut);font-size:13px">${what}</span></div>`).join("");
 
+/* ---------------- RENDER: BACKSTORY ---------------- */
+document.getElementById("backstory").innerHTML=BACKSTORY.map(b=>`
+  <div class="panel bs">
+    <div class="bh">${b.h} <span class="tag">Locked</span></div>
+    <div class="bwhen">${b.when}</div>
+    <ul>${b.items.map(i=>{
+      const o = (typeof i === "string") ? {t:i} : i;
+      return `<li class="${o.turn?'turn':''}">${o.t}</li>`;
+    }).join("")}</ul>
+  </div>`).join("");
+
 /* ---------------- RENDER: NAMES ---------------- */
 document.getElementById("names-grid").innerHTML=NAMES.map(b=>`
   <div class="panel name-block">
     <div class="nh">${b.h} <small>· ${b.note}</small></div>
-    <div class="names">${b.opts.map(o=>`<span class="name ${o.rec?'rec':''}">${o.n}</span>`).join("")}</div>
+    <div class="names">${b.opts.map(o=>`<span class="name ${o.lock?'lock':''}${o.rec?'rec':''}${o.out?' out':''}">${o.n}</span>`).join("")}</div>
     ${b.secret?`<div class="secret">${b.secret}</div>`:""}
   </div>`).join("");
 document.getElementById("todo").innerHTML=TODO.map(([t,d])=>`<li><span><b>${t}</b> — ${d}</span></li>`).join("");

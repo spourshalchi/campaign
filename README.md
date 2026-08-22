@@ -12,6 +12,8 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 ├── aim/              ← Haunted AOL Instant Messenger prop
 │   ├── index.html
 │   └── sounds/
+├── puzzle/           ← Torn-photograph reassembly prop
+├── codex/            ← DM-facing campaign codex (not linked from the landing page)
 ├── CLAUDE.md         ← agent guide for adding new props
 ├── README.md         ← this file
 └── split_sounds.py   ← utility for splitting WAV dumps into clips
@@ -19,9 +21,11 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 
 ## Current props
 
-| Prop | Path  | Vibe                                          |
-|------|-------|-----------------------------------------------|
-| AIM  | `aim/`| Haunted 2000s AOL Instant Messenger; branching dialogue with a "buddy" who knows things they shouldn't |
+| Prop | Path | Vibe |
+|------|------|------|
+| AIM | `aim/` | Haunted 2000s AOL Instant Messenger. The buddy is the kid Poe Boy soul-caged into the machine — the branching tree lets the party pull the whole confession out of him, including the clue that clears the vampires. |
+| Photo | `puzzle/` | Torn photograph the players reassemble against a timer, then flip for the reverse side. |
+| Codex | `codex/` | DM reference — relationship web, locked backstory, story flow, cast, weekend plan, open threads. Deliberately **not** tiled on the landing page so it can't be opened at the table by accident. |
 
 ## Adding a new prop
 

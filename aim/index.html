@@ -406,7 +406,7 @@
    ===================================================================== */
 const CONFIG = {
   playerScreenName: "TheParty",     // shows on outgoing messages
-  ghostScreenName: "L0stLantern_99", // shows on incoming + title bar
+  ghostScreenName: "l0stsignal99",  // shows on incoming + title bar
   typingSpeedMs: 28,                // per-character typing delay (sim)
   ghostMessageGapMs: 600,           // pause between ghost lines
   postChoiceDelayMs: 450,           // pause after player taps a choice
@@ -430,238 +430,298 @@ const DIALOGUE = {
   start: {
     ghost: [
       "hello?",
-      "is anyone there",
-      "i can see your candle. through the cracks.",
-      "please dont put it out"
+      "is somebody at the keyboard",
+      "dont close the window. please",
+      "its been really quiet in here"
     ],
     choices: [
-      { text: "uh... hi? who is this?", next: "who" },
-      { text: "what cracks? where are you?", next: "where" },
-      { text: "leave us alone.", next: "leave" }
+      { text: "who is this?", next: "who" },
+      { text: "where are you?", next: "where" },
+      { text: "how are you typing this?", next: "how" }
     ]
   },
 
   who: {
     ghost: [
-      "i dont... remember my name",
-      "i remember the well though",
-      "the cold water. the stones. the rope",
-      "im sorry. its been a long time since anyone answered"
+      "im not sure how to answer that anymore",
+      "i went to your school though",
+      "third locker from the end by the gym. thats mine",
+      "i dont think anyones opened it in a while"
     ],
     choices: [
-      { text: "what well?", next: "well" },
-      { text: "are you... dead?", next: "dead" },
-      { text: "how long?", next: "howlong" }
-    ]
-  },
-
-  where: {
-    ghost: [
-      "between",
-      "between the candle and the dark behind it",
-      "you dont see me but i see all of you",
-      "the tall one with the axe. the small one writing. the one in the cloak"
-    ],
-    choices: [
-      { text: "stop watching us.", next: "leave" },
-      { text: "who are you?", next: "who" },
-      { text: "what do you want?", next: "want" }
-    ]
-  },
-
-  leave: {
-    ghost: [
-      "no",
-      "please",
-      "youre the first light in so long",
-      "i can help you. i know whats coming"
-    ],
-    choices: [
-      { text: "what's coming?", next: "warning" },
-      { text: "help us how?", next: "help" },
-      { text: "...fine. talk.", next: "want" }
-    ]
-  },
-
-  well: {
-    ghost: [
-      "the well in the village your party left this morning",
-      "she pushed me. i dont remember her face",
-      "only her ring. silver. with a black stone",
-      "if you see that ring. RUN"
-    ],
-    choices: [
-      { text: "tell me more about the ring.", next: "ring" },
-      { text: "who is 'she'?", next: "she" },
-      { text: "why are you telling us?", next: "want" }
-    ]
-  },
-
-  dead: {
-    ghost: [
-      "i think so",
-      "the line between is thinner than they told you",
-      "i can hear you because you stepped on the place where i fell",
-      "be careful where you set your bedroll tonight"
-    ],
-    choices: [
-      { text: "where exactly did you fall?", next: "well" },
-      { text: "can you be at peace?", next: "peace" }
-    ]
-  },
-
-  howlong: {
-    ghost: [
-      "the moon has been full thirty seven times",
-      "or maybe three hundred",
-      "time tastes the same down here"
-    ],
-    choices: [
-      { text: "what do you remember last?", next: "well" },
-      { text: "we'll help you.", next: "peace" }
-    ]
-  },
-
-  want: {
-    ghost: [
-      "a name. mine.",
-      "find it. say it out loud where i fell.",
-      "and then i can stop watching",
-      "but first. you have to survive what comes at the third bell"
-    ],
-    choices: [
-      { text: "the third bell?", next: "warning" },
-      { text: "where do we find your name?", next: "name" }
-    ]
-  },
-
-  warning: {
-    ghost: [
-      "tonight. when the temple bell rings three times",
-      "do not open the door",
-      "do not answer if it sounds like one of you",
-      "it will sound EXACTLY like one of you"
-    ],
-    choices: [
-      { text: "what is it?", next: "what_is_it" },
-      { text: "how do we kill it?", next: "kill" }
-    ]
-  },
-
-  ring: {
-    ghost: [
-      "silver band. black stone shaped like a tear",
-      "she wears it on her smallest finger",
-      "she will smile at you first. she always smiles first"
-    ],
-    choices: [
-      { text: "noted. anything else?", next: "want" },
-      { text: "is she here in this town?", next: "she" }
-    ]
-  },
-
-  she: {
-    ghost: [
-      "i cant say her name. it wont let me",
-      "but you saw her today. you bought bread from her",
-      "i tried to scream. you didnt hear"
-    ],
-    choices: [
-      { text: "the baker?!", next: "baker" },
-      { text: "what happens if we confront her?", next: "kill" }
-    ]
-  },
-
-  baker: {
-    ghost: [
-      "yes",
-      "burn the loaves before you eat them",
-      "all of them",
-      "i have to go. she's listening now"
-    ],
-    choices: [
-      { text: "wait — don't go!", next: "endsoon" }
-    ]
-  },
-
-  help: {
-    ghost: [
-      "i can see things you cant",
-      "ask me. while the candle holds.",
-      "but the wax is low"
-    ],
-    choices: [
-      { text: "what's coming tonight?", next: "warning" },
-      { text: "who pushed you?", next: "she" },
-      { text: "what do you want from us?", next: "want" }
-    ]
-  },
-
-  peace: {
-    ghost: [
-      "you would do that for me?",
-      "find my name. say it where i fell.",
-      "i will remember your kindness on the other side",
-      "i hope you live long enough to need the favor"
-    ],
-    choices: [
-      { text: "where do we find your name?", next: "name" },
-      { text: "we'll be back.", next: "endsoon" }
+      { text: "what happened to you?", next: "thatnight" },
+      { text: "how long have you been in there?", next: "howlong" },
+      { text: "what's your name?", next: "name" }
     ]
   },
 
   name: {
     ghost: [
-      "the chapel. the second pew from the back",
-      "carved underneath. i was thirteen",
-      "i wanted everyone to know i was there",
-      "now no one does"
+      "i keep almost having it",
+      "its like a word you can see the shape of but not the letters",
+      "he never used it anyway",
+      "he just called me the test"
+    ],
+    choices: [
+      { text: "who called you that?", next: "theface" },
+      { text: "the test for what?", next: "thetest" },
+      { text: "i'm sorry.", next: "sorry" }
+    ]
+  },
+
+  where: {
+    ghost: [
+      "in here. in this",
+      "i can see the room through the screen when the screens on",
+      "when someone shuts it off i dont know how long it is",
+      "sometimes its winter when it comes back"
+    ],
+    choices: [
+      { text: "you're in the computer?", next: "how" },
+      { text: "how long has that been going on?", next: "howlong" },
+      { text: "we can get you out.", next: "out" }
+    ]
+  },
+
+  how: {
+    ghost: [
+      "he said words at me while i was on the floor",
+      "old words. not dutch. older than that",
+      "and then the room got very small and it was this",
+      "i think im in the part that was recording"
+    ],
+    choices: [
+      { text: "recording?", next: "thetest" },
+      { text: "who said the words?", next: "theface" },
+      { text: "how long ago was that?", next: "howlong" }
+    ]
+  },
+
+  howlong: {
+    ghost: [
+      "i counted at first",
+      "then the power was out for a long time and i lost it",
+      "kids walk past in the hall who used to be in my grade",
+      "i dont know any of them now. so. a while"
+    ],
+    choices: [
+      { text: "what happened that night?", next: "thatnight" },
+      { text: "who did this to you?", next: "theface" },
+      { text: "i'm sorry.", next: "sorry" }
+    ]
+  },
+
+  thatnight: {
+    ghost: [
+      "somebody messaged me for like two weeks",
+      "she was funny. she liked the same bands as me",
+      "then she said prove youre not scared. go up to the house at night",
+      "so i went. because somebody was finally talking to me"
+    ],
+    choices: [
+      { text: "who was she?", next: "thegirl" },
+      { text: "what was in the house?", next: "themonsters" },
+      { text: "then what happened?", next: "theroom" }
+    ]
+  },
+
+  thegirl: {
+    ghost: [
+      "SmiLeyGrrL03",
+      "there was no her. i know that now",
+      "but i think more than one person was typing",
+      "one of them was nicer. she asked what music i liked and she actually meant it"
+    ],
+    choices: [
+      { text: "would you know her if you saw her?", next: "knowher" },
+      { text: "who set the whole thing up?", next: "theface" },
+      { text: "what was in the house?", next: "themonsters" }
+    ]
+  },
+
+  knowher: {
+    ghost: [
+      "maybe",
+      "i dont think she knew what it was for",
+      "i really hope she didnt",
+      "if shes ever in this house. tell her im not mad at her"
+    ],
+    choices: [
+      { text: "she's standing right here.", next: "sheshere" },
+      { text: "what was in the house?", next: "themonsters" }
+    ]
+  },
+
+  sheshere: {
+    ghost: [
+      "oh",
+      "oh.",
+      "then she came back. thats more than he ever did",
+      "ask her what he told everyone happened to me"
+    ],
+    choices: [
+      { text: "what DID happen to you?", next: "theroom" },
+      { text: "who is he?", next: "theface" }
+    ]
+  },
+
+  themonsters: {
+    ghost: [
+      "there were three of them and they were real",
+      "ive never been that scared of anything in my life",
+      "but listen. listen to me",
+      "they never touched me. not once. they chased and that was all they did"
+    ],
+    choices: [
+      { text: "wait — they didn't hurt you?", next: "notthem" },
+      { text: "then how did you die?", next: "theroom" },
+      { text: "so who did?", next: "theface" }
+    ]
+  },
+
+  notthem: {
+    ghost: [
+      "somebody told them i was from the mall people",
+      "thats why they came at me. they thought i was here to take their house",
+      "they were protecting the only place theyve got",
+      "IT WASNT THEM. a person did this to me"
+    ],
+    choices: [
+      { text: "which person?", next: "theface" },
+      { text: "what happened in the room?", next: "theroom" }
+    ]
+  },
+
+  theroom: {
+    ghost: [
+      "i ran for the only light in the house",
+      "there was a desk. gear everywhere. a computer already on",
+      "so i got on aim and started typing to anybody",
+      "i got maybe four words out"
+    ],
+    choices: [
+      { text: "and then?", next: "thedoor" },
+      { text: "who was in the doorway?", next: "theface" }
+    ]
+  },
+
+  thedoor: {
+    ghost: [
+      "he was standing in the doorway",
+      "he looked at the screen. then he looked at me",
+      "and then he pulled the door shut",
+      "he held it. i could hear him breathing on the other side of it"
+    ],
+    choices: [
+      { text: "he held it shut?", next: "held" },
+      { text: "who was it?", next: "theface" }
+    ]
+  },
+
+  held: {
+    ghost: [
+      "i asked him to open it",
+      "i said please probably forty times. the mic was right there on the desk",
+      "he wanted the sound",
+      "he could have opened that door the entire time. thats the part i keep having"
+    ],
+    choices: [
+      { text: "tell us his name.", next: "theface" },
+      { text: "i'm sorry.", next: "sorry" }
+    ]
+  },
+
+  theface: {
+    ghost: [
+      "you know him",
+      "everybody knows him. thats the whole point of him",
+      "hes the one throwing the party youre standing in",
+      "POE BOY. thats what hes calling himself now"
+    ],
+    choices: [
+      { text: "the DJ?", next: "thedj" },
+      { text: "what does he want with us?", next: "warning" }
+    ]
+  },
+
+  thedj: {
+    ghost: [
+      "hes making a scary movie sound like a real one",
+      "he says a fake scream sounds fake. hes not even wrong",
+      "he needed real people and real monsters in the same room",
+      "i was the first one. i was the test"
+    ],
+    choices: [
+      { text: "the test for tonight.", next: "warning" },
+      { text: "how do we stop him?", next: "out" }
+    ]
+  },
+
+  thetest: {
+    ghost: [
+      "he had to know it would work before he did it big",
+      "one kid. see if the sound came out good",
+      "the sound came out good"
+    ],
+    choices: [
+      { text: "what's he doing tonight?", next: "warning" },
+      { text: "who is he?", next: "theface" }
+    ]
+  },
+
+  warning: {
+    ghost: [
+      "there are four of you and there were four invitations",
+      "the doors are already locked. you checked. i watched you check",
+      "3am is on that flyer for a reason. thats when he starts recording",
+      "dont scream near a microphone. thats the only advice i have"
+    ],
+    choices: [
+      { text: "can we get you out of there?", next: "out" },
+      { text: "what did he do to you exactly?", next: "held" }
+    ]
+  },
+
+  out: {
+    ghost: [
+      "i dont know",
+      "whatever he said over me is what put me in the machine",
+      "if theres a way back its not something i can reach from in here",
+      "but somebody in this house knows what those words were. somebody always does"
     ],
     choices: [
       { text: "we'll find it.", next: "endsoon" },
-      { text: "what was the third bell again?", next: "warning" }
+      { text: "anything else we should know?", next: "warning" }
     ]
   },
 
-  what_is_it: {
+  sorry: {
     ghost: [
-      "it wears faces",
-      "it has worn mine",
-      "it will wear yours next if you let it in"
+      "youre the first person whos said that",
+      "he never did. he just started packing up the gear",
+      "somehow thats worse than the door"
     ],
     choices: [
-      { text: "how do we stop it?", next: "kill" },
-      { text: "we'll bar the door.", next: "endsoon" }
-    ]
-  },
-
-  kill: {
-    ghost: [
-      "salt the threshold",
-      "do not look at its eyes",
-      "do not call each others names until sunrise",
-      "thats how it learns"
-    ],
-    choices: [
-      { text: "got it.", next: "endsoon" },
-      { text: "anything else?", next: "name" }
+      { text: "we're going to stop him.", next: "warning" },
+      { text: "what do you need from us?", next: "out" }
     ]
   },
 
   endsoon: {
     ghost: [
-      "the candle is almost out",
-      "find my name",
-      "and remember — she smiles first"
+      "hes coming up the stairs",
+      "i can hear the tape deck. he always turns that on first",
+      "close this window. dont let him see who you were talking to",
+      "and hey"
     ],
     choices: [
-      { text: "...goodbye.", next: "end" }
+      { text: "...what?", next: "end" }
     ]
   },
 
   end: {
     ghost: [
-      "thank you"
+      "tell them it wasnt the vampires"
     ],
     choices: []  // terminal — triggers sign-off
   }
