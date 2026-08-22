@@ -11,14 +11,14 @@ without regenerating any art.
 
 | Job | Where |
 |---|---|
-| The vampire-slaying method — whitethorn splinter in the lid, point over the heart, nail shut, rebury | Page 2, "Upon the Heath" |
+| The vampire-slaying method — whitethorn splinter in the lid, point over the heart, nail shut, rebury | Page 2, "Upon the Heath", plus a labelled diagram (A = splinter, B = heart) so it can't be missed |
 | Proof the method works — the children woke | Page 2, "The Children Woke" |
 | **The clincher** — three coffins, one opened, two still under the chapel floor | Page 2, Wiegman's closing quote |
 | The Gjenganger, quietly — runic marker, a man buried carefully so he wouldn't walk | Page 2, "The Builder's Stone" sidebar |
 | Real-estate thread — the property held by absentee trusts since 1904 | Front page, column 2 |
 
-The three coffins match the crypt on the Van Doren floor plan
-(`assets/retired/van-doren-floorplan.png`) — chapel, trapdoor beneath the altar.
+The three coffins match the crypt on the mansion floor plan
+(`assets/retired/dood-mansion-floorplan.png`) — chapel, trapdoor beneath the altar.
 
 ## Swap slots
 
@@ -30,10 +30,10 @@ Things deliberately left loose. All are one-line edits.
   crone, an archivist with a personal reason to send them home.
 - **"the Hoeck boy"** — open slot for a PC's great-grandparent, for the
   blood-tie-to-the-mansion hook. Waiting on Cody's PC.
-- **"Dood"** — mansion name. The floor-plan art says **Van Doren**; the codex
-  says **Dood**. This prop follows the codex. Changing it means editing
-  `assets/front-heath.source.html`, re-running `render-front.sh`, and editing
-  the `<template>` in `index.html`.
+- **"Dood"** — mansion name, now used everywhere. The floor-plan art
+  originally read *Van Doren*; its title block has been repainted to match.
+  Changing it again means editing `assets/front-heath.source.html`, re-running
+  `render-front.sh`, and editing the `<template>` in `index.html`.
 
 Invented canon that needs sign-off, since players read this closely: Cornelis
 Dood built the house, it's been shuttered since **1904**, the incident was
@@ -43,7 +43,11 @@ Dood built the house, it's been shuttered since **1904**, the incident was
 
 **Page 2** — edit the `<template id="article-heath">` block in `index.html`.
 Plain HTML. Classes: `.sub` small-caps subhead, `.q` indented quote, `.big`
-boxed pull quote, `.box` sidebar, `.drop` drop cap. No re-render needed.
+boxed pull quote, `.box` sidebar, `.drop` drop cap, `.cut` halftone
+illustration with caption. No re-render needed.
+
+The sheet gets a torn silhouette and the front page's tear is regenerated on
+every deal, so no two runs rip the same way.
 
 **Front page** — edit `assets/front-heath.source.html`, then:
 
@@ -80,6 +84,12 @@ All in `CONFIG` at the top of the script block.
 
 - `TILE_COUNT: 4` → 16 pieces. 3 is easy, 5 is hard.
 - `TIME_SECONDS: 180`
+- `EDGE_SEGMENTS: 13` / `EDGE_JITTER_FRAC` — how ragged the rips are. The seam
+  is a correlated random walk, not per-point noise: raise the jitter much past
+  ~0.13 and the tears stop looking like paper and start looking like starbursts.
+- `OUTER_JITTER_FRAC` — the outside of the page is torn too, so the assembled
+  sheet isn't a clean rectangle. Outer seams only bite **inward**; a piece
+  can't paint outside its own box, so outward jitter would just flat-cut.
 - `FRAME_MAX_H_PX: 680` — the page is portrait, so **height** is the binding
   constraint. Don't cap width; that renders it tiny on a landscape iPad.
 - `READER_AUTO_MS: 620` — delay before page 2 opens itself after the flip.
@@ -90,7 +100,7 @@ re-scatter).
 ## Retired art
 
 `assets/retired/` holds the previous torn-photograph prop's images — the 2004
-prom photo, its handwritten back ("MH-3-13 / third mirror"), and the Van Doren
+prom photo, its handwritten back ("MH-3-13 / third mirror"), and the mansion
 floor plan. The floor plan is a handout in its own right; the photo back is the
 key to it. Kept because they're campaign material, not because this prop uses
 them.
