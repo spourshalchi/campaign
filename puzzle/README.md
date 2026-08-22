@@ -1,0 +1,96 @@
+# Torn Page — The Transyltown Crier
+
+The party's in-town research stop. A torn front page from the library's bound
+volumes: assemble it against the clock, then flip it to read page 2.
+
+Front page is a rendered image (it gets torn into pieces). Page 2 is live HTML
+(it has to stay legible at table distance) — so the lore copy is editable here
+without regenerating any art.
+
+## What it delivers
+
+| Job | Where |
+|---|---|
+| The vampire-slaying method — whitethorn splinter in the lid, point over the heart, nail shut, rebury | Page 2, "Upon the Heath" |
+| Proof the method works — the children woke | Page 2, "The Children Woke" |
+| **The clincher** — three coffins, one opened, two still under the chapel floor | Page 2, Wiegman's closing quote |
+| The Gjenganger, quietly — runic marker, a man buried carefully so he wouldn't walk | Page 2, "The Builder's Stone" sidebar |
+| Real-estate thread — the property held by absentee trusts since 1904 | Front page, column 2 |
+
+The three coffins match the crypt on the Van Doren floor plan
+(`assets/retired/van-doren-floorplan.png`) — chapel, trapdoor beneath the altar.
+
+## Swap slots
+
+Things deliberately left loose. All are one-line edits.
+
+- **"Aletta Bruin"** — the named child. Intended to become the 2004 records
+  keeper / harbinger: she was 11 in 1937, so she's ~78 at the table, and she's
+  read this page. That's the "modern spin on the archetype" — not a raving
+  crone, an archivist with a personal reason to send them home.
+- **"the Hoeck boy"** — open slot for a PC's great-grandparent, for the
+  blood-tie-to-the-mansion hook. Waiting on Cody's PC.
+- **"Dood"** — mansion name. The floor-plan art says **Van Doren**; the codex
+  says **Dood**. This prop follows the codex. Changing it means editing
+  `assets/front-heath.source.html`, re-running `render-front.sh`, and editing
+  the `<template>` in `index.html`.
+
+Invented canon that needs sign-off, since players read this closely: Cornelis
+Dood built the house, it's been shuttered since **1904**, the incident was
+**October 1937**.
+
+## Editing the copy
+
+**Page 2** — edit the `<template id="article-heath">` block in `index.html`.
+Plain HTML. Classes: `.sub` small-caps subhead, `.q` indented quote, `.big`
+boxed pull quote, `.box` sidebar, `.drop` drop cap. No re-render needed.
+
+**Front page** — edit `assets/front-heath.source.html`, then:
+
+```bash
+./assets/render-front.sh
+```
+
+Renders at 1860×2622 through headless Chrome and converts to JPEG (the halftone
+screen is high-frequency detail that PNG can't compress — 5MB vs 1.2MB, which
+matters for first load on the iPad over LAN). Fonts are baked in at render
+time, so nothing needs to exist on the iPad.
+
+Two rules when editing the front page:
+
+1. **Keep "Continued on Page 2" visible.** It's the in-fiction prompt to flip.
+   If you add copy, cut copy elsewhere. The columns are tuned to fill the page
+   exactly — check the bottom of column 2 after any change.
+2. **Keep the page full of ink.** Blank regions make torn pieces
+   indistinguishable and the puzzle frustrating.
+
+## Adding a second clipping
+
+1. Copy `assets/front-heath.source.html`, edit, render to a new filename
+2. Add a `<template id="article-yourname">` next to the existing one
+3. Add an entry to `CLIPPINGS` in `index.html`
+4. Point `ACTIVE` at it
+
+Candidates already floated: the real-estate firm scouting the mansion, and the
+diary showing Bix's account of his night there is incomplete.
+
+## Tuning
+
+All in `CONFIG` at the top of the script block.
+
+- `TILE_COUNT: 4` → 16 pieces. 3 is easy, 5 is hard.
+- `TIME_SECONDS: 180`
+- `FRAME_MAX_H_PX: 680` — the page is portrait, so **height** is the binding
+  constraint. Don't cap width; that renders it tiny on a landscape iPad.
+- `READER_AUTO_MS: 620` — delay before page 2 opens itself after the flip.
+
+Long-press the timer for 1.2s to open the debug panel (add/remove time, solve,
+re-scatter).
+
+## Retired art
+
+`assets/retired/` holds the previous torn-photograph prop's images — the 2004
+prom photo, its handwritten back ("MH-3-13 / third mirror"), and the Van Doren
+floor plan. The floor plan is a handout in its own right; the photo back is the
+key to it. Kept because they're campaign material, not because this prop uses
+them.

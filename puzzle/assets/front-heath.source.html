@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Crier front page — source</title>
+<!--
+  ============================================================
+  SOURCE FILE FOR assets/front-heath.png
+  ============================================================
+  This is NOT the prop. This is the artwork source for the torn
+  front page. Edit the copy here, then re-render:
+
+      ./render-front.sh
+
+  Renders at 1860x2622 via headless Chrome. Fonts are baked into
+  the PNG, so nothing here needs to exist on the iPad.
+
+  KEEP "Continued on Page 2" VISIBLE. It is the in-fiction prompt
+  telling players to flip the assembled page. If you add copy,
+  cut copy somewhere else.
+
+  SWAP SLOTS (see puzzle/README.md):
+    - "Aletta Bruin"  -> intended to be the 2004 records keeper / harbinger
+    - "the Hoeck boy" -> open slot for a PC's great-grandparent
+    - "Dood"          -> mansion name; floor-plan art says "Van Doren"
+  ============================================================
+-->
+<style>
+  @page { size: 1240px 1748px; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { width: 1240px; height: 1748px; }
+
+  body {
+    background: #d9cfb2;
+    font-family: "Times New Roman", Times, serif;
+    color: #17140f;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ---------- newsprint ground + aging ---------- */
+  #paper {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 18% 12%,  rgba(150,120,70,0.13), transparent 70%),
+      radial-gradient(ellipse 50% 35% at 88% 34%,  rgba(140,110,60,0.15), transparent 70%),
+      radial-gradient(ellipse 70% 30% at 50% 104%, rgba(120,95,50,0.22),  transparent 70%),
+      radial-gradient(ellipse 40% 50% at 4% 78%,   rgba(130,100,55,0.14), transparent 70%),
+      linear-gradient(178deg, #e8dfc6 0%, #e2d8bd 40%, #dbd0b1 78%, #d3c7a4 100%);
+  }
+  #foxing {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background:
+      radial-gradient(circle 7px  at 14% 22%, rgba(120,85,40,0.5), transparent 70%),
+      radial-gradient(circle 4px  at 21% 27%, rgba(120,85,40,0.45), transparent 70%),
+      radial-gradient(circle 11px at 83% 17%, rgba(115,80,38,0.4), transparent 72%),
+      radial-gradient(circle 5px  at 78% 61%, rgba(120,85,40,0.5), transparent 70%),
+      radial-gradient(circle 9px  at 33% 88%, rgba(110,78,35,0.42), transparent 72%),
+      radial-gradient(circle 6px  at 63% 79%, rgba(120,85,40,0.45), transparent 70%),
+      radial-gradient(circle 14px at 92% 90%, rgba(110,80,38,0.34), transparent 74%),
+      radial-gradient(circle 3px  at 47% 44%, rgba(120,85,40,0.5), transparent 70%),
+      radial-gradient(circle 8px  at 8% 55%,  rgba(115,82,38,0.4), transparent 72%);
+  }
+  #grain {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    opacity: 0.32;
+    background:
+      repeating-linear-gradient(94deg, rgba(90,70,40,0.05) 0 1px, transparent 1px 4px),
+      repeating-linear-gradient(3deg,  rgba(90,70,40,0.04) 0 1px, transparent 1px 6px);
+  }
+  #fold {
+    position: absolute; top: 0; bottom: 0; left: 50%;
+    width: 46px; transform: translateX(-50%);
+    pointer-events: none; opacity: 0.5;
+    background: linear-gradient(90deg,
+      transparent 0%, rgba(120,95,55,0.10) 38%,
+      rgba(80,60,30,0.26) 49%, rgba(255,250,235,0.30) 52%,
+      rgba(120,95,55,0.10) 64%, transparent 100%);
+  }
+  #vignette {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 80% 72% at 50% 48%, transparent 55%, rgba(80,60,30,0.22) 100%);
+  }
+
+  /* ---------- page frame ---------- */
+  #sheet {
+    position: absolute; inset: 0;
+    padding: 46px 58px 24px;
+    display: flex; flex-direction: column;
+  }
+
+  .rule       { border-top: 2px solid #17140f; }
+  .rule-hair  { border-top: 1px solid #17140f; }
+  .rule-thick { border-top: 6px solid #17140f; }
+  .rule-dbl   { border-top: 3px solid #17140f; border-bottom: 1px solid #17140f; height: 6px; }
+
+  /* ---------- masthead ---------- */
+  .earline {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    font-size: 15px; letter-spacing: 0.06em;
+    text-transform: uppercase; padding-bottom: 7px;
+  }
+  .earline em { font-style: italic; text-transform: none; letter-spacing: 0.01em; font-size: 16px; }
+
+  h1.masthead {
+    font-family: Didot, "Bodoni 72", "Big Caslon", serif;
+    font-size: 96px;
+    line-height: 0.98;
+    text-align: center;
+    letter-spacing: 0.015em;
+    font-weight: 400;
+    padding: 13px 0 8px;
+    text-shadow: 0.6px 0 0 rgba(23,20,15,0.55), -0.4px 0 0 rgba(23,20,15,0.35);
+  }
+  .motto {
+    text-align: center;
+    font-family: "Bodoni 72 Smallcaps", Didot, serif;
+    font-size: 18px; letter-spacing: 0.34em;
+    text-transform: uppercase;
+    padding: 5px 0 10px;
+  }
+  .dateline {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 15px; letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 7px 4px;
+  }
+  .dateline .mid { font-weight: bold; letter-spacing: 0.07em; }
+
+  /* ---------- headline ---------- */
+  .head-block { padding: 20px 0 0; text-align: center; }
+  h2.headline {
+    font-family: "Big Caslon", "Bodoni 72", Didot, serif;
+    font-size: 80px;
+    line-height: 0.97;
+    letter-spacing: -0.008em;
+    font-weight: 400;
+    text-shadow: 0.7px 0 0 rgba(23,20,15,0.6), -0.5px 0.4px 0 rgba(23,20,15,0.4);
+  }
+  .dek1 {
+    font-family: SuperClarendon, "Bodoni 72", serif;
+    font-size: 27px; line-height: 1.22;
+    padding: 13px 60px 0;
+  }
+  .dek-sep {
+    width: 180px; margin: 14px auto 11px;
+    border-top: 1px solid #17140f;
+    position: relative;
+  }
+  .dek-sep::after {
+    content: "\2756";
+    position: absolute; top: -13px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px; padding: 0 9px;
+  }
+  .dek2 {
+    font-family: Baskerville, "Times New Roman", serif;
+    font-style: italic;
+    font-size: 23px; line-height: 1.3;
+    padding: 0 90px 12px;
+  }
+
+  /* ---------- photo ---------- */
+  .cut { width: 636px; margin: 2px auto 0; position: relative; }
+  .cut .plate {
+    position: relative;
+    border: 1px solid #17140f;
+    overflow: hidden;
+    background: #cdc4ab;
+  }
+  .cut svg { display: block; width: 100%; height: auto; }
+  /* halftone screen — this is what sells "1937 newspaper photo" */
+  .cut .screen {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    opacity: 0.62;
+    background-image: radial-gradient(circle at 50% 50%, #100d08 1.05px, transparent 1.3px);
+    background-size: 3px 3px;
+  }
+  .cut .soak {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    opacity: 0.3;
+    background:
+      radial-gradient(ellipse 45% 30% at 22% 26%, rgba(40,30,15,0.5), transparent 70%),
+      radial-gradient(ellipse 40% 34% at 82% 74%, rgba(40,30,15,0.45), transparent 70%);
+  }
+  .caption {
+    font-size: 16px; line-height: 1.32;
+    text-align: center;
+    padding: 9px 20px 0;
+    font-family: Baskerville, "Times New Roman", serif;
+  }
+  .caption b {
+    font-family: "Bodoni 72 Smallcaps", Didot, serif;
+    letter-spacing: 0.06em; font-weight: 400;
+  }
+
+  /* ---------- columns ---------- */
+  .cols {
+    flex: 1 1 auto;
+    margin-top: 10px;
+    padding-top: 11px;
+    border-top: 2px solid #17140f;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0 30px;
+    font-size: 16.2px;
+    line-height: 1.325;
+    text-align: justify;
+    hyphens: auto;
+    overflow: hidden;
+  }
+  .col { position: relative; padding: 0 14px; display: flex; flex-direction: column; }
+  .col + .col::before {
+    content: ""; position: absolute; left: -15px; top: 2px; bottom: 2px;
+    border-left: 1px solid rgba(23,20,15,0.55);
+  }
+  .col p { text-indent: 1.5em; margin-bottom: 2px; }
+  .col p:first-child { text-indent: 0; }
+  .col p.q { text-indent: 0; padding: 3px 12px; font-style: italic; }
+
+  .col .drop::first-letter {
+    font-family: "Big Caslon", Didot, serif;
+    font-size: 57px; line-height: 0.78;
+    float: left; padding: 6px 7px 0 0;
+  }
+  .subhead {
+    text-align: center;
+    font-family: "Bodoni 72 Smallcaps", Didot, serif;
+    font-size: 16px; letter-spacing: 0.13em;
+    text-transform: uppercase;
+    padding: 10px 0 6px;
+  }
+  .subhead::before { content: "\2014\2003"; }
+  .subhead::after  { content: "\2003\2014"; }
+
+  .jump {
+    margin-top: auto;
+    padding-top: 7px;
+    border-top: 1px solid #17140f;
+    text-align: center;
+    font-family: "Bodoni 72 Smallcaps", Didot, serif;
+    font-size: 18px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-indent: 0 !important;
+  }
+</style>
+</head>
+<body>
+
+<div id="paper"></div>
+
+<div id="sheet">
+
+  <!-- ===== masthead ===== -->
+  <div class="earline">
+    <span>Seventy&#8209;Sixth Year</span>
+    <span><em>Rain, colder, with frost inland by morning.</em></span>
+  </div>
+  <div class="rule-thick"></div>
+
+  <h1 class="masthead">The Transyltown Crier</h1>
+  <div class="rule-hair"></div>
+  <div class="motto">Serving Dutchess County Since 1871</div>
+  <div class="rule-dbl"></div>
+
+  <div class="dateline">
+    <span>Vol. LXVI &nbsp;&middot;&nbsp; No. 43</span>
+    <span class="mid">Transyltown, N.Y., Thursday, October 28, 1937</span>
+    <span>Five Cents</span>
+  </div>
+  <div class="rule"></div>
+
+  <!-- ===== headline ===== -->
+  <div class="head-block">
+    <h2 class="headline">THIRD CHILD FOUND<br>ON THE HEATH</h2>
+    <div class="dek1">Sleeping, Cold, and Marked at the Throat;<br>Doctors Cannot Wake Them</div>
+    <div class="dek-sep"></div>
+    <div class="dek2">Sheriff Sets Sundown Curfew &mdash; Village Sends to Kinderhook<br>for a &ldquo;Devil&#8209;Banisher&rdquo;</div>
+  </div>
+
+  <!-- ===== photo ===== -->
+  <div class="cut">
+    <div class="plate">
+      <svg viewBox="0 0 800 430" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="skyg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#4a4740"/>
+            <stop offset="38%"  stop-color="#7e7969"/>
+            <stop offset="72%"  stop-color="#a8a18c"/>
+            <stop offset="100%" stop-color="#c2bba4"/>
+          </linearGradient>
+          <radialGradient id="moong" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#fbf8ee" stop-opacity="0.9"/>
+            <stop offset="30%"  stop-color="#efeadb" stop-opacity="0.42"/>
+            <stop offset="100%" stop-color="#efeadb" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="winglow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#ffeec2" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#ffeec2" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#cfc8b2" stop-opacity="0"/>
+            <stop offset="55%"  stop-color="#cfc8b2" stop-opacity="0.62"/>
+            <stop offset="100%" stop-color="#cfc8b2" stop-opacity="0.15"/>
+          </linearGradient>
+          <linearGradient id="groundg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#4d4939"/>
+            <stop offset="100%" stop-color="#1e1c16"/>
+          </linearGradient>
+          <radialGradient id="vg" cx="50%" cy="46%" r="74%">
+            <stop offset="50%"  stop-color="#000" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#000" stop-opacity="0.5"/>
+          </radialGradient>
+        </defs>
+
+        <!-- sky -->
+        <rect x="0" y="0" width="800" height="430" fill="url(#skyg)"/>
+
+        <!-- moon, veiled -->
+        <circle cx="612" cy="86" r="74" fill="url(#moong)"/>
+        <circle cx="612" cy="86" r="23" fill="#f7f4e8" opacity="0.82"/>
+        <path d="M470 74 Q560 56 640 76 Q720 96 800 80 L800 108 Q712 122 630 104 Q548 88 470 100 Z"
+              fill="#5f5b4f" opacity="0.5"/>
+        <path d="M0 44 Q140 26 280 46 Q420 66 560 44 L560 66 Q414 88 274 68 Q136 50 0 68 Z"
+              fill="#57534819" opacity="0.5"/>
+
+        <!-- far ridge -->
+        <path d="M0 268 Q120 250 210 262 Q320 276 420 258 Q540 238 660 258 Q740 270 800 262 L800 300 L0 300 Z"
+              fill="#4d4a41" opacity="0.55"/>
+
+        <!-- treeline: irregular canopies, not triangles -->
+        <g fill="#221f1a" opacity="0.9">
+          <path d="M0 296 Q14 258 30 276 Q40 246 58 266 Q70 238 86 262 Q98 244 108 272
+                   Q124 250 136 280 Q150 262 162 288 Q176 268 188 292 L188 310 L0 310 Z"/>
+          <path d="M622 292 Q636 262 650 282 Q662 250 678 272 Q692 244 706 268 Q720 246 732 274
+                   Q748 254 760 284 Q774 264 800 286 L800 310 L622 310 Z"/>
+          <!-- bare trunks poking above -->
+          <g stroke="#221f1a" fill="none" stroke-linecap="round">
+            <path d="M46 268 L44 232 M44 244 L32 232 M44 250 L58 236" stroke-width="2.4"/>
+            <path d="M700 266 L702 228 M702 242 L714 230 M702 250 L690 238" stroke-width="2.4"/>
+          </g>
+        </g>
+
+        <!-- ===== mansion (near silhouette) ===== -->
+        <g>
+          <!-- glow bleeding from the lit window, behind the house edge -->
+          <ellipse cx="362" cy="300" rx="86" ry="62" fill="url(#winglow)" opacity="0.5"/>
+
+          <!-- left wing -->
+          <path d="M158 254 L216 200 L274 254 L274 356 L158 356 Z" fill="#191710"/>
+          <!-- main block -->
+          <path d="M274 232 L400 142 L526 232 L526 358 L274 358 Z" fill="#14120d"/>
+          <!-- right wing -->
+          <path d="M526 262 L582 214 L638 262 L638 356 L526 356 Z" fill="#191710"/>
+          <!-- tower -->
+          <path d="M428 128 L462 62 L496 128 L496 232 L428 232 Z" fill="#100e0a"/>
+          <path d="M462 62 L462 34 M452 40 L472 40 M457 34 L467 34" stroke="#100e0a" stroke-width="3" fill="none"/>
+          <!-- dormers on the main roof -->
+          <path d="M318 196 L338 176 L358 196 L358 220 L318 220 Z" fill="#12100b"/>
+          <path d="M444 196 L464 176 L484 196 L484 220 L444 220 Z" fill="#12100b"/>
+          <!-- chimneys -->
+          <rect x="292" y="168" width="21" height="66" fill="#1a1811"/>
+          <rect x="288" y="163" width="29" height="9"  fill="#100e0a"/>
+          <rect x="556" y="206" width="18" height="58" fill="#1a1811"/>
+          <rect x="552" y="201" width="26" height="8"  fill="#100e0a"/>
+          <rect x="200" y="206" width="17" height="50" fill="#1a1811"/>
+          <rect x="196" y="201" width="25" height="8"  fill="#100e0a"/>
+
+          <!-- roof tone breaks so it is not a dead flat shape -->
+          <g stroke="#2b2820" stroke-width="1.1" opacity="0.55">
+            <path d="M292 220 L400 146"/><path d="M322 236 L432 158"/>
+            <path d="M400 146 L508 220"/><path d="M372 158 L482 236"/>
+            <path d="M168 248 L216 204"/><path d="M264 248 L216 204"/>
+            <path d="M534 256 L582 218"/><path d="M630 256 L582 218"/>
+          </g>
+
+          <!-- dark windows -->
+          <g fill="#080706">
+            <rect x="178" y="276" width="25" height="40"/><rect x="228" y="276" width="25" height="40"/>
+            <rect x="178" y="328" width="25" height="28"/><rect x="228" y="328" width="25" height="28"/>
+            <rect x="296" y="252" width="27" height="44"/><rect x="346" y="252" width="27" height="44"/>
+            <rect x="428" y="252" width="27" height="44"/><rect x="478" y="252" width="27" height="44"/>
+            <rect x="296" y="312" width="27" height="38"/><rect x="478" y="312" width="27" height="38"/>
+            <rect x="428" y="312" width="27" height="38"/>
+            <rect x="542" y="284" width="23" height="38"/><rect x="586" y="284" width="23" height="38"/>
+            <rect x="542" y="332" width="23" height="24"/><rect x="586" y="332" width="23" height="24"/>
+            <rect x="444" y="152" width="18" height="32"/><rect x="468" y="152" width="18" height="32"/>
+            <rect x="330" y="196" width="16" height="24"/><rect x="456" y="196" width="16" height="24"/>
+          </g>
+
+          <!-- THE lit window -->
+          <rect x="346" y="312" width="27" height="38" fill="#f0e2b8" opacity="0.92"/>
+          <path d="M359 312 L359 350 M346 331 L373 331" stroke="#100e0a" stroke-width="1.8"/>
+          <rect x="346" y="312" width="27" height="38" fill="none" stroke="#0a0907" stroke-width="1.6"/>
+
+          <!-- faint mullions on dark glass -->
+          <g stroke="#2e2b23" stroke-width="1" opacity="0.8">
+            <path d="M190 276 V316 M178 296 H203"/><path d="M240 276 V316 M228 296 H253"/>
+            <path d="M309 252 V296 M296 274 H323"/><path d="M359 252 V296 M346 274 H373"/>
+            <path d="M441 252 V296 M428 274 H455"/><path d="M491 252 V296 M478 274 H505"/>
+            <path d="M553 284 V322 M542 303 H565"/><path d="M597 284 V322 M586 303 H609"/>
+          </g>
+
+          <!-- porch -->
+          <path d="M344 336 L400 310 L456 336 L456 358 L344 358 Z" fill="#0e0c09"/>
+          <g fill="#1c1a13">
+            <rect x="352" y="338" width="8" height="20"/>
+            <rect x="396" y="338" width="8" height="20"/>
+            <rect x="440" y="338" width="8" height="20"/>
+          </g>
+          <rect x="386" y="340" width="26" height="18" fill="#050504"/>
+        </g>
+
+        <!-- ground mist across the base of the house -->
+        <rect x="0" y="318" width="800" height="66" fill="url(#mist)" opacity="0.85"/>
+
+        <!-- ground -->
+        <path d="M0 348 Q150 336 288 350 Q430 364 560 346 Q680 330 800 352 L800 430 L0 430 Z"
+              fill="url(#groundg)"/>
+
+        <!-- fence, leaning and gappy -->
+        <g fill="#131109" opacity="0.92">
+          <rect x="0" y="366" width="800" height="4"/>
+          <rect x="0" y="392" width="800" height="3.4"/>
+        </g>
+        <g fill="#131109" opacity="0.92">
+          <rect x="24"  y="354" width="5.5" height="56"/>
+          <rect x="82"  y="356" width="5.5" height="54" transform="rotate(2 84 380)"/>
+          <rect x="142" y="354" width="5.5" height="56"/>
+          <rect x="202" y="355" width="5.5" height="55" transform="rotate(-3 204 380)"/>
+          <rect x="262" y="354" width="5.5" height="56"/>
+          <rect x="378" y="354" width="5.5" height="56"/>
+          <rect x="436" y="356" width="5.5" height="54" transform="rotate(3 438 380)"/>
+          <rect x="496" y="354" width="5.5" height="56"/>
+          <rect x="556" y="354" width="5.5" height="56"/>
+          <rect x="614" y="355" width="5.5" height="55" transform="rotate(-2 616 380)"/>
+          <rect x="674" y="354" width="5.5" height="56"/>
+          <rect x="734" y="354" width="5.5" height="56"/>
+        </g>
+
+        <!-- overgrown foreground grass -->
+        <g stroke="#0d0c08" stroke-width="1.6" opacity="0.75" fill="none" stroke-linecap="round">
+          <path d="M30 430 Q34 400 26 384 M56 430 Q60 404 68 388 M88 430 Q84 398 92 380"/>
+          <path d="M118 430 Q124 406 116 390 M148 430 Q142 402 150 386"/>
+          <path d="M646 430 Q652 402 644 386 M676 430 Q670 400 678 384 M708 430 Q714 404 706 388"/>
+          <path d="M740 430 Q734 400 742 384 M768 430 Q774 406 766 390"/>
+          <path d="M292 430 Q298 410 290 396 M330 430 Q324 408 332 394"/>
+          <path d="M478 430 Q484 408 476 394 M516 430 Q510 410 518 396"/>
+        </g>
+
+        <!-- overhanging bare branches -->
+        <g stroke="#100e0a" fill="none" stroke-linecap="round">
+          <path d="M-12 8 Q88 44 152 22 Q212 2 268 40" stroke-width="8"/>
+          <path d="M68 34 Q82 70 64 104" stroke-width="3.2"/>
+          <path d="M74 58 Q92 66 104 58" stroke-width="1.8"/>
+          <path d="M150 22 Q166 62 146 96" stroke-width="3"/>
+          <path d="M154 50 Q136 60 126 52" stroke-width="1.8"/>
+          <path d="M226 22 Q238 54 222 82" stroke-width="2.4"/>
+          <path d="M30 20 Q18 50 30 74" stroke-width="2.2"/>
+          <path d="M812 2 Q736 38 686 18 Q638 0 594 30" stroke-width="7"/>
+          <path d="M712 28 Q700 62 716 92" stroke-width="3"/>
+          <path d="M708 52 Q690 60 680 50" stroke-width="1.8"/>
+          <path d="M640 12 Q626 46 640 72" stroke-width="2.4"/>
+        </g>
+
+        <!-- plate vignette -->
+        <rect x="0" y="0" width="800" height="430" fill="url(#vg)"/>
+      </svg>
+      <div class="soak"></div>
+      <div class="screen"></div>
+    </div>
+    <div class="caption">
+      <b>The Dood house</b> on Vlietberg Road, closed since 1904, photographed Tuesday night from
+      the low ground where the child was found. Searchers are visible at the fence line.
+    </div>
+  </div>
+
+  <!-- ===== body ===== -->
+  <div class="cols">
+
+    <div class="col">
+      <p class="drop">Aletta Bruin, 11, a gnome, of Vlietberg Road, was found before dawn Tuesday in the low heath below the old Dood property &mdash; the third child taken from this village since Michaelmas, and the third to be carried home breathing and unwakeable.</p>
+      <p>She was discovered by Mr. Hendrik Ruys, who had gone out early after a strayed heifer and who at first took the child for a bundle of clothing left in the grass.</p>
+      <p class="q">&ldquo;She was cold as the ground,&rdquo; Mr. Ruys told this paper. &ldquo;But she was warm at the mouth. That is the part I cannot put down.&rdquo;</p>
+      <div class="subhead">Two Before Her</div>
+      <p>The Hoeck boy was found on the eleventh of the month, and the Verhoeven girl on the sixteenth, both within a quarter mile of the same fence line and both in the same condition.</p>
+      <p>In each case the mark is the same: two punctures upon the left side of the throat, no wider than a pin and ringed in white. Dr. Vance has photographed them and declines to publish the plate.</p>
+      <p>None of the three is known to have gone out. The Bruin child was put to bed at eight o&rsquo;clock, and the window of her room was found fastened from the inside.</p>
+    </div>
+
+    <div class="col">
+      <p>Sheriff Corwin Stade has ordered every child of the village kept indoors from sundown until full light, and has posted two men at the Vlietberg turn with instructions to stop any person going up toward the house after dark.</p>
+      <p>The Dood house itself has been searched twice this month and found empty. Its doors are chained, its lower windows boarded from within, and the seals set by the trustees in 1904 were reported unbroken.</p>
+      <div class="subhead">Doctors Baffled</div>
+      <p>Dr. Emmerich Vance, who has attended all three children, has declined to name the condition, saying only that he has read of nothing resembling it in thirty years of practice.</p>
+      <p class="q">&ldquo;They are not asleep. Sleep has a bottom to it. This does not.&rdquo;</p>
+      <div class="subhead">The Fields Also</div>
+      <p>Sheep belonging to Mr. Ruys and to the Dekker farm have been found dead in these same fields since September, in a manner the Sheriff has asked this paper not to set beside the other matter in print.</p>
+      <p>This paper has set them side by side, and will answer for it.</p>
+      <p>The last family to keep the house were the Doods, of whom none remain in the county. It has passed since 1904 through three trusts, the last giving its address as a post office box in Albany.</p>
+    </div>
+
+    <div class="col">
+      <p>At a meeting of the trustees held Wednesday evening in the Reformed church, it was voted, with two abstaining, to send to Kinderhook for a man named Joost Wiegman.</p>
+      <p>Mr. Wiegman is described by those who called for him as a <i>duivelbanner</i> &mdash; a banisher of devils &mdash; an office his family has kept in this valley since before the patents.</p>
+      <p>The measure was opposed by the Rev. Mr. Bloem, who warned that the village would be laughed at in Poughkeepsie.</p>
+      <p class="q">&ldquo;Let them laugh,&rdquo; said Mrs. Ilse Verhoeven, whose daughter has not opened her eyes since the sixteenth. &ldquo;I would be laughed at every day of my life.&rdquo;</p>
+      <div class="subhead">His Conditions</div>
+      <p>Mr. Wiegman is expected before first light. He has sent ahead two conditions, and the trustees have agreed to both.</p>
+      <p>The first is that no person follow him onto the heath, whatever should be heard from it.</p>
+      <p>The second is that a new coffin be built of good boards and carried down to the fence line, and left there open and unnailed.</p>
+      <p>He did not say what it was for.</p>
+      <p class="jump">Continued on Page 2</p>
+    </div>
+
+  </div>
+</div>
+
+<div id="foxing"></div>
+<div id="grain"></div>
+<div id="fold"></div>
+<div id="vignette"></div>
+
+</body>
+</html>

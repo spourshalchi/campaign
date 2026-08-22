@@ -12,6 +12,11 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 ├── aim/              ← Haunted AOL Instant Messenger prop
 │   ├── index.html
 │   └── sounds/
+├── puzzle/           ← Torn newspaper page prop
+│   ├── index.html
+│   ├── README.md
+│   └── assets/
+├── codex/            ← DM-facing campaign codex
 ├── CLAUDE.md         ← agent guide for adding new props
 ├── README.md         ← this file
 └── split_sounds.py   ← utility for splitting WAV dumps into clips
@@ -22,6 +27,8 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 | Prop | Path  | Vibe                                          |
 |------|-------|-----------------------------------------------|
 | AIM  | `aim/`| Haunted 2000s AOL Instant Messenger; branching dialogue with a "buddy" who knows things they shouldn't |
+| Torn Page | `puzzle/` | 1937 newspaper front page, torn up. Reassemble against the clock, flip for the page-2 lore. See [puzzle/README.md](puzzle/README.md) |
+| Codex | `codex/` | DM-facing campaign reference — relationship web, story flow, cast, session plan. Not a player prop |
 
 ## Adding a new prop
 

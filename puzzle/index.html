@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Photo">
+<meta name="apple-mobile-web-app-title" content="Clipping">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#2a1a10">
-<title>Torn Photograph</title>
+<meta name="theme-color" content="#191510">
+<title>Torn Page — The Transyltown Crier</title>
 <style>
   :root {
     --safe-top: env(safe-area-inset-top);
     --safe-bot: env(safe-area-inset-bottom);
     --safe-l: env(safe-area-inset-left);
     --safe-r: env(safe-area-inset-right);
-    --paper: #f4ecd6;
-    --ink: #2a1a10;
+    --paper: #e6dcc0;
+    --ink: #17140f;
   }
 
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -186,7 +186,7 @@
     top: 0; left: 0;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    background-color: #f4ecd6;
+    background-color: #e2d8bd;
     will-change: transform;
     touch-action: none;
     cursor: grab;
@@ -267,6 +267,150 @@
   }
   #photo-card .face.back {
     transform: rotateY(180deg);
+    background-color: #e2d8bd;
+    overflow: hidden;
+  }
+  /* Page 2 is longer than the card, so it gets clipped at the bottom edge.
+     Fade it out so that reads as "the column continues" rather than as a
+     rendering glitch. */
+  #photo-card .face.back::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: 0;
+    height: 70px;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(226,216,189,0), #e2d8bd 88%);
+  }
+  /* The back face renders page 2 shrunk to card size. It is deliberately
+     too small to read -- that is what sends the player into the reader. */
+  #page2-mini {
+    position: absolute; top: 0; left: 0;
+    transform-origin: top left;   /* width + scale set by fitPage2Mini() */
+    pointer-events: none;
+  }
+
+  /* ============== Reader (fullscreen page 2) ============== */
+  /* Kept as a flat 2D overlay, deliberately outside the 3D flip card:
+     scrolling text inside a preserve-3d subtree is unreliable on iOS. */
+  #reader {
+    position: fixed; inset: 0;
+    z-index: 160;
+    display: none;
+    /* No backdrop-filter here on purpose: blurring behind a full-screen
+       scrolling overlay forces a re-composite per frame on iOS and stutters
+       on older iPads. The flat alpha does the job. */
+    background: rgba(10,7,4,0.86);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding:
+      calc(var(--safe-top) + 18px) calc(var(--safe-r) + 16px)
+      calc(var(--safe-bot) + 40px) calc(var(--safe-l) + 16px);
+  }
+  #reader.show { display: block; opacity: 1; }
+
+  #reader-sheet {
+    position: relative;
+    width: 100%; max-width: 660px;
+    margin: 0 auto;
+    background:
+      radial-gradient(ellipse 60% 40% at 15% 8%,   rgba(150,120,70,0.10), transparent 70%),
+      radial-gradient(ellipse 50% 30% at 88% 62%,  rgba(140,110,60,0.12), transparent 70%),
+      linear-gradient(177deg, #ece3ca 0%, #e5dbc0 55%, #ddd2b3 100%);
+    color: var(--ink);
+    padding: 26px 26px 34px;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.7);
+    -webkit-user-select: text; user-select: text;
+  }
+  #reader-sheet::after {
+    content: "";
+    position: absolute; inset: 0;
+    pointer-events: none;
+    opacity: 0.3;
+    background:
+      repeating-linear-gradient(94deg, rgba(90,70,40,0.05) 0 1px, transparent 1px 4px),
+      radial-gradient(circle 8px at 12% 18%, rgba(120,85,40,0.35), transparent 72%),
+      radial-gradient(circle 5px at 84% 44%, rgba(120,85,40,0.4), transparent 70%),
+      radial-gradient(circle 11px at 68% 88%, rgba(110,80,38,0.3), transparent 74%);
+  }
+
+  #reader-close {
+    position: sticky; top: 0; float: right;
+    appearance: none;
+    background: var(--ink); color: var(--paper);
+    border: none;
+    width: 44px; height: 44px;
+    font-family: inherit; font-size: 22px; line-height: 1;
+    cursor: pointer; z-index: 3;
+    margin: -8px -8px 0 8px;
+    touch-action: manipulation;
+  }
+  #reader-close:active { background: #4a3322; }
+
+  /* ---------- shared page-2 newsprint styling ---------- */
+  .page2 {
+    font-family: "Times New Roman", Times, Georgia, serif;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .page2 .folio {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-size: 12px; letter-spacing: 0.13em; text-transform: uppercase;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 6px; margin-bottom: 16px;
+  }
+  .page2 h2 {
+    font-size: 30px; line-height: 1.08;
+    font-weight: normal; letter-spacing: 0.01em;
+    margin: 0 0 4px;
+  }
+  .page2 .contd {
+    font-style: italic; font-size: 15px;
+    padding-bottom: 10px; margin-bottom: 12px;
+    border-bottom: 1px solid rgba(23,20,15,0.5);
+  }
+  .page2 p { margin: 0 0 9px; font-size: 17px; text-indent: 1.4em; }
+  .page2 p:first-of-type { text-indent: 0; }
+  .page2 p.q {
+    text-indent: 0; font-style: italic;
+    padding: 4px 0 4px 16px;
+    border-left: 3px solid rgba(23,20,15,0.45);
+    margin: 12px 0;
+  }
+  .page2 p.big {
+    text-indent: 0; text-align: center;
+    font-size: 20px; font-style: italic;
+    padding: 12px 10px; margin: 14px 0;
+    border-top: 1px solid rgba(23,20,15,0.5);
+    border-bottom: 1px solid rgba(23,20,15,0.5);
+  }
+  .page2 .sub {
+    text-align: center;
+    font-family: "Bodoni 72 Smallcaps", Didot, Georgia, serif;
+    font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase;
+    margin: 20px 0 10px;
+  }
+  .page2 .sub::before { content: "\2014\2003"; }
+  .page2 .sub::after  { content: "\2003\2014"; }
+  .page2 .box {
+    border: 2px solid var(--ink);
+    padding: 15px 16px 13px;
+    margin-top: 26px;
+    background: rgba(255,250,235,0.28);
+  }
+  .page2 .box .bt {
+    font-family: "Bodoni 72 Smallcaps", Didot, Georgia, serif;
+    font-size: 15px; letter-spacing: 0.13em; text-transform: uppercase;
+    text-align: center; margin-bottom: 9px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid rgba(23,20,15,0.4);
+  }
+  .page2 .box p { font-size: 16px; }
+  .page2 .drop::first-letter {
+    font-family: Didot, "Big Caslon", Georgia, serif;
+    font-size: 52px; line-height: 0.8;
+    float: left; padding: 5px 7px 0 0;
   }
 
   #photo-glow {
@@ -413,8 +557,8 @@
 <!-- ===== Splash ===== -->
 <div id="splash">
   <div class="note">
-    <h1>A torn photograph</h1>
-    <p>Pieces, scattered. The picture wants to be seen.<br>You won't have long.</p>
+    <h1>A torn page</h1>
+    <p>Someone tore this out of the bound volume.<br>The pieces are still in the drawer.<br><br>She's coming back.</p>
     <button id="begin">Begin</button>
   </div>
 </div>
@@ -423,7 +567,7 @@
 <div id="game" hidden>
   <div id="hud">
     <div id="timer" aria-label="time remaining">3:00</div>
-    <div id="hint">drag the pieces into place</div>
+    <div id="hint">piece the page together</div>
   </div>
   <div id="workspace">
     <div id="frame-hint"></div>
@@ -432,10 +576,18 @@
     <div id="photo-anchor">
       <div id="photo-card">
         <div class="face front"></div>
-        <div class="face back"></div>
+        <div class="face back"><div id="page2-mini" class="page2"></div></div>
       </div>
     </div>
-    <div id="flip-hint"><span>swipe to flip</span><span class="arrow">↔</span></div>
+    <div id="flip-hint"><span>swipe for page 2</span><span class="arrow">↔</span></div>
+  </div>
+</div>
+
+<!-- ===== Reader — page 2 at readable size ===== -->
+<div id="reader">
+  <div id="reader-sheet">
+    <button id="reader-close" aria-label="close">&times;</button>
+    <div id="reader-body" class="page2"></div>
   </div>
 </div>
 
@@ -464,10 +616,70 @@
 
 <!-- ===== Fail ===== -->
 <div id="fail">
-  <h2>Time's up</h2>
-  <p>The fragments crumbled away before you could finish piecing them together.</p>
+  <h2>Footsteps in the stacks</h2>
+  <p>You sweep the pieces back into the drawer and slide it shut.</p>
   <button id="retry">Try Again</button>
 </div>
+
+<!-- ============================================================
+     PAGE 2 ARTICLES
+     ============================================================
+     One <template> per clipping. The id is referenced by CLIPPINGS
+     below. The same markup is mounted twice: shrunk onto the back of
+     the flip card, and full-size in the reader overlay.
+
+     This is plain HTML on purpose -- edit the copy between sessions
+     without re-rendering any art.
+
+     Classes: .sub (small-caps subhead) .q (indented quote)
+              .big (boxed pull quote) .box (sidebar) .drop (drop cap)
+     ============================================================ -->
+<template id="article-heath">
+  <div class="folio">
+    <span>The Transyltown Crier</span>
+    <span>Page Two</span>
+    <span>Oct. 28, 1937</span>
+  </div>
+
+  <h2>CHILDREN</h2>
+  <div class="contd">Continued from Page One</div>
+
+  <p>&hellip;insensible since Tuesday. Dr. Emmerich Vance, who has attended all three, reports the same findings in each: the skin cold to the touch, the breath shallow, the pulse slow past counting, and upon the left side of the throat two punctures no wider than a pin, ringed in white.</p>
+
+  <p class="q">&ldquo;They are not asleep,&rdquo; Dr. Vance said Wednesday. &ldquo;Sleep has a bottom to it. This does not.&rdquo;</p>
+
+  <p>At the request of the Dood trustees, the village sent to Kinderhook for Mr. Joost Wiegman, called in the Dutch fashion a <i>duivelbanner</i> &mdash; a banisher of devils &mdash; whose family has kept the old offices since before the patents.</p>
+
+  <div class="sub">Upon the Heath</div>
+
+  <p>Mr. Wiegman walked the heath at first light Wednesday and stopped some forty rods below the Dood house, where the ground had settled. Men were set to digging.</p>
+
+  <p>At a depth of three feet they uncovered a coffin of no great age, and within it a body neither swollen nor spoiled, the cheeks full and the mouth wet.</p>
+
+  <p class="big">&ldquo;This is the evil that has been found upon the heath.&rdquo;</p>
+
+  <p>He directed that the body be lifted into the new coffin, and that a splinter of whitethorn be set into the underside of the lid, positioned so that its point stood directly above the heart. The lid was then nailed down. Six men held it.</p>
+
+  <p>Those present report a howling and a wailing from inside the box that continued a quarter of an hour and was heard as far as the Vlietberg turn. When it stopped, the coffin was returned to the ground and covered over.</p>
+
+  <div class="sub">The Children Woke</div>
+
+  <p>All three opened their eyes before supper. Dr. Vance, who examined them within the hour, reports the marks upon their throats already closing, and expects a full recovery in each case.</p>
+
+  <p>Mr. Wiegman declined the village&rsquo;s payment. He would say only that the work was not finished.</p>
+
+  <p>Asked to explain himself, he said that the ground below the Dood house holds more than one such box; that he had found three and opened one; and that he would not go up to the house itself, not for any money the trustees cared to raise.</p>
+
+  <p class="q">&ldquo;The rest are not on the heath,&rdquo; he said. &ldquo;They are under the chapel floor. And they are not asleep either.&rdquo;</p>
+
+  <p>Mr. Wiegman left the village before dark and is not expected to return. The Dood house has stood shuttered since 1904. The trustees have declined to comment upon his statement.</p>
+
+  <div class="box">
+    <div class="bt">The Builder&rsquo;s Stone</div>
+    <p>Readers who walk the Vlietberg heath will know the single marker standing apart from the family plot, some yards inside the treeline. It bears no name and no date, only a line of characters cut in a foreign hand, which the late Rev. Ackerman took for Norse and not Dutch, and which he declined to translate for this paper.</p>
+    <p>It is said in the village that Cornelis Dood, who built the house and lived in it forty years without wife or child or company, was laid in the ground by men who took great care with <i>how</i> it was done &mdash; and that the care was not taken for his sake, but for theirs.</p>
+  </div>
+</template>
 
 <script>
 "use strict";
@@ -475,6 +687,19 @@
 // ============================================================
 // CONFIG — tweak between sessions
 // ============================================================
+// Each clipping is a torn front page plus the page-2 article behind it.
+// To add another: render a new front image (see assets/render-front.sh),
+// add a <template> above, add an entry here, then point ACTIVE at it.
+const CLIPPINGS = {
+  heath: {
+    front:   "assets/front-heath.jpg",
+    article: "article-heath",
+  },
+};
+
+// Which clipping this session is running.
+const ACTIVE = "heath";
+
 const CONFIG = {
   // Grid is N x N. Total pieces = N*N.
   // Common values: 3 (easy), 4 (medium), 5 (hard).
@@ -482,10 +707,6 @@ const CONFIG = {
 
   // Total seconds on the clock.
   TIME_SECONDS: 180,
-
-  // Image paths. Update as needed; falls back to placeholders if not found.
-  FRONT_IMAGE: "assets/front_1.png",
-  BACK_IMAGE:  "assets/back_1.png",
 
   // Snap tuning.
   SNAP_DISTANCE_PX: 38,   // how close (in pixels) before a piece locks in
@@ -496,6 +717,20 @@ const CONFIG = {
 
   // Initial scatter rotation range, in degrees.
   SCATTER_ROT_DEG: 14,
+
+  // Frame sizing. The page is portrait, so HEIGHT is the binding
+  // constraint -- capping width (as the photo version did) renders it
+  // tiny on a landscape iPad.
+  FRAME_MAX_W_FRAC: 0.62,
+  FRAME_MAX_H_FRAC: 0.82,
+  FRAME_MAX_H_PX:   680,
+
+  // Design width the page-2 article is authored against, used to scale
+  // it down onto the back of the card.
+  ARTICLE_WIDTH_PX: 660,
+
+  // How long after the card settles on the back before page 2 opens.
+  READER_AUTO_MS: 620,
 };
 
 // ============================================================
@@ -504,10 +739,10 @@ const CONFIG = {
 const N = CONFIG.TILE_COUNT;
 const TOTAL = N * N;
 
-const frontImage = CONFIG.FRONT_IMAGE;
-const backImage  = CONFIG.BACK_IMAGE;
-// Default aspect (4:3) used until the real image's dimensions resolve.
-let imgW = 4, imgH = 3;
+const clipping   = CLIPPINGS[ACTIVE];
+const frontImage = clipping.front;
+// Default aspect (portrait broadsheet) used until the real image resolves.
+let imgW = 1240, imgH = 1748;
 let frameW = 0, frameH = 0;    // render dimensions of the photo frame in workspace
 let cellW = 0, cellH = 0;      // per-piece cell size in pixels
 
@@ -528,6 +763,8 @@ let flipBaseAngle = 0;
 let flipDragStartX = 0;
 let flipDragging = false;
 let flipFirstUserAction = true;
+let readerAutoShown = false;   // page 2 auto-opens once, on the first flip
+let readerTimer = null;
 
 // Element refs
 const $splash = document.getElementById("splash");
@@ -543,6 +780,9 @@ const $photoFront = $photoCard.querySelector(".face.front");
 const $photoBack  = $photoCard.querySelector(".face.back");
 const $photoGlow = document.getElementById("photo-glow");
 const $flipHint = document.getElementById("flip-hint");
+const $page2Mini = document.getElementById("page2-mini");
+const $reader = document.getElementById("reader");
+const $readerBody = document.getElementById("reader-body");
 const $debug = document.getElementById("debug");
 const $dbgInfo = document.getElementById("dbg-info");
 const $fail = document.getElementById("fail");
@@ -561,12 +801,33 @@ function probeImage(src) {
 
 async function resolveImages() {
   // Probe only to learn natural dimensions for layout. If probing fails
-  // (e.g. inside a sandboxed preview), keep the default 4:3 ratio — the
-  // pieces still render the real image via background-image.
-  const f = await probeImage(CONFIG.FRONT_IMAGE);
+  // (e.g. inside a sandboxed preview), keep the default portrait ratio —
+  // the pieces still render the real image via background-image.
+  const f = await probeImage(frontImage);
   if (f.ok && f.w > 0 && f.h > 0) {
     imgW = f.w; imgH = f.h;
   }
+}
+
+// ============================================================
+// Page 2 — mounted twice from one <template>
+// ============================================================
+function mountArticle() {
+  const tpl = document.getElementById(clipping.article);
+  if (!tpl) return;
+  $readerBody.replaceChildren(tpl.content.cloneNode(true));
+  $page2Mini.replaceChildren(tpl.content.cloneNode(true));
+}
+
+// Shrink the full-size article onto the back of the card. It ends up far
+// too small to read, which is the point — it reads as a dense page of
+// newsprint and sends the player into the reader.
+function fitPage2Mini() {
+  const k = frameW / CONFIG.ARTICLE_WIDTH_PX;
+  $page2Mini.style.width = CONFIG.ARTICLE_WIDTH_PX + "px";
+  $page2Mini.style.transform = `scale(${k})`;
+  // Pad so the shrunken column doesn't run to the very edge of the card.
+  $page2Mini.style.padding = Math.round(22 / k) + "px";
 }
 
 // ============================================================
@@ -576,12 +837,13 @@ function computeLayout() {
   const ws = $workspace.getBoundingClientRect();
   const aspect = imgW / imgH;
   // Frame should leave some perimeter room for scattered pieces.
-  const maxW = ws.width  * 0.70;
-  const maxH = ws.height * 0.65;
+  const maxW = ws.width  * CONFIG.FRAME_MAX_W_FRAC;
+  const maxH = ws.height * CONFIG.FRAME_MAX_H_FRAC;
   let w = maxW, h = w / aspect;
   if (h > maxH) { h = maxH; w = h * aspect; }
-  // Hard cap so it doesn't go silly on huge screens.
-  if (w > 560) { w = 560; h = w / aspect; }
+  // Hard cap so it doesn't go silly on huge screens. The page is portrait,
+  // so this caps HEIGHT — capping width would shrink it to nothing.
+  if (h > CONFIG.FRAME_MAX_H_PX) { h = CONFIG.FRAME_MAX_H_PX; w = h * aspect; }
   frameW = Math.floor(w);
   frameH = Math.floor(h);
   cellW = frameW / N;
@@ -595,7 +857,7 @@ function computeLayout() {
   $photoAnchor.style.width  = frameW + "px";
   $photoAnchor.style.height = frameH + "px";
   $photoFront.style.backgroundImage = `url("${frontImage}")`;
-  $photoBack.style.backgroundImage  = `url("${backImage}")`;
+  fitPage2Mini();
 
   $photoGlow.style.width  = (frameW * 1.1) + "px";
   $photoGlow.style.height = (frameH * 1.1) + "px";
@@ -964,6 +1226,12 @@ function flipPointerUp(ev) {
   // Threshold: swept ~50deg = commit a flip. Otherwise spring back.
   if (swept >  50) newBase = flipBaseAngle + 180;
   if (swept < -50) newBase = flipBaseAngle - 180;
+
+  // A tap (rather than a drag) on the back re-opens page 2 after the
+  // player has closed it.
+  const wasTap = Math.abs(dx) < 8;
+  if (wasTap && showingBack()) openReader();
+
   flipBaseAngle = newBase;
   $photoCard.style.transform = `rotateY(${newBase}deg)`;
   // Once user has interacted, fade out the hint
@@ -971,6 +1239,36 @@ function flipPointerUp(ev) {
     flipFirstUserAction = false;
     $flipHint.classList.remove("show");
   }
+  scheduleReaderAuto();
+}
+
+// ============================================================
+// Reader
+// ============================================================
+// True when the card has settled with its back toward the player.
+function showingBack() {
+  const a = ((flipBaseAngle % 360) + 360) % 360;
+  return a > 90 && a < 270;
+}
+
+// The first time the card comes to rest on the back, open page 2 by
+// itself — that reveal is the whole payoff, it shouldn't need a second
+// gesture to find.
+function scheduleReaderAuto() {
+  if (readerAutoShown || !showingBack()) return;
+  readerAutoShown = true;
+  if (readerTimer) clearTimeout(readerTimer);
+  readerTimer = setTimeout(openReader, CONFIG.READER_AUTO_MS);
+}
+
+function openReader() {
+  $reader.classList.add("show");
+  $reader.scrollTop = 0;
+  $flipHint.classList.remove("show");
+}
+
+function closeReader() {
+  $reader.classList.remove("show");
 }
 
 function enableFlipDrag() {
@@ -1044,6 +1342,7 @@ document.getElementById("dbg-rescatter").addEventListener("click", () => {
 // Start flow
 // ============================================================
 async function startGame() {
+  mountArticle();
   await resolveImages();
   $splash.style.display = "none";
   $game.hidden = false;
@@ -1059,6 +1358,9 @@ async function startGame() {
   restored = false;
   flipBaseAngle = 0;
   flipFirstUserAction = true;
+  readerAutoShown = false;
+  if (readerTimer) { clearTimeout(readerTimer); readerTimer = null; }
+  closeReader();
   $photoCard.style.transform = "rotateY(0deg)";
   $piecesLayer.classList.remove("faded");
   $photoAnchor.classList.remove("show");
@@ -1069,6 +1371,10 @@ async function startGame() {
 }
 
 document.getElementById("begin").addEventListener("click", startGame);
+document.getElementById("reader-close").addEventListener("click", closeReader);
+// Tapping the darkened surround closes page 2 too; taps on the sheet itself
+// must not, or you can't select the text.
+$reader.addEventListener("click", (e) => { if (e.target === $reader) closeReader(); });
 
 document.getElementById("retry").addEventListener("click", () => {
   $fail.classList.remove("show");
