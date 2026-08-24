@@ -18,6 +18,20 @@ It only turns 📗 by being written into the doc.
 
 ---
 
+## Decisions made since the audit
+
+Not yet pasted into the Google Doc — **do that to make them official.** Until then they live here.
+
+| Decision | Was |
+|---|---|
+| ✅ **The real-estate company warded the 1937 library page.** Their leader paid to make it unreadable, scrubbing a documented vampire incident before developing the site. He can't ward word of mouth, which is why the town still talks. | 🟡 invented by the puzzle prop — **now ratified by Scott** |
+| ✅ **"Dood" is both** — the builder's family surname *and* the Dutch pun. Cornelis Dood is a real person in the fiction. | Sesh 6 had the pun; the prop added the surname. Both now stand. |
+| ✅ **The party is level 3**, leveling to 4 at the end of day one. | new |
+| ⏸ **The 1937 Crier stays 🟡** pending Scott's read of the article text. | unchanged |
+| ⏸ **The Gjenganger / Cornelis Dood stays 🟡** — parked entirely. A draft spec is in `PROPOSALS.md`; none of it is agreed. | unchanged |
+
+---
+
 ## Corrections applied
 
 Three things in the codex were not just unsourced, they were wrong:

@@ -18,6 +18,7 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 │   └── assets/
 ├── codex/            ← DM-facing campaign codex (not linked from the landing page)
 ├── CANON.md          ← canon ledger: what came from the brainstorm doc vs. what an AI made up
+├── PROPOSALS.md      ← parked work-in-progress, agreed to by nobody
 ├── CLAUDE.md         ← agent guide for adding new props
 ├── README.md         ← this file
 └── split_sounds.py   ← utility for splitting WAV dumps into clips

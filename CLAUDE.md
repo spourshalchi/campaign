@@ -15,6 +15,7 @@ whole characters, dates, documents and motives that then got treated as establis
 - In the codex, that means `s:"ai"` on the data item (or an `ai:"..."` note on an otherwise
   doc-sourced item). The badge and the Not Canon Yet tab render themselves from that field.
 - In a prop, that means a canon-status banner at the top of the prop's README/brief.
+- Half-finished design work goes in `PROPOSALS.md`, never into the codex as fact.
 - Never write "Answered" or "Locked" next to something the doc doesn't say. If the doc hedges
   ("could be", "up to you if we go with it"), the codex hedges too.
 - Cite the session (`Sesh 5`, `Character Bios`) for anything marked 📗.
