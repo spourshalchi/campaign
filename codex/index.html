@@ -132,6 +132,47 @@
   .branch p{margin:0;font-size:12.5px;color:var(--mut)}
   .pill{display:inline-block;font-size:10.5px;padding:2px 8px;border-radius:999px;background:#0f0b18;border:1px solid var(--edge);color:var(--mut);margin:0 5px 5px 0}
 
+  /* ---- to-do ---- */
+  .td-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .td-filters{display:flex;flex-wrap:wrap;gap:6px}
+  .td-filters button{font-family:var(--f-body);font-size:12.5px;color:var(--mut);background:transparent;
+    border:1px solid var(--edge);padding:5px 12px;border-radius:999px;cursor:pointer;transition:.15s}
+  .td-filters button:hover{color:var(--ink);border-color:var(--dim)}
+  .td-filters button.on{background:var(--gold);border-color:var(--gold);color:#1a1206;font-weight:600}
+  .td-count{font-size:12.5px;color:var(--dim);white-space:nowrap}
+  .td-count b{color:var(--gold);font-weight:700}
+  .td-list{list-style:none;margin:0;padding:0;border:1px solid var(--edge);border-radius:14px;
+    overflow:hidden;background:var(--panel);box-shadow:var(--shadow)}
+  .td-item{display:flex;gap:12px;padding:14px 16px;border-top:1px solid var(--edge);align-items:flex-start}
+  .td-item:first-child{border-top:none}
+  .td-item[hidden]{display:none}
+  .td-mark{flex:none;width:18px;height:18px;margin-top:2px;border-radius:5px;border:1.5px solid var(--dim);
+    display:grid;place-items:center;font-size:11px;line-height:1;color:transparent}
+  .td-item.is-done{opacity:.58}
+  .td-item.is-done .td-mark{background:var(--green);border-color:var(--green);color:#08150f}
+  .td-item.td-first-done{border-top:2px solid var(--dim)}
+  .td-body{flex:1;min-width:0}
+  .td-t{font-size:15px;font-weight:600;line-height:1.35}
+  .td-item.is-done .td-t{text-decoration:line-through;color:var(--dim);font-weight:500}
+  .td-ans{margin:6px 0 0;font-size:13px;color:var(--green)}
+  .td-ans b{color:var(--ink)}
+  .td-note{margin:5px 0 0;font-size:13px;color:var(--mut);line-height:1.5;max-width:72ch}
+  .td-steps{counter-reset:s;margin:9px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px}
+  .td-steps li{counter-increment:s;position:relative;padding-left:23px;font-size:12.5px;color:var(--mut);
+    line-height:1.5;max-width:70ch}
+  .td-steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:1px;
+    font-size:10.5px;color:var(--gold)}
+  .td-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+  .td-tag{font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:4px;
+    border:1px solid var(--edge);color:var(--dim)}
+  .td-tag.who{color:var(--ink);border-color:var(--dim)}
+  .td-tag.who.none{color:var(--blood);border-color:var(--blood);border-style:dashed}
+  .td-tag.cat{background:#0f0b18}
+  .td-tag.ref{border-style:dashed}
+  .td-tag.flag{color:var(--blood);border-color:var(--blood)}
+  .td-tag.gate{color:var(--gold);border-color:var(--gold)}
+  .td-tag.live{color:var(--green);border-color:var(--green)}
+
   /* ---- cast cards ---- */
   .cast-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
   .cc{background:var(--panel);border:1px solid var(--edge);border-radius:14px;padding:16px;position:relative;overflow:hidden}
@@ -238,7 +279,8 @@
   </header>
 
   <nav class="tabs" id="tabs">
-    <button data-tab="web" class="active">Relationship Web</button>
+    <button data-tab="todo" class="active">To-Do</button>
+    <button data-tab="web">Relationship Web</button>
     <button data-tab="back">Backstory</button>
     <button data-tab="flow">Story Flow</button>
     <button data-tab="cast">The Cast</button>
@@ -254,8 +296,26 @@
     <span style="color:var(--dim)">Full ledger: <code>/CANON.md</code></span>
   </div>
 
+  <!-- ============ TO-DO ============ -->
+  <section class="tab active" id="tab-todo">
+    <h2 class="sec">Everything still to do</h2>
+    <p class="sub">One list, on the same page as everything else &mdash; there is no separate board to keep in sync. Every row carries who owns it, and the ones nobody has claimed say so. Items are marked done in the source as they land, so there is nothing to click.</p>
+    <div class="td-bar">
+      <div class="td-filters" id="td-filters">
+        <button data-f="all" class="on">Everything</button>
+        <button data-f="scott">Scott</button>
+        <button data-f="spencer">Spencer</button>
+        <button data-f="both">Shared</button>
+        <button data-f="none">Unassigned</button>
+        <button data-f="open">Unfinished</button>
+      </div>
+      <div class="td-count" id="td-count"></div>
+    </div>
+    <ul class="td-list" id="td-list"></ul>
+  </section>
+
   <!-- ============ WEB ============ -->
-  <section class="tab active" id="tab-web">
+  <section class="tab" id="tab-web">
     <h2 class="sec">Who's tangled up with whom</h2>
     <p class="sub">Click any character to trace their connections and read their thread. Everyone in the friend group is an "island of misfit toys" with a reason they ended up together.</p>
     <div class="web-layout">
@@ -329,7 +389,7 @@
     <div class="panel" id="review"></div>
   </section>
 
-  <p class="foot">Built from the "Scott Spencer DnD Extravaganza" brainstorm docs · a living reference — say the word and I'll fold in Cody's PC, the 4th crew member, or the locked-in names.</p>
+  <p class="foot">Built from the "Scott Spencer DnD Extravaganza" brainstorm docs · a living reference — the to-do list lives on this page now, so there is no separate board to keep in sync.</p>
 </div>
 
 <script>
@@ -394,25 +454,22 @@ const NODES = [
 
   {id:"poe", name:"DJ Poe Boy", sub:"The Big Bad", g:"crew", x:480, y:210,
     role:"Antagonist · Ringleader", s:"doc", src:"Sesh 1, 3, 5, 7",
-    fields:{Race:"Gith or Kenku (TBD)",Class:"TBD",Alignment:"Chaotic Neutral",Type:"ENFJ"},
+    fields:{Race:"Kenku",Class:"Bard — College of Glamour",Alignment:"Chaotic Neutral",Type:"ENFJ"},
+    ai:"<b>Race and class are Scott's pick, not the doc's.</b> Sesh 3 asks <i>Race: Not sure, maybe Gith? Or Kenku?</i> and leaves class blank with <i>would love your input</i> — Spencer never got an answer until now. Kenku was chosen because they canonically speak only in sounds recorded from others: a DJ who samples voices, and whose crime is trapping a kid's voice in a machine, cannot speak in one of his own. Glamour supplies the charm that holds the crew. Voice him in borrowed cadences. Decided by Scott on 23 Aug 2026 while closing out Spencer's ten open questions. The doc only ever offered the shortlist and asked for input, so this pick is real but it is not in the doc — it needs writing in before it counts as agreed.",
     desc:"Way-too-cool-for-school personified: obnoxiously subversive, but with real underground cred. Ambitious and callous to the edge of psychopathy — not sadistic, just indifferent to suffering if it serves the work. Charismatic, subtly manipulative. Emancipated rich kid, deeply insecure about his upper-class parents who adore him anyway.",
     hook:"The plan: invite everyone, lock them in, and <b>sample the screams of real beings terrorized by real monsters</b> for his horror score. He met the vampires by accident while recording spooky noises in the house, sold them a plan to scare off the mega-mall developers, then tested it on one kid — and found out he doesn't stop. Candidate embarrassing real name: Upton Maximillion Livingsworth III (floated in Sesh 3 as a joke, never locked)." },
   {id:"stinky", name:"Lil Stinky", sub:"School kingpin", g:"crew", x:430, y:470,
     role:"Crew · Muscle / dealer", s:"doc", src:"Sesh 3",
-    fields:{Race:"Orc or Goliath (TBD)",Class:"Something tanky (TBD)",Vibe:"Stoner, bad rapper, honest to a fault"},
+    fields:{Race:"Orc or Goliath (TBD)",Class:"Paladin — Oath of Devotion",Vibe:"Stoner, bad rapper, honest to a fault"},
     desc:"Dumb as bricks but genuinely charming — a hustler who isn't conniving. Into the dumbest conspiracy theories. The one crew member who needs no manipulation: he just wants to help his best friend, not knowing he's being used.",
     hook:"Makes music with Poe Boy — they're tight. The doc ties him to <b>Julia's cigarette trade</b> as the school kingpin, which is how Gnomey's world overlaps his.",
-    ai:"The codex expanded that to a 'cigarette/weed trade.' Weed is Bix's, per Character Bios." },
+    ai:"The codex expanded that to a 'cigarette/weed trade.' Weed is Bix's, per Character Bios.<br><br><b>Class is Scott's pick, not the doc's.</b> Sesh 3 says only <i>Class: Something tanky</i>. Oath of Devotion was chosen because the doc already makes him honest to a fault and genuinely wanting to help the friend who is using him — a devotion paladin unknowingly sworn to a liar, whose oath breaks the moment the truth about the kid lands. Race is still open (Orc or Goliath). Decided by Scott on 23 Aug 2026 while closing out Spencer's ten open questions. The doc only ever offered the shortlist and asked for input, so this pick is real but it is not in the doc — it needs writing in before it counts as agreed." },
   {id:"angelique", name:"Angelique", sub:"The one who flips", g:"crew", x:330, y:340,
     role:"Crew · The redeemable one", s:"doc", src:"Sesh 3, 5, 7",
-    fields:{Race:"Changeling or Genasi (TBD)",Class:"TBD",Vibe:"Trad goth, nihilist with a soft spot"},
+    fields:{Race:"Changeling",Class:"Rogue",Vibe:"Trad goth, nihilist with a soft spot"},
+    ai:"<b>Race and class are Scott's pick, not the doc's.</b> Sesh 3 asks <i>Race: Changeling? Genasi?</i> and leaves class blank. Changeling was chosen because the doc has her smart but unsure of herself with a low self-worth Poe Boy exploits — a person with no fixed face. Rogue keeps her useful the moment she flips without doubling Simone's warlock or John's bard. Decided by Scott on 23 Aug 2026 while closing out Spencer's ten open questions. The doc only ever offered the shortlist and asked for input, so this pick is real but it is not in the doc — it needs writing in before it counts as agreed.",
     desc:"More authentically goth than Poe Boy — existential, hedonist, 'any second could be my last.' Smart but unsure of herself; Poe Boy exploits her low self-worth. If anyone can be pulled out of his orbit, it's her.",
     hook:"She typed some of the fake screen-name messages that lured the first kid to the mansion — she thought it was a prank. When he stopped coming to school she started to suspect. She's at the mansion the night of the party <b>to find out for herself</b>, which is why she's already inside and is the first to find the heroes and tell them to hide. She can't say any of it out loud: accusing Poe Boy means admitting her part." },
-  {id:"crew4", name:"4th Crew Member", sub:"TBD · likely female", g:"crew", x:560, y:400,
-    role:"Crew — TBD", s:"doc", src:"Sesh 3",
-    fields:{},
-    desc:"", empty:"A fourth Bad Kid to round out the gazebo entourage — noted as probably female in Sesh 3. Open slot for a personality and a hook." },
-
   {id:"mansion", name:"Dood Mansion", sub:"The haunted house", g:"place", x:660, y:330,
     role:"Primary location", s:"doc", src:"Sesh 0, 3, 6, 7",
     fields:{Name:"'Dood' = dead (Dutch)",History:"Abandoned Dutch mansion on the edge of town"},
@@ -473,7 +530,6 @@ const EDGES = [
   ["gnomey","stinky","crew","cigarette-trade overlap","doc","Sesh 3"],
   ["poe","stinky","crew","best friends / make music","doc","Sesh 3"],
   ["poe","angelique","romance","'girlfriend' — no label","doc","Sesh 3"],
-  ["poe","crew4","crew","entourage","doc","Sesh 3"],
   ["bix","angelique","family","short friendship, he pushed her away","doc","Sesh 5"],
   ["poe","orlok","control","scares on the agreed plan","doc","Sesh 7"],
   ["poe","drac","control","scares on the agreed plan","doc","Sesh 7"],
@@ -613,11 +669,11 @@ const NAMES = [
     {n:"DJ Poe Boy",rec:true},{n:"DJ ACULA",rec:true},{n:"DJ RIP YOUR HEART OUT"},
     {n:"MC USHER"},{n:"LIL BAUHAUS"},{n:"DJ DEADBOY"}],
     secret:"Candidate 'real' name to reveal later: <b>Upton Maximillion Livingsworth III</b>. Floated in Sesh 3 as <i>'it'd be funny if'</i> — never locked.",
-    ai:"'Poe Boy' is used throughout Sesh 5–7 but never appears on a decision list. The codex called it locked; it's locked by habit, not by either of you saying so. Note the Sesh 3 list has <b>LIL</b> Poe Boy, not DJ."},
+    ai:"<b>Now picked by Scott, 23 Aug 2026: DJ Poe Boy.</b> Previously locked only by habit — used throughout Sesh 5–7 but never on a decision list, and the Sesh 3 shortlist reads <b>LIL</b> Poe Boy, not DJ. The Lil was dropped so it does not echo Lil Stinky. Still needs writing into the doc."},
   {h:"The kingpin", note:"stoner / bad rapper", s:"doc", src:"Sesh 3", opts:[
     {n:"Lil Stinky",rec:true},{n:"Lil Boom Boom"},{n:"Lil Pipsqueak"},
     {n:"Lil Flat Earth"},{n:"Lil Bigboy"},{n:"Lil Dirty Diaper"}],
-    ai:"Same as above — used consistently since Sesh 5, never formally picked."},
+    ai:"<b>Now picked by Scott, 23 Aug 2026: Lil Stinky.</b> Previously used consistently since Sesh 5 but never formally chosen. It is also what the Sesh 6 flyer spec already bills, so nothing downstream moves. Still needs writing into the doc."},
   {h:"The redeemable goth", note:"Poe Boy's 'girlfriend'", s:"doc", src:"Sesh 7", opts:[
     {n:"Angelique",lock:true},{n:"Scarlett",out:true},{n:"Coressa",out:true},{n:"Angellica",out:true}],
     secret:"<b>Genuinely locked</b> — Sesh 7's decision list. Sesh 6's flyer spec bills <i>Coressa</i>; that spec is superseded, so the printed DJ poster should bill <b>Angelique</b>."}
@@ -629,12 +685,12 @@ const TODO = [
   ["How the vamps learn the truth","They believe he went out a window. Decide whether the reveal comes from the Spirit directly, from Angelique, or from the players producing the recording.","doc"],
   ["John's insecurity","His to name — the doc says TBD. Open alongside it: a character name, race, and any mansion connection.","doc"],
   ["Cody's PC","Still not submitted — needs a character, a reason they joined the misfits, and a mansion-lore sprinkle.","doc"],
-  ["4th crew member","An open slot (likely female) to round out the gazebo entourage.","doc"],
+  ["4th crew member","<b>Cut by Scott, 23 Aug 2026.</b> Sesh 3 wanted a fourth <i>probably also female</i> and never wrote one; Sesh 6 billed her on the DJ flyer anyway. Rather than invent an NPC in Spencer's lane, the crew is three — which unblocks the flyer. Not in the doc yet: Spencer has not agreed to lose her.","doc"],
   ["Party level","<b>Level 3</b>, leveling to 4 at the end of day one — so anything on Sunday is built for five level-4 PCs. Not in the Google Doc yet.","doc"],
-  ["NPC races & classes","Poe Boy (Gith/Kenku + class), Lil Stinky (Orc/Goliath + tanky class), Angelique (Changeling/Genasi + class), Simone's race.","doc"],
+  ["NPC races & classes","<b>Mostly picked by Scott, 23 Aug 2026</b> — Poe Boy is a Kenku Bard (Glamour), Lil Stinky a Paladin (Oath of Devotion), Angelique a Changeling Rogue. Their cards carry the reasoning and the caveat: none of it is in the doc yet. Still genuinely open: Lil Stinky's race (Orc or Goliath) and Simone's race.","doc"],
   ["Per-character house moment","Sesh 5's stated goal: one sprinkle of mansion lore tied to each PC. Bix and Gnomey have theirs; Simone, John and Cody don't.","doc"],
   ["The blood connection","Scott's comment idea: one PC connected to the mansion by blood — a great-grandparent built it or died there. Spencer liked it and said the library is the place to hint at it. Never assigned to a PC.","doc"],
-  ["Lock the mansion name","Spencer asked <i>'lmk if thats too dumb lol'</i> about Dood Mansion in Sesh 6. Never answered, and it's now printed on every prop.","doc"],
+  ["Lock the mansion name","<b>DECIDED by Scott — Dood Mansion stays, and 'Dood' is both</b>: the builder's family surname <i>and</i> the Dutch pun. That answers Spencer's Sesh 6 <i>'lmk if thats too dumb lol'</i> and makes Cornelis Dood a real person in the fiction. Not in the Google Doc yet.","doc"],
   ["Does the 1937 Crier become canon?","The whole newspaper is invented — see the Not Canon tab. Three options: ratify it, rewrite it back to the doc's actual 1973 Frisian source, or leave it as a prop nobody has to believe.","ai"],
   ["Coffin count","The codex was treating this as a canon contradiction: the Crier's three boxes vs. three living vampires. It isn't a contradiction — the count is invented. Only worth solving if the Crier gets ratified.","ai"],
   ["Who warded the library page?","<b>DECIDED — the real-estate company.</b> Scott ratified it: their leader paid to make the page unreadable, scrubbing a documented vampire incident before developing the site. The prop stays silent on who did it, which is still correct. Not in the Google Doc yet — paste it in to make it official. Still open: his name.","doc"]
@@ -902,6 +958,607 @@ document.getElementById("docs").innerHTML=DOCS.map(([t,d,st,src])=>`<div class="
 document.getElementById("flagtoggle").addEventListener("change",e=>{
   document.body.classList.toggle("flag",e.target.checked);
 });
+
+/* ---------------- RENDER: TO-DO ---------------- */
+const TODO_LIST = [
+ {
+  "id": "o1",
+  "t": "Propose moving the DJ show flyer to Spencer",
+  "o": "scott",
+  "c": "Outbox",
+  "done": 1
+ },
+ {
+  "id": "o2",
+  "t": "Ask John what his bully's insecurity is",
+  "o": "scott",
+  "c": "Outbox",
+  "needs": 1,
+  "note": "Left open on purpose rather than filled in by the DM — it is the thing that keeps the character from being just a mean guy, so it should be his. The bard, the bully act and the web edges are already in the cast; only this is waiting."
+ },
+ {
+  "id": "o4",
+  "t": "Send Spencer a summary of what landed",
+  "o": "scott",
+  "c": "Outbox",
+  "done": 1,
+  "note": "The Crier at /puzzle/, the invitation at /invite/, and this codex with the five-player cast and the backstory tab."
+ },
+ {
+  "id": "o5",
+  "t": "Write the ten locked decisions into the brainstorm doc",
+  "o": "scott",
+  "c": "Outbox",
+  "note": "The doc is the canon source and none of the ten answers are in it — names, races, classes, the cut fourth crew member. Right now they exist only here, which is the exact drift CANON.md was written to stop. Until they are in the doc they show as not-canon on the cards."
+ },
+ {
+  "id": "o3",
+  "t": "Add John to the brainstorm doc",
+  "o": "scott",
+  "c": "Outbox",
+  "done": 1,
+  "note": "The doc is the canon source and had no John in it at all — no Character Bios entry, no line in Sesh 5 where everyone gets connected to the mansion. Also states the party is five, not four."
+ },
+ {
+  "id": "q1",
+  "t": "The DJ's stage name",
+  "o": "scott",
+  "c": "Decision",
+  "done": 1,
+  "ans": "DJ Poe Boy",
+  "note": "Already canon by use — every session from 5 on calls him this and it is baked into this codex, the AIM tree, the Crier and the invite, so anything else meant a rename across four live props. Dropped the Lil from the doc's LIL POE BOY so it does not echo Lil Stinky."
+ },
+ {
+  "id": "q2",
+  "t": "The stoner rapper's name",
+  "o": "scott",
+  "c": "Decision",
+  "done": 1,
+  "ans": "Lil Stinky",
+  "note": "What the codex and the Sesh 6 flyer spec already used, so nothing downstream had to move."
+ },
+ {
+  "id": "q3",
+  "t": "The goth girlfriend's name",
+  "o": "scott",
+  "c": "Decision",
+  "done": 1,
+  "ans": "Angelique",
+  "note": "The doc used both — Sesh 5 says Angelique twice, the Sesh 6 flyer spec says Coressa. The printed flyer bills Angelique."
+ },
+ {
+  "id": "q4",
+  "t": "The DJ's race and class",
+  "o": "scott",
+  "c": "Decision",
+  "done": 1,
+  "ans": "Kenku · Bard, College of Glamour",
+  "note": "Kenku canonically speak only in sounds recorded from others — a DJ who samples voices, and whose actual crime is trapping a kid's voice inside a machine, cannot speak in one of his own. Glamour supplies the charm that holds the crew together. Note he lands as a bard alongside John, so the final confrontation is two people fighting with the same weapon."
+ },
+ {
+  "id": "q5",
+  "t": "Lil Stinky's class",
+  "o": "scott",
+  "c": "Decision",
+  "done": 1,
+  "ans": "Paladin, Oath of Devotion",
+  "note": "Honest to a fault and genuinely wants to help his best friend without knowing he is being used — a devotion paladin unknowingly sworn to a liar. His oath breaking when the truth lands is a free climax beat. Race still open: Orc or Goliath."
+ },
+ {
+  "id": "q6",
+  "t": "Angelique's race and class",
+  "o": "scott",
+  "c": "Decision",
+  "done": 1,
+  "ans": "Changeling · Rogue",
+  "note": "Changeling is thematically exact — smart but unsure of herself, with a low self-worth Poe Boy exploits, so a person with no fixed face. Rogue makes her immediately useful the moment she flips, and avoids doubling Simone's warlock or John's bard."
+ },
+ {
+  "id": "q7",
+  "t": "The fourth crew member",
+  "o": "spencer",
+  "c": "Decision",
+  "done": 1,
+  "ans": "Cut — the crew is three",
+  "note": "Spencer wanted a fourth and never wrote one. Rather than invent an NPC inside his lane, the billing drops to three, which unblocks the DJ flyer."
+ },
+ {
+  "id": "q8",
+  "t": "Is Dood Mansion too dumb?",
+  "o": "scott",
+  "c": "Decision",
+  "done": 1,
+  "ans": "Keep it",
+  "note": "Dood is Dutch for dead. Spencer flagged it himself. It appears on both printed handouts, so it needed locking before printing."
+ },
+ {
+  "id": "q9",
+  "t": "Use the Gjenganger at all?",
+  "o": "scott",
+  "c": "Decision",
+  "done": 1,
+  "ans": "Yes",
+  "note": "He is load-bearing now. The Crier's Builder's Stone sidebar already puts him in a player-facing prop. Still open: what broke the ward, since it evidently held for decades."
+ },
+ {
+  "id": "q10",
+  "t": "Is killed by a human the right clue from the computer spirit?",
+  "o": "scott",
+  "c": "Decision",
+  "done": 1,
+  "ans": "Yes — and he can name Poe Boy",
+  "note": "The vampires never touched him — they chased him exactly as agreed, believing he was a mall scout. Poe Boy held the door, then soul-caged him into the recording rig. So the clue is literally true rather than a technicality."
+ },
+ {
+  "id": "p1",
+  "t": "Mansion floor plan and room list",
+  "o": "scott",
+  "c": "Puzzle",
+  "gate": 1,
+  "note": "The gating item. Everything Spencer still owes for the mansion is downstream of it."
+ },
+ {
+  "id": "p7",
+  "t": "Walk the mansion half of the story end to end",
+  "o": "scott",
+  "c": "Puzzle",
+  "ref": "S8 · S10",
+  "note": "The backstory is locked now, so the front half holds together. This is the pass over everything after the doors bolt — does each beat still hand the next one a reason to happen, or were some leaning on things that have since changed?",
+  "steps": [
+   "Start at the doors bolting and go beat by beat. Every scene has to end owing the next one something.",
+   "The fork: how do the players find out there is a choice at all, and does that survive them splitting the party?",
+   "Both paths are supposed to converge on the Gjenganger. Check the floor plan actually supports one shared choke point before committing.",
+   "Reveal order — food stash, the Spirit naming Poe Boy, Angelique's confession, the vampires learning the kid never got out. Decide which lands first and whether any order defuses the others.",
+   "Run the clue chain against the two-ways-in rule: the warded page, the pried window, the recording, the coffin count that does not match the Crier.",
+   "Pick the Saturday cliffhanger. Ideally just inside the mansion with a thread pulled."
+  ]
+ },
+ {
+  "id": "p8",
+  "t": "Give every PC something in the house that is theirs",
+  "o": "scott",
+  "c": "Puzzle",
+  "note": "Distinct from the arc item, and this half is room design rather than backstory. Sesh 5 wanted one sprinkle of mansion lore per character; what that actually needs is a physical thing they walk into — a room, an object, an encounter that lands for one player and reads as set dressing to everyone else. Two of five have the backstory hook for it; none of five has the beat. The proposals below are mine, not canon.",
+  "steps": [
+   "Bix — the room he sheltered in that rainy night, still the way he left it, with something in it that contradicts his memory: a second bedroll, a door barred from the inside, the diary. He thinks he knows what happened to him here. The house disagrees.",
+   "Gnomey — the Halloween the dares went wrong, made physical: the window the crew broke, boarded from the inside, and their initials scratched into the sill with Poe Boy's among them. Proof in front of the whole party that he used to be one of them.",
+   "Simone — she is the only PC who would recognise a soul cage for what it is. Give her the moment of naming what was done in the computer room out loud, before anyone else understands it. (Proposal only — this was a codex invention, never discussed by either of you.)",
+   "John — the blood connection, if it goes to him: a portrait, a deed, or a name cut into the Builder's Stone that matches his own. The bully finds out the house is family, in front of everyone he performs for.",
+   "Cody — open until the bio arrives.",
+   "Rule for all five: findable by the whole party, but only load-bearing for one of them. If a beat needs its owner present to work at all, it will not survive someone splitting off."
+  ]
+ },
+ {
+  "id": "p2",
+  "t": "Food stash puzzle",
+  "o": "scott",
+  "c": "Puzzle",
+  "ref": "SESH 6",
+  "note": "Solving it releases a key to a hidden room; the payoff is the reveal that the vampires live on small animals, not people. This is the puzzle that proves they are good."
+ },
+ {
+  "id": "p3",
+  "t": "Computer room: Gjenganger fight gates the machine",
+  "o": "scott",
+  "c": "Puzzle",
+  "ref": "SESH 6",
+  "note": "Combat is the price of admission to the AIM prop. The room is Poe Boy's own recording setup — the room the kid ran into and never left — so the door, the desk and the mic are all set dressing the players can read before they sit down at the machine."
+ },
+ {
+  "id": "p4",
+  "t": "One or two more puzzles for mansion pacing",
+  "o": "scott",
+  "c": "Puzzle",
+  "note": "Two sessions is a lot of house. Sesh 0 planned roughly half of session one in town, the rest in the mansion."
+ },
+ {
+  "id": "p5",
+  "t": "Write a fail-forward for every puzzle",
+  "o": "scott",
+  "c": "Puzzle",
+  "note": "A stuck party at 1 AM on a Saturday is the actual risk here, not a party that solves things too fast."
+ },
+ {
+  "id": "p6",
+  "t": "Make every reveal findable at least two ways",
+  "o": "scott",
+  "c": "Puzzle",
+  "note": "One bad roll should never be able to bury the twist."
+ },
+ {
+  "id": "m1",
+  "t": "Decide party level",
+  "o": "scott",
+  "c": "Combat",
+  "note": "Super seniors reads as tier 1–2. The choice sets every encounter budget below — and since the players build their own sheets, they need this before they can start, so it goes out to them first."
+ },
+ {
+  "id": "m2",
+  "t": "Collect and check the five character sheets",
+  "o": "scott",
+  "c": "Combat",
+  "note": "The players build their own — Bix Grimlor, Gnomey Soprano, Simone's warlock, John's bully bard, and Cody's, still unsubmitted. What is left for the DM is getting all five in hand, checking them for rules-legality, and knowing what is on them: AC, saves, ranged options and anything that trivialises a puzzle."
+ },
+ {
+  "id": "m10",
+  "t": "Craft every potential encounter, not just the named three",
+  "o": "scott",
+  "c": "Combat",
+  "gate": 1,
+  "note": "Each needs a stat line, a terrain, and an exit that is not a TPK. Downstream of party level and the five-person budget.",
+  "steps": [
+   "Lock party level first. That one choice sets every budget below it.",
+   "The optional early vampire skirmish. Sesh 2 wants a first encounter that does not have to end in a fight, so it has to be escapable and non-lethal by construction, not by DM mercy.",
+   "The Gjenganger gating the computer. Brutal up close, so the room has to make distance genuinely available and crossing it genuinely costly.",
+   "Path A's fight against the vampires — one, or all three. Sesh 2 explicitly leaves that open.",
+   "The Sesh 7 climax: Poe Boy plus the vampires he has turned, with the free ones fighting alongside the party.",
+   "The two contingencies — they kill the vampires in act one, or they refuse to go in at all.",
+   "Then run all of it against five PCs, including the case where one is down or absent."
+  ]
+ },
+ {
+  "id": "m11",
+  "t": "Make sure every act has a fight in it",
+  "o": "scott",
+  "c": "Combat",
+  "note": "A different job from crafting the encounters. This one is coverage: pick the act structure, then check no stretch of the weekend runs combat-dry. The middle is the thin part right now.",
+  "steps": [
+   "Decide the act structure first — town, mansion investigation, climax is the obvious three. The number of acts is the number of fights to hit.",
+   "Town is currently combat-free. Decide whether that is correct as setup or whether it needs a scrap to set the tone.",
+   "Mansion investigation has the Gjenganger. Covered.",
+   "The climax has Poe Boy and the vampires he has turned. Covered.",
+   "That leaves the long investigation stretch before the Gjenganger with nothing — promote the optional early skirmish from optional to load-bearing, or write something new.",
+   "Sanity check: no act should run much past ninety minutes with neither a fight nor a puzzle paying off."
+  ]
+ },
+ {
+  "id": "m3",
+  "t": "Gjenganger stat block",
+  "o": "scott",
+  "c": "Combat",
+  "ref": "SESH 6",
+  "note": "The one piece of the story spine still open — everything else about the computer room landed. Folklore gives it the advantage in close range, so the counterplay is distance, and that is room design as much as a stat block: sightlines, cover, something to put between you and it."
+ },
+ {
+  "id": "m4",
+  "t": "Final fight: Poe Boy plus the vampires he has turned",
+  "o": "scott",
+  "c": "Combat",
+  "ref": "SESH 7",
+  "note": "Sesh 7 offered mind control or manipulation and we landed on manipulation — he tells them the party are the mall company's people, the same lie that got the kid killed. The win condition is proof, not damage: the Spirit, the food stash and Angelique are what flip them mid-fight. Needs two vampire stat lines, hostile and allied, and a rule for what turning costs in initiative."
+ },
+ {
+  "id": "m5",
+  "t": "Optional early vampire skirmish",
+  "o": "scott",
+  "c": "Combat",
+  "ref": "SESH 2",
+  "note": "A first encounter that does not have to end in a fight. Build it escapable and non-lethal so killing them early is not the default outcome."
+ },
+ {
+  "id": "m6",
+  "t": "Check every encounter against a five-person party",
+  "o": "scott",
+  "c": "Combat",
+  "note": "Five PCs is a materially bigger action economy than four — every encounter budget shifts. Include the case where one player is down or absent."
+ },
+ {
+  "id": "m7",
+  "t": "Pre-set the skill DCs for the library research",
+  "o": "scott",
+  "c": "Combat",
+  "note": "So the lore reveal is not improvised at the table."
+ },
+ {
+  "id": "m8",
+  "t": "Rules cheat sheet",
+  "o": "scott",
+  "c": "Combat",
+  "note": "Grapple, cover, conditions, improvised actions — the things Spencer will ask about mid-scene."
+ },
+ {
+  "id": "m9",
+  "t": "Table kit",
+  "o": "scott",
+  "c": "Combat",
+  "note": "Initiative tracker, dice, tokens or minis, battle map for the mansion rooms."
+ },
+ {
+  "id": "h1",
+  "t": "Haunted house invitation",
+  "o": "scott",
+  "c": "Handout",
+  "ref": "SESH 7",
+  "built": 1,
+  "done": 1,
+  "note": "Live at /invite/. ~7:00 PM, Dood Mansion, homemade and clip-arty, art reworked against the reference flyers. Scott wanted it physical — printed and sealed in an envelope — so that step is what remains."
+ },
+ {
+  "id": "h2",
+  "t": "DJ show flyer",
+  "o": "scott",
+  "c": "Handout",
+  "ref": "SESH 7",
+  "note": "Not built yet. Print. 3:00 AM (witching hour, and it buys the party all night to explore). Dood Mansion. Billing is unblocked and final: DJ POE BOY much larger than Lil Stinky / ANGELIQUE. Memphis-Houston leaned-out cover art pushed toward horror, skull-pattern territory."
+ },
+ {
+  "id": "h3",
+  "t": "Library history clippings",
+  "o": "scott",
+  "c": "Handout",
+  "ref": "SESH 7",
+  "built": 1,
+  "done": 1,
+  "note": "Live at /puzzle/ as the torn 1937 Crier front page. Front is rendered art that tears; page 2 is live HTML so the lore copy stays editable."
+ },
+ {
+  "id": "h4",
+  "t": "Real estate scouting documents",
+  "o": "none",
+  "c": "Handout",
+  "ref": "SESH 6",
+  "note": "Floated as a clue that the mansion is being bought out from under the vampires. Decide whether it earns a prop."
+ },
+ {
+  "id": "h5",
+  "t": "Bix's diary from the night he sheltered there",
+  "o": "none",
+  "c": "Handout",
+  "ref": "SESH 6",
+  "note": "Will's account of that night is incomplete and the diary fills in what he missed. Needs Will's buy-in before it gets written."
+ },
+ {
+  "id": "r1",
+  "t": "AIM — haunted instant messenger",
+  "o": "scott",
+  "c": "Prop",
+  "built": 1,
+  "done": 1,
+  "note": "Built, and the placeholder script is gone — the tree is now the kid. 23 nodes, no dead ends, buddy name l0stsignal99. The branching engine and Web Audio block are the parts to copy into the next prop rather than rewrite."
+ },
+ {
+  "id": "r2",
+  "t": "Codex — this page",
+  "o": "scott",
+  "c": "Prop",
+  "built": 1,
+  "done": 1,
+  "note": "Live and shared with Spencer in the doc. Now carries the five-player cast, the backstory tab and this to-do list."
+ },
+ {
+  "id": "r3",
+  "t": "Puzzle — the torn Crier front page",
+  "o": "scott",
+  "c": "Prop",
+  "built": 1,
+  "done": 1,
+  "note": "This is the library clippings handout, not a mansion puzzle — it belongs to the town half of session one. The mansion's own puzzle, the food stash, is still unbuilt."
+ },
+ {
+  "id": "r4",
+  "t": "A prop for the food stash puzzle",
+  "o": "scott",
+  "c": "Prop",
+  "note": "If it wants to be digital. A physical lock and key may sell the hidden room better."
+ },
+ {
+  "id": "r5",
+  "t": "Test every prop on the actual iPad over LAN",
+  "o": "scott",
+  "c": "Prop",
+  "note": "The overlapping-audio bug is invisible on desktop and only shows up on the iPad. Non-negotiable before a session."
+ },
+ {
+  "id": "r6",
+  "t": "Add to Home Screen, then cache-bust",
+  "o": "scott",
+  "c": "Prop",
+  "note": "Launches fullscreen with no Safari chrome. Append ?v=n after any push, or delete and re-add the icon."
+ },
+ {
+  "id": "r7",
+  "t": "Update the landing page tiles",
+  "o": "scott",
+  "c": "Prop",
+  "done": 1,
+  "note": "So everything live is reachable from one screen at the table."
+ },
+ {
+  "id": "s1",
+  "t": "Cody's character bio",
+  "o": "spencer",
+  "c": "Story",
+  "blocked": 1,
+  "note": "Spencer texted both slow pokes in Sesh 5. Simone's came in; Cody's still has not. No sheet, no mansion connection, no hook — this blocks the party build."
+ },
+ {
+  "id": "s2",
+  "t": "Give every PC a story arc and a mansion connection",
+  "o": "both",
+  "c": "Story",
+  "note": "Two of five have a mansion connection and none of the five has a stated arc. Sesh 5 set the goal of one sprinkle of mansion lore per character; the arc half is the part nobody has written down. Both should be true for all five before the weekend.",
+  "steps": [
+   "Bix (Will) — mansion is done: he broke in one rainy night running from a foster home. Arc is open, and the Gjenganger is right there: a man who died of exactly the isolation Bix has chosen. Also unresolved — his parents' death is rumour only, and the diary idea says his own account of that night is incomplete.",
+   "Gnomey (Julia) — mansion is done: childhood dares with the crew, and one Halloween that went wrong. Arc is open: street life against the teacher who believes in him, and facing Poe Boy means facing the version of himself he walked away from.",
+   "Simone — nothing on either side yet. She sells love and revenge spells and is feared for it, which is an arc waiting to be pointed somewhere.",
+   "John — nothing on either side yet. Scott's blood-connection idea from the doc comments fits him best. Arc hangs off the insecurity he names, plus the fact that Poe Boy is running the same programme he is.",
+   "Cody — both, once the bio arrives."
+  ]
+ },
+ {
+  "id": "s3",
+  "t": "The vampire trio as characters",
+  "o": "both",
+  "c": "Story",
+  "ref": "SESH 5",
+  "note": "Their position is settled. What is missing is the three of them as people: Orlok does the actual frightening, Dracula treats it as theatre and would blab, Edward is the one who breaks first. Names, races and classes still open."
+ },
+ {
+  "id": "s4",
+  "t": "Why would the vampires ever help Poe Boy?",
+  "o": "both",
+  "c": "Story",
+  "ref": "SESH 5",
+  "done": 1,
+  "note": "It inverts: they asked him. A real-estate company wants to demolish the house for a mega mall and has knocked in daylight, when they cannot answer the door or defend themselves at all. He proposed making the place notorious enough nobody comes near it. The haunted house is their plan; he has his own use for it."
+ },
+ {
+  "id": "s11",
+  "t": "Name the kid in the computer, and the year he died",
+  "o": "both",
+  "c": "Story",
+  "note": "Everything else about him is settled. He has no name and no year, and the AIM prop is live without them."
+ },
+ {
+  "id": "s12",
+  "t": "Reconcile the coffin count",
+  "o": "both",
+  "c": "Story",
+  "note": "The Crier leaves two coffins under the chapel floor. There are three vampires. Either the prop is wrong, or one of them is not buried where the others are — and that second option is a better story than a typo."
+ },
+ {
+  "id": "s5",
+  "t": "The other malevolent forces",
+  "o": "both",
+  "c": "Story",
+  "ref": "SESH 5",
+  "note": "Each backstory looks vampire-related but turns out to be something else — the trapped spirit, the Gjenganger, whatever else."
+ },
+ {
+  "id": "s6",
+  "t": "The teacher character",
+  "o": "both",
+  "c": "Story",
+  "ref": "SESH 3",
+  "note": "Named as next session's work back in Sesh 3, never returned to. Also the bookend: the party presents the Dutch artifact to the class."
+ },
+ {
+  "id": "s7",
+  "t": "The harbinger librarian",
+  "o": "both",
+  "c": "Story",
+  "ref": "SESH 1",
+  "note": "The one NPC who warns them off. Spencer wanted a modern spin on the archetype."
+ },
+ {
+  "id": "s8",
+  "t": "Branch map: fight-advantage route vs no-fight route",
+  "o": "both",
+  "c": "Story",
+  "ref": "SESH 2",
+  "note": "The fork where they either learn how to kill the vampires — dig up the coffins, stake, rebury — or learn they never had to."
+ },
+ {
+  "id": "s9",
+  "t": "Contingencies",
+  "o": "both",
+  "c": "Story",
+  "note": "What happens if they kill the vampires in act one, or refuse to enter the house at all. Two sentences each is enough."
+ },
+ {
+  "id": "s10",
+  "t": "Pick the session break point",
+  "o": "both",
+  "c": "Story",
+  "note": "Two sessions, Saturday and Sunday. Ideally Saturday ends just inside the mansion on a cliffhanger."
+ },
+ {
+  "id": "t1",
+  "t": "Lock date, place, food and session length",
+  "o": "both",
+  "c": "Weekend"
+ },
+ {
+  "id": "t2",
+  "t": "Ambient playlists per zone",
+  "o": "both",
+  "c": "Weekend",
+  "note": "School, town, mansion, combat. Scott offered to collab on background and music in a doc comment."
+ },
+ {
+  "id": "t3",
+  "t": "Background slides per setting",
+  "o": "none",
+  "c": "Weekend",
+  "ref": "SESH 1",
+  "note": "Offered to either of you. Still unclaimed."
+ },
+ {
+  "id": "t4",
+  "t": "Decide who narrates what",
+  "o": "none",
+  "c": "Weekend",
+  "ref": "SESH 1",
+  "note": "Spencer wants to voice the NPCs but is open to sharing. Narration was left genuinely open."
+ },
+ {
+  "id": "t5",
+  "t": "Lighting and set dressing",
+  "o": "none",
+  "c": "Weekend",
+  "note": "Candles, lamps off, whatever sells a 3 AM haunted house in a living room."
+ },
+ {
+  "id": "t7",
+  "t": "Write the general pre-session prep checklist",
+  "o": "both",
+  "c": "Weekend",
+  "note": "Not campaign-specific — the reusable list of what any DM needs in hand before running a weekend: rules and pre-set DCs, safety tools, table kit, pacing and break points, contingencies, and where the prep-versus-improvise line sits."
+ },
+ {
+  "id": "t6",
+  "t": "Agree on safety tools",
+  "o": "both",
+  "c": "Weekend",
+  "note": "Lines and veils, or an X-card. Sixty seconds up front, and the horror premise earns it."
+ }
+];
+const TD_OWNER={scott:"Scott",spencer:"Spencer",both:"Shared",none:"Unassigned"};
+let tdF="all";
+
+function tdRender(){
+  const rows=[...TODO_LIST].sort((a,b)=>(a.done?1:0)-(b.done?1:0));
+  document.getElementById("td-list").innerHTML=rows.map(x=>{
+    let tags=`<span class="td-tag who ${x.o}">${TD_OWNER[x.o]}</span><span class="td-tag cat">${x.c}</span>`;
+    if(x.ref)     tags+=`<span class="td-tag ref">${x.ref}</span>`;
+    if(x.blocked) tags+=`<span class="td-tag flag">Blocking</span>`;
+    if(x.needs)   tags+=`<span class="td-tag flag">Needs input</span>`;
+    if(x.built)   tags+=`<span class="td-tag live">Live</span>`;
+    if(x.gate)    tags+=`<span class="td-tag gate">Gates the rest</span>`;
+    return `<li class="td-item${x.done?" is-done":""}" data-o="${x.o}" data-done="${x.done?1:0}">
+      <span class="td-mark">&#10003;</span>
+      <div class="td-body">
+        <div class="td-t">${x.t}</div>
+        ${x.ans?`<p class="td-ans"><b>Locked in:</b> ${x.ans}</p>`:""}
+        ${x.note?`<p class="td-note">${x.note}</p>`:""}
+        ${x.steps?`<ol class="td-steps">${x.steps.map(v=>`<li>${v}</li>`).join("")}</ol>`:""}
+        <div class="td-tags">${tags}</div>
+      </div></li>`;
+  }).join("");
+  tdFilter(tdF);
+}
+
+function tdFilter(f){
+  tdF=f;
+  let vis=0, first=null;
+  document.querySelectorAll("#td-list .td-item").forEach(li=>{
+    const o=li.dataset.o, d=li.dataset.done==="1";
+    const show = f==="all" ? true : f==="open" ? !d : o===f;
+    li.hidden=!show; li.classList.remove("td-first-done");
+    if(show){ vis++; if(!first && d) first=li; }
+  });
+  if(first) first.classList.add("td-first-done");
+  const total=TODO_LIST.length, done=TODO_LIST.filter(x=>x.done).length;
+  document.getElementById("td-count").innerHTML =
+    f==="all" ? `<b>${done}</b> of ${total} done`
+              : `Showing ${vis} of ${total} &middot; <b>${done}</b> done overall`;
+  document.querySelectorAll("#td-filters button").forEach(b=>b.classList.toggle("on", b.dataset.f===f));
+}
+
+document.getElementById("td-filters").addEventListener("click",e=>{
+  const b=e.target.closest("[data-f]"); if(b) tdFilter(b.dataset.f);
+});
+tdRender();
 
 /* ---------------- TABS ---------------- */
 document.querySelectorAll("#tabs button").forEach(b=>{
