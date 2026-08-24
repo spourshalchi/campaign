@@ -24,13 +24,12 @@ Three things in the codex were not just unsourced, they were wrong:
 
 1. **Table roles were reversed.** Sesh 1 is written by Spencer: *"I know I am doing the story, the lore,
    I would like to do the voicing of NPC's"* and *"things I know you'll be doing is puzzles/room design,
-   I would need you to run combat... officiating rules."* So **Spencer = story, lore, NPC voices** and
-   **Scott = puzzles, room design, combat, rules**. The codex had them swapped, which also mislabeled the
-   choke-point map question as "Spencer's call" when it's Scott's.
+   I would need you to run combat... officiating rules."* The codex had that swapped. Note the split has
+   since loosened — **story is shared in practice**; puzzles, rooms, combat and rules are still Scott's.
 2. **Bix ↔ Angelique was tagged as romance.** Sesh 5 says the friendship got *"more serious platonically"*
    before he pushed her away. Retagged as a backstory bond.
-3. **The Backstory tab claimed "locked canon."** It's Sesh 7 — Scott's write-up, in Spencer's lane, and
-   Spencer has not responded to it in the doc (his last comment is 2026-07-24). Relabeled to say so.
+3. **The Backstory tab claimed "locked canon."** It's Sesh 7, near-verbatim. Relabeled to say where it
+   came from rather than asserting a lock the doc never records.
 
 ---
 
@@ -70,8 +69,8 @@ the door held shut, the badly-cast **soul cage** with no vessel, the computer ta
 window lie to the vampires, the haunted-house plan, Poe Boy's secret plan, and Angelique's suspicion
 that puts her inside the house — **all of it is Sesh 7, verbatim.**
 
-⚠️ Written by Scott. Story and lore are Spencer's role per Sesh 1, and he has not responded to Sesh 7
-in the doc. Treat as in-doc but **awaiting Spencer's sign-off**.
+⚠️ Written by Scott. Sesh 1 originally put story and lore on Spencer, but in practice **both of you build
+the story now** — so this counts as in-doc like anything else, not as one person's unratified draft.
 
 ### Research the doc actually contains
 | Claim | Source |
@@ -191,11 +190,10 @@ All nine "getting them to the next beat" notes are invented DM stagecraft:
 
 ## Open questions worth settling
 
-1. Does Spencer ratify Sesh 7? Everything downstream — the AIM prop, the Spirit, Angelique's arc — rests on it.
-2. Is the Gjenganger in? Spencer's *"up to you"* was never answered, and it's now a whole set-piece.
-3. Who is the dead kid? Name, year, enough of a life that the table feels it.
-4. Does the 1937 Crier become canon, get rewritten to the doc's 1973 Frisian version, or stay a prop that nobody has to believe?
-5. John's insecurity — his to name.
-6. Cody's PC.
-7. The 4th crew member.
-8. Lock or kill: Dood Mansion, Upton Maximillion Livingsworth III, and the DJ/kingpin names that are locked only by repetition.
+1. Is the Gjenganger in? Spencer's *"up to you"* was never answered, and it's now a whole set-piece.
+2. Who is the dead kid? Name, year, enough of a life that the table feels it.
+3. Does the 1937 Crier become canon, get rewritten to the doc's 1973 Frisian version, or stay a prop that nobody has to believe?
+4. John's insecurity — his to name.
+5. Cody's PC.
+6. The 4th crew member.
+7. Lock or kill: Dood Mansion, Upton Maximillion Livingsworth III, and the DJ/kingpin names that are locked only by repetition.
