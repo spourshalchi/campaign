@@ -1,5 +1,12 @@
 # Torn Page — The Transyltown Crier
 
+> **⚠ Canon status: NOT CANON — prop-only, unratified.** Everything in this prop's 1937 article is
+> invented. The brainstorm doc's actual source is a **1973** legend told by a Frisian skipper
+> (Sesh 2); the local-newspaper framing, Joost Wiegman, Dr. Vance, Aletta Bruin, the Hoeck boy,
+> Rev. Ackerman, Cornelis Dood, the 1904 date, the trusts, the ward, and the **three-coffin count**
+> were all written here, not agreed by Scott and Spencer. Scott's call: the prop stays as built, but
+> none of it binds the campaign until Spencer signs off. See `/CANON.md`.
+
 The party's in-town research stop. A torn front page from the library's bound
 volumes: assemble it against the clock, then flip it to read page 2.
 

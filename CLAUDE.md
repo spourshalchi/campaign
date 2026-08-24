@@ -2,6 +2,23 @@
 
 This repo holds a collection of single-page, themed, interactable webpages used as in-game props during D&D sessions, hosted on GitHub Pages. Players interact with them on an iPad at the table.
 
+## Canon discipline — read before writing any lore
+
+The campaign's story is decided by Scott and Spencer in the
+[brainstorm doc](https://docs.google.com/document/d/1UXole4uGten28LVWA-ePK14ten4GIOj_ZfYEnsIRuWM/edit).
+**Nothing becomes canon by being written into this repo.** Props and the codex have previously invented
+whole characters, dates, documents and motives that then got treated as established fact.
+
+- Read **[CANON.md](CANON.md)** before adding or changing any story detail.
+- Anything you invent — a name, a date, an NPC's motive, a connective story beat — ships as
+  **not canon** and gets logged in `CANON.md` under 🟡 with a note on where it came from.
+- In the codex, that means `s:"ai"` on the data item (or an `ai:"..."` note on an otherwise
+  doc-sourced item). The badge and the Not Canon Yet tab render themselves from that field.
+- In a prop, that means a canon-status banner at the top of the prop's README/brief.
+- Never write "Answered" or "Locked" next to something the doc doesn't say. If the doc hedges
+  ("could be", "up to you if we go with it"), the codex hedges too.
+- Cite the session (`Sesh 5`, `Character Bios`) for anything marked 📗.
+
 ## Layout convention
 
 Each prop is a **self-contained folder at the repo root**. No build step, no framework, no shared dependencies — every prop must be openable as raw HTML.

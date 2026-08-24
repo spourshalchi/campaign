@@ -17,10 +17,18 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 │   ├── README.md
 │   └── assets/
 ├── codex/            ← DM-facing campaign codex (not linked from the landing page)
+├── CANON.md          ← canon ledger: what came from the brainstorm doc vs. what an AI made up
 ├── CLAUDE.md         ← agent guide for adding new props
 ├── README.md         ← this file
 └── split_sounds.py   ← utility for splitting WAV dumps into clips
 ```
+
+## Canon
+
+The story lives in the [brainstorm doc](https://docs.google.com/document/d/1UXole4uGten28LVWA-ePK14ten4GIOj_ZfYEnsIRuWM/edit) — that's the only place canon is made.
+Props and the codex have generated a lot of connective tissue on their own, so **[CANON.md](CANON.md)**
+tracks every claim as either 📗 *in doc* (with the session it came from) or 🟡 *not canon* (invented here).
+The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
 
 ## Current props
 

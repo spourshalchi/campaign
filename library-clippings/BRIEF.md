@@ -1,5 +1,11 @@
 # Library History Clippings — Build Brief
 
+> **⚠ Read `/CANON.md` alongside this.** This brief mixes doc-sourced material with proposals it
+> generated itself. The doc-sourced parts are the fampier quote, the Frisian Kingdom material, the
+> Gjenganger entry, and the player bios. Everything the prop was ultimately built on — the 1937
+> newspaper, its named characters, the coffin count, the ward — is **not canon**. John's class is
+> "leaning Bard" in the doc, not College of Whispers.
+
 Everything needed to draft this handout without re-reading the whole brainstorm doc.
 Source: the Scott & Spencer campaign doc, brainstorm sessions 0–7.
 
