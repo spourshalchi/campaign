@@ -171,6 +171,7 @@
   .td-tag.ref{border-style:dashed}
   .td-tag.flag{color:var(--blood);border-color:var(--blood)}
   .td-tag.gate{color:var(--gold);border-color:var(--gold)}
+  .td-tag.top{color:#1a1206;background:var(--gold);border-color:var(--gold);font-weight:700}
   .td-tag.live{color:var(--green);border-color:var(--green)}
 
   /* ---- cast cards ---- */
@@ -299,7 +300,7 @@
   <!-- ============ TO-DO ============ -->
   <section class="tab active" id="tab-todo">
     <h2 class="sec">Everything still to do</h2>
-    <p class="sub">One list, on the same page as everything else &mdash; there is no separate board to keep in sync. Every row carries who owns it, and the ones nobody has claimed say so. Items are marked done in the source as they land, so there is nothing to click.</p>
+    <p class="sub">Ordered by what unblocks the most, not by lane. The story comes first &mdash; the rooms are shaped by it, the encounters by the rooms, and the handouts only get printed once the names on them stop moving. Five items are marked <b>Start here</b>. Every row carries who owns it, and the ones nobody has claimed say so. Items are marked done in the source as they land, so there is nothing to click.</p>
     <div class="td-bar">
       <div class="td-filters" id="td-filters">
         <button data-f="all" class="on">Everything</button>
@@ -962,11 +963,114 @@ document.getElementById("flagtoggle").addEventListener("change",e=>{
 /* ---------------- RENDER: TO-DO ---------------- */
 const TODO_LIST = [
  {
-  "id": "o1",
-  "t": "Propose moving the DJ show flyer to Spencer",
+  "id": "p7",
+  "t": "Walk the mansion half of the story end to end",
   "o": "scott",
-  "c": "Outbox",
-  "done": 1
+  "c": "Puzzle",
+  "ref": "S8 · S10",
+  "note": "The backstory is locked now, so the front half holds together. This is the pass over everything after the doors bolt — does each beat still hand the next one a reason to happen, or were some leaning on things that have since changed?",
+  "steps": [
+   "Start at the doors bolting and go beat by beat. Every scene has to end owing the next one something.",
+   "The fork: how do the players find out there is a choice at all, and does that survive them splitting the party?",
+   "Both paths are supposed to converge on the Gjenganger. Check the floor plan actually supports one shared choke point before committing.",
+   "Reveal order — food stash, the Spirit naming Poe Boy, Angelique's confession, the vampires learning the kid never got out. Decide which lands first and whether any order defuses the others.",
+   "Run the clue chain against the two-ways-in rule: the warded page, the pried window, the recording, the coffin count that does not match the Crier.",
+   "Pick the Saturday cliffhanger. Ideally just inside the mansion with a thread pulled."
+  ],
+  "top": 1
+ },
+ {
+  "id": "s8",
+  "t": "Branch map: fight-advantage route vs no-fight route",
+  "o": "both",
+  "c": "Story",
+  "ref": "SESH 2",
+  "note": "The fork where they either learn how to kill the vampires — dig up the coffins, stake, rebury — or learn they never had to.",
+  "top": 1
+ },
+ {
+  "id": "s3",
+  "t": "The vampire trio as characters",
+  "o": "both",
+  "c": "Story",
+  "ref": "SESH 5",
+  "note": "Their position is settled. What is missing is the three of them as people: Orlok does the actual frightening, Dracula treats it as theatre and would blab, Edward is the one who breaks first. Names, races and classes still open.",
+  "top": 1
+ },
+ {
+  "id": "s2",
+  "t": "Give every PC a story arc and a mansion connection",
+  "o": "both",
+  "c": "Story",
+  "note": "Two of five have a mansion connection and none of the five has a stated arc. Sesh 5 set the goal of one sprinkle of mansion lore per character; the arc half is the part nobody has written down. Both should be true for all five before the weekend.",
+  "steps": [
+   "Bix (Will) — mansion is done: he broke in one rainy night running from a foster home. Arc is open, and the Gjenganger is right there: a man who died of exactly the isolation Bix has chosen. Also unresolved — his parents' death is rumour only, and the diary idea says his own account of that night is incomplete.",
+   "Gnomey (Julia) — mansion is done: childhood dares with the crew, and one Halloween that went wrong. Arc is open: street life against the teacher who believes in him, and facing Poe Boy means facing the version of himself he walked away from.",
+   "Simone — nothing on either side yet. She sells love and revenge spells and is feared for it, which is an arc waiting to be pointed somewhere.",
+   "John — nothing on either side yet. Scott's blood-connection idea from the doc comments fits him best. Arc hangs off the insecurity he names, plus the fact that Poe Boy is running the same programme he is.",
+   "Cody — both, once the bio arrives."
+  ],
+  "top": 1
+ },
+ {
+  "id": "s11",
+  "t": "Name the kid in the computer, and the year he died",
+  "o": "both",
+  "c": "Story",
+  "note": "Everything else about him is settled. He has no name and no year, and the AIM prop is live without them."
+ },
+ {
+  "id": "s5",
+  "t": "The other malevolent forces",
+  "o": "both",
+  "c": "Story",
+  "ref": "SESH 5",
+  "note": "Each backstory looks vampire-related but turns out to be something else — the trapped spirit, the Gjenganger, whatever else."
+ },
+ {
+  "id": "s10",
+  "t": "Pick the session break point",
+  "o": "both",
+  "c": "Story",
+  "note": "Two sessions, Saturday and Sunday. Ideally Saturday ends just inside the mansion on a cliffhanger."
+ },
+ {
+  "id": "s9",
+  "t": "Contingencies",
+  "o": "both",
+  "c": "Story",
+  "note": "What happens if they kill the vampires in act one, or refuse to enter the house at all. Two sentences each is enough."
+ },
+ {
+  "id": "s6",
+  "t": "The teacher character",
+  "o": "both",
+  "c": "Story",
+  "ref": "SESH 3",
+  "note": "Named as next session's work back in Sesh 3, never returned to. Also the bookend: the party presents the Dutch artifact to the class."
+ },
+ {
+  "id": "s7",
+  "t": "The harbinger librarian",
+  "o": "both",
+  "c": "Story",
+  "ref": "SESH 1",
+  "note": "The one NPC who warns them off. Spencer wanted a modern spin on the archetype."
+ },
+ {
+  "id": "s12",
+  "t": "Reconcile the coffin count",
+  "o": "both",
+  "c": "Story",
+  "note": "The Crier leaves two coffins under the chapel floor. There are three vampires. Either the prop is wrong, or one of them is not buried where the others are — and that second option is a better story than a typo."
+ },
+ {
+  "id": "s1",
+  "t": "Cody's character bio",
+  "o": "spencer",
+  "c": "Story",
+  "blocked": 1,
+  "note": "Spencer texted both slow pokes in Sesh 5. Simone's came in; Cody's still has not. No sheet, no mansion connection, no hook — this blocks the party build."
  },
  {
   "id": "o2",
@@ -977,19 +1081,273 @@ const TODO_LIST = [
   "note": "Left open on purpose rather than filled in by the DM — it is the thing that keeps the character from being just a mean guy, so it should be his. The bard, the bully act and the web edges are already in the cast; only this is waiting."
  },
  {
-  "id": "o4",
-  "t": "Send Spencer a summary of what landed",
+  "id": "o5",
+  "t": "Finish writing the locked decisions into the brainstorm doc",
   "o": "scott",
   "c": "Outbox",
-  "done": 1,
-  "note": "The Crier at /puzzle/, the invitation at /invite/, and this codex with the five-player cast and the backstory tab."
+  "note": "Partly done. Sesh 8 now carries the three race/class picks — Poe Boy as a Kenku Bard (Glamour), Lil Stinky as a Paladin (Oath of Devotion), Angelique as a Changeling Rogue — plus the note that Lil Stinky's and Simone's races are still open. Six are still missing: the DJ's stage name, Lil Stinky's name, cutting the fourth crew member, keeping Dood Mansion, the Gjenganger being in, and killed-by-a-human as the Spirit's clue. Sesh 6 still asks whether Dood Mansion is too dumb and still bills a 4th member on the flyer, so anyone reading the doc cold gets the old answer."
  },
  {
-  "id": "o5",
-  "t": "Write the ten locked decisions into the brainstorm doc",
+  "id": "p1",
+  "t": "Mansion floor plan and room list",
+  "o": "scott",
+  "c": "Puzzle",
+  "gate": 1,
+  "note": "The gating item. Everything Spencer still owes for the mansion is downstream of it.",
+  "top": 1
+ },
+ {
+  "id": "p8",
+  "t": "Give every PC something in the house that is theirs",
+  "o": "scott",
+  "c": "Puzzle",
+  "note": "Distinct from the arc item, and this half is room design rather than backstory. Sesh 5 wanted one sprinkle of mansion lore per character; what that actually needs is a physical thing they walk into — a room, an object, an encounter that lands for one player and reads as set dressing to everyone else. Two of five have the backstory hook for it; none of five has the beat. The proposals below are mine, not canon.",
+  "steps": [
+   "Bix — the room he sheltered in that rainy night, still the way he left it, with something in it that contradicts his memory: a second bedroll, a door barred from the inside, the diary. He thinks he knows what happened to him here. The house disagrees.",
+   "Gnomey — the Halloween the dares went wrong, made physical: the window the crew broke, boarded from the inside, and their initials scratched into the sill with Poe Boy's among them. Proof in front of the whole party that he used to be one of them.",
+   "Simone — she is the only PC who would recognise a soul cage for what it is. Give her the moment of naming what was done in the computer room out loud, before anyone else understands it. (Proposal only — this was a codex invention, never discussed by either of you.)",
+   "John — the blood connection, if it goes to him: a portrait, a deed, or a name cut into the Builder's Stone that matches his own. The bully finds out the house is family, in front of everyone he performs for.",
+   "Cody — open until the bio arrives.",
+   "Rule for all five: findable by the whole party, but only load-bearing for one of them. If a beat needs its owner present to work at all, it will not survive someone splitting off."
+  ]
+ },
+ {
+  "id": "p2",
+  "t": "Food stash puzzle",
+  "o": "scott",
+  "c": "Puzzle",
+  "ref": "SESH 6",
+  "note": "Solving it releases a key to a hidden room; the payoff is the reveal that the vampires live on small animals, not people. This is the puzzle that proves they are good."
+ },
+ {
+  "id": "p3",
+  "t": "Computer room: Gjenganger fight gates the machine",
+  "o": "scott",
+  "c": "Puzzle",
+  "ref": "SESH 6",
+  "note": "Combat is the price of admission to the AIM prop. The room is Poe Boy's own recording setup — the room the kid ran into and never left — so the door, the desk and the mic are all set dressing the players can read before they sit down at the machine."
+ },
+ {
+  "id": "p4",
+  "t": "One or two more puzzles for mansion pacing",
+  "o": "scott",
+  "c": "Puzzle",
+  "note": "Two sessions is a lot of house. Sesh 0 planned roughly half of session one in town, the rest in the mansion."
+ },
+ {
+  "id": "p5",
+  "t": "Write a fail-forward for every puzzle",
+  "o": "scott",
+  "c": "Puzzle",
+  "note": "A stuck party at 1 AM on a Saturday is the actual risk here, not a party that solves things too fast."
+ },
+ {
+  "id": "p6",
+  "t": "Make every reveal findable at least two ways",
+  "o": "scott",
+  "c": "Puzzle",
+  "note": "One bad roll should never be able to bury the twist."
+ },
+ {
+  "id": "m1",
+  "t": "Decide party level",
+  "o": "scott",
+  "c": "Combat",
+  "note": "DECIDED: level 3, leveling to 4 at the end of day one — so everything on Sunday is built for five level-4 PCs. Not in the Google Doc yet.",
+  "done": 1
+ },
+ {
+  "id": "m2",
+  "t": "Collect and check the five character sheets",
+  "o": "scott",
+  "c": "Combat",
+  "note": "The players build their own — Bix Grimlor, Gnomey Soprano, Simone's warlock, John's bully bard, and Cody's, still unsubmitted. What is left for the DM is getting all five in hand, checking them for rules-legality, and knowing what is on them: AC, saves, ranged options and anything that trivialises a puzzle."
+ },
+ {
+  "id": "m10",
+  "t": "Craft every potential encounter, not just the named three",
+  "o": "scott",
+  "c": "Combat",
+  "gate": 1,
+  "note": "Each needs a stat line, a terrain, and an exit that is not a TPK. Downstream of party level and the five-person budget.",
+  "steps": [
+   "Lock party level first. That one choice sets every budget below it.",
+   "The optional early vampire skirmish. Sesh 2 wants a first encounter that does not have to end in a fight, so it has to be escapable and non-lethal by construction, not by DM mercy.",
+   "The Gjenganger gating the computer. Brutal up close, so the room has to make distance genuinely available and crossing it genuinely costly.",
+   "Path A's fight against the vampires — one, or all three. Sesh 2 explicitly leaves that open.",
+   "The Sesh 7 climax: Poe Boy plus the vampires he has turned, with the free ones fighting alongside the party.",
+   "The two contingencies — they kill the vampires in act one, or they refuse to go in at all.",
+   "Then run all of it against five PCs, including the case where one is down or absent."
+  ]
+ },
+ {
+  "id": "m11",
+  "t": "Make sure every act has a fight in it",
+  "o": "scott",
+  "c": "Combat",
+  "note": "A different job from crafting the encounters. This one is coverage: pick the act structure, then check no stretch of the weekend runs combat-dry. The middle is the thin part right now.",
+  "steps": [
+   "Decide the act structure first — town, mansion investigation, climax is the obvious three. The number of acts is the number of fights to hit.",
+   "Town is currently combat-free. Decide whether that is correct as setup or whether it needs a scrap to set the tone.",
+   "Mansion investigation currently rests entirely on the Gjenganger, which is parked. If it does not come back, this act has no fight at all.",
+   "The climax has Poe Boy and the vampires he has turned. Covered.",
+   "That leaves the long investigation stretch before the Gjenganger with nothing — promote the optional early skirmish from optional to load-bearing, or write something new.",
+   "Sanity check: no act should run much past ninety minutes with neither a fight nor a puzzle paying off."
+  ]
+ },
+ {
+  "id": "m3",
+  "t": "Gjenganger stat block — parked",
+  "o": "scott",
+  "c": "Combat",
+  "ref": "SESH 6",
+  "note": "On hold with the rest of the creature. Draft spec is in PROPOSALS.md and is canon to nobody. If it stays: folklore gives it the advantage in close range, so the counterplay is distance, and that is room design as much as a stat block. If it goes: the mansion loses its only set-piece and needs another."
+ },
+ {
+  "id": "m4",
+  "t": "Final fight: Poe Boy plus the vampires he has turned",
+  "o": "scott",
+  "c": "Combat",
+  "ref": "SESH 7",
+  "note": "Sesh 7 offered mind control or manipulation and we landed on manipulation — he tells them the party are the mall company's people, the same lie that got the kid killed. The win condition is proof, not damage: the Spirit, the food stash and Angelique are what flip them mid-fight. Needs two vampire stat lines, hostile and allied, and a rule for what turning costs in initiative."
+ },
+ {
+  "id": "m5",
+  "t": "Optional early vampire skirmish",
+  "o": "scott",
+  "c": "Combat",
+  "ref": "SESH 2",
+  "note": "A first encounter that does not have to end in a fight. Build it escapable and non-lethal so killing them early is not the default outcome."
+ },
+ {
+  "id": "m6",
+  "t": "Check every encounter against a five-person party",
+  "o": "scott",
+  "c": "Combat",
+  "note": "Five PCs is a materially bigger action economy than four — every encounter budget shifts. Include the case where one player is down or absent."
+ },
+ {
+  "id": "m7",
+  "t": "Pre-set the skill DCs for the library research",
+  "o": "scott",
+  "c": "Combat",
+  "note": "So the lore reveal is not improvised at the table."
+ },
+ {
+  "id": "m8",
+  "t": "Rules cheat sheet",
+  "o": "scott",
+  "c": "Combat",
+  "note": "Grapple, cover, conditions, improvised actions — the things Spencer will ask about mid-scene."
+ },
+ {
+  "id": "m9",
+  "t": "Table kit",
+  "o": "scott",
+  "c": "Combat",
+  "note": "Initiative tracker, dice, tokens or minis, battle map for the mansion rooms."
+ },
+ {
+  "id": "h2",
+  "t": "DJ show flyer",
+  "o": "scott",
+  "c": "Handout",
+  "ref": "SESH 7",
+  "note": "Not built yet. Print. 3:00 AM (witching hour, and it buys the party all night to explore). Dood Mansion. Billing is unblocked and final: DJ POE BOY much larger than Lil Stinky / ANGELIQUE. Memphis-Houston leaned-out cover art pushed toward horror, skull-pattern territory."
+ },
+ {
+  "id": "h4",
+  "t": "Real estate scouting documents",
+  "o": "none",
+  "c": "Handout",
+  "ref": "SESH 6",
+  "note": "Floated as a clue that the mansion is being bought out from under the vampires. Decide whether it earns a prop."
+ },
+ {
+  "id": "h5",
+  "t": "Bix's diary from the night he sheltered there",
+  "o": "none",
+  "c": "Handout",
+  "ref": "SESH 6",
+  "note": "Will's account of that night is incomplete and the diary fills in what he missed. Needs Will's buy-in before it gets written."
+ },
+ {
+  "id": "r4",
+  "t": "A prop for the food stash puzzle",
+  "o": "scott",
+  "c": "Prop",
+  "note": "If it wants to be digital. A physical lock and key may sell the hidden room better."
+ },
+ {
+  "id": "r5",
+  "t": "Test every prop on the actual iPad over LAN",
+  "o": "scott",
+  "c": "Prop",
+  "note": "The overlapping-audio bug is invisible on desktop and only shows up on the iPad. Non-negotiable before a session."
+ },
+ {
+  "id": "r6",
+  "t": "Add to Home Screen, then cache-bust",
+  "o": "scott",
+  "c": "Prop",
+  "note": "Launches fullscreen with no Safari chrome. Append ?v=n after any push, or delete and re-add the icon."
+ },
+ {
+  "id": "t1",
+  "t": "Lock date, place, food and session length",
+  "o": "both",
+  "c": "Weekend"
+ },
+ {
+  "id": "t7",
+  "t": "Write the general pre-session prep checklist",
+  "o": "both",
+  "c": "Weekend",
+  "note": "Not campaign-specific — the reusable list of what any DM needs in hand before running a weekend: rules and pre-set DCs, safety tools, table kit, pacing and break points, contingencies, and where the prep-versus-improvise line sits."
+ },
+ {
+  "id": "t6",
+  "t": "Agree on safety tools",
+  "o": "both",
+  "c": "Weekend",
+  "note": "Lines and veils, or an X-card. Sixty seconds up front, and the horror premise earns it."
+ },
+ {
+  "id": "t2",
+  "t": "Ambient playlists per zone",
+  "o": "both",
+  "c": "Weekend",
+  "note": "School, town, mansion, combat. Scott offered to collab on background and music in a doc comment."
+ },
+ {
+  "id": "t3",
+  "t": "Background slides per setting",
+  "o": "none",
+  "c": "Weekend",
+  "ref": "SESH 1",
+  "note": "Offered to either of you. Still unclaimed."
+ },
+ {
+  "id": "t4",
+  "t": "Decide who narrates what",
+  "o": "none",
+  "c": "Weekend",
+  "ref": "SESH 1",
+  "note": "Spencer wants to voice the NPCs but is open to sharing. Narration was left genuinely open."
+ },
+ {
+  "id": "t5",
+  "t": "Lighting and set dressing",
+  "o": "none",
+  "c": "Weekend",
+  "note": "Candles, lamps off, whatever sells a 3 AM haunted house in a living room."
+ },
+ {
+  "id": "o1",
+  "t": "Propose moving the DJ show flyer to Spencer",
   "o": "scott",
   "c": "Outbox",
-  "note": "The doc is the canon source and none of the ten answers are in it — names, races, classes, the cut fourth crew member. Right now they exist only here, which is the exact drift CANON.md was written to stop. Until they are in the doc they show as not-canon on the cards."
+  "done": 1
  },
  {
   "id": "o3",
@@ -998,6 +1356,14 @@ const TODO_LIST = [
   "c": "Outbox",
   "done": 1,
   "note": "The doc is the canon source and had no John in it at all — no Character Bios entry, no line in Sesh 5 where everyone gets connected to the mansion. Also states the party is five, not four."
+ },
+ {
+  "id": "o4",
+  "t": "Send Spencer a summary of what landed",
+  "o": "scott",
+  "c": "Outbox",
+  "done": 1,
+  "note": "The Crier at /puzzle/, the invitation at /invite/, and this codex with the five-player cast and the backstory tab."
  },
  {
   "id": "q1",
@@ -1068,17 +1434,16 @@ const TODO_LIST = [
   "o": "scott",
   "c": "Decision",
   "done": 1,
-  "ans": "Keep it",
-  "note": "Dood is Dutch for dead. Spencer flagged it himself. It appears on both printed handouts, so it needed locking before printing."
+  "ans": "Keep it — and Dood is the builder's surname too",
+  "note": "Dood is Dutch for dead, and Scott has since ratified that it is also the builder's family surname, which makes Cornelis Dood a real person in the fiction rather than a prop invention. Answers Spencer's Sesh 6 'lmk if thats too dumb lol'. Not in the Google Doc yet."
  },
  {
   "id": "q9",
   "t": "Use the Gjenganger at all?",
   "o": "scott",
   "c": "Decision",
-  "done": 1,
-  "ans": "Yes",
-  "note": "He is load-bearing now. The Crier's Builder's Stone sidebar already puts him in a player-facing prop. Still open: what broke the ward, since it evidently held for decades."
+  "ans": "Parked — see PROPOSALS.md",
+  "note": "Was answered Yes, then parked. Spencer's Sesh 2 line was 'Up to you if we go with it' and by Sesh 6 he had written it a backstory and a combat plan anyway. The whole creature — motive, whether it is Cornelis Dood, stat block, encounter — is now on hold in PROPOSALS.md, agreed to by nobody. It is currently the only set-piece encounter, so a no needs a replacement."
  },
  {
   "id": "q10",
@@ -1088,180 +1453,6 @@ const TODO_LIST = [
   "done": 1,
   "ans": "Yes — and he can name Poe Boy",
   "note": "The vampires never touched him — they chased him exactly as agreed, believing he was a mall scout. Poe Boy held the door, then soul-caged him into the recording rig. So the clue is literally true rather than a technicality."
- },
- {
-  "id": "p1",
-  "t": "Mansion floor plan and room list",
-  "o": "scott",
-  "c": "Puzzle",
-  "gate": 1,
-  "note": "The gating item. Everything Spencer still owes for the mansion is downstream of it."
- },
- {
-  "id": "p7",
-  "t": "Walk the mansion half of the story end to end",
-  "o": "scott",
-  "c": "Puzzle",
-  "ref": "S8 · S10",
-  "note": "The backstory is locked now, so the front half holds together. This is the pass over everything after the doors bolt — does each beat still hand the next one a reason to happen, or were some leaning on things that have since changed?",
-  "steps": [
-   "Start at the doors bolting and go beat by beat. Every scene has to end owing the next one something.",
-   "The fork: how do the players find out there is a choice at all, and does that survive them splitting the party?",
-   "Both paths are supposed to converge on the Gjenganger. Check the floor plan actually supports one shared choke point before committing.",
-   "Reveal order — food stash, the Spirit naming Poe Boy, Angelique's confession, the vampires learning the kid never got out. Decide which lands first and whether any order defuses the others.",
-   "Run the clue chain against the two-ways-in rule: the warded page, the pried window, the recording, the coffin count that does not match the Crier.",
-   "Pick the Saturday cliffhanger. Ideally just inside the mansion with a thread pulled."
-  ]
- },
- {
-  "id": "p8",
-  "t": "Give every PC something in the house that is theirs",
-  "o": "scott",
-  "c": "Puzzle",
-  "note": "Distinct from the arc item, and this half is room design rather than backstory. Sesh 5 wanted one sprinkle of mansion lore per character; what that actually needs is a physical thing they walk into — a room, an object, an encounter that lands for one player and reads as set dressing to everyone else. Two of five have the backstory hook for it; none of five has the beat. The proposals below are mine, not canon.",
-  "steps": [
-   "Bix — the room he sheltered in that rainy night, still the way he left it, with something in it that contradicts his memory: a second bedroll, a door barred from the inside, the diary. He thinks he knows what happened to him here. The house disagrees.",
-   "Gnomey — the Halloween the dares went wrong, made physical: the window the crew broke, boarded from the inside, and their initials scratched into the sill with Poe Boy's among them. Proof in front of the whole party that he used to be one of them.",
-   "Simone — she is the only PC who would recognise a soul cage for what it is. Give her the moment of naming what was done in the computer room out loud, before anyone else understands it. (Proposal only — this was a codex invention, never discussed by either of you.)",
-   "John — the blood connection, if it goes to him: a portrait, a deed, or a name cut into the Builder's Stone that matches his own. The bully finds out the house is family, in front of everyone he performs for.",
-   "Cody — open until the bio arrives.",
-   "Rule for all five: findable by the whole party, but only load-bearing for one of them. If a beat needs its owner present to work at all, it will not survive someone splitting off."
-  ]
- },
- {
-  "id": "p2",
-  "t": "Food stash puzzle",
-  "o": "scott",
-  "c": "Puzzle",
-  "ref": "SESH 6",
-  "note": "Solving it releases a key to a hidden room; the payoff is the reveal that the vampires live on small animals, not people. This is the puzzle that proves they are good."
- },
- {
-  "id": "p3",
-  "t": "Computer room: Gjenganger fight gates the machine",
-  "o": "scott",
-  "c": "Puzzle",
-  "ref": "SESH 6",
-  "note": "Combat is the price of admission to the AIM prop. The room is Poe Boy's own recording setup — the room the kid ran into and never left — so the door, the desk and the mic are all set dressing the players can read before they sit down at the machine."
- },
- {
-  "id": "p4",
-  "t": "One or two more puzzles for mansion pacing",
-  "o": "scott",
-  "c": "Puzzle",
-  "note": "Two sessions is a lot of house. Sesh 0 planned roughly half of session one in town, the rest in the mansion."
- },
- {
-  "id": "p5",
-  "t": "Write a fail-forward for every puzzle",
-  "o": "scott",
-  "c": "Puzzle",
-  "note": "A stuck party at 1 AM on a Saturday is the actual risk here, not a party that solves things too fast."
- },
- {
-  "id": "p6",
-  "t": "Make every reveal findable at least two ways",
-  "o": "scott",
-  "c": "Puzzle",
-  "note": "One bad roll should never be able to bury the twist."
- },
- {
-  "id": "m1",
-  "t": "Decide party level",
-  "o": "scott",
-  "c": "Combat",
-  "note": "Super seniors reads as tier 1–2. The choice sets every encounter budget below — and since the players build their own sheets, they need this before they can start, so it goes out to them first."
- },
- {
-  "id": "m2",
-  "t": "Collect and check the five character sheets",
-  "o": "scott",
-  "c": "Combat",
-  "note": "The players build their own — Bix Grimlor, Gnomey Soprano, Simone's warlock, John's bully bard, and Cody's, still unsubmitted. What is left for the DM is getting all five in hand, checking them for rules-legality, and knowing what is on them: AC, saves, ranged options and anything that trivialises a puzzle."
- },
- {
-  "id": "m10",
-  "t": "Craft every potential encounter, not just the named three",
-  "o": "scott",
-  "c": "Combat",
-  "gate": 1,
-  "note": "Each needs a stat line, a terrain, and an exit that is not a TPK. Downstream of party level and the five-person budget.",
-  "steps": [
-   "Lock party level first. That one choice sets every budget below it.",
-   "The optional early vampire skirmish. Sesh 2 wants a first encounter that does not have to end in a fight, so it has to be escapable and non-lethal by construction, not by DM mercy.",
-   "The Gjenganger gating the computer. Brutal up close, so the room has to make distance genuinely available and crossing it genuinely costly.",
-   "Path A's fight against the vampires — one, or all three. Sesh 2 explicitly leaves that open.",
-   "The Sesh 7 climax: Poe Boy plus the vampires he has turned, with the free ones fighting alongside the party.",
-   "The two contingencies — they kill the vampires in act one, or they refuse to go in at all.",
-   "Then run all of it against five PCs, including the case where one is down or absent."
-  ]
- },
- {
-  "id": "m11",
-  "t": "Make sure every act has a fight in it",
-  "o": "scott",
-  "c": "Combat",
-  "note": "A different job from crafting the encounters. This one is coverage: pick the act structure, then check no stretch of the weekend runs combat-dry. The middle is the thin part right now.",
-  "steps": [
-   "Decide the act structure first — town, mansion investigation, climax is the obvious three. The number of acts is the number of fights to hit.",
-   "Town is currently combat-free. Decide whether that is correct as setup or whether it needs a scrap to set the tone.",
-   "Mansion investigation has the Gjenganger. Covered.",
-   "The climax has Poe Boy and the vampires he has turned. Covered.",
-   "That leaves the long investigation stretch before the Gjenganger with nothing — promote the optional early skirmish from optional to load-bearing, or write something new.",
-   "Sanity check: no act should run much past ninety minutes with neither a fight nor a puzzle paying off."
-  ]
- },
- {
-  "id": "m3",
-  "t": "Gjenganger stat block",
-  "o": "scott",
-  "c": "Combat",
-  "ref": "SESH 6",
-  "note": "The one piece of the story spine still open — everything else about the computer room landed. Folklore gives it the advantage in close range, so the counterplay is distance, and that is room design as much as a stat block: sightlines, cover, something to put between you and it."
- },
- {
-  "id": "m4",
-  "t": "Final fight: Poe Boy plus the vampires he has turned",
-  "o": "scott",
-  "c": "Combat",
-  "ref": "SESH 7",
-  "note": "Sesh 7 offered mind control or manipulation and we landed on manipulation — he tells them the party are the mall company's people, the same lie that got the kid killed. The win condition is proof, not damage: the Spirit, the food stash and Angelique are what flip them mid-fight. Needs two vampire stat lines, hostile and allied, and a rule for what turning costs in initiative."
- },
- {
-  "id": "m5",
-  "t": "Optional early vampire skirmish",
-  "o": "scott",
-  "c": "Combat",
-  "ref": "SESH 2",
-  "note": "A first encounter that does not have to end in a fight. Build it escapable and non-lethal so killing them early is not the default outcome."
- },
- {
-  "id": "m6",
-  "t": "Check every encounter against a five-person party",
-  "o": "scott",
-  "c": "Combat",
-  "note": "Five PCs is a materially bigger action economy than four — every encounter budget shifts. Include the case where one player is down or absent."
- },
- {
-  "id": "m7",
-  "t": "Pre-set the skill DCs for the library research",
-  "o": "scott",
-  "c": "Combat",
-  "note": "So the lore reveal is not improvised at the table."
- },
- {
-  "id": "m8",
-  "t": "Rules cheat sheet",
-  "o": "scott",
-  "c": "Combat",
-  "note": "Grapple, cover, conditions, improvised actions — the things Spencer will ask about mid-scene."
- },
- {
-  "id": "m9",
-  "t": "Table kit",
-  "o": "scott",
-  "c": "Combat",
-  "note": "Initiative tracker, dice, tokens or minis, battle map for the mansion rooms."
  },
  {
   "id": "h1",
@@ -1274,14 +1465,6 @@ const TODO_LIST = [
   "note": "Live at /invite/. ~7:00 PM, Dood Mansion, homemade and clip-arty, art reworked against the reference flyers. Scott wanted it physical — printed and sealed in an envelope — so that step is what remains."
  },
  {
-  "id": "h2",
-  "t": "DJ show flyer",
-  "o": "scott",
-  "c": "Handout",
-  "ref": "SESH 7",
-  "note": "Not built yet. Print. 3:00 AM (witching hour, and it buys the party all night to explore). Dood Mansion. Billing is unblocked and final: DJ POE BOY much larger than Lil Stinky / ANGELIQUE. Memphis-Houston leaned-out cover art pushed toward horror, skull-pattern territory."
- },
- {
   "id": "h3",
   "t": "Library history clippings",
   "o": "scott",
@@ -1289,23 +1472,7 @@ const TODO_LIST = [
   "ref": "SESH 7",
   "built": 1,
   "done": 1,
-  "note": "Live at /puzzle/ as the torn 1937 Crier front page. Front is rendered art that tears; page 2 is live HTML so the lore copy stays editable."
- },
- {
-  "id": "h4",
-  "t": "Real estate scouting documents",
-  "o": "none",
-  "c": "Handout",
-  "ref": "SESH 6",
-  "note": "Floated as a clue that the mansion is being bought out from under the vampires. Decide whether it earns a prop."
- },
- {
-  "id": "h5",
-  "t": "Bix's diary from the night he sheltered there",
-  "o": "none",
-  "c": "Handout",
-  "ref": "SESH 6",
-  "note": "Will's account of that night is incomplete and the diary fills in what he missed. Needs Will's buy-in before it gets written."
+  "note": "Live at /puzzle/ as the torn 1937 Crier front page. Front is rendered art that tears; page 2 is live HTML so the lore copy stays editable. Sesh 7 settles the long-open question in the build brief: it is a hall of records, and the harbinger is the librarian there."
  },
  {
   "id": "r1",
@@ -1335,63 +1502,12 @@ const TODO_LIST = [
   "note": "This is the library clippings handout, not a mansion puzzle — it belongs to the town half of session one. The mansion's own puzzle, the food stash, is still unbuilt."
  },
  {
-  "id": "r4",
-  "t": "A prop for the food stash puzzle",
-  "o": "scott",
-  "c": "Prop",
-  "note": "If it wants to be digital. A physical lock and key may sell the hidden room better."
- },
- {
-  "id": "r5",
-  "t": "Test every prop on the actual iPad over LAN",
-  "o": "scott",
-  "c": "Prop",
-  "note": "The overlapping-audio bug is invisible on desktop and only shows up on the iPad. Non-negotiable before a session."
- },
- {
-  "id": "r6",
-  "t": "Add to Home Screen, then cache-bust",
-  "o": "scott",
-  "c": "Prop",
-  "note": "Launches fullscreen with no Safari chrome. Append ?v=n after any push, or delete and re-add the icon."
- },
- {
   "id": "r7",
   "t": "Update the landing page tiles",
   "o": "scott",
   "c": "Prop",
   "done": 1,
   "note": "So everything live is reachable from one screen at the table."
- },
- {
-  "id": "s1",
-  "t": "Cody's character bio",
-  "o": "spencer",
-  "c": "Story",
-  "blocked": 1,
-  "note": "Spencer texted both slow pokes in Sesh 5. Simone's came in; Cody's still has not. No sheet, no mansion connection, no hook — this blocks the party build."
- },
- {
-  "id": "s2",
-  "t": "Give every PC a story arc and a mansion connection",
-  "o": "both",
-  "c": "Story",
-  "note": "Two of five have a mansion connection and none of the five has a stated arc. Sesh 5 set the goal of one sprinkle of mansion lore per character; the arc half is the part nobody has written down. Both should be true for all five before the weekend.",
-  "steps": [
-   "Bix (Will) — mansion is done: he broke in one rainy night running from a foster home. Arc is open, and the Gjenganger is right there: a man who died of exactly the isolation Bix has chosen. Also unresolved — his parents' death is rumour only, and the diary idea says his own account of that night is incomplete.",
-   "Gnomey (Julia) — mansion is done: childhood dares with the crew, and one Halloween that went wrong. Arc is open: street life against the teacher who believes in him, and facing Poe Boy means facing the version of himself he walked away from.",
-   "Simone — nothing on either side yet. She sells love and revenge spells and is feared for it, which is an arc waiting to be pointed somewhere.",
-   "John — nothing on either side yet. Scott's blood-connection idea from the doc comments fits him best. Arc hangs off the insecurity he names, plus the fact that Poe Boy is running the same programme he is.",
-   "Cody — both, once the bio arrives."
-  ]
- },
- {
-  "id": "s3",
-  "t": "The vampire trio as characters",
-  "o": "both",
-  "c": "Story",
-  "ref": "SESH 5",
-  "note": "Their position is settled. What is missing is the three of them as people: Orlok does the actual frightening, Dracula treats it as theatre and would blab, Edward is the one who breaks first. Names, races and classes still open."
  },
  {
   "id": "s4",
@@ -1401,116 +1517,6 @@ const TODO_LIST = [
   "ref": "SESH 5",
   "done": 1,
   "note": "It inverts: they asked him. A real-estate company wants to demolish the house for a mega mall and has knocked in daylight, when they cannot answer the door or defend themselves at all. He proposed making the place notorious enough nobody comes near it. The haunted house is their plan; he has his own use for it."
- },
- {
-  "id": "s11",
-  "t": "Name the kid in the computer, and the year he died",
-  "o": "both",
-  "c": "Story",
-  "note": "Everything else about him is settled. He has no name and no year, and the AIM prop is live without them."
- },
- {
-  "id": "s12",
-  "t": "Reconcile the coffin count",
-  "o": "both",
-  "c": "Story",
-  "note": "The Crier leaves two coffins under the chapel floor. There are three vampires. Either the prop is wrong, or one of them is not buried where the others are — and that second option is a better story than a typo."
- },
- {
-  "id": "s5",
-  "t": "The other malevolent forces",
-  "o": "both",
-  "c": "Story",
-  "ref": "SESH 5",
-  "note": "Each backstory looks vampire-related but turns out to be something else — the trapped spirit, the Gjenganger, whatever else."
- },
- {
-  "id": "s6",
-  "t": "The teacher character",
-  "o": "both",
-  "c": "Story",
-  "ref": "SESH 3",
-  "note": "Named as next session's work back in Sesh 3, never returned to. Also the bookend: the party presents the Dutch artifact to the class."
- },
- {
-  "id": "s7",
-  "t": "The harbinger librarian",
-  "o": "both",
-  "c": "Story",
-  "ref": "SESH 1",
-  "note": "The one NPC who warns them off. Spencer wanted a modern spin on the archetype."
- },
- {
-  "id": "s8",
-  "t": "Branch map: fight-advantage route vs no-fight route",
-  "o": "both",
-  "c": "Story",
-  "ref": "SESH 2",
-  "note": "The fork where they either learn how to kill the vampires — dig up the coffins, stake, rebury — or learn they never had to."
- },
- {
-  "id": "s9",
-  "t": "Contingencies",
-  "o": "both",
-  "c": "Story",
-  "note": "What happens if they kill the vampires in act one, or refuse to enter the house at all. Two sentences each is enough."
- },
- {
-  "id": "s10",
-  "t": "Pick the session break point",
-  "o": "both",
-  "c": "Story",
-  "note": "Two sessions, Saturday and Sunday. Ideally Saturday ends just inside the mansion on a cliffhanger."
- },
- {
-  "id": "t1",
-  "t": "Lock date, place, food and session length",
-  "o": "both",
-  "c": "Weekend"
- },
- {
-  "id": "t2",
-  "t": "Ambient playlists per zone",
-  "o": "both",
-  "c": "Weekend",
-  "note": "School, town, mansion, combat. Scott offered to collab on background and music in a doc comment."
- },
- {
-  "id": "t3",
-  "t": "Background slides per setting",
-  "o": "none",
-  "c": "Weekend",
-  "ref": "SESH 1",
-  "note": "Offered to either of you. Still unclaimed."
- },
- {
-  "id": "t4",
-  "t": "Decide who narrates what",
-  "o": "none",
-  "c": "Weekend",
-  "ref": "SESH 1",
-  "note": "Spencer wants to voice the NPCs but is open to sharing. Narration was left genuinely open."
- },
- {
-  "id": "t5",
-  "t": "Lighting and set dressing",
-  "o": "none",
-  "c": "Weekend",
-  "note": "Candles, lamps off, whatever sells a 3 AM haunted house in a living room."
- },
- {
-  "id": "t7",
-  "t": "Write the general pre-session prep checklist",
-  "o": "both",
-  "c": "Weekend",
-  "note": "Not campaign-specific — the reusable list of what any DM needs in hand before running a weekend: rules and pre-set DCs, safety tools, table kit, pacing and break points, contingencies, and where the prep-versus-improvise line sits."
- },
- {
-  "id": "t6",
-  "t": "Agree on safety tools",
-  "o": "both",
-  "c": "Weekend",
-  "note": "Lines and veils, or an X-card. Sixty seconds up front, and the horror premise earns it."
  }
 ];
 const TD_OWNER={scott:"Scott",spencer:"Spencer",both:"Shared",none:"Unassigned"};
@@ -1525,6 +1531,7 @@ function tdRender(){
     if(x.needs)   tags+=`<span class="td-tag flag">Needs input</span>`;
     if(x.built)   tags+=`<span class="td-tag live">Live</span>`;
     if(x.gate)    tags+=`<span class="td-tag gate">Gates the rest</span>`;
+    if(x.top)     tags+=`<span class="td-tag top">Start here</span>`;
     return `<li class="td-item${x.done?" is-done":""}" data-o="${x.o}" data-done="${x.done?1:0}">
       <span class="td-mark">&#10003;</span>
       <div class="td-body">
