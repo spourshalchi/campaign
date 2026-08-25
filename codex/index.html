@@ -475,7 +475,7 @@ const NODES = [
   {id:"mansion", name:"Dood Mansion", sub:"The haunted house", g:"place", x:660, y:330,
     role:"Primary location", s:"doc", src:"Sesh 0, 3, 6, 7",
     fields:{Name:"'Dood' = dead (Dutch)",History:"Abandoned Dutch mansion on the edge of town"},
-    desc:"Where the whole back half plays out. Front door is boarded up haunted-house style (Poe Boy tips them on the real way in). Once they're inside, the doors bolt shut. Rooms are built around puzzles and one combat set-piece, ending in the food-stash reveal and a hidden room.",
+    desc:"Where the whole back half plays out. The front door has been boarded for decades — until the night of the party, when the boards come off and are stacked against the porch rail. That un-boarding is the only visible change to the house, and it's the invitation. Once they're inside, the doors bolt shut. Rooms are built around puzzles and one combat set-piece, ending in the food-stash reveal and a hidden room.",
     hook:"Rumored haunted for two reasons: the vampires, and the <b>Gjenganger</b> — the original lonely owner. A real-estate company wants to demolish it for a <b>mega mall</b>, and has knocked in daylight several times — when the vampires can't answer the door or defend themselves at all.",
     ai:"<b>Ratified by Scott:</b> 'Dood' is both — the builder's family surname <i>and</i> the Dutch pun, so Cornelis Dood is a real person in the fiction. That also answers Spencer's Sesh 6 'lmk if thats too dumb lol' about the mansion name. Not in the Google Doc yet." },
 
@@ -568,7 +568,7 @@ const FLOW = [
 
   {n:2,title:"Letters in the lockers",where:"Smash cut",s:"doc",src:"Sesh 0, 1",body:"Everyone finds a mysterious invitation to a haunted house at the abandoned Dutch mansion. Ooo, spooky.",
     bridge:{cue:"It’s barely noon. The card says seven. And not one of you has ever heard the name Dood before.",
-      note:"Hours to kill plus a name nobody recognises is the itch; the class project is the excuse. Let them ask around if they want to — <b>nobody else got a card</b>, and finding that out is the strongest push toward town there is. If they march straight up the hill instead, the boarded front door bounces them back.",
+      note:"Hours to kill plus a name nobody recognises is the itch; the class project is the excuse. Let them ask around if they want to — <b>nobody else got a card</b>, and finding that out is the strongest push toward town there is. If they march straight up the hill instead, the front is still boarded at this hour and bounces them back — <b>which is the point.</b> Anyone who goes early has seen the boards on. They come off during the day.",
       fallbacks:{lbl:"If they don’t bite, hand a detour to a PC",
         items:[
           {who:"Bix",say:"You’re in that library most days anyway. If anyone in this town knows a name that old, it’s the Records Keeper.",
@@ -577,20 +577,20 @@ const FLOW = [
             why:"Sesh 3 puts the bad kids at a gazebo <i>near the school</i> — the crew is the lead, and Gnomey is the one who knows where to find them. He fell out with Poe Boy over the silly-bandz cuts, so making the suggestion costs him something."}
         ]}}},
 
-  {n:3,title:"Town detours",where:"Before the mansion",s:"doc",src:"Sesh 1, 2, 3",body:"The first third-to-half of Session 1. Two key stops: the Library / Hall of Records (Frisian lore + the vampire-slaying method + the Harbinger's warning) and the Gazebo where the Bad Kids smoke — where they meet DJ Poe Boy, who tips them on the real way into the boarded-up house.",
+  {n:3,title:"Town detours",where:"Before the mansion",s:"doc",src:"Sesh 1, 2, 3",body:"The first third-to-half of Session 1. Two key stops: the Library / Hall of Records (Frisian lore + the vampire-slaying method + the Harbinger's warning) and the Gazebo <i>near the school</i> where the Bad Kids smoke — where they meet DJ Poe Boy and his entourage, and where <b>Angelique tries to warn them and can't</b> because the rest of the crew is standing right there.<br><br><b>What Poe Boy hands them here.</b> He can’t help showing off, and every piece of it is a confession he doesn’t know he’s making:<br>· <i>“I spin up there sometimes.”</i> Sesh 3, verbatim. Explains why an abandoned house has gear in it, and it’s the first thing they’ll remember when they find the setup.<br>· <i>“There’s one room with power. That’s where I work.”</i> Sesh 7 has the dead kid breaking for <i>“the one room with a light on”</i> — so this is Poe Boy telling them out loud which room the murder happened in.<br>· <i>“Stick around till three.”</i> Plants the flyer’s 3AM in person, from the host, so the timer is his voice and not a prop.",
     bridge:{cue:"Whoever’s wearing a watch — it’s ten to seven. That’s the time on the card.",
-      note:"A clock nudge, not a crowd. What’s waiting at the top of the hill: empty road, no cars, no light in any window, front boarded exactly as it’s been for decades. <b>The emptiness is the wrongness.</b> There’s no line to join and no social default to hide behind, so going in is curiosity and the assignment and nothing else — and Poe Boy’s side-entrance tip stops being a shortcut and becomes the only way through a boarded door.",
+      note:"A clock nudge, not a crowd. What’s waiting at the top of the hill: empty road, no cars, no light in any window — and <b>the boards are off the front door</b>, pried away and stacked neat against the porch rail. That is the only thing about this house that has changed in decades, and it is the invitation. <b>The emptiness is the wrongness</b>: no line to join and no social default to hide behind, so going in is curiosity and the assignment and nothing else.<br><br><b>No side-entrance tip any more.</b> Sesh 3 had Poe Boy give them the best way in <i>“since the front door will be boarded”</i> — but Sesh 3 was written when he was a helpful stranger they bump into in town. Sesh 7 made him the host, and a host who wants five specific people inside doesn’t route them round the back. Losing the tip also loses the contradiction it created: being told how to sneak past a boarded door that then bolts shut behind them.",
       fallbacks:{lbl:"If they stall at the treeline",
         items:[
           {who:"The card",say:"Doors at seven. Doors <i>only</i> at seven. It’s 6:58.",
             why:"The invite writes its own deadline — read it back to them verbatim rather than inventing urgency."},
-          {who:"Bix",say:"You’ve been inside this house before. You know there’s a way in that isn’t the front door.",
-            why:"<b>The safety net.</b> If they skipped the gazebo entirely, Bix’s Sesh 5 break-in is the second key — the session cannot deadlock on one NPC tip."},
-          {who:"Gnomey",say:"You rang this doorbell on a dare when you were eleven. You already know it doesn’t open.",
-            why:"His Sesh 5 childhood dare, cashed in as a reason to go looking round the side."}
+          {who:"Bix",say:"You slept in this house once, out of the rain. It was boarded then. It isn’t now.",
+            why:"His Sesh 5 break-in, repurposed. He’s the only one who can tell that something about this house is <i>different tonight</i> — which is worth more than a way in, because it’s a reason to be afraid of the way in."},
+          {who:"Gnomey",say:"Somebody dared you to ring this doorbell when you were eleven and you couldn’t do it. It’s standing open now. Somehow that’s worse.",
+            why:"His Sesh 5 childhood dare, cashed in as dread rather than access — the thing he was too scared to touch is now inviting him through."}
         ]}}},
 
-  {n:4,title:"Enter Dood Mansion",where:"The trap springs",s:"doc",src:"Sesh 5, 6",body:"They go in out of pure curiosity — and the doors bolt shut behind them. Everything from here plays out inside. (Card says 7PM sharp; the DJ show flyer says 3AM — eight hours of house between them.)",
+  {n:4,title:"Enter Dood Mansion",where:"The trap springs",s:"doc",src:"Sesh 5, 6",body:"They go in out of pure curiosity, <b>through a front door that has stood boarded for decades and isn’t any more</b> — and the doors bolt shut behind them. Everything from here plays out inside. (Card says 7PM sharp; the DJ show flyer says 3AM — eight hours of house between them.)",
     bridge:{cue:"That’s a bolt throwing behind you. Footsteps overhead — and a hand comes out of the dark, grabs your sleeve, and pulls you down. It’s <b>Angelique</b>.",
       note:"Angelique reaching them first and telling them to hide is doc (Sesh 5; Sesh 7 explains why she’s in the house at all). <b>Don’t let her explain yet.</b> “Hiding from what” is the investigation’s first question, and she’s worth far more as a frightened stranger who won’t say why she came than as an exposition tap. She’ll answer eventually — make them earn it.",
       fallbacks:{lbl:"If they try to walk straight back out",
@@ -624,7 +624,7 @@ const FLOW = [
 
   {n:7,title:"Gjenganger combat",where:"Set-piece encounter",s:"doc",src:"Sesh 6",body:"Fight the vengeful revenant of the mansion's lonely original owner to reach the computer. It's brutal up close, so the smart play is fighting at range. Beating it unlocks the Spirit in the Computer — the kid Poe Boy lured, held a door on, and soul-caged into the machine. He was killed by a human, and he can say whose name.",
     bridge:{cue:"It wasn’t them. A person did this to me.",
-      note:"The Spirit’s parting line. <b>Say it as him, then stop talking</b> and let the table sit in it. It flips the question from <i>how do we kill three vampires</i> to <i>then what have they been eating?</i> — which is the question the next room answers. Have him look at the locked door before he goes, so the puzzle has an address. If Angelique is with the party, this is the moment she learns what the messages she typed were for; play her reaction before anyone thinks to ask her about it.",
+      note:"The Spirit’s parting line. <b>Say it as him, then stop talking</b> and let the table sit in it. It flips the question from <i>how do we kill three vampires</i> to <i>then what have they been eating?</i> — which is the question the next room answers. Have him look at the locked door before he goes, so the puzzle has an address. If Angelique is with the party, this is the moment she learns what the messages she typed were for; play her reaction before anyone thinks to ask her about it. <b>And if they took the gazebo detour, this is where Poe Boy’s brag lands:</b> the one room with power is the room he told them about himself.",
       fallbacks:{lbl:"If they don’t move on the locked door",
         items:[
           {who:"Anyone",say:"The last thing he did before he went out was look at the door at the end of the hall. He didn’t look at any of you.",
