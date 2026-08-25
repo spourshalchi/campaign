@@ -27,6 +27,7 @@ Not yet pasted into the Google Doc — **do that to make them official.** Until 
 | ✅ **The real-estate company warded the 1937 library page.** Their leader paid to make it unreadable, scrubbing a documented vampire incident before developing the site. He can't ward word of mouth, which is why the town still talks. | 🟡 invented by the puzzle prop — **now ratified by Scott** |
 | ✅ **"Dood" is both** — the builder's family surname *and* the Dutch pun. Cornelis Dood is a real person in the fiction. | Sesh 6 had the pun; the prop added the surname. Both now stand. |
 | ✅ **The party is level 3**, leveling to 4 at the end of day one. | new |
+| ✅ **The invite is exclusive — five cards, five lockers, nobody else got one.** The party arrives at an empty hill: no cars, no line, no lit windows, front still boarded. This **narrows Sesh 7's "invite everyone"**, which is a doc line, so it needs writing into the doc more than anything else on this list. Knock-ons: Poe Boy's side-entrance tip becomes the only way in; the codex no longer leans on a houseful of other kids to stop the party leaving (the bolted doors do it); "why these five" and "who was the 3AM flyer for" are now open. | 🟡 codex stagecraft — **now decided by Scott, 24 Aug 2026**, and it overrides a doc line |
 | ⏸ **The 1937 Crier stays 🟡** pending Scott's read of the article text. | unchanged |
 | ⏸ **The Gjenganger / Cornelis Dood stays 🟡** — parked entirely. A draft spec is in `PROPOSALS.md`; none of it is agreed. | unchanged |
 
@@ -167,17 +168,23 @@ below is a transposition invented to make it a local 1937 newspaper.
 - The ruling that she has no personal stake in the 1937 story and does not appear in it
 - The doc's position is simply: *"That character is not written yet."*
 
-### 4. Every flow transition note
-All nine "getting them to the next beat" notes are invented DM stagecraft:
-- The bell ringing, and the **"primary source, not the internet"** assignment constraint
-- "The invite says 7PM. It's barely noon" and the unfamiliar-Dutch-name itch
-- Kids visibly heading up the hill at sundown and disappearing around the side
-- The overheard **three-vampires-arguing** scene and the "boxes in the cellar" / "have they been fed" split
-- The single shared **choke-point corridor** where both fork paths converge
+### 4. Story beats that arrived as stagecraft
+The codex's **transitions** — the lines the DM says to move the party from one beat to the next — are
+no longer tracked here. They're table patter, not lore: say them, reword them, or skip them. Nothing
+in a transition binds anybody.
+
+But a few things smuggled themselves in *through* those transitions and are real world facts, so they
+stay on this list until you two decide:
+
+- The **"primary source, not the internet"** assignment constraint — this is what the teacher actually set,
+  and it's the only reason the Hall of Records is on the board
+- The **overheard three-vampires-arguing** scene, and the "boxes in the cellar" / "have they been fed" split
+  that turns one conversation into the fork
+- The single shared **choke-point corridor** where both fork paths converge — this is map design, and Scott's call
 - The Spirit's parting line *"It wasn't them. A person did this to me."*
-- **3AM, every speaker in the house comes on at once**
-- Sunrise, the doors give, "and the project is due Monday"
-- The two scripted fallback prompts handing the records hall to Bix and the gazebo to Gnomey
+- **3AM as the fight's starting gun.** The 3AM time is Sesh 6; using it as a timer is not
+- **Sunrise as the release** — the doors give at dawn, and the project is still due Monday
+- ~~Kids visibly heading up the hill at sundown~~ — **removed 24 Aug 2026**, see the decisions table
 
 ### 5. Character details with no source
 - **John:** College of Whispers specifically (doc says "leaning Bard"), "cruelty is the armor," and the
@@ -193,6 +200,7 @@ All nine "getting them to the next beat" notes are invented DM stagecraft:
 - **Bix's mansion night "ties back to his parents"**
 
 ### 6. Prop texture
+- **Invite:** with the guest list now five, the card's mass-event voice — *FREE admission*, *"bring a friend, the more the scaryer!"*, the RSVP line — is a second soft contradiction alongside the one below. Cheapest reading: it is deliberate camouflage, a card built to look like it went to everyone. No rebuild needed if that reading holds.
 - **Invite:** *"LAST YEAR NOBODY DID"* — implies a haunted house ran here before, but per canon this is
   Poe Boy's first, in a house abandoned for decades. Soft contradiction. Also `spookynite2k4@hotmail.com`.
 - **AIM:** the screen names `l0stsignal99` and `SmiLeyGrrL03`; "third locker from the end by the gym";
@@ -211,3 +219,6 @@ All nine "getting them to the next beat" notes are invented DM stagecraft:
 5. Cody's PC.
 6. The 4th crew member.
 7. Lock or kill: Dood Mansion, Upton Maximillion Livingsworth III, and the DJ/kingpin names that are locked only by repetition.
+8. **Why these five?** The invite is now a deliberate guest list, so it needs a reason the players can be told.
+9. **Who was the 3AM DJ flyer for?** Public handout, or Poe Boy's cover story for the vampires? Blocks building the flyer prop.
+10. **What did Poe Boy tell the vampires?** They agreed to a houseful. Five kids show up. Either he lied to them about the scale, or they find out on the night — and that is a free wedge between him and them before the climax.

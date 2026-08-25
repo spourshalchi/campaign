@@ -105,7 +105,8 @@
     background:linear-gradient(90deg,rgba(154,111,240,.09),rgba(154,111,240,0))}
   .bridge .lbl{font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:var(--purple);
     font-weight:700;margin-bottom:4px}
-  .bridge .cue{display:block;color:var(--ink);font-size:13.5px;line-height:1.45;margin-bottom:4px}
+  .bridge .cue{display:block;color:var(--ink);font-size:13.5px;line-height:1.45;margin-bottom:5px;font-style:italic}
+  .bridge .cue:before{content:"\201C"} .bridge .cue:after{content:"\201D"}
   .bridge p{margin:0;color:var(--mut);font-size:12.5px;line-height:1.5}
   .bridge .q{display:block;margin-top:7px;color:var(--gold);font-size:12.5px;line-height:1.5}
   .bridge.open{border-left-style:dashed;border-left-color:var(--gold);
@@ -345,7 +346,7 @@
   <section class="tab" id="tab-flow">
     <h2 class="sec">How the weekend unfolds</h2>
     <p class="sub">A haunted-house structure: curiosity gets them in, the doors bolt shut, and everything after plays out inside Dood Mansion — until the fork that decides the whole climax.</p>
-    <p class="sub">Between beats is a <b style="color:var(--purple)">transition note</b> — the in-fiction push to the next one. <b style="color:#ffcf70">Every transition note is codex-invented stagecraft</b>, not something you two discussed. The numbered beats themselves are from the doc.</p>
+    <p class="sub">Between beats is a <b style="color:var(--purple)">transition</b> — a line to <i>say at the table</i> to move them to the next one, plus what to have ready underneath it. Transitions aren’t tracked as canon: they’re table patter, not lore, so say them however you like or ignore them. A <b style="color:#ffcf70">gold dashed transition</b> means there’s still a design question open there. The numbered beats themselves are from the doc.</p>
     <div class="flow" id="flow"></div>
   </section>
 
@@ -458,7 +459,7 @@ const NODES = [
     fields:{Race:"Kenku",Class:"Bard — College of Glamour",Alignment:"Chaotic Neutral",Type:"ENFJ"},
     ai:"<b>Race and class are Scott's pick, not the doc's.</b> Sesh 3 asks <i>Race: Not sure, maybe Gith? Or Kenku?</i> and leaves class blank with <i>would love your input</i> — Spencer never got an answer until now. Kenku was chosen because they canonically speak only in sounds recorded from others: a DJ who samples voices, and whose crime is trapping a kid's voice in a machine, cannot speak in one of his own. Glamour supplies the charm that holds the crew. Voice him in borrowed cadences. Decided by Scott on 23 Aug 2026 while closing out Spencer's ten open questions. The doc only ever offered the shortlist and asked for input, so this pick is real but it is not in the doc — it needs writing in before it counts as agreed.",
     desc:"Way-too-cool-for-school personified: obnoxiously subversive, but with real underground cred. Ambitious and callous to the edge of psychopathy — not sadistic, just indifferent to suffering if it serves the work. Charismatic, subtly manipulative. Emancipated rich kid, deeply insecure about his upper-class parents who adore him anyway.",
-    hook:"The plan: invite everyone, lock them in, and <b>sample the screams of real beings terrorized by real monsters</b> for his horror score. He met the vampires by accident while recording spooky noises in the house, sold them a plan to scare off the mega-mall developers, then tested it on one kid — and found out he doesn't stop. Candidate embarrassing real name: Upton Maximillion Livingsworth III (floated in Sesh 3 as a joke, never locked)." },
+    hook:"The plan: invite them, lock them in, and <b>sample the screams of real beings terrorized by real monsters</b> for his horror score. He met the vampires by accident while recording spooky noises in the house, sold them a plan to scare off the mega-mall developers, then tested it on one kid — and found out he doesn't stop. Candidate embarrassing real name: Upton Maximillion Livingsworth III (floated in Sesh 3 as a joke, never locked)." },
   {id:"stinky", name:"Lil Stinky", sub:"School kingpin", g:"crew", x:430, y:470,
     role:"Crew · Muscle / dealer", s:"doc", src:"Sesh 3",
     fields:{Race:"Orc or Goliath (TBD)",Class:"Paladin — Oath of Devotion",Vibe:"Stoner, bad rapper, honest to a fault"},
@@ -562,45 +563,90 @@ const EDGES = [
 
 const FLOW = [
   {n:1,title:"History class",where:"Fantasy high school",s:"doc",src:"Sesh 1",body:"The super-seniors get grouped for a local-history / folklore project. This is the motivation to investigate — and the bookend they'll return to at the end to 'present their oral project.'",
-    bridge:{s:"ai",cue:"The bell rings — everyone's at their locker for next period.",
-      note:"Ends the scene on a clock, not a decision. Land the assignment constraint on the way out — <b>a primary source, not the internet</b> — so the Hall of Records is on the board before anyone sees a letter."}},
+    bridge:{cue:"That’s the bell. You’ve got about four minutes to hit your locker and get to next period.",
+      note:"Ends the scene on a clock, not a decision — nobody has to agree to anything for the story to move. Land the assignment constraint on the way out (<b>a primary source, not the internet</b>) so the Hall of Records is already on the board before anyone sees a card."}},
+
   {n:2,title:"Letters in the lockers",where:"Smash cut",s:"doc",src:"Sesh 0, 1",body:"Everyone finds a mysterious invitation to a haunted house at the abandoned Dutch mansion. Ooo, spooky.",
-    bridge:{s:"ai",cue:"The invite says 7PM. It's barely noon, and nobody knows the name on the card.",
-      note:"Hours to kill plus an unfamiliar Dutch name is the itch; the class project is the cover. If they head straight up the hill, the boarded front door bounces them back into town for a way in.",
-      fallbacks:{lbl:"If they don't bite, hand each detour to a PC",
+    bridge:{cue:"It’s barely noon. The card says seven. And not one of you has ever heard the name Dood before.",
+      note:"Hours to kill plus a name nobody recognises is the itch; the class project is the excuse. Let them ask around if they want to — <b>nobody else got a card</b>, and finding that out is the strongest push toward town there is. If they march straight up the hill instead, the boarded front door bounces them back.",
+      fallbacks:{lbl:"If they don’t bite, hand a detour to a PC",
         items:[
-          {who:"Bix",say:"You're the one who actually likes school — you figure the Records Keeper would know a name that old.",
-            why:"School is his one competence, so the records hall is the one errand he'd volunteer for."},
-          {who:"Gnomey",say:"You know where your old crew is right now. The gazebo — and they hear everything about that house.",
-            why:"He's the ex-Bad Kid who fell out with Poe Boy over the silly-bandz cuts — walking up to the gazebo costs him something."}
+          {who:"Bix",say:"You’re in that library most days anyway. If anyone in this town knows a name that old, it’s the Records Keeper.",
+            why:"The library is already his routine, so the records hall is somewhere he’d suggest rather than be talked into."},
+          {who:"Gnomey",say:"Your old crew practically lives at that house. If anybody knows anything about it, it’s them — and you know where to find them.",
+            why:"The suggestion is his, and so is the price: he fell out with Poe Boy over the silly-bandz cuts, so walking back up to the crew costs him something."}
         ]}}},
+
   {n:3,title:"Town detours",where:"Before the mansion",s:"doc",src:"Sesh 1, 2, 3",body:"The first third-to-half of Session 1. Two key stops: the Library / Hall of Records (Frisian lore + the vampire-slaying method + the Harbinger's warning) and the Gazebo where the Bad Kids smoke — where they meet DJ Poe Boy, who tips them on the real way into the boarded-up house.",
-    bridge:{s:"ai",cue:"Sundown — the invite's hour. Kids from school are already heading up the hill, and disappearing around the side of the house instead of the boarded front door.",
-      note:"Confirms the party is real, so curiosity beats the Records Keeper's warning and going in becomes the social default. Poe Boy's side-entrance tip pays off — they get to feel clever for the gazebo trip."}},
-  {n:4,title:"Enter Dood Mansion",where:"The trap springs",s:"doc",src:"Sesh 5, 6",body:"They go in out of pure curiosity — and the doors bolt shut behind them. Everything from here plays out inside. (Invite says ~7PM; the DJ show flyer says 3AM — plenty of time to explore.)",
-    bridge:{s:"ai",cue:"The doors bolt. Footsteps overhead — then <b>Angelique</b> grabs them and hisses at them to get down.",
-      note:"Angelique finding them first and telling them to hide <i>is</i> in the doc (Sesh 5, and Sesh 7 explains why she's inside). The staging around it — the footsteps, the timing, 'hiding from what' as the investigation's first question — is codex-side."}},
+    bridge:{cue:"Whoever’s wearing a watch — it’s ten to seven. That’s the time on the card.",
+      note:"A clock nudge, not a crowd. What’s waiting at the top of the hill: empty road, no cars, no light in any window, front boarded exactly as it’s been for decades. <b>The emptiness is the wrongness.</b> There’s no line to join and no social default to hide behind, so going in is curiosity and the assignment and nothing else — and Poe Boy’s side-entrance tip stops being a shortcut and becomes the only way through a boarded door.",
+      fallbacks:{lbl:"If they stall at the treeline",
+        items:[
+          {who:"The card",say:"Doors at seven. Doors <i>only</i> at seven. It’s 6:58.",
+            why:"The invite writes its own deadline — read it back to them verbatim rather than inventing urgency."},
+          {who:"Bix",say:"You’ve been inside this house before. You know there’s a way in that isn’t the front door.",
+            why:"<b>The safety net.</b> If they skipped the gazebo entirely, Bix’s Sesh 5 break-in is the second key — the session cannot deadlock on one NPC tip."},
+          {who:"Gnomey",say:"You rang this doorbell on a dare when you were eleven. You already know it doesn’t open.",
+            why:"His Sesh 5 childhood dare, cashed in as a reason to go looking round the side."}
+        ]}}},
+
+  {n:4,title:"Enter Dood Mansion",where:"The trap springs",s:"doc",src:"Sesh 5, 6",body:"They go in out of pure curiosity — and the doors bolt shut behind them. Everything from here plays out inside. (Card says 7PM sharp; the DJ show flyer says 3AM — eight hours of house between them.)",
+    bridge:{cue:"That’s a bolt throwing behind you. Footsteps overhead — and a hand comes out of the dark, grabs your sleeve, and pulls you down. It’s <b>Angelique</b>.",
+      note:"Angelique reaching them first and telling them to hide is doc (Sesh 5; Sesh 7 explains why she’s in the house at all). <b>Don’t let her explain yet.</b> “Hiding from what” is the investigation’s first question, and she’s worth far more as a frightened stranger who won’t say why she came than as an exposition tap. She’ll answer eventually — make them earn it.",
+      fallbacks:{lbl:"If they try to walk straight back out",
+        items:[
+          {who:"The door",say:"It doesn’t move. And there’s no bolt on your side to throw.",
+            why:"Say it flatly, once. The doors bolting is doc (Sesh 5) — it doesn’t need justifying, it needs to be a fact."},
+          {who:"Angelique",say:"Go on then. You’ll just have to walk back past whatever I walked past.",
+            why:"Turns the exit into a worse choice than the corridor, and gives her a first line that withholds instead of explaining."}
+        ]}}},
+
   {n:5,title:"First vampire encounter",where:"No fight — yet",s:"doc",src:"Sesh 2",body:"They meet the three vampires but don't fight. Investigation begins. Play the vamps as hosts doing a job they agreed to: they think this is the big scare that saves their house, and they have no idea anyone has ever died here.",
-    bridge:{s:"ai",cue:"Proposed: from the hiding spot they overhear the three vampires mid-argument.",
-      note:"Two threads in one conversation. One gripes about going back down to <b>the boxes</b> in the cellar (Path A — coffins, matching the method they read at the records hall). Another worries about whether <b>they've</b> been fed, or about 3AM (Path B). Whichever thread they pull <i>is</i> the fork.",
-      q:"Open: is one scene enough, or does each path need its own clue in a different room so the fork survives a party split?"}},
+    bridge:{cue:"From where you’re crouched you can hear all three of them, and they’re arguing. One wants to know who’s going back down to the boxes in the cellar. Another wants to know whether they’ve been fed.",
+      note:"Two threads in one conversation, and <b>whichever one they pull is the fork.</b> “The boxes in the cellar” is Path A — coffins, matching the method they read at the records hall. “Have they been fed” is Path B — it sounds like a confession and turns out to be small animals. Play the vamps mid-chore and slightly bored; they think they’re doing a job, and they don’t lower their voices because as far as they know nobody’s in the house who wasn’t invited.",
+      fallbacks:{lbl:"If neither thread lands",
+        items:[
+          {who:"Anyone with the clipping",say:"You’ve got the records-hall page in your bag. It says coffins. One of them just said boxes in the cellar.",
+            why:"Connects the town half to the house half out loud, for the player who wasn’t listening in the library."},
+          {who:"Angelique",say:"Three in the morning. That’s when it’s supposed to happen — that’s what he told me.",
+            why:"Puts the flyer’s 3AM on a timer without her admitting anything yet."}
+        ]},
+      q:"Open: is one overheard scene enough, or does each path need its own clue in a different room so the fork survives the party splitting up?"}},
+
   {fork:true,n:6,title:"THE FORK",where:"Choose your climax",s:"doc",src:"Sesh 2",body:"A crossroads in the investigation:",
     branches:[
       {k:"a",h:"Path A — Find an advantage",p:"Follow the records-hall lore: locate the vampires' coffins, stake the hearts, rebury. Sets up combat against the vampires (one, or all three)."},
       {k:"b",h:"Path B — The vaguer path",p:"Discover they don't have to fight at all. Leads to the reveal that the vampires are good — and the climax becomes the boss fight with Poe Boy instead."}
     ],
-    bridge:{s:"ai",cue:"Unwritten — but a proposal: both paths hit the same locked wing.",
-      note:"Convergence is the cheap fix: the cellar (Path A) and the computer room (Path B) sit behind one haunted corridor, so the Gjenganger is the toll either way and neither branch needs its own set-piece.",
-      q:"Open, and it's <b>Scott's</b> call — room design and combat are his per Sesh 1. Does the map support one shared choke point, and what makes a lonely revenant guard it?"}},
+    bridge:{cue:"Whichever way you went, the corridor you need runs through the same locked wing — and that’s where the cold is coming from.",
+      note:"Convergence is the cheap fix: the cellar (Path A) and the computer room (Path B) both sit behind one haunted corridor, so the Gjenganger is the toll either way and neither branch needs a set-piece of its own. <b>It also solves a split party</b> — both halves arrive at the same door from different sides, which is a reunion you don’t have to engineer.",
+      q:"Open, and it’s <b>Scott’s</b> call — room design and combat are his per Sesh 1. Does the map support one shared choke point, and what makes a lonely revenant guard it? Note the Gjenganger itself is parked (see PROPOSALS.md), so this may need a different toll."}},
+
   {n:7,title:"Gjenganger combat",where:"Set-piece encounter",s:"doc",src:"Sesh 6",body:"Fight the vengeful revenant of the mansion's lonely original owner to reach the computer. It's brutal up close, so the smart play is fighting at range. Beating it unlocks the Spirit in the Computer — the kid Poe Boy lured, held a door on, and soul-caged into the machine. He was killed by a human, and he can say whose name.",
-    bridge:{s:"ai",cue:"The Spirit's parting line: <i>“It wasn't them. A person did this to me.”</i>",
-      note:"Flips the question from <b>how do we kill three vampires</b> to <b>then what have they been eating?</b> Have the Spirit gesture at the locked door so the puzzle has an address. If Angelique is with them, this is where she learns what she helped do."}},
+    bridge:{cue:"It wasn’t them. A person did this to me.",
+      note:"The Spirit’s parting line. <b>Say it as him, then stop talking</b> and let the table sit in it. It flips the question from <i>how do we kill three vampires</i> to <i>then what have they been eating?</i> — which is the question the next room answers. Have him look at the locked door before he goes, so the puzzle has an address. If Angelique is with the party, this is the moment she learns what the messages she typed were for; play her reaction before anyone thinks to ask her about it.",
+      fallbacks:{lbl:"If they don’t move on the locked door",
+        items:[
+          {who:"Anyone",say:"The last thing he did before he went out was look at the door at the end of the hall. He didn’t look at any of you.",
+            why:"Restates the address without the DM saying “you should go there.”"},
+          {who:"Simone",say:"You know what a soul cage is. It needs a vessel prepared in advance — and whoever cast this one didn’t prepare one. That’s why he’s in a computer.",
+            why:"Warlock is the natural fit, though her knowing the ritual is a codex idea rather than the doc’s. If you’d rather not lean on it, give the line to the Spirit himself."}
+        ]}}},
+
   {n:8,title:"The food-stash puzzle",where:"Final room",s:"doc",src:"Sesh 6",body:"A puzzle reveals the vampires' food stash — the surprise being it's small animals, not people. Solving it releases a key to a hidden room. This is the proof that clears the vamps.",
-    bridge:{s:"ai",cue:"3AM. Every speaker in the house comes on at once.",
-      note:"The flyer's 3AM time is from Sesh 6; using it as the fight's starting gun is a codex idea. Other kids still in the house is also codex-side — it's what stops them from just leaving."}},
+    bridge:{cue:"It’s three in the morning — and every speaker in this house just came on at once.",
+      note:"The flyer’s 3AM is from Sesh 6; using it as the fight’s starting gun is a codex idea, and a good one — it puts a clock on the whole second half from the moment they read the flyer. <b>Because only five people were invited, Poe Boy knows exactly who is in his house</b>, so the show can open by naming them. The bolted doors are the only thing that has to hold them here; there’s no crowd of other kids to justify.",
+      fallbacks:{lbl:"If they’d rather hide than go and find him",
+        items:[
+          {who:"The speakers",say:"It’s his voice. And he’s saying your names.",
+            why:"Only works because the guest list is five. Hiding stops being an option the second the house addresses them personally."}
+        ]},
+      q:"Open: if nobody else was invited, who was the <b>3AM DJ flyer</b> for? Either it went out wide as the cover story Poe Boy showed the vampires, or it never left his hands and the show is for an audience of five."}},
+
   {n:9,title:"Climax",where:"Boss fight",s:"doc",src:"Sesh 2, 5, 7",body:"Either the heroes confront DJ Poe Boy, or — on the fight path — they battle the vampires. Sesh 7's reconciling idea: <b>Poe Boy seizes control of some of the vampires during the final fight</b>, by mind control or manipulation, so the party and the free vampires fight Poe Boy and their own friends at once. The vampires' turn is the hinge: they've believed all along that the kid ran off out a window.",
-    bridge:{s:"ai",cue:"Sunrise, the front doors give — and it's still only Sunday. The project is due Monday.",
-      note:"Mundane on purpose. An ancient Dutch artifact in someone's backpack is a show-and-tell item begging to be presented; the real-estate resolution can ride in on Monday's announcements."}},
+    bridge:{cue:"Sun’s coming up. The front doors give when you push them. And it’s Sunday morning — the project’s due tomorrow.",
+      note:"Mundane on purpose, and the deflation is the joke: they have been through a night of this and the homework is still there. An ancient Dutch artifact in someone’s backpack is a show-and-tell item begging to be presented, and the real-estate resolution can ride in on Monday’s morning announcements."}},
+
   {n:10,title:"Resolution & bookend",where:"Back to class",s:"doc",src:"Sesh 5",body:"They recover an ancient Dutch artifact (found after the boss fight, or with the vamps' help), the real-estate company is scared off the land, and they present the artifact in class — closing the loop opened in scene one."}
 ];
 
@@ -647,7 +693,8 @@ const BACKSTORY = [
   {h:"The plan they're running now", when:"Up to session one", s:"doc", src:"Sesh 7",
     items:[
       "Poe Boy and the vamps devise the real plan — the biggest, scariest haunted house they can stage. Scare everyone so badly they'll never come near the house again, and the buyers leave them alone.",
-      "<b>But Poe Boy has other plans.</b> He intends to invite everyone, lock them in, torture them, and sample their screams."
+      "<b>But Poe Boy has other plans.</b> He intends to invite everyone, lock them in, torture them, and sample their screams.",
+      "<i>Narrowed by Scott, 24 Aug 2026 — the guest list is the five PCs, not the school. Sesh 7’s wording is left standing above because it is the doc’s; the flow runs the five-card version. Still open: <b>why these five</b>, and what Poe Boy told the vampires a crowd was coming.</i>"
     ]},
   {h:"What Angelique knows", when:"The crack in the crew", s:"doc", src:"Sesh 7",
     items:[
@@ -683,6 +730,8 @@ const NAMES = [
 const TODO = [
   ["Is the Gjenganger in?","<b>Parked.</b> Spencer's Sesh 2 words were <i>'Up to you if we go with it'</i>; by Sesh 6 he'd given it a backstory and a combat plan anyway. Scott has put the whole creature on hold pending a proper pass — draft spec in <code>/PROPOSALS.md</code>, agreed to by nobody. It's currently the only set-piece encounter, so a 'no' needs a replacement.","doc"],
   ["The dead kid","He needs a name, a year, and enough of a life that the players feel it. Also: the soul cage left no body, so there was never a search or a funeral — decide what the school thinks happened to him, because that's the version Angelique has been living with.","doc"],
+  ["Why these five?","<b>New, 24 Aug 2026.</b> The invite is now exclusive — five cards, five lockers, nobody else. That makes the guest list a deliberate choice by Poe Boy, and it needs a reason. Candidates: they're the misfits nobody would come looking for; Gnomey knows him from the old crew and knows too much; Angelique is close enough to them to be a problem. Whatever the answer, the players will ask it out loud the moment they realise no one else got a card.","ai"],
+  ["Who was the 3AM flyer for?","<b>New, 24 Aug 2026.</b> Sesh 5/6 give a public-looking DJ show flyer for 3AM at Dood Mansion. With nobody else invited, either it went out wide as the <b>cover story</b> — the thing Poe Boy showed the vampires as proof he was staging the big scare they asked for — or it never left his hands and the whole show is for five people. Affects whether the flyer prop gets built as a real handout.","ai"],
   ["How the vamps learn the truth","They believe he went out a window. Decide whether the reveal comes from the Spirit directly, from Angelique, or from the players producing the recording.","doc"],
   ["John's insecurity","His to name — the doc says TBD. Open alongside it: a character name, race, and any mansion connection.","doc"],
   ["Cody's PC","Still not submitted — needs a character, a reason they joined the misfits, and a mansion-lore sprinkle.","doc"],
@@ -698,8 +747,8 @@ const TODO = [
 ];
 
 const DOCS = [
-  ["Haunted House Invite","BUILT — /invite/ · home-made, clip-arty · ~7PM · Sesh 6 spec","doc","Sesh 5, 6"],
-  ["DJ Show Flyer","NOT BUILT · leaned-out Memphis/Houston rap art, spooky · 3AM at Dood Mansion · bills Poe Boy / Lil Stinky / Angelique / 4th member","doc","Sesh 5, 6"],
+  ["Haunted House Invite","BUILT — /invite/ · home-made, clip-arty · 7PM sharp · Sesh 6 spec. <b>Now an exclusive invite</b> (5 cards, 5 lockers) — the card's mass-flyer voice (<i>FREE admission, bring a friend, the more the scaryer</i>) reads as deliberate camouflage, so the prop needs no rebuild.","doc","Sesh 5, 6"],
+  ["DJ Show Flyer","NOT BUILT · leaned-out Memphis/Houston rap art, spooky · 3AM at Dood Mansion · bills Poe Boy / Lil Stinky / Angelique. <b>Blocked on a question:</b> with the invite exclusive, is this a public flyer or Poe Boy's cover story? See the to-do.","doc","Sesh 5, 6"],
   ["Library History Clippings","BUILT — /puzzle/ · but as an invented 1937 newspaper. The doc's source is a 1973 Frisian legend.","ai"],
   ["AIM chat with the Spirit","BUILT — /aim/ · rests entirely on Sesh 7","doc","Sesh 7"]
 ];
@@ -844,9 +893,9 @@ flow.innerHTML=FLOW.map((s,i)=>{
   let bridge="";
   if(s.bridge){
     const b=s.bridge, next=FLOW[i+1];
-    const lbl=`Getting them to ${next?`“${next.title}”`:"the next beat"}`;
-    bridge=`<div class="bridge${b.s==="ai"?" open is-ai":""}">
-      <div class="lbl">↓ ${lbl} ${stBadge(b)}</div>
+    const lbl=`Say this to get them to ${next?`“${next.title}”`:"the next beat"}`;
+    bridge=`<div class="bridge${b.q?" open":""}">
+      <div class="lbl">↓ ${lbl}</div>
       <span class="cue">${b.cue}</span>
       <p>${b.note}</p>
       ${b.fallbacks?`<div class="fb"><div class="fb-lbl">${b.fallbacks.lbl}</div>${
@@ -926,8 +975,6 @@ document.getElementById("docs").innerHTML=DOCS.map(([t,d,st,src])=>`<div class="
   push("Cast details with no source", NODES.filter(n=>n.ai).map(n=>[n.name,n.ai]));
   push("Relationships nobody wrote", EDGES.filter(e=>e[4]==="ai").map(e=>
     [`${nodeById[e[0]].name} ↔ ${nodeById[e[1]].name}`,`“${e[3]}” — ${e[5]}.`]));
-  push("Story-flow stagecraft", FLOW.filter(f=>f.bridge&&f.bridge.s==="ai").map(f=>
-    [`After “${f.title}”`,`${f.bridge.cue} — ${f.bridge.note.replace(/<[^>]+>/g,"")}`]));
   push("Weekend pacing", [...PLAN.sat.slots,...PLAN.sun.slots].filter(x=>x.s==="ai").map(x=>[x.h,x.p]));
   push("Names", NAMES.filter(n=>n.ai).map(n=>[n.h,n.ai]));
   push("Open threads the codex 'answered' on its own", TODO.filter(t=>t[2]==="ai").map(t=>[t[0],t[1]]));
