@@ -27,6 +27,7 @@ Not yet pasted into the Google Doc — **do that to make them official.** Until 
 | ✅ **The real-estate company warded the 1937 library page.** Their leader paid to make it unreadable, scrubbing a documented vampire incident before developing the site. He can't ward word of mouth, which is why the town still talks. | 🟡 invented by the puzzle prop — **now ratified by Scott** |
 | ✅ **"Dood" is both** — the builder's family surname *and* the Dutch pun. Cornelis Dood is a real person in the fiction. | Sesh 6 had the pun; the prop added the surname. Both now stand. |
 | ✅ **The party is level 3**, leveling to 4 at the end of day one. | new |
+| ✅ **Races & classes are now IN DOC** — Spencer wrote Scott's picks into the doc as **Brainstorm Sesh 8**, which this ledger had not seen. They are no longer 🟡 anything. Sesh 8 also added Lil Stinky's oathbreak, which the codex had missed entirely. | 🟡 "Scott's pick, not in the doc yet" — **now doc** |
 | ✅ **The invite is exclusive — five cards, five lockers, nobody else got one.** The party arrives at an empty hill: no cars, no line, no lit windows, front still boarded. This **narrows Sesh 7's "invite everyone"**, which is a doc line, so it needs writing into the doc more than anything else on this list. Knock-ons: Poe Boy's side-entrance tip becomes the only way in; the codex no longer leans on a houseful of other kids to stop the party leaving (the bolted doors do it); "why these five" and "who was the 3AM flyer for" are now open. | 🟡 codex stagecraft — **now decided by Scott, 24 Aug 2026**, and it overrides a doc line |
 | ⏸ **The 1937 Crier stays 🟡** pending Scott's read of the article text. | unchanged |
 | ⏸ **The Gjenganger / Cornelis Dood stays 🟡** — parked entirely. A draft spec is in `PROPOSALS.md`; none of it is agreed. | unchanged |
@@ -75,6 +76,8 @@ Three things in the codex were not just unsourced, they were wrong:
 | Three named handouts: Haunted House Invite, DJ Show Flyer, Library History Clippings | Sesh 5, 6 |
 | Invite ~7PM; DJ show 3:00AM; working date Halloween | Sesh 6 |
 | Dood Mansion (*dood* = dead in Dutch) — Spencer flagged *"lmk if thats too dumb"* | Sesh 6 |
+| **Senior skip day, and nobody told them** — why these five are in the room. Breakfast Club vibes | Sesh 1 comments — Spencer floated, Scott took it |
+| The bookend played battered: *"scars and black eyes and theyre like 'and yeah that was our class project'"* | Sesh 5 comments — Scott |
 
 ### The Sesh 7 backstory chain
 The whole Poe Boy sequence — meeting the vamps while sampling, the vamps asking for help with the
@@ -125,6 +128,9 @@ the story now** — so this counts as in-doc like anything else, not as one pers
 | **Lil Stinky** — school kingpin tied to Julia's cigarette trade, stoner, bad rapper, dumb but honest, needs no manipulation, makes music with Poe Boy; Orc or Goliath TBD, tanky TBD | Sesh 3 |
 | **Angelique** — trad goth, nihilist hedonist with empathy, smart but unsure, Poe Boy exploits her low self-worth, the one who can be pulled out of his orbit; Changeling or Genasi TBD | Sesh 3 |
 | **Angelique is the locked name** (Coressa/Angellica/Scarlett are out) | Sesh 7 |
+| **Angelique tries to warn them at the gazebo and can't** — the rest of the crew is standing there | Sesh 5 |
+| **NPC races & classes**: Poe Boy = Kenku Bard (Glamour); Lil Stinky = Paladin, Oath of Devotion; Angelique = Changeling Rogue. Still open by the doc's own admission: Lil Stinky's race, Simone's race | **Sesh 8** |
+| **Lil Stinky's arc**: *"Sworn to a liar without knowing it. His oath breaks when he believes us about the kid."* | **Sesh 8** |
 | Angelique is the first to run into them in the mansion and tells them to hide | Sesh 5 |
 | **4th crew member** — an open slot, probably female | Sesh 3 |
 | **History teacher** — assigns the project | Sesh 1 |
