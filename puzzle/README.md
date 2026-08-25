@@ -22,6 +22,19 @@ speaking as themselves at a D&D table — "cast a spell" reads right there,
 
 The prop never names who cast it, on purpose, and should stay that way.
 
+> ### 🔔 Sesh 9: this prop now summons the villain
+>
+> Breaking the ward is no longer just a timer beating a spell. **It tells the developer someone has
+> been in his records, and he drives out to the house that night.** The party's cleverest moment in
+> the town half is the reason the worst thing in the building arrives at 3AM, and it is entirely
+> their doing — they will not find out until it happens, and ideally not until afterwards.
+>
+> He is also now a **wizard, an abjurer**, which tidies up the loose end this README already had:
+> he didn't hire anyone, he cast it himself, so there is no contractor for the party to trace.
+> He is the only character who dies in the campaign.
+>
+> Nothing in the prop changes. The players still just meet a page that won't go back together.
+
 **For the DM: it was the real-estate company's leader.** Not to hide monsters —
 to erase a documented 1937 vampire incident from the public record before he
 develops the site. A stigmatized property is a liability, so he paid to make the
@@ -45,7 +58,7 @@ without regenerating any art.
 
 | Job | Where |
 |---|---|
-| The vampire-slaying method — whitethorn splinter in the lid, point over the heart, nail shut, rebury | Page 2, "Upon the Heath", plus a labelled diagram (A = splinter, B = heart) so it can't be missed |
+| The vampire-slaying method — whitethorn splinter in the lid, point over the heart, nail shut, rebury. **Sesh 9 cut the fork, so this is no longer a branch payoff — it is the thing that makes the party think they need to fight** | Page 2, "Upon the Heath", plus a labelled diagram (A = splinter, B = heart) so it can't be missed |
 | Proof the method works — the children woke | Page 2, "The Children Woke" |
 | **The clincher** — three coffins, one opened, two still under the chapel floor | Page 2, Wiegman's closing quote |
 | The Gjenganger, quietly — runic marker, a man buried carefully so he wouldn't walk | Page 2, "The Builder's Stone" sidebar |

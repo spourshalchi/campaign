@@ -123,13 +123,14 @@
   .card-flow h4{margin:0 0 5px;font-size:16px;font-family:var(--f-display)}
   .card-flow .where{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--purple);margin-bottom:6px}
   .card-flow p{margin:0;color:var(--mut);font-size:13.5px}
-  .fork{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
-  @media(max-width:680px){.fork{grid-template-columns:1fr}}
+  .fork{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+  @media(max-width:860px){.fork{grid-template-columns:1fr}}
   .branch{border-radius:10px;padding:12px 14px;border:1px solid}
-  .branch.a{border-color:#5a2b34;background:linear-gradient(180deg,#241119,#1a0f16)}
-  .branch.b{border-color:#25503f;background:linear-gradient(180deg,#0f1f18,#0c1712)}
+  .branch.p1{border-color:#25503f;background:linear-gradient(180deg,#0f1f18,#0c1712)}
+  .branch.p2{border-color:#5a2b34;background:linear-gradient(180deg,#241119,#1a0f16)}
+  .branch.p3{border-color:#4a3a1e;background:linear-gradient(180deg,#221a0e,#17120a)}
   .branch h5{margin:0 0 5px;font-size:14px}
-  .branch.a h5{color:var(--blood)} .branch.b h5{color:var(--green)}
+  .branch.p1 h5{color:var(--green)} .branch.p2 h5{color:var(--blood)} .branch.p3 h5{color:var(--gold)}
   .branch p{margin:0;font-size:12.5px;color:var(--mut)}
   .pill{display:inline-block;font-size:10.5px;padding:2px 8px;border-radius:999px;background:#0f0b18;border:1px solid var(--edge);color:var(--mut);margin:0 5px 5px 0}
 
@@ -261,6 +262,47 @@
   .review-item:first-child{border-top:none}
   .review-item .rt{font-size:14px;color:var(--ink);font-weight:600;margin-bottom:3px}
   .review-item .rd{font-size:12.8px;color:var(--mut)}
+  .finale-box{margin:10px 0 0;padding:10px 12px;border-radius:9px;font-size:12.9px;line-height:1.5;
+    border:1px solid #3a2f1a;background:linear-gradient(180deg,#1d1810,#151109);color:var(--mut)}
+  .finale-box .fh{display:block;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:5px;font-weight:700}
+  .finale-box b{color:var(--ink)}
+  .finale-box code{background:#0d0a14;border:1px solid var(--edge);border-radius:4px;padding:1px 5px;font-size:11.5px}
+  .src{display:inline-block;font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--green);border:1px solid #24503c;border-radius:999px;padding:1px 7px;margin-left:4px;vertical-align:1px}
+  .bud-tbl{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}
+  .bud-tbl th{text-align:left;font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--dim);font-weight:600;padding:0 10px 7px 0;border-bottom:1px solid var(--edge)}
+  .bud-tbl td{padding:8px 10px 8px 0;border-bottom:1px solid #1e1830;color:var(--mut)}
+  .bud-tbl td:first-child{color:var(--ink);font-weight:600}
+  .bud-tbl td b{color:var(--ink)}
+  .enc{margin-top:14px;border:1px solid var(--edge);border-radius:14px;background:var(--panel);
+    padding:16px 18px;box-shadow:var(--shadow);border-left:3px solid var(--sc,#7c8496)}
+  .enc .etop{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:3px}
+  .enc .eact{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim)}
+  .enc h4{margin:0;font-family:var(--f-display);font-size:19px;color:var(--ink)}
+  .enc .ep{margin:7px 0 0;font-size:13.6px;color:var(--mut);line-height:1.55}
+  .enc .ep b{color:var(--ink)}
+  .ec{display:inline-block;font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+    border-radius:999px;padding:2px 8px;border:1px solid}
+  .ec.built{color:var(--green);border-color:#24503c;background:rgba(79,192,138,.08)}
+  .ec.todo{color:var(--gold);border-color:#4a3a1e;background:rgba(224,170,62,.08)}
+  .ec.park{color:var(--mut);border-color:var(--edge);background:#161122}
+  .ec.hold{color:var(--blue);border-color:#26405c;background:rgba(91,155,213,.08)}
+  .emath{margin-top:11px;padding:9px 12px;border-radius:9px;background:#100c1a;
+    border:1px solid var(--edge);font-size:12.6px;color:var(--mut);line-height:1.7}
+  .emath .row{display:flex;justify-content:space-between;gap:14px}
+  .emath .row span:last-child{color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .emath .tot{border-top:1px solid var(--edge);margin-top:5px;padding-top:5px;font-weight:600}
+  .emath .verdict{margin-top:6px;font-size:12.2px;color:var(--gold)}
+  .crule{border-top:1px solid #1e1830;padding:12px 0}
+  .crule:first-child{border-top:none;padding-top:0}
+  .crule b.ch{color:var(--ink);font-size:14px;display:block;margin-bottom:3px}
+  .crule p{margin:0;font-size:13.2px;color:var(--mut);line-height:1.55}
+  .conflict{margin:0 0 18px;padding:14px 16px;border-radius:12px;
+    border:1px solid #6a2530;background:linear-gradient(180deg,#2a1218,#1c0d12);color:#f0c9cf;font-size:13.6px;line-height:1.6}
+  .conflict b{color:#fff}
+  .conflict .ch{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#ff8a96;margin-bottom:6px;font-weight:700}
   .review-h{font-family:var(--f-display);font-size:15px;color:#ffcf70;margin:22px 4px 6px;
     text-transform:uppercase;letter-spacing:.1em;font-size:12px}
 </style>
@@ -287,6 +329,7 @@
     <button data-tab="flow">Story Flow</button>
     <button data-tab="cast">The Cast</button>
     <button data-tab="plan">Weekend Plan</button>
+    <button data-tab="combat">Combat</button>
     <button data-tab="names">Names &amp; Open Threads</button>
     <button data-tab="review">⚠ Not Canon Yet</button>
     <span class="flagbar"><label><input type="checkbox" id="flagtoggle" checked> highlight not-canon</label></span>
@@ -345,7 +388,7 @@
   <!-- ============ FLOW ============ -->
   <section class="tab" id="tab-flow">
     <h2 class="sec">How the weekend unfolds</h2>
-    <p class="sub">A haunted-house structure: curiosity gets them in, the doors bolt shut, and everything after plays out inside Dood Mansion — until the fork that decides the whole climax.</p>
+    <p class="sub">A haunted-house structure: curiosity gets them in, the doors bolt shut, and everything after plays out inside Dood Mansion — and Sesh 9 cut the fork, so it now runs one line from the locker cards to the Volvo in the driveway.</p>
     <p class="sub">Between beats is a <b style="color:var(--purple)">transition</b> — a line to <i>say at the table</i> to move them to the next one, plus what to have ready underneath it. Transitions aren’t tracked as canon: they’re table patter, not lore, so say them however you like or ignore them. A <b style="color:#ffcf70">gold dashed transition</b> means there’s still a design question open there. The numbered beats themselves are from the doc.</p>
     <div class="flow" id="flow"></div>
   </section>
@@ -353,18 +396,33 @@
   <!-- ============ CAST ============ -->
   <section class="tab" id="tab-cast">
     <h2 class="sec">The cast</h2>
-    <p class="sub">Quick-reference cards. Fields marked TBD are open decisions from the doc (races, classes, the 4th crew member, Cody's PC, and John's insecurity — which is his to name). Amber blocks flag details this codex invented.</p>
+    <p class="sub">Quick-reference cards. Fields marked TBD are open decisions from the doc (Lil Stinky's and Simone's races, the developer's name, the dead kid's name, Cody's PC, and John's insecurity — which is his to name). Amber blocks flag details this codex invented.</p>
     <div id="cast"></div>
   </section>
 
   <!-- ============ PLAN ============ -->
   <section class="tab" id="tab-plan">
     <h2 class="sec">The two-session weekend</h2>
-    <p class="sub">Roughly the first third-to-half of Saturday is town/exposition; the rest of Saturday and all of Sunday live in the mansion. Pacing target from Brainstorm Sesh 1.</p>
+    <p class="sub">Roughly the first third-to-half of Saturday is town/exposition; the rest of Saturday and all of Sunday live in the mansion. Pacing target from Sesh 1; the fight placement and the no-fork spine are Sesh 9. Encounter budgets live on the <b>Combat</b> tab.</p>
     <div class="days" id="days"></div>
     <div class="panel" style="margin-top:16px">
       <h4 style="margin:0 0 8px;font-family:var(--f-display)">Table roles</h4>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 24px" id="roles"></div>
+    </div>
+  </section>
+
+  <!-- ============ COMBAT ============ -->
+  <section class="tab" id="tab-combat">
+    <h2 class="sec">Combat encounters</h2>
+    <p class="sub">Three fights for the weekend, one held in reserve. The <b>beats</b> are from the doc (Sesh 6, 7 and 9); every <b>number</b> below &mdash; XP budgets, CR picks, HP, stat-block chassis, and the contents of Saturday's fight &mdash; is a proposal built against them and agreed to by nobody. Combat and rules are Scott's lane per Sesh 1.</p>
+    <div class="conflict"><span class="ch">⚠ Unresolved &mdash; it changes the finale</span>
+      Two decisions from 24 August contradict each other. The <b>guest list</b> says five cards and an empty hill; the <b>Sesh 9 finale</b> needs a charmed crowd for Poe Boy to be humiliated in front of. Proposed fix, not agreed: the <b>7PM card is exclusive</b> and the <b>3AM flyer is public</b>, so the party has the house to themselves for eight hours and then it fills up. Phases 1&ndash;3 below work either way; <b>the collapse does not</b>. Full write-up in <code>/CANON.md</code>.</div>
+    <div class="panel" id="cbudget"></div>
+    <div id="cenc"></div>
+    <div class="panel" style="margin-top:16px">
+      <h4 style="margin:0 0 4px;font-family:var(--f-display)">Three rules that do the work</h4>
+      <p class="sub" style="margin:0 0 12px">Each replaces a die roll with something the players can see and act on.</p>
+      <div id="crules"></div>
     </div>
   </section>
 
@@ -458,12 +516,14 @@ const NODES = [
     role:"Antagonist · Ringleader", s:"doc", src:"Sesh 1, 3, 5, 7, 8",
     fields:{Race:"Kenku",Class:"Bard — College of Glamour",Alignment:"Chaotic Neutral",Type:"ENFJ"},
     desc:"Way-too-cool-for-school personified: obnoxiously subversive, but with real underground cred. Ambitious and callous to the edge of psychopathy — not sadistic, just indifferent to suffering if it serves the work. Charismatic, subtly manipulative. Emancipated rich kid, deeply insecure about his upper-class parents who adore him anyway.",
-    hook:"The plan: invite them, lock them in, and <b>sample the screams of real beings terrorized by real monsters</b> for his horror score. He met the vampires by accident while recording spooky noises in the house, sold them a plan to scare off the mega-mall developers, then tested it on one kid — and found out he doesn't stop. Candidate embarrassing real name: Upton Maximillion Livingsworth III (floated in Sesh 3 as a joke, never locked).<br><br><b>Playing him:</b> Kenku speak only in sounds recorded from others — a DJ who samples voices, whose crime is trapping a kid's voice in a machine, cannot speak in one of his own. Sesh 8: <i>“Voice him in borrowed lines.”</i> Glamour supplies the charm that holds the crew." },
+    hook:"The plan: invite them, lock them in, and <b>sample the screams of real beings terrorized by real monsters</b> for his horror score. He met the vampires by accident while recording spooky noises in the house, sold them a plan to scare off the mega-mall developers, then tested it on one kid — and found out he doesn't stop. Candidate embarrassing real name: Upton Maximillion Livingsworth III (floated in Sesh 3 as a joke, never locked).<br><br><b>Playing him:</b> Kenku speak only in sounds recorded from others — a DJ who samples voices, whose crime is trapping a kid's voice in a machine, cannot speak in one of his own. Sesh 8: <i>“Voice him in borrowed lines.”</i> Glamour supplies the charm that holds the crew.",
+    finale:"<b>He charms the crowd.</b> An Enthralling Performance holds the 3AM audience where he wants them — he needs them frightened and he needs them to stay, so the charm is part of the crime. He sets the vampires on the party with the lie that killed the kid, tries to recruit the developer and gets brushed off, then spends phase three casting <i>Command</i> — “Drop.” — to keep the USB off his decks. <b>He is not killed. He is un-performed:</b> the recording plays in full, the glamour breaks, one boo becomes the whole room, Dracula takes his mic, his Command stops landing — and his parents pull into the drive and call him <b>Upton</b>.<br><br>⚠️ Depends on the unresolved guest-list question — see <code>/CANON.md</code>. <span class='src'>Sesh 9</span>" },
   {id:"stinky", name:"Lil Stinky", sub:"School kingpin", g:"crew", x:430, y:470,
     role:"Crew · Muscle / dealer", s:"doc", src:"Sesh 3, 8",
     fields:{Race:"Orc or Goliath (TBD)",Class:"Paladin — Oath of Devotion",Vibe:"Stoner, bad rapper, honest to a fault"},
     desc:"Dumb as bricks but genuinely charming — a hustler who isn't conniving. Into the dumbest conspiracy theories. The one crew member who needs no manipulation: he just wants to help his best friend, not knowing he's being used.",
     hook:"Makes music with Poe Boy — they're tight. The doc ties him to <b>Julia's cigarette trade</b> as the school kingpin, which is how Gnomey's world overlaps his.<br><br><b>His arc, per Sesh 8:</b> <i>“Sworn to a liar without knowing it. His oath breaks when he believes us about the kid.”</i> He is the only member of the crew whose turn is mechanical as well as emotional — put the moment he believes the players somewhere the table can see it land.<br><br>Oath of Devotion fits because the doc already makes him honest to a fault and genuinely wanting to help the friend who is using him. His race is one of the two blanks Sesh 8 leaves open, alongside Simone's.",
+    finale:"Sesh 8 gave him the oathbreak; <b>Sesh 9 gives it a trigger.</b> He stands on the decks in phase three and his <b>Aura of Protection</b> buffs Poe Boy's saves, so the party's control spells bounce until they deal with him — a puzzle, not a wall. <b>He is the only person in the room who isn't charmed.</b> He never needed to be; he just believes his friend, which is exactly why it hurts. Then the recording plays and the oath breaks with <b>no saving throw</b>: Devotion's first tenet is <i>don't lie or cheat</i>, and there is no save against hearing your best friend stay calm while a kid dies. He stops fighting and sits down. On Monday he records a diss track — sincere, terrible, devastating. <span class='src'>Sesh 8 + 9</span>",
     ai:"The codex expanded that to a 'cigarette/weed trade.' Weed is Bix's, per Character Bios." },
   {id:"angelique", name:"Angelique", sub:"The one who flips", g:"crew", x:330, y:340,
     role:"Crew · The redeemable one", s:"doc", src:"Sesh 3, 5, 7, 8",
@@ -474,6 +534,7 @@ const NODES = [
     role:"Primary location", s:"doc", src:"Sesh 0, 3, 6, 7",
     fields:{Name:"'Dood' = dead (Dutch)",History:"Abandoned Dutch mansion on the edge of town"},
     desc:"Where the whole back half plays out. The front door has been boarded for decades — until the night of the party, when the boards come off and are stacked against the porch rail. That un-boarding is the only visible change to the house, and it's the invitation. Once they're inside, the doors bolt shut. Rooms are built around puzzles and one combat set-piece, ending in the food-stash reveal and a hidden room.<br><br><b>Two of Poe Boy's setups, not one.</b> The old room upstairs holds his original recording rig and the computer the kid is inside — he hasn't been back in it (Sesh 7). The <b>ballroom</b> is the show he's built for tonight, wired to speakers through the rest of the house, and it's where the climax happens. The power is <b>hot-wired off the neighbouring property</b> — which is also the one thread anyone outside the house could pull on.",
+    finale:"Sesh 9 runs the back half as <b>one line with no fork</b>: locked in, one Saturday fight, the corridor set-piece, the Spirit and the USB upstairs, the food stash, then 3AM and three phases with no break. The two-setups decision pays off directly — the Spirit is in the <b>old rig upstairs</b> and the aux is on the <b>ballroom decks</b>, so the finale's objective is a journey across the map. <span class='src'>Sesh 9</span>",
     hook:"Rumored haunted for two reasons: the vampires, and the <b>Gjenganger</b> — the original lonely owner. A real-estate company wants to demolish it for a <b>mega mall</b>, and has knocked in daylight several times — when the vampires can't answer the door or defend themselves at all.",
     ai:"<b>Ratified by Scott:</b> 'Dood' is both — the builder's family surname <i>and</i> the Dutch pun, so Cornelis Dood is a real person in the fiction. That also answers Spencer's Sesh 6 'lmk if thats too dumb lol' about the mansion name. Not in the Google Doc yet." },
 
@@ -481,16 +542,19 @@ const NODES = [
     role:"Vampire (secretly good)", s:"doc", src:"Sesh 0, 5",
     fields:{Style:"Nosferatu / Count Orlok"},
     desc:"The genuinely eerie one, straight from folklore. Like the others, actually harmless to the heroes — they live off small animals and want to be left alone.",
+    finale:"<b>Mechanically incapable of killing a PC</b> in first contact and in phase one — grapple, shove, frighten, never Bite on a conscious creature. A Sesh 9 rule, not DM mercy, so the mechanics are themselves the clue. He does the actual frightening, and he means it. <span class='src'>Sesh 9</span>",
     ai:"'Does most of the actual frightening on Poe Boy's say-so' was a codex invention. The doc gives the three vamps archetypes and nothing else." },
   {id:"drac", name:"Vamp: Dracula", sub:"Kitschy & annoying", g:"vamp", x:915, y:290,
     role:"Vampire (secretly good)", s:"doc", src:"Sesh 0",
     fields:{Style:"Campy Count Dracula"},
     desc:"The over-the-top theatrical one for comic relief.",
+    finale:"<b>He gets the campaign's biggest laugh and its cleanest catharsis.</b> When the recording finishes and the room wakes up, Dracula seizes the mic and denounces Poe Boy magnificently — he has waited all night for a real audience. The crowd cheers, and plenty still aren't sure it isn't part of the show. Also bound by the no-Bite rule in phase one.<br><br>⚠️ Depends on the unresolved guest-list question — see <code>/CANON.md</code>. <span class='src'>Sesh 9</span>",
     ai:"'Treats the haunted-house plan as a performance and would happily brag the whole scheme by accident' was a codex invention." },
   {id:"edward", name:"Vamp: Edward", sub:"Literally Twilight", g:"vamp", x:880, y:430,
     role:"Vampire (secretly good)", s:"doc", src:"Sesh 0, 7",
     fields:{Style:"Just Edward from Twilight"},
     desc:"Exactly what it says. All three want the same thing — to be left alone — and all three believe the kid who came up the hill that night ran off out a window. Nobody has told them he died, or that Poe Boy has had him in a machine ever since.",
+    finale:"Bound by the no-Bite rule in phase one. All three turn the moment the developer dies — the party killed the man taking their home, in front of them, so it costs <b>no persuasion check</b>. Then they fight alongside the party: roughly three extra level-5 bodies, which is why phase three is a catharsis rather than a hard fight. <span class='src'>Sesh 9</span>",
     ai:"The codex proposed Edward was turned recently, to reconcile three vampires against the puzzle prop's three coffins. Both the coffin count and this fix are invented." },
 
   {id:"gjen", name:"The Gjenganger", sub:"Vengeful revenant", g:"force", x:790, y:560,
@@ -498,12 +562,13 @@ const NODES = [
     fields:{Origin:"Scandinavian folklore revenant",Danger:"Strong up close — spreads decay/sickness"},
     desc:"The original mansion owner — never married, never had children, isolated himself and died by suicide from loneliness. A big reason the house was abandoned. Deadly at close range (rotting touch), so the winning strategy is keeping distance.",
     hook:"Mirrors <b>Bix's</b> antisocial arc — a character-development beat. Guards the way to the computer/spirit. Spencer's Sesh 2 line when he found it: <i>'Up to you if we go with it.'</i> Still unanswered.",
-    ai:"<b>Parked — the whole creature is on hold.</b> Spencer's Sesh 2 and Sesh 6 material is real, but nothing about it is agreed: not the motive, not whether it's Cornelis Dood, not the stat block, not the encounter. A draft spec sits in <code>/PROPOSALS.md</code> and is canon to nobody." },
+    ai:"<b>Parked — the whole creature is on hold.</b> Spencer's Sesh 2 and Sesh 6 material is real, but nothing about it is agreed: not the motive, not whether it's Cornelis Dood, not the stat block, not the encounter. A draft spec sits in <code>/PROPOSALS.md</code> and is canon to nobody.<br><br><b>Sesh 9 changed the pressure on this.</b> It kept the corridor set-piece as a beat without naming the creature, and it <b>cut the fork</b> — so this fight no longer has to be a convergence point where two branches meet. It is simply the toll on the way to the computer, which makes it much easier to swap. A 'no' still needs a replacement." },
   {id:"spirit", name:"Spirit in the Computer", sub:"A past victim", g:"force", x:620, y:585,
     role:"Clue-bearer", s:"doc", src:"Sesh 6 + 7",
     fields:{State:"Soul-caged into Poe Boy's computer",Name:"TBD"},
     desc:"A kid from school, lured to the mansion by a fake AIM screen name as Poe Boy's test run. The vampires chased him exactly as agreed; he broke for the one lit room, got to the keyboard and started typing for help. Poe Boy saw the open AIM window, shut the door and held it. Then he panicked over the body and cast a half-understood <b>soul cage</b> with no vessel prepared — so the machine still recording him took all of him.",
-    hook:"Biggest clue in the house: he was <b>killed by a human</b>, not a monster — the thread that exonerates the vampires. He can name Poe Boy. He still has no name, no year, and no life: the most valuable blank left.",
+    hook:"Biggest clue in the house: he was <b>killed by a human</b>, not a monster — the thread that exonerates the vampires. He can name Poe Boy.",
+    finale:"<b>He arms the party.</b> He asks them to fetch his backpack, still in that room after all these years — and <b>his mother wrote his name on it in Sharpie in 6th grade, and he never scratched it off.</b> That is how the dead kid gets his name; you two fill in one word and a player reads it off a prop. Inside is a thumb drive, and he uploads the recording of his own death over AIM's file-transfer window: <code>scream_test_03_GOOD.wav</code>, a filename <b>Poe Boy chose</b>, which the kid has had to look at every time the monitor wakes up. His ask isn't directions — it's <i>expose him</i>. He is upstairs in the old rig and the aux is on the ballroom decks, so the USB is what bridges the two setups. <b>Hand the players a real USB stick.</b> <span class='src'>Sesh 9</span>",
     ai:"The AIM prop gives him voice and texture that the doc doesn't: the screen names l0stsignal99 and SmiLeyGrrL03, 'third locker from the end by the gym,' 'he just called me the test.'" },
 
   {id:"teacher", name:"History Teacher", sub:"Inciting NPC", g:"town", x:340, y:80,
@@ -517,12 +582,13 @@ const NODES = [
     desc:"Keeper of the library / hall of records — the one NPC who warns them against going to the mansion. Sesh 7 locks 'hall of records = librarian.' Sesh 1 wants 'some sort of modern spin on the archetype.' <b>Beyond that she is not written.</b>",
     line:"You can try to put it back together. But I'm guessing, by the magic on them — someone doesn't want you finding that information.",
     ai:"Everything past 'harbinger who warns them': the quoted line above, the analysis of why it works, and the ruling that she has no stake in the 1937 story and doesn't appear in it. All codex-side decisions." },
-  {id:"realestate", name:"Real-Estate Co.", sub:"Outside threat", g:"town", x:915, y:560,
-    role:"Townsfolk · Background threat", s:"doc", src:"Sesh 5 + 7",
-    fields:{Goal:"Buy the mansion land"},
-    desc:"Wants to demolish the mansion and build a <b>mega mall</b>. The real threat to the vampires' quiet existence — their daytime visits are why the vampires went looking for a human ally in the first place, since sunlight leaves them unable to answer or defend themselves.",
-    hook:"Resolution beat: by the end, the company gets <b>scared off</b> the land (Sesh 5). Sesh 6 also floats real-estate scouting documents as a findable clue in the house.",
-    ai:"<b>Ratified by Scott</b> — the leader warding the 1937 page is a real thread now, not a codex invention. Still unnamed, and still open whether he believes any of it. Not in the Google Doc yet." }
+  {id:"realestate", name:"The Developer", sub:"Third faction · dies", g:"force", x:915, y:560,
+    role:"Antagonist · The only death", s:"doc", src:"Sesh 5, 7 + Sesh 9",
+    fields:{Goal:"Demolish the mansion for a mega mall",Class:"Wizard — Abjurer",Name:"TBD",Fate:"Killed in phase two"},
+    desc:"He wants to demolish the house and build a <b>mega mall</b>. His daytime visits are why the vampires went looking for a human ally at all — sunlight leaves them unable to answer the door or defend themselves. <b>Sesh 9 promoted him from a background company to the third faction.</b> He is an abjurer: not a fireball man, a man who solves problems by sealing them. He didn't dispute the 1937 article, he made it unreadable — and he cast it himself, which is why there is no contractor for the party to trace.",
+    hook:"<b>The party summons him and never finds out.</b> Breaking the ward on the Crier page tells him someone has been in his records, and he drives out that night to see who. He does not know what is in the house — and that's better. He isn't amazed. Within four seconds it stops being folklore and becomes a contamination problem on a site he has already paid for, and he starts giving orders. Resolution beat unchanged: the company is <b>scared off</b> the land by the end (Sesh 5).",
+    finale:"He breaches at 3AM and <b>seals the exits behind him, his own crew included</b>. Three sides, nobody sharing a goal. The only lethal fight of the finale — ~CR 5 plus six thugs, 2,400 XP against a 2,500 ceiling. <b>He is the one death in the story and the only one who isn't a monster</b>: self-defence, since he sealed them in and attacked first, but these are teenagers and it needs its silence before the comedy starts. His death is what flips the vampires, with no persuasion check. <span class='src'>Sesh 9</span>",
+    ai:"Three men in this house solve their problems by shutting something — the house bolts its doors, Poe Boy held one on a boy who was begging, and the developer's answer to a newspaper and a room full of witnesses is the same. That rhyme is a codex observation. <b>His name is still open</b>, as is company-or-family-trust." }
 ];
 
 const EDGES = [
@@ -555,7 +621,10 @@ const EDGES = [
   ["simone","devil","family","patron / power","doc","Character Bios"],
   ["angelique","spirit","haunt","typed the messages that lured him","doc","Sesh 7"],
   ["realestate","orlok","conflict","daylight visits they can't answer","doc","Sesh 7"],
-  ["realestate","librarian","control","warded the 1937 page in her drawer","ai","invented by the puzzle prop"],
+  ["realestate","librarian","control","warded the page in her drawer, himself","doc","Sesh 9"],
+  ["realestate","poe","conflict","brushed him off mid-fight","doc","Sesh 9"],
+  ["spirit","stinky","haunt","his recording breaks the oath","doc","Sesh 9"],
+  ["drac","poe","conflict","takes his mic at the end","doc","Sesh 9"],
   ["simone","spirit","haunt","warlock — can name the soul cage","ai","invented by the codex"]
 ];
 
@@ -593,7 +662,7 @@ const FLOW = [
 
   {n:5,title:"First vampire encounter",where:"No fight — yet",s:"doc",src:"Sesh 2",body:"They meet the three vampires but don't fight. Investigation begins. Play the vamps as hosts doing a job they agreed to: they think this is the big scare that saves their house, and they have no idea anyone has ever died here.",
     bridge:{cue:"From where you’re crouched you can hear all three of them, and they’re arguing. One wants to know who’s going back down to the boxes in the cellar. Another wants to know whether they’ve been fed.",
-      note:"Two threads in one conversation, and <b>whichever one they pull is the fork.</b> “The boxes in the cellar” is Path A — coffins, matching the method they read at the records hall. “Have they been fed” is Path B — it sounds like a confession and turns out to be small animals. Play the vamps mid-chore and slightly bored; they think they’re doing a job, and they don’t lower their voices because as far as they know nobody’s in the house who wasn’t invited.",
+      note:"Two threads in one conversation, and <b>they get both</b> — Sesh 9 cut the fork, so this is no longer a choice, it's two clues handed over at once. “The boxes in the cellar” matches the coffins from the records hall. “Have they been fed” sounds like a confession and turns out to be small animals. Play the vamps mid-chore and slightly bored; they think they’re doing a job, and they don’t lower their voices because as far as they know nobody’s in the house who wasn’t invited.<br><br><b>The vampires cannot kill a PC</b> here or in the finale's first phase — grapple, shove, frighten, never Bite on a conscious creature (Sesh 9). That is a rule, not DM mercy, and it means the mechanics are the clue: afterwards the players can work out the monsters never once rolled damage on them.",
       fallbacks:{lbl:"If neither thread lands",
         items:[
           {who:"Anyone with the clipping",say:"You’ve got the records-hall page in your bag. It says coffins. One of them just said boxes in the cellar.",
@@ -603,16 +672,12 @@ const FLOW = [
         ]},
       q:"Open: is one overheard scene enough, or does each path need its own clue in a different room so the fork survives the party splitting up?"}},
 
-  {fork:true,n:6,title:"THE FORK",where:"Choose your climax",s:"doc",src:"Sesh 2",body:"A crossroads in the investigation:",
-    branches:[
-      {k:"a",h:"Path A — Find an advantage",p:"Follow the records-hall lore: locate the vampires' coffins, stake the hearts, rebury. Sets up combat against the vampires (one, or all three)."},
-      {k:"b",h:"Path B — The vaguer path",p:"Discover they don't have to fight at all. Leads to the reveal that the vampires are good — and the climax becomes the boss fight with Poe Boy instead."}
-    ],
-    bridge:{cue:"Whichever way you went, the corridor you need runs through the same locked wing — and that’s where the cold is coming from.",
-      note:"Convergence is the cheap fix: the cellar (Path A) and the computer room (Path B) both sit behind one haunted corridor, so the Gjenganger is the toll either way and neither branch needs a set-piece of its own. <b>It also solves a split party</b> — both halves arrive at the same door from different sides, which is a reunion you don’t have to engineer.",
-      q:"Open, and it’s <b>Scott’s</b> call — room design and combat are his per Sesh 1. Does the map support one shared choke point, and what makes a lonely revenant guard it? Note the Gjenganger itself is parked (see PROPOSALS.md), so this may need a different toll."}},
+  {n:6,title:"Saturday's one fight",where:"The house has teeth",s:"doc",src:"Sesh 9",body:"<b>Sesh 9 cut the fork that used to sit here</b> — there is no fight-them / never-had-to branch any more, and the weekend runs one line. In its place: the weekend's single Saturday combat, late, after they're locked in. Its whole job is proving the building will actually hurt them, so Sunday's investigation carries weight. Roughly forty minutes. Contents are unwritten — see the <b>Combat</b> tab for the budget.",
+    bridge:{cue:"End of session one. Everyone levels to 4.",
+      note:"Ends Saturday on adrenaline rather than on a puzzle, and everything on Sunday is then built for five level-4 PCs. <b>Telegraph anything with a save-or-suck</b> — at level 3 a frighten-into-paralyze can remove a player before they've acted, and that's a bad beat rather than a scare. Show it happening to something else first.",
+      q:"Open: the Third Faction artifact wanted Saturday's fight in <b>town</b>, as the ward biting back when they reassemble the Crier. Sesh 9 says town is combat-free and puts the fight here. The ward-bite is still a good scene with nowhere to live — and taking it costs you this one."}},
 
-  {n:7,title:"Gjenganger combat",where:"Set-piece encounter",s:"doc",src:"Sesh 6",body:"Fight the vengeful revenant of the mansion's lonely original owner to reach the computer. It's brutal up close, so the smart play is fighting at range. Beating it unlocks the Spirit in the Computer — the kid Poe Boy lured, held a door on, and soul-caged into the machine. He was killed by a human, and he can say whose name.",
+  {n:7,title:"The corridor set-piece",where:"Gates the computer",s:"doc",src:"Sesh 6",body:"A combat stands between the party and the computer room. <b>Doc-canon that it exists; which creature it is has never been agreed</b> — the Gjenganger was Spencer's Sesh 2 offer and his <i>“up to you if we go with it”</i> is still unanswered (draft spec in <code>PROPOSALS.md</code>). If it stays: brutal up close, so the smart play is range, and the room has to make distance genuinely available.<br><br>Cutting the fork actually <b>helped</b> this encounter. It no longer has to be a convergence point where two branches meet — it's simply the toll on the way in, which makes it far easier to swap for something else.",
     bridge:{cue:"It wasn’t them. A person did this to me.",
       note:"The Spirit’s parting line. <b>Say it as him, then stop talking</b> and let the table sit in it. It flips the question from <i>how do we kill three vampires</i> to <i>then what have they been eating?</i> — which is the question the next room answers. Have him look at the locked door before he goes, so the puzzle has an address. If Angelique is with the party, this is the moment she learns what the messages she typed were for; play her reaction before anyone thinks to ask her about it. <b>And if they took the gazebo detour, this is where his omission lands:</b> he bragged about the ballroom for ten minutes and never mentioned this room once.",
       fallbacks:{lbl:"If they don’t move on the locked door",
@@ -623,7 +688,19 @@ const FLOW = [
             why:"Warlock is the natural fit, though her knowing the ritual is a codex idea rather than the doc’s. If you’d rather not lean on it, give the line to the Spirit himself."}
         ]}}},
 
-  {n:8,title:"The food-stash puzzle",where:"Final room",s:"doc",src:"Sesh 6",body:"A puzzle reveals the vampires' food stash — the surprise being it's small animals, not people. Solving it releases a key to a hidden room. This is the proof that clears the vamps.",
+  {n:8,title:"The Spirit, the backpack, the USB",where:"The old rig upstairs",s:"doc",src:"Sesh 7 + Sesh 9",body:"Past the corridor: the room the kid ran into and never left. Poe Boy's <b>original</b> setup — gear, a mic, and a computer somehow still on, hot-wired off the neighbouring property like everything else in this house. He hasn't been back in here since that night. The AIM prop is live at <code>/aim/</code>.<br><br>He was lured by a fake screen name, chased by vampires who believed he was a mall scout, and soul-caged when Poe Boy saw the AIM window open and pulled the door shut. He can name his killer, and he was <b>killed by a human</b>.",
+    bridge:{cue:"“my bag is still in this room. by the desk under the coats. can you get it”",
+      note:"<b>His mother wrote his name on the front in Sharpie in 6th grade and he never scratched it off.</b> That is how the dead kid finally gets a name — read off a prop by a player, not delivered as a lore dump. You two need one word.<br><br>Inside is a thumb drive. He uploads <code>scream_test_03_GOOD.wav</code> to it over AIM's real file-transfer window — <b>Poe Boy named that file</b>, and the kid has had to look at the name every time the monitor wakes up. His ask isn't directions, it's <i>expose him</i>: “i dont care about getting out… i care that everyone in this house still thinks hes cool.”<br><br><b>Hand the players an actual USB stick here.</b>",
+      fallbacks:{lbl:"If they don't think to ask what he needs",
+        items:[
+          {who:"The Spirit",say:"“theres something. its stupid but theres something.”",
+            why:"He offers rather than waiting to be asked. He has had years to work out what he wants and he is not going to risk them logging off first."},
+          {who:"Anyone",say:"The bag under the coats has a name on it in marker. It's been there long enough that the marker has gone brown.",
+            why:"If nobody engages with him, put the backpack in front of them physically. The name does the work on its own."}
+        ]},
+      q:"The two setups matter here: this is the <b>old rig upstairs</b>, and the aux he needs is on the <b>ballroom decks</b> downstairs. The USB is the thing that bridges them, which is exactly why the finale's objective is a journey across the map."}},
+
+  {n:9,title:"The food-stash puzzle",where:"Final room",s:"doc",src:"Sesh 6",body:"A puzzle reveals the vampires' food stash — the surprise being it's small animals, not people. Solving it releases a key to a hidden room. This is the proof that clears the vamps.",
     bridge:{cue:"It’s three in the morning — and every speaker in this house just came on at once.",
       note:"The flyer’s 3AM is from Sesh 6; using it as the fight’s starting gun is a codex idea, and a good one — it puts a clock on the whole second half from the moment they read the flyer. <b>Because only five people were invited, Poe Boy knows exactly who is in his house</b>, so the show can open by naming them. The bolted doors are the only thing holding them here.",
       fallbacks:{lbl:"If they’d rather hide than go and find him",
@@ -631,25 +708,36 @@ const FLOW = [
           {who:"The speakers",say:"It’s his voice. And he’s saying your names.",
             why:"Only works because the guest list is five. Hiding stops being an option the second the house addresses them personally."}
         ]},
-      q:"Open: if nobody else was invited, who was the <b>3AM DJ flyer</b> for? Either it went out wide as the cover story Poe Boy showed the vampires, or it never left his hands and the show is for an audience of five."}},
+      q:"⚠️ <b>Unresolved, and the ending depends on it.</b> Sesh 9's finale needs a crowd — a hundred charmed kids, one boo becoming the whole room, Poe Boy humiliated in front of the school. The 24 Aug guest-list decision says nobody else was invited. <b>Proposed fix (not agreed):</b> the <i>7PM card</i> is exclusive and the <i>3AM flyer</i> is public, so the party has the house to themselves for eight hours and then it fills up. That keeps both decisions intact and answers what Poe Boy told the vampires — he didn't lie about the houseful, he staggered it. See <code>/CANON.md</code>."}},
 
-  {n:9,title:"Climax",where:"The ballroom",s:"doc",src:"Sesh 2, 5, 7",body:"<b>Venue: the ballroom / great hall</b>, rigged as a stage. A big central room keeps the climax clear of the cellar, which Path A already needs for the coffins. Poe Boy's decks are here; the speakers he's run through the rest of the house are what come on at 3AM.<br><br>Either the heroes confront DJ Poe Boy, or — on the fight path — they battle the vampires. Sesh 7's reconciling idea: <b>Poe Boy seizes control of some of the vampires during the final fight</b>, by mind control or manipulation, so the party and the free vampires fight Poe Boy and their own friends at once. The vampires' turn is the hinge: they've believed all along that the kid ran off out a window.",
-    bridge:{cue:"Sun’s coming up. The front doors give when you push them. And it’s Sunday morning — the project’s due tomorrow.",
-      note:"Mundane on purpose, and the deflation is the joke: they have been through a night of this and the homework is still there. An ancient Dutch artifact in someone’s backpack is a show-and-tell item begging to be presented, and the real-estate resolution can ride in on Monday’s morning announcements."}},
+  {n:10,title:"Climax — three phases",where:"The ballroom",s:"doc",src:"Sesh 2, 5, 7",body:"<b>Venue: the ballroom / great hall</b>, rigged as a stage. Poe Boy's decks are here; the speakers he's run through the rest of the house are what come on at 3AM. Sesh 7's control idea is settled as <b>manipulation, not mind control</b> — he tells the vampires the party are the mall company's people, the same lie that got the kid killed.<br><br>⚠️ <b>The crowd is unresolved.</b> This runs as written only if an audience arrives at 3AM — see beat 9's note and <code>/CANON.md</code>.",
+    phases:[
+      {k:"1",h:"Phase 1 — the vampires attack",p:"On Poe Boy's lie, believing they are defending their home. <b>Not a balanced encounter</b> — three CR 5 vampires is 5,400 XP against a 2,500 ceiling. It's a two-or-three round pressure scene, and they still cannot kill a PC."},
+      {k:"2",h:"Phase 2 — the developer breaches",p:"He seals the exits behind him, his own crew included. Three sides, nobody sharing a goal. <b>The only lethal fight of the finale.</b> The vampires start tearing into his men — the cue that the room has changed. Poe Boy tries to recruit him and gets brushed off by an adult with a clipboard."},
+      {k:"3",h:"Phase 3 — the booth",p:"The developer dies; the vampires turn, <b>with no persuasion check</b>, because the party killed the man taking their home in front of them. Party plus three vampires against Poe Boy and Lil Stinky. <b>Objective: get the USB to the decks and get on aux.</b>"}
+    ],
+    bridge:{cue:"Stop after the developer goes down. Let the room be quiet for a moment.",
+      note:"He is the only death in the story and the only one who isn't a monster. It's self-defence — he sealed them in and attacked first — but these are teenagers, and <b>the comedy that's coming does not start until this has had its silence</b>. The whiplash is genre-correct; it only works if the serious thing lands first."}},
 
-  {n:10,title:"Resolution & bookend",where:"Back to class",s:"doc",src:"Sesh 5 + doc comments",body:"They recover an ancient Dutch artifact (found after the boss fight, or with the vamps' help), the real-estate company is scared off the land, and they present the artifact in class — closing the loop opened in scene one.<br><br><b>Play the presentation battered.</b> Scott's comment on this beat: <i>“They have scars and black eyes and theyre like ‘and yeah that was our class project’.”</i> Nobody in the room reacts to the state of them, which is the whole joke — let a player deliver the line rather than narrating it."}
+  {n:11,title:"The collapse",where:"He is un-performed",s:"doc",src:"Sesh 9",body:"Stinky stands on the decks; his Aura of Protection is buffing Poe Boy's saves, so he's a puzzle rather than a wall — and <b>he isn't charmed, he just believes his friend</b>. Poe Boy spends his turns on <i>Command</i> — “Drop.” — to keep the drive off the deck: a delay, not a fail state, and the USB can't be destroyed. Then it plays, in full, and the party switches from attacking to defending.",
+    bridge:{cue:"Headlights swing across the ballroom windows. Someone has pulled into the drive.",
+      note:"In order: the recording plays whole — typing, a door, screaming, and under it Poe Boy's own voice staying calm and adjusting a level. <b>Stinky's oath breaks with no saving throw</b> (Devotion's first tenet is <i>don't lie or cheat</i>); he stops fighting and sits down. Silence, one boo, then the whole room. <b>Dracula seizes the mic</b> and denounces him magnificently — he has waited all night for a real audience — and a good number of them still aren't sure it isn't part of the show. Poe Boy tries to Command his way clear and it doesn't land. Then: a Volvo, two sweet oblivious parents in matching fleece, and <b>“Upton, honey?”</b> Sesh 3's throwaway joke about his real name turns out to be load-bearing.",
+      q:"Everything here that involves a crowd depends on the unresolved guest-list question. If nobody comes at 3AM, the audience for his humiliation is three vampires, one paladin and Angelique — and the ending needs rebuilding."}},
+
+  {n:12,title:"Resolution & bookend",where:"Back to class",s:"doc",src:"Sesh 5 + doc comments",body:"They recover an ancient Dutch artifact (found after the boss fight, or with the vamps' help), the real-estate company is scared off the land, and they present the artifact in class — closing the loop opened in scene one.<br><br><b>Play the presentation battered.</b> Scott's comment on this beat: <i>“They have scars and black eyes and theyre like ‘and yeah that was our class project’.”</i> Nobody in the room reacts to the state of them, which is the whole joke — let a player deliver the line rather than narrating it.<br><br><b>Sesh 9's three closers.</b> Lil Stinky records a diss track — sincere, terrible, devastating. The mega mall breaks ground somewhere else; the brochure says <b>Amityville</b>, quiet neighborhood, waterfront, great bones. And what they actually present is <b>the tape</b>, because the assignment wanted a primary source."}
 ];
 
 const PLAN = {
-  sat:{title:"Saturday · Session 1",sub:"Town & the threshold",slots:[
-    {t:"First ~third–half",c:"#9a6ff0",s:"doc",src:"Sesh 1",h:"Exposition & town",p:"Class recap, the locker letters, the Library / Hall of Records, and the gazebo meeting with the Bad Kids. Plant the lore and the warning."},
-    {t:"Remainder",c:"#e0aa3e",s:"doc",src:"Sesh 1, 2",h:"Into the mansion",p:"Doors bolt shut. First vampire encounter (no fight), opening puzzles, and the start of the investigation toward the fork."}
+  sat:{title:"Saturday · Session 1",sub:"Town & the threshold · level 3",slots:[
+    {t:"First ~third–half",c:"#9a6ff0",s:"doc",src:"Sesh 1 + 9",h:"Town — no combat",p:"Class recap, the locker cards, the Hall of Records and the gazebo. Sesh 9 makes the combat-free town a decision rather than an omission — and breaking the ward here is what summons the developer to the house that night."},
+    {t:"Evening",c:"#e0aa3e",s:"doc",src:"Sesh 5, 6",h:"Into the mansion",p:"The boards are off the front door. They walk in, and the doors bolt. Angelique finds them. First vampire contact — no fight, and mechanically they cannot kill. Opening puzzles."},
+    {t:"Late",c:"#d23a52",s:"doc",src:"Sesh 9",h:"The one Saturday fight",p:"Roughly 40 minutes, after they're locked in. Its job is proving the house will actually hurt them. Ends the session on adrenaline. Then level 3 → 4."}
   ]},
-  sun:{title:"Sunday · Session 2",sub:"All mansion, all the way to the reveal",slots:[
-    {t:"Opening",c:"#5b9bd5",s:"ai",h:"The fork",p:"Players commit to the fight-them or don't-have-to path. Branch the rooms accordingly. (The fork is doc; putting it at the top of Sunday is a codex guess.)"},
-    {t:"Middle",c:"#d23a52",s:"ai",h:"Gjenganger & the computer",p:"The ranged combat set-piece, then the Spirit's 'killed by a human' clue. (Both beats are doc; this running order is a codex guess.)"},
-    {t:"Late",c:"#4fc08a",s:"ai",h:"Reveal & climax",p:"The food-stash puzzle clears the vampires; the boss fight lands. (Beats are doc; the slotting is a codex guess.)"},
-    {t:"Close",c:"#e0aa3e",s:"doc",src:"Sesh 5",h:"Artifact & bookend",p:"Recover the Dutch artifact, scare off the buyers, present to class."}
+  sun:{title:"Sunday · Session 2",sub:"One line, no fork, straight to 3AM · level 4",slots:[
+    {t:"Opening",c:"#5b9bd5",s:"doc",src:"Sesh 6",h:"The corridor set-piece",p:"The combat that gates the computer room. Creature still parked — see the Combat tab."},
+    {t:"Middle",c:"#4fc08a",s:"doc",src:"Sesh 9",h:"The Spirit & the USB",p:"The AIM prop in the old rig upstairs. The backpack, the name in Sharpie, the upload. Hand the players a real USB stick. Then the food-stash puzzle clears the vampires."},
+    {t:"Late",c:"#d23a52",s:"doc",src:"Sesh 9",h:"3AM — three phases",p:"The ballroom. Vampires hostile, the developer breaches and dies, then the decks. One continuous sequence with no break in it."},
+    {t:"Close",c:"#e0aa3e",s:"doc",src:"Sesh 5 + 9",h:"The collapse & bookend",p:"Dracula's mic, the Volvo, “Upton, honey?”. Then Monday: the diss track, Amityville, and the tape presented in class."}
   ]}
 };
 
@@ -716,8 +804,12 @@ const NAMES = [
 ];
 
 const TODO = [
-  ["Is the Gjenganger in?","<b>Parked.</b> Spencer's Sesh 2 words were <i>'Up to you if we go with it'</i>; by Sesh 6 he'd given it a backstory and a combat plan anyway. Scott has put the whole creature on hold pending a proper pass — draft spec in <code>/PROPOSALS.md</code>, agreed to by nobody. It's currently the only set-piece encounter, so a 'no' needs a replacement.","doc"],
-  ["The dead kid","He needs a name, a year, and enough of a life that the players feel it. Also: the soul cage left no body, so there was never a search or a funeral — decide what the school thinks happened to him, because that's the version Angelique has been living with.","doc"],
+  ["⚠️ THE CROWD — settle this first","<b>Two 24 Aug decisions contradict each other.</b> The guest list says five cards and an empty hill; the Sesh 9 finale needs a hundred charmed kids for Poe Boy to be humiliated in front of. <b>Proposed fix, not agreed:</b> the 7PM card is exclusive and the 3AM flyer is public, so the party has the house alone for eight hours and then it fills up. That keeps both decisions and answers what Poe Boy told the vampires — he staggered the houseful rather than lying about it. If it goes the other way, the ending needs rebuilding. See <code>/CANON.md</code>.","doc"],
+  ["The developer's name","<b>The highest-value blank now.</b> Sesh 9 promoted him from a background company to the third faction: an abjurer who warded the page himself, gets summoned by the party breaking it, seals the exits at 3AM, and is the only death in the story. He still has no name. Also open: company or family trust?","doc"],
+  ["New reasons for the cellar and the corridor","Both were justified by the fork — the cellar was kept clear for Path A's coffins, the choke-point corridor existed so both paths converged. Sesh 9 cut the fork, so both rooms are fine and both reasons are gone.","doc"],
+  ["Tell Spencer the fork is cut","Sesh 9 removed the fight-them / never-had-to fork. <b>That was Spencer's Sesh 2 idea.</b> Cutting it is right for a two-session game, but it should be said to him rather than found in a beat sheet.","doc"],
+  ["Is the Gjenganger in?","<b>Still parked.</b> Spencer's Sesh 2 words were <i>'Up to you if we go with it'</i>; by Sesh 6 he'd given it a backstory and a combat plan anyway. Draft spec in <code>/PROPOSALS.md</code>, agreed to by nobody. <b>Sesh 9 changed the pressure:</b> it kept the corridor set-piece without naming the creature, and cutting the fork means the fight no longer has to be a convergence point — which makes it far easier to swap. A 'no' still needs a replacement.","doc"],
+  ["The dead kid","<b>Sesh 9 solved how, not what.</b> He asks the party to fetch his backpack and his mother wrote his name on the front in Sharpie — so a player reads it off a prop instead of getting a lore dump. It needs one word. He still needs a year, and enough of a life that the players feel it. Also: the soul cage left no body, so there was never a search or a funeral — decide what the school thinks happened to him, because that's the version Angelique has been living with.","doc"],
   ["Why these five?","The invite is exclusive — five cards, five lockers, nobody else. That makes the guest list a deliberate choice by Poe Boy, and it needs a reason. Candidates: they're the misfits nobody would come looking for; Gnomey knows him from the old crew and knows too much; Angelique is close enough to them to be a problem. Whatever the answer, the players will ask it out loud the moment they realise no one else got a card.","ai"],
   ["Who was the 3AM flyer for?","Sesh 5/6 give a public-looking DJ show flyer for 3AM at Dood Mansion. With nobody else invited, either it went out wide as the <b>cover story</b> — the thing Poe Boy showed the vampires as proof he was staging the big scare they asked for — or it never left his hands and the whole show is for five people. Affects whether the flyer prop gets built as a real handout.","ai"],
   ["How the vamps learn the truth","They believe he went out a window. Decide whether the reveal comes from the Spirit directly, from Angelique, or from the players producing the recording.","doc"],
@@ -738,7 +830,65 @@ const DOCS = [
   ["Haunted House Invite","BUILT — /invite/ · home-made, clip-arty · 7PM sharp · Sesh 6 spec. Exclusive invite — 5 cards, 5 lockers. The card's mass-flyer voice (<i>FREE admission, bring a friend, the more the scaryer</i>) is deliberate camouflage.","doc","Sesh 5, 6"],
   ["DJ Show Flyer","NOT BUILT · leaned-out Memphis/Houston rap art, spooky · 3AM at Dood Mansion · bills Poe Boy / Lil Stinky / Angelique. <b>Open:</b> with the invite exclusive, is this a public flyer or Poe Boy's cover story? See the to-do.","doc","Sesh 5, 6"],
   ["Library History Clippings","BUILT — /puzzle/ · but as an invented 1937 newspaper. The doc's source is a 1973 Frisian legend.","ai"],
-  ["AIM chat with the Spirit","BUILT — /aim/ · rests entirely on Sesh 7","doc","Sesh 7"]
+  ["AIM chat with the Spirit","BUILT — /aim/ · Sesh 7, plus the Sesh 9 backpack + USB branch and a working file-transfer window","doc","Sesh 7 + 9"],
+  ["The USB stick","NOT BOUGHT · a real thumb drive handed to the players when the Spirit uploads. Put scream_test_03_GOOD.wav on it.","doc","Sesh 9"],
+  ["The recording itself","NOT BUILT · the audio that plays over the ballroom PA in phase three. The single biggest table moment in the campaign — and it is a file you hit play on.","doc","Sesh 9"]
+];
+
+/* ---------------- COMBAT ----------------
+   Beats are doc (Sesh 6/7/9). Every number is a proposal.
+   2024 DMG budgets: no multiplier — you spend raw monster XP.
+   ---------------------------------------- */
+const CBUDGET = {
+  note:"2024 DMG XP budgets. The group-size multiplier is <b>gone</b> — you spend raw monster XP, so 2014-era calculators will build the wrong fight. Cross-check with the <b>Lazy Encounter Benchmark</b>: below 5th level an encounter may be deadly if total monster CR exceeds a quarter of the summed character levels, and a <i>solo</i> monster may be deadly if its CR exceeds the party's average level.",
+  rows:[
+    ["Saturday · 5 PCs at level 3","750","1,125","2,000","3.75 CR total · solo cap CR 3"],
+    ["Sunday · 5 PCs at level 4","1,250","1,875","2,500","5 CR total · solo cap CR 4"],
+    ["Sunday · 6 bodies (Angelique flips)","1,500","2,250","3,000","6 CR total · solo cap CR 4"]
+  ],
+  warn:"The two systems disagree where it matters. A solo CR 5 against five level-4 PCs is 1,800 XP — <b>under</b> the 2,500 high line, so the DMG calls it undertuned; the benchmark calls it over the solo cap. Both are right: a lone CR 5 isn't hard, it's <b>swingy</b>. It either novas down in two rounds or crits someone to death. The fix in every case below is minions, not hit points."
+};
+const CENC = [
+  {act:"Saturday · late",title:"The house has teeth",st:"todo",stl:"Not built",c:"#d23a52",s:"doc",src:"Sesh 9",
+   p:"The weekend's only Saturday fight, placed after the doors bolt. Its entire job is proving the building will actually hurt them, so Sunday's investigation carries weight. Roughly forty minutes; ends the session on adrenaline, then they level to 4.",
+   math:[["Budget · 5 PCs at level 3","750 low / 2,000 high"],["Suggested spend","~600 XP"],["Shape","3 fragile bodies, not one solid one"]],
+   verdict:"Comfortably low, benchmark-safe. Deliberately not a hard fight — it's a demonstration.",
+   note:"<b>Telegraph anything with a save-or-suck.</b> At level 3 a frighten-into-paralyze effect can take a player out before they've acted, and 'you didn't know it was coming and now you're down' is a bad beat rather than a scare. Show it happening to something else first. <b>Still open:</b> Sesh 9 puts this in the mansion and keeps town combat-free; the Third Faction artifact wanted it in town as the ward biting back when they reassemble the Crier."},
+
+  {act:"Sunday · opening",title:"The corridor set-piece",st:"park",stl:"Creature parked",c:"#7c8496",s:"doc",src:"Sesh 6",
+   p:"Doc-canon that a combat gates the way to the computer. <b>Which creature it is has never been agreed.</b> The Gjenganger was Spencer's Sesh 2 offer and his “up to you if we go with it” was never answered; a draft spec sits in PROPOSALS.md, canon to nobody.",
+   math:[["Budget · 5 PCs at level 4","1,250 low / 2,500 high"],["A solo CR 5","1,800 XP — swingy, not hard"],["Solo CR 5 + 4× CR ½","2,200 XP"]],
+   verdict:"Add the minions. 2,200 sits under the high line and fixes the action economy — the same conclusion PROPOSALS.md reached by inflating HP instead.",
+   note:"Cutting the fork <b>helped this encounter</b>: it no longer has to be a convergence point for two branches, just the toll on the way to the computer, which makes it much easier to swap. If the Gjenganger stays, folklore gives it the advantage up close, so the counterplay is distance — and that is room design as much as a stat block."},
+
+  {act:"Finale · phase 1",title:"The vampires attack",st:"todo",stl:"Not statted",c:"#4fc08a",s:"doc",src:"Sesh 7 + 9",
+   p:"Poe Boy tells them the party are the mall company's people — the same lie that killed the kid. They attack believing they are defending their home.",
+   math:[["Three CR 5 vampires","5,400 XP"],["Budget high","2,500 XP"],["Verdict","Do not budget this as a fight"]],
+   verdict:"5,400 against a 2,500 ceiling would erase the party. This is a 2–3 round pressure scene, not a balanced encounter.",
+   note:"<b>They are mechanically incapable of killing a PC.</b> Grapple, shove, frighten, throw — never Bite on a conscious creature, and they cannot take anyone below 1 HP. That is a Sesh 9 rule, not DM mercy, and it means the mechanics are themselves the clue: afterwards the players can work out that the monsters never once rolled damage on them. If a vampire <i>can</i> kill a PC here, the reveal that they never hurt anyone stops being true."},
+
+  {act:"Finale · phase 2",title:"The developer breaches",st:"todo",stl:"Not statted",c:"#d23a52",s:"doc",src:"Sesh 9",
+   p:"An abjurer who seals the exits behind him — his own crew included — and a crew who came to clear a site. Three sides, nobody in the room sharing a goal. <b>The only lethal fight of the finale</b>, and the only enemy in the story with a mundane, entirely legal motive.",
+   math:[["The developer (~CR 5)","1,800 XP"],["6× Thug (CR ½)","600 XP"],["Total","2,400 XP"],["Budget high","2,500 XP"]],
+   verdict:"Under the high line — and the vampires immediately start eating thugs, so budget six knowing you lose two.",
+   note:"Vampires tearing into his men is the <b>visual cue that the room has changed sides</b>. Suggested kit: an Arcane Ward that regenerates, a Seal action that permanently bars one door or window, Counterspell, Shield, Hold Person. <b>No damage spells</b> — he has never once solved a problem by making noise. Poe Boy spends this phase trying to recruit him and getting brushed off, which is a free round of the boss not acting."},
+
+  {act:"Finale · phase 3",title:"The ballroom decks",st:"todo",stl:"Not statted",c:"#e0aa3e",s:"doc",src:"Sesh 9",
+   p:"The developer is dead and the vampires have turned. Party plus three vampires against Poe Boy and Lil Stinky. <b>The objective is one sentence and the party should know it: get the USB to the decks and get on aux.</b>",
+   math:[["Poe Boy (~CR 5)","1,800 XP"],["Lil Stinky (~CR 3)","700 XP"],["Total","2,500 XP"],["Party side","5 PCs + 3 vampire allies"]],
+   verdict:"Exactly “high” on paper — and not a hard fight in practice, because three vampire allies are roughly three extra level-5 bodies. That is correct. Phase three is a catharsis, not a grind.",
+   note:"Suggested: <b>Poe Boy</b> ~90 HP, AC 15, save DC 15, and <b>4 legendary actions</b> rather than 3 — the default assumes a four-player table, so use party size minus one. His weapon damage should be pathetic; <i>Command</i> is the threat. <b>Lil Stinky</b> ~65 HP, AC 18, low damage, Aura of Protection buffing Poe Boy's saves so the party's control spells bounce until they deal with him. The USB starts <b>upstairs in the old rig</b> and has to reach the ballroom, so the map is the encounter."},
+
+  {act:"Held in reserve",title:"The fourth encounter",st:"hold",stl:"Do not plan to use",c:"#5b9bd5",s:"doc",src:"Sesh 9",
+   p:"Stat one, keep it in your back pocket, and only spend it if a puzzle solves in five minutes and you're running ahead of the clock. Planning to use it is how Sunday overruns.",
+   math:[["Sunday's committed runtime","~4.25 hours with two fights in it"]],
+   verdict:"A third Sunday combat costs an hour and pushes the bookend off the table — you'd be cutting the ending to add a fight.",
+   note:"<b>Attrition doesn't need initiative order.</b> An encounter costs resources; a combat costs an hour. A hazard room, a chase, a frightened-save scene and the ward timer you've already built cost about 40 minutes between them and soften the party more than one extra fight would — and they're genre-correct, because the source material has almost no fights in it. The bolted doors also enforce no long rest from 7PM to sunrise, so short rests are the only pacing lever; decide up front how many the house allows."}
+];
+const CRULES = [
+  ["The vampires cannot kill","No Bite on a conscious creature, ever, in first contact or phase one. Grapple, shove, frighten. The mechanics are the clue, and the reveal depends on this being literally true rather than a near miss."],
+  ["The USB is keep-away, not a fail state","Poe Boy spends his turns on <i>Command</i> — “Drop.” — to keep the drive off the decks. It buys him rounds. <b>The drive cannot be destroyed</b>, so one bad save never ends the campaign; it just costs time while the party is being shot at."],
+  ["Stinky's oath breaks with no saving throw","He hears his best friend stay calm while a kid dies. Devotion's first tenet is <i>don't lie or cheat</i>, and there is no save against that. Rolling for it would put the campaign's best beat on a d20."]
 ];
 
 /* ---------------- STATUS HELPERS ---------------- */
@@ -850,6 +1000,7 @@ function renderDetail(id){
     ${n.line?`<blockquote class="npc-line">${n.line}</blockquote>`:""}
     ${n.empty?`<p class="empty">${n.empty}</p>`:""}
     ${n.hook?`<p style="color:var(--ink)">${n.hook}</p>`:""}
+    ${n.finale?`<div class="finale-box"><span class="fh">In the finale</span>${n.finale}</div>`:""}
     ${aiNote(n)}
     ${rels?`<ul class="rel-list">${rels}</ul>`:""}`;
 }
@@ -869,11 +1020,11 @@ legend.innerHTML=lg;
 const flow=document.getElementById("flow");
 flow.innerHTML=FLOW.map((s,i)=>{
   let inner;
-  if(s.fork){
+  if(s.phases){
     inner=`<div class="card-flow${stClass(s)}" style="border-color:#4a3a1e">
       <div class="where">${s.where} ${stBadge(s)}</div><h4>${s.title}</h4><p>${s.body}</p>
       <div class="fork">
-        ${s.branches.map(b=>`<div class="branch ${b.k}"><h5>${b.h}</h5><p>${b.p}</p></div>`).join("")}
+        ${s.phases.map(b=>`<div class="branch p${b.k}"><h5>${b.h}</h5><p>${b.p}</p></div>`).join("")}
       </div></div>`;
   }else{
     inner=`<div class="card-flow${stClass(s)}"><div class="where">${s.where} ${stBadge(s)}</div><h4>${s.title}</h4><p>${s.body}</p></div>`;
@@ -913,7 +1064,8 @@ order.forEach(([g,label])=>{
     const c=GROUPS[n.g].c;
     const stats=Object.entries(n.fields||{}).map(([k,v])=>`<span>${k}: ${v}</span>`).join("");
     const body=n.empty?`<p class="empty" style="color:var(--dim);font-style:italic">${n.empty}</p>`:
-      `<p>${n.desc||""}</p>${n.hook?`<div class="hook">${n.hook}</div>`:""}`;
+      `<p>${n.desc||""}</p>${n.hook?`<div class="hook">${n.hook}</div>`:""}${
+        n.finale?`<div class="finale-box"><span class="fh">In the finale</span>${n.finale}</div>`:""}`;
     castHTML+=`<div class="cc${stClass(n)}" style="--accent:${c}">
       <div class="who"><h4>${n.name}</h4><span class="player">${n.sub}</span></div>
       <div class="arch">${n.role} &nbsp;${stBadge(n)}</div>
@@ -975,6 +1127,12 @@ document.getElementById("docs").innerHTML=DOCS.map(([t,d,st,src])=>`<div class="
     ["Three coffins, two under the chapel floor","Invented. The codex was treating this as a canon contradiction with the three living vampires — there's nothing to contradict."],
     ["The ward on the page","That anyone spellbound it, that the real-estate company's leader did it, his motive, his disbelief, and the 'accidental irony' that he's been protecting the vampires. This is the prop's whole timer mechanic."]
   ]]);
+  groups.push(["Encounter numbers \u2014 the Combat tab",[
+    ["Every number on the Combat tab","The <b>beats</b> are doc (Sesh 6, 7 and 9). The XP budgets, CR picks, HP figures, stat-block chassis and the contents of Saturday's fight are all proposals built against them. Nothing there has been agreed."],
+    ["Saturday's fight has no contents","Sesh 9 says there is one, where it sits, and roughly how long it runs. What is actually in the room is unwritten."],
+    ["The corridor creature","Sesh 6 says a combat gates the computer. It has never said what the combat is."],
+    ["The crowd at the collapse","\u26a0 Not an invention \u2014 a <b>contradiction</b> between two of your own 24 Aug decisions. See /CANON.md."]
+  ]]);
   groups.push(["Invented prop texture",[
     ["Invite: “LAST YEAR NOBODY DID”","Implies a haunted house ran here before. Per canon this is Poe Boy's first, in a house abandoned for decades. Also spookynite2k4@hotmail.com."],
     ["AIM screen names","l0stsignal99 and SmiLeyGrrL03, 'third locker from the end by the gym', 'he just called me the test.' Consistent with Sesh 7, but invented."]
@@ -990,6 +1148,36 @@ document.getElementById("docs").innerHTML=DOCS.map(([t,d,st,src])=>`<div class="
       `<div class="review-item"><div class="rt">${t}</div><div class="rd">${d}</div></div>`).join("")).join("");
 })();
 
+/* ---------------- RENDER: COMBAT ---------------- */
+document.getElementById("cbudget").innerHTML =
+  `<h4 style="margin:0 0 6px;font-family:var(--f-display)">The budget</h4>
+   <p class="sub" style="margin:0">${CBUDGET.note}</p>
+   <table class="bud-tbl"><thead><tr>
+     <th>Party</th><th>Low</th><th>Moderate</th><th>High</th><th>Benchmark</th>
+   </tr></thead><tbody>${CBUDGET.rows.map(r=>
+     `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td><b>${r[3]}</b></td><td>${r[4]}</td></tr>`
+   ).join("")}</tbody></table>
+   <div class="emath" style="margin-top:12px"><div class="verdict">${CBUDGET.warn}</div></div>`;
+
+document.getElementById("cenc").innerHTML = CENC.map(e=>`
+  <div class="enc" style="--sc:${e.c}">
+    <div class="etop">
+      <span class="eact">${e.act}</span>
+      <span class="ec ${e.st}">${e.stl}</span>
+      ${stBadge(e)}
+    </div>
+    <h4>${e.title}</h4>
+    <p class="ep">${e.p}</p>
+    <div class="emath">
+      ${e.math.map((m,i)=>`<div class="row${i===e.math.length-1?" tot":""}"><span>${m[0]}</span><span>${m[1]}</span></div>`).join("")}
+      ${e.verdict?`<div class="verdict">${e.verdict}</div>`:""}
+    </div>
+    <p class="ep">${e.note}</p>
+  </div>`).join("");
+
+document.getElementById("crules").innerHTML = CRULES.map(([h,d])=>
+  `<div class="crule"><b class="ch">${h}</b><p>${d}</p></div>`).join("");
+
 /* ---------------- FLAG TOGGLE ---------------- */
 document.getElementById("flagtoggle").addEventListener("change",e=>{
   document.body.classList.toggle("flag",e.target.checked);
@@ -997,6 +1185,90 @@ document.getElementById("flagtoggle").addEventListener("change",e=>{
 
 /* ---------------- RENDER: TO-DO ---------------- */
 const TODO_LIST = [
+ {
+  "id": "x1",
+  "t": "\u26a0 Settle the crowd \u2014 two decisions contradict each other",
+  "o": "both",
+  "c": "Story",
+  "ref": "SESH 9",
+  "top": 1,
+  "blocked": 1,
+  "note": "The <b>guest list</b> decision says five cards, five lockers, an empty hill. The <b>Sesh 9 finale</b> needs a charmed crowd \u2014 a house-wide PA, one boo becoming the whole room, Poe Boy humiliated in front of the school. Both were decided on 24 Aug and they cannot both be true. <b>Proposed fix, not agreed:</b> the 7PM card is exclusive, the 3AM flyer is public. The party has the house alone for eight hours, then it fills up. That keeps both decisions, makes the flyer a real prop, and answers what Poe Boy told the vampires \u2014 he staggered the houseful rather than lying about it. If it goes the other way, the ending needs rebuilding: the audience becomes three vampires, one paladin and Angelique."
+ },
+ {
+  "id": "s13",
+  "t": "Name the developer",
+  "o": "both",
+  "c": "Story",
+  "ref": "SESH 9",
+  "top": 1,
+  "note": "Sesh 9 promoted him from a background company to the third faction: an abjurer who warded the page himself, gets summoned by the party breaking it, seals the exits at 3AM, and is <b>the only death in the story</b>. He carries all of that with no name. Also open: company, or family trust?"
+ },
+ {
+  "id": "s14",
+  "t": "New reasons for the cellar and the choke-point corridor",
+  "o": "scott",
+  "c": "Puzzle",
+  "ref": "SESH 9",
+  "note": "Both rooms were justified by the fork \u2014 the cellar stayed clear for Path A's coffins, the corridor existed so both paths converged on one toll. Sesh 9 cut the fork. The rooms are still fine; the reasons are gone."
+ },
+ {
+  "id": "r8",
+  "t": "Build the AIM backpack + USB branch",
+  "o": "scott",
+  "c": "Prop",
+  "ref": "SESH 9",
+  "built": 1,
+  "done": 1,
+  "note": "Live at /aim/. Six new nodes plus a working <b>file-transfer window</b> \u2014 he asks them to fetch his backpack, the name in Sharpie, the file Poe Boy named, the upload, and 'expose him'. The transfer UI is period-correct and makes the handoff something the players watch happen. <b>The prop deliberately never says the kid's name out loud</b>, because it isn't picked \u2014 the beat is that a player reads it off the bag."
+ },
+ {
+  "id": "r9",
+  "t": "Produce the recording audio",
+  "o": "scott",
+  "c": "Prop",
+  "ref": "SESH 9",
+  "top": 1,
+  "note": "scream_test_03_GOOD.wav \u2014 what plays over the ballroom PA in phase three, in full. Typing, a door, screaming, and under it Poe Boy's own voice staying calm and adjusting a level. <b>This is the single biggest table moment in the campaign</b> and it is a file you hit play on while everyone stops talking. Nothing else in the repo comes close for effort-to-payoff."
+ },
+ {
+  "id": "h6",
+  "t": "Buy a real USB stick",
+  "o": "scott",
+  "c": "Handout",
+  "ref": "SESH 9",
+  "note": "Handed to the players at the table when the Spirit uploads. Cheap, matches everything else in the repo, and if you put the .wav on it one of your players will absolutely plug it into a laptop between sessions. Period-correct: thumb drives were everywhere by 2004."
+ },
+ {
+  "id": "q11",
+  "t": "Keep the fight-them / never-had-to fork?",
+  "o": "both",
+  "c": "Decision",
+  "ref": "SESH 9",
+  "done": 1,
+  "ans": "Cut \u2014 the weekend runs one line",
+  "note": "It was buying a second set of rooms for a two-session game and risking the same vampire fight twice. <b>It was Spencer's Sesh 2 idea</b>, so it needs saying to him out loud rather than being found in a beat sheet."
+ },
+ {
+  "id": "q12",
+  "t": "What is the real-estate company, mechanically?",
+  "o": "both",
+  "c": "Decision",
+  "ref": "SESH 9",
+  "done": 1,
+  "ans": "A third faction \u2014 one abjurer wizard who dies",
+  "note": "He warded the page himself, so there is no contractor to trace. Breaking the ward summons him. He seals the exits at 3AM, and <b>his death is what flips the vampires with no persuasion check</b> \u2014 which fixes the real problem: the vampires' turn was going to be a conversation in the middle of a boss fight."
+ },
+ {
+  "id": "q13",
+  "t": "How does Poe Boy go down?",
+  "o": "both",
+  "c": "Decision",
+  "ref": "SESH 9",
+  "done": 1,
+  "ans": "He isn't killed. He's un-performed.",
+  "note": "The recording plays in full, the glamour breaks, one boo becomes the whole room, Dracula takes his mic, his Command stops landing \u2014 and then his parents arrive in a Volvo and call him <b>Upton</b>. Nobody at the table has to decide to kill a teenager. <b>Depends on the crowd question above.</b>"
+ },
  {
   "id": "p7",
   "t": "Walk the mansion half of the story end to end",
@@ -1204,15 +1476,16 @@ const TODO_LIST = [
   "o": "scott",
   "c": "Combat",
   "gate": 1,
-  "note": "Each needs a stat line, a terrain, and an exit that is not a TPK. Downstream of party level and the five-person budget.",
+  "note": "Sesh 9 set the count at three fights plus one held in reserve, and the <b>Combat tab</b> now carries the budget for every one of them. What is left is the stat lines \u2014 nothing below is statted yet. Each needs a stat line, a terrain, and an exit that is not a TPK.",
   "steps": [
-   "Lock party level first. That one choice sets every budget below it.",
-   "The optional early vampire skirmish. Sesh 2 wants a first encounter that does not have to end in a fight, so it has to be escapable and non-lethal by construction, not by DM mercy.",
-   "The Gjenganger gating the computer. Brutal up close, so the room has to make distance genuinely available and crossing it genuinely costly.",
-   "Path A's fight against the vampires — one, or all three. Sesh 2 explicitly leaves that open.",
-   "The Sesh 7 climax: Poe Boy plus the vampires he has turned, with the free ones fighting alongside the party.",
-   "The two contingencies — they kill the vampires in act one, or they refuse to go in at all.",
-   "Then run all of it against five PCs, including the case where one is down or absent."
+   "Saturday's one fight \u2014 ~600 XP of fragile bodies at level 3. Telegraph anything with a save-or-suck.",
+   "The corridor set-piece \u2014 blocked on picking a creature. Whatever it is, a solo CR 5 plus four CR \u00bd minions lands at 2,200 against a 2,500 ceiling.",
+   "Phase 1: the vampires. Not budgeted \u2014 they cannot kill a PC, so it is a pressure scene. Write the grapple/shove/frighten kit as an actual action list.",
+   "Phase 2: the developer plus six thugs, 2,400 XP. Arcane Ward, Seal, Counterspell, Shield, Hold Person. No damage spells.",
+   "Phase 3: Poe Boy ~CR 5 with 4 legendary actions, Lil Stinky ~CR 3 with Aura of Protection. Plus three vampires as allies.",
+   "The reserve encounter \u2014 stat it, expect not to use it.",
+   "The two contingencies \u2014 they kill the vampires early, or they refuse to go in at all.",
+   "Then run all of it against five PCs, including one down or absent, and the case where Angelique flips early and makes it six."
   ]
  },
  {
@@ -1220,19 +1493,18 @@ const TODO_LIST = [
   "t": "Make sure every act has a fight in it",
   "o": "scott",
   "c": "Combat",
-  "note": "A different job from crafting the encounters. This one is coverage: pick the act structure, then check no stretch of the weekend runs combat-dry. The middle is the thin part right now.",
+  "note": "Largely answered by Sesh 9: three fights, one Saturday and two Sunday, with a fourth held in reserve. What is left is the placement argument.",
   "steps": [
-   "Decide the act structure first — town, mansion investigation, climax is the obvious three. The number of acts is the number of fights to hit.",
-   "Town is currently combat-free. Decide whether that is correct as setup or whether it needs a scrap to set the tone.",
-   "Mansion investigation currently rests entirely on the Gjenganger, which is parked. If it does not come back, this act has no fight at all.",
-   "The climax has Poe Boy and the vampires he has turned. Covered.",
-   "That leaves the long investigation stretch before the Gjenganger with nothing — promote the optional early skirmish from optional to load-bearing, or write something new.",
-   "Sanity check: no act should run much past ninety minutes with neither a fight nor a puzzle paying off."
+   "<b>Town is combat-free by decision</b>, not omission \u2014 Sesh 9 says so explicitly.",
+   "Saturday's single fight sits inside the mansion, late. The Third Faction artifact wanted it in town as the ward biting back; that scene is still homeless and still good.",
+   "The corridor set-piece covers the Sunday investigation stretch \u2014 as long as the creature question gets answered.",
+   "The finale is three phases in one continuous sequence, so it covers the whole back end.",
+   "Sanity check: no stretch should run much past ninety minutes with neither a fight nor a puzzle paying off. Use hazards and chases rather than a fourth combat \u2014 they cost ten minutes, not fifty."
   ]
  },
  {
   "id": "m3",
-  "t": "Gjenganger stat block — parked",
+  "t": "Corridor set-piece stat block — creature still parked",
   "o": "scott",
   "c": "Combat",
   "ref": "SESH 6",
@@ -1240,26 +1512,27 @@ const TODO_LIST = [
  },
  {
   "id": "m4",
-  "t": "Final fight: Poe Boy plus the vampires he has turned",
+  "t": "Final fight: the three phases",
   "o": "scott",
   "c": "Combat",
-  "ref": "SESH 7",
-  "note": "Sesh 7 offered mind control or manipulation and we landed on manipulation — he tells them the party are the mall company's people, the same lie that got the kid killed. The win condition is proof, not damage: the Spirit, the food stash and Angelique are what flip them mid-fight. Needs two vampire stat lines, hostile and allied, and a rule for what turning costs in initiative."
+  "ref": "SESH 7 + 9",
+  "top": 1,
+  "note": "<b>Fully designed in Sesh 9, not yet statted.</b> Three phases: the vampires attack on Poe Boy's lie, the developer breaches and dies, then the ballroom decks. The win condition is never damage \u2014 the developer is beaten by violence, Lil Stinky by the recording, Poe Boy by losing his audience. Sesh 7 offered mind control or manipulation and we landed on manipulation — he tells them the party are the mall company's people, the same lie that got the kid killed. The win condition is proof, not damage: the Spirit, the food stash and Angelique are what flip them mid-fight. Needs two vampire stat lines, hostile and allied, and a rule for what turning costs in initiative."
  },
  {
   "id": "m5",
-  "t": "Optional early vampire skirmish",
+  "t": "First vampire contact — write the no-kill kit",
   "o": "scott",
   "c": "Combat",
   "ref": "SESH 2",
-  "note": "A first encounter that does not have to end in a fight. Build it escapable and non-lethal so killing them early is not the default outcome."
+  "note": "Sesh 9 turns Sesh 2's escapable encounter into a <b>hard rule</b>: no Bite on a conscious creature, ever, and they cannot take a PC below 1 HP. Grapple, shove, frighten, throw. That needs writing as an actual action list so it holds up under pressure at the table \u2014 the reveal depends on it being literally true rather than a near miss."
  },
  {
   "id": "m6",
   "t": "Check every encounter against a five-person party",
   "o": "scott",
   "c": "Combat",
-  "note": "Five PCs is a materially bigger action economy than four — every encounter budget shifts. Include the case where one player is down or absent."
+  "note": "Five PCs is a materially bigger action economy than four \u2014 every encounter budget shifts. <b>Budgets are now on the Combat tab.</b> Include the case where one player is down or absent, and the case where Angelique flips early and makes it six: that pushes the level-4 high line from 2,500 to 3,000 and the benchmark from 5 to 6 total CR. Build her on the Tasha's sidekick rules rather than a full rogue so she doesn't cost table time on Sunday."
  },
  {
   "id": "m7",

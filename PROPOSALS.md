@@ -5,7 +5,24 @@ doesn't get lost and doesn't leak into the codex as fact. See `/CANON.md` for wh
 
 ---
 
-## Cornelis Dood / the Gjenganger — PARKED 2026-08-23
+## Cornelis Dood / the Gjenganger — STILL PARKED (2026-08-23)
+
+> **Sesh 9 update (24 Aug 2026).** The finale was designed end to end and pasted into the doc, and it
+> touches this proposal in two ways:
+>
+> 1. **It kept the corridor set-piece as a beat but did not name the creature.** So the encounter is
+>    canon and its occupant still isn't.
+> 2. **It cut the fork.** This fight no longer has to be a convergence point where two branches meet —
+>    it is simply the toll on the way to the computer. That removes the structural argument for the
+>    Gjenganger specifically and makes it much easier to swap for something else.
+>
+> Everything below still stands as an unreviewed draft. The encounter budget for whatever fills the
+> slot is now on the codex's **Combat** tab: a solo CR 5 is 1,800 XP against a 2,500 ceiling for five
+> level-4 PCs, which reads as undertuned and plays as swingy — so add minions rather than hit points.
+
+---
+
+## Cornelis Dood / the Gjenganger — original entry
 
 **Status: not canon.** Scott parked the whole creature for a later pass. The doc-sourced parts
 below are Spencer's (Sesh 2 and Sesh 6); everything else is an unreviewed proposal from a

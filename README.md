@@ -35,9 +35,19 @@ The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
 
 | Prop | Path | Vibe |
 |------|------|------|
-| AIM | `aim/` | Haunted 2000s AOL Instant Messenger. The buddy is the kid Poe Boy soul-caged into the machine — the branching tree lets the party pull the whole confession out of him, including the clue that clears the vampires. |
-| Torn Page | `puzzle/` | 1937 newspaper front page, torn up. Reassemble against the clock, flip for the page-2 lore. See [puzzle/README.md](puzzle/README.md) |
-| Codex | `codex/` | DM-facing campaign reference — relationship web, locked backstory, story flow, cast, session plan. Not a player prop, and deliberately not tiled on the landing page so it can't be opened at the table by accident. |
+| AIM | `aim/` | Haunted 2000s AOL Instant Messenger. The buddy is the kid Poe Boy soul-caged into the machine — the branching tree pulls the whole confession out of him, and ends with him **sending the party a file**: the recording of his own death, over AIM's file-transfer window. That USB is what wins the finale. |
+| Torn Page | `puzzle/` | 1937 newspaper front page, torn up. Reassemble against the clock, flip for the page-2 lore. Breaking the ward is also what summons the developer to the house that night. See [puzzle/README.md](puzzle/README.md) |
+| Invite | `invite/` | The haunted-house invitation, ~7PM, homemade and clip-arty. |
+| Codex | `codex/` | DM-facing campaign reference — to-do list, relationship web, backstory, story flow, cast, weekend plan, and **combat encounters with the XP budgets**. Not a player prop, and deliberately not tiled on the landing page so it can't be opened at the table by accident. |
+
+### Not built yet
+
+| Thing | Why it matters |
+|---|---|
+| `scream_test_03_GOOD.wav` | The recording that plays over the PA in the finale. The single biggest table moment in the campaign, and it's a file you hit play on. |
+| A real USB stick | Handed to the players when the Spirit uploads. Put the .wav on it. |
+| DJ show flyer | 3AM, Dood Mansion, bills Poe Boy / Lil Stinky / Angelique. |
+| Food-stash puzzle | The mansion's own puzzle — the one that clears the vampires. |
 
 ## Adding a new prop
 

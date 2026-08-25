@@ -232,6 +232,30 @@
   .conversation .msg .who {
     font-weight: bold;
   }
+  .conversation .xfer {
+    margin: 10px 0; padding: 9px 10px 10px;
+    background: var(--win-face);
+    border: 2px solid; border-color: var(--win-light) var(--win-dark) var(--win-dark) var(--win-light);
+    font-size: 14px; color: #000;
+  }
+  .conversation .xfer-h { font-weight: bold; margin-bottom: 6px; }
+  .conversation .xfer-f {
+    display: flex; justify-content: space-between; gap: 10px;
+    font-family: "Courier New", monospace; font-size: 13px; margin-bottom: 6px;
+  }
+  .conversation .xfer-n { word-break: break-all; }
+  .conversation .xfer-s { white-space: nowrap; color: #444; }
+  .conversation .xfer-bar {
+    height: 16px; background: var(--win-light); padding: 2px;
+    border: 2px solid; border-color: var(--win-dark) var(--win-light) var(--win-light) var(--win-dark);
+  }
+  .conversation .xfer-bar i {
+    display: block; height: 100%; width: 0%;
+    background: repeating-linear-gradient(90deg, var(--aim-blue-dark) 0 9px, var(--win-face) 9px 11px);
+    transition: width .16s linear;
+  }
+  .conversation .xfer-st { margin-top: 5px; font-size: 13px; color: #333; }
+  .conversation .xfer.done .xfer-st { color: #006400; font-weight: bold; }
   .conversation .msg.ghost .who { color: var(--ghost-color); }
   .conversation .msg.player .who { color: var(--player-color); }
   .conversation .system {
@@ -678,6 +702,7 @@ const DIALOGUE = {
     ],
     choices: [
       { text: "can we get you out of there?", next: "out" },
+      { text: "what do you need from us?", next: "backpack" },
       { text: "what did he do to you exactly?", next: "held" }
     ]
   },
@@ -690,7 +715,7 @@ const DIALOGUE = {
       "but somebody in this house knows what those words were. somebody always does"
     ],
     choices: [
-      { text: "we'll find it.", next: "endsoon" },
+      { text: "we'll find it.", next: "backpack" },
       { text: "anything else we should know?", next: "warning" }
     ]
   },
@@ -704,6 +729,88 @@ const DIALOGUE = {
     choices: [
       { text: "we're going to stop him.", next: "warning" },
       { text: "what do you need from us?", next: "out" }
+    ]
+  },
+
+  /* ---------------------------------------------------------------
+     THE BACKPACK + USB BRANCH — Sesh 9.
+     The prop deliberately never says the kid's name out loud: it is
+     still undecided, and the beat is that the players READ it off the
+     bag. Keep it that way until the doc picks a word.
+     --------------------------------------------------------------- */
+  backpack: {
+    ghost: [
+      "theres something. its stupid but theres something",
+      "my bag is still in this room. by the desk under the coats",
+      "he never went through it. i dont think he could look at it",
+      "can you get it"
+    ],
+    choices: [
+      { text: "got it. this is yours?", next: "thename" },
+      { text: "what's in it?", next: "thefile" }
+    ]
+  },
+
+  thename: {
+    ghost: [
+      "theres a name on the front",
+      "my mom did it in sharpie in like 6th grade so it wouldnt get lost",
+      "i was so embarrassed about it. i asked her not to",
+      "its the only part of me thats still out there"
+    ],
+    choices: [
+      { text: "we're not going to forget it.", next: "thefile" },
+      { text: "what do you need us to do?", next: "thefile" }
+    ]
+  },
+
+  thefile: {
+    ghost: [
+      "front pocket. theres a drive in there. the little one",
+      "he kept the recording. all of it. that whole night",
+      "its called scream_test_03_GOOD.wav",
+      "he named it that. i have to look at it every time the screen comes on"
+    ],
+    choices: [
+      { text: "put it on the drive.", next: "upload" },
+      { text: "he KEPT it?", next: "hekept" }
+    ]
+  },
+
+  hekept: {
+    ghost: [
+      "its the best one he ever got. thats written next to it",
+      "he backed it up twice",
+      "he was never going to delete me. i was the good take"
+    ],
+    choices: [
+      { text: "plug it in. give it to us.", next: "upload" }
+    ]
+  },
+
+  upload: {
+    ghost: [
+      "ok",
+      "hold on",
+      "dont open it up here. please",
+      "i dont want to hear it again"
+    ],
+    transfer: { file: "scream_test_03_GOOD.wav", size: "4.11 MB" },
+    choices: [
+      { text: "we've got it. what do you want us to do with it?", next: "expose" }
+    ]
+  },
+
+  expose: {
+    ghost: [
+      "expose him",
+      "i dont care about getting out. i dont think theres an out",
+      "i care that everyone in this house still thinks hes cool",
+      "make them hear it. all of them. thats the only thing i want"
+    ],
+    choices: [
+      { text: "everyone's going to hear it.", next: "endsoon" },
+      { text: "what if he stops us?", next: "warning" }
     ]
   },
 
@@ -827,6 +934,45 @@ function hideTyping() {
   if (t) t.remove();
 }
 
+/* AIM file transfer — the Spirit handing over scream_test_03_GOOD.wav (Sesh 9). */
+function addTransfer(file, size) {
+  return new Promise(resolve => {
+    const div = document.createElement("div");
+    div.className = "xfer";
+    div.innerHTML =
+      '<div class="xfer-h"></div>' +
+      '<div class="xfer-f"><span class="xfer-n"></span><span class="xfer-s"></span></div>' +
+      '<div class="xfer-bar"><i></i></div>' +
+      '<div class="xfer-st">Waiting for connection\u2026</div>';
+    div.querySelector(".xfer-h").textContent = CONFIG.ghostScreenName + " is sending you a file.";
+    div.querySelector(".xfer-n").textContent = file;
+    div.querySelector(".xfer-s").textContent = size;
+    $convo.appendChild(div);
+    scrollToBottom();
+
+    const bar = div.querySelector(".xfer-bar i");
+    const st = div.querySelector(".xfer-st");
+    let pct = 0;
+    const tick = () => {
+      pct += Math.random() * 11 + 4;
+      if (pct >= 100) {
+        bar.style.width = "100%";
+        st.textContent = "Transfer complete.";
+        div.classList.add("done");
+        play("imrcv");
+        scrollToBottom();
+        resolve();
+        return;
+      }
+      bar.style.width = pct.toFixed(1) + "%";
+      st.textContent = "Receiving\u2026 " + Math.floor(pct) + "%";
+      scrollToBottom();
+      setTimeout(tick, 170 + Math.random() * 200);
+    };
+    setTimeout(tick, 650);
+  });
+}
+
 function clearChoices() {
   $choices.innerHTML = "";
 }
@@ -871,6 +1017,11 @@ async function runNode(key) {
   for (const line of node.ghost) {
     await ghostSay(line);
     await wait(CONFIG.ghostMessageGapMs);
+  }
+  if (node.transfer) {
+    await wait(500);
+    await addTransfer(node.transfer.file, node.transfer.size);
+    await wait(750);
   }
   if (!node.choices || node.choices.length === 0) {
     await wait(900);

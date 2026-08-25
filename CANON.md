@@ -18,6 +18,126 @@ It only turns 📗 by being written into the doc.
 
 ---
 
+## ⚠️ UNRESOLVED CONFLICT — read this before writing anything else
+
+**Two decisions made on 24 August 2026 cannot both be true as written.**
+
+| | |
+|---|---|
+| **A — the exclusive guest list** (decisions table below) | *"The invite is exclusive — five cards, five lockers, nobody else got one. The party arrives at an empty hill: no cars, no line, no lit windows."* |
+| **B — the Sesh 9 finale** (pasted into the doc) | A hundred charmed kids in the house, a house-wide PA, *"one boo, then the whole room,"* and Poe Boy humiliated **in front of the entire school**. |
+
+The finale's ending — he isn't killed, he's *un-performed* — needs an audience. The guest list says
+there isn't one.
+
+### 🟡 Proposed reconciliation — NOT AGREED, needs Scott's call
+
+**The 7PM invite is exclusive. The 3AM DJ show flyer is public.**
+
+- Five cards, five lockers, empty hill at 7PM. Everything in decision A survives untouched — including
+  *"the emptiness is the wrongness."*
+- The party has the house to themselves from 7PM until 3AM. That is the entire investigation.
+- **At 3AM the flyer's audience arrives** and the house fills up. The speakers come on. Poe Boy performs,
+  charms the crowd, and the finale runs in front of them.
+- The party isn't charmed because **they were already inside, in the back half of the house**, when he
+  performed — which is cleaner than the side-entrance reasoning the finale originally used, since
+  decision A also removed the side entrance.
+
+This is the only reading found so far where **both** of Scott's 24 August decisions survive intact, and
+it closes three questions this ledger already had open:
+
+- *"Who was the 3AM flyer for?"* → It went out wide. It is a real public handout, so the prop gets built.
+- *"What did Poe Boy tell the vampires?"* → He didn't lie about the houseful. He **staggered** it: five
+  early for the part he actually wants recorded, everyone else at three for the scare the vampires agreed to.
+- *"Why these five?"* → Still open, but now sharper: they are the ones invited to the part with no witnesses.
+
+**Until this is settled, treat every "crowd" reference in the finale as provisional.** If Scott rules the
+other way — that nobody comes at 3AM either — then the ending needs rebuilding, because the audience for
+Poe Boy's humiliation becomes three vampires, one paladin and Angelique.
+
+---
+
+## 📗 The finale — pasted into the doc 24 Aug 2026 (cited here as Sesh 9)
+
+> **Citation note.** Scott pasted the finale beat sheet into the doc on 24 Aug 2026. Sesh 8 already exists
+> (races/classes + Lil Stinky's oathbreak), so this is cited throughout as **`Sesh 9`**. If it landed under
+> a different heading, it is one find-and-replace in this file and in `codex/index.html`.
+
+### Structure
+| Claim | Source |
+|---|---|
+| **The fork is cut.** No fight-them / never-had-to branch — the weekend runs one line | Sesh 9 (reverses Sesh 2) |
+| Three combats for the weekend: one Saturday, two Sunday. A fourth stays in reserve | Sesh 9 |
+| The finale runs in three phases: vampires hostile → developer breaches → vampires turn | Sesh 9 |
+| Phase 2 is the only lethal fight of the finale | Sesh 9 |
+| Town has no combat | Sesh 9 |
+
+⚠️ Cutting the fork also strands two things the 24 Aug decisions justified: the **cellar** was kept clear
+for Path A's coffins, and the **choke-point corridor** existed so both paths converged. Neither reason
+survives. The cellar and the corridor are both still fine — they just need new ones.
+
+### The third faction
+| Claim | Source |
+|---|---|
+| The real-estate developer is a **wizard, an abjurer** — a man who solves problems by sealing them | Sesh 9 |
+| He warded the 1937 page **himself**, which is why there's no contractor to trace | Sesh 9 |
+| **Breaking the ward summons him.** The party's cleverest move in town puts him in his car | Sesh 9 |
+| He does not know what's in the house. He finds out, updates in four seconds, starts giving orders | Sesh 9 |
+| He breaches at 3AM and seals the exits behind him — his own crew included | Sesh 9 |
+| **He is the only death in the story**, and the only one who isn't a monster. Self-defence | Sesh 9 |
+| His death flips the vampires. **No persuasion check** | Sesh 9 |
+| Poe Boy tries to recruit him mid-fight and gets brushed off | Sesh 9 |
+
+### The USB chain
+| Claim | Source |
+|---|---|
+| The Spirit asks the party to fetch **his own backpack**, still in that room | Sesh 9 |
+| **His mother wrote his name on it in Sharpie.** That is how the dead kid gets his name | Sesh 9 |
+| A thumb drive is in it. He uploads the recording of his own death over AIM's file-transfer window | Sesh 9 |
+| The file is `scream_test_03_GOOD.wav` — **Poe Boy named it** | Sesh 9 |
+| His ask is not directions. It is *expose him* | Sesh 9 |
+| **The players are handed a real USB stick at the table** | Sesh 9 |
+
+This lands neatly on the 24 Aug two-setups decision: the Spirit is upstairs in the **old rig**, the aux is
+downstairs in the **ballroom**, and the USB is the thing that bridges them.
+
+### Phase 3
+| Claim | Source |
+|---|---|
+| The objective is one sentence: **get the USB to the DJ set and get on aux** | Sesh 9 |
+| Lil Stinky's Aura of Protection buffs Poe Boy's saves — he is a puzzle, not a wall | Sesh 9 |
+| **Stinky is not charmed.** He just believes his friend | Sesh 9 |
+| Poe Boy spends his turns on *Command* — "Drop." A delay, not a fail state; the drive can't be destroyed | Sesh 9 |
+| The recording plays in full | Sesh 9 |
+| Stinky's oath breaks. **No saving throw.** Devotion's first tenet is *don't lie or cheat* | Sesh 9 · builds on Sesh 8's oathbreak |
+
+### The collapse
+| Claim | Source |
+|---|---|
+| Silence, then one boo, then the whole room | Sesh 9 ⚠️ *needs the crowd — see the conflict above* |
+| **Dracula seizes the mic** and denounces him magnificently | Sesh 9 |
+| Poe Boy tries to Command his way clear and **it doesn't land** | Sesh 9 |
+| **His parents arrive.** A Volvo, matching fleece, *"Upton, honey?"* | Sesh 9 |
+| Poe Boy is **not killed. He is un-performed** | Sesh 9 |
+| **Lil Stinky records a diss track.** Sincere, terrible, devastating | Sesh 9 |
+| The mega mall breaks ground in **Amityville** — quiet neighborhood, waterfront, great bones | Sesh 9 |
+
+Sesh 3's throwaway joke — *"it'd be funny if"* his real name were **Upton Maximillion Livingsworth III** —
+is now load-bearing. It is what his mother calls him in the driveway.
+
+### The vampires
+| Claim | Source |
+|---|---|
+| In first contact and phase 1 they are **mechanically incapable of killing a PC** — grapple, shove, frighten, never Bite | Sesh 9 |
+| Phase 1 is a pressure scene, not a balanced encounter | Sesh 9 |
+| Poe Boy sets them on the party with the same lie that killed the kid | Sesh 7 + 9 |
+
+### 🟡 Not canon: the encounter numbers
+Everything on the codex's **Combat** tab that isn't a beat above — XP budgets, CR picks, HP figures,
+stat-block chassis, and the contents of Saturday's fight. The beats are doc; the numbers are a proposal.
+
+---
+
 ## Decisions made since the audit
 
 Not yet pasted into the Google Doc — **do that to make them official.** Until then they live here.
@@ -49,6 +169,12 @@ Three things in the codex were not just unsourced, they were wrong:
    before he pushed her away. Retagged as a backstory bond.
 3. **The Backstory tab claimed "locked canon."** It's Sesh 7, near-verbatim. Relabeled to say where it
    came from rather than asserting a lock the doc never records.
+4. **The Third Faction artifact was stale.** As published 22 Aug it marked the Gjenganger "Locked" and the
+   coffin count "Closed," and its mid-mansion encounter used the fourth crew member — all three already
+   wrong by 23 Aug. Rewritten 25 Aug against this file.
+5. **Two prep boards were drifting.** The Transyltown Prep Board and the Dood Mansion Call Sheet both
+   duplicated the codex's To-Do tab. The Call Sheet still said four players and had the table roles
+   reversed. Both now redirect to the codex.
 
 ---
 
@@ -68,14 +194,14 @@ Three things in the codex were not just unsourced, they were wrong:
 | **Hall of records = librarian** — explicitly locked | Sesh 7 |
 | Twist: whoever lured them in is not one of the vamps | Sesh 1 |
 | The vampires are good; they live off small animals; they want to be left alone | Sesh 5, 6 |
-| Fork: find an advantage to fight them **vs.** discover you never had to | Sesh 2 |
+| ~~Fork: find an advantage to fight them **vs.** discover you never had to~~ — **cut in Sesh 9.** Spencer's idea; say it to him rather than letting him find it in a beat sheet | Sesh 2, reversed Sesh 9 |
 | Doors bolt shut on pure curiosity; the assignment is motivation enough | Sesh 5 |
 | Ancient Dutch artifact recovered at the end, presented in the bookend class | Sesh 5 |
 | Final-room puzzle reveals the food stash (small animals), releases a key to a hidden room | Sesh 6 |
 | Combat set-piece guards the way to the computer | Sesh 6 |
 | Biggest clue: the kid was killed by a human | Sesh 6 ("maybe"), Sesh 7 |
 | Real-estate company wants to demolish it for a **mega mall**; scared off the land by the end | Sesh 5, 7 |
-| Poe Boy takes control of some vampires in the final fight (mind control or manipulation) | Sesh 7 — *"Idea:"*, was missing from the codex, now restored |
+| Poe Boy takes control of some vampires in the final fight — settled in Sesh 9 as **manipulation, not mind control** | Sesh 7, resolved Sesh 9 |
 | Three named handouts: Haunted House Invite, DJ Show Flyer, Library History Clippings | Sesh 5, 6 |
 | Invite ~7PM; DJ show 3:00AM; working date Halloween | Sesh 6 |
 | Dood Mansion (*dood* = dead in Dutch) — Spencer flagged *"lmk if thats too dumb"* | Sesh 6 |
@@ -229,5 +355,9 @@ stay on this list until you two decide:
 6. The 4th crew member.
 7. Lock or kill: Dood Mansion, Upton Maximillion Livingsworth III, and the DJ/kingpin names that are locked only by repetition.
 8. **Why these five?** The invite is a deliberate guest list, so it needs a reason the players can be told.
-9. **Who was the 3AM DJ flyer for?** Public handout, or Poe Boy's cover story for the vampires? Blocks building the flyer prop.
-10. **What did Poe Boy tell the vampires?** They agreed to a houseful. Five kids show up. Either he lied to them about the scale, or they find out on the night — and that is a free wedge between him and them before the climax.
+9. **Who was the 3AM DJ flyer for?** Public handout, or Poe Boy's cover story? — *the proposed reconciliation at the top of this file answers this as "public," but that is not agreed.*
+10. **What did Poe Boy tell the vampires?** They agreed to a houseful. Five kids show up. — *same; the reconciliation answers it as "he staggered it."*
+11. ⚠️ **THE CROWD.** Settle the conflict at the top of this file. It decides whether the finale's ending works as written.
+12. **The developer's name.** He is now the third faction and the only death in the story, and he has no name. Company, or family trust?
+13. **The dead kid's name.** Now one word on a backpack, read off a prop. The AIM prop is live without it. His year too.
+14. **New reasons for the cellar and the choke-point corridor**, both of which were justified by the fork that Sesh 9 cut.
