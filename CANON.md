@@ -18,42 +18,30 @@ It only turns 📗 by being written into the doc.
 
 ---
 
-## ⚠️ UNRESOLVED CONFLICT — read this before writing anything else
+## ✅ RESOLVED — the two-tier guest list
 
-**Two decisions made on 24 August 2026 cannot both be true as written.**
+Two decisions from 24 August looked like they contradicted each other. **Scott settled it on 25 August:**
+
+> **The 7PM card is exclusive. The 3AM DJ show flyer is public.**
 
 | | |
 |---|---|
-| **A — the exclusive guest list** (decisions table below) | *"The invite is exclusive — five cards, five lockers, nobody else got one. The party arrives at an empty hill: no cars, no line, no lit windows."* |
-| **B — the Sesh 9 finale** (pasted into the doc) | A hundred charmed kids in the house, a house-wide PA, *"one boo, then the whole room,"* and Poe Boy humiliated **in front of the entire school**. |
+| **7PM — the card** | Five cards, five lockers, nobody else. Empty hill: no cars, no line, no lit windows. The boards are off the front door and that is the only thing that has changed about this house in decades. **The emptiness is the wrongness.** |
+| **7PM → 3AM** | Eight hours. The party has the house to themselves. This is the entire investigation. |
+| **3AM — the flyer** | The show's audience arrives and the house fills up. Speakers come on. Poe Boy performs, charms the crowd, and the finale runs in front of them. |
 
-The finale's ending — he isn't killed, he's *un-performed* — needs an audience. The guest list says
-there isn't one.
+Both 24 August decisions survive untouched, and this closes three things that were open:
 
-### 🟡 Proposed reconciliation — NOT AGREED, needs Scott's call
+- **Who was the 3AM flyer for?** → It went out wide. It is a real public handout, so **the flyer prop is unblocked and gets built.**
+- **What did Poe Boy tell the vampires?** → He didn't lie about the houseful. He **staggered** it: five early for the part he actually wants recorded, everyone else at three for the scare the vampires agreed to. No wedge needed — he kept his word on a technicality, which is exactly how he operates.
+- **Why isn't the party charmed?** → **They were already inside, in the back half of the house, when he performed.** Cleaner than the side-entrance reasoning the finale first used, since the 24 Aug decision removed the side entrance anyway.
 
-**The 7PM invite is exclusive. The 3AM DJ show flyer is public.**
+⚠️ **Still 🟡 — decided by Scott, not yet in the Google Doc.** Paste it in to make it official. It also
+narrows Sesh 7's *"invite everyone"* a second time, so it belongs in the doc more than most things on this list.
 
-- Five cards, five lockers, empty hill at 7PM. Everything in decision A survives untouched — including
-  *"the emptiness is the wrongness."*
-- The party has the house to themselves from 7PM until 3AM. That is the entire investigation.
-- **At 3AM the flyer's audience arrives** and the house fills up. The speakers come on. Poe Boy performs,
-  charms the crowd, and the finale runs in front of them.
-- The party isn't charmed because **they were already inside, in the back half of the house**, when he
-  performed — which is cleaner than the side-entrance reasoning the finale originally used, since
-  decision A also removed the side entrance.
-
-This is the only reading found so far where **both** of Scott's 24 August decisions survive intact, and
-it closes three questions this ledger already had open:
-
-- *"Who was the 3AM flyer for?"* → It went out wide. It is a real public handout, so the prop gets built.
-- *"What did Poe Boy tell the vampires?"* → He didn't lie about the houseful. He **staggered** it: five
-  early for the part he actually wants recorded, everyone else at three for the scare the vampires agreed to.
-- *"Why these five?"* → Still open, but now sharper: they are the ones invited to the part with no witnesses.
-
-**Until this is settled, treat every "crowd" reference in the finale as provisional.** If Scott rules the
-other way — that nobody comes at 3AM either — then the ending needs rebuilding, because the audience for
-Poe Boy's humiliation becomes three vampires, one paladin and Angelique.
+**One small thing left to decide:** how the crowd physically gets in at 3AM, given the doors bolted at 7PM.
+The obvious answer is that Poe Boy opens the front for his own show — but that is worth saying out loud
+rather than assuming, because it touches what the bolt actually means for the party.
 
 ---
 
@@ -114,7 +102,7 @@ downstairs in the **ballroom**, and the USB is the thing that bridges them.
 ### The collapse
 | Claim | Source |
 |---|---|
-| Silence, then one boo, then the whole room | Sesh 9 ⚠️ *needs the crowd — see the conflict above* |
+| Silence, then one boo, then the whole room | Sesh 9 · crowd resolved 25 Aug |
 | **Dracula seizes the mic** and denounces him magnificently | Sesh 9 |
 | Poe Boy tries to Command his way clear and **it doesn't land** | Sesh 9 |
 | **His parents arrive.** A Volvo, matching fleece, *"Upton, honey?"* | Sesh 9 |
@@ -148,7 +136,8 @@ Not yet pasted into the Google Doc — **do that to make them official.** Until 
 | ✅ **"Dood" is both** — the builder's family surname *and* the Dutch pun. Cornelis Dood is a real person in the fiction. | Sesh 6 had the pun; the prop added the surname. Both now stand. |
 | ✅ **The party is level 3**, leveling to 4 at the end of day one. | new |
 | ✅ **Races & classes are now IN DOC** — Spencer wrote Scott's picks into the doc as **Brainstorm Sesh 8**, which this ledger had not seen. They are no longer 🟡 anything. Sesh 8 also added Lil Stinky's oathbreak, which the codex had missed entirely. | 🟡 "Scott's pick, not in the doc yet" — **now doc** |
-| ✅ **The invite is exclusive — five cards, five lockers, nobody else got one.** The party arrives at an empty hill: no cars, no line, no lit windows, front still boarded. This **narrows Sesh 7's "invite everyone"**, which is a doc line, so it needs writing into the doc more than anything else on this list. Knock-ons: the codex no longer leans on a houseful of other kids to stop the party leaving (the bolted doors do it); "why these five" and "who was the 3AM flyer for" are now open. | 🟡 codex stagecraft — **now decided by Scott, 24 Aug 2026**, and it overrides a doc line |
+| ✅ **The invite is exclusive — five cards, five lockers, nobody else got one.** The party arrives at an empty hill: no cars, no line, no lit windows. This **narrows Sesh 7's "invite everyone"**, which is a doc line, so it needs writing into the doc more than anything else on this list. Knock-on: the codex no longer leans on a houseful of other kids to stop the party leaving — the bolted doors do it. | 🟡 codex stagecraft — **now decided by Scott, 24 Aug 2026**, and it overrides a doc line |
+| ✅ **The 3AM DJ show flyer is public — a two-tier guest list.** Five cards at 7PM for the part Poe Boy actually wants recorded; the flyer's audience arrives at 3AM for the scare the vampires agreed to. Resolves the collision between the exclusive invite and the finale's charmed crowd, and unblocks the flyer prop. | 🟡 **decided by Scott, 25 Aug 2026.** Not in the doc yet |
 | ✅ **The boards come off the front door; there is no side-entrance tip.** Poe Boy pries the boards away for the party and stacks them against the porch rail — the only visible change to the house in decades, and the invitation. The party walks in the front, and *then* the doors bolt. What he hands them at the gazebo instead: *"I spin up there sometimes"* (Sesh 3, verbatim), *"wait till you see what I've done with the ballroom"*, and *"stick around till three."* The tell is what he leaves out — he never mentions the other room he keeps gear in. | 📗 Sesh 3's tip, **superseded by Sesh 7**. Sesh 3 wrote him as a helpful stranger; Sesh 7 made him the host, and a host who wants five specific people inside opens the door rather than sending them round the back. The old tip also created a contradiction — sneak past a boarded door that then bolts shut behind you |
 | ✅ **The climax happens in the ballroom / great hall**, rigged as a stage, with Poe Boy's decks there and the speakers run through the rest of the house. Keeps the climax clear of the cellar, which Path A needs for the coffins. Also settles that Poe Boy has **two** setups, not one: the old room upstairs with the original recording rig and the occupied computer, and the ballroom he built for tonight. | 🟡 room design — **decided by Scott, 24 Aug 2026.** The doc names no rooms in the mansion at all |
 | ✅ **The house's power is hot-wired off the neighbouring property.** Explains the working computer, the one lit room, and the speakers run through the house. Also the one thread anyone outside could pull on. | 🟡 the doc explains the computer but never the electricity — **decided by Scott** |
@@ -355,9 +344,9 @@ stay on this list until you two decide:
 6. The 4th crew member.
 7. Lock or kill: Dood Mansion, Upton Maximillion Livingsworth III, and the DJ/kingpin names that are locked only by repetition.
 8. **Why these five?** The invite is a deliberate guest list, so it needs a reason the players can be told.
-9. **Who was the 3AM DJ flyer for?** Public handout, or Poe Boy's cover story? — *the proposed reconciliation at the top of this file answers this as "public," but that is not agreed.*
-10. **What did Poe Boy tell the vampires?** They agreed to a houseful. Five kids show up. — *same; the reconciliation answers it as "he staggered it."*
-11. ⚠️ **THE CROWD.** Settle the conflict at the top of this file. It decides whether the finale's ending works as written.
+9. ~~Who was the 3AM DJ flyer for?~~ — **answered 25 Aug: public.** The flyer prop is unblocked.
+10. ~~What did Poe Boy tell the vampires?~~ — **answered 25 Aug: he staggered the houseful rather than lying about it.**
+11. ~~The crowd~~ — **resolved 25 Aug.** See the two-tier guest list at the top. Remaining: how the crowd gets through a bolted door at 3AM.
 12. **The developer's name.** He is now the third faction and the only death in the story, and he has no name. Company, or family trust?
 13. **The dead kid's name.** Now one word on a backpack, read off a prop. The AIM prop is live without it. His year too.
 14. **New reasons for the cellar and the choke-point corridor**, both of which were justified by the fork that Sesh 9 cut.

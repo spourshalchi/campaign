@@ -299,10 +299,10 @@
   .crule:first-child{border-top:none;padding-top:0}
   .crule b.ch{color:var(--ink);font-size:14px;display:block;margin-bottom:3px}
   .crule p{margin:0;font-size:13.2px;color:var(--mut);line-height:1.55}
-  .conflict{margin:0 0 18px;padding:14px 16px;border-radius:12px;
-    border:1px solid #6a2530;background:linear-gradient(180deg,#2a1218,#1c0d12);color:#f0c9cf;font-size:13.6px;line-height:1.6}
-  .conflict b{color:#fff}
-  .conflict .ch{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#ff8a96;margin-bottom:6px;font-weight:700}
+  .settled{margin:0 0 18px;padding:14px 16px;border-radius:12px;
+    border:1px solid #24503c;background:linear-gradient(180deg,#0f2018,#0b1712);color:#bfe0ce;font-size:13.6px;line-height:1.6}
+  .settled b{color:#fff}
+  .settled .ch{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#54be8e;margin-bottom:6px;font-weight:700}
   .review-h{font-family:var(--f-display);font-size:15px;color:#ffcf70;margin:22px 4px 6px;
     text-transform:uppercase;letter-spacing:.1em;font-size:12px}
 </style>
@@ -415,8 +415,8 @@
   <section class="tab" id="tab-combat">
     <h2 class="sec">Combat encounters</h2>
     <p class="sub">Three fights for the weekend, one held in reserve. The <b>beats</b> are from the doc (Sesh 6, 7 and 9); every <b>number</b> below &mdash; XP budgets, CR picks, HP, stat-block chassis, and the contents of Saturday's fight &mdash; is a proposal built against them and agreed to by nobody. Combat and rules are Scott's lane per Sesh 1.</p>
-    <div class="conflict"><span class="ch">⚠ Unresolved &mdash; it changes the finale</span>
-      Two decisions from 24 August contradict each other. The <b>guest list</b> says five cards and an empty hill; the <b>Sesh 9 finale</b> needs a charmed crowd for Poe Boy to be humiliated in front of. Proposed fix, not agreed: the <b>7PM card is exclusive</b> and the <b>3AM flyer is public</b>, so the party has the house to themselves for eight hours and then it fills up. Phases 1&ndash;3 below work either way; <b>the collapse does not</b>. Full write-up in <code>/CANON.md</code>.</div>
+    <div class="settled"><span class="ch">✓ Settled 25 Aug &mdash; the two-tier guest list</span>
+      <b>The 7PM card is exclusive. The 3AM flyer is public.</b> Five kids walk into an empty house at seven and have it to themselves for eight hours &mdash; that is the whole investigation. At three the show's audience arrives, the speakers come on, and the finale runs in front of a crowd. Both 24 August decisions survive, and the flyer prop is unblocked. Not in the Google Doc yet.</div>
     <div class="panel" id="cbudget"></div>
     <div id="cenc"></div>
     <div class="panel" style="margin-top:16px">
@@ -517,7 +517,7 @@ const NODES = [
     fields:{Race:"Kenku",Class:"Bard — College of Glamour",Alignment:"Chaotic Neutral",Type:"ENFJ"},
     desc:"Way-too-cool-for-school personified: obnoxiously subversive, but with real underground cred. Ambitious and callous to the edge of psychopathy — not sadistic, just indifferent to suffering if it serves the work. Charismatic, subtly manipulative. Emancipated rich kid, deeply insecure about his upper-class parents who adore him anyway.",
     hook:"The plan: invite them, lock them in, and <b>sample the screams of real beings terrorized by real monsters</b> for his horror score. He met the vampires by accident while recording spooky noises in the house, sold them a plan to scare off the mega-mall developers, then tested it on one kid — and found out he doesn't stop. Candidate embarrassing real name: Upton Maximillion Livingsworth III (floated in Sesh 3 as a joke, never locked).<br><br><b>Playing him:</b> Kenku speak only in sounds recorded from others — a DJ who samples voices, whose crime is trapping a kid's voice in a machine, cannot speak in one of his own. Sesh 8: <i>“Voice him in borrowed lines.”</i> Glamour supplies the charm that holds the crew.",
-    finale:"<b>He charms the crowd.</b> An Enthralling Performance holds the 3AM audience where he wants them — he needs them frightened and he needs them to stay, so the charm is part of the crime. He sets the vampires on the party with the lie that killed the kid, tries to recruit the developer and gets brushed off, then spends phase three casting <i>Command</i> — “Drop.” — to keep the USB off his decks. <b>He is not killed. He is un-performed:</b> the recording plays in full, the glamour breaks, one boo becomes the whole room, Dracula takes his mic, his Command stops landing — and his parents pull into the drive and call him <b>Upton</b>.<br><br>⚠️ Depends on the unresolved guest-list question — see <code>/CANON.md</code>. <span class='src'>Sesh 9</span>" },
+    finale:"<b>He charms the crowd.</b> An Enthralling Performance holds the 3AM audience where he wants them — he needs them frightened and he needs them to stay, so the charm is part of the crime. He sets the vampires on the party with the lie that killed the kid, tries to recruit the developer and gets brushed off, then spends phase three casting <i>Command</i> — “Drop.” — to keep the USB off his decks. <b>He is not killed. He is un-performed:</b> the recording plays in full, the glamour breaks, one boo becomes the whole room, Dracula takes his mic, his Command stops landing — and his parents pull into the drive and call him <b>Upton</b>. <span class='src'>Sesh 9</span>" },
   {id:"stinky", name:"Lil Stinky", sub:"School kingpin", g:"crew", x:430, y:470,
     role:"Crew · Muscle / dealer", s:"doc", src:"Sesh 3, 8",
     fields:{Race:"Orc or Goliath (TBD)",Class:"Paladin — Oath of Devotion",Vibe:"Stoner, bad rapper, honest to a fault"},
@@ -548,7 +548,7 @@ const NODES = [
     role:"Vampire (secretly good)", s:"doc", src:"Sesh 0",
     fields:{Style:"Campy Count Dracula"},
     desc:"The over-the-top theatrical one for comic relief.",
-    finale:"<b>He gets the campaign's biggest laugh and its cleanest catharsis.</b> When the recording finishes and the room wakes up, Dracula seizes the mic and denounces Poe Boy magnificently — he has waited all night for a real audience. The crowd cheers, and plenty still aren't sure it isn't part of the show. Also bound by the no-Bite rule in phase one.<br><br>⚠️ Depends on the unresolved guest-list question — see <code>/CANON.md</code>. <span class='src'>Sesh 9</span>",
+    finale:"<b>He gets the campaign's biggest laugh and its cleanest catharsis.</b> When the recording finishes and the room wakes up, Dracula seizes the mic and denounces Poe Boy magnificently — he has waited all night for a real audience. The crowd cheers, and plenty still aren't sure it isn't part of the show. Also bound by the no-Bite rule in phase one. <span class='src'>Sesh 9</span>",
     ai:"'Treats the haunted-house plan as a performance and would happily brag the whole scheme by accident' was a codex invention." },
   {id:"edward", name:"Vamp: Edward", sub:"Literally Twilight", g:"vamp", x:880, y:430,
     role:"Vampire (secretly good)", s:"doc", src:"Sesh 0, 7",
@@ -708,9 +708,9 @@ const FLOW = [
           {who:"The speakers",say:"It’s his voice. And he’s saying your names.",
             why:"Only works because the guest list is five. Hiding stops being an option the second the house addresses them personally."}
         ]},
-      q:"⚠️ <b>Unresolved, and the ending depends on it.</b> Sesh 9's finale needs a crowd — a hundred charmed kids, one boo becoming the whole room, Poe Boy humiliated in front of the school. The 24 Aug guest-list decision says nobody else was invited. <b>Proposed fix (not agreed):</b> the <i>7PM card</i> is exclusive and the <i>3AM flyer</i> is public, so the party has the house to themselves for eight hours and then it fills up. That keeps both decisions intact and answers what Poe Boy told the vampires — he didn't lie about the houseful, he staggered it. See <code>/CANON.md</code>."}},
+      q:"<b>Settled 25 Aug:</b> the 7PM card was exclusive, but <b>the 3AM flyer is public</b> — so this is the moment the house stops being empty. The speakers come on and the guests arrive at the same time. Poe Boy still knows exactly who the five are and can open the show by naming them; the difference is that now there are people to name them <i>in front of</i>. It also answers what he told the vampires: he didn't lie about the houseful, he <b>staggered</b> it."}},
 
-  {n:10,title:"Climax — three phases",where:"The ballroom",s:"doc",src:"Sesh 2, 5, 7",body:"<b>Venue: the ballroom / great hall</b>, rigged as a stage. Poe Boy's decks are here; the speakers he's run through the rest of the house are what come on at 3AM. Sesh 7's control idea is settled as <b>manipulation, not mind control</b> — he tells the vampires the party are the mall company's people, the same lie that got the kid killed.<br><br>⚠️ <b>The crowd is unresolved.</b> This runs as written only if an audience arrives at 3AM — see beat 9's note and <code>/CANON.md</code>.",
+  {n:10,title:"Climax — three phases",where:"The ballroom",s:"doc",src:"Sesh 2, 5, 7",body:"<b>Venue: the ballroom / great hall</b>, rigged as a stage. Poe Boy's decks are here; the speakers he's run through the rest of the house are what come on at 3AM. Sesh 7's control idea is settled as <b>manipulation, not mind control</b> — he tells the vampires the party are the mall company's people, the same lie that got the kid killed.<br><br><b>The crowd arrives with the show</b> (settled 25 Aug). The party has been alone in this house for eight hours; at three it fills up, and every beat of the collapse has an audience.",
     phases:[
       {k:"1",h:"Phase 1 — the vampires attack",p:"On Poe Boy's lie, believing they are defending their home. <b>Not a balanced encounter</b> — three CR 5 vampires is 5,400 XP against a 2,500 ceiling. It's a two-or-three round pressure scene, and they still cannot kill a PC."},
       {k:"2",h:"Phase 2 — the developer breaches",p:"He seals the exits behind him, his own crew included. Three sides, nobody sharing a goal. <b>The only lethal fight of the finale.</b> The vampires start tearing into his men — the cue that the room has changed. Poe Boy tries to recruit him and gets brushed off by an adult with a clipboard."},
@@ -722,7 +722,7 @@ const FLOW = [
   {n:11,title:"The collapse",where:"He is un-performed",s:"doc",src:"Sesh 9",body:"Stinky stands on the decks; his Aura of Protection is buffing Poe Boy's saves, so he's a puzzle rather than a wall — and <b>he isn't charmed, he just believes his friend</b>. Poe Boy spends his turns on <i>Command</i> — “Drop.” — to keep the drive off the deck: a delay, not a fail state, and the USB can't be destroyed. Then it plays, in full, and the party switches from attacking to defending.",
     bridge:{cue:"Headlights swing across the ballroom windows. Someone has pulled into the drive.",
       note:"In order: the recording plays whole — typing, a door, screaming, and under it Poe Boy's own voice staying calm and adjusting a level. <b>Stinky's oath breaks with no saving throw</b> (Devotion's first tenet is <i>don't lie or cheat</i>); he stops fighting and sits down. Silence, one boo, then the whole room. <b>Dracula seizes the mic</b> and denounces him magnificently — he has waited all night for a real audience — and a good number of them still aren't sure it isn't part of the show. Poe Boy tries to Command his way clear and it doesn't land. Then: a Volvo, two sweet oblivious parents in matching fleece, and <b>“Upton, honey?”</b> Sesh 3's throwaway joke about his real name turns out to be load-bearing.",
-      q:"Everything here that involves a crowd depends on the unresolved guest-list question. If nobody comes at 3AM, the audience for his humiliation is three vampires, one paladin and Angelique — and the ending needs rebuilding."}},
+      q:"Minor and worth deciding: <b>how does the crowd get in at 3AM</b> when the doors bolted at 7PM? The obvious answer is that Poe Boy opens the front for his own show — but say it out loud, because it touches what the bolt actually means for the party."}},
 
   {n:12,title:"Resolution & bookend",where:"Back to class",s:"doc",src:"Sesh 5 + doc comments",body:"They recover an ancient Dutch artifact (found after the boss fight, or with the vamps' help), the real-estate company is scared off the land, and they present the artifact in class — closing the loop opened in scene one.<br><br><b>Play the presentation battered.</b> Scott's comment on this beat: <i>“They have scars and black eyes and theyre like ‘and yeah that was our class project’.”</i> Nobody in the room reacts to the state of them, which is the whole joke — let a player deliver the line rather than narrating it.<br><br><b>Sesh 9's three closers.</b> Lil Stinky records a diss track — sincere, terrible, devastating. The mega mall breaks ground somewhere else; the brochure says <b>Amityville</b>, quiet neighborhood, waterfront, great bones. And what they actually present is <b>the tape</b>, because the assignment wanted a primary source."}
 ];
@@ -804,7 +804,7 @@ const NAMES = [
 ];
 
 const TODO = [
-  ["⚠️ THE CROWD — settle this first","<b>Two 24 Aug decisions contradict each other.</b> The guest list says five cards and an empty hill; the Sesh 9 finale needs a hundred charmed kids for Poe Boy to be humiliated in front of. <b>Proposed fix, not agreed:</b> the 7PM card is exclusive and the 3AM flyer is public, so the party has the house alone for eight hours and then it fills up. That keeps both decisions and answers what Poe Boy told the vampires — he staggered the houseful rather than lying about it. If it goes the other way, the ending needs rebuilding. See <code>/CANON.md</code>.","doc"],
+  ["The two-tier guest list — <b>settled</b>","<b>The 7PM card is exclusive; the 3AM flyer is public.</b> Five kids alone in the house for eight hours, then it fills up for the show. Settles the collision between the exclusive invite and the finale's charmed crowd, keeps both 24 Aug decisions, unblocks the flyer prop, and answers what Poe Boy told the vampires — he staggered the houseful rather than lying about it. <b>Decided by Scott 25 Aug; not in the Google Doc yet.</b> One small thing left: how the crowd gets through a bolted door at 3AM.","doc"],
   ["The developer's name","<b>The highest-value blank now.</b> Sesh 9 promoted him from a background company to the third faction: an abjurer who warded the page himself, gets summoned by the party breaking it, seals the exits at 3AM, and is the only death in the story. He still has no name. Also open: company or family trust?","doc"],
   ["New reasons for the cellar and the corridor","Both were justified by the fork — the cellar was kept clear for Path A's coffins, the choke-point corridor existed so both paths converged. Sesh 9 cut the fork, so both rooms are fine and both reasons are gone.","doc"],
   ["Tell Spencer the fork is cut","Sesh 9 removed the fight-them / never-had-to fork. <b>That was Spencer's Sesh 2 idea.</b> Cutting it is right for a two-session game, but it should be said to him rather than found in a beat sheet.","doc"],
@@ -827,8 +827,8 @@ const TODO = [
 ];
 
 const DOCS = [
-  ["Haunted House Invite","BUILT — /invite/ · home-made, clip-arty · 7PM sharp · Sesh 6 spec. Exclusive invite — 5 cards, 5 lockers. The card's mass-flyer voice (<i>FREE admission, bring a friend, the more the scaryer</i>) is deliberate camouflage.","doc","Sesh 5, 6"],
-  ["DJ Show Flyer","NOT BUILT · leaned-out Memphis/Houston rap art, spooky · 3AM at Dood Mansion · bills Poe Boy / Lil Stinky / Angelique. <b>Open:</b> with the invite exclusive, is this a public flyer or Poe Boy's cover story? See the to-do.","doc","Sesh 5, 6"],
+  ["Haunted House Invite","BUILT — /invite/ · home-made, clip-arty · 7PM sharp · Sesh 6 spec. Exclusive invite — 5 cards, 5 lockers. The card's mass-flyer voice (<i>FREE admission, bring a friend, the more the scaryer</i>) is deliberate camouflage — and reads better now that a real public flyer exists for 3AM.","doc","Sesh 5, 6"],
+  ["DJ Show Flyer","NOT BUILT — <b>and now unblocked.</b> Leaned-out Memphis/Houston rap art, spooky · 3AM at Dood Mansion · bills Poe Boy / Lil Stinky / Angelique. Settled 25 Aug: this one <b>is public</b>, which is where the finale's crowd comes from.","doc","Sesh 5, 6"],
   ["Library History Clippings","BUILT — /puzzle/ · but as an invented 1937 newspaper. The doc's source is a 1973 Frisian legend.","ai"],
   ["AIM chat with the Spirit","BUILT — /aim/ · Sesh 7, plus the Sesh 9 backpack + USB branch and a working file-transfer window","doc","Sesh 7 + 9"],
   ["The USB stick","NOT BOUGHT · a real thumb drive handed to the players when the Spirit uploads. Put scream_test_03_GOOD.wav on it.","doc","Sesh 9"],
@@ -1131,7 +1131,7 @@ document.getElementById("docs").innerHTML=DOCS.map(([t,d,st,src])=>`<div class="
     ["Every number on the Combat tab","The <b>beats</b> are doc (Sesh 6, 7 and 9). The XP budgets, CR picks, HP figures, stat-block chassis and the contents of Saturday's fight are all proposals built against them. Nothing there has been agreed."],
     ["Saturday's fight has no contents","Sesh 9 says there is one, where it sits, and roughly how long it runs. What is actually in the room is unwritten."],
     ["The corridor creature","Sesh 6 says a combat gates the computer. It has never said what the combat is."],
-    ["The crowd at the collapse","\u26a0 Not an invention \u2014 a <b>contradiction</b> between two of your own 24 Aug decisions. See /CANON.md."]
+    ["The crowd at the collapse","<b>Resolved 25 Aug</b> \u2014 it was a contradiction between two of your own 24 Aug decisions, not an invention. The two-tier guest list settles it: 7PM card exclusive, 3AM flyer public. Decided by Scott, not in the doc yet."]
   ]]);
   groups.push(["Invented prop texture",[
     ["Invite: “LAST YEAR NOBODY DID”","Implies a haunted house ran here before. Per canon this is Poe Boy's first, in a house abandoned for decades. Also spookynite2k4@hotmail.com."],
@@ -1187,13 +1187,13 @@ document.getElementById("flagtoggle").addEventListener("change",e=>{
 const TODO_LIST = [
  {
   "id": "x1",
-  "t": "\u26a0 Settle the crowd \u2014 two decisions contradict each other",
+  "t": "Settle the crowd \u2014 two decisions contradicted each other",
   "o": "both",
-  "c": "Story",
+  "c": "Decision",
   "ref": "SESH 9",
-  "top": 1,
-  "blocked": 1,
-  "note": "The <b>guest list</b> decision says five cards, five lockers, an empty hill. The <b>Sesh 9 finale</b> needs a charmed crowd \u2014 a house-wide PA, one boo becoming the whole room, Poe Boy humiliated in front of the school. Both were decided on 24 Aug and they cannot both be true. <b>Proposed fix, not agreed:</b> the 7PM card is exclusive, the 3AM flyer is public. The party has the house alone for eight hours, then it fills up. That keeps both decisions, makes the flyer a real prop, and answers what Poe Boy told the vampires \u2014 he staggered the houseful rather than lying about it. If it goes the other way, the ending needs rebuilding: the audience becomes three vampires, one paladin and Angelique."
+  "done": 1,
+  "ans": "Two-tier guest list \u2014 7PM card exclusive, 3AM flyer public",
+  "note": "The guest-list decision said five cards and an empty hill; the finale needed a charmed crowd. Both were decided on 24 Aug and could not both be true. <b>Settled 25 Aug:</b> five kids walk into an empty house at seven and have it to themselves for eight hours \u2014 that is the investigation \u2014 and at three the show's audience arrives. Both decisions survive, the flyer prop is unblocked, and it answers what Poe Boy told the vampires: he <b>staggered</b> the houseful rather than lying about it. <b>Not in the Google Doc yet.</b> One small thing left: how the crowd gets through a bolted door at 3AM."
  },
  {
   "id": "s13",
