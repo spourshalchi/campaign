@@ -54,6 +54,44 @@
   }
 
   /* ============== Splash ============== */
+  /* ============== DM setup (before the splash) ============== */
+  #setup {
+    position: fixed; inset: 0; z-index: 200;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: calc(var(--safe-top) + 24px) 20px calc(var(--safe-bot) + 24px);
+    background: #0d0b09;
+    text-align: center;
+  }
+  #setup.gone { display: none; }
+  #setup .kicker {
+    font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase;
+    color: #6f5f4a; margin: 0 0 10px;
+  }
+  #setup h2 {
+    margin: 0 0 6px; font-size: 20px; font-weight: normal;
+    font-variant: small-caps; letter-spacing: .04em; color: #e9dcc2;
+  }
+  #setup .q {
+    margin: 0 0 26px; font-size: 14px; color: #8d7a5f; max-width: 30ch;
+  }
+  #setup .opts { display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 320px; }
+  #setup button.opt {
+    appearance: none; width: 100%;
+    background: #171310; color: #e9dcc2;
+    border: 1px solid #3a3027; border-radius: 2px;
+    padding: 14px 16px; font-family: inherit; text-align: left;
+    cursor: pointer; min-height: 60px; touch-action: manipulation;
+  }
+  #setup button.opt:active { background: #221c16; border-color: #6f5f4a; }
+  #setup button.opt b {
+    display: block; font-size: 15.5px; letter-spacing: .03em; margin-bottom: 2px;
+  }
+  #setup button.opt span { font-size: 12.5px; color: #8d7a5f; }
+  #setup .foot {
+    margin: 24px 0 0; font-size: 11.5px; color: #55483a; max-width: 34ch; line-height: 1.5;
+  }
+
   #splash {
     position: fixed; inset: 0;
     display: flex; flex-direction: column;
@@ -181,7 +219,7 @@
     gap: 12px;
     padding: 8px 16px 6px;
   }
-  #timer {
+  #counter {
     font-family: "Courier New", monospace;
     font-size: 30px;
     letter-spacing: 0.08em;
@@ -193,8 +231,8 @@
     min-width: 110px;
     text-align: center;
   }
-  #timer.warning { color: #ffaa55; }
-  #timer.critical {
+  #counter.done { color: #8fdca0; }
+  #counter.hidden-x {
     color: #ff5544;
     animation: pulse 0.6s steps(2) infinite;
   }
@@ -649,61 +687,32 @@
   }
 
   /* ============== Fail ============== */
-  #fail {
-    position: fixed; inset: 0;
-    display: none;
-    align-items: center; justify-content: center;
-    flex-direction: column;
-    gap: 20px;
-    z-index: 150;
-    padding: 24px;
-    background: radial-gradient(ellipse at center, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.95) 80%);
-    opacity: 0;
-    transition: opacity 1.2s ease;
-    text-align: center;
-  }
-  #fail.show { display: flex; opacity: 1; }
-  #fail h2 {
-    margin: 0;
-    font-size: 22px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: #d8a878;
-    font-weight: normal;
-  }
-  #fail p {
-    margin: 0;
-    color: #b8a890;
-    font-style: italic;
-    max-width: 420px;
-    line-height: 1.5;
-    font-size: 15px;
-  }
-  #retry {
-    appearance: none;
-    background: transparent;
-    color: var(--paper);
-    border: 1px solid #5a3a20;
-    padding: 10px 22px;
-    font-family: inherit;
-    font-size: 13px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    cursor: pointer;
-    min-height: 44px;
-    touch-action: manipulation;
-  }
-  #retry:active { background: rgba(255,255,255,0.08); }
 </style>
 </head>
 <body>
+
+<!-- ===== DM setup =====
+     Shown before the splash. The DM taps the round the shears died on,
+     which sets the grid, then hands the iPad over. See puzzle/README.md.
+     ============================================================ -->
+<div id="setup">
+  <p class="kicker">Before you hand it over</p>
+  <h2>How long did the shears last?</h2>
+  <p class="q">Count the cut that sprang the trap, plus one for every round the shears survived after that.</p>
+  <div class="opts">
+    <button class="opt" data-n="3"><b>Round 1</b><span>Killed immediately &middot; one cut &middot; 9 pieces</span></button>
+    <button class="opt" data-n="4"><b>Round 2</b><span>Two cuts &middot; 16 pieces</span></button>
+    <button class="opt" data-n="5"><b>Round 3 or later</b><span>Three cuts &middot; 25 pieces</span></button>
+  </div>
+  <p class="foot">Long-press the piece counter for 1.2s during play to open the debug panel.</p>
+</div>
 
 <!-- ===== Splash ===== -->
 <div id="splash">
   <div class="note">
     <h1>Cut to pieces</h1>
     <p>The page was whole when you opened the book. Then the shears got to it.<br><br>
-       The pieces are still moving.</p>
+       Every piece is here. Put it back together.</p>
     <button id="begin">Hold It Together</button>
     <button id="card-open" class="linkish">there&rsquo;s a card in the back pocket</button>
   </div>
@@ -712,8 +721,8 @@
 <!-- ===== Game ===== -->
 <div id="game" hidden>
   <div id="hud">
-    <div id="timer" aria-label="time remaining">3:00</div>
-    <div id="hint">hold the pieces together</div>
+    <div id="counter" aria-label="pieces placed">0 / 16</div>
+    <div id="hint">put it back together</div>
   </div>
   <div id="workspace">
     <div id="frame-hint"></div>
@@ -746,14 +755,6 @@
   <div class="row">
     <span class="label">DEBUG</span>
     <button class="close" id="dbg-close">×</button>
-  </div>
-  <div class="row">
-    <button id="dbg-add">+30s</button>
-    <button id="dbg-sub">-30s</button>
-  </div>
-  <div class="row">
-    <button id="dbg-add5">+5s</button>
-    <button id="dbg-sub5">-5s</button>
   </div>
   <div class="row">
     <button id="dbg-solve">solve</button>
@@ -799,14 +800,6 @@
       </tbody>
     </table>
   </div>
-</div>
-
-<!-- ===== Fail ===== -->
-<div id="fail">
-  <h2>The pieces win</h2>
-  <p>They twist out of your hands and go still &mdash; scattered, face-down and out of
-     order. It&rsquo;s a cut-up page again.</p>
-  <button id="retry">Try Again</button>
 </div>
 
 <!-- ============================================================
@@ -958,11 +951,9 @@ const ACTIVE = "heath";
 
 const CONFIG = {
   // Grid is N x N. Total pieces = N*N.
-  // Common values: 3 (easy), 4 (medium), 5 (hard).
+  // This is the DEFAULT only -- the setup screen overrides it at the table,
+  // based on how many rounds the shears survived. See puzzle/README.md.
   TILE_COUNT: 4,
-
-  // Total seconds on the clock.
-  TIME_SECONDS: 180,
 
   // Snap tuning.
   SNAP_DISTANCE_PX: 38,   // how close (in pixels) before a piece locks in
@@ -997,8 +988,9 @@ const CONFIG = {
 // ============================================================
 // State
 // ============================================================
-const N = CONFIG.TILE_COUNT;
-const TOTAL = N * N;
+// Mutable: the DM setup screen reassigns these before the puzzle is built.
+let N = CONFIG.TILE_COUNT;
+let TOTAL = N * N;
 
 const clipping   = CLIPPINGS[ACTIVE];
 const frontImage = clipping.front;
@@ -1009,8 +1001,6 @@ let cellW = 0, cellH = 0;      // per-piece cell size in pixels
 
 let pieces = [];               // array of piece objects
 let lockedCount = 0;
-let timeLeft = CONFIG.TIME_SECONDS;
-let timerId = null;
 let started = false;
 let ended = false;
 let restored = false;          // photo-card revealed after success
@@ -1030,7 +1020,7 @@ let readerTimer = null;
 // Element refs
 const $splash = document.getElementById("splash");
 const $game = document.getElementById("game");
-const $timer = document.getElementById("timer");
+const $counter = document.getElementById("counter");
 const $hint = document.getElementById("hint");
 const $workspace = document.getElementById("workspace");
 const $frameHint = document.getElementById("frame-hint");
@@ -1047,16 +1037,21 @@ const $reader = document.getElementById("reader");
 const $readerBody = document.getElementById("reader-body");
 const $debug = document.getElementById("debug");
 const $dbgInfo = document.getElementById("dbg-info");
-const $fail = document.getElementById("fail");
 
 // ============================================================
 // Image loading + dimension probe
 // ============================================================
 function probeImage(src) {
   return new Promise((resolve) => {
+    let done = false;
+    const finish = (r) => { if (!done) { done = true; resolve(r); } };
     const im = new Image();
-    im.onload = () => resolve({ ok: true, w: im.naturalWidth, h: im.naturalHeight });
-    im.onerror = () => resolve({ ok: false, w: 0, h: 0 });
+    im.onload = () => finish({ ok: true, w: im.naturalWidth, h: im.naturalHeight });
+    im.onerror = () => finish({ ok: false, w: 0, h: 0 });
+    // Never let a stalled decode hang the whole prop. The caller already
+    // falls back to the default portrait ratio, so a timeout is harmless --
+    // and a puzzle that never starts is not.
+    setTimeout(() => finish({ ok: false, w: 0, h: 0 }), 4000);
     im.src = src;
   });
 }
@@ -1349,6 +1344,7 @@ function snapToCorrect(p) {
   setTimeout(() => p.el.classList.remove("snapping"), 350);
   setTimeout(() => p.el.classList.remove("lock-flash"), 600);
   lockedCount++;
+  paintCounter();
   if (lockedCount >= TOTAL && !ended) onWin();
 }
 
@@ -1415,46 +1411,14 @@ function onPointerUp(ev) {
 }
 
 // ============================================================
-// Timer
+// Progress counter (the clock used to live here)
 // ============================================================
-function fmt(s) {
-  s = Math.max(0, Math.floor(s));
-  const m = Math.floor(s / 60);
-  const r = s % 60;
-  return `${m}:${String(r).padStart(2, "0")}`;
-}
-
-function paintTimer() {
-  $timer.textContent = fmt(timeLeft);
-  $timer.classList.toggle("critical", timeLeft <= 10);
-  $timer.classList.toggle("warning", timeLeft > 10 && timeLeft <= 30);
+function paintCounter() {
+  $counter.textContent = `${lockedCount} / ${TOTAL}`;
+  $counter.classList.toggle("done", lockedCount >= TOTAL);
   if ($debug.classList.contains("open")) {
-    $dbgInfo.textContent = `t=${timeLeft}s · ${N}x${N} · locked=${lockedCount}/${TOTAL}`;
+    $dbgInfo.textContent = `${N}x${N} · locked=${lockedCount}/${TOTAL}`;
   }
-}
-
-function startTimer() {
-  if (timerId) clearInterval(timerId);
-  timerId = setInterval(() => {
-    if (ended) return;
-    timeLeft--;
-    paintTimer();
-    if (timeLeft <= 0) {
-      timeLeft = 0;
-      paintTimer();
-      onFail();
-    }
-  }, 1000);
-}
-
-function stopTimer() {
-  if (timerId) clearInterval(timerId);
-  timerId = null;
-}
-
-function adjustTime(delta) {
-  timeLeft = Math.max(0, timeLeft + delta);
-  paintTimer();
 }
 
 // ============================================================
@@ -1463,7 +1427,7 @@ function adjustTime(delta) {
 function onWin() {
   if (ended) return;
   ended = true;
-  stopTimer();
+  paintCounter();
 
   // Tiny pause so the final snap is felt.
   setTimeout(() => {
@@ -1599,37 +1563,14 @@ function disableFlipDrag() {
 }
 
 // ============================================================
-// Fail — crumble pieces, show retry
-// ============================================================
-function onFail() {
-  if (ended) return;
-  ended = true;
-  stopTimer();
-  crumble();
-  setTimeout(() => $fail.classList.add("show"), 1700);
-}
-
-function crumble() {
-  for (const p of pieces) {
-    const dx  = (Math.random() - 0.5) * 700;
-    const dy  = 500 + Math.random() * 500;
-    const rot = (Math.random() - 0.5) * 720;
-    const delay = Math.random() * 600;
-    p.el.style.transition = `transform 1.6s cubic-bezier(.4,.05,.7,1) ${delay}ms, opacity 1.6s ease ${delay}ms`;
-    p.el.style.transform  = `translate(${p.x + dx}px, ${p.y + dy}px) rotate(${p.rot + rot}deg)`;
-    p.el.style.opacity    = "0";
-  }
-}
-
-// ============================================================
-// Debug — long-press timer to toggle
+// Debug — long-press the counter to toggle
 // ============================================================
 let pressTimer = null;
 (function armDebug(target) {
   const begin = () => {
     pressTimer = setTimeout(() => {
       $debug.classList.toggle("open");
-      paintTimer();
+      paintCounter();
       if (navigator.vibrate) navigator.vibrate(8);
     }, 1200);
   };
@@ -1639,13 +1580,9 @@ let pressTimer = null;
   ["touchend", "touchcancel", "mouseup", "mouseleave"].forEach((ev) =>
     target.addEventListener(ev, cancel, { passive: true })
   );
-})($timer);
+})($counter);
 
 document.getElementById("dbg-close").addEventListener("click", () => $debug.classList.remove("open"));
-document.getElementById("dbg-add").addEventListener("click",  () => adjustTime(+30));
-document.getElementById("dbg-sub").addEventListener("click",  () => adjustTime(-30));
-document.getElementById("dbg-add5").addEventListener("click", () => adjustTime(+5));
-document.getElementById("dbg-sub5").addEventListener("click", () => adjustTime(-5));
 document.getElementById("dbg-solve").addEventListener("click", () => {
   if (ended) return;
   // Snap every remaining piece into place
@@ -1671,8 +1608,7 @@ async function startGame() {
   computeLayout();
   buildPieces();
   scatterPieces();
-  timeLeft = CONFIG.TIME_SECONDS;
-  paintTimer();
+  paintCounter();
   started = true;
   ended = false;
   restored = false;
@@ -1687,10 +1623,27 @@ async function startGame() {
   $photoCard.classList.remove("wobble");
   $flipHint.classList.remove("show");
   disableFlipDrag();
-  startTimer();
 }
 
 document.getElementById("begin").addEventListener("click", startGame);
+
+/* ---- DM setup: pick the grid, then reveal the splash ---- */
+(function () {
+  const setup = document.getElementById("setup");
+  if (!setup) return;
+  setup.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-n]");
+    if (!b) return;
+    const n = parseInt(b.dataset.n, 10);
+    if (Number.isFinite(n)) {
+      CONFIG.TILE_COUNT = n;
+      N = n;
+      TOTAL = n * n;
+      paintCounter();
+    }
+    setup.classList.add("gone");
+  });
+})();
 
 /* ---- checkout card ---- */
 (function () {
@@ -1710,17 +1663,6 @@ document.getElementById("reader-close").addEventListener("click", closeReader);
 // must not, or you can't select the text.
 $reader.addEventListener("click", (e) => { if (e.target === $reader) closeReader(); });
 
-document.getElementById("retry").addEventListener("click", () => {
-  $fail.classList.remove("show");
-  ended = false;
-  // Rebuild fresh pieces (crumble mangled their inline styles)
-  buildPieces();
-  scatterPieces();
-  timeLeft = CONFIG.TIME_SECONDS;
-  paintTimer();
-  startTimer();
-});
-
 // Block pinch-zoom on iOS
 document.addEventListener("touchmove", (e) => {
   if (e.scale && e.scale !== 1) e.preventDefault();
@@ -1728,7 +1670,7 @@ document.addEventListener("touchmove", (e) => {
 document.addEventListener("gesturestart", (e) => e.preventDefault());
 
 // Initial paint (in case splash bypassed)
-paintTimer();
+paintCounter();
 </script>
 </body>
 </html>

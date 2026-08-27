@@ -19,9 +19,13 @@ desk objects, and a pair of **archival shears** that ignore the party entirely a
 go straight for the article. By the time the party puts the shears down, the page
 is in pieces, and the pieces are still moving.
 
-That's what the timer is. They aren't racing a person walking back into the room,
-they're holding down something that was cut apart thirty seconds ago and hasn't
-finished being magic yet.
+**There is no timer.** There used to be one, back when the fiction was a ward
+actively fighting them — but the shears are dead and the magic died with them, so
+nothing is resisting. It's a jigsaw of a newspaper somebody cut up thirty seconds
+ago. The tension already happened; this is the aftermath.
+
+What replaces it is the **difficulty they earned in the fight**, set on a screen
+before you hand the iPad over.
 
 Keep this copy in plain present-day language. The 1937 article is written in period
 voice on purpose, but the splash and fail screens are the players speaking as
@@ -88,13 +92,15 @@ once, with no fudging and no special rules. Then roll initiative.
 Flying Sword's AC 17 also means a level-3 party will miss it a lot, which does the
 rest of the work.
 
-**How fast they kill the shears sets the puzzle.** Tune `TILE_COUNT` on the spot:
+**How fast they kill the shears sets the puzzle.** The prop opens on a **setup
+screen** — tap the round the shears died on and it sets the grid, then hand the
+iPad over. No config editing at the table.
 
-| Shears die on | Cuts landed | `TILE_COUNT` | Pieces |
-|---|---|---|---|
-| Round 1 | 1 (the trigger) | 3 | 9 |
-| Round 2 | 2 | 4 | 16 |
-| Round 3+ | 3 | 5 | 25 |
+| Shears die on | Cuts landed | Pieces |
+|---|---|---|
+| Round 1 | 1 (the trigger) | 9 |
+| Round 2 | 2 | 16 |
+| Round 3+ | 3 | 25 |
 
 They can't save the page — otherwise there's no prop — but how badly it goes is
 theirs. It turns a fight they're structurally going to lose into one where the
@@ -231,8 +237,8 @@ diary showing Bix's account of his night there is incomplete.
 
 All in `CONFIG` at the top of the script block.
 
-- `TILE_COUNT: 4` → 16 pieces. 3 is easy, 5 is hard.
-- `TIME_SECONDS: 180`
+- `TILE_COUNT: 4` → 16 pieces. **Default only** — the setup screen overrides it
+  at the table.
 - `EDGE_SEGMENTS: 13` / `EDGE_JITTER_FRAC` — how ragged the rips are. The seam
   is a correlated random walk, not per-point noise: raise the jitter much past
   ~0.13 and the tears stop looking like paper and start looking like starbursts.
@@ -243,7 +249,7 @@ All in `CONFIG` at the top of the script block.
   constraint. Don't cap width; that renders it tiny on a landscape iPad.
 - `READER_AUTO_MS: 620` — delay before page 2 opens itself after the flip.
 
-Long-press the timer for 1.2s to open the debug panel (add/remove time, solve,
+Long-press the piece counter for 1.2s to open the debug panel (solve,
 re-scatter).
 
 ## Retired art
