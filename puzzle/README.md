@@ -116,17 +116,19 @@ outcome is in their hands.
 ## The checkout card
 
 In the pocket at the back of the volume, viewable from the splash screen. It shows
-the book sat untouched for decades, and then two borrowers:
+the book sat untouched for decades, and then three borrowers:
 
-- **E. Hoeck**, 1938 — the same swap slot as "the Hoeck boy" in the article. This is
-  the blood-tie hook, **currently pointed at John**, planted by a piece of paper rather
+- **E. Hoeck**, 1938 — the same swap slot as "the Hoeck boy" in the article. The
+  blood-tie hook, **currently pointed at John**, planted by a piece of paper rather
   than a lore dump.
-- **U. M. Livingsworth III**, recent — **Poe Boy's real name.** Nobody at the table
+- **U. M. Livingsworth III**, Oct 2000 — **Poe Boy's real name.** Nobody at the table
   knows that. It pays off at sunrise when a woman in a fleece gets out of a Volvo and
-  says *"Upton, honey?"*
+  says *"Upton, honey?"* — and in the meantime it quietly says he has been interested
+  in this house for **four years**.
+- **W. Ostrander**, Jul 2004 — the developer. 🟡 A proposal, not a decision.
 
-It also does structural work: it proves **somebody else read this first.** Two
-invisible parties care about this page, and the party has met neither.
+It also does structural work: it proves **two other people got here first**, and the
+party has met neither of them.
 
 Edit the names in the `#ccard` table in `index.html`. R. Ackerman is texture,
 borrowed from the article's reverend.
