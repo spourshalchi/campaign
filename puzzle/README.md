@@ -65,42 +65,49 @@ None of that is in the prop. The players just watch a book try to eat itself.
 ## The encounter
 
 Five level-3 PCs. Budget is **750 low / 1,125 moderate / 2,000 high**; this sits at
-**650 XP**, deliberately low — it is three rounds of chaos, not a set piece.
+**500 XP**, deliberately low — it is three rounds of chaos, not a set piece.
 
 | What | Reskin of | CR | XP | Job |
 |---|---|---|---|---|
-| **The shears** ×1 | Flying Sword | ½ | 100 | The one with the mission |
-| **Swarms of index cards** ×2 | Swarm of Ravens | ½ | 100 ea | Blind and obscure so nobody can see the desk |
+| **Archival shears** ×2 | Flying Sword | ½ | 100 ea | The two with the mission |
+| **Swarm of index cards** ×1 | Swarm of Ravens | ½ | 100 | Blinds and obscures so nobody can see the desk |
 | **The book cart** ×1 | Animated Armor | 1 | 200 | Rolls, rams, pins people against the shelves |
-| **Bookends** ×2 | Flying Sword | ¼ | 50 ea | Heavy marble, thrown hard |
-| **The date stamp** ×1 | Flying Sword | ¼ | 50 | Stamps people. `DUE MAR 12` in violet ink, and it does not wash off |
 
-**650 XP total.** The shears are the only cutting thing in the room on purpose —
-nothing else should be able to damage the page, so it's never ambiguous which
-enemy matters.
+**500 XP · 2.5 total CR.** The shears are the only cutting things in the room on
+purpose — nothing else can damage the page, so it's never ambiguous which enemies
+matter.
+
+That's below the 750 "low" line, and that's fine: **the party will spend most of
+their actions body-blocking rather than attacking**, so it plays harder than the
+number reads. If you want more pressure, a second swarm takes it to 600 without
+changing anything else.
 
 **The shears do not attack people.** Every turn they move for the article and cut.
 They only hurt a PC who physically interposes. A weapon that ignores you is much
 worse than one that doesn't, and it tells the party what the objective is without
 anyone saying it.
 
+**A cut only lands if a pair of shears reaches the page unobstructed.** That is
+the whole encounter: two shears, two approach lanes, and a party that has to cover
+both with bodies. Killing one halves the pressure immediately, which gives them a
+clear target priority without you naming it.
+
 **The first cut is the trigger, not an action.** The shears come out of the spine
-of the book and take a cut *as the trap fires* — before anybody rolls initiative.
-That guarantees the fight lasts a round and the page always gets cut at least
-once, with no fudging and no special rules. Then roll initiative.
+as the trap fires — before anybody rolls initiative. That guarantees the page
+always gets cut at least once, with no fudging and no special rules. Then roll.
 
-Flying Sword's AC 17 also means a level-3 party will miss it a lot, which does the
-rest of the work.
+Flying Sword's AC 17 means a level-3 party will miss a lot, which does the rest of
+the work.
 
-**How fast they kill the shears sets the puzzle.** The prop opens on a **setup
-screen** — tap the round the shears died on and it sets the grid, then hand the
-iPad over. No config editing at the table.
+**Count the cuts. That's the puzzle.** The prop opens on a **setup screen** —
+easy / medium / hard — and you set it by how many cuts the shears got in. Then
+hand the iPad over. No config editing at the table.
 
-| Shears die on | Cuts landed | Pieces |
+| Cuts landed | Setting | Pieces |
 |---|---|---|
-| Round 1 | 1 (the trigger) | 9 |
-| Round 2 | 2 | 16 |
-| Round 3+ | 3 | 25 |
+| One or two | Easy | 9 |
+| Three or four | Medium | 16 |
+| Five or more | Hard | 25 |
 
 They can't save the page — otherwise there's no prop — but how badly it goes is
 theirs. It turns a fight they're structurally going to lose into one where the
