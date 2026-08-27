@@ -7,7 +7,7 @@ doesn't get lost and doesn't leak into the codex as fact. See `/CANON.md` for wh
 
 ## Cornelis Dood / the Gjenganger — STILL PARKED (2026-08-23)
 
-> **Sesh 9 update (24 Aug 2026).** The finale was designed end to end and pasted into the doc, and it
+> **the 24 Aug doc paste update (24 Aug 2026).** The finale was designed end to end and pasted into the doc, and it
 > touches this proposal in two ways:
 >
 > 1. **It kept the corridor set-piece as a beat but did not name the creature.** So the encounter is

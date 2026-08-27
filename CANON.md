@@ -16,6 +16,26 @@ tab is the live version of this file's 🟡 list.
 **Rule going forward:** anything an agent adds to a prop or the codex ships as 🟡 and gets logged here.
 It only turns 📗 by being written into the doc.
 
+> ## ⛔ Never invent a Sesh number
+>
+> **Brainstorm sessions exist only in the Google Doc, and only Scott creates them.** `Sesh 0` through
+> `Sesh 8` are real because they are headings in that document.
+>
+> An agent must **never** coin a new one — not as a placeholder, not as a "safe assumption," not with a
+> caveat attached. It fabricates a source, and a fabricated source is worse than no source, because the
+> next reader has no way to tell it from a real citation. This has already happened once: a previous pass
+> invented `Sesh 9` and `Sesh 10` and propagated them to 112 places across six files before it was caught.
+>
+> **Cite by what actually happened instead:**
+>
+> | Situation | Cite it as |
+> |---|---|
+> | Scott pasted it into the doc, heading unknown | `the <date> doc paste` |
+> | Scott decided it in conversation, not yet pasted | `<date> · not in doc` |
+> | An agent made it up | 🟡, and log it below |
+>
+> If Scott later says which Sesh something became, that is the moment it gets a number — not before.
+
 ---
 
 ## ✅ RESOLVED — the two-tier guest list
@@ -45,20 +65,19 @@ rather than assuming, because it touches what the bolt actually means for the pa
 
 ---
 
-## 📗 The finale — pasted into the doc 24 Aug 2026 (cited here as Sesh 9)
+## 📗 The finale — pasted into the doc 24 Aug 2026
 
-> **Citation note.** Scott pasted the finale beat sheet into the doc on 24 Aug 2026. Sesh 8 already exists
-> (races/classes + Lil Stinky's oathbreak), so this is cited throughout as **`Sesh 9`**. If it landed under
-> a different heading, it is one find-and-replace in this file and in `codex/index.html`.
+> **Cited as "the 24 Aug doc paste."** Scott pasted the finale beat sheet into the doc that day.
+> **Which Sesh it landed under is unknown, and this file does not guess** — see the rule below.
 
 ### Structure
 | Claim | Source |
 |---|---|
-| **The fork is cut.** No fight-them / never-had-to branch — the weekend runs one line | Sesh 9 (reverses Sesh 2) |
-| Three combats for the weekend: one Saturday, two Sunday. A fourth stays in reserve | Sesh 9 |
-| The finale runs in three phases: vampires hostile → developer breaches → vampires turn | Sesh 9 |
-| Phase 2 is the only lethal fight of the finale | Sesh 9 |
-| Town has no combat | Sesh 9 |
+| **The fork is cut.** No fight-them / never-had-to branch — the weekend runs one line | the 24 Aug doc paste (reverses Sesh 2) |
+| Three combats for the weekend: one Saturday, two Sunday. A fourth stays in reserve | the 24 Aug doc paste |
+| The finale runs in three phases: vampires hostile → developer breaches → vampires turn | the 24 Aug doc paste |
+| Phase 2 is the only lethal fight of the finale | the 24 Aug doc paste |
+| Town has no combat | the 24 Aug doc paste |
 
 ⚠️ Cutting the fork also strands two things the 24 Aug decisions justified: the **cellar** was kept clear
 for Path A's coffins, and the **choke-point corridor** existed so both paths converged. Neither reason
@@ -67,24 +86,24 @@ survives. The cellar and the corridor are both still fine — they just need new
 ### The third faction
 | Claim | Source |
 |---|---|
-| The real-estate developer is a **wizard, an abjurer** — a man who solves problems by sealing them | Sesh 9 |
-| He destroyed the 1937 page **himself**, which is why there's no contractor to trace | Sesh 9 |
-| **Springing the trap summons him.** The party's cleverest move in town puts him in his car | Sesh 9, reflavoured Sesh 10 |
-| He does not know what's in the house. He finds out, updates in four seconds, starts giving orders | Sesh 9 |
-| He breaches at 3AM and seals the exits behind him — his own crew included | Sesh 9 |
-| **He is the only death in the story**, and the only one who isn't a monster. Self-defence | Sesh 9 |
-| His death flips the vampires. **No persuasion check** | Sesh 9 |
-| Poe Boy tries to recruit him mid-fight and gets brushed off | Sesh 9 |
+| The real-estate developer is a **wizard, an abjurer** — a man who solves problems by sealing them | the 24 Aug doc paste |
+| He destroyed the 1937 page **himself**, which is why there's no contractor to trace | the 24 Aug doc paste |
+| **Springing the trap summons him.** The party's cleverest move in town puts him in his car | the 24 Aug doc paste, reflavoured 26 Aug · not in doc |
+| He does not know what's in the house. He finds out, updates in four seconds, starts giving orders | the 24 Aug doc paste |
+| He breaches at 3AM and seals the exits behind him — his own crew included | the 24 Aug doc paste |
+| **He is the only death in the story**, and the only one who isn't a monster. Self-defence | the 24 Aug doc paste |
+| His death flips the vampires. **No persuasion check** | the 24 Aug doc paste |
+| Poe Boy tries to recruit him mid-fight and gets brushed off | the 24 Aug doc paste |
 
 ### The USB chain
 | Claim | Source |
 |---|---|
-| The Spirit asks the party to fetch **his own backpack**, still in that room | Sesh 9 |
-| **His mother wrote his name on it in Sharpie.** That is how the dead kid gets his name | Sesh 9 |
-| A thumb drive is in it. He uploads the recording of his own death over AIM's file-transfer window | Sesh 9 |
-| The file is `scream_test_03_GOOD.wav` — **Poe Boy named it** | Sesh 9 |
-| His ask is not directions. It is *expose him* | Sesh 9 |
-| **The players are handed a real USB stick at the table** | Sesh 9 |
+| The Spirit asks the party to fetch **his own backpack**, still in that room | the 24 Aug doc paste |
+| **His mother wrote his name on it in Sharpie.** That is how the dead kid gets his name | the 24 Aug doc paste |
+| A thumb drive is in it. He uploads the recording of his own death over AIM's file-transfer window | the 24 Aug doc paste |
+| The file is `scream_test_03_GOOD.wav` — **Poe Boy named it** | the 24 Aug doc paste |
+| His ask is not directions. It is *expose him* | the 24 Aug doc paste |
+| **The players are handed a real USB stick at the table** | the 24 Aug doc paste |
 
 This lands neatly on the 24 Aug two-setups decision: the Spirit is upstairs in the **old rig**, the aux is
 downstairs in the **ballroom**, and the USB is the thing that bridges them.
@@ -92,23 +111,23 @@ downstairs in the **ballroom**, and the USB is the thing that bridges them.
 ### Phase 3
 | Claim | Source |
 |---|---|
-| The objective is one sentence: **get the USB to the DJ set and get on aux** | Sesh 9 |
-| Lil Stinky's Aura of Protection buffs Poe Boy's saves — he is a puzzle, not a wall | Sesh 9 |
-| **Stinky is not charmed.** He just believes his friend | Sesh 9 |
-| Poe Boy spends his turns on *Command* — "Drop." A delay, not a fail state; the drive can't be destroyed | Sesh 9 |
-| The recording plays in full | Sesh 9 |
-| Stinky's oath breaks. **No saving throw.** Devotion's first tenet is *don't lie or cheat* | Sesh 9 · builds on Sesh 8's oathbreak |
+| The objective is one sentence: **get the USB to the DJ set and get on aux** | the 24 Aug doc paste |
+| Lil Stinky's Aura of Protection buffs Poe Boy's saves — he is a puzzle, not a wall | the 24 Aug doc paste |
+| **Stinky is not charmed.** He just believes his friend | the 24 Aug doc paste |
+| Poe Boy spends his turns on *Command* — "Drop." A delay, not a fail state; the drive can't be destroyed | the 24 Aug doc paste |
+| The recording plays in full | the 24 Aug doc paste |
+| Stinky's oath breaks. **No saving throw.** Devotion's first tenet is *don't lie or cheat* | the 24 Aug doc paste · builds on Sesh 8's oathbreak |
 
 ### The collapse
 | Claim | Source |
 |---|---|
-| Silence, then one boo, then the whole room | Sesh 9 · crowd resolved 25 Aug |
-| **Dracula seizes the mic** and denounces him magnificently | Sesh 9 |
-| Poe Boy tries to Command his way clear and **it doesn't land** | Sesh 9 |
-| **His parents arrive.** A Volvo, matching fleece, *"Upton, honey?"* | Sesh 9 |
-| Poe Boy is **not killed. He is un-performed** | Sesh 9 |
-| **Lil Stinky records a diss track.** Sincere, terrible, devastating | Sesh 9 |
-| The mega mall breaks ground in **Amityville** — quiet neighborhood, waterfront, great bones | Sesh 9 |
+| Silence, then one boo, then the whole room | the 24 Aug doc paste · crowd resolved 25 Aug |
+| **Dracula seizes the mic** and denounces him magnificently | the 24 Aug doc paste |
+| Poe Boy tries to Command his way clear and **it doesn't land** | the 24 Aug doc paste |
+| **His parents arrive.** A Volvo, matching fleece, *"Upton, honey?"* | the 24 Aug doc paste |
+| Poe Boy is **not killed. He is un-performed** | the 24 Aug doc paste |
+| **Lil Stinky records a diss track.** Sincere, terrible, devastating | the 24 Aug doc paste |
+| The mega mall breaks ground in **Amityville** — quiet neighborhood, waterfront, great bones | the 24 Aug doc paste |
 
 Sesh 3's throwaway joke — *"it'd be funny if"* his real name were **Upton Maximillion Livingsworth III** —
 is now load-bearing. It is what his mother calls him in the driveway.
@@ -116,9 +135,9 @@ is now load-bearing. It is what his mother calls him in the driveway.
 ### The vampires
 | Claim | Source |
 |---|---|
-| In first contact and phase 1 they are **mechanically incapable of killing a PC** — grapple, shove, frighten, never Bite | Sesh 9 |
-| Phase 1 is a pressure scene, not a balanced encounter | Sesh 9 |
-| Poe Boy sets them on the party with the same lie that killed the kid | Sesh 7 + 9 |
+| In first contact and phase 1 they are **mechanically incapable of killing a PC** — grapple, shove, frighten, never Bite | the 24 Aug doc paste |
+| Phase 1 is a pressure scene, not a balanced encounter | the 24 Aug doc paste |
+| Poe Boy sets them on the party with the same lie that killed the kid | Sesh 7 + the 24 Aug doc paste |
 
 ### 🟡 Not canon: the encounter numbers
 Everything on the codex's **Combat** tab that isn't a beat above — XP budgets, CR picks, HP figures,
@@ -133,7 +152,7 @@ Not yet pasted into the Google Doc — **do that to make them official.** Until 
 | Decision | Was |
 |---|---|
 | ✅ **The developer destroyed the 1937 library page** to scrub a documented vampire incident before developing the site. | 🟡 invented by the puzzle prop — **ratified by Scott** |
-| ✅ **It's a trap, not a ward — and it's Saturday's fight.** The bound volume is **intact** when the records keeper hands it over. Opening it springs the trap: the reading room's stationery animates and a pair of **archival shears** ignore the party and cut the article to pieces. *That* is where the torn-page prop comes from. **How fast they kill the shears sets the puzzle's difficulty.** The trap contains and erases; it does not kill — he's a businessman, not a murderer, which is what makes him frightening at 3AM when he *is* willing. | 🟡 **decided by Scott, 26 Aug 2026.** Replaces the ward. Reverses Sesh 9 twice: town is no longer combat-free, and Saturday's fight is no longer in the mansion — the mansion's moves to early Sunday |
+| ✅ **It's a trap, not a ward — and it's Saturday's fight.** The bound volume is **intact** when the records keeper hands it over. Opening it springs the trap: the reading room's stationery animates and a pair of **archival shears** ignore the party and cut the article to pieces. *That* is where the torn-page prop comes from. **How fast they kill the shears sets the puzzle's difficulty.** The trap contains and erases; it does not kill — he's a businessman, not a murderer, which is what makes him frightening at 3AM when he *is* willing. | 🟡 **decided by Scott, 26 Aug 2026.** Replaces the ward. Reverses the 24 Aug doc paste twice: town is no longer combat-free, and Saturday's fight is no longer in the mansion — the mansion's moves to early Sunday |
 | ✅ **The developer is named W. Ostrander** — a proposal, but a live one: it's printed on the checkout card in `/puzzle/`. Still open: company, or family trust? | 🟡 **proposed 26 Aug 2026**, swap freely |
 | ✅ **There's a checkout card** in the back pocket of the volume, viewable in the prop. Three names: **E. Hoeck** (1938 — the blood-tie hook, currently pointed at **John**), **U. M. Livingsworth III** (Oct 2000 — Poe Boy's real name, which nobody will recognise until his mother says it in the driveway, and which meanwhile says he has been interested in this house for four years) and **W. Ostrander** (Jul 2004 — the developer). It proves two other people got here first and the party has met neither. | 🟡 **decided by Scott, 26 Aug 2026** |
 | ✅ **"Dood" is both** — the builder's family surname *and* the Dutch pun. Cornelis Dood is a real person in the fiction. | Sesh 6 had the pun; the prop added the surname. Both now stand. |
@@ -186,14 +205,14 @@ Three things in the codex were not just unsourced, they were wrong:
 | **Hall of records = librarian** — explicitly locked | Sesh 7 |
 | Twist: whoever lured them in is not one of the vamps | Sesh 1 |
 | The vampires are good; they live off small animals; they want to be left alone | Sesh 5, 6 |
-| ~~Fork: find an advantage to fight them **vs.** discover you never had to~~ — **cut in Sesh 9.** Spencer's idea; say it to him rather than letting him find it in a beat sheet | Sesh 2, reversed Sesh 9 |
+| ~~Fork: find an advantage to fight them **vs.** discover you never had to~~ — **cut in the 24 Aug doc paste.** Spencer's idea; say it to him rather than letting him find it in a beat sheet | Sesh 2, reversed the 24 Aug doc paste |
 | Doors bolt shut on pure curiosity; the assignment is motivation enough | Sesh 5 |
 | Ancient Dutch artifact recovered at the end, presented in the bookend class | Sesh 5 |
 | Final-room puzzle reveals the food stash (small animals), releases a key to a hidden room | Sesh 6 |
 | Combat set-piece guards the way to the computer | Sesh 6 |
 | Biggest clue: the kid was killed by a human | Sesh 6 ("maybe"), Sesh 7 |
 | Real-estate company wants to demolish it for a **mega mall**; scared off the land by the end | Sesh 5, 7 |
-| Poe Boy takes control of some vampires in the final fight — settled in Sesh 9 as **manipulation, not mind control** | Sesh 7, resolved Sesh 9 |
+| Poe Boy takes control of some vampires in the final fight — settled in the 24 Aug doc paste as **manipulation, not mind control** | Sesh 7, resolved the 24 Aug doc paste |
 | Three named handouts: Haunted House Invite, DJ Show Flyer, Library History Clippings | Sesh 5, 6 |
 | Invite ~7PM; DJ show 3:00AM; working date Halloween | Sesh 6 |
 | Dood Mansion (*dood* = dead in Dutch) — Spencer flagged *"lmk if thats too dumb"* | Sesh 6 |
@@ -355,4 +374,4 @@ stay on this list until you two decide:
 11. ~~The crowd~~ — **resolved 25 Aug.** See the two-tier guest list at the top. Remaining: how the crowd gets through a bolted door at 3AM.
 12. **The developer's name.** He is now the third faction and the only death in the story, and he has no name. Company, or family trust?
 13. **The dead kid's name.** Now one word on a backpack, read off a prop. The AIM prop is live without it. His year too.
-14. **New reasons for the cellar and the choke-point corridor**, both of which were justified by the fork that Sesh 9 cut.
+14. **New reasons for the cellar and the choke-point corridor**, both of which were justified by the fork that the 24 Aug doc paste cut.

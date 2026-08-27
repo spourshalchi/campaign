@@ -19,6 +19,11 @@ whole characters, dates, documents and motives that then got treated as establis
 - Never write "Answered" or "Locked" next to something the doc doesn't say. If the doc hedges
   ("could be", "up to you if we go with it"), the codex hedges too.
 - Cite the session (`Sesh 5`, `Character Bios`) for anything marked 📗.
+- **⛔ Never invent a Sesh number.** Sessions exist only in the Google Doc and only Scott creates them.
+  Do not coin one as a placeholder or a "safe assumption" — it fabricates a source, and the next reader
+  cannot tell it from a real citation. If Scott pasted something in but you don't know the heading, cite
+  it as `the <date> doc paste`. If it was decided in conversation and not pasted, cite `<date> · not in doc`.
+  See the rule box in `CANON.md`.
 
 ## Layout convention
 

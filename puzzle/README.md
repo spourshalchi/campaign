@@ -141,7 +141,7 @@ without regenerating any art.
 
 | Job | Where |
 |---|---|
-| The vampire-slaying method — whitethorn splinter in the lid, point over the heart, nail shut, rebury. **Sesh 9 cut the fork, so this is no longer a branch payoff — it is the thing that makes the party think they need to fight** | Page 2, "Upon the Heath", plus a labelled diagram (A = splinter, B = heart) so it can't be missed |
+| The vampire-slaying method — whitethorn splinter in the lid, point over the heart, nail shut, rebury. **the 24 Aug doc paste cut the fork, so this is no longer a branch payoff — it is the thing that makes the party think they need to fight** | Page 2, "Upon the Heath", plus a labelled diagram (A = splinter, B = heart) so it can't be missed |
 | Proof the method works — the children woke | Page 2, "The Children Woke" |
 | **The clincher** — three coffins, one opened, two still under the chapel floor | Page 2, Wiegman's closing quote |
 | The Gjenganger, quietly — runic marker, a man buried carefully so he wouldn't walk | Page 2, "The Builder's Stone" sidebar |

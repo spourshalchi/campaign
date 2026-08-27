@@ -6,7 +6,7 @@
 > newspaper, its named characters, the coffin count, the trap — is **not canon**. John's class is
 > "leaning Bard" in the doc, not College of Whispers.
 >
-> ### 🔔 Superseded in three places by Sesh 9 (24 Aug 2026)
+> ### 🔔 Superseded in three places by the 24 Aug doc paste (24 Aug 2026)
 >
 > 1. **The fork is cut.** The staking method is no longer a branch payoff. It stays in the records
 >    hall as the thing that makes the party *think* they have to fight — which is now its whole job,
@@ -16,7 +16,7 @@
 >    archival shears cut the article up in front of them. That's where the torn page comes from.
 >    Springing the trap is also what puts the developer in his car — he is an abjurer who set it
 >    himself, and he is the only character who dies in the campaign.
-> 4. **This is Saturday's fight**, and it's in town — which reverses Sesh 9's "town has no combat"
+> 4. **This is Saturday's fight**, and it's in town — which reverses the finale paste's "town has no combat"
 >    and moves the Saturday fight out of the mansion. The mansion's fight is now early Sunday.
 > 5. **There's a checkout card** in the back pocket of the volume: an old borrower (**E. Hoeck** —
 >    the blood-tie hook, currently John) and a recent one (**U. M. Livingsworth III** — Poe Boy's
@@ -84,7 +84,7 @@ Dutch folklore has almost no vampires. The one real find, from a Frisian folklor
 Spencer's read: this gives **the method for defeating them** — dig up the coffins holding
 the vampires' bodies, stake through the heart, rebury.
 
-⚠️ **Sesh 9 cut the fork**, so this is no longer the payoff of a branch. Its job now is to send the
+⚠️ **the 24 Aug doc paste cut the fork**, so this is no longer the payoff of a branch. Its job now is to send the
 party into the mansion believing they will have to kill three vampires — which makes the reveal land
 harder, because they walk in armed with a method and walk out having never needed it.
 
@@ -186,7 +186,7 @@ let one handout seed three threads.
 - The DJ show is at **3:00 AM**; the haunted house invite says ~**7:00 PM**. Working date is
   Halloween, ultimately the first day of session one.
 - DJ Poe Boy's real name is **Upton Maximillion Livingsworth III** — floated in Sesh 3 as a joke, and
-  **load-bearing since Sesh 9**: it is what his mother calls him in the driveway at the end.
+  **load-bearing since the 24 Aug doc paste**: it is what his mother calls him in the driveway at the end.
 
 ---
 
