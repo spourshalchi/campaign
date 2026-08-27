@@ -582,13 +582,13 @@ const NODES = [
     desc:"Keeper of the library / hall of records — the one NPC who warns them against going to the mansion. Sesh 7 locks 'hall of records = librarian.' Sesh 1 wants 'some sort of modern spin on the archetype.' <b>Beyond that she is not written.</b>",
     line:"You can try to put it back together. But I'm guessing, by the magic on them — someone doesn't want you finding that information.",
     ai:"Everything past 'harbinger who warns them': the quoted line above, the analysis of why it works, and the ruling that she has no stake in the 1937 story and doesn't appear in it. All codex-side decisions." },
-  {id:"realestate", name:"The Developer", sub:"Third faction · dies", g:"force", x:915, y:560,
-    role:"Antagonist · The only death", s:"doc", src:"Sesh 5, 7 + Sesh 9",
-    fields:{Goal:"Demolish the mansion for a mega mall",Class:"Wizard — Abjurer",Name:"TBD",Fate:"Killed in phase two"},
-    desc:"He wants to demolish the house and build a <b>mega mall</b>. His daytime visits are why the vampires went looking for a human ally at all — sunlight leaves them unable to answer the door or defend themselves. <b>Sesh 9 promoted him from a background company to the third faction.</b> He is an abjurer: not a fireball man, a man who solves problems by sealing them. He didn't dispute the 1937 article, he made it unreadable — and he cast it himself, which is why there is no contractor for the party to trace.",
-    hook:"<b>The party summons him and never finds out.</b> Breaking the ward on the Crier page tells him someone has been in his records, and he drives out that night to see who. He does not know what is in the house — and that's better. He isn't amazed. Within four seconds it stops being folklore and becomes a contamination problem on a site he has already paid for, and he starts giving orders. Resolution beat unchanged: the company is <b>scared off</b> the land by the end (Sesh 5).",
+  {id:"realestate", name:"W. Ostrander", sub:"The developer · dies", g:"force", x:915, y:560,
+    role:"Antagonist · The only death", s:"doc", src:"Sesh 5, 7, 9 + Sesh 10",
+    fields:{Goal:"Demolish the mansion for a mega mall",Class:"Wizard — Abjurer",Name:"Ostrander — proposal",Fate:"Killed in phase two"},
+    desc:"He wants to demolish the house and build a <b>mega mall</b>. His daytime visits are why the vampires went looking for a human ally at all — sunlight leaves them unable to answer the door or defend themselves. <b>Sesh 9 promoted him from a background company to the third faction.</b> He is an abjurer: not a fireball man, a man who solves problems by sealing them. He didn't dispute the 1937 article, he <b>set a trap in the binding and had it cut to pieces</b> — and he did it himself, which is why there is no contractor for the party to trace.",
+    hook:"<b>The party summons him and never finds out.</b> Springing the trap on the Crier volume tells him someone has been in his records, and he drives out that night to see who. He does not know what is in the house — and that's better. He isn't amazed. Within four seconds it stops being folklore and becomes a contamination problem on a site he has already paid for, and he starts giving orders. Resolution beat unchanged: the company is <b>scared off</b> the land by the end (Sesh 5).",
     finale:"He breaches at 3AM and <b>seals the exits behind him, his own crew included</b>. Three sides, nobody sharing a goal. The only lethal fight of the finale — ~CR 5 plus six thugs, 2,400 XP against a 2,500 ceiling. <b>He is the one death in the story and the only one who isn't a monster</b>: self-defence, since he sealed them in and attacked first, but these are teenagers and it needs its silence before the comedy starts. His death is what flips the vampires, with no persuasion check. <span class='src'>Sesh 9</span>",
-    ai:"Three men in this house solve their problems by shutting something — the house bolts its doors, Poe Boy held one on a boy who was begging, and the developer's answer to a newspaper and a room full of witnesses is the same. That rhyme is a codex observation. <b>His name is still open</b>, as is company-or-family-trust." }
+    ai:"<b>The name is a proposal, not a decision.</b> <i>Ostrander</i> is a genuine Hudson Valley Dutch surname — it sounds like a sign on a construction fence and quietly rhymes with the town's history without being a joke. It appears on the checkout card in the puzzle prop as <b>W. Ostrander</b>, so changing it means editing there too. Still open: company or family trust.<br><br>Also codex-side: three men in this house solve their problems by shutting something — the house bolts its doors, Poe Boy held one on a boy who was begging, and Ostrander's answer to a newspaper and a room full of witnesses is the same." }
 ];
 
 const EDGES = [
@@ -621,7 +621,7 @@ const EDGES = [
   ["simone","devil","family","patron / power","doc","Character Bios"],
   ["angelique","spirit","haunt","typed the messages that lured him","doc","Sesh 7"],
   ["realestate","orlok","conflict","daylight visits they can't answer","doc","Sesh 7"],
-  ["realestate","librarian","control","warded the page in her drawer, himself","doc","Sesh 9"],
+  ["realestate","librarian","control","trapped the volume on her shelf","doc","Sesh 9 + 10"],
   ["realestate","poe","conflict","brushed him off mid-fight","doc","Sesh 9"],
   ["spirit","stinky","haunt","his recording breaks the oath","doc","Sesh 9"],
   ["drac","poe","conflict","takes his mic at the end","doc","Sesh 9"],
@@ -644,10 +644,10 @@ const FLOW = [
             why:"Sesh 3 puts the bad kids at a gazebo <i>near the school</i> — the crew is the lead, and Gnomey is the one who knows where to find them. He fell out with Poe Boy over the silly-bandz cuts, so making the suggestion costs him something."}
         ]}}},
 
-  {n:3,title:"Town detours",where:"Before the mansion",s:"doc",src:"Sesh 1, 2, 3",body:"The first third-to-half of Session 1. Two key stops: the Library / Hall of Records (Frisian lore + the vampire-slaying method + the Harbinger's warning) and the Gazebo <i>near the school</i> where the Bad Kids smoke — where they meet DJ Poe Boy and his entourage, and where <b>Angelique tries to warn them and can't</b> because the rest of the crew is standing right there.<br><br><b>What Poe Boy hands them here.</b> He can’t help showing off, and every piece of it is a confession he doesn’t know he’s making:<br>· <i>“I spin up there sometimes.”</i> Sesh 3, verbatim. Explains why an abandoned house has gear in it, and it’s the first thing they’ll remember when they find the setup.<br>· <i>“Wait till you see what I’ve done with the ballroom.”</i> He’s proud of the venue and wants an audience for it. Puts the climax on the board hours early, from his own mouth.<br>· <i>“Stick around till three.”</i> Plants the flyer’s 3AM in person, from the host, so the timer is his voice and not a prop.<br><br><b>The tell is what he leaves out.</b> He talks about the ballroom and never once mentions the other room he keeps gear in — the one upstairs he hasn’t been back into. Nobody notices at the gazebo. They notice at scene 7.",
+  {n:3,title:"Town detours",where:"Before the mansion",s:"doc",src:"Sesh 1, 2, 3",body:"The first third-to-half of Session 1. Two key stops: the Library / Hall of Records (Frisian lore + the vampire-slaying method + the Harbinger's warning) and the Gazebo <i>near the school</i> where the Bad Kids smoke — where they meet DJ Poe Boy and his entourage, and where <b>Angelique tries to warn them and can't</b> because the rest of the crew is standing right there.<br><br><b>What Poe Boy hands them here.</b> He can’t help showing off, and every piece of it is a confession he doesn’t know he’s making:<br>· <i>“I spin up there sometimes.”</i> Sesh 3, verbatim. Explains why an abandoned house has gear in it, and it’s the first thing they’ll remember when they find the setup.<br>· <i>“Wait till you see what I’ve done with the ballroom.”</i> He’s proud of the venue and wants an audience for it. Puts the climax on the board hours early, from his own mouth.<br>· <i>“Stick around till three.”</i> Plants the flyer’s 3AM in person, from the host, so the timer is his voice and not a prop.<br><br><b>The tell is what he leaves out.</b> He talks about the ballroom and never once mentions the other room he keeps gear in — the one upstairs he hasn’t been back into. Nobody notices at the gazebo. They notice at scene 7.<br><br><b>And the records hall is where Saturday's fight is.</b> The bound volume is intact when she hands it over. Opening it springs Ostrander's trap — the reading room's stationery gets up, and a pair of archival shears ignore the party entirely and go for the article. By the time the shears are down the page is in pieces, <b>which is where the torn-page prop comes from</b>. How fast they kill the shears decides how bad the puzzle is. In the back pocket: a checkout card with four names, one of them Poe Boy's real one.",
     bridge:{cue:"Whoever’s wearing a watch — it’s ten to seven. That’s the time on the card.",
-      note:"A clock nudge, not a crowd. What’s waiting at the top of the hill: empty road, no cars, no light in any window — and <b>the boards are off the front door</b>, pried away and stacked neat against the porch rail. That is the only thing about this house that has changed in decades, and it is the invitation. <b>The emptiness is the wrongness</b>: no line to join and no social default to hide behind, so going in is curiosity and the assignment and nothing else.",
-      }},
+      note:"A clock nudge, not a crowd. What’s waiting at the top of the hill: empty road, no cars, no light in any window — and <b>the boards are off the front door</b>, pried away and stacked neat against the porch rail. That is the only thing about this house that has changed in decades, and it is the invitation. <b>The emptiness is the wrongness</b>: no line to join and no social default to hide behind, so going in is curiosity and the assignment and nothing else.<br><br><b>And they've already summoned the villain without knowing it.</b> Springing the trap told Ostrander someone has been in his records. He's in his car. Nobody at the table finds out until 3AM.",
+      q:"This reverses Sesh 9 twice — town is no longer combat-free, and Saturday's fight is no longer in the mansion. The mansion's fight moves to early Sunday."}},
 
   {n:4,title:"Enter Dood Mansion",where:"The trap springs",s:"doc",src:"Sesh 5, 6",body:"They go in out of pure curiosity, <b>through a front door that has stood boarded for decades and isn’t any more</b> — and the doors bolt shut behind them. Everything from here plays out inside. (Card says 7PM sharp; the DJ show flyer says 3AM — eight hours of house between them.)",
     bridge:{cue:"That’s a bolt throwing behind you. Footsteps overhead — and a hand comes out of the dark, grabs your sleeve, and pulls you down. It’s <b>Angelique</b>.",
@@ -672,10 +672,10 @@ const FLOW = [
         ]},
       q:"Open: is one overheard scene enough, or does each path need its own clue in a different room so the fork survives the party splitting up?"}},
 
-  {n:6,title:"Saturday's one fight",where:"The house has teeth",s:"doc",src:"Sesh 9",body:"<b>Sesh 9 cut the fork that used to sit here</b> — there is no fight-them / never-had-to branch any more, and the weekend runs one line. In its place: the weekend's single Saturday combat, late, after they're locked in. Its whole job is proving the building will actually hurt them, so Sunday's investigation carries weight. Roughly forty minutes. Contents are unwritten — see the <b>Combat</b> tab for the budget.",
+  {n:6,title:"The rest of Saturday night",where:"Inside, and no way out",s:"doc",src:"Sesh 5, 9",body:"<b>Sesh 9 cut the fork that used to sit here</b> — there is no fight-them / never-had-to branch any more, and the weekend runs one line. <b>Saturday's fight has also moved out of the mansion</b> and into the records hall at beat 3, so this stretch is investigation and dread rather than combat: the search for a way out, the ballroom door nobody answers, and the vampires establishing that they are the worst thing in the building.",
     bridge:{cue:"End of session one. Everyone levels to 4.",
-      note:"Ends Saturday on adrenaline rather than on a puzzle, and everything on Sunday is then built for five level-4 PCs. <b>Telegraph anything with a save-or-suck</b> — at level 3 a frighten-into-paralyze can remove a player before they've acted, and that's a bad beat rather than a scare. Show it happening to something else first.",
-      q:"Open: the Third Faction artifact wanted Saturday's fight in <b>town</b>, as the ward biting back when they reassemble the Crier. Sesh 9 says town is combat-free and puts the fight here. The ward-bite is still a good scene with nowhere to live — and taking it costs you this one."}},
+      note:"Everything on Sunday is built for five level-4 PCs. <b>Where exactly Saturday ends is still open</b> — the two strongest candidates are the moment they accept there is no way out, and the moment they decide to kill the vampires. The mansion's own fight is now the first thing on Sunday.",
+      q:"<b>This is the least-designed stretch of the weekend.</b> What the party actually wants, hour by hour between 7PM and 3AM, is the question everything else here hangs off — and it is not answered yet."}},
 
   {n:7,title:"The corridor set-piece",where:"Gates the computer",s:"doc",src:"Sesh 6",body:"A combat stands between the party and the computer room. <b>Doc-canon that it exists; which creature it is has never been agreed</b> — the Gjenganger was Spencer's Sesh 2 offer and his <i>“up to you if we go with it”</i> is still unanswered (draft spec in <code>PROPOSALS.md</code>). If it stays: brutal up close, so the smart play is range, and the room has to make distance genuinely available.<br><br>Cutting the fork actually <b>helped</b> this encounter. It no longer has to be a convergence point where two branches meet — it's simply the toll on the way in, which makes it far easier to swap for something else.",
     bridge:{cue:"It wasn’t them. A person did this to me.",
@@ -729,7 +729,7 @@ const FLOW = [
 
 const PLAN = {
   sat:{title:"Saturday · Session 1",sub:"Town & the threshold · level 3",slots:[
-    {t:"First ~third–half",c:"#9a6ff0",s:"doc",src:"Sesh 1 + 9",h:"Town — no combat",p:"Class recap, the locker cards, the Hall of Records and the gazebo. Sesh 9 makes the combat-free town a decision rather than an omission — and breaking the ward here is what summons the developer to the house that night."},
+    {t:"First ~third–half",c:"#9a6ff0",s:"doc",src:"Sesh 1 + 9",h:"Town — and Saturday's fight",p:"Class recap, the locker cards, the Hall of Records and the gazebo. <b>The trap in the bound volume is the weekend's Saturday combat</b> (650 XP), and springing it is what summons Ostrander to the house that night. Reverses Sesh 9's combat-free town."},
     {t:"Evening",c:"#e0aa3e",s:"doc",src:"Sesh 5, 6",h:"Into the mansion",p:"The boards are off the front door. They walk in, and the doors bolt. Angelique finds them. First vampire contact — no fight, and mechanically they cannot kill. Opening puzzles."},
     {t:"Late",c:"#d23a52",s:"doc",src:"Sesh 9",h:"The one Saturday fight",p:"Roughly 40 minutes, after they're locked in. Its job is proving the house will actually hurt them. Ends the session on adrenaline. Then level 3 → 4."}
   ]},
@@ -805,7 +805,7 @@ const NAMES = [
 
 const TODO = [
   ["The two-tier guest list — <b>settled</b>","<b>The 7PM card is exclusive; the 3AM flyer is public.</b> Five kids alone in the house for eight hours, then it fills up for the show. Settles the collision between the exclusive invite and the finale's charmed crowd, keeps both 24 Aug decisions, unblocks the flyer prop, and answers what Poe Boy told the vampires — he staggered the houseful rather than lying about it. <b>Decided by Scott 25 Aug; not in the Google Doc yet.</b> One small thing left: how the crowd gets through a bolted door at 3AM.","doc"],
-  ["The developer's name","<b>The highest-value blank now.</b> Sesh 9 promoted him from a background company to the third faction: an abjurer who warded the page himself, gets summoned by the party breaking it, seals the exits at 3AM, and is the only death in the story. He still has no name. Also open: company or family trust?","doc"],
+  ["The developer's name — <b>proposed</b>","<b>W. Ostrander</b> — a genuine Hudson Valley Dutch surname that sounds like a sign on a construction fence. <b>It is printed on the checkout card in /puzzle/</b>, so it is in front of players the moment you run the records hall; swap it now if you want something else. He is the third faction: an abjurer who trapped the volume himself, gets summoned when the party springs it, seals the exits at 3AM, and is the only death in the story. Still open: company, or family trust?","doc"],
   ["New reasons for the cellar and the corridor","Both were justified by the fork — the cellar was kept clear for Path A's coffins, the choke-point corridor existed so both paths converged. Sesh 9 cut the fork, so both rooms are fine and both reasons are gone.","doc"],
   ["Tell Spencer the fork is cut","Sesh 9 removed the fight-them / never-had-to fork. <b>That was Spencer's Sesh 2 idea.</b> Cutting it is right for a two-session game, but it should be said to him rather than found in a beat sheet.","doc"],
   ["Is the Gjenganger in?","<b>Still parked.</b> Spencer's Sesh 2 words were <i>'Up to you if we go with it'</i>; by Sesh 6 he'd given it a backstory and a combat plan anyway. Draft spec in <code>/PROPOSALS.md</code>, agreed to by nobody. <b>Sesh 9 changed the pressure:</b> it kept the corridor set-piece without naming the creature, and cutting the fork means the fight no longer has to be a convergence point — which makes it far easier to swap. A 'no' still needs a replacement.","doc"],
@@ -823,13 +823,13 @@ const TODO = [
   ["Lock the mansion name","<b>Dood Mansion, and 'Dood' is both</b>: the builder's family surname <i>and</i> the Dutch pun. That answers Spencer's Sesh 6 <i>'lmk if thats too dumb lol'</i> and makes Cornelis Dood a real person in the fiction. Not in the Google Doc yet.","doc"],
   ["Does the 1937 Crier become canon?","The whole newspaper is invented — see the Not Canon tab. Three options: ratify it, rewrite it back to the doc's actual 1973 Frisian source, or leave it as a prop nobody has to believe.","ai"],
   ["Coffin count","The codex was treating this as a canon contradiction: the Crier's three boxes vs. three living vampires. It isn't a contradiction — the count is invented. Only worth solving if the Crier gets ratified.","ai"],
-  ["Who warded the library page?","<b>The real-estate company.</b> Their leader paid to make the page unreadable, scrubbing a documented vampire incident before developing the site. The prop stays silent on who did it, which is still correct. Not in the Google Doc yet — paste it in to make it official. Still open: his name.","doc"]
+  ["Who destroyed the library page?","<b>Ostrander.</b> He set a trap in the binding himself, so there's no contractor to trace, and springing it is what summons him to the house. The prop stays silent on who did it, which is still correct. Not in the Google Doc yet.","doc"]
 ];
 
 const DOCS = [
   ["Haunted House Invite","BUILT — /invite/ · home-made, clip-arty · 7PM sharp · Sesh 6 spec. Exclusive invite — 5 cards, 5 lockers. The card's mass-flyer voice (<i>FREE admission, bring a friend, the more the scaryer</i>) is deliberate camouflage — and reads better now that a real public flyer exists for 3AM.","doc","Sesh 5, 6"],
   ["DJ Show Flyer","NOT BUILT — <b>and now unblocked.</b> Leaned-out Memphis/Houston rap art, spooky · 3AM at Dood Mansion · bills Poe Boy / Lil Stinky / Angelique. Settled 25 Aug: this one <b>is public</b>, which is where the finale's crowd comes from.","doc","Sesh 5, 6"],
-  ["Library History Clippings","BUILT — /puzzle/ · but as an invented 1937 newspaper. The doc's source is a 1973 Frisian legend.","ai"],
+  ["Library History Clippings","BUILT — /puzzle/ · the volume is intact until they open it and the trap cuts it up. Now carries the <b>checkout card</b>: E. Hoeck (the blood tie), U. M. Livingsworth III (Poe Boy's real name), M. Aldrich (the dead kid — placeholder) and W. Ostrander (the developer — proposal). Still an invented 1937 newspaper; the doc's source is a 1973 Frisian legend.","ai"],
   ["AIM chat with the Spirit","BUILT — /aim/ · Sesh 7, plus the Sesh 9 backpack + USB branch and a working file-transfer window","doc","Sesh 7 + 9"],
   ["The USB stick","NOT BOUGHT · a real thumb drive handed to the players when the Spirit uploads. Put scream_test_03_GOOD.wav on it.","doc","Sesh 9"],
   ["The recording itself","NOT BUILT · the audio that plays over the ballroom PA in phase three. The single biggest table moment in the campaign — and it is a file you hit play on.","doc","Sesh 9"]
@@ -849,42 +849,43 @@ const CBUDGET = {
   warn:"The two systems disagree where it matters. A solo CR 5 against five level-4 PCs is 1,800 XP — <b>under</b> the 2,500 high line, so the DMG calls it undertuned; the benchmark calls it over the solo cap. Both are right: a lone CR 5 isn't hard, it's <b>swingy</b>. It either novas down in two rounds or crits someone to death. The fix in every case below is minions, not hit points."
 };
 const CENC = [
-  {act:"Saturday · late",title:"The house has teeth",st:"todo",stl:"Not built",c:"#d23a52",s:"doc",src:"Sesh 9",
-   p:"The weekend's only Saturday fight, placed after the doors bolt. Its entire job is proving the building will actually hurt them, so Sunday's investigation carries weight. Roughly forty minutes; ends the session on adrenaline, then they level to 4.",
-   math:[["Budget · 5 PCs at level 3","750 low / 2,000 high"],["Suggested spend","~600 XP"],["Shape","3 fragile bodies, not one solid one"]],
-   verdict:"Comfortably low, benchmark-safe. Deliberately not a hard fight — it's a demonstration.",
-   note:"<b>Telegraph anything with a save-or-suck.</b> At level 3 a frighten-into-paralyze effect can take a player out before they've acted, and 'you didn't know it was coming and now you're down' is a bad beat rather than a scare. Show it happening to something else first. <b>Still open:</b> Sesh 9 puts this in the mansion and keeps town combat-free; the Third Faction artifact wanted it in town as the ward biting back when they reassemble the Crier."},
+  {act:"Saturday · town",title:"The trap in the binding",st:"built",stl:"Designed",c:"#9a6ff0",s:"doc",src:"Sesh 10",
+   p:"The volume is <b>intact</b> when the records keeper hands it over. Opening it springs the developer's trap: the reading room's stationery gets up, and a pair of <b>archival shears</b> ignore the party entirely and go for the article. By the time the shears are down, the page is in pieces — <b>which is where the torn-page prop comes from.</b>",
+   math:[["Budget · 5 PCs at level 3","750 low / 2,000 high"],["Shears, index-card swarms ×2","300 XP"],["Book cart, bookends ×2, date stamp","350 XP"],["Total","650 XP · 3.25 CR"]],
+   verdict:"Deliberately low. Three rounds of chaos, not a set piece — and the party is racing a clock rather than grinding HP.",
+   note:"<b>The shears don't attack people.</b> Every turn they move for the article and cut; they only hurt someone who physically interposes. They're also the only cutting thing in the room, so it is never ambiguous which enemy matters.<br><br><b>The first cut is the trigger, not an action</b> — the shears come out of the spine as the trap fires, before initiative. That guarantees the fight lasts a round and the page always gets cut, with no fudging.<br><br><b>How fast they kill the shears sets the puzzle.</b> Round 1 → <code>TILE_COUNT</code> 3 (9 pieces). Round 2 → 4 (16). Round 3+ → 5 (25). They can't save the page, but how badly it goes is theirs.<br><br>It <b>contains and erases; it does not kill</b>. He's a businessman scrubbing a stigmatised property, not a murderer, and he wouldn't leave something lethal in a public library. That's what makes him frightening eight hours later, when he is willing."},
 
-  {act:"Sunday · opening",title:"The corridor set-piece",st:"park",stl:"Creature parked",c:"#7c8496",s:"doc",src:"Sesh 6",
-   p:"Doc-canon that a combat gates the way to the computer. <b>Which creature it is has never been agreed.</b> The Gjenganger was Spencer's Sesh 2 offer and his “up to you if we go with it” was never answered; a draft spec sits in PROPOSALS.md, canon to nobody.",
+  {act:"Sunday · early",title:"TBD mansion fight",st:"todo",stl:"Empty",c:"#7c8496",s:"doc",src:"Sesh 6",
+   p:"<b>Nothing is written here.</b> Sesh 6 says a combat gates the way to the computer; it has never said what the combat is. The Gjenganger was Spencer's Sesh 2 offer and his “up to you if we go with it” is still unanswered — draft spec in PROPOSALS.md, canon to nobody.",
    math:[["Budget · 5 PCs at level 4","1,250 low / 2,500 high"],["A solo CR 5","1,800 XP — swingy, not hard"],["Solo CR 5 + 4× CR ½","2,200 XP"]],
-   verdict:"Add the minions. 2,200 sits under the high line and fixes the action economy — the same conclusion PROPOSALS.md reached by inflating HP instead.",
-   note:"Cutting the fork <b>helped this encounter</b>: it no longer has to be a convergence point for two branches, just the toll on the way to the computer, which makes it much easier to swap. If the Gjenganger stays, folklore gives it the advantage up close, so the counterplay is distance — and that is room design as much as a stat block."},
+   verdict:"Whatever fills it, add minions rather than hit points. A lone CR 5 reads as undertuned on the budget and plays as a coin flip.",
+   note:"This is the <b>only empty box in the spine</b>. Cutting the fork helped it — it no longer has to be a convergence point for two branches, just the toll on the way in, which makes it far easier to swap for something that isn't the Gjenganger."},
 
   {act:"Finale · phase 1",title:"The vampires attack",st:"todo",stl:"Not statted",c:"#4fc08a",s:"doc",src:"Sesh 7 + 9",
    p:"Poe Boy tells them the party are the mall company's people — the same lie that killed the kid. They attack believing they are defending their home.",
    math:[["Three CR 5 vampires","5,400 XP"],["Budget high","2,500 XP"],["Verdict","Do not budget this as a fight"]],
    verdict:"5,400 against a 2,500 ceiling would erase the party. This is a 2–3 round pressure scene, not a balanced encounter.",
-   note:"<b>They are mechanically incapable of killing a PC.</b> Grapple, shove, frighten, throw — never Bite on a conscious creature, and they cannot take anyone below 1 HP. That is a Sesh 9 rule, not DM mercy, and it means the mechanics are themselves the clue: afterwards the players can work out that the monsters never once rolled damage on them. If a vampire <i>can</i> kill a PC here, the reveal that they never hurt anyone stops being true."},
+   note:"<b>They are mechanically incapable of killing a PC.</b> Grapple, shove, frighten, throw — never Bite on a conscious creature, and they cannot take anyone below 1 HP. A Sesh 9 rule, not DM mercy, and it means the mechanics are themselves the clue: afterwards the players can work out that the monsters never once rolled damage on them.<br><br>The party's problem here isn't damage, it's that <b>they cannot prove a negative</b> — and Poe Boy is on a live mic reinforcing the lie. Every denial makes it worse."},
 
   {act:"Finale · phase 2",title:"The developer breaches",st:"todo",stl:"Not statted",c:"#d23a52",s:"doc",src:"Sesh 9",
-   p:"An abjurer who seals the exits behind him — his own crew included — and a crew who came to clear a site. Three sides, nobody in the room sharing a goal. <b>The only lethal fight of the finale</b>, and the only enemy in the story with a mundane, entirely legal motive.",
+   p:"An abjurer who seals the exits behind him — his own crew included — and a crew who came to clear a site. Three sides, nobody sharing a goal. <b>The only lethal fight of the finale</b>, and the only enemy in the story with a mundane, entirely legal motive.",
    math:[["The developer (~CR 5)","1,800 XP"],["6× Thug (CR ½)","600 XP"],["Total","2,400 XP"],["Budget high","2,500 XP"]],
    verdict:"Under the high line — and the vampires immediately start eating thugs, so budget six knowing you lose two.",
-   note:"Vampires tearing into his men is the <b>visual cue that the room has changed sides</b>. Suggested kit: an Arcane Ward that regenerates, a Seal action that permanently bars one door or window, Counterspell, Shield, Hold Person. <b>No damage spells</b> — he has never once solved a problem by making noise. Poe Boy spends this phase trying to recruit him and getting brushed off, which is a free round of the boss not acting."},
+   note:"<b>His arrival is what breaks Poe Boy's lie</b>, on sight: five teenagers are visibly not this man. The vampires stop. Then the party kills him, and that converts “not our enemy” into “the people who solved our actual problem, in front of us.” Two moments, not one.<br><br>Suggested kit: an Arcane Ward that regenerates, a Seal action that permanently bars one door or window, Counterspell, Shield, Hold Person. <b>No damage spells</b> — he has never once solved a problem by making noise."},
 
   {act:"Finale · phase 3",title:"The ballroom decks",st:"todo",stl:"Not statted",c:"#e0aa3e",s:"doc",src:"Sesh 9",
-   p:"The developer is dead and the vampires have turned. Party plus three vampires against Poe Boy and Lil Stinky. <b>The objective is one sentence and the party should know it: get the USB to the decks and get on aux.</b>",
+   p:"The developer is dead and the vampires have turned. Party plus three vampires against Poe Boy and Lil Stinky. <b>The objective is one sentence: get the USB to the decks and get on aux.</b>",
    math:[["Poe Boy (~CR 5)","1,800 XP"],["Lil Stinky (~CR 3)","700 XP"],["Total","2,500 XP"],["Party side","5 PCs + 3 vampire allies"]],
    verdict:"Exactly “high” on paper — and not a hard fight in practice, because three vampire allies are roughly three extra level-5 bodies. That is correct. Phase three is a catharsis, not a grind.",
-   note:"Suggested: <b>Poe Boy</b> ~90 HP, AC 15, save DC 15, and <b>4 legendary actions</b> rather than 3 — the default assumes a four-player table, so use party size minus one. His weapon damage should be pathetic; <i>Command</i> is the threat. <b>Lil Stinky</b> ~65 HP, AC 18, low damage, Aura of Protection buffing Poe Boy's saves so the party's control spells bounce until they deal with him. The USB starts <b>upstairs in the old rig</b> and has to reach the ballroom, so the map is the encounter."},
+   note:"<b>Poe Boy</b> ~90 HP, AC 15, save DC 15, and <b>4 legendary actions</b> rather than 3 — the default assumes a four-player table, so use party size minus one. Weapon damage should be pathetic; <i>Command</i> is the threat. <b>Lil Stinky</b> ~65 HP, AC 18, low damage, Aura of Protection buffing Poe Boy's saves so control spells bounce until the party deals with him. The USB starts <b>upstairs in the old rig</b> and has to reach the ballroom, so the map is the encounter."},
 
   {act:"Held in reserve",title:"The fourth encounter",st:"hold",stl:"Do not plan to use",c:"#5b9bd5",s:"doc",src:"Sesh 9",
    p:"Stat one, keep it in your back pocket, and only spend it if a puzzle solves in five minutes and you're running ahead of the clock. Planning to use it is how Sunday overruns.",
    math:[["Sunday's committed runtime","~4.25 hours with two fights in it"]],
    verdict:"A third Sunday combat costs an hour and pushes the bookend off the table — you'd be cutting the ending to add a fight.",
-   note:"<b>Attrition doesn't need initiative order.</b> An encounter costs resources; a combat costs an hour. A hazard room, a chase, a frightened-save scene and the ward timer you've already built cost about 40 minutes between them and soften the party more than one extra fight would — and they're genre-correct, because the source material has almost no fights in it. The bolted doors also enforce no long rest from 7PM to sunrise, so short rests are the only pacing lever; decide up front how many the house allows."}
+   note:"<b>Attrition doesn't need initiative order.</b> An encounter costs resources; a combat costs an hour. A hazard room, a chase and a frightened-save scene cost about 40 minutes between them and soften the party more than one extra fight would — and they're genre-correct, because the source material has almost no fights in it. The bolted doors also enforce no long rest from 7PM to sunrise, so short rests are the only pacing lever; decide up front how many the house allows."}
 ];
+
 const CRULES = [
   ["The vampires cannot kill","No Bite on a conscious creature, ever, in first contact or phase one. Grapple, shove, frighten. The mechanics are the clue, and the reveal depends on this being literally true rather than a near miss."],
   ["The USB is keep-away, not a fail state","Poe Boy spends his turns on <i>Command</i> — “Drop.” — to keep the drive off the decks. It buys him rounds. <b>The drive cannot be destroyed</b>, so one bad save never ends the campaign; it just costs time while the party is being shot at."],
@@ -1125,7 +1126,8 @@ document.getElementById("docs").innerHTML=DOCS.map(([t,d,st,src])=>`<div class="
     ["Cornelis Dood, the builder","Turns Spencer's Dutch pun (<i>dood</i> = dead) into a family surname. Two origin stories for one name."],
     ["1904, the absentee trusts","Invented property history."],
     ["Three coffins, two under the chapel floor","Invented. The codex was treating this as a canon contradiction with the three living vampires — there's nothing to contradict."],
-    ["The ward on the page","That anyone spellbound it, that the real-estate company's leader did it, his motive, his disbelief, and the 'accidental irony' that he's been protecting the vampires. This is the prop's whole timer mechanic."]
+    ["The trap on the volume","That anyone touched it at all, that the developer did it, his motive, his disbelief, and the 'accidental irony' that he destroyed the one page carrying both the staking method and the coffin location. Also the trap's whole contents — the shears, the swarms, the book cart — and the rule that the shears' death round sets the puzzle's piece count."],
+    ["Every name on the checkout card","E. Hoeck, U. M. Livingsworth III, M. Aldrich and W. Ostrander. Livingsworth is a Sesh 3 joke made load-bearing; the other three are invented here. <b>M. Aldrich is a placeholder</b> — the dead kid's name has never been decided."]
   ]]);
   groups.push(["Encounter numbers \u2014 the Combat tab",[
     ["Every number on the Combat tab","The <b>beats</b> are doc (Sesh 6, 7 and 9). The XP budgets, CR picks, HP figures, stat-block chassis and the contents of Saturday's fight are all proposals built against them. Nothing there has been agreed."],
@@ -1186,6 +1188,26 @@ document.getElementById("flagtoggle").addEventListener("change",e=>{
 /* ---------------- RENDER: TO-DO ---------------- */
 const TODO_LIST = [
  {
+  "id": "m13",
+  "t": "Saturday's fight is built \u2014 the trap in the binding",
+  "o": "scott",
+  "c": "Combat",
+  "ref": "SESH 10",
+  "built": 1,
+  "done": 1,
+  "note": "650 XP of animated stationery in the records hall: archival shears that ignore the party and go for the article, two swarms of index cards, a book cart, bookends and a date stamp. <b>The first cut is the trigger, not an action</b>, so the fight always lasts a round and the page always gets cut. How fast they kill the shears sets <code>TILE_COUNT</code> on the puzzle prop \u2014 the first time a fight in this campaign wires directly into a prop. <b>Reverses Sesh 9 twice:</b> town is no longer combat-free and Saturday's fight is no longer in the mansion."
+ },
+ {
+  "id": "h7",
+  "t": "The checkout card",
+  "o": "scott",
+  "c": "Handout",
+  "ref": "SESH 10",
+  "built": 1,
+  "done": 1,
+  "note": "Live in /puzzle/, viewable from the splash. Four names: <b>E. Hoeck</b> (1938, the blood tie, currently John), <b>U. M. Livingsworth III</b> (Poe Boy's real name \u2014 pays off in the driveway at sunrise), <b>M. Aldrich</b> (the dead kid, <b>placeholder</b>, looked the house up seventeen days before he went) and <b>W. Ostrander</b> (proposal). The two 2000 dates sit two weeks apart and nobody will know why until Act 3."
+ },
+ {
   "id": "x1",
   "t": "Settle the crowd \u2014 two decisions contradicted each other",
   "o": "both",
@@ -1199,10 +1221,11 @@ const TODO_LIST = [
   "id": "s13",
   "t": "Name the developer",
   "o": "both",
-  "c": "Story",
-  "ref": "SESH 9",
-  "top": 1,
-  "note": "Sesh 9 promoted him from a background company to the third faction: an abjurer who warded the page himself, gets summoned by the party breaking it, seals the exits at 3AM, and is <b>the only death in the story</b>. He carries all of that with no name. Also open: company, or family trust?"
+  "c": "Decision",
+  "ref": "SESH 10",
+  "done": 1,
+  "ans": "W. Ostrander \u2014 proposal, now live in a prop",
+  "note": "A genuine Hudson Valley Dutch surname; sounds like a sign on a construction fence and rhymes with the town's history without being a joke. <b>It is on the checkout card in /puzzle/</b>, so it is in front of players the moment you run the records hall \u2014 swap it now if you want something else. Still open: company, or family trust?"
  },
  {
   "id": "s14",
@@ -1257,7 +1280,7 @@ const TODO_LIST = [
   "ref": "SESH 9",
   "done": 1,
   "ans": "A third faction \u2014 one abjurer wizard who dies",
-  "note": "He warded the page himself, so there is no contractor to trace. Breaking the ward summons him. He seals the exits at 3AM, and <b>his death is what flips the vampires with no persuasion check</b> \u2014 which fixes the real problem: the vampires' turn was going to be a conversation in the middle of a boss fight."
+  "note": "He trapped the volume himself, so there is no contractor to trace. Springing it summons him. He seals the exits at 3AM, and <b>his death is what flips the vampires with no persuasion check</b> \u2014 which fixes the real problem: the vampires' turn was going to be a conversation in the middle of a boss fight."
  },
  {
   "id": "q13",
@@ -1281,7 +1304,7 @@ const TODO_LIST = [
    "The fork: how do the players find out there is a choice at all, and does that survive them splitting the party?",
    "Both paths are supposed to converge on the Gjenganger. Check the floor plan actually supports one shared choke point before committing.",
    "Reveal order — food stash, the Spirit naming Poe Boy, Angelique's confession, the vampires learning the kid never got out. Decide which lands first and whether any order defuses the others.",
-   "Run the clue chain against the two-ways-in rule: the warded page, the pried window, the recording, the coffin count that does not match the Crier.",
+   "Run the clue chain against the two-ways-in rule: the cut-up page, the checkout card, the recording, the coffin count that does not match the Crier.",
    "Pick the Saturday cliffhanger. Ideally just inside the mansion with a thread pulled."
   ],
   "top": 1
@@ -1496,7 +1519,7 @@ const TODO_LIST = [
   "note": "Largely answered by Sesh 9: three fights, one Saturday and two Sunday, with a fourth held in reserve. What is left is the placement argument.",
   "steps": [
    "<b>Town is combat-free by decision</b>, not omission \u2014 Sesh 9 says so explicitly.",
-   "Saturday's single fight sits inside the mansion, late. The Third Faction artifact wanted it in town as the ward biting back; that scene is still homeless and still good.",
+   "<b>Saturday's fight is now in town</b> — the trap in the bound volume, 650 XP. That reverses Sesh 9 on two counts and leaves the mansion with no combat until Sunday morning.",
    "The corridor set-piece covers the Sunday investigation stretch \u2014 as long as the creature question gets answered.",
    "The finale is three phases in one continuous sequence, so it covers the whole back end.",
    "Sanity check: no stretch should run much past ninety minutes with neither a fight nor a puzzle paying off. Use hazards and chases rather than a fourth combat \u2014 they cost ten minutes, not fifty."

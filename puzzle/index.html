@@ -110,6 +110,61 @@
     touch-action: manipulation;
   }
   #begin:active { background: #4a3322; }
+  .linkish {
+    appearance: none; background: none; border: 0;
+    display: block; margin: 14px auto 0;
+    font-family: inherit; font-size: 12.5px; letter-spacing: .04em;
+    color: #6b5238; text-decoration: underline; text-underline-offset: 3px;
+    cursor: pointer; min-height: 44px; touch-action: manipulation;
+  }
+
+  /* ============== Checkout card ============== */
+  #cardveil {
+    position: fixed; inset: 0; z-index: 300;
+    display: none; align-items: center; justify-content: center;
+    padding: calc(var(--safe-top) + 18px) 16px calc(var(--safe-bot) + 18px);
+    background: rgba(8,5,3,.86);
+  }
+  #cardveil.show { display: flex; }
+  #ccard {
+    position: relative;
+    width: 100%; max-width: 340px;
+    background: #e8dcc0; color: #2b2116;
+    padding: 16px 16px 14px;
+    box-shadow: 0 14px 40px rgba(0,0,0,.7);
+    transform: rotate(-.8deg);
+    border: 1px solid #c9b98d;
+  }
+  #ccard h3 {
+    margin: 0 0 2px; font-size: 13px; font-variant: small-caps;
+    letter-spacing: .1em; text-align: center; font-weight: normal;
+  }
+  #ccard .sub {
+    margin: 0 0 12px; text-align: center;
+    font-size: 10.5px; letter-spacing: .08em; color: #6b5238;
+    border-bottom: 1px solid #b9a684; padding-bottom: 8px;
+  }
+  #ccard table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  #ccard th {
+    text-align: left; font-size: 9.5px; letter-spacing: .12em;
+    text-transform: uppercase; color: #7a6244; font-weight: normal;
+    padding-bottom: 5px; border-bottom: 1px solid #b9a684;
+  }
+  #ccard td { padding: 6px 0; border-bottom: 1px dotted #bfae8d; vertical-align: top; }
+  #ccard td.d { width: 42%; font-variant-numeric: tabular-nums; color: #55442e; }
+  #ccard td.n { font-family: "Bradley Hand", "Segoe Script", cursive; font-size: 15px; }
+  #ccard tr.gap td {
+    text-align: center; color: #8a7355; font-style: italic;
+    font-size: 11.5px; border-bottom: 1px dotted #bfae8d; padding: 10px 0;
+  }
+  #ccard tr.recent td.n { color: #1d1710; }
+  #card-close {
+    position: absolute; top: -14px; right: -14px;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: #2b2116; color: #e8dcc0; border: 0;
+    font-size: 22px; line-height: 1; cursor: pointer;
+    touch-action: manipulation;
+  }
 
   /* ============== Game shell ============== */
   #game {
@@ -646,11 +701,11 @@
 <!-- ===== Splash ===== -->
 <div id="splash">
   <div class="note">
-    <h1>A warded page</h1>
-    <p>Someone tore this out of the bound volume and cast a spell on the pieces
-       so they&rsquo;d never fit back together.<br><br>
-       You can feel them fighting you.</p>
+    <h1>Cut to pieces</h1>
+    <p>The page was whole when you opened the book. Then the shears got to it.<br><br>
+       The pieces are still moving.</p>
     <button id="begin">Hold It Together</button>
+    <button id="card-open" class="linkish">there&rsquo;s a card in the back pocket</button>
   </div>
 </div>
 
@@ -709,11 +764,48 @@
   </div>
 </div>
 
+<!-- ===== Checkout card =====
+     The pocket card from the back of the bound volume. Four names matter:
+
+       E. Hoeck (1938)          - a PC's family. Same swap slot as "the Hoeck
+                                  boy" in the article. Currently pointed at John.
+       U. M. Livingsworth III   - Poe Boy's real name. Nobody at the table knows
+                                  that yet; it pays off in the driveway at sunrise.
+       M. Aldrich               - *** PLACEHOLDER *** the dead kid, who looked the
+                                  house up seventeen days before he went there.
+                                  HIS NAME IS NOT DECIDED. Swap this the moment
+                                  Scott and Spencer pick one, and swap it in the
+                                  AIM prop's backpack beat at the same time.
+       W. Ostrander             - the developer. Also a proposal, not a decision.
+
+     The two 2000 dates sit two weeks apart and nobody will know why until Act 3.
+     R. Ackerman is texture, borrowed from the article's reverend.
+     ============================================================ -->
+<div id="cardveil">
+  <div id="ccard">
+    <button id="card-close" aria-label="close">&times;</button>
+    <h3>Transyltown Hall of Records</h3>
+    <p class="sub">Bound Periodicals &mdash; Crier, 1937</p>
+    <table>
+      <thead><tr><th>Date due</th><th>Borrower</th></tr></thead>
+      <tbody>
+        <tr><td class="d">MAR 12 1938</td><td class="n">E. Hoeck</td></tr>
+        <tr><td class="d">NOV 04 1938</td><td class="n">E. Hoeck</td></tr>
+        <tr><td class="d">JUN 21 1951</td><td class="n">R. Ackerman</td></tr>
+        <tr class="gap"><td colspan="2">&mdash; no entries &mdash;</td></tr>
+        <tr class="recent"><td class="d">OCT 02 2000</td><td class="n">U. M. Livingsworth III</td></tr>
+        <tr class="recent"><td class="d">OCT 19 2000</td><td class="n">M. Aldrich</td></tr>
+        <tr class="recent"><td class="d">JUL 30 2004</td><td class="n">W. Ostrander</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 <!-- ===== Fail ===== -->
 <div id="fail">
-  <h2>The spell holds</h2>
-  <p>Whatever was cast on these pieces is stronger than you are.
-     They twist out of your hands and scatter, and it&rsquo;s a torn page again.</p>
+  <h2>The pieces win</h2>
+  <p>They twist out of your hands and go still &mdash; scattered, face-down and out of
+     order. It&rsquo;s a cut-up page again.</p>
   <button id="retry">Try Again</button>
 </div>
 
@@ -1599,6 +1691,20 @@ async function startGame() {
 }
 
 document.getElementById("begin").addEventListener("click", startGame);
+
+/* ---- checkout card ---- */
+(function () {
+  const veil = document.getElementById("cardveil");
+  const open = document.getElementById("card-open");
+  const close = document.getElementById("card-close");
+  if (!veil || !open || !close) return;
+  const show = () => veil.classList.add("show");
+  const hide = () => veil.classList.remove("show");
+  open.addEventListener("click", show);
+  close.addEventListener("click", hide);
+  veil.addEventListener("click", e => { if (e.target === veil) hide(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") hide(); });
+})();
 document.getElementById("reader-close").addEventListener("click", closeReader);
 // Tapping the darkened surround closes page 2 too; taps on the sheet itself
 // must not, or you can't select the text.

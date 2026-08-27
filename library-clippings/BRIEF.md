@@ -3,7 +3,7 @@
 > **⚠ Read `/CANON.md` alongside this.** This brief mixes doc-sourced material with proposals it
 > generated itself. The doc-sourced parts are the fampier quote, the Frisian Kingdom material, the
 > Gjenganger entry, and the player bios. Everything the prop was ultimately built on — the 1937
-> newspaper, its named characters, the coffin count, the ward — is **not canon**. John's class is
+> newspaper, its named characters, the coffin count, the trap — is **not canon**. John's class is
 > "leaning Bard" in the doc, not College of Whispers.
 >
 > ### 🔔 Superseded in three places by Sesh 9 (24 Aug 2026)
@@ -11,9 +11,16 @@
 > 1. **The fork is cut.** The staking method is no longer a branch payoff. It stays in the records
 >    hall as the thing that makes the party *think* they have to fight — which is now its whole job,
 >    and arguably a better one. Ignore every "fight branch" reference below.
-> 2. **Breaking the ward summons the developer.** This handout is no longer only the research stop;
->    it is the inciting incident for the finale. He is an abjurer who cast the ward himself, and he
->    is the only character who dies in the campaign.
+> 2. **The handout now has a fight in front of it, and it summons the developer.** The volume is
+>    intact when the records keeper hands it over; **opening it springs a trap** and a pair of
+>    archival shears cut the article up in front of them. That's where the torn page comes from.
+>    Springing the trap is also what puts the developer in his car — he is an abjurer who set it
+>    himself, and he is the only character who dies in the campaign.
+> 4. **This is Saturday's fight**, and it's in town — which reverses Sesh 9's "town has no combat"
+>    and moves the Saturday fight out of the mansion. The mansion's fight is now early Sunday.
+> 5. **There's a checkout card** in the back pocket of the volume: an old borrower (**E. Hoeck** —
+>    the blood-tie hook, currently John) and a recent one (**U. M. Livingsworth III** — Poe Boy's
+>    real name, which nobody at the table will recognise until the driveway at sunrise).
 > 3. **The fourth crew member is cut** (Sesh 8) and the DJ flyer bills three.
 >
 > Also settled since this was written: the party is level 3 → 4, and it is a hall of records with

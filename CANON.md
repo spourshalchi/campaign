@@ -68,8 +68,8 @@ survives. The cellar and the corridor are both still fine — they just need new
 | Claim | Source |
 |---|---|
 | The real-estate developer is a **wizard, an abjurer** — a man who solves problems by sealing them | Sesh 9 |
-| He warded the 1937 page **himself**, which is why there's no contractor to trace | Sesh 9 |
-| **Breaking the ward summons him.** The party's cleverest move in town puts him in his car | Sesh 9 |
+| He destroyed the 1937 page **himself**, which is why there's no contractor to trace | Sesh 9 |
+| **Springing the trap summons him.** The party's cleverest move in town puts him in his car | Sesh 9, reflavoured Sesh 10 |
 | He does not know what's in the house. He finds out, updates in four seconds, starts giving orders | Sesh 9 |
 | He breaches at 3AM and seals the exits behind him — his own crew included | Sesh 9 |
 | **He is the only death in the story**, and the only one who isn't a monster. Self-defence | Sesh 9 |
@@ -132,7 +132,10 @@ Not yet pasted into the Google Doc — **do that to make them official.** Until 
 
 | Decision | Was |
 |---|---|
-| ✅ **The real-estate company warded the 1937 library page.** Their leader paid to make it unreadable, scrubbing a documented vampire incident before developing the site. He can't ward word of mouth, which is why the town still talks. | 🟡 invented by the puzzle prop — **now ratified by Scott** |
+| ✅ **The developer destroyed the 1937 library page** to scrub a documented vampire incident before developing the site. | 🟡 invented by the puzzle prop — **ratified by Scott** |
+| ✅ **It's a trap, not a ward — and it's Saturday's fight.** The bound volume is **intact** when the records keeper hands it over. Opening it springs the trap: the reading room's stationery animates and a pair of **archival shears** ignore the party and cut the article to pieces. *That* is where the torn-page prop comes from. **How fast they kill the shears sets the puzzle's difficulty.** The trap contains and erases; it does not kill — he's a businessman, not a murderer, which is what makes him frightening at 3AM when he *is* willing. | 🟡 **decided by Scott, 26 Aug 2026.** Replaces the ward. Reverses Sesh 9 twice: town is no longer combat-free, and Saturday's fight is no longer in the mansion — the mansion's moves to early Sunday |
+| ✅ **The developer is named W. Ostrander** — a proposal, but a live one: it's printed on the checkout card in `/puzzle/`. Still open: company, or family trust? | 🟡 **proposed 26 Aug 2026**, swap freely |
+| ✅ **There's a checkout card** in the back pocket of the volume, viewable in the prop. Four names: **E. Hoeck** (1938 — the blood-tie hook, currently pointed at **John**), **U. M. Livingsworth III** (Poe Boy's real name, which nobody at the table will recognise until his mother says it in the driveway), **M. Aldrich** (⚠️ **placeholder** — the dead kid, who looked the house up seventeen days before he went there) and **W. Ostrander**. The two 2000 dates sit two weeks apart and nobody learns why until Act 3. | 🟡 **decided by Scott, 26 Aug 2026** |
 | ✅ **"Dood" is both** — the builder's family surname *and* the Dutch pun. Cornelis Dood is a real person in the fiction. | Sesh 6 had the pun; the prop added the surname. Both now stand. |
 | ✅ **The party is level 3**, leveling to 4 at the end of day one. | new |
 | ✅ **Races & classes are now IN DOC** — Spencer wrote Scott's picks into the doc as **Brainstorm Sesh 8**, which this ledger had not seen. They are no longer 🟡 anything. Sesh 8 also added Lil Stinky's oathbreak, which the codex had missed entirely. | 🟡 "Scott's pick, not in the doc yet" — **now doc** |
@@ -276,13 +279,16 @@ below is a transposition invented to make it a local 1937 newspaper.
   a canon contradiction with the three living vampires. It isn't a contradiction, it's an invented count.
 - Whitethorn specifically; the six men; the quarter hour of howling; the children waking
 
-### 2. The ward on the library page
+### 2. The trap on the library volume
 - That anyone cast a spell on the page at all (this is the puzzle's whole timer mechanic)
 - That the **real-estate company's leader** did it, that he's a man, that he's scrubbing a stigmatized
   property, that he doesn't believe a word of it
-- The "accidental irony" beat — that he's been protecting the vampires by warding the one page carrying
-  the staking method and the coffin location
-- That he can't ward word of mouth, which is why the harbinger still warns
+- The "accidental irony" beat — that he destroyed the one page carrying both the staking method and
+  the coffin location, so the company trying to take the house has been protecting its tenants
+- That he can't touch word of mouth, which is why the harbinger still warns
+- The trap's contents — the shears, the swarms, the book cart — and the rule that the shears' death
+  round sets the puzzle's piece count
+- **W. Ostrander** as his name, and every name on the checkout card
 - The codex listed this under Open Threads as **"Answered."** It is not answered; it is invented.
 
 ### 3. The Records Keeper

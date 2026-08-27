@@ -36,7 +36,7 @@ The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
 | Prop | Path | Vibe |
 |------|------|------|
 | AIM | `aim/` | Haunted 2000s AOL Instant Messenger. The buddy is the kid Poe Boy soul-caged into the machine — the branching tree pulls the whole confession out of him, and ends with him **sending the party a file**: the recording of his own death, over AIM's file-transfer window. That USB is what wins the finale. |
-| Torn Page | `puzzle/` | 1937 newspaper front page, torn up. Reassemble against the clock, flip for the page-2 lore. Breaking the ward is also what summons the developer to the house that night. See [puzzle/README.md](puzzle/README.md) |
+| Torn Page | `puzzle/` | 1937 newspaper front page, cut up in front of them by a trap in the binding. Reassemble against the clock, flip for the page-2 lore, and check the pocket card for who borrowed it last. Springing the trap is what summons the developer to the house that night. See [puzzle/README.md](puzzle/README.md) |
 | Invite | `invite/` | The haunted-house invitation, ~7PM, homemade and clip-arty. |
 | Codex | `codex/` | DM-facing campaign reference — to-do list, relationship web, backstory, story flow, cast, weekend plan, and **combat encounters with the XP budgets**. Not a player prop, and deliberately not tiled on the landing page so it can't be opened at the table by accident. |
 
