@@ -105,6 +105,12 @@
     background:linear-gradient(90deg,rgba(154,111,240,.09),rgba(154,111,240,0))}
   .bridge .lbl{font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:var(--purple);
     font-weight:700;margin-bottom:4px}
+  .script{margin:10px 0 0;padding:10px 12px;border-radius:9px;background:#0f0b18;border:1px solid var(--edge)}
+  .script .sl{display:flex;gap:9px;align-items:baseline;padding:3px 0;font-size:13px;line-height:1.45}
+  .script .sl b{flex:0 0 78px;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);
+    text-align:right;font-weight:700}
+  .script .sl span{color:var(--ink);font-style:italic}
+  .script .sl span:before{content:"\201C"} .script .sl span:after{content:"\201D"}
   .bridge .cue{display:block;color:var(--ink);font-size:13.5px;line-height:1.45;margin-bottom:5px;font-style:italic}
   .bridge .cue:before{content:"\201C"} .bridge .cue:after{content:"\201D"}
   .bridge p{margin:0;color:var(--mut);font-size:12.5px;line-height:1.5}
@@ -487,7 +493,8 @@ const NODES = [
     role:"Player Character", s:"doc", src:"Character Bios + Sesh 5",
     fields:{Race:"Gnome",Class:"Rogue",Vibe:"Cute & unseeming, secretly deadly — Puss in Boots energy"},
     desc:"A crafty, petty schemer who idolizes mob bosses despite a wholesome family. Hustler who loves money, smart but not bookish — one teacher genuinely believes in him and he wavers between the street life and escaping to college. Sells cigarettes in the school bathroom.",
-    hook:"Ex-member of the Bad Kids crew. Fell out with Poe Boy over uneven cuts of their <b>silly-bandz racket</b>. As a kid the crew threw rocks at the mansion windows on dares — one Halloween, something went wrong." },
+    hook:"Ex-member of the Bad Kids crew. Fell out with Poe Boy over uneven cuts of their <b>silly-bandz racket</b>. As a kid the crew threw rocks at the mansion windows on dares — one Halloween, something went wrong.<br><br><b>He owns the house.</b> His great-uncle <b>Vinny</b> won it off Orlok at cards on 14 November 1931, and the settlement they drafted — drunk, at four in the morning — vests title in <i>whoever holds the marker</i>. Vinny pressed that poker chip into a twelve-year-old's palm after hearing the kid had a racket going, and never explained what it was. <b>It has been in Julia's pocket since session one.</b>",
+    finale:"<b>Quiet and overlooked to head of household.</b> He finds the study alone, works out what he is holding, and then has to say it out loud in a ballroom full of people who have never once looked at him: <i>“This is my house.”</i> Nobody believes him — including his own party — so <b>Orlok has to confirm it in front of every teenager in Transyltown.</b> Then the renewal, plain, at the threshold: <i>“You can stay.”</i><br><br><b>Epilogue:</b> he leads the gang and fronts for the vampires as the one who can stand in daylight. He takes no rent and asks nothing — same as Vinny. Then he calls a nursing home. <span class='src'>Sesh 8</span>" },
   {id:"simone", name:"Simone's Warlock", sub:"Simone · Warlock", g:"player", x:120, y:370,
     role:"Player Character", s:"doc", src:"Character Bios",
     fields:{Race:"TBD",Class:"Warlock (Devil patron)",Vibe:"Angsty goth loner, feared & misunderstood"},
@@ -499,11 +506,18 @@ const NODES = [
     fields:{Race:"TBD",Class:"Bard (leaning)",Vibe:"School bully who fights with his mouth"},
     desc:"Leaning Bard, leaning bully archetype: mechanically, his words are the weapon. So that it isn't just a mean character, the bully has some glaring insecurity underneath that explains the act — <b>the insecurity is TBD, and it's John's to name.</b>",
     hook:"Still open: the insecurity, a character name, race, and any connection to the mansion.",
-    ai:"The codex added College of Whispers specifically, the 'cruelty is the armor' framing, and the idea that John is built to recognize what Poe Boy is doing. The doc says 'leaning Bard' and nothing about subclass." },
+    ai:"The codex added College of Whispers specifically, the 'cruelty is the armor' framing, and the idea that John is built to recognize what Poe Boy is doing. The doc says 'leaning Bard' and nothing about subclass.<br><br><b>His mansion connection is back to zero.</b> The 1938-borrower blood tie that used to be pointed at him was <b>dropped 31 Aug</b> — Gnomey's tie turned out to be a deed rather than a bloodline, and rather than re-home the blood idea, Scott wants a new connection for John built from scratch. Nothing is standing in for it." },
   {id:"cody", name:"Cody's PC", sub:"Not submitted yet", g:"player", x:120, y:610,
     role:"Player Character — TBD", s:"doc", src:"Sesh 5",
     fields:{Race:"TBD",Class:"TBD"},
     desc:"", empty:"Cody hasn't sent a character outline yet. Placeholder node so the web is ready to wire them in — they'll want a reason they joined the misfit friend group and a sprinkle of mansion lore like everyone else." },
+
+  {id:"vinny", name:"Great Uncle Vinny", sub:"Won the house in 1931", g:"town", x:270, y:180,
+    role:"Backstory NPC · alive", s:"doc", src:"Sesh 8",
+    fields:{Race:"Gnome",Trade:"Untaxed cigarettes & bootleg liquor",Status:"Alive, ancient, in a home"},
+    desc:"Gnomey's great-uncle. Ran cigarettes and liquor on the back roads at night through Prohibition. Nobody in the family thinks he's anything. <b>He needed somewhere to keep the liquor</b>, and there was exactly one building in the county nobody would ever search — so he walked up the hill and asked, which nobody had done in two hundred years.<br><br><b>The deal:</b> Orlok gets the cellar filled and takes a case a month off the top. Liquor turns out to be one of the only human things that still works on a vampire — the one pleasure he has left. Every month Vinny comes up with the delivery, they crack a bottle, and they play cards.",
+    hook:"<b>14 November 1931.</b> Orlok goes down, keeps playing to get it back, goes further down, and by four in the morning the only thing he has left worth anything is the house. They draft the settlement drunk. Vinny walks out with one blue chip — and then <b>lets them stay, rent-free, in writing, forever.</b> That's the family principle in full: you always collect, and then you're not a bastard about it.<br><br>Years later he hears a twelve-year-old relative had a little operation going and blew it up rather than eat a skim. He drives over that week:<br><br><i>“Twelve years old and he's got a crew.”</i><br><i>“I don't have a crew anymore.”</i><br><i>“You'll get another one.”</i> — and he presses the chip into the kid's palm.",
+    finale:"He is <b>alive and mostly gone</b>, which is why nobody could ever explain the chip. The last beat of the campaign is a phone call to his home: <i>“Uncle Vinny. It's me. I collected.”</i> <span class='src'>Sesh 8</span>" },
 
   {id:"devil", name:"The Devil (Goat)", sub:"Simone's patron", g:"force", x:255, y:560,
     role:"Otherworldly patron", s:"doc", src:"Character Bios",
@@ -534,20 +548,22 @@ const NODES = [
     role:"Primary location", s:"doc", src:"Sesh 0, 3, 6, 7",
     fields:{Name:"'Dood' = dead (Dutch)",History:"Abandoned Dutch mansion on the edge of town"},
     desc:"Where the whole back half plays out. The front door has been boarded for decades — until the night of the party, when the boards come off and are stacked against the porch rail. That un-boarding is the only visible change to the house, and it's the invitation. Once they're inside, the doors bolt shut. Rooms are built around puzzles and one combat set-piece, ending in the food-stash reveal and a hidden room.<br><br><b>Two of Poe Boy's setups, not one.</b> The old room upstairs holds his original recording rig and the computer the kid is inside — he hasn't been back in it (Sesh 7). The <b>ballroom</b> is the show he's built for tonight, wired to speakers through the rest of the house, and it's where the climax happens. The power is <b>hot-wired off the neighbouring property</b> — which is also the one thread anyone outside the house could pull on.",
-    finale:"the 24 Aug doc paste runs the back half as <b>one line with no fork</b>: locked in, one Saturday fight, the corridor set-piece, the Spirit and the USB upstairs, the food stash, then 3AM and three phases with no break. The two-setups decision pays off directly — the Spirit is in the <b>old rig upstairs</b> and the aux is on the <b>ballroom decks</b>, so the finale's objective is a journey across the map. <span class='src'>the 24 Aug doc paste</span>",
-    hook:"Rumored haunted for two reasons: the vampires, and the <b>Gjenganger</b> — the original lonely owner. A real-estate company wants to demolish it for a <b>mega mall</b>, and has knocked in daylight several times — when the vampires can't answer the door or defend themselves at all.",
-    ai:"<b>Ratified by Scott:</b> 'Dood' is both — the builder's family surname <i>and</i> the Dutch pun, so Cornelis Dood is a real person in the fiction. That also answers Spencer's Sesh 6 'lmk if thats too dumb lol' about the mansion name. Not in the Google Doc yet." },
+    finale:"the 24 Aug doc paste runs the back half as <b>one line with no fork</b>: locked in, one Saturday fight, the Spirit and the USB upstairs, the food stash, then 3AM and three phases with no break. <b>Sesh 8 cut the corridor set-piece and added the study and the party room in its place.</b> The two-setups decision pays off directly — the Spirit is in the <b>old rig upstairs</b> and the aux is on the <b>ballroom decks</b>, so the finale's objective is a journey across the map. <span class='src'>the 24 Aug doc paste</span>",
+    hook:"Rumored haunted because of the vampires. A real-estate company wants to demolish it for a <b>mega mall</b>, and has knocked in daylight several times — when the vampires can't answer the door or defend themselves at all.<br><br><b>Orlok built it</b>, lost it at cards in 1931, and has needed someone else's permission to live in it ever since. <b>It does not belong to the vampires and has not for seventy years.</b><br><br><b>Rooms Sesh 8 puts on the map:</b><br>· <b>The study</b> — sealed since the thirties. A poker set exactly one chip short, the last hand still on the table, and a strongbox holding the deed and the signed settlement. Gnomey's room.<br>· <b>The party room</b> — the night Edward and Goblinenon's cart broke down and they found two vampires partying. Bottles, a record still on the turntable, forty years of dust on somebody's good night. <b>Where Bix finds the photograph.</b><br>· <b>The cellar</b> — Vinny's liquor went in here from 1920 and repeal came in '33 and he never came back for it, so a wall of crates is still down there. It is also where the animals are kept, which is what the food-stash puzzle reveals.<br>· <b>The old rig upstairs</b> — the computer, the Spirit, the backpack.<br>· <b>The ballroom</b> — tonight's show and the climax.",
+    ai:"<b>Ratified by Scott:</b> 'Dood' is both — the builder's family surname <i>and</i> the Dutch pun, so Cornelis Dood is a real person in the fiction. That also answers Spencer's Sesh 6 'lmk if thats too dumb lol' about the mansion name.<br><br><b>And as of 31 Aug, Cornelis Dood is Orlok.</b> Sesh 8 makes Orlok the man who built this house; Dood is his mortal surname. The town buried him and he never left, which is why the Crier's obituary is technically accurate. Not in the Google Doc yet." },
 
   {id:"orlok", name:"Vamp: Orlok", sub:"True-to-folklore", g:"vamp", x:880, y:150,
     role:"Vampire (secretly good)", s:"doc", src:"Sesh 0, 5",
     fields:{Style:"Nosferatu / Count Orlok"},
     desc:"The genuinely eerie one, straight from folklore. Like the others, actually harmless to the heroes — they live off small animals and want to be left alone.",
-    finale:"<b>Mechanically incapable of killing a PC</b> in first contact and in phase one — grapple, shove, frighten, never Bite on a conscious creature. A the 24 Aug doc paste rule, not DM mercy, so the mechanics are themselves the clue. He does the actual frightening, and he means it. <span class='src'>the 24 Aug doc paste</span>",
-    ai:"'Does most of the actual frightening on Poe Boy's say-so' was a codex invention. The doc gives the three vamps archetypes and nothing else." },
+    hook:"<b>He built this house.</b> Never married, no children, alone in forty rooms — Sesh 6's description of the original owner, now spent on him. He was <b>dying by his own hand</b> when Dracula turned up uninvited and wouldn't take no for an answer, so the one he cannot stand is the one he owes his existence to.<br><br><b>Then he lost it at cards.</b> A gnome bootlegger named Vinny came up the hill around the turn of the century wanting cellar space, and they ended up playing every month for decades. On 14 November 1931 Orlok went down, kept playing, and put the house up because it was the only thing left. <b>They never spoke again</b> — not from hatred, from shame.<br><br><b>Playing him: patience, not menace.</b> Impeccable courtesy, especially while doing something appalling. He explains his reasoning to people he is about to hurt. He will not say a bad word about Vinny.",
+    finale:"<b>Mechanically incapable of killing a PC</b> in first contact and in phase one — grapple, shove, frighten, never Bite on a conscious creature. A the 24 Aug doc paste rule, not DM mercy, so the mechanics are themselves the clue.<br><br><b>He is the boss, and it costs one syllable.</b> When Dracula gets carried away with the party, Orlok ends it with a single word and nobody speaks until he is finished. Then the dismissal: <i>“The night is young. It would be terribly rude to be finished with you already. Go on. Have a look around. We'll find you when we're ready.”</i> — every word of which is a threat to the party and an accurate description of a haunted-house attraction to him.<br><br><b>And at the end he has to confirm the gnome's claim out loud, to a room full of teenagers.</b> He is pissed, he complies perfectly, and he thanks him through his teeth. <span class='src'>the 24 Aug doc paste + Sesh 8</span>",
+    ai:"'Does most of the actual frightening on Poe Boy's say-so' was a codex invention. <b>Ratified by Scott, 31 Aug: Cornelis Dood is Orlok.</b> Dood is his mortal surname — he built the house, the Dutch pun survives, the puzzle prop survives, and the Crier's obituary is technically accurate. The town really did bury him. <span class='src'>31 Aug · not in doc</span>" },
   {id:"drac", name:"Vamp: Dracula", sub:"Kitschy & annoying", g:"vamp", x:915, y:290,
     role:"Vampire (secretly good)", s:"doc", src:"Sesh 0",
     fields:{Style:"Campy Count Dracula"},
-    desc:"The over-the-top theatrical one for comic relief.",
+    desc:"The over-the-top theatrical one for comic relief. <b>He is also Orlok's sire</b> — he turned up uninvited at the worst possible moment and wouldn't take no for an answer, which is exactly why Orlok cannot stand him and exactly why Orlok can never be rid of him. He witnessed and \"notarized\" the 1931 settlement, and is not a notary.",
+    hook:"<b>He is the one who lays hands on the party.</b> When the stealth finally fails on Saturday night he swoops in and grapples, pushes and shoves — enjoying it far too much and doing <b>no damage</b>. Then Orlok says one word and he stops instantly. That single exchange establishes the whole hierarchy without a fight.",
     finale:"<b>He gets the campaign's biggest laugh and its cleanest catharsis.</b> When the recording finishes and the room wakes up, Dracula seizes the mic and denounces Poe Boy magnificently — he has waited all night for a real audience. The crowd cheers, and plenty still aren't sure it isn't part of the show. Also bound by the no-Bite rule in phase one. <span class='src'>the 24 Aug doc paste</span>",
     ai:"'Treats the haunted-house plan as a performance and would happily brag the whole scheme by accident' was a codex invention." },
   {id:"edward", name:"Vamp: Edward", sub:"Bix's father", g:"vamp", x:880, y:430,
@@ -558,12 +574,13 @@ const NODES = [
     finale:"Bound by the no-Bite rule in phase one. All three turn the moment the developer dies — the party killed the man taking their home, in front of them, so it costs <b>no persuasion check</b>. Then they fight alongside the party: roughly three extra level-5 bodies, which is why phase three is a catharsis rather than a hard fight. <span class='src'>the 24 Aug doc paste</span>",
     ai:"The codex proposed Edward was turned recently, to reconcile three vampires against the puzzle prop's three coffins. Both the coffin count and this fix are invented." },
 
-  {id:"gjen", name:"The Gjenganger", sub:"Vengeful revenant", g:"force", x:790, y:560,
-    role:"Combat set-piece", s:"doc", src:"Sesh 2 + 6",
-    fields:{Origin:"Scandinavian folklore revenant",Danger:"Strong up close — spreads decay/sickness"},
-    desc:"The original mansion owner — never married, never had children, isolated himself and died by suicide from loneliness. A big reason the house was abandoned. Deadly at close range (rotting touch), so the winning strategy is keeping distance.",
-    hook:"Mirrors <b>Bix's</b> antisocial arc — a character-development beat. Guards the way to the computer/spirit. Spencer's Sesh 2 line when he found it: <i>'Up to you if we go with it.'</i> Still unanswered.",
-    ai:"<b>Parked — the whole creature is on hold.</b> Spencer's Sesh 2 and Sesh 6 material is real, but nothing about it is agreed: not the motive, not whether it's Cornelis Dood, not the stat block, not the encounter. A draft spec sits in <code>/PROPOSALS.md</code> and is canon to nobody.<br><br><b>the 24 Aug doc paste changed the pressure on this.</b> It kept the corridor set-piece as a beat without naming the creature, and it <b>cut the fork</b> — so this fight no longer has to be a convergence point where two branches meet. It is simply the toll on the way to the computer, which makes it much easier to swap. A 'no' still needs a replacement." },
+  {id:"summon", name:"The Botched Summoning", sub:"Saturday's mansion fight", g:"force", x:790, y:560,
+    role:"Combat set-piece", s:"doc", src:"Sesh 8",
+    fields:{Slot:"Saturday night, late",Job:"Prove the house will actually hurt them"},
+    desc:"Saturday's one mansion combat. <b>Something Poe Boy called up and could not put down</b>, sealed in a room upstairs and left there. He studies the occult, he has already miscast one ritual badly enough to kill a boy, and this is the other time it went wrong — the time nobody died, so he stopped thinking about it.",
+    hook:"It does two jobs at once. It proves the house is dangerous after an evening in which nothing has actually hurt anyone, and it <b>plants that the dangerous things in this building are human-made</b> — which is the thesis the computer room pays off the next day. The party has no way to know whose it is yet.",
+    ai:"<b>The doc names it and nothing else.</b> That it is Poe Boy's, what it is, what it does, and every number behind it are codex proposals. See the Combat tab for the budget.<br><br>It replaces <b>the Gjenganger</b>, which Sesh 8 retired by displacement: Orlok took the lonely-original-owner backstory, and the corridor set-piece the creature was going to fill was cut. Spencer's <i>“up to you if we go with it”</i> got answered without anyone answering it, and <b>he should be told directly</b> — it was his find. Dead spec kept in <code>/PROPOSALS.md</code>." },
+
   {id:"spirit", name:"Spirit in the Computer", sub:"A past victim", g:"force", x:620, y:585,
     role:"Clue-bearer", s:"doc", src:"Sesh 6 + 7",
     fields:{State:"Soul-caged into Poe Boy's computer",Name:"TBD — read off the USB",Ends:"On the library computers"},
@@ -605,7 +622,15 @@ const EDGES = [
   ["poe","spirit","control","held the door, then caged him","doc","Sesh 7"],
   ["bix","mansion","haunt","stayed overnight, saw something","doc","Sesh 5"],
   ["gnomey","mansion","haunt","childhood dares","doc","Sesh 5"],
-  ["gjen","mansion","haunt","the original owner","doc","Sesh 6"],
+  ["summon","mansion","haunt","sealed in a room upstairs","doc","Sesh 8"],
+  ["poe","summon","control","he called it up and left it","ai","the doc names the fight, not its owner"],
+  ["vinny","orlok","crew","cellar space for a case a month, then cards for decades","doc","Sesh 8"],
+  ["vinny","mansion","family","won it at cards, 14 Nov 1931","doc","Sesh 8"],
+  ["vinny","gnomey","family","pressed the chip into his palm","doc","Sesh 8"],
+  ["gnomey","mansion","family","holds the marker — holds the house","doc","Sesh 8"],
+  ["drac","orlok","family","turned him uninvited; his sire","doc","Sesh 8"],
+  ["gnomey","orlok","conflict","landlord and tenant, seventy years late","doc","Sesh 8"],
+  ["orlok","mansion","family","he built it, then lost it at cards","doc","Sesh 8"],
   ["orlok","mansion","haunt","lives here","doc","Sesh 0"],
   ["drac","mansion","haunt","lives here","doc","Sesh 0"],
   ["edward","mansion","haunt","lives here","doc","Sesh 0"],
@@ -618,7 +643,7 @@ const EDGES = [
   ["cody","teacher","family","the class project","doc","Sesh 1"],
   ["john","gnomey","conflict","taxes the bathroom cigarette trade","ai","invented by the codex"],
   ["john","poe","conflict","the one kid he cannot get a rise out of","ai","invented by the codex"],
-  ["john","mansion","haunt","no connection written yet","ai","placeholder, not a fact"],
+  ["john","mansion","haunt","nothing — blood tie dropped 31 Aug","ai","placeholder, not a fact"],
   ["librarian","mansion","haunt","warns them away","doc","Sesh 1"],
   ["simone","devil","family","patron / power","doc","Character Bios"],
   ["angelique","spirit","haunt","typed the messages; still can't stop noticing him","doc","Sesh 7 + 8"],
@@ -667,35 +692,42 @@ const FLOW = [
             why:"Turns the exit into a worse choice than the corridor, and gives her a first line that withholds instead of explaining."}
         ]}}},
 
-  {n:5,title:"First vampire encounter",where:"No fight — yet",s:"doc",src:"Sesh 2",body:"They meet the three vampires but don't fight. Investigation begins. Play the vamps as hosts doing a job they agreed to: they think this is the big scare that saves their house, and they have no idea anyone has ever died here.<br><br><b>Sesh 8 — Bix beat one of three: they catch Edward glimmering in the moonlight.</b> It's the Twilight joke and it's also the first frame of a reveal. Don't hang anything on it; let it be the silly one. Nobody at the table should suspect it matters yet.",
-    bridge:{cue:"From where you’re crouched you can hear all three of them, and they’re arguing. One wants to know who’s going back down to the boxes in the cellar. Another wants to know whether they’ve been fed.",
-      note:"Two threads in one conversation, and <b>they get both</b> — the 24 Aug doc paste cut the fork, so this is no longer a choice, it's two clues handed over at once. “The boxes in the cellar” matches the coffins from the records hall. “Have they been fed” sounds like a confession and turns out to be small animals. Play the vamps mid-chore and slightly bored; they think they’re doing a job, and they don’t lower their voices because as far as they know nobody’s in the house who wasn’t invited.<br><br><b>The vampires cannot kill a PC</b> here or in the finale's first phase — grapple, shove, frighten, never Bite on a conscious creature (the 24 Aug doc paste). That is a rule, not DM mercy, and it means the mechanics are the clue: afterwards the players can work out the monsters never once rolled damage on them.",
-      fallbacks:{lbl:"If neither thread lands",
+  {n:5,title:"First vampire encounter",where:"No fight — a performance",s:"doc",src:"Sesh 2 + Sesh 8",body:"<b>Sesh 8 scripts this beat end to end.</b> Play the vamps as hosts doing a job they agreed to: they think this is the big scare that saves their house, they have no idea anyone has ever died here, and <b>they know the doors are shut because Poe Boy sold the lock-in to them as part of the show</b> — a whole night of terror makes a far better story than five minutes.<br><br><b>Sesh 8 — Bix beat one of three: they catch Edward glimmering in the moonlight.</b> It's the Twilight joke and it's also the first frame of a reveal. Don't hang anything on it; let it be the silly one. Nobody at the table should suspect it matters yet.<br><br><b>1. Hide.</b> Angelique pulls them down. Stealth.<br><b>2. The overheard argument.</b> Every line true, every line damning.<br><b>3. Explore</b> under recurring stealth checks — eventually someone rolls badly.<br><b>4. Dracula swoops in</b> and grapples, pushes, shoves. Enjoys it far too much. <b>No damage.</b><br><b>5. Orlok arrives and ends it with one word.</b> Dracula stops instantly and nobody speaks until Orlok is finished. That one syllable is the entire hierarchy.<br><b>6. He dismisses them.</b>",
+    script:[
+      ["DRACULA","Five. He said five, and there are five. The boy's finally learning to count."],
+      ["EDWARD","One of them is a child."],
+      ["DRACULA","They're all children. That's rather the point."],
+      ["ORLOK","Have our meals been fed?"],
+      ["DRACULA","Not yet I don't think."],
+      ["ORLOK","See to it before we begin. I won't have them distracted."]
+    ],
+    bridge:{cue:"“The night is young. It would be terribly rude to be finished with you already.” … “Go on. Have a look around. We'll find you when we're ready.”",
+      note:"<b>Every word of that is both a threat and an accurate description of a haunted-house attraction.</b> He means the show has hours left and they'll be back to frighten them again; the party hears exactly one thing, and their next move is to tear the house apart looking for a way out — which is precisely where you want them.<br><br>Do <b>not</b> let Orlok discover the locked doors or explain anything. Both hand the party information and let them start reasoning about a third party. He is calm, he decided the doors, and he owns the building.<br><br><b>The read you want is prey given a head start.</b> Same behaviour, two meanings: from the vampires' side it's an attraction — appear, frighten, withdraw, let them keep moving. From the party's side that is exactly what being hunted looks like. <i>“Have our meals been fed?”</i> is the animals, and the party will hear an appetite with a clock on it.<br><br><b>The vampires cannot kill a PC</b> here or in phase one — grapple, shove, frighten, never Bite (the 24 Aug doc paste). The mechanics are the clue: afterwards the players can work out the monsters never once rolled damage.",
+      fallbacks:{lbl:"If a thread doesn't land",
         items:[
-          {who:"Anyone with the clipping",say:"You’ve got the records-hall page in your bag. It says coffins. One of them just said boxes in the cellar.",
-            why:"Connects the town half to the house half out loud, for the player who wasn’t listening in the library."},
-          {who:"Angelique",say:"Three in the morning. That’s when it’s supposed to happen — that’s what he told me.",
-            why:"Puts the flyer’s 3AM on a timer without her admitting anything yet."}
-        ]},
-      q:"Open: is one overheard scene enough, or does each path need its own clue in a different room so the fork survives the party splitting up?"}},
-
-  {n:6,title:"The rest of Saturday night",where:"Inside, and no way out",s:"doc",src:"Sesh 5 + the 24 Aug doc paste",body:"<b>the 24 Aug doc paste cut the fork that used to sit here</b> — there is no fight-them / never-had-to branch any more, and the weekend runs one line. <b>Saturday's fight has also moved out of the mansion</b> and into the records hall at beat 3, so this stretch is investigation and dread rather than combat: the search for a way out, the ballroom door nobody answers, and the vampires establishing that they are the worst thing in the building.<br><br><b>Sesh 8 — Bix beats two and three.</b><br>· <b>They find Edward spying on them</b>, and specifically watching Bix. Play it as a horror beat first: the party's read should be <i>the vampire has picked one of us</i>. Let them be wrong about it for as long as possible.<br>· <b>Then the photograph.</b> Four figures: two vampires mugging for the camera, a pregnant goblin laughing, and a fae with no fangs. Hand it over and say nothing. Bix's player does the arithmetic in front of everybody — a pregnant goblin, in this house, roughly his age ago, standing next to a man who is still here.<br><br><b>Edward does not explain himself tonight.</b> That's the epilogue, and holding it is what makes it land.",
-    bridge:{cue:"End of session one. Everyone levels to 4.",
-      note:"Everything on Sunday is built for five level-4 PCs. <b>Where exactly Saturday ends is still open</b> — the two strongest candidates are the moment they accept there is no way out, and the moment they decide to kill the vampires. The mansion's own fight is now the first thing on Sunday.",
-      q:"<b>This is the least-designed stretch of the weekend.</b> What the party actually wants, hour by hour between 7PM and 3AM, is the question everything else here hangs off — and it is not answered yet."}},
-
-  {n:7,title:"The corridor set-piece",where:"Gates the computer",s:"doc",src:"Sesh 6",body:"A combat stands between the party and the computer room. <b>Doc-canon that it exists; which creature it is has never been agreed</b> — the Gjenganger was Spencer's Sesh 2 offer and his <i>“up to you if we go with it”</i> is still unanswered (draft spec in <code>PROPOSALS.md</code>). If it stays: brutal up close, so the smart play is range, and the room has to make distance genuinely available.<br><br>Cutting the fork actually <b>helped</b> this encounter. It no longer has to be a convergence point where two branches meet — it's simply the toll on the way in, which makes it far easier to swap for something else.",
-    bridge:{cue:"It wasn’t them. A person did this to me.",
-      note:"The Spirit’s parting line. <b>Say it as him, then stop talking</b> and let the table sit in it. It flips the question from <i>how do we kill three vampires</i> to <i>then what have they been eating?</i> — which is the question the next room answers. Have him look at the locked door before he goes, so the puzzle has an address. If Angelique is with the party, this is the moment she learns what the messages she typed were for; play her reaction before anyone thinks to ask her about it. <b>And if they took the gazebo detour, this is where his omission lands:</b> he bragged about the ballroom for ten minutes and never mentioned this room once.",
-      fallbacks:{lbl:"If they don’t move on the locked door",
-        items:[
-          {who:"Anyone",say:"The last thing he did before he went out was look at the door at the end of the hall. He didn’t look at any of you.",
-            why:"Restates the address without the DM saying “you should go there.”"},
-          {who:"Simone",say:"You know what a soul cage is. It needs a vessel prepared in advance — and whoever cast this one didn’t prepare one. That’s why he’s in a computer.",
-            why:"Warlock is the natural fit, though her knowing the ritual is a codex idea rather than the doc’s. If you’d rather not lean on it, give the line to the Spirit himself."}
+          {who:"Anyone with the clipping",say:"You've got the records-hall page in your bag. It says coffins. One of them just said the cellar.",
+            why:"Connects the town half to the house half out loud, for the player who wasn't listening in the library."},
+          {who:"Angelique",say:"Three in the morning. That's when it's supposed to happen — that's what he told me.",
+            why:"Puts the flyer's 3AM on a timer without her admitting anything yet."}
         ]}}},
 
-  {n:8,title:"The Spirit, the backpack, the USB",where:"The old rig upstairs",s:"doc",src:"Sesh 7 + the 24 Aug doc paste + Sesh 8",body:"Past the corridor: the room the kid ran into and never left. Poe Boy's <b>original</b> setup — gear, a mic, and a computer somehow still on, hot-wired off the neighbouring property like everything else in this house. He hasn't been back in here since that night. The AIM prop is live at <code>/aim/</code>.<br><br>He was lured by a fake screen name, chased by vampires who believed he was a mall scout, and soul-caged when Poe Boy saw the AIM window open and pulled the door shut. He can name his killer, and he was <b>killed by a human</b>.",
+  {n:6,title:"The rest of Saturday night",where:"Inside, and no way out",s:"doc",src:"Sesh 5 + Sesh 8",body:"Explore again — the search for a way out, the ballroom door nobody answers, the vampires glimpsed at the end of halls and gone when anyone gets there. Doors shut behind them, stairs are blocked, routes narrow. The party will feel driven and won't be able to prove it.<br><br><b>Then Saturday's one combat, late: the botched summoning.</b> Something Poe Boy called up and couldn't put down, sealed in a room upstairs and left there. Its job is proving the house will actually hurt them after an evening in which nothing has — and it quietly plants that the dangerous things in this building are <b>human-made</b>, which is the thesis the computer room pays off on Sunday.<br><br><b>Sesh 8 — Bix beat two of three: they find Edward spying on them</b>, and specifically watching Bix. Play it as a horror beat first: the party's read should be <i>the vampire has picked one of us</i>. Let them be wrong about it for as long as possible. <b>Edward does not explain himself tonight</b> — that's the epilogue, and holding it is what makes it land.",
+    bridge:{cue:"End of session one. Everyone levels to 4.",
+      note:"Everything on Sunday is built for five level-4 PCs. The summoning ends the session on adrenaline. <b>The corridor set-piece is cut</b> (Sesh 8), so Sunday opens on investigation rather than a fight."}},
+
+  {n:7,title:"The study, and the party room",where:"Sunday morning",s:"doc",src:"Sesh 8",body:"<b>The corridor set-piece is cut.</b> Sunday opens on the two per-PC rooms instead.<br><br><b>The study</b> — sealed since the thirties. Inside: a poker set exactly <b>one chip short</b>, the last hand still on the table, and a strongbox holding the deed and the signed <i>Articles of Settlement</i> with the bearer clause spelled out. <b>Run it before anything exonerates the vampires</b>, so Gnomey discovers he owns a house full of things he still believes are killers, and has all of Sunday to sit on it.<br><br><b>The party room</b> — the night Edward and Goblinenon's cart broke down and they found two vampires partying. Bottles, a record still on the turntable, forty years of dust on somebody's good night. <b>Bix finds the photograph here:</b> four figures, two vampires mugging, a pregnant goblin laughing, and a fae with no fangs.<br><br><b>Bix beat three, and the payoff of the other two.</b> Hand the photograph over and say nothing. Bix's player does the arithmetic in front of everybody — a pregnant goblin, in this house, roughly his age ago, standing next to a man who is still here. <b>The prop is live at <code>/photo/</code></b>; there is writing on the back in her hand.",
+    bridge:{cue:"He's read it three times. The name on the deed is his.",
+      note:"<b>Make sure Gnomey is alone when he finds it.</b> The arc is quiet-and-overlooked to head of household, and its climax is not the discovery — it's walking back into a room full of people who have never looked at him and saying it out loud. For that to land he needs a stretch where he could have chosen not to. Give Julia the secret and let her decide when to spend it.<br><br><b>How the party gets through the door is deliberately undefined</b> (Scott, 31 Aug). The room and everything in it is Sesh 8; the door is not designed yet. The only constraint worth respecting when you do design it: <b>it has to be a whole-party problem</b>, so that five people open the room and one of them finds out what it means.",
+      fallbacks:{lbl:"If nobody connects the chip",
+        items:[
+          {who:"The set",say:"Forty-nine chips. There's a gap in the tray where the fiftieth should be, and it's the exact size of the one that's been in your pocket all weekend.",
+            why:"Physical, not deductive. Put the gap in front of them."},
+          {who:"The contract",say:"“Title shall rest with the bearer of the marker. The marker being the blue one. We agreed on the blue one.”",
+            why:"The one paragraph on that page with no corrections in it. Read it aloud and stop."}
+        ]},
+      q:"Still blank: <b>Cody's and John's rooms.</b> Gnomey has the study, Bix has the party room, Simone's thread lands at the computer — two PCs have nothing."}},
+
+  {n:8,title:"The Spirit, the backpack, the USB",where:"The old rig upstairs",s:"doc",src:"Sesh 7 + the 24 Aug doc paste",body:"The room the kid ran into and never left. Poe Boy's <b>original</b> setup — gear, a mic, and a computer somehow still on, hot-wired off the neighbouring property like everything else in this house. He hasn't been back in here since that night. The AIM prop is live at <code>/aim/</code>.<br><br>He was lured by a fake screen name, chased by vampires who believed he was a mall scout, and soul-caged when Poe Boy saw the AIM window open and pulled the door shut. He can name his killer, and he was <b>killed by a human</b>.",
     bridge:{cue:"“my bag is still in this room. by the desk under the coats. can you get it”",
       note:"<b>0 · They have to log in first.</b> The machine sits at an AIM sign-on screen with the account already saved — <b>DJPoeBoy187</b>, because Sesh 7 says this is his computer — and an empty password box. <b>Hand them the sticky note.</b> The password is <code>Fluffy123</code>, his cat, and the prop takes it in any capitalisation so a fat-fingered capital doesn't cost you the scene. Wrong answers get the real AIM error and nothing else: no hints, no lockout, unlimited tries.<br><br><b>They spend this entire conversation typing as the killer.</b> Every line they send arrives under his handle, and the opening is written for it: the boy sees that name come online and comes apart before he works out it isn't him. What saves it is rhythm — <i>“youre not typing like him”</i> — five years of listening to one person at a keyboard. <b>He stops short of naming him as the murderer</b>; he's frightened of a handle, which could just be a bully. The accusation still lands later, in its own beat.<br><br><b>The bag has two things in it, and the order matters.</b><br><br><b>1 · The wishing willow</b> (Sesh 8). The little wooden token Simone sold him when they were both twelve. He wrote <i>I want Angelique to notice me</i> on it, and it worked — which is the whole reason Angelique knew him well enough to be handed a keyboard. Play his account of it flat and slightly embarrassed. Simone's player will get there first.<br><br><b>2 · The thumb drive.</b> They plug it into the machine and <b>it mounts under his name</b> — that is how the dead kid finally gets one, read off a screen by a player rather than delivered as a lore dump. <b>You two still need one word.</b> The AIM prop takes it as <code>?name=</code> in the URL, so you can set it from the iPad mid-session without editing anything.<br><br>Then he uploads <code>scream_test_03_GOOD.wav</code> over AIM's real file-transfer window — <b>Poe Boy named that file</b>, and the kid has had to look at it every time the monitor wakes up. First ask: <i>expose him</i>. <b>Hand the players an actual USB stick here.</b><br><br><b>3 · Then the second ask — <i>can you get me out of here.</i></b> Somewhere safe; the little drive; he doesn't need much room. The goat appears — <b>he can see it and Simone can't</b> — and the price is the piggy bank. <b>The goat joins the chat.</b> The prop turns into a group chat when it arrives — the theme flips dark, the sounds distort, and it negotiates on screen in front of everyone. Then it <b>parks on the hold node</b> so you can play the piggy bank at the table. Three buttons are waiting: she paid, what happens if we get it wrong, and she said no.<br><br><b>⛔ Nothing plot-critical is behind this.</b> The recording, the name and the drive are all already theirs before he asks. A no costs them nothing but him — the machine simply goes dark at sunrise, and they still win the night. Do not fudge it if she declines.",
       fallbacks:{lbl:"If they don't think to ask what he needs",
@@ -740,17 +772,34 @@ const PLAN = {
   sat:{title:"Saturday · Session 1",sub:"Town & the threshold · level 3",slots:[
     {t:"First ~third–half",c:"#9a6ff0",s:"doc",src:"Sesh 1 + the 24 Aug doc paste",h:"Town — and Saturday's fight",p:"Class recap, the locker cards, the Hall of Records and the gazebo. <b>The trap in the bound volume is the weekend's Saturday combat</b> (500 XP), and springing it is what summons Ostrander to the house that night. Reverses the finale paste's combat-free town."},
     {t:"Evening",c:"#e0aa3e",s:"doc",src:"Sesh 5, 6",h:"Into the mansion",p:"The boards are off the front door. They walk in, and the doors bolt. Angelique finds them. First vampire contact — no fight, and mechanically they cannot kill. Opening puzzles."},
-    {t:"Late",c:"#d23a52",s:"doc",src:"the 24 Aug doc paste",h:"The one Saturday fight",p:"Roughly 40 minutes, after they're locked in. Its job is proving the house will actually hurt them. Ends the session on adrenaline. Then level 3 → 4."}
+    {t:"Late",c:"#d23a52",s:"doc",src:"Sesh 8",h:"The botched summoning",p:"Saturday's one mansion fight — something Poe Boy called up and couldn't put down. Roughly 40 minutes. Its job is proving the house will actually hurt them, and it plants that the dangerous things here are human-made. Then level 3 → 4."}
   ]},
   sun:{title:"Sunday · Session 2",sub:"One line, no fork, straight to 3AM · level 4",slots:[
-    {t:"Opening",c:"#5b9bd5",s:"doc",src:"Sesh 6",h:"The corridor set-piece",p:"The combat that gates the computer room. Creature still parked — see the Combat tab."},
-    {t:"Middle",c:"#4fc08a",s:"doc",src:"the 24 Aug doc paste",h:"The Spirit & the USB",p:"The AIM prop in the old rig upstairs. The backpack — the wishing willow and the drive — the name on the mounted drive, the upload. Hand the players a real USB stick. <b>Then the second ask and Simone's price</b>, which is optional and must stay optional. Then the food-stash puzzle clears the vampires."},
+    {t:"Opening",c:"#5b9bd5",s:"doc",src:"Sesh 8",h:"The study & the party room",p:"<b>The corridor set-piece is cut.</b> Sunday opens on the two per-PC rooms: Gnomey finds the deed, the settlement and a poker set one chip short; Bix finds the photograph. Run the study <b>before</b> anything clears the vampires."},
+    {t:"Middle",c:"#4fc08a",s:"doc",src:"the 24 Aug doc paste + Sesh 8",h:"The Spirit & the USB",p:"The AIM prop in the old rig upstairs. The backpack — the wishing willow and the drive — the name on the mounted drive, the upload. Hand the players a real USB stick. <b>Then the second ask and Simone's price</b>, which is optional and must stay optional. Then the cellar: the food-stash puzzle clears the vampires, and Vinny's crates are still down there from 1933."},
     {t:"Late",c:"#d23a52",s:"doc",src:"the 24 Aug doc paste",h:"3AM — three phases",p:"The ballroom. Vampires hostile, the developer breaches and dies, then the decks. One continuous sequence with no break in it."},
-    {t:"Close",c:"#e0aa3e",s:"doc",src:"Sesh 5 + the 24 Aug doc paste",h:"The collapse & bookend",p:"Dracula's mic, the Volvo, “Upton, honey?”, grounded, no satan concert, tickets to Simone. Then the epilogue: Edward explains himself to Bix, the kid goes onto the library computers. Monday: the diss track, Amityville, and the tape presented in class."}
+    {t:"Close",c:"#e0aa3e",s:"doc",src:"Sesh 5 + the 24 Aug doc paste + Sesh 8",h:"The collapse & bookend",p:"<b>Gnomey's claim and the renewal</b>, Dracula's mic, the Volvo, “Upton, honey?”, grounded, no satan concert, tickets to Simone. Then the epilogue: Edward explains himself to Bix, the kid goes onto the library computers. Monday: the diss track, Amityville, the tape in class — and a phone call to a nursing home."}
   ]}
 };
 
 const BACKSTORY = [
+  {h:"Orlok builds the house", when:"Long before any of it", s:"doc", src:"Sesh 6 + Sesh 8",
+    items:[
+      "<b>Orlok built the mansion.</b> Never married, no children, alone in forty rooms — Sesh 6's description of the original owner, now spent on a character who is already in the story.",
+      {t:"He was <b>dying by his own hand</b> when Dracula turned up uninvited and wouldn't take no for an answer. The one he cannot stand is the one he owes his existence to.", turn:true},
+      "The town buried a man who never left."
+    ]},
+  {h:"Vinny, the cellar, and the card game", when:"c.1920 – 14 Nov 1931", s:"doc", src:"Sesh 8",
+    items:[
+      "<b>Vinny Soprano</b> — Gnomey's great-uncle — runs untaxed cigarettes and bootleg liquor on the back roads at night.",
+      "He needs somewhere to keep the liquor, and there's exactly one building in the county nobody would ever search. <b>He walks up the hill and asks</b>, which nobody has done in two hundred years.",
+      "<b>The deal:</b> Orlok gets the cellar filled and takes a case a month off the top. Liquor turns out to be one of the only human things that still works on a vampire — the one pleasure he has left.",
+      "Every month Vinny comes up with the delivery, they crack a bottle, and they play cards. For decades.",
+      {t:"<b>14 November 1931.</b> Orlok is down, keeps playing to get it back, and goes further down. By four in the morning the only thing left worth anything is the house, and he puts it up. Drunk and in the hole, they draft the <b>Articles of Settlement</b> — and <b>title rests with the bearer of the marker</b>, one blue chip, for eleven dollars and forty cents.", turn:true},
+      "<b>Vinny lets them stay.</b> Rent-free, in writing, forever. Collected, then did the decent thing.",
+      "<b>They never speak again.</b> Not from hatred — from shame. You don't visit somebody you've taken from. Repeal comes in '33 and Vinny never comes back for the crates either.",
+      "Years later he hears a twelve-year-old relative had a racket going and torched it rather than eat a skim. He drives over that week, presses the chip into the kid's palm, and never explains what it is. <i>“You'll get another one.”</i>"
+    ]},
   {h:"The house and the buyers", when:"Before any of it", s:"doc", src:"Sesh 7",
     items:[
       "Dood Mansion has sat boarded and empty on the edge of town for as long as anyone can remember — haunted according to rumor, worthless according to everyone else.",
@@ -833,9 +882,13 @@ const NAMES = [
 const TODO = [
   ["The two-tier guest list — <b>settled</b>","<b>The 7PM card is exclusive; the 3AM flyer is public.</b> Five kids alone in the house for eight hours, then it fills up for the show. Settles the collision between the exclusive invite and the finale's charmed crowd, keeps both 24 Aug decisions, unblocks the flyer prop, and answers what Poe Boy told the vampires — he staggered the houseful rather than lying about it. <b>Decided by Scott 25 Aug; not in the Google Doc yet.</b> One small thing left: how the crowd gets through a bolted door at 3AM.","doc"],
   ["The developer's name — <b>proposed</b>","<b>W. Ostrander</b> — a genuine Hudson Valley Dutch surname that sounds like a sign on a construction fence. <b>It is printed on the checkout card in /puzzle/</b>, so it is in front of players the moment you run the records hall; swap it now if you want something else. He is the third faction: an abjurer who trapped the volume himself, gets summoned when the party springs it, seals the exits at 3AM, and is the only death in the story. Still open: company, or family trust?","doc"],
-  ["New reasons for the cellar and the corridor","Both were justified by the fork — the cellar was kept clear for Path A's coffins, the choke-point corridor existed so both paths converged. the 24 Aug doc paste cut the fork, so both rooms are fine and both reasons are gone.","doc"],
+  ["The cellar and the corridor — <b>answered</b>","<b>The corridor set-piece is cut entirely</b> (Sesh 8). <b>The cellar has a reason again:</b> it's where Vinny kept the liquor from 1920, repeal came in '33 and he never came back for it, so a wall of forty-year-old crates is still down there — and it's where the vampires keep the animals, which is what the food-stash puzzle reveals. One room, two payoffs.","doc"],
   ["Tell Spencer the fork is cut","the 24 Aug doc paste removed the fight-them / never-had-to fork. <b>That was Spencer's Sesh 2 idea.</b> Cutting it is right for a two-session game, but it should be said to him rather than found in a beat sheet.","doc"],
-  ["Is the Gjenganger in?","<b>Still parked.</b> Spencer's Sesh 2 words were <i>'Up to you if we go with it'</i>; by Sesh 6 he'd given it a backstory and a combat plan anyway. Draft spec in <code>/PROPOSALS.md</code>, agreed to by nobody. <b>the 24 Aug doc paste changed the pressure:</b> it kept the corridor set-piece without naming the creature, and cutting the fork means the fight no longer has to be a convergence point — which makes it far easier to swap. A 'no' still needs a replacement.","doc"],
+  ["The Gjenganger — <b>retired</b>","<b>Retired in Sesh 8, by displacement rather than by decision.</b> Orlok took the lonely-original-owner backstory, the corridor set-piece it was going to fill was cut, and Saturday's mansion fight is now a botched summoning. Spencer's <i>“up to you if we go with it”</i> got answered without anyone answering it — <b>tell him directly</b>, it was his find. Dead spec kept in <code>/PROPOSALS.md</code>.","doc"],
+  ["Orlok's mortal name — <b>settled</b>","<b>Cornelis Dood is Orlok.</b> Dood is his mortal surname, ratified by Scott 31 Aug. He built the house, the Dutch pun survives, the puzzle prop survives untouched, and the Crier's obituary is technically accurate — the town really did bury him. <b>Not in the Google Doc yet.</b>","doc"],
+  ["What the botched summoning actually is","Saturday's mansion combat is named and nothing else about it is written — what it is, what it does, and every number are codex proposals. See the Combat tab.","ai"],
+  ["The study door","<b>Deliberately undefined.</b> The room and its contents are Sesh 8; how the party gets through the door is not designed and is not being designed yet (Scott, 31 Aug). One constraint when it is: it should be a <b>whole-party</b> problem, so five people open the room and one of them finds out what it means.","doc"],
+  ["The dead kid","<b>the 24 Aug doc paste solved how, not what.</b> He asks the party to fetch his backpack and his mother wrote his name on the front in Sharpie — so a player reads it off a prop instead of getting a lore dump. It needs one word. He still needs a year, and enough of a life that the players feel it. Also: the soul cage left no body, so there was never a search or a funeral — decide what the school thinks happened to him, because that's the version Angelique has been living with.","doc"],
   ["The dead kid","<b>Solved how, not what — and Sesh 8 moved where.</b> The name now comes off the <b>USB</b>: they plug the drive into the machine and it mounts under his name. It needs one word. He still needs a year, and enough of a life that the players feel it. Also: the soul cage left no body, so there was never a search or a funeral — decide what the school thinks happened to him, because that's the version Angelique has been living with.","doc"],
   ["The band has no name","Simone's favourite satanic metal band is now load-bearing in three places — her savings, the goat's price, and Poe Boy's grounding — and it has never been named. It wants to be printable, because it is on a shirt she wears all weekend and on the tickets his mother hands over.","doc"],
   ["Why these five?","The invite is exclusive — five cards, five lockers, nobody else. That makes the guest list a deliberate choice by Poe Boy, and it needs a reason. Candidates: they're the misfits nobody would come looking for; Gnomey knows him from the old crew and knows too much; Angelique is close enough to them to be a problem. Whatever the answer, the players will ask it out loud the moment they realise no one else got a card.","ai"],
@@ -846,8 +899,8 @@ const TODO = [
   ["4th crew member","<b>The crew is three</b> — Poe Boy, Lil Stinky, Angelique, which is what the DJ flyer bills. Sesh 3 wanted a fourth <i>probably also female</i> and never wrote one. Spencer has not agreed to lose her, so it needs raising with him.","doc"],
   ["Party level","<b>Level 3</b>, leveling to 4 at the end of day one — so anything on Sunday is built for five level-4 PCs. Not in the Google Doc yet.","doc"],
   ["NPC races & classes","<b>Settled in the doc, Sesh 8.</b> Poe Boy is a Kenku Bard (Glamour), Lil Stinky a Paladin (Oath of Devotion), Angelique a Changeling Rogue. Sesh 8 also gives Lil Stinky an arc: <i>sworn to a liar without knowing it, his oath breaks when he believes us about the kid.</i> Still genuinely open, and Sesh 8 says so: <b>Lil Stinky's race</b> (Orc or Goliath) and <b>Simone's race</b>.","doc"],
-  ["Per-character house moment","Sesh 5's stated goal: one sprinkle of mansion lore tied to each PC. <b>Sesh 8 closed two of them</b> — Bix gets Edward, Simone gets the wishing willow and the ritual. Gnomey has his childhood dares and no reveal built on them yet. <b>John and Cody are still blank.</b>","doc"],
-  ["The blood connection","Scott's comment idea: one PC connected to the mansion by blood — a great-grandparent built it or died there. Spencer liked it and said the library is the place to hint at it. Never assigned to a PC.","doc"],
+  ["Per-character house moment","Sesh 5's stated goal: one sprinkle of mansion lore tied to each PC. <b>Sesh 8 closed three of them</b> — Gnomey gets the study and the deed, Bix gets Edward and the photograph, Simone gets the wishing willow and the ritual. <b>John and Cody are still blank</b>, and John's is now genuinely empty: the blood-tie hook that used to stand in for it was dropped 31 Aug.","doc"],
+  ["The blood connection — <b>answered for Gnomey only</b>","Scott's comment idea was a PC connected by blood. <b>Sesh 8 gives Gnomey a *debt* instead of a bloodline</b> — his great-uncle won the house at cards, hinted on the library checkout card as <code>V. Soprano</code>, which honours Spencer's note about where to plant it. <b>The blood-tie idea is no longer pointed at John</b> (dropped 31 Aug) — he gets a different connection, still to be invented.","doc"],
   ["Lock the mansion name","<b>Dood Mansion, and 'Dood' is both</b>: the builder's family surname <i>and</i> the Dutch pun. That answers Spencer's Sesh 6 <i>'lmk if thats too dumb lol'</i> and makes Cornelis Dood a real person in the fiction. Not in the Google Doc yet.","doc"],
   ["Does the 1937 Crier become canon?","The whole newspaper is invented — see the Not Canon tab. Three options: ratify it, rewrite it back to the doc's actual 1973 Frisian source, or leave it as a prop nobody has to believe.","ai"],
   ["Coffin count","The codex was treating this as a canon contradiction: the Crier's three boxes vs. three living vampires. It isn't a contradiction — the count is invented. Only worth solving if the Crier gets ratified.","ai"],
@@ -859,10 +912,12 @@ const DOCS = [
   ["DJ Show Flyer","NOT BUILT — <b>and now unblocked.</b> Leaned-out Memphis/Houston rap art, spooky · 3AM at Dood Mansion · bills Poe Boy / Lil Stinky / Angelique. Settled 25 Aug: this one <b>is public</b>, which is where the finale's crowd comes from.","doc","Sesh 5, 6"],
   ["Library History Clippings","BUILT — /puzzle/ · the volume is intact until they open it and the trap cuts it up. Now carries the <b>checkout card</b>: E. Hoeck (the blood tie, John), U. M. Livingsworth III (Poe Boy's real name, four years ago) and W. Ostrander (the developer — proposal). Still an invented 1937 newspaper; the doc's source is a 1973 Frisian legend.","ai"],
   ["AIM chat with the Spirit","BUILT — /aim/ · Sesh 7, the backpack + USB branch, and <b>Sesh 8's soul transfer</b>: the willow, the drive mounting under his name, the second ask, a hold point for playing the price at the table, a real no-path, and the ritual itself — which reads as an ordinary file transfer until the progress bar exceeds its own boundaries. Set the kid's name with <code>/aim/?name=Marcus</code>.","doc","Sesh 7 + the 24 Aug doc paste + Sesh 8"],
+  ["The Articles of Settlement","<b>BUILT — /settlement/</b> · the drunken 1931 contract from the strongbox in the study. Opens folded; tap to unfold. Crossed-out hours, eleven dollars and forty cents, <i>“the marker being the blue one,”</i> the struck-through snoring clause, Dracula witnessing as a non-notary, and Vinny's margin note. <b>The bearer paragraph is the only one on the page with no corrections in it</b> — that's the joke and the plot in one paragraph, and it is set apart visually. Signed <b>C. Dood</b>, in a second hand.","doc","Sesh 8"],
+  ["The photograph","<b>BUILT — /photo/</b> · four figures — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. Tap to turn it over: Goblinenon's handwriting on the back, and she names <i>“Me + E.”</i> <b>Hand Will the iPad and say nothing</b> — he gets the goblin before he gets the fae. Art is stylised (a blown-out flash exposure), not photographic; swap in real art later if you want. 🟡 The date stamp reads <code>10 31 '79</code> and is a guess, since the doc never fixes Bix's age.","doc","Sesh 8"],
+  ["The poker chip","NOT BOUGHT · <b>hand Julia a physical blue chip at session one</b> and never explain it. Clay or bone, hand-stamped, nothing a casino ever made — and the same mark should appear on the settlement's seal. The set in the study is exactly one short.","doc","Sesh 8"],
   ["The USB stick","NOT BOUGHT · a real thumb drive handed to the players when the Spirit uploads. Put scream_test_03_GOOD.wav on it — and <b>set its volume label to the kid's name</b>, because Sesh 8 makes the mount the moment the table learns who he is.","doc","the 24 Aug doc paste + Sesh 8"],
   ["The AIM password sticky note","NOT BUILT · <b>the thing that unlocks the whole computer-room scene.</b> A sticky note reading <code>Fluffy123</code>, in handwriting, findable somewhere in the house. The prop's sign-on screen will not proceed without it. Since the account is <b>Poe Boy's</b>, the note is his too — the obvious homes are stuck to the monitor, inside the gear case, or in the ballroom rig downstairs, which would make the party carry it up two floors.","doc","30 Aug · not in doc"],
   ["The wishing willow","NOT BUILT · the second thing in the backpack. A small wooden token with a paper slip — <i>I want Angelique to notice me</i> — in twelve-year-old handwriting. Cheap to make and it is the only physical object connecting a PC to the body.","doc","Sesh 8"],
-  ["The photograph","NOT BUILT · four figures: two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. <b>Bix's whole reveal is this one handout.</b> Hand it over and say nothing.","doc","Sesh 8"],
   ["The concert tickets","NOT BUILT · what Poe Boy's mother gives Simone in the driveway. Only worth printing once the band has a name.","doc","Sesh 8"],
   ["The recording itself","NOT BUILT · the audio that plays over the ballroom PA in phase three. The single biggest table moment in the campaign — and it is a file you hit play on.","doc","the 24 Aug doc paste"]
 ];
@@ -887,11 +942,11 @@ const CENC = [
    verdict:"Below the low line on purpose — the party spends most of its actions body-blocking rather than attacking, so it plays harder than it reads. A second swarm takes it to 600 if you want more pressure.",
    note:"<b>The shears don't attack people.</b> Every turn they move for the article and cut; they only hurt someone who physically interposes. They're also the only cutting things in the room, so it is never ambiguous which enemies matter.<br><br><b>Two shears means two approach lanes</b>, and the party has to cover both with bodies. Killing one halves the pressure immediately, which hands them a target priority without you naming it.<br><br><b>The first cut is the trigger, not an action</b> — they come out of the spine as the trap fires, before initiative. The page always gets cut at least once, with no fudging.<br><br><b>Count the cuts; that's the puzzle.</b> The prop opens on a <b>setup screen</b> — tap the bracket and hand the iPad over. One or two cuts → 9 pieces, three or four → 16, five or more → 25. <b>The timer is gone</b>: nothing is resisting them any more, so it's a jigsaw, and the difficulty they earned in the fight is the whole tension.<br><br>It <b>contains and erases; it does not kill</b>. He's a businessman scrubbing a stigmatised property, not a murderer, and he wouldn't leave something lethal in a public library. That's what makes him frightening eight hours later, when he is willing."},
 
-  {act:"Sunday · early",title:"TBD mansion fight",st:"todo",stl:"Empty",c:"#7c8496",s:"doc",src:"Sesh 6",
-   p:"<b>Nothing is written here.</b> Sesh 6 says a combat gates the way to the computer; it has never said what the combat is. The Gjenganger was Spencer's Sesh 2 offer and his “up to you if we go with it” is still unanswered — draft spec in PROPOSALS.md, canon to nobody.",
-   math:[["Budget · 5 PCs at level 4","1,250 low / 2,500 high"],["A solo CR 5","1,800 XP — swingy, not hard"],["Solo CR 5 + 4× CR ½","2,200 XP"]],
-   verdict:"Whatever fills it, add minions rather than hit points. A lone CR 5 reads as undertuned on the budget and plays as a coin flip.",
-   note:"This is the <b>only empty box in the spine</b>. Cutting the fork helped it — it no longer has to be a convergence point for two branches, just the toll on the way in, which makes it far easier to swap for something that isn't the Gjenganger."},
+  {act:"Saturday · late",title:"The botched summoning",st:"todo",stl:"Named, not statted",c:"#d23a52",s:"doc",src:"Sesh 8",
+   p:"Saturday's one mansion fight. <b>Something Poe Boy called up and couldn't put down</b>, sealed in a room upstairs and left there. Its job is proving the house will actually hurt them after an evening in which nothing has — and it plants that the dangerous things in this building are <b>human-made</b>, which is the thesis the computer room pays off on Sunday.",
+   math:[["Budget · 5 PCs at level 3","750 low / 2,000 high"],["A solo CR 3","700 XP — swingy, not hard"],["Solo CR 3 + 4× CR ½","1,100 XP"],["Lazy benchmark","3.75 CR total · solo cap CR 3"]],
+   verdict:"Add minions rather than hit points. A lone solo at this tier reads as undertuned on the budget and plays as a coin flip.",
+   note:"<b>The doc names it and nothing else.</b> That it is Poe Boy's, what it is, what it does and every number here are codex proposals.<br><br>Design notes if you want them: it should be <b>bound to its room</b> rather than roaming, so it reads as something left behind rather than something hunting; and it should be <b>visibly incomplete</b> — a summoning that half-worked — because that's the tell that a person made it. The party has no way to know whose it is until Sunday.<br><br><b>It replaces the Gjenganger</b>, which Sesh 8 retired by displacement. See the Not Canon tab."},
 
   {act:"Finale · phase 1",title:"The vampires attack",st:"todo",stl:"Not statted",c:"#4fc08a",s:"doc",src:"Sesh 7 + the 24 Aug doc paste",
    p:"Poe Boy tells them the party are the mall company's people — the same lie that killed the kid. They attack believing they are defending their home.",
@@ -913,7 +968,7 @@ const CENC = [
 
   {act:"Held in reserve",title:"The fourth encounter",st:"hold",stl:"Do not plan to use",c:"#5b9bd5",s:"doc",src:"the 24 Aug doc paste",
    p:"Stat one, keep it in your back pocket, and only spend it if a puzzle solves in five minutes and you're running ahead of the clock. Planning to use it is how Sunday overruns.",
-   math:[["Sunday's committed runtime","~4.25 hours with two fights in it"]],
+   math:[["Sunday's committed runtime","~4 hours — and with the corridor cut, only the finale's fights in it"]],
    verdict:"A third Sunday combat costs an hour and pushes the bookend off the table — you'd be cutting the ending to add a fight.",
    note:"<b>Attrition doesn't need initiative order.</b> An encounter costs resources; a combat costs an hour. A hazard room, a chase and a frightened-save scene cost about 40 minutes between them and soften the party more than one extra fight would — and they're genre-correct, because the source material has almost no fights in it. The bolted doors also enforce no long rest from 7PM to sunrise, so short rests are the only pacing lever; decide up front how many the house allows."}
 ];
@@ -921,6 +976,7 @@ const CENC = [
 const CRULES = [
   ["The vampires cannot kill","No Bite on a conscious creature, ever, in first contact or phase one. Grapple, shove, frighten. The mechanics are the clue, and the reveal depends on this being literally true rather than a near miss."],
   ["The USB is keep-away, not a fail state","Poe Boy spends his turns on <i>Command</i> — “Drop.” — to keep the drive off the decks. It buys him rounds. <b>The drive cannot be destroyed</b>, so one bad save never ends the campaign; it just costs time while the party is being shot at."],
+  ["The chip cannot be lost or taken","Gnomey's marker is the deed. Do not let a failed check, a pickpocket or a <i>Command</i> separate him from it — the whole arc dies on one bad roll. It can be <b>demanded</b>, at length, by people being very polite. It cannot be removed."],
   ["Stinky's oath breaks with no saving throw","He hears his best friend stay calm while a kid dies. Devotion's first tenet is <i>don't lie or cheat</i>, and there is no save against that. Rolling for it would put the campaign's best beat on a d20."]
 ];
 
@@ -1054,14 +1110,16 @@ legend.innerHTML=lg;
 const flow=document.getElementById("flow");
 flow.innerHTML=FLOW.map((s,i)=>{
   let inner;
+  const scr=s.script?`<div class="script">${s.script.map(r=>
+    `<div class="sl"><b>${r[0]}</b><span>${r[1]}</span></div>`).join("")}</div>`:"";
   if(s.phases){
     inner=`<div class="card-flow${stClass(s)}" style="border-color:#4a3a1e">
-      <div class="where">${s.where} ${stBadge(s)}</div><h4>${s.title}</h4><p>${s.body}</p>
+      <div class="where">${s.where} ${stBadge(s)}</div><h4>${s.title}</h4><p>${s.body}</p>${scr}
       <div class="fork">
         ${s.phases.map(b=>`<div class="branch p${b.k}"><h5>${b.h}</h5><p>${b.p}</p></div>`).join("")}
       </div></div>`;
   }else{
-    inner=`<div class="card-flow${stClass(s)}"><div class="where">${s.where} ${stBadge(s)}</div><h4>${s.title}</h4><p>${s.body}</p></div>`;
+    inner=`<div class="card-flow${stClass(s)}"><div class="where">${s.where} ${stBadge(s)}</div><h4>${s.title}</h4><p>${s.body}</p>${scr}</div>`;
   }
   let bridge="";
   if(s.bridge){
@@ -1166,7 +1224,10 @@ document.getElementById("docs").innerHTML=DOCS.map(([t,d,st,src])=>`<div class="
   groups.push(["Encounter numbers \u2014 the Combat tab",[
     ["Every number on the Combat tab","The <b>beats</b> are doc (Sesh 6, 7 and the 24 Aug doc paste). The XP budgets, CR picks, HP figures, stat-block chassis and the contents of Saturday's fight are all proposals built against them. Nothing there has been agreed."],
     ["Saturday's fight has no contents","the 24 Aug doc paste says there is one, where it sits, and roughly how long it runs. What is actually in the room is unwritten."],
-    ["The corridor creature","Sesh 6 says a combat gates the computer. It has never said what the combat is."],
+    ["The botched summoning","<b>Sesh 8 names Saturday's mansion fight and nothing else.</b> That it is Poe Boy's, what it is, what it does, and every number are codex proposals."],
+    ["~~Orlok's mortal name~~ — settled 31 Aug","Cornelis Dood <b>is</b> Orlok; Dood is his mortal surname. Ratified by Scott, not yet in the doc."],
+    ["The study door","Deliberately left undefined by Scott, 31 Aug. The room and its contents are Sesh 8; the door is not."],
+    ["The party room","The doc says Bix finds the photograph. A preserved party room from the night Edward and Goblinenon arrived is the codex's placement for it."],
     ["The crowd at the collapse","<b>Resolved 25 Aug</b> \u2014 it was a contradiction between two of your own 24 Aug decisions, not an invention. The two-tier guest list settles it: 7PM card exclusive, 3AM flyer public. Decided by Scott, not in the doc yet."]
   ]]);
   groups.push(["Invented prop texture",[
@@ -1312,11 +1373,11 @@ const TODO_LIST = [
  },
  {
   "id": "s14",
-  "t": "New reasons for the cellar and the choke-point corridor",
+  "t": "The cellar and the corridor — answered in Sesh 8",
   "o": "scott",
   "c": "Puzzle",
   "ref": "24 AUG DOC",
-  "note": "Both rooms were justified by the fork \u2014 the cellar stayed clear for Path A's coffins, the corridor existed so both paths converged on one toll. the 24 Aug doc paste cut the fork. The rooms are still fine; the reasons are gone."
+  "note": "The corridor is cut entirely (Sesh 8). The cellar has a reason again: Vinny kept the bootleg liquor in it from 1920, repeal came in '33 and he never came back for the crates \u2014 and it is where the vampires keep the animals, which is what the food-stash puzzle reveals. One room, two payoffs."
  },
  {
   "id": "r8",
@@ -1385,7 +1446,7 @@ const TODO_LIST = [
   "steps": [
    "Start at the doors bolting and go beat by beat. Every scene has to end owing the next one something.",
    "The fork: how do the players find out there is a choice at all, and does that survive them splitting the party?",
-   "Both paths are supposed to converge on the Gjenganger. Check the floor plan actually supports one shared choke point before committing.",
+   "Superseded: the fork is cut and so is the corridor. Sunday opens on the study and the party room instead.",
    "Reveal order — food stash, the Spirit naming Poe Boy, Angelique's confession, the vampires learning the kid never got out. Decide which lands first and whether any order defuses the others.",
    "Run the clue chain against the two-ways-in rule: the cut-up page, the checkout card, the recording, the coffin count that does not match the Crier.",
    "Pick the Saturday cliffhanger. Ideally just inside the mansion with a thread pulled."
@@ -1417,8 +1478,8 @@ const TODO_LIST = [
   "c": "Story",
   "note": "<b>Sesh 8 closed Bix and Simone \u2014 both have a mansion connection and a real arc now.</b> Gnomey has a connection and no arc; John and Cody have neither. Sesh 5 set the goal of one sprinkle of mansion lore per character; the arc half is the part nobody has written down. Both should be true for all five before the weekend.",
   "steps": [
-   "Bix (Will) — <b>both done, Sesh 8.</b> Mansion: he broke in one rainy night running from a foster home. Arc: Edward is his father, his mother Goblinenon was killed clearing this house, and Edward explains himself in the epilogue. The Sesh 6 diary idea now has an obvious subject.",
-   "Gnomey (Julia) — mansion is done: childhood dares with the crew, and one Halloween that went wrong. Arc is open: street life against the teacher who believes in him, and facing Poe Boy means facing the version of himself he walked away from.",
+   "Bix (Will) — <b>both done, Sesh 8.</b> Mansion: he broke in one rainy night running from a foster home, and the party room is where he finds the photograph. Arc: Edward is his father, his mother Goblinenon was killed clearing this house, and Edward explains himself in the epilogue. The Sesh 6 diary idea now has an obvious subject.",
+   "Gnomey (Julia) — <b>both done, Sesh 8.</b> He owns the house: Great Uncle Vinny won it off Orlok at cards in 1931 and the deed runs with the poker chip in Julia's pocket. Arc is quiet-and-overlooked to head of household, found alone in the study and paid off with the public claim and the renewal at the threshold. Childhood dares and the bad Halloween still stand underneath it.",
    "Simone — <b>both done, Sesh 8.</b> Mansion: she sold the dead kid the wishing willow he wished on. Arc: the second ask, the goat's price, the smashed piggy bank, and the concert she gets anyway from the last person she'd want it from.",
    "John — nothing on either side yet. Scott's blood-connection idea from the doc comments fits him best. Arc hangs off the insecurity he names, plus the fact that Poe Boy is running the same programme he is.",
    "Cody — both, once the bio arrives."
@@ -1438,7 +1499,7 @@ const TODO_LIST = [
   "o": "both",
   "c": "Story",
   "ref": "SESH 5",
-  "note": "Each backstory looks vampire-related but turns out to be something else — the trapped spirit, the Gjenganger, whatever else."
+  "note": "Each backstory looks vampire-related but turns out to be something else — the trapped spirit, the botched summoning, whatever else."
  },
  {
   "id": "s10",
@@ -1517,7 +1578,7 @@ const TODO_LIST = [
   "note": "Distinct from the arc item, and this half is room design rather than backstory. Sesh 5 wanted one sprinkle of mansion lore per character; what that actually needs is a physical thing they walk into — a room, an object, an encounter that lands for one player and reads as set dressing to everyone else. Two of five have the backstory hook for it; none of five has the beat. The proposals below are mine, not canon.",
   "steps": [
    "Bix — the room he sheltered in that rainy night, still the way he left it, with something in it that contradicts his memory: a second bedroll, a door barred from the inside, the diary. He thinks he knows what happened to him here. The house disagrees.",
-   "Gnomey — the Halloween the dares went wrong, made physical: the window the crew broke, boarded from the inside, and their initials scratched into the sill with Poe Boy's among them. Proof in front of the whole party that he used to be one of them.",
+   "Gnomey — SUPERSEDED by Sesh 8. His house moment is the study: a poker set one chip short, the last hand still on the table, and a strongbox with the deed and the 1931 settlement. The old suggestion (the broken window with the crew's initials in the sill) is still a nice free detail if you want it somewhere else.",
    "Simone — she is the only PC who would recognise a soul cage for what it is. Give her the moment of naming what was done in the computer room out loud, before anyone else understands it. (Proposal only — this was a codex invention, never discussed by either of you.)",
    "John — the blood connection, if it goes to him: a portrait, a deed, or a name cut into the Builder's Stone that matches his own. The bully finds out the house is family, in front of everyone he performs for.",
    "Cody — open until the bio arrives.",
@@ -1534,7 +1595,7 @@ const TODO_LIST = [
  },
  {
   "id": "p3",
-  "t": "Computer room: Gjenganger fight gates the machine",
+  "t": "Computer room \u2014 the gating fight is CUT (Sesh 8)",
   "o": "scott",
   "c": "Puzzle",
   "ref": "SESH 6",
@@ -1585,7 +1646,7 @@ const TODO_LIST = [
   "note": "the 24 Aug doc paste set the count at three fights plus one held in reserve, and the <b>Combat tab</b> now carries the budget for every one of them. What is left is the stat lines \u2014 nothing below is statted yet. Each needs a stat line, a terrain, and an exit that is not a TPK.",
   "steps": [
    "Saturday's one fight \u2014 ~600 XP of fragile bodies at level 3. Telegraph anything with a save-or-suck.",
-   "The corridor set-piece \u2014 blocked on picking a creature. Whatever it is, a solo CR 5 plus four CR \u00bd minions lands at 2,200 against a 2,500 ceiling.",
+   "Superseded by Sesh 8: the corridor set-piece is cut. Saturday's mansion fight is a botched summoning at level 3 \u2014 a solo CR 3 plus four CR \u00bd minions lands at 1,100 against a 2,000 ceiling.",
    "Phase 1: the vampires. Not budgeted \u2014 they cannot kill a PC, so it is a pressure scene. Write the grapple/shove/frighten kit as an actual action list.",
    "Phase 2: the developer plus six thugs, 2,400 XP. Arcane Ward, Seal, Counterspell, Shield, Hold Person. No damage spells.",
    "Phase 3: Poe Boy ~CR 5 with 4 legendary actions, Lil Stinky ~CR 3 with Aura of Protection. Plus three vampires as allies.",
@@ -1603,7 +1664,7 @@ const TODO_LIST = [
   "steps": [
    "<b>Town is combat-free by decision</b>, not omission \u2014 the 24 Aug doc paste says so explicitly.",
    "<b>Saturday's fight is now in town</b> — the trap in the bound volume, 500 XP. That reverses the 24 Aug doc paste on two counts and leaves the mansion with no combat until Sunday morning.",
-   "The corridor set-piece covers the Sunday investigation stretch \u2014 as long as the creature question gets answered.",
+   "Superseded by Sesh 8: the corridor is cut. Sunday's investigation stretch is now the study, the party room, the computer and the cellar \u2014 and Cody's and John's rooms are still blank.",
    "The finale is three phases in one continuous sequence, so it covers the whole back end.",
    "Sanity check: no stretch should run much past ninety minutes with neither a fight nor a puzzle paying off. Use hazards and chases rather than a fourth combat \u2014 they cost ten minutes, not fifty."
   ]
@@ -1856,8 +1917,8 @@ const TODO_LIST = [
   "t": "Use the Gjenganger at all?",
   "o": "scott",
   "c": "Decision",
-  "ans": "Parked — see PROPOSALS.md",
-  "note": "Was answered Yes, then parked. Spencer's Sesh 2 line was 'Up to you if we go with it' and by Sesh 6 he had written it a backstory and a combat plan anyway. The whole creature — motive, whether it is Cornelis Dood, stat block, encounter — is now on hold in PROPOSALS.md, agreed to by nobody. It is currently the only set-piece encounter, so a no needs a replacement."
+  "ans": "RETIRED in Sesh 8 — by displacement",
+  "note": "Answered without anyone answering it. Sesh 8 gave Sesh 6's lonely-original-owner backstory to Orlok, cut the corridor set-piece the creature was going to fill, and named Saturday's mansion fight as a botched summoning. Spencer's 'Up to you if we go with it' has therefore been overtaken by a schedule change — TELL HIM DIRECTLY, it was his find. Dead spec kept in PROPOSALS.md."
  },
  {
   "id": "q10",

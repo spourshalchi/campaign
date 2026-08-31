@@ -5,7 +5,28 @@ doesn't get lost and doesn't leak into the codex as fact. See `/CANON.md` for wh
 
 ---
 
-## Cornelis Dood / the Gjenganger — STILL PARKED (2026-08-23)
+## Cornelis Dood / the Gjenganger — ⚰️ DEAD (2026-08-31)
+
+> **Retired by Sesh 8, by displacement rather than by decision.**
+>
+> 1. **Orlok took the backstory.** The paste makes Orlok the man who built the house, never married,
+>    had no children, and was dying alone by his own hand when Dracula turned him — which is Sesh 6's
+>    original-owner description, now spent on a character who is already in the story.
+> 2. **The corridor set-piece is cut.** The encounter the creature existed to fill no longer exists.
+> 3. **Saturday's mansion combat is a botched summoning** instead.
+>
+> Spencer's *"up to you if we go with it"* has therefore been answered without anyone answering it.
+> **That is worth telling him directly** — the Gjenganger was his find, and losing it to a schedule
+> change rather than to a no is the kind of thing that should not be discovered in a beat sheet.
+>
+> Everything below is kept as dead work, in case the creature is ever wanted back. Note that its
+> Cornelis Dood dependency is now fatal rather than awkward: **Scott ratified on 31 Aug that Cornelis
+> Dood *is* Orlok** — Dood is his mortal surname. The builder this creature was going to be is a
+> vampire standing in the ballroom, so the backstory is not available to anything else.
+
+---
+
+## Cornelis Dood / the Gjenganger — previously parked (2026-08-23)
 
 > **the 24 Aug doc paste update (24 Aug 2026).** The finale was designed end to end and pasted into the doc, and it
 > touches this proposal in two ways:

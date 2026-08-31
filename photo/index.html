@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="The Photograph">
+<meta name="theme-color" content="#0b0a0c">
+<title>The Photograph — Bix's room</title>
+<style>
+  /* ============================================================
+     THE PHOTOGRAPH — found in the party room. Bix's beat.
+
+     Sesh 8: "Eventually they find a photograph: Four figures.
+     Two vampires mugging, a pregnant goblin laughing, and a fae
+     with no fangs."
+
+     HOW TO RUN IT: hand the iPad to Will face-up. Let him look.
+     Do not narrate who anyone is. He works out the goblin before
+     he works out the fae. THEN let him turn it over.
+
+     ⚠ THE YEAR IS A GUESS. The doc never fixes Bix's age, so it
+     never fixes this date. Bix is an early-to-mid-20s super
+     senior in 2004 and was born ~9 months after the cart broke
+     down, which puts this somewhere around '79-'80. The stamp is
+     one string — search DATESTAMP and change it.
+
+     ⚠ THE ART IS STYLISED, NOT PHOTOGRAPHIC. It is drawn as a
+     blown-out flash exposure in a dark room, which is what a
+     cheap camera in 1979 actually produced and which is also the
+     only honest way to draw four people in SVG. Swap in real art
+     later if you want; everything else here still works.
+     ============================================================ */
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0;height:100%}
+  body{
+    background:#08070a;
+    background-image:radial-gradient(ellipse at 50% 34%, #17141c 0%, #08070a 72%);
+    overflow:hidden; overscroll-behavior:none;
+    -webkit-user-select:none; user-select:none;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:#9c93a6;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:calc(env(safe-area-inset-top) + 14px) 16px calc(env(safe-area-inset-bottom) + 14px);
+    gap:22px;
+  }
+
+  /* ---------- the polaroid ---------- */
+  #scene{perspective:1600px; width:min(88vw, 62vh, 430px)}
+  #card{
+    position:relative; width:100%; aspect-ratio:1/1.20;
+    transform-style:preserve-3d; transition:transform .85s cubic-bezier(.3,.7,.2,1);
+    cursor:pointer;
+  }
+  #card.flipped{transform:rotateY(180deg)}
+  .face{
+    position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden;
+    border-radius:3px; overflow:hidden;
+    box-shadow:0 26px 54px rgba(0,0,0,.82), 0 2px 0 rgba(255,255,255,.05) inset;
+  }
+
+  /* FRONT — polaroid stock: image window + fat bottom border */
+  .front{
+    background:linear-gradient(178deg,#efeae0 0%,#e7e0d3 62%,#dcd3c2 100%);
+    padding:5.2% 5.2% 20% 5.2%;
+    transform:rotate(0deg);
+  }
+  .front:after{
+    /* age on the white stock */
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:
+      radial-gradient(circle at 8% 94%, rgba(150,116,58,.26) 0%, transparent 22%),
+      radial-gradient(circle at 93% 7%, rgba(150,116,58,.20) 0%, transparent 18%);
+  }
+  .window{
+    position:relative; width:100%; height:100%; border-radius:1px; overflow:hidden;
+    background:#0a0810;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.35);
+  }
+  .window svg{display:block; width:100%; height:100%}
+
+  .caption{
+    position:absolute; left:6%; right:6%; bottom:4.4%;
+    font-family:"Bradley Hand","Chalkboard SE","Segoe Script",cursive;
+    font-size:clamp(15px,3.9vw,20px); color:#2c3550; opacity:.9;
+    transform:rotate(-1.1deg); text-align:center;
+  }
+
+  /* BACK */
+  .back{
+    transform:rotateY(180deg);
+    background:linear-gradient(176deg,#e9e2d4 0%,#ded5c3 100%);
+    padding:11% 10%;
+    display:flex; flex-direction:column; justify-content:center; gap:5.5%;
+  }
+  .back:after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:
+      radial-gradient(circle at 88% 88%, rgba(150,116,58,.28) 0%, transparent 24%),
+      radial-gradient(circle at 12% 12%, rgba(150,116,58,.18) 0%, transparent 20%);
+  }
+  .hand{
+    font-family:"Bradley Hand","Chalkboard SE","Segoe Script",cursive;
+    color:#25324e; line-height:1.55;
+    font-size:clamp(16px,4.3vw,22px);
+    transform:rotate(-.8deg);
+  }
+  .hand.small{font-size:clamp(14px,3.6vw,18px); opacity:.86; transform:rotate(-.3deg)}
+  .lab{
+    font-family:"American Typewriter","Courier New",monospace;
+    font-size:clamp(9px,2.3vw,11px); letter-spacing:.22em; text-transform:uppercase;
+    color:#8d7c5e; opacity:.75;
+  }
+  .backstamp{
+    position:absolute; right:8%; bottom:7%;
+    font-family:"American Typewriter","Courier New",monospace;
+    font-size:clamp(9px,2.3vw,11px); letter-spacing:.14em;
+    color:#9a8a6c; opacity:.6; text-align:right; line-height:1.5;
+  }
+
+  /* ---------- chrome ---------- */
+  h1{
+    margin:0; font-size:clamp(11px,2.7vw,13px); font-weight:400;
+    letter-spacing:.3em; text-transform:uppercase; color:#5d5566; text-align:center;
+  }
+  #hint{
+    margin:0; font-size:clamp(11.5px,2.9vw,13px); letter-spacing:.19em;
+    text-transform:uppercase; color:#544c5e; text-align:center;
+    animation:pulse 2.8s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:.4}50%{opacity:.95}}
+</style>
+</head>
+<body>
+
+<h1>Found in the party room</h1>
+
+<div id="scene">
+  <div id="card" role="button" tabindex="0" aria-label="Photograph — tap to turn it over">
+
+    <!-- ================= FRONT ================= -->
+    <div class="face front">
+      <div class="window">
+        <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <!-- the flash: hot in the middle, gone by the edges -->
+            <radialGradient id="flash" cx="50%" cy="46%" r="64%">
+              <stop offset="0%"   stop-color="#fff3dc" stop-opacity=".95"/>
+              <stop offset="34%"  stop-color="#e8c898" stop-opacity=".52"/>
+              <stop offset="68%"  stop-color="#5d4130" stop-opacity=".22"/>
+              <stop offset="100%" stop-color="#0a0810" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="rim" cx="50%" cy="40%" r="60%">
+              <stop offset="0%" stop-color="#ffe9c4" stop-opacity=".85"/>
+              <stop offset="100%" stop-color="#ffe9c4" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%"   stop-color="#241a22"/>
+              <stop offset="60%"  stop-color="#140f18"/>
+              <stop offset="100%" stop-color="#0a0810"/>
+            </linearGradient>
+            <filter id="grain">
+              <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="3" seed="7"/>
+              <feColorMatrix type="saturate" values="0"/>
+              <feComponentTransfer><feFuncA type="linear" slope=".16"/></feComponentTransfer>
+            </filter>
+            <filter id="soft"><feGaussianBlur stdDeviation="1.1"/></filter>
+            <filter id="glow"><feGaussianBlur stdDeviation="7"/></filter>
+          </defs>
+
+          <!-- room -->
+          <rect width="400" height="400" fill="url(#wall)"/>
+          <!-- a doorway and picture rail, barely there -->
+          <rect x="16" y="52" width="58" height="188" fill="#0b0810" opacity=".85"/>
+          <rect x="0" y="47" width="400" height="2" fill="#3b2c34" opacity=".5"/>
+          <!-- floor -->
+          <rect y="318" width="400" height="82" fill="#0d0912"/>
+          <rect y="316" width="400" height="3" fill="#38292f" opacity=".55"/>
+
+          <!-- clutter: bottles + the record player, catching flash -->
+          <g opacity=".9">
+            <rect x="300" y="286" width="13" height="34" rx="3" fill="#1d2418"/>
+            <rect x="302" y="290" width="4"  height="26" fill="#4d5f3a" opacity=".7"/>
+            <rect x="318" y="292" width="11" height="28" rx="3" fill="#22190f"/>
+            <rect x="320" y="296" width="3"  height="20" fill="#6b5228" opacity=".65"/>
+            <rect x="336" y="298" width="12" height="22" rx="2" fill="#191b22"/>
+            <!-- turntable on a low table, lid up -->
+            <rect x="24" y="272" width="86" height="46" rx="3" fill="#171018"/>
+            <rect x="24" y="270" width="86" height="5"  rx="2" fill="#3a2b25" opacity=".8"/>
+            <circle cx="67" cy="292" r="17" fill="#0c090e"/>
+            <circle cx="67" cy="292" r="17" fill="none" stroke="#6b5b46" stroke-width=".8" opacity=".55"/>
+            <circle cx="67" cy="292" r="3.2" fill="#a08a5e" opacity=".7"/>
+          </g>
+
+          <!-- flash falloff on the ROOM, before the figures are drawn.
+               Lighting the room and then lighting the people on top of it
+               is the difference between a photo and a fog bank. -->
+          <rect width="400" height="400" fill="url(#flash)" opacity=".42"/>
+
+          <!-- ============ FIGURES ============
+               L→R: ORLOK, GOBLINENON (pregnant, laughing),
+                    EDWARD (apart, not mugging), DRACULA.
+               Drawn as near-silhouettes with a hard flash edge —
+               which is what a cheap flash in a dark room does. -->
+
+          <!-- ORLOK — hunched, hairless, pointed ears, claws up beside the head.
+               He is doing a bit and he is not enjoying it. -->
+          <g>
+            <!-- narrow stooped body, shoulders rounded forward -->
+            <path d="M106 318 L108 196 q2-15 13-17 q11 2 12 17 L133 318 Z" fill="#0b0810"/>
+            <path d="M108 200 q12-9 24 0" fill="#0b0810"/>
+            <!-- gaunt skull, taller than wide -->
+            <ellipse cx="120" cy="172" rx="12" ry="16" fill="#0e0b11"/>
+            <!-- the ears: long, pointed, standing off the skull -->
+            <path d="M109 168 L100 150 L112 162 Z" fill="#0e0b11"/>
+            <path d="M131 168 L140 150 L128 162 Z" fill="#0e0b11"/>
+            <!-- flash on the dome and one cheekbone -->
+            <ellipse cx="116" cy="164" rx="8" ry="10" fill="url(#rim)" opacity=".62"/>
+            <ellipse cx="114" cy="181" rx="4" ry="5"  fill="url(#rim)" opacity=".34"/>
+            <!-- sunken eyes, no highlight in them -->
+            <ellipse cx="115" cy="171" rx="2.6" ry="3.4" fill="#000" opacity=".92"/>
+            <ellipse cx="126" cy="171" rx="2.6" ry="3.4" fill="#000" opacity=".92"/>
+            <path d="M115 185 q5 2 10 0" stroke="#000" stroke-width="1.5" fill="none"
+                  stroke-linecap="round" opacity=".55"/>
+            <!-- long fingers raised beside the face, lit at the tips -->
+            <path d="M100 214 l-6-30 M105 214 l-3-33 M110 215 l0-33"
+                  stroke="#0e0b11" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <path d="M100 208 l-5-24 M105 208 l-2-26 M110 209 l0-26"
+                  stroke="#e2c294" stroke-width="1.1" stroke-linecap="round" fill="none" opacity=".62"/>
+          </g>
+
+          <!-- GOBLINENON — short, round, head thrown back laughing, hand on the belly -->
+          <g>
+            <path d="M160 318 L160 246 q0-14 10-18 q-4-16 10-18 q14 2 10 18 q10 4 10 18 L200 318 Z"
+                  fill="#0e1210"/>
+            <!-- the belly, and the hand resting on it: the thing Will sees first -->
+            <ellipse cx="181" cy="272" rx="24" ry="21" fill="#111614"/>
+            <ellipse cx="176" cy="266" rx="14" ry="12" fill="url(#rim)" opacity=".34"/>
+            <path d="M166 276 q8 7 19 4" stroke="#c6a880" stroke-width="3" fill="none"
+                  stroke-linecap="round" opacity=".55"/>
+            <!-- head, tipped back mid-laugh -->
+            <g transform="rotate(-13 181 224)">
+              <ellipse cx="181" cy="224" rx="15" ry="14" fill="#121815"/>
+              <ellipse cx="177" cy="219" rx="9" ry="8" fill="url(#rim)" opacity=".62"/>
+              <!-- ears -->
+              <path d="M166 222 l-11 -7 l9 11 Z" fill="#121815"/>
+              <path d="M196 222 l11 -7 l-9 11 Z" fill="#121815"/>
+              <!-- open mouth, eyes squeezed shut -->
+              <ellipse cx="182" cy="230" rx="5.2" ry="4" fill="#0a0605" opacity=".9"/>
+              <path d="M172 220 q4 -3 8 0 M186 220 q4 -3 8 0"
+                    stroke="#0a0605" stroke-width="1.7" fill="none" stroke-linecap="round" opacity=".8"/>
+            </g>
+          </g>
+
+          <!-- EDWARD — half a step apart, turned toward her, not performing.
+               Pale shirt and actual hair, so he does not read as another pillar. -->
+          <g>
+            <!-- open coat, dark, over a pale shirt -->
+            <path d="M226 318 L226 206 q0-16 15-18 q15 2 15 18 L256 318 Z" fill="#0b0a12"/>
+            <path d="M236 318 L236 210 q5-4 10 0 L246 318 Z" fill="#5e5449" opacity=".82"/>
+            <path d="M236 318 L236 210 q5-4 10 0 L246 318 Z" fill="url(#rim)" opacity=".34"/>
+            <!-- head, tilted toward the goblin -->
+            <g transform="rotate(7 241 188)">
+              <ellipse cx="241" cy="188" rx="12" ry="14" fill="#12101a"/>
+              <!-- hair: a soft mass, not a bald dome -->
+              <path d="M229 184 q2-15 12-15 q11 0 12 15 q-6-7 -12-6 q-7-1 -12 6 Z" fill="#0d0b13"/>
+              <!-- he is the brightest face in the frame and it reads wrong -->
+              <ellipse cx="239" cy="190" rx="9" ry="10" fill="url(#rim)" opacity=".82"/>
+              <ellipse cx="236" cy="187" rx="1.9" ry="2.4" fill="#241a14" opacity=".85"/>
+              <ellipse cx="245" cy="187" rx="1.9" ry="2.4" fill="#241a14" opacity=".85"/>
+              <!-- a small closed smile. NO FANGS. That is the whole point. -->
+              <path d="M235 196 q6 3 11 -1" stroke="#2a1e18" stroke-width="1.5"
+                    fill="none" stroke-linecap="round" opacity=".7"/>
+            </g>
+            <!-- arm reaching toward her, half out of frame -->
+            <path d="M228 230 q-15 9 -22 20" stroke="#0b0a12" stroke-width="9"
+                  fill="none" stroke-linecap="round"/>
+          </g>
+
+          <!-- DRACULA — cape wide, arms out, absolutely committed -->
+          <g>
+            <path d="M262 318 q22 -104 46 -128 q24 24 46 128 Z" fill="#120a10"/>
+            <path d="M270 300 q24 -92 38 -108 q14 16 38 108 Z" fill="#1a0d14" opacity=".9"/>
+            <path d="M296 318 L296 200 q0-14 12-16 q12 2 12 16 L320 318 Z" fill="#0d080c"/>
+            <ellipse cx="308" cy="182" rx="13" ry="15" fill="#110a10"/>
+            <ellipse cx="304" cy="176" rx="8" ry="9" fill="url(#rim)" opacity=".6"/>
+            <!-- arms flung out under the cape -->
+            <path d="M296 210 q-26 6 -34 22" stroke="#120a10" stroke-width="10"
+                  fill="none" stroke-linecap="round"/>
+            <path d="M320 210 q26 6 34 22" stroke="#120a10" stroke-width="10"
+                  fill="none" stroke-linecap="round"/>
+            <!-- the fangs, and he is making sure they are in the picture -->
+            <ellipse cx="303" cy="181" rx="2.2" ry="2.8" fill="#000" opacity=".8"/>
+            <ellipse cx="313" cy="181" rx="2.2" ry="2.8" fill="#000" opacity=".8"/>
+            <path d="M304 189 l1.6 5 M312 189 l-1.6 5"
+                  stroke="#f4e4c6" stroke-width="2.1" stroke-linecap="round" opacity=".92"/>
+            <path d="M303 188 q5 3 10 0" stroke="#0a0405" stroke-width="2.4"
+                  fill="none" stroke-linecap="round" opacity=".75"/>
+          </g>
+
+          <!-- 1979 film grade, kept light so the figures survive it -->
+          <rect width="400" height="400" fill="#c47a2e" opacity=".07" style="mix-blend-mode:overlay"/>
+          <radialGradient id="vig" cx="50%" cy="50%" r="72%">
+            <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#000" stop-opacity=".62"/>
+          </radialGradient>
+          <rect width="400" height="400" fill="url(#vig)"/>
+          <rect width="400" height="400" filter="url(#grain)" opacity=".40"/>
+
+          <!-- DATESTAMP — orange, burned into the corner by the camera -->
+          <text x="376" y="382" text-anchor="end"
+                font-family="'American Typewriter',Courier,monospace" font-size="17"
+                fill="#ff8a2b" opacity=".82" letter-spacing="1.5"
+                style="filter:url(#glow)">10 31 &rsquo;79</text>
+          <text x="376" y="382" text-anchor="end"
+                font-family="'American Typewriter',Courier,monospace" font-size="17"
+                fill="#ffc98a" opacity=".95" letter-spacing="1.5">10 31 &rsquo;79</text>
+        </svg>
+      </div>
+      <div class="caption">the night the cart broke</div>
+    </div>
+
+    <!-- ================= BACK ================= -->
+    <div class="face back">
+      <div>
+        <div class="lab">In pencil, a goblin's hand</div>
+        <p class="hand" style="margin:6px 0 0">
+          Orlok &amp; Drac being idiots.<br>
+          Me + E.<br>
+          <span style="opacity:.9">&mdash; and the little one, who is already kicking</span>
+        </p>
+      </div>
+
+      <div>
+        <p class="hand small" style="margin:0">
+          Said we&rsquo;d stay a week.
+        </p>
+        <p class="hand small" style="margin:8px 0 0; opacity:.75">
+          That was nine months ago and I have not once
+          been bored, which has never happened to me
+          anywhere else.
+        </p>
+      </div>
+
+      <div class="backstamp">
+        THIS SIDE FOR<br>CORRESPONDENCE
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<p id="hint">Tap to turn it over</p>
+
+<script>
+(function(){
+  "use strict";
+  var card = document.getElementById("card");
+  var hint = document.getElementById("hint");
+  var seen = false;
+
+  function flip(){
+    var on = card.classList.toggle("flipped");
+    hint.textContent = on ? "Tap to turn it back" : "Tap to turn it over";
+    if(!seen){ seen = true; }
+  }
+
+  card.addEventListener("click", flip);
+  card.addEventListener("keydown", function(e){
+    if(e.key === "Enter" || e.key === " "){ e.preventDefault(); flip(); }
+  });
+
+  /* iOS: kill pinch-zoom and double-tap zoom, per CLAUDE.md */
+  document.addEventListener("touchmove", function(e){
+    if(e.scale !== undefined && e.scale !== 1) e.preventDefault();
+  }, {passive:false});
+  document.addEventListener("gesturestart", function(e){ e.preventDefault(); });
+
+  var lastTouch = 0;
+  document.addEventListener("touchend", function(e){
+    var now = Date.now();
+    if(now - lastTouch <= 320) e.preventDefault();
+    lastTouch = now;
+  }, {passive:false});
+})();
+</script>
+</body>
+</html>

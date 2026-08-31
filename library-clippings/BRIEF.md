@@ -16,11 +16,14 @@
 >    archival shears cut the article up in front of them. That's where the torn page comes from.
 >    Springing the trap is also what puts the developer in his car — he is an abjurer who set it
 >    himself, and he is the only character who dies in the campaign.
-> 4. **This is Saturday's fight**, and it's in town — which reverses the finale paste's "town has no combat"
->    and moves the Saturday fight out of the mansion. The mansion's fight is now early Sunday.
+> 4. **This is a Saturday fight**, and it's in town — which reverses the finale paste's "town has no combat."
+>    **The mansion also has its own Saturday fight** (Sesh 8): a botched summoning, late, after
+>    they're locked in. The corridor set-piece that used to open Sunday is cut.
 > 5. **There's a checkout card** in the back pocket of the volume: an old borrower (**E. Hoeck** —
->    the blood-tie hook, currently John) and a recent one (**U. M. Livingsworth III** — Poe Boy's
->    real name, which nobody at the table will recognise until the driveway at sunrise).
+>    texture now — the blood-tie hook was dropped 31 Aug), **V. Soprano**, 1938 — Gnomey's great-uncle,
+>    who has owned this house since he won it off Orlok at cards in 1931, and the one place his name
+>    appears before the study — and **U. M. Livingsworth III**, Poe Boy's real name, which nobody at
+>    the table will recognise until the driveway at sunrise.
 > 3. **The fourth crew member is cut** (Sesh 8) and the DJ flyer bills three.
 >
 > Also settled since this was written: the party is level 3 → 4, and it is a hall of records with
@@ -155,19 +158,26 @@ let one handout seed three threads.
 - **Gnomey Soprano** (Julia) — gnome rogue. Used to be in Poe Boy's crew in middle school;
   fell out over Poe Boy skimming a bigger cut of their silly-banz money. The crew used to
   throw rocks at the mansion windows and dare each other to ring the doorbell; one Halloween
-  something happened.
+  something happened. **And as of Sesh 8, he owns the house** — his great-uncle
+  Vinny won it off Orlok at cards in 1931 and the deed runs with a poker chip in Julia's
+  pocket. **This is the room where that gets hinted**, per Spencer's note: `V. Soprano` on the
+  checkout card, 1938, reading up on the hill he'd just won.
 - **Simone** — goth warlock who worships a black goat with an upside-down red cross on its
   face. Sells love spells and revenge spells to fund a satanic metal show at the end of the
   school year. **Sesh 8: she sold the dead kid the wishing willow he wished on** — *I want
   Angelique to notice me* — which is why Angelique knew him well enough to be handed a keyboard,
   and why she still can't stop noticing him.
 - **John** — bully bard (College of Whispers leaning). His words are literally the weapon.
-  The insecurity underneath the bully act is his to name — still to be asked. No mansion
-  connection yet; Scott's blood-connection idea is the obvious fit.
+  The insecurity underneath the bully act is his to name — still to be asked. **No mansion
+  connection, and nothing standing in for one:** the blood-tie hook that used to be pointed at
+  him was dropped 31 Aug, and a new connection is to be invented from scratch.
 - **Cody** — has not submitted a character yet. Blocking. Separate player from John: the
   party is five.
 - Scott floated that one PC could be connected to the mansion by blood — a great-grandparent
   built it or died there. Spencer liked it and said the library is a good place to hint at it.
+  **Resolved as a deed, not a bloodline:** Gnomey's great-uncle Vinny won the house at cards in
+  1931, and the hint lives here on the card as `V. Soprano`, 1938. **The blood version is dropped**
+  (31 Aug) rather than re-homed — John gets a new connection built from scratch.
 
 ---
 
@@ -177,7 +187,9 @@ let one handout seed three threads.
    look nothing alike and imply different NPCs.
 2. **How explicit is the staking method?** It is the fight-branch payoff, so how plainly the
    fampier story spells out "splinter, heart, rebury" sets that whole branch's difficulty.
-3. **Is the Gjenganger in?** If yes, the runic-inscription burial rite belongs here as a
+3. ~~**Is the Gjenganger in?**~~ — **retired in Sesh 8.** Orlok took its lonely-original-owner
+   backstory and the corridor set-piece was cut. The runic-inscription material is now free
+   texture rather than a plant. Originally: If yes, the runic-inscription burial rite belongs here as a
    second, quieter method — and foreshadows the fight guarding the computer.
 4. **Print or prop?** Sesh 7 says print. But the repo builds interactive iPad props, and a
    microfiche reader or a card catalog terminal is a strong retro UI metaphor if it earns it.

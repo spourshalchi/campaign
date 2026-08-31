@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Settlement">
+<meta name="theme-color" content="#1a1410">
+<title>Articles of Settlement — 14 November 1931</title>
+<style>
+  /* ============================================================
+     ARTICLES OF SETTLEMENT — the strongbox document in the study.
+     Sesh 8. The night Vinny Soprano won Dood Mansion off Orlok.
+
+     Two hands on this page:
+       - VINNY   drafted the body. Loose, fast, a fountain pen he
+                 has not cleaned. Blue-black, blots.
+       - ORLOK   signed, and wrote one line. Old copperplate,
+                 pressed hard enough to score the paper.
+
+     THE JOKE AND THE PLOT ARE THE SAME THING:
+     every paragraph on this page has corrections in it EXCEPT
+     the bearer clause. Two drunk men stopped joking for exactly
+     as long as it took to write the part that mattered.
+     Do not "tidy" the rest of it. The mess is load-bearing.
+     ============================================================ */
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0;height:100%}
+  body{
+    background:#0d0a08;
+    background-image:
+      radial-gradient(ellipse at 50% 30%, #241a12 0%, #0d0a08 70%);
+    overflow:hidden; overscroll-behavior:none;
+    font-family:"American Typewriter","Courier New",Courier,monospace;
+    -webkit-user-select:none; user-select:none;
+    color:#d8c7a8;
+  }
+
+  /* ---------- SPLASH: the folded document ---------- */
+  #splash{
+    position:fixed; inset:0; z-index:50;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:28px; padding:calc(env(safe-area-inset-top) + 20px) 20px;
+    background:radial-gradient(ellipse at 50% 45%, #1c1510 0%, #080605 75%);
+    transition:opacity .7s ease, visibility .7s;
+  }
+  #splash.gone{opacity:0; visibility:hidden}
+  .folded{
+    width:min(62vw,300px); aspect-ratio:1/1.35;
+    background:
+      linear-gradient(105deg, rgba(0,0,0,.30) 0 1px, transparent 1px 100%) 33% 0/33.4% 100% no-repeat,
+      linear-gradient(105deg, rgba(0,0,0,.30) 0 1px, transparent 1px 100%) 66% 0/33.4% 100% no-repeat,
+      linear-gradient(178deg,#d9c8a4 0%,#cbb894 40%,#c0ac86 100%);
+    border-radius:2px;
+    box-shadow:
+      0 26px 50px rgba(0,0,0,.75),
+      inset 0 0 60px rgba(120,86,44,.30),
+      inset 0 0 140px rgba(60,38,14,.22);
+    position:relative;
+    animation:breathe 5.5s ease-in-out infinite;
+  }
+  @keyframes breathe{0%,100%{transform:translateY(0) rotate(-.7deg)}50%{transform:translateY(-7px) rotate(.5deg)}}
+  .folded:before{
+    /* the fold creases, catching light */
+    content:""; position:absolute; inset:0; border-radius:2px;
+    background:
+      linear-gradient(90deg, transparent 32.4%, rgba(255,255,255,.34) 33.2%, transparent 34%),
+      linear-gradient(90deg, transparent 65.4%, rgba(255,255,255,.34) 66.2%, transparent 67%);
+  }
+  .folded:after{
+    /* age at the edges */
+    content:""; position:absolute; inset:0; border-radius:2px;
+    box-shadow:inset 0 0 34px rgba(74,45,16,.55);
+    background:
+      radial-gradient(circle at 12% 88%, rgba(112,72,26,.36) 0%, transparent 26%),
+      radial-gradient(circle at 88% 14%, rgba(112,72,26,.28) 0%, transparent 22%);
+  }
+  .folded .ink{
+    position:absolute; left:0; right:0; top:38%;
+    text-align:center; color:#2b2118; opacity:.62;
+    font-family:"Snell Roundhand","Apple Chancery",cursive;
+    font-size:clamp(17px,4.6vw,24px); letter-spacing:.02em; line-height:1.5;
+    transform:rotate(-1.2deg);
+  }
+  #splash h1{
+    margin:0; font-size:clamp(15px,3.6vw,19px); font-weight:400;
+    letter-spacing:.30em; text-transform:uppercase; color:#8a7454; text-align:center;
+  }
+  #splash p{
+    margin:0; font-size:clamp(12.5px,3vw,14.5px); color:#5f5140;
+    letter-spacing:.16em; text-transform:uppercase; text-align:center;
+    animation:pulse 2.6s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:.42}50%{opacity:.95}}
+
+  /* ---------- THE DOCUMENT ---------- */
+  #stage{
+    position:absolute; inset:0; overflow-y:auto; overflow-x:hidden;
+    -webkit-overflow-scrolling:touch;
+    padding:calc(env(safe-area-inset-top) + 26px) 14px calc(env(safe-area-inset-bottom) + 90px);
+    display:flex; justify-content:center; align-items:flex-start;
+  }
+  #sheet{
+    width:min(100%,660px); position:relative;
+    padding:44px 34px 40px;
+    color:#2a2018;
+    background:
+      radial-gradient(circle at 14% 8%,  rgba(146,96,34,.16) 0%, transparent 20%),
+      radial-gradient(circle at 88% 22%, rgba(146,96,34,.13) 0%, transparent 17%),
+      radial-gradient(circle at 72% 91%, rgba(120,78,26,.18) 0%, transparent 22%),
+      radial-gradient(circle at 6% 62%,  rgba(120,78,26,.11) 0%, transparent 15%),
+      linear-gradient(176deg,#e5d6b6 0%,#dccca8 45%,#d2c098 100%);
+    box-shadow:0 22px 46px rgba(0,0,0,.72), inset 0 0 90px rgba(122,84,38,.20);
+    transform-origin:top center;
+    transition:transform .35s ease;
+  }
+  #sheet.zoom{transform:scale(1.32)}
+  /* horizontal fold lines, from seventy years in a box */
+  #sheet:before{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:
+      linear-gradient(180deg, transparent 24.6%, rgba(90,60,24,.20) 25%, transparent 25.4%),
+      linear-gradient(180deg, transparent 49.6%, rgba(90,60,24,.24) 50%, transparent 50.4%),
+      linear-gradient(180deg, transparent 74.6%, rgba(90,60,24,.20) 75%, transparent 75.4%);
+  }
+
+  .stamp{
+    text-align:center; font-size:11px; letter-spacing:.34em; text-transform:uppercase;
+    color:#7a6242; opacity:.72; margin:0 0 4px;
+  }
+  h2.doc-title{
+    margin:0 0 2px; text-align:center;
+    font-family:"American Typewriter","Courier New",monospace;
+    font-size:clamp(19px,4.6vw,25px); font-weight:700;
+    letter-spacing:.13em; color:#221a12;
+  }
+  .datum{
+    text-align:center; margin:0 0 26px;
+    font-family:"Bradley Hand","Chalkboard SE","Segoe Script",cursive;
+    font-size:clamp(15px,3.6vw,18px); color:#2b3c5e;
+  }
+
+  /* the two hands */
+  .vin{
+    font-family:"Bradley Hand","Chalkboard SE","Segoe Script",cursive;
+    color:#22304d;
+    font-size:clamp(16px,3.9vw,19.5px); line-height:1.72;
+  }
+  .orl{
+    font-family:"Snell Roundhand","Apple Chancery","Zapfino",cursive;
+    color:#171310; font-size:clamp(16px,3.9vw,19px); line-height:1.6;
+    text-shadow:0 0 1px rgba(0,0,0,.42);
+  }
+  p.cl{margin:0 0 19px}
+
+  s{
+    text-decoration:none; position:relative; opacity:.60;
+  }
+  s:after{
+    content:""; position:absolute; left:-2px; right:-2px; top:52%; height:2px;
+    background:#22304d; transform:rotate(-.7deg); border-radius:2px;
+  }
+
+  /* THE CLEAN PARAGRAPH — no corrections anywhere in it */
+  .bearer{
+    margin:24px -12px; padding:18px 20px 16px;
+    border-top:1px solid rgba(60,42,20,.28);
+    border-bottom:1px solid rgba(60,42,20,.28);
+    background:rgba(255,246,225,.34);
+  }
+  .bearer b{font-weight:700}
+
+  .aside{
+    font-family:"Bradley Hand","Chalkboard SE","Segoe Script",cursive;
+    color:#3a4a68; font-size:clamp(14px,3.3vw,16px); opacity:.9;
+    transform:rotate(-.9deg); margin:0 0 18px 14px;
+  }
+
+  /* signatures */
+  .sigs{margin-top:34px; display:flex; flex-direction:column; gap:26px}
+  .sig{border-top:1px solid rgba(60,42,20,.34); padding-top:7px}
+  .sig .who{font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#7a6242}
+  .sig .name{margin-top:3px}
+  .sig-vinny .name{
+    font-family:"Bradley Hand","Chalkboard SE","Segoe Script",cursive;
+    color:#22304d; font-size:clamp(22px,5.4vw,28px); transform:rotate(-1.6deg); display:inline-block;
+  }
+  .sig-orlok .name{
+    font-family:"Snell Roundhand","Apple Chancery","Zapfino",cursive;
+    color:#0b0907; font-size:clamp(24px,5.8vw,31px); display:inline-block;
+    transform:rotate(.5deg);
+    text-shadow:0 1px 0 rgba(0,0,0,.5), 0 0 2px rgba(0,0,0,.35);
+    letter-spacing:.01em;
+  }
+  .sig-orlok .scored{
+    font-size:10.5px; letter-spacing:.05em; text-transform:none; color:#6d5738;
+    font-family:"American Typewriter","Courier New",monospace; font-style:italic;
+    margin-top:6px; opacity:.85;
+  }
+  .sig-drac .name{
+    font-family:"Snell Roundhand","Apple Chancery","Zapfino",cursive;
+    color:#5c1c24; font-size:clamp(25px,6.2vw,34px); display:inline-block;
+    transform:rotate(-3deg); letter-spacing:.02em;
+  }
+  .sig-drac .scored{
+    font-size:10.5px; color:#6d5738; font-family:"American Typewriter","Courier New",monospace;
+    font-style:italic; margin-top:8px; opacity:.85;
+  }
+
+  /* the margin note, written later, sober */
+  .margin{
+    margin-top:36px; padding-top:16px; padding-right:118px;
+    border-top:1px dashed rgba(60,42,20,.3);
+    font-family:"Bradley Hand","Chalkboard SE","Segoe Script",cursive;
+    color:#2f3d58; font-size:clamp(14.5px,3.5vw,17px); line-height:1.6;
+    transform:rotate(-.4deg); opacity:.92;
+  }
+
+  /* the seal — same mark as the chip */
+  .seal{
+    position:absolute; right:22px; bottom:26px; width:96px; height:96px;
+    opacity:.80; transform:rotate(-7deg); pointer-events:none;
+  }
+
+  /* ---------- controls ---------- */
+  #bar{
+    position:fixed; left:0; right:0; bottom:0; z-index:20;
+    display:flex; gap:10px; justify-content:center;
+    padding:12px 14px calc(env(safe-area-inset-bottom) + 12px);
+    background:linear-gradient(180deg, rgba(13,10,8,0) 0%, rgba(13,10,8,.94) 46%);
+  }
+  #bar button{
+    font-family:"American Typewriter","Courier New",monospace;
+    font-size:12.5px; letter-spacing:.16em; text-transform:uppercase;
+    color:#c2ab84; background:#20180f; border:1px solid #4a3a26;
+    padding:0 18px; height:46px; min-width:132px; border-radius:5px;
+  }
+  #bar button:active{background:#2c2114}
+</style>
+</head>
+<body>
+
+<!-- ================= SPLASH ================= -->
+<div id="splash">
+  <div class="folded"><div class="ink">Articles of<br>Settlement</div></div>
+  <h1>Folded in a strongbox<br>since 1931</h1>
+  <p>Tap to unfold</p>
+</div>
+
+<!-- ================= DOCUMENT ================= -->
+<div id="stage" aria-hidden="true">
+  <div id="sheet">
+
+    <p class="stamp">Transyltown &middot; County of Columbia &middot; State of New York</p>
+    <h2 class="doc-title">ARTICLES OF SETTLEMENT</h2>
+    <p class="datum">Made this 14th day of November, 1931,
+      at <s>two</s> <s>three</s> four o&rsquo;clock in the morning</p>
+
+    <p class="cl vin">
+      The undersigned, being unable to satisfy the sum owed at play &mdash; said sum being
+      <b>eleven dollars and forty cents</b> &mdash; and having no coin nor credit remaining,
+      <s>and having been advised twice to stop</s>, does convey the dwelling upon the hill,
+      with all land and rights of entry thereto.
+    </p>
+
+    <!-- THE ONLY CLEAN PARAGRAPH ON THE PAGE -->
+    <div class="bearer vin">
+      <p class="cl" style="margin:0">
+        <b>Title shall rest with the bearer of the marker.</b> Not with his name, nor his heirs,
+        nor his estate &mdash; with whosoever holds it. Presentation of the marker is presentation
+        of title, and requires no witness and no court.
+      </p>
+    </div>
+
+    <p class="aside">The marker being the blue one. We agreed on the blue one.</p>
+
+    <p class="cl vin">
+      The occupants may remain at the pleasure of the bearer, and shall not be put out for
+      <s>snoring</s> any reason.
+    </p>
+
+    <p class="cl vin">
+      No term is set. <b>This debt does not expire.</b>
+    </p>
+
+    <p class="cl orl" style="margin-left:16px">Neither does he.</p>
+
+    <p class="cl vin">Both parties affirm they are of sound mind.</p>
+
+    <div class="sigs">
+      <div class="sig sig-vinny">
+        <div class="who">For the house</div>
+        <div class="name">V. Soprano</div>
+      </div>
+
+      <div class="sig sig-orlok">
+        <div class="who">The undersigned</div>
+        <div class="name">C. Dood</div>
+        <div class="scored">&mdash; pressed hard enough to tear the paper</div>
+      </div>
+
+      <div class="sig sig-drac">
+        <div class="who">Witnessed &amp; notarized by</div>
+        <div class="name">Count Dracula, Esq.</div>
+        <div class="scored">&mdash; who is not a notary</div>
+      </div>
+    </div>
+
+    <p class="margin">
+      He was fine. He was completely fine. I asked him twice.
+    </p>
+
+    <!-- the seal: the same mark that is stamped on the chip -->
+    <svg class="seal" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="46" fill="none" stroke="#6b2028" stroke-width="2.5" opacity=".72"/>
+      <circle cx="50" cy="50" r="39" fill="none" stroke="#6b2028" stroke-width="1"   opacity=".55"/>
+      <path d="M50 22 L64 42 L58 66 L42 66 L36 42 Z" fill="none" stroke="#6b2028" stroke-width="2.5" opacity=".72"/>
+      <path d="M50 32 L50 60 M40 47 L60 47" stroke="#6b2028" stroke-width="2" opacity=".6"/>
+      <text x="50" y="86" text-anchor="middle" font-family="Georgia,serif" font-size="8.5"
+            letter-spacing="2.4" fill="#6b2028" opacity=".62">D O O D</text>
+    </svg>
+
+  </div>
+</div>
+
+<div id="bar" aria-hidden="true">
+  <button id="zoomBtn" type="button">Zoom in</button>
+  <button id="foldBtn" type="button">Fold it up</button>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var splash = document.getElementById("splash");
+  var stage  = document.getElementById("stage");
+  var sheet  = document.getElementById("sheet");
+  var bar    = document.getElementById("bar");
+  var zoomBtn= document.getElementById("zoomBtn");
+  var foldBtn= document.getElementById("foldBtn");
+
+  function unfold(){
+    splash.classList.add("gone");
+    stage.setAttribute("aria-hidden","false");
+    bar.setAttribute("aria-hidden","false");
+  }
+  function refold(){
+    splash.classList.remove("gone");
+    stage.setAttribute("aria-hidden","true");
+    bar.setAttribute("aria-hidden","true");
+    stage.scrollTop = 0;
+    sheet.classList.remove("zoom");
+    zoomBtn.textContent = "Zoom in";
+  }
+
+  splash.addEventListener("click", unfold);
+  foldBtn.addEventListener("click", refold);
+
+  zoomBtn.addEventListener("click", function(){
+    var on = sheet.classList.toggle("zoom");
+    zoomBtn.textContent = on ? "Zoom out" : "Zoom in";
+  });
+
+  /* iOS: kill pinch-zoom and double-tap zoom, per CLAUDE.md */
+  document.addEventListener("touchmove", function(e){
+    if(e.scale !== undefined && e.scale !== 1) e.preventDefault();
+  }, {passive:false});
+  document.addEventListener("gesturestart", function(e){ e.preventDefault(); });
+
+  var lastTouch = 0;
+  document.addEventListener("touchend", function(e){
+    var now = Date.now();
+    if(now - lastTouch <= 320) e.preventDefault();
+    lastTouch = now;
+  }, {passive:false});
+})();
+</script>
+</body>
+</html>

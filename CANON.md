@@ -118,6 +118,87 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 
 ---
 
+## 📗 Sesh 8 — Gnomey's arc, Orlok's origin, and the 1931 game
+
+> Gnomey's arc, Orlok's origin, the 1931 card game and the revised Saturday-night mansion flow
+> went into **Sesh 8**, alongside the NPC race/class picks and Bix's and Simone's arcs already there.
+> Confirmed by Scott, 31 Aug 2026.
+
+### Orlok
+| Claim | Source |
+|---|---|
+| **Orlok built the house.** Never married, no children, alone in forty rooms | Sesh 8 |
+| He was **dying by his own hand** when Dracula turned up uninvited and wouldn't take no for an answer | Sesh 8 |
+| **This reassigns Sesh 6's lonely-original-owner backstory from the Gjenganger to Orlok** — see the retirement note below | Sesh 8 |
+
+### Great Uncle Vinny & the 1931 game
+| Claim | Source |
+|---|---|
+| **Vinny Soprano** — Gnomey's great-uncle. Ran untaxed cigarettes and bootleg liquor on the back roads at night | Sesh 8 |
+| He met Orlok because he needed somewhere to keep the liquor — the one building in the county nobody would search. He walked up and asked | Sesh 8 |
+| **The deal:** Orlok gets the cellar filled and takes a case a month. Liquor is one of the only human things that still works on a vampire | Sesh 8 |
+| Monthly delivery, a bottle, and cards — for decades | Sesh 8 |
+| **14 November 1931:** Orlok goes down, keeps playing, and puts the house up because it's the only thing left worth anything | Sesh 8 |
+| **The ARTICLES OF SETTLEMENT** — full drunken contract text, including the eleven-dollars-forty sum, the blue-chip line, and Dracula witnessing as a non-notary | Sesh 8 |
+| **Title rests with the bearer of the marker** — not his name, not his heirs, not his estate | Sesh 8 |
+| **Vinny let them stay.** "You always collect, and then you're not a bastard about it" | Sesh 8 |
+| **Vinny is alive** — ancient, in a home, mostly gone | Sesh 8 |
+| He gave the chip to a twelve-year-old Gnomey after hearing the kid had an operation going. *"Twelve years old and he's got a crew." / "I don't have a crew anymore." / "You'll get another one."* | Sesh 8 |
+
+### Gnomey's arc
+| Claim | Source |
+|---|---|
+| **Gnomey is the rightful owner of the mansion**, via the chip he has carried since session one | Sesh 8 |
+| He becomes **head of household and the new leader of the gang** | Sesh 8 |
+| **The study** — sealed since the thirties. A poker set exactly one chip short, the last hand still on the table, and a strongbox with the deed and the signed settlement | Sesh 8 |
+| **Epilogue:** he fronts for the vampires as the man who can stand in daylight, takes no rent and asks nothing. Orlok is pissed, complies perfectly, and thanks him through his teeth | Sesh 8 |
+| He calls the nursing home at the end | Sesh 8 |
+
+### Saturday night — the revised mansion flow
+| Claim | Source |
+|---|---|
+| Doors bolt; Angelique finds them and tells them to hide → **stealth** | Sesh 8 (restates Sesh 5) |
+| **The overheard argument** — full scripted text, Dracula/Edward/Orlok | Sesh 8 |
+| Explore under **recurring stealth checks** until someone rolls badly | Sesh 8 |
+| **Dracula swoops in** and grapples/pushes/shoves — **no damage** | Sesh 8 |
+| **Orlok ends it with one word.** Dracula stops instantly; nobody speaks until Orlok is finished | Sesh 8 |
+| His dismissal: *"The night is young. It would be terribly rude to be finished with you already." / "Go on. Have a look around. We'll find you when we're ready."* | Sesh 8 |
+| Explore again, then **Saturday's one combat: a botched summoning** | Sesh 8 |
+| Level 3 → 4 | Sesh 8 (restates the 24 Aug paste) |
+
+### Sunday — the revised investigation
+| Claim | Source |
+|---|---|
+| **The corridor set-piece is cut** | Sesh 8 |
+| **The poker room**, placed before anything exonerates the vampires | Sesh 8 |
+| **The party room** — where Bix finds the photograph | Sesh 8 |
+| Cody's and John's threads — **still blank** | Sesh 8 |
+| The computer room; Simone's link lands here | Sesh 8 |
+| The cellar / food stash clears the vampires | Sesh 8 (restates Sesh 6) |
+
+### ⚰️ The Gjenganger is retired
+Sesh 8 gives Sesh 6's lonely-original-owner backstory to **Orlok**, so the creature no
+longer has one. The corridor set-piece it was going to fill is also cut, and Saturday's mansion
+combat is now **a botched summoning**. Spencer's *"up to you if we go with it"* is answered by
+displacement rather than by a decision — **worth telling him directly**, since the creature was his find.
+The draft spec stays parked in `PROPOSALS.md` as dead work.
+
+### 🟡 Still not canon inside this arc
+- ~~Orlok's mortal name~~ — **ratified by Scott, 31 Aug.** Cornelis Dood and Orlok are the same man;
+  **Dood is Orlok's mortal surname.** The Dutch pun and the puzzle prop both survive, and the Crier's
+  obituary is technically accurate. `31 Aug · not in doc` — worth pasting in.
+- **The study door puzzle** — left deliberately open. No proposal on the table.
+- **The botched summoning** — that it's Poe Boy's, and every stat behind it.
+- **The party room** as a built location, and the photograph's placement in it.
+- **The year on the photograph.** The prop stamps `10 31 '79`. The doc never fixes Bix's age, so it
+  never fixes this date — he's an early-to-mid-20s super senior in 2004 and was born ~9 months after
+  the cart broke down, which lands somewhere around '79–'80. **A codex session briefly wrote this as
+  1985, which is too late by five years and is now corrected everywhere.** One string in `/photo/`.
+- Vinny's first name beyond *Vinny*, and *V. Soprano* on the contract.
+- That the cellar still holds Vinny's crates.
+
+---
+
 ## 📗 The finale — pasted into the doc 24 Aug 2026
 
 > **Cited as "the 24 Aug doc paste."** Scott pasted the finale beat sheet into the doc that day.
@@ -292,9 +373,9 @@ the story now** — so this counts as in-doc like anything else, not as one pers
 | The **fampier** (Friesland): 1973, skipper Steven de Bruin; children on the heath, teeth marks; devil-banisher; wooden splinter in the lid over the heart; nailed shut; howling; reburied | Sesh 2, quoted from Poortinga, *Skaakspul* 258 |
 | Therefore the method: dig up the coffins, stake the heart, rebury | Sesh 2 |
 | Frisian Kingdom texture — Frisii, Zuiderzee, Kennemerland, Malorix & Verritus, Nero, 58 AD | Sesh 2 |
-| The **Gjenganger** — Scandinavian revenant, corporeal, died before its time, vicious up close, spreads decay; prevented by a runic inscription in the coffin | Sesh 2 (*"Up to you if we go with it"*), used in Sesh 6 |
-| Gjenganger = the mansion's original owner: never married, no children, isolated, died by suicide from loneliness; a reason the house was abandoned; a development beat for Bix | Sesh 6 |
-| Counterplay is range — it has the advantage up close | Sesh 6 |
+| ~~The **Gjenganger**~~ — Scandinavian revenant, corporeal, died before its time, vicious up close, spreads decay; prevented by a runic inscription in the coffin. **Retired in Sesh 8** — see the retirement note above | Sesh 2 (*"Up to you if we go with it"*), used in Sesh 6 |
+| The mansion's original owner: never married, no children, isolated, died by his own hand from loneliness. **Reassigned from the Gjenganger to Orlok** | Sesh 6, reassigned by Sesh 8 |
+| ~~Counterplay is range — it has the advantage up close~~ — moot; the creature is retired | Sesh 6 |
 
 ### Cast
 | Claim | Source |
@@ -308,12 +389,14 @@ the story now** — so this counts as in-doc like anything else, not as one pers
 | A teacher genuinely believes in Gnomey; he wavers between street life and college | Character Bios |
 | Gnomey was in the crew in middle school; fell out over Poe Boy skimming the **silly banz** money | Sesh 5 |
 | Gnomey's mansion tie: crew threw rocks and dared each other to ring the doorbell; one Halloween something happened | Sesh 5 |
+| **Gnomey's real mansion tie: he owns it.** Great Uncle Vinny won it off Orlok at cards in 1931 and the deed runs with a poker chip in Gnomey's pocket | Sesh 8 |
 | **Simone** — angsty goth warlock, devil patron as an all-black goat with an upside-down red cross, atheist parents, sells love & revenge spells to fund a satanic metal show, frequent detention, loner | Character Bios |
 | **Simone's mansion tie: she sold the dead kid the wishing willow, and her patron's price is the concert fund** — full chain in the Sesh 8 section above | **Sesh 8** |
 | **John** — leaning Bard, leaning bully archetype; words are mechanically the weapon; a glaring insecurity is the reason for the act, **TBD by John** | Character Bios |
 | **Cody** — has not submitted a character | Sesh 5 |
 | "Island of misfit toys" — everyone has a reason they ended up in the friend group | Sesh 5 |
 | Scott's floated idea: one PC connected to the mansion by blood (great-grandparent built it or died there); Spencer liked it and said the library is the place to hint | Doc comments |
+| **Answered for Gnomey, and only Gnomey.** His tie is a *debt*, not a bloodline — his great-uncle won the house at cards, hinted on the library checkout card as `V. Soprano`. **The blood-tie idea is no longer pointed at John**, dropped 31 Aug; John gets a different connection, still to be invented | Sesh 8 + 31 Aug · not in doc |
 
 ### NPCs
 | Claim | Source |
@@ -398,8 +481,9 @@ stay on this list until you two decide:
 ### 5. Character details with no source
 - **John:** College of Whispers specifically (doc says "leaning Bard"), "cruelty is the armor," and the
   framing that he's built to recognize what Poe Boy is doing. Also both of his relationship edges —
-  *taxes Gnomey's bathroom cigarette trade* and *the one kid he cannot get a rise out of* — and his
-  mansion connection, which is genuinely still blank.
+  *taxes Gnomey's bathroom cigarette trade* and *the one kid he cannot get a rise out of*. **His mansion
+  connection is blank and back to zero:** the 1938-borrower blood tie was dropped 31 Aug and a new
+  connection is to be invented from scratch.
 - **Orlok** does most of the actual frightening on Poe Boy's say-so
 - **Dracula** would happily brag the whole scheme to the heroes by accident
 - **Edward** was turned recently (invented to fix the invented coffin count)
@@ -409,6 +493,8 @@ stay on this list until you two decide:
 - **Lil Stinky runs the weed trade** — the doc gives him cigarettes; weed is Bix's
 - ~~**Bix's mansion night "ties back to his parents"**~~ — **superseded 30 Aug.** Sesh 8 makes the
   parent link canon and far more specific: Edward is his father.
+- **The party room** — the doc says Bix finds the photograph; a preserved party room from the night
+  Edward and Goblinenon arrived is the codex's placement for it
 
 ### 6. Prop texture
 - **Invite:** with the guest list now five, the card's mass-event voice — *FREE admission*, *"bring a friend, the more the scaryer!"*, the RSVP line — is a second soft contradiction alongside the one below. Cheapest reading: it is deliberate camouflage, a card built to look like it went to everyone. No rebuild needed if that reading holds.
@@ -432,7 +518,7 @@ stay on this list until you two decide:
 
 ## Open questions worth settling
 
-1. Is the Gjenganger in? Spencer's *"up to you"* was never answered, and it's now a whole set-piece.
+1. ~~Is the Gjenganger in?~~ — **retired in Sesh 8 by displacement.** Orlok took its backstory, the corridor was cut, and Saturday's mansion fight is a botched summoning. Spencer should be told directly; it was his find.
 2. Who is the dead kid? Name, year, enough of a life that the table feels it. **Sesh 8 moved where the
    name lands** — it is now the volume label on the USB they plug in, not the Sharpie on the bag.
 3. Does the 1937 Crier become canon, get rewritten to the doc's 1973 Frisian version, or stay a prop that nobody has to believe?
@@ -447,14 +533,25 @@ stay on this list until you two decide:
 12. **The developer's name.** He is now the third faction and the only death in the story, and he has no name. Company, or family trust?
 13. **The dead kid's name.** Sesh 8: it comes off the **USB** when they plug it in. The AIM prop is live
     without it and takes it as `/aim/?name=Marcus` so it can be set at the table. His year too.
-15. **The satanic metal band has no name.** Sesh 8 made it load-bearing three times over — Simone's
+14. ~~**New reasons for the cellar and the choke-point corridor**~~ — **answered in Sesh 8.** The corridor is
+    cut entirely. The cellar is where Vinny kept the liquor from 1920 to 1933 and where the vampires keep
+    the animals now, so it carries both the food stash and forty-year-old crates nobody came back for.
+15. ~~**Orlok's mortal name**~~ — **answered 31 Aug.** Cornelis Dood *is* Orlok. Dood is his mortal surname,
+    the Dutch pun survives, and the Crier's obituary is accurate. `31 Aug · not in doc`.
+16. **The study door — deliberately undefined.** The room and its contents are Sesh 8; **how the party gets
+    through the door is not designed, and is not being designed yet.** Scott's call, 31 Aug.
+17. **What the botched summoning actually is.** Saturday's mansion combat is now named and nothing else
+    about it is written.
+18. **Cody's and John's mansion threads** — the last two PCs without a room. Gnomey has the study, Bix has
+    the party room, Simone has the computer. **John's is now genuinely blank**: the blood-tie hook that used
+    to be pointed at him was dropped 31 Aug, so there is nothing standing in for it.
+19. **The satanic metal band has no name.** Sesh 8 made it load-bearing three times over — Simone's
     savings, the goat's price, and Poe Boy's grounding — and it needs to be printable, because it is on
     a shirt and on the tickets his mother hands over.
-16. **Where the sticky note is found.** The account is settled — it's Poe Boy's — but the note has no home
+20. **Where the sticky note is found.** The account is settled — it's Poe Boy's — but the note has no home
     yet. Stuck to the monitor is easiest; down in the ballroom rig is better, because it makes them carry
     it back up. 🟡 **The cat is invented**: `Fluffy123` is Scott's password, but nothing says Poe Boy has a
     cat. It fits (sweet, out-of-touch parents who spoil him) and it rhymes with the Volvo, so it's cheap
     to keep and cheap to drop.
-17. **Whether Bix's Sesh 5 overnight and Sesh 8's Edward connect.** Bix broke into this house as a
+21. **Whether Bix's Sesh 5 overnight and Sesh 8's Edward connect.** Bix broke into this house as a
     teenager and his father was living in it. The doc does not say whether Edward saw him that night.
-14. **New reasons for the cellar and the choke-point corridor**, both of which were justified by the fork that the 24 Aug doc paste cut.

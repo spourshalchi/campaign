@@ -16,6 +16,10 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 │   ├── index.html
 │   ├── README.md
 │   └── assets/
+├── settlement/       ← The 1931 Articles of Settlement (the deed)
+│   └── index.html
+├── photo/            ← The party-room photograph (Bix's beat)
+│   └── index.html
 ├── codex/            ← DM-facing campaign codex (not linked from the landing page)
 ├── CANON.md          ← canon ledger: what came from the brainstorm doc vs. what an AI made up
 ├── PROPOSALS.md      ← parked work-in-progress, agreed to by nobody
@@ -36,8 +40,10 @@ The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
 | Prop | Path | Vibe |
 |------|------|------|
 | AIM | `aim/` | Haunted 2000s AOL Instant Messenger. The buddy is the kid Poe Boy soul-caged into the machine — the branching tree pulls the whole confession out of him, and ends with him **sending the party a file**: the recording of his own death, over AIM's file-transfer window. That USB is what wins the finale. |
-| Torn Page | `puzzle/` | 1937 newspaper front page, cut up in front of them by a trap in the binding. Reassemble against the clock, flip for the page-2 lore, and check the pocket card for who borrowed it last. Springing the trap is what summons the developer to the house that night. See [puzzle/README.md](puzzle/README.md) |
+| Torn Page | `puzzle/` | 1937 newspaper front page, cut up in front of them by a trap in the binding. Reassemble, flip for the page-2 lore, and check the pocket card for who borrowed it last — including **V. Soprano, 1938**, which is where Gnomey's tie to the house gets hinted. Springing the trap is what summons the developer to the house that night. See [puzzle/README.md](puzzle/README.md) |
 | Invite | `invite/` | The haunted-house invitation, ~7PM, homemade and clip-arty. |
+| Settlement | `settlement/` | The 1931 contract from the strongbox in the study. Opens folded; tap to unfold. Two drunk men signed away a mansion over $11.40, and **the only paragraph on the page with no corrections in it is the one that makes Gnomey the owner.** |
+| Photograph | `photo/` | A flash snapshot from the party room — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. Tap to turn it over for the writing on the back. Bix's beat: hand Will the iPad and say nothing. |
 | Codex | `codex/` | DM-facing campaign reference — to-do list, relationship web, backstory, story flow, cast, weekend plan, and **combat encounters with the XP budgets**. Not a player prop, and deliberately not tiled on the landing page so it can't be opened at the table by accident. |
 
 ### Not built yet
@@ -46,7 +52,7 @@ The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
 |---|---|
 | `scream_test_03_GOOD.wav` | The recording that plays over the PA in the finale. The single biggest table moment in the campaign, and it's a file you hit play on. |
 | A real USB stick | Handed to the players when the Spirit uploads. Put the .wav on it, and **set its volume label to the dead kid's name** — Sesh 8 makes the mount the moment the table learns who he is. |
-| The photograph | Bix's whole reveal in one handout: two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. |
+| A blue poker chip | A **physical** chip to hand Julia at session one, never explained. The set in the study is exactly one short, and the mark on it matches the seal on the settlement. |
 | The wishing willow | The second thing in the backpack — the love-spell token Simone sold the dead kid, with *I want Angelique to notice me* on the slip. |
 | DJ show flyer | 3AM, Dood Mansion, bills Poe Boy / Lil Stinky / Angelique. |
 | Food-stash puzzle | The mansion's own puzzle — the one that clears the vampires. |

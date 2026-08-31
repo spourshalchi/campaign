@@ -118,9 +118,14 @@ outcome is in their hands.
 In the pocket at the back of the volume, viewable from the splash screen. It shows
 the book sat untouched for decades, and then three borrowers:
 
-- **E. Hoeck**, 1938 — the same swap slot as "the Hoeck boy" in the article. The
-  blood-tie hook, **currently pointed at John**, planted by a piece of paper rather
-  than a lore dump.
+- **E. Hoeck**, 1938 — texture, and the same name as "the Hoeck boy" in the article.
+  **This was the blood-tie hook pointed at John; that was dropped 31 Aug.** John is
+  getting a different mansion connection, built from scratch, so this is now just a
+  name proving somebody else was reading about this house in 1938.
+- **V. Soprano**, Sep 1938 — **Gnomey's great-uncle Vinny**, who has owned the
+  mansion since he won it off Orlok at cards in 1931 and is reading up on what he
+  took. This is the library hint Spencer asked for, and the only place the name
+  appears before the study.
 - **U. M. Livingsworth III**, Oct 2000 — **Poe Boy's real name.** Nobody at the table
   knows that. It pays off at sunrise when a woman in a fleece gets out of a Volvo and
   says *"Upton, honey?"* — and in the meantime it quietly says he has been interested
@@ -144,10 +149,10 @@ without regenerating any art.
 | The vampire-slaying method — whitethorn splinter in the lid, point over the heart, nail shut, rebury. **the 24 Aug doc paste cut the fork, so this is no longer a branch payoff — it is the thing that makes the party think they need to fight** | Page 2, "Upon the Heath", plus a labelled diagram (A = splinter, B = heart) so it can't be missed |
 | Proof the method works — the children woke | Page 2, "The Children Woke" |
 | **The clincher** — three coffins, one opened, two still under the chapel floor | Page 2, Wiegman's closing quote |
-| The Gjenganger, quietly — runic marker, a man buried carefully so he wouldn't walk | Page 2, "The Builder's Stone" sidebar |
+| ~~The Gjenganger~~ — **retired in Sesh 8.** The "Builder's Stone" sidebar still reads well as texture about the man who built the house; it just no longer points at a creature | Page 2, "The Builder's Stone" sidebar |
 | Real-estate thread — the property held by absentee trusts since 1904 | Front page, column 2 |
 | **Proof a person with real power is involved**, long before they can name him | The trap itself |
-| **The blood-tie hook** and **Poe Boy's real name** | The checkout card |
+| **Gnomey's tie to the house**, quietly — `V. Soprano`, 1938 — and **Poe Boy's real name** | The checkout card |
 
 The three coffins match the crypt on the mansion floor plan
 (`assets/retired/dood-mansion-floorplan.png`) — chapel, trapdoor beneath the altar.
@@ -159,10 +164,16 @@ Things deliberately left loose. All are one-line edits.
 - **"Aletta Bruin"** — the named child. Texture only; rename at will. She was
   once going to grow up into the harbinger, but the records keeper is
   deliberately *not* in this story any more — see below.
-- **"the Hoeck boy"** — open slot for a PC's great-grandparent, for the
-  blood-tie-to-the-mansion hook. **The same name is on the checkout card** as
-  E. Hoeck, so changing it means editing both. **Currently pointed at John** — he's
-  the only PC with no mansion tie at all — and changeable later.
+- **"the Hoeck boy"** — was an open slot for a PC's great-grandparent and the
+  blood-tie hook. **The blood-tie idea was dropped 31 Aug**, so this is now free
+  texture. **The same name is on the checkout card** as E. Hoeck, so changing it
+  means editing both. Gnomey's tie is a deed, not a bloodline; John's connection is
+  unwritten and is not this.
+- **"Cornelis Dood"** — **ratified 31 Aug: Cornelis Dood *is* Orlok.** Sesh 8 makes
+  Orlok the man who built this house, and Scott confirmed they are the same person —
+  **Dood is Orlok's mortal surname.** The pun survives, this prop survives, and the
+  Crier's obituary is technically accurate: the town really did bury him.
+  `31 Aug · not in doc`.
 - **"Dood"** — mansion name, now used everywhere. The floor-plan art
   originally read *Van Doren*; its title block has been repainted to match.
   Changing it again means editing `assets/front-heath.source.html`, re-running
