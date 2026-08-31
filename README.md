@@ -45,7 +45,9 @@ The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
 | Thing | Why it matters |
 |---|---|
 | `scream_test_03_GOOD.wav` | The recording that plays over the PA in the finale. The single biggest table moment in the campaign, and it's a file you hit play on. |
-| A real USB stick | Handed to the players when the Spirit uploads. Put the .wav on it. |
+| A real USB stick | Handed to the players when the Spirit uploads. Put the .wav on it, and **set its volume label to the dead kid's name** — Sesh 8 makes the mount the moment the table learns who he is. |
+| The photograph | Bix's whole reveal in one handout: two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. |
+| The wishing willow | The second thing in the backpack — the love-spell token Simone sold the dead kid, with *I want Angelique to notice me* on the slip. |
 | DJ show flyer | 3AM, Dood Mansion, bills Poe Boy / Lil Stinky / Angelique. |
 | Food-stash puzzle | The mansion's own puzzle — the one that clears the vampires. |
 

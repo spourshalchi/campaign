@@ -65,6 +65,59 @@ rather than assuming, because it touches what the bolt actually means for the pa
 
 ---
 
+## 📗 Sesh 8 — the two character arcs, locked 30 Aug 2026
+
+Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
+
+### Bix — Edward is his father
+
+| Claim | Source |
+|---|---|
+| The house was originally only **Orlok and Dracula** | Sesh 8 |
+| **Edward** and **Goblinenon** (Bix's mother) were travelling through town on a rainy night; their cart popped a tire and they stopped at the mansion for help | Sesh 8 |
+| They found two vampires partying — *ala Rocky Horror* — had such a good time they ditched the nomadic life and squatted in the house | Sesh 8 |
+| ~9 months later, **Bix is born** | Sesh 8 |
+| The real-estate company hired workers to "clear out" the squatters and vampires. **Goblinenon was killed**; Edward was deeply injured. The vampires **turned Edward** to save his life | Sesh 8 |
+| Edward woke horrified at what he was and carried Bix down to town in the middle of the night — a better life than being raised by a single father who was a monster | Sesh 8 |
+| **Mansion beats:** they catch Edward glimmering in the moonlight; they later find him spying on them, particularly watching Bix; they find a **photograph** — four figures, two vampires mugging, a pregnant goblin laughing, and a fae with no fangs | Sesh 8 |
+| **In the epilogue, Edward explains himself to Bix** | Sesh 8 |
+
+### Simone — the willow, the price, the tickets
+
+| Claim | Source |
+|---|---|
+| Her favourite satanic metal band is touring; she sells love and revenge spells to save up | Character Bios, restated Sesh 8 |
+| **Simone sold the dead kid a love spell** — he wanted *Angelique to notice him* | Sesh 8 |
+| After the spell, **Angelique just notices him.** When Poe Boy asks whether anyone in the crew knows this kid and can help him scheme, she says she does and plays along to help him flirt | Sesh 8 |
+| The kid is lured to the mansion and trapped in the computer | Sesh 7, restated Sesh 8 |
+| **Angelique still notices him** and feels a magical pull to the house — that is why she has come to the mansion, to investigate the feeling | Sesh 8 |
+| At the computer, he tells them to get the USB | Sesh 8 |
+| **In the backpack: the USB *and* the wishing willow** Simone gave him for the spell | Sesh 8 |
+| **They plug the USB in and it has his name on it** — that is when they ask if he's ⟨name⟩, and Simone and Angelique realise it's the same person | Sesh 8 |
+| He does the file transfer and asks them to expose DJ Poe Boy | Sesh 8 |
+| **Then one last thing: can you get me out of here — use your magic to put my soul somewhere safe** | Sesh 8 |
+| Simone can't do it at her level. **Her patron appears, can do it, and asks a price** | Sesh 8 |
+| The price is her money — **stored in a goat-shaped piggy bank**, saved for the concert. If she says yes she **smashes it** and gains the power to run a ritual that moves not just the file but his soul to the USB | Sesh 8 |
+| **The ritual visual:** like a file transfer, but the loading bar exceeds the boundaries, the screen goes weird and glitchy, and then the AIM sign-off sound / message appears | Sesh 8 |
+| **Poe Boy also loves the band** and had tickets. When his mom comes at the end she says he's grounded and not going to the satan concert — **Simone gets the tickets anyway** | Sesh 8 |
+| **Epilogue:** the kid's spirit is uploaded to the **library computers**, where he helps people find new books to read | Sesh 8 |
+
+### Settled in conversation, not yet pasted into the doc
+
+| Claim | Source |
+|---|---|
+| **The company that hired the men who killed Goblinenon is the same real-estate company** that wants the land today — so it has been after this house for ~20 years, and it is the reason Bix is an orphan | 30 Aug · confirmed by Scott, not in doc |
+| **The patron joins the AIM conversation** as a third screen name rather than appearing only at the table: the window becomes a group chat, the theme flips, and it negotiates on screen | 30 Aug · Scott's idea, not in doc |
+| **The party has to log in.** The computer sits at an AIM sign-on screen with **`DJPoeBoy187`** saved — Sesh 7 already makes the machine his — and the password box empty. The password is **`Fluffy123`**, his cat, handed over on a sticky note | 30 Aug · Scott's decision, not in doc |
+| Therefore **the party types to the Spirit as his killer** for the whole conversation | 30 Aug · follows from the above |
+
+> ⛔ **The load-bearing constraint, and it is a design rule rather than a lore fact.** The USB, the
+> recording and the name all reach the party **before** the second ask. Nothing the story needs is
+> behind Simone's decision — only the boy is. If she declines, the party still wins the night and
+> the machine simply goes dark. Do not quietly gate plot information behind that choice.
+
+---
+
 ## 📗 The finale — pasted into the doc 24 Aug 2026
 
 > **Cited as "the 24 Aug doc paste."** Scott pasted the finale beat sheet into the doc that day.
@@ -99,10 +152,13 @@ survives. The cellar and the corridor are both still fine — they just need new
 | Claim | Source |
 |---|---|
 | The Spirit asks the party to fetch **his own backpack**, still in that room | the 24 Aug doc paste |
-| **His mother wrote his name on it in Sharpie.** That is how the dead kid gets his name | the 24 Aug doc paste |
+| **His mother wrote his name on it in Sharpie** | the 24 Aug doc paste |
+| ~~That is how the dead kid gets his name~~ — **superseded by Sesh 8: the name comes off the USB when they plug it in** | **Sesh 8** |
+| **The backpack also holds the wishing willow** Simone sold him | **Sesh 8** |
 | A thumb drive is in it. He uploads the recording of his own death over AIM's file-transfer window | the 24 Aug doc paste |
 | The file is `scream_test_03_GOOD.wav` — **Poe Boy named it** | the 24 Aug doc paste |
 | His ask is not directions. It is *expose him* | the 24 Aug doc paste |
+| **And then a second ask: put my soul somewhere safe.** Simone's patron can, for the price of the concert fund | **Sesh 8** |
 | **The players are handed a real USB stick at the table** | the 24 Aug doc paste |
 
 This lands neatly on the 24 Aug two-setups decision: the Spirit is upstairs in the **old rig**, the aux is
@@ -245,6 +301,7 @@ the story now** — so this counts as in-doc like anything else, not as one pers
 |---|---|
 | **Bix Grimlor** (Will) — goblin circle of wildfire druid, parents killed by adventurers, ran from foster homes, deals weed, easy to agitate | Character Bios |
 | Bix's mansion tie: broke in one rainy night after running from a foster home, encountered something | Sesh 5 |
+| **Bix's parents: Edward is his father; his mother Goblinenon was killed clearing the house** — full timeline in the Sesh 8 section above | **Sesh 8** |
 | Bix ↔ Angelique: both loners, short friendship, he pushed her away as it got more serious *platonically* | Sesh 5 |
 | A diary in the house may reveal Bix's account is incomplete | Sesh 6 |
 | **Gnomey Soprano** (Julia) — male gnome rogue, cute/deadly, petty schemer, hustler, sells cigarettes in the bathroom, idolizes mob bosses, wholesome family | Character Bios |
@@ -252,6 +309,7 @@ the story now** — so this counts as in-doc like anything else, not as one pers
 | Gnomey was in the crew in middle school; fell out over Poe Boy skimming the **silly banz** money | Sesh 5 |
 | Gnomey's mansion tie: crew threw rocks and dared each other to ring the doorbell; one Halloween something happened | Sesh 5 |
 | **Simone** — angsty goth warlock, devil patron as an all-black goat with an upside-down red cross, atheist parents, sells love & revenge spells to fund a satanic metal show, frequent detention, loner | Character Bios |
+| **Simone's mansion tie: she sold the dead kid the wishing willow, and her patron's price is the concert fund** — full chain in the Sesh 8 section above | **Sesh 8** |
 | **John** — leaning Bard, leaning bully archetype; words are mechanically the weapon; a glaring insecurity is the reason for the act, **TBD by John** | Character Bios |
 | **Cody** — has not submitted a character | Sesh 5 |
 | "Island of misfit toys" — everyone has a reason they ended up in the friend group | Sesh 5 |
@@ -272,6 +330,8 @@ the story now** — so this counts as in-doc like anything else, not as one pers
 | **NPC races & classes**: Poe Boy = Kenku Bard (Glamour); Lil Stinky = Paladin, Oath of Devotion; Angelique = Changeling Rogue. Still open by the doc's own admission: Lil Stinky's race, Simone's race | **Sesh 8** |
 | **Lil Stinky's arc**: *"Sworn to a liar without knowing it. His oath breaks when he believes us about the kid."* | **Sesh 8** |
 | Angelique is the first to run into them in the mansion and tells them to hide | Sesh 5 |
+| **Angelique still notices the dead kid and feels a magical pull to the house — that is why she came** | **Sesh 8** |
+| **Goblinenon** — Bix's mother, a goblin, killed when the developer's men cleared the house | **Sesh 8** |
 | **4th crew member** — an open slot, probably female | Sesh 3 |
 | **History teacher** — assigns the project | Sesh 1 |
 | The vampires may turn on Poe Boy because they're fed up with him too | Sesh 5 |
@@ -343,15 +403,26 @@ stay on this list until you two decide:
 - **Orlok** does most of the actual frightening on Poe Boy's say-so
 - **Dracula** would happily brag the whole scheme to the heroes by accident
 - **Edward** was turned recently (invented to fix the invented coffin count)
-- **Simone** is the one who can recognize and name a soul cage; the Simone ↔ Spirit link
+- ~~**Simone** is the one who can recognize and name a soul cage; the Simone ↔ Spirit link~~ —
+  **superseded 30 Aug.** Sesh 8 gives her a real, specific link: she sold him the wishing willow.
 - **The history teacher is the same teacher who believes in Gnomey** — two different people in the doc
 - **Lil Stinky runs the weed trade** — the doc gives him cigarettes; weed is Bix's
-- **Bix's mansion night "ties back to his parents"**
+- ~~**Bix's mansion night "ties back to his parents"**~~ — **superseded 30 Aug.** Sesh 8 makes the
+  parent link canon and far more specific: Edward is his father.
 
 ### 6. Prop texture
 - **Invite:** with the guest list now five, the card's mass-event voice — *FREE admission*, *"bring a friend, the more the scaryer!"*, the RSVP line — is a second soft contradiction alongside the one below. Cheapest reading: it is deliberate camouflage, a card built to look like it went to everyone. No rebuild needed if that reading holds.
 - **Invite:** *"LAST YEAR NOBODY DID"* — implies a haunted house ran here before, but per canon this is
   Poe Boy's first, in a house abandoned for decades. Soft contradiction. Also `spookynite2k4@hotmail.com`.
+- **AIM:** the screen name **`DJPoeBoy187`** (the `187` is a police homicide code — he'd have picked it
+  at fourteen because it sounded hard, years before it meant anything), and **Poe Boy owning a cat**.
+- **AIM:** the Spirit's reaction to seeing that handle sign on — *"youre not typing like him"* — and the
+  idea that five years of listening to one person at a keyboard is how he tells them apart.
+- **AIM, patron mode:** the goat's screen name **`GOAT`**, its inverted-cross badge, and every line it
+  speaks. Scott set the staging (it joins the chat, the theme flips, the sounds distort); the voice is
+  the prop's invention — serif, capitalised, punctuated, and it refuses to say what the money is for.
+  Its closing lines (*"I will still be here on Monday"* / *"I did not take it to be cruel"*) are the
+  prop's too, and they quietly leave both readings open: it needed the money, or it was protecting her.
 - **AIM:** the screen names `l0stsignal99` and `SmiLeyGrrL03`; "third locker from the end by the gym";
   "he just called me the test"; the dead kid's characterization. Consistent with Sesh 7, but invented.
 - The dead kid still has **no name, no year, and no life** — that one is a real open question, not an
@@ -362,7 +433,8 @@ stay on this list until you two decide:
 ## Open questions worth settling
 
 1. Is the Gjenganger in? Spencer's *"up to you"* was never answered, and it's now a whole set-piece.
-2. Who is the dead kid? Name, year, enough of a life that the table feels it.
+2. Who is the dead kid? Name, year, enough of a life that the table feels it. **Sesh 8 moved where the
+   name lands** — it is now the volume label on the USB they plug in, not the Sharpie on the bag.
 3. Does the 1937 Crier become canon, get rewritten to the doc's 1973 Frisian version, or stay a prop that nobody has to believe?
 4. John's insecurity — his to name.
 5. Cody's PC.
@@ -373,5 +445,16 @@ stay on this list until you two decide:
 10. ~~What did Poe Boy tell the vampires?~~ — **answered 25 Aug: he staggered the houseful rather than lying about it.**
 11. ~~The crowd~~ — **resolved 25 Aug.** See the two-tier guest list at the top. Remaining: how the crowd gets through a bolted door at 3AM.
 12. **The developer's name.** He is now the third faction and the only death in the story, and he has no name. Company, or family trust?
-13. **The dead kid's name.** Now one word on a backpack, read off a prop. The AIM prop is live without it. His year too.
+13. **The dead kid's name.** Sesh 8: it comes off the **USB** when they plug it in. The AIM prop is live
+    without it and takes it as `/aim/?name=Marcus` so it can be set at the table. His year too.
+15. **The satanic metal band has no name.** Sesh 8 made it load-bearing three times over — Simone's
+    savings, the goat's price, and Poe Boy's grounding — and it needs to be printable, because it is on
+    a shirt and on the tickets his mother hands over.
+16. **Where the sticky note is found.** The account is settled — it's Poe Boy's — but the note has no home
+    yet. Stuck to the monitor is easiest; down in the ballroom rig is better, because it makes them carry
+    it back up. 🟡 **The cat is invented**: `Fluffy123` is Scott's password, but nothing says Poe Boy has a
+    cat. It fits (sweet, out-of-touch parents who spoil him) and it rhymes with the Volvo, so it's cheap
+    to keep and cheap to drop.
+17. **Whether Bix's Sesh 5 overnight and Sesh 8's Edward connect.** Bix broke into this house as a
+    teenager and his father was living in it. The doc does not say whether Edward saw him that night.
 14. **New reasons for the cellar and the choke-point corridor**, both of which were justified by the fork that the 24 Aug doc paste cut.

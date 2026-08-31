@@ -137,7 +137,8 @@ the room with the haunted computer.
 - **Real estate agency documents** — a firm scouting the mansion for purchase. Ties to the
   vampires' actual motive: they want to be left alone, and a company wants the land.
 - **A diary found in the mansion** — reveals that Bix's account of the night he sheltered
-  there is incomplete.
+  there is incomplete. **Sesh 8 gives this an obvious subject:** Edward is his father and was
+  living in the house the whole time.
 
 Both could plausibly surface inside the clippings instead of as separate props, which would
 let one handout seed three threads.
@@ -147,15 +148,19 @@ let one handout seed three threads.
 ## Player hooks worth planting
 
 - **Bix Grimlor** (Will) — goblin circle of wildfire druid. Ran from foster homes; broke into
-  the mansion one rainy night to sleep and encountered something. Parents killed by
-  "good" adventurers, but he only knows rumors.
+  the mansion one rainy night to sleep and encountered something. Believes his parents were
+  killed by "good" adventurers, but he only knows rumors. **Sesh 8: the rumors are wrong —
+  Edward is his father, and his mother Goblinenon was killed when the developer's men cleared
+  the house.** Play him not knowing.
 - **Gnomey Soprano** (Julia) — gnome rogue. Used to be in Poe Boy's crew in middle school;
   fell out over Poe Boy skimming a bigger cut of their silly-banz money. The crew used to
   throw rocks at the mansion windows and dare each other to ring the doorbell; one Halloween
   something happened.
 - **Simone** — goth warlock who worships a black goat with an upside-down red cross on its
   face. Sells love spells and revenge spells to fund a satanic metal show at the end of the
-  school year.
+  school year. **Sesh 8: she sold the dead kid the wishing willow he wished on** — *I want
+  Angelique to notice me* — which is why Angelique knew him well enough to be handed a keyboard,
+  and why she still can't stop noticing him.
 - **John** — bully bard (College of Whispers leaning). His words are literally the weapon.
   The insecurity underneath the bully act is his to name — still to be asked. No mansion
   connection yet; Scott's blood-connection idea is the obvious fit.

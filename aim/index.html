@@ -103,6 +103,27 @@
     font-family: inherit; font-size: 15px;
     color: #444;
   }
+  #signon .field.saved {
+    background: #e4e1d6;   /* the account is saved on this machine; they can't change it */
+    color: #333;
+  }
+  #signon .savebox {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; color: #444; margin-top: 10px; text-align: left;
+  }
+  #signon .pw-err {
+    margin-top: 14px; text-align: left;
+    background: #fff; border: 2px inset #d4d0c8;
+    padding: 10px 12px; font-size: 13px; color: #222;
+  }
+  #signon .pw-err b { display: block; color: #a00000; margin-bottom: 4px; }
+  #signon .pw-err p { margin: 0; line-height: 1.35; }
+  #signon .pw-err.shake { animation: pw-shake .3s ease-in-out; }
+  @keyframes pw-shake {
+    0%, 100% { transform: translateX(0) }
+    25%      { transform: translateX(-6px) }
+    75%      { transform: translateX(6px) }
+  }
   #signon .signon-btn {
     margin-top: 22px;
     background: linear-gradient(180deg, #fffce0 0%, #ffcc00 100%);
@@ -359,11 +380,170 @@
     .formatbar { display: none; }
     .placeholder-input { display: none; }
   }
+
+  /* ===================================================================
+     PATRON MODE — Sesh 8. The goat joins the conversation.
+
+     Same window, wrong colours. AIM never had a dark mode, and that is
+     the whole point: nothing moves, nothing is redrawn, the room simply
+     stops being the room. Text stays >=14px and high-contrast because
+     the table reads this from across a room.
+     =================================================================== */
+  body.patron {
+    background:
+      repeating-linear-gradient(45deg, rgba(0,0,0,0.28) 0 2px, transparent 2px 6px),
+      #190508;
+  }
+  body.patron .window {
+    background: #17111a;
+    border-color: #4a3038;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.6);
+  }
+  body.patron .titlebar { background: linear-gradient(180deg, #6b1224 0%, #1c0409 100%); }
+  body.patron .titlebar .icon { background: #c2122e; box-shadow: inset -2px -2px 0 rgba(0,0,0,0.45); }
+  body.patron .titlebar .winbtn { background: #2c1e25; border-color: #4d3b44; color: #cbbcc2; }
+  body.patron .menubar,
+  body.patron .buddyinfo { background: #17111a; border-bottom-color: #3c2a32; color: #b8a7ae; }
+  body.patron .menubar span { color: #9c8a92; }
+  body.patron .buddyinfo .ghost-name { color: #ece2e5; }
+  body.patron .buddyinfo .status-dot { background: #c2122e; box-shadow: 0 0 6px #ff2b44; }
+  body.patron .buddyinfo .status-text { color: #8d7b83; }
+  body.patron .conversation {
+    background: #0b0509; color: #ece2e5; border-color: #3c2a32;
+  }
+  body.patron .conversation .system { color: #857078; }
+  body.patron .conversation .msg.ghost .who { color: #dd9a9a; }
+  body.patron .conversation .msg.player .who { color: #93b8e6; }
+  body.patron .formatbar { background: #17111a; border-color: #3c2a32; }
+  body.patron .placeholder-input {
+    background: #120a0f; border-color: #3c2a32; color: #857078;
+  }
+  body.patron .choices { background: #17111a; border-top-color: #3c2a32; }
+  body.patron .choice {
+    background: linear-gradient(180deg, #2e1119 0%, #15070c 100%);
+    border-color: #552a36;
+    color: #ece2e5;
+  }
+  body.patron .conversation .xfer {
+    background: #1d151f; color: #ece2e5;
+    border-color: #4d3b44 #17111a #17111a #4d3b44;
+  }
+  body.patron .conversation .xfer-s,
+  body.patron .conversation .xfer-st { color: #b8a7ae; }
+  body.patron .conversation .xfer-bar { background: #0b0509; }
+
+  /* The goat does not type like a teenager. Serif, capitals, full stops —
+     the contrast does the characterisation with no description needed. */
+  .conversation .msg.patron {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    letter-spacing: 0.2px;
+  }
+  .conversation .msg.patron .who { color: #ff2b3d; font-weight: bold; }
+  .cross {
+    display: inline-block;
+    transform: rotate(180deg);
+    color: #ff2b3d;
+  }
+
+  /* ===================================================================
+     THE SOUL TRANSFER — Sesh 8.
+     The ritual reads as an ordinary AIM file transfer right up until the
+     progress bar exceeds its own boundaries. Everything below is built out
+     of transforms, opacity and blend layers only: no filters on large
+     surfaces, nothing that decodes per frame, so it stays smooth on iPad.
+     The whole sequence is time-boxed and always ends in a clean window.
+     =================================================================== */
+  .conversation .xfer.soul { border-color: var(--win-light) #4b0082 #4b0082 var(--win-light); }
+  .conversation .xfer.soul .xfer-h { color: #4b0082; }
+  .conversation .xfer.soul .xfer-bar { position: relative; overflow: visible; }
+  .conversation .xfer.soul .xfer-bar i {
+    background: repeating-linear-gradient(90deg, #4b0082 0 9px, var(--win-face) 9px 11px);
+  }
+  .conversation .xfer-to {
+    font-family: "Courier New", monospace; font-size: 12px;
+    color: #444; margin: -2px 0 6px;
+  }
+  body.patron .conversation .xfer-to { color: #b8a7ae; }
+  .conversation .xfer.soul .xfer-st { font-family: "Courier New", monospace; }
+  .conversation .xfer.soul.over .xfer-bar i {
+    transition: none;
+    box-shadow: 0 0 14px 3px rgba(75,0,130,.9);
+  }
+  .conversation .xfer.soul.over .xfer-st { color: #4b0082; font-weight: bold; }
+  .conversation .xfer.soul.done .xfer-st { color: #4b0082; }
+
+  /* The bar escapes the window. Rows stack up the screen from the bottom —
+     the container visibly stops being able to hold him. */
+  #overflow {
+    position: fixed; inset: 0; z-index: 60;
+    display: none; pointer-events: none;
+    flex-direction: column-reverse; justify-content: flex-start;
+    gap: 3px;
+    padding: calc(var(--safe-top) + 4px) 0 calc(var(--safe-bot) + 4px);
+  }
+  #overflow.on { display: flex; }
+  #overflow .orow {
+    flex: 0 0 auto; height: 13px; width: 0%;
+    background: repeating-linear-gradient(90deg, #4b0082 0 9px, rgba(255,255,255,.18) 9px 11px);
+    box-shadow: 0 0 10px rgba(75,0,130,.75);
+    transition: width .14s linear;
+  }
+
+  /* Full-screen corruption. */
+  #glitch { position: fixed; inset: 0; z-index: 70; display: none; pointer-events: none; }
+  #glitch.on { display: block; }
+  #glitch .scan {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,.30) 0 1px, transparent 1px 3px);
+    animation: soul-scan .9s linear infinite;
+  }
+  @keyframes soul-scan { from { background-position: 0 0 } to { background-position: 0 3px } }
+  #glitch .tear {
+    position: absolute; left: 0; right: 0; height: 16%;
+    background: rgba(166,202,240,.22);
+    mix-blend-mode: screen;
+    animation: soul-tear 1.05s steps(5) infinite;
+  }
+  #glitch .tear.b { height: 7%; background: rgba(75,0,130,.28); animation-duration: .73s; animation-direction: reverse; }
+  @keyframes soul-tear {
+    0% { top: 6% }  20% { top: 61% } 40% { top: 28% }
+    60% { top: 84% } 80% { top: 15% } 100% { top: 47% }
+  }
+  #glitch .flash { position: absolute; inset: 0; background: #fff; opacity: 0; mix-blend-mode: difference; }
+  #glitch.hot .flash { animation: soul-flash .26s steps(2) infinite; }
+  @keyframes soul-flash { 0%, 72% { opacity: 0 } 73%, 100% { opacity: 1 } }
+
+  body.glitching #app { animation: soul-jitter .17s steps(3) infinite; }
+  @keyframes soul-jitter {
+    0%   { transform: translate(0, 0) }
+    33%  { transform: translate(-3px, 1px) }
+    66%  { transform: translate(2px, -2px) }
+    100% { transform: translate(0, 0) }
+  }
+  /* Chromatic split, done with text-shadow so nothing has to be cloned. */
+  body.glitching .conversation { text-shadow: -2px 0 rgba(255,0,255,.85), 2px 0 rgba(0,255,255,.85); }
+  body.glitching .conversation .msg.ghost { animation: soul-pull .48s steps(4) infinite; }
+  @keyframes soul-pull {
+    0%, 100% { opacity: 1;   transform: translateX(0) }
+    50%      { opacity: .32; transform: translateX(-7px) }
+  }
+  body.glitching.hot #app { animation-duration: .09s }
+
+  #whiteout {
+    position: fixed; inset: 0; z-index: 80; background: #fff;
+    opacity: 0; pointer-events: none; transition: opacity .12s linear;
+  }
+  #whiteout.on { opacity: 1; }
+  #whiteout.black { background: #000; transition: opacity .5s linear; }
 </style>
 </head>
 <body>
 
 <!-- ============== SIGN ON SCREEN ============== -->
+<div id="overflow" aria-hidden="true"></div>
+<div id="glitch" aria-hidden="true"><i class="scan"></i><i class="tear"></i><i class="tear b"></i><i class="flash"></i></div>
+<div id="whiteout" aria-hidden="true"></div>
+
 <div id="signon">
   <div class="titlebar">
     <span class="runner">🏃</span>
@@ -373,10 +553,18 @@
     <div class="logo">AIM</div>
     <h1>AOL Instant Messenger</h1>
     <label for="sn">Screen Name</label>
-    <input id="sn" class="field" type="text" value="" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+    <input id="sn" class="field saved" type="text" value="" readonly aria-readonly="true">
     <label for="pw">Password</label>
-    <input id="pw" class="field" type="password" value="••••••••" readonly>
+    <input id="pw" class="field" type="password" value="" autocomplete="off"
+           autocapitalize="off" autocorrect="off" spellcheck="false" inputmode="text"
+           enterkeyhint="go" aria-describedby="pwerr">
+    <label class="savebox"><input type="checkbox" checked disabled> Save password</label>
     <button class="signon-btn" id="signonBtn">Sign On</button>
+    <div id="pwerr" class="pw-err" role="alert" hidden>
+      <b>Sign On Error</b>
+      <p>Unable to sign on. The screen name or password you have entered is
+         incorrect. Please check that CAPS LOCK is not on and try again.</p>
+    </div>
     <div class="footer-links">
       <a href="#" onclick="return false;">Setup</a>·
       <a href="#" onclick="return false;">Help</a>·
@@ -429,7 +617,12 @@
    CONFIG — edit these to taste
    ===================================================================== */
 const CONFIG = {
-  playerScreenName: "TheParty",     // shows on outgoing messages
+  /* Whose computer this is. Sesh 7 is explicit that the machine is Poe Boy's,
+     hauled up here to record and edit — so his account is the one saved on it,
+     and the party spends this entire conversation typing as him.
+     The password is NOT saved: they have to find it and enter it, and Scott
+     hands them the sticky note. See PASSWORD below. */
+  playerScreenName: "DJPoeBoy187",
   ghostScreenName: "l0stsignal99",  // shows on incoming + title bar
   typingSpeedMs: 28,                // per-character typing delay (sim)
   ghostMessageGapMs: 600,           // pause between ghost lines
@@ -441,8 +634,32 @@ const CONFIG = {
     imsend:  "sounds/imsend.wav",   // outgoing IM
     goodbye: "sounds/goodbye.wav"   // farewell — plays before signoff
   },
-  goodbyeToSignoffMs: 700           // pause between goodbye and door slam
+  goodbyeToSignoffMs: 700,          // pause between goodbye and door slam
+
+  /* The dead kid's name is still an open question in the doc, so the prop
+     never speaks it. Set it here once it's picked, or pass it at the table
+     without editing anything:  /aim/?name=Marcus
+     When it's blank the drive mounts as UNTITLED and the beat still works —
+     the players are the ones who read the name off the bag either way. */
+  kidName: "",
+
+  /* The patron has no name in the doc — only a form (an all-black goat with
+     an upside-down red cross). This is the prop's placeholder screen name and
+     is 🟡: change it freely. It renders with an inverted cross in front of it. */
+  patronScreenName: "GOAT"
 };
+
+/* The sign-on gate. Matched case-insensitively and whitespace-trimmed, because
+   a player fat-fingering a capital letter should not cost you the scene. */
+const PASSWORD = "Fluffy123";
+
+/* ?name= lets the DM name him from the iPad's address bar mid-session. */
+try {
+  const qsName = new URLSearchParams(location.search).get("name");
+  if (qsName) CONFIG.kidName = qsName.trim().slice(0, 24);
+} catch (e) { /* no URLSearchParams, no problem */ }
+
+const driveLabel = () => (CONFIG.kidName ? CONFIG.kidName.toUpperCase() : "UNTITLED");
 
 /* =====================================================================
    DIALOGUE TREE — replace with your campaign script later.
@@ -450,11 +667,46 @@ const CONFIG = {
    - `next` references another node key, or "end" to sign off.
    - Omit `choices` (or use []) on a terminal node to end silently.
    ===================================================================== */
+/* ---------------------------------------------------------------------
+   ⚠️ NOTE ON THE SCREEN NAME — read before running this.
+
+   The party signs on as DJPoeBoy187, because it's his machine. Which
+   means every line they send the Spirit arrives under his killer's
+   handle, and the opening node is written for that: the boy sees that
+   name come online and comes apart before he works out it isn't him.
+
+   What saves it is rhythm — he has spent five years listening to one
+   person type. "youre not typing like him" is the whole reason this
+   conversation happens at all.
+
+   The opening deliberately stops short of naming him as the murderer.
+   He is frightened of the handle, which could just be a bully; the
+   actual accusation still lands later, at `theface`. Don't let him
+   give that away early.
+   --------------------------------------------------------------------- */
 const DIALOGUE = {
   start: {
     ghost: [
-      "hello?",
-      "is somebody at the keyboard",
+      "no",
+      "no no no not you. not tonight",
+      "i cant do tonight",
+      "...",
+      "wait",
+      "youre not typing like him"
+    ],
+    choices: [
+      { text: "we're not him.", next: "nothim" },
+      { text: "typing like who?", next: "nothim" },
+      { text: "who did you think we were?", next: "nothim" }
+    ]
+  },
+
+  nothim: {
+    ghost: [
+      "sorry. sorry",
+      "that name comes online and i go somewhere in my head",
+      "hes the only one who ever touches this machine. five years of one persons typing",
+      "you hit the keys wrong. all of you. theres more than one of you isnt there",
       "dont close the window. please",
       "its been really quiet in here"
     ],
@@ -756,23 +1008,80 @@ const DIALOGUE = {
       "theres a name on the front",
       "my mom did it in sharpie in like 6th grade so it wouldnt get lost",
       "i was so embarrassed about it. i asked her not to",
-      "its the only part of me thats still out there"
+      "theres two things in there. dont laugh at the second one"
     ],
     choices: [
-      { text: "we're not going to forget it.", next: "thefile" },
-      { text: "what do you need us to do?", next: "thefile" }
+      { text: "what's the second one?", next: "willow" },
+      { text: "nobody's laughing.", next: "willow" }
+    ]
+  },
+
+  /* ---------------------------------------------------------------
+     THE WISHING WILLOW — Sesh 8. The love spell Simone sold him.
+     The prop never names her character (she doesn't have a name yet),
+     so he calls her what a customer would call her.
+     --------------------------------------------------------------- */
+  willow: {
+    ghost: [
+      "its a wishing willow. one of the little wooden ones",
+      "you write what you want on the paper and you snap it and thats supposed to be that",
+      "i paid the goth girl from school to do it properly. the one who does the spells",
+      "we were both like twelve. i gave her everything i had on me"
+    ],
+    choices: [
+      { text: "what did you wish for?", next: "thewish" },
+      { text: "did it work?", next: "thewish" }
+    ]
+  },
+
+  thewish: {
+    ghost: [
+      "i wrote i want angelique to notice me",
+      "and it worked",
+      "thats the thing i need somebody to understand. it WORKED",
+      "she noticed me. they all noticed me. i went from nobody to somebody they had a use for",
+      "i got noticed so hard i ended up in here"
+    ],
+    choices: [
+      { text: "that wasn't your fault.", next: "notfault" },
+      { text: "she's here. tonight.", next: "shesheretonight" },
+      { text: "what's the other thing in the bag?", next: "thefile" }
+    ]
+  },
+
+  notfault: {
+    ghost: [
+      "i know whose fault it is",
+      "i just think about the willow a lot. thats all",
+      "i had five years to think about one piece of wood"
+    ],
+    choices: [
+      { text: "what's the other thing in the bag?", next: "thefile" }
+    ]
+  },
+
+  shesheretonight: {
+    ghost: [
+      "i know",
+      "i can always tell when shes in the house. i dont know how to explain that",
+      "shes been coming here for years. she walks around downstairs and then she leaves",
+      "she has never once come up these stairs",
+      "dont tell her im up here. tell her after"
+    ],
+    choices: [
+      { text: "what's the other thing in the bag?", next: "thefile" }
     ]
   },
 
   thefile: {
     ghost: [
       "front pocket. theres a drive in there. the little one",
+      "plug it into this machine. it still works, everything here still works",
       "he kept the recording. all of it. that whole night",
-      "its called scream_test_03_GOOD.wav",
-      "he named it that. i have to look at it every time the screen comes on"
+      "its called scream_test_03_GOOD.wav"
     ],
     choices: [
-      { text: "put it on the drive.", next: "upload" },
+      { text: "plugging it in now.", next: "mount" },
       { text: "he KEPT it?", next: "hekept" }
     ]
   },
@@ -784,7 +1093,37 @@ const DIALOGUE = {
       "he was never going to delete me. i was the good take"
     ],
     choices: [
-      { text: "plug it in. give it to us.", next: "upload" }
+      { text: "plugging the drive in.", next: "mount" }
+    ]
+  },
+
+  /* The name reveal. Sesh 8: they plug the USB in and it has his name on it —
+     that's when the table works out who he is. The prop prints whatever
+     CONFIG.kidName is set to and never says it in dialogue. */
+  mount: {
+    system: ["__DRIVE__"],
+    ghost: [
+      "there it is",
+      "thats me. thats my name",
+      "i labelled it in the computer lab in 8th grade so nobody would take it",
+      "i havent seen it written anywhere in five years",
+      "say it out loud. somebody say it out loud"
+    ],
+    choices: [
+      { text: "[ say his name ]", next: "saidit" },
+      { text: "put the recording on the drive.", next: "upload" }
+    ]
+  },
+
+  saidit: {
+    ghost: [
+      "ok",
+      "ok. sorry. give me a second",
+      "nobody has said that in a really long time",
+      "ok. put the file on there. lets do this properly"
+    ],
+    choices: [
+      { text: "putting it on the drive.", next: "upload" }
     ]
   },
 
@@ -804,14 +1143,200 @@ const DIALOGUE = {
   expose: {
     ghost: [
       "expose him",
-      "i dont care about getting out. i dont think theres an out",
       "i care that everyone in this house still thinks hes cool",
-      "make them hear it. all of them. thats the only thing i want"
+      "make them hear it. all of them. thats the only thing i want",
+      "...",
+      "thats not true actually. theres one other thing"
     ],
     choices: [
-      { text: "everyone's going to hear it.", next: "endsoon" },
-      { text: "what if he stops us?", next: "warning" }
+      { text: "name it.", next: "lastthing" },
+      { text: "what if he stops us?", next: "endsoon" }
     ]
+  },
+
+  /* ---------------------------------------------------------------
+     THE SECOND ASK — Sesh 8. This is the beat the ritual hangs off.
+     It is deliberately NOT how the party gets the recording: the file
+     is already on the drive by now, so everything from here is optional
+     and the story survives a no. See `refused`.
+     --------------------------------------------------------------- */
+  lastthing: {
+    ghost: [
+      "can you get me out of here",
+      "i dont mean alive. i know thats not on the table",
+      "i mean out of this machine. put me somewhere safe",
+      "its not like sleeping. i need somebody to know that. its not like anything",
+      "the screen goes off and im still here. its just dark and its just me"
+    ],
+    choices: [
+      { text: "somewhere safe like where?", next: "somewheresafe" },
+      { text: "we don't have that kind of magic.", next: "theprice" }
+    ]
+  },
+
+  somewheresafe: {
+    ghost: [
+      "the little drive. the one in your hand",
+      "put me in the little drive. i dont need much room",
+      "i have been in a tower under a desk for five years. anywhere is better",
+      "i know thats not a thing a person can just do"
+    ],
+    choices: [
+      { text: "it isn't. but there might be someone here who can.", next: "theprice" }
+    ]
+  },
+
+  theprice: {
+    ghost: [
+      "the goth girl. the one who sold me the willow",
+      "theres something standing behind her",
+      "its been in this room the whole time youve been talking to me",
+      "i dont think she can see it. i can see it fine",
+      "it has not looked at any of you once. its been looking at me",
+      "oh",
+      "its coming over"
+    ],
+    choices: [
+      { text: "coming over where?", next: "goatjoins" }
+    ]
+  },
+
+  /* ---------------------------------------------------------------
+     PATRON MODE. `patronJoin` flips the window's whole theme and
+     brings the goat into the conversation as a third screen name.
+     Everything it says is serif, capitalised and punctuated — the one
+     participant in this chat who was not raised on a keyboard.
+     --------------------------------------------------------------- */
+  goatjoins: {
+    patronJoin: true,
+    lines: [
+      ["patron", "There you are."],
+      ["ghost",  "no no no im not talking to that"],
+      ["ghost",  "sorry. sorry. i didnt mean that"],
+      ["patron", "You did. It is all right."],
+      ["patron", "I am not here for you."]
+    ],
+    choices: [
+      { text: "what are you?", next: "goatwhat" },
+      { text: "can you move him?", next: "goatprice" },
+      { text: "get out of this window.", next: "goatstay" }
+    ]
+  },
+
+  goatwhat: {
+    lines: [
+      ["patron", "You know what I am. We have been speaking since you were thirteen."],
+      ["patron", "This is only the first time it has needed a room."],
+      ["ghost",  "shes gone really quiet"],
+      ["patron", "She is fine. She is doing arithmetic."]
+    ],
+    choices: [
+      { text: "can you move him?", next: "goatprice" }
+    ]
+  },
+
+  goatstay: {
+    lines: [
+      ["patron", "No."],
+      ["ghost",  "i dont think it can be told things"],
+      ["patron", "I can be told things. I am choosing not to leave."]
+    ],
+    choices: [
+      { text: "fine. can you move him?", next: "goatprice" }
+    ]
+  },
+
+  goatprice: {
+    lines: [
+      ["patron", "Yes."],
+      ["patron", "You cannot. Not for another nine years — and he does not have nine years, because the machine is older than he is now."],
+      ["patron", "I can. There is a price."],
+      ["ghost",  "here we go"]
+    ],
+    choices: [
+      { text: "name it.", next: "goatall" },
+      { text: "what do you want it for?", next: "goatwhy" }
+    ]
+  },
+
+  goatwhy: {
+    lines: [
+      ["patron", "No."],
+      ["ghost",  "i dont think its going to explain"],
+      ["patron", "I am not going to explain."]
+    ],
+    choices: [
+      { text: "name the price.", next: "goatall" }
+    ]
+  },
+
+  goatall: {
+    lines: [
+      ["patron", "What is in the goat."],
+      ["patron", "All of it. Tonight. I will not ask twice and I will not take less."],
+      ["ghost",  "youve already got the recording. i want to say that out loud so nobody feels tricked"],
+      ["ghost",  "you can walk out of here with everything you came for and leave me in the tower and that is a completely fine thing to do"],
+      ["patron", "He is being honest. It is inconvenient."]
+    ],
+    choices: [
+      { text: "hang on. give us a minute.", next: "hangon" }
+    ]
+  },
+
+  /* THE HOLD POINT. Park here and play the price at the table — the piggy
+     bank, and Simone deciding. The prop waits as long as you need. */
+  hangon: {
+    lines: [
+      ["ghost",  "im not going anywhere"],
+      ["ghost",  "thats the joke"],
+      ["patron", "Take your time. I have nowhere to be until Monday."]
+    ],
+    choices: [
+      { text: "[ she paid. begin the ritual. ]", next: "ritual" },
+      { text: "what happens if we get this wrong?", next: "getitwrong" },
+      { text: "[ she said no. ]", next: "refused" }
+    ]
+  },
+
+  getitwrong: {
+    lines: [
+      ["ghost",  "i dont know"],
+      ["ghost",  "the last person who tried something like this on me was reading it out of a book he didnt understand"],
+      ["ghost",  "he did it in about four seconds and he was crying"],
+      ["patron", "He was not wrong about the words. He was wrong about the vessel — he had not prepared one, so the room chose for him."],
+      ["patron", "You have a vessel. It is in your hand."]
+    ],
+    choices: [
+      { text: "[ she paid. begin the ritual. ]", next: "ritual" },
+      { text: "[ she said no. ]", next: "refused" }
+    ]
+  },
+
+  /* ---------------------------------------------------------------
+     THE NO-PATH. Nothing plot-critical is lost here: they still have
+     the recording, the name and the drive. He just doesn't get out.
+     Do not make this a punishment — both of them let her off the hook.
+     --------------------------------------------------------------- */
+  refused: {
+    lines: [
+      ["patron", "Very well."],
+      ["patron", "I will still be here on Monday."]
+    ],
+    patronLeave: true,
+    choices: [
+      { text: "...", next: "refused2" }
+    ]
+  },
+
+  refused2: {
+    ghost: [
+      "ok",
+      "no i get it. thats a lot to ask a stranger",
+      "you got the file. thats the part that actually matters",
+      "make them hear it. all of them",
+      "and tell them it wasnt the vampires"
+    ],
+    choices: []  // terminal — normal sign-off, and the drive stays quiet
   },
 
   endsoon: {
@@ -831,6 +1356,47 @@ const DIALOGUE = {
       "tell them it wasnt the vampires"
     ],
     choices: []  // terminal — triggers sign-off
+  },
+
+  /* ---------------------------------------------------------------
+     THE RITUAL. `soul: true` fires the transfer sequence, then hands
+     off to `afterritual` rather than signing off directly.
+     --------------------------------------------------------------- */
+  ritual: {
+    lines: [
+      ["patron", "Then it is yours."],
+      ["patron", "Hold still. Both of you."],
+      ["ghost",  "shes really doing it"],
+      ["ghost",  "tell them it wasnt the vampires"],
+      ["ghost",  "tell them it was him"]
+    ],
+    soul: true,
+    soulNext: "afterritual",
+    choices: []
+  },
+
+  afterritual: {
+    lines: [
+      ["patron", "It is done."],
+      ["patron", "She will not get that money back. I want her to hear me say so."],
+      ["patron", "I did not take it to be cruel."]
+    ],
+    patronLeave: true,
+    choices: [
+      { text: "...are you still there?", next: "stillthere" }
+    ]
+  },
+
+  stillthere: {
+    ghost: [
+      "yeah",
+      "its really small in here",
+      "its so much better",
+      "hey — dont let go of it in the fight. i can hear everything",
+      "go and make them listen"
+    ],
+    moved: true,
+    choices: []  // terminal — sign-off, and this time the drive is safe to remove
   }
 };
 
@@ -882,6 +1448,77 @@ function play(name) {
     src.buffer = buf;
     src.connect(ctx.destination);
     src.start(0);
+  } catch (e) { /* swallow */ }
+}
+
+/* =====================================================================
+   PATRON AUDIO — the same five AIM sounds, wrong.
+
+   No new assets: everything the goat makes is one of the stock clips
+   pitched down, pushed through a waveshaper and rolled off with a
+   lowpass, then doubled slightly detuned. It reads instantly as "that
+   is the AIM sound" and equally instantly as "something is wrong with
+   it," which is exactly the register the whole scene wants.
+   ===================================================================== */
+let DIST_CURVE = null;
+function distortionCurve(amount) {
+  if (DIST_CURVE) return DIST_CURVE;
+  const n = 8192, curve = new Float32Array(n), deg = Math.PI / 180;
+  for (let i = 0; i < n; i++) {
+    const x = (i * 2) / n - 1;
+    curve[i] = ((3 + amount) * x * 20 * deg) / (Math.PI + amount * Math.abs(x));
+  }
+  DIST_CURVE = curve;
+  return curve;
+}
+
+const reversedCache = {};
+function reversedBuffer(ctx, buf) {
+  const key = buf.duration + ":" + buf.length;
+  if (reversedCache[key]) return reversedCache[key];
+  const out = ctx.createBuffer(buf.numberOfChannels, buf.length, buf.sampleRate);
+  for (let c = 0; c < buf.numberOfChannels; c++) {
+    const src = buf.getChannelData(c);
+    const dst = out.getChannelData(c);
+    for (let i = 0, n = src.length; i < n; i++) dst[i] = src[n - 1 - i];
+  }
+  reversedCache[key] = out;
+  return out;
+}
+
+function playPatron(name, opts) {
+  const ctx = audioCtx;
+  let buf = audioBuffers[name];
+  if (!ctx || !buf) return;
+  opts = opts || {};
+  try {
+    if (opts.reverse) buf = reversedBuffer(ctx, buf);
+
+    const shaper = ctx.createWaveShaper();
+    shaper.curve = distortionCurve(opts.drive || 24);
+    shaper.oversample = "2x";
+
+    const lp = ctx.createBiquadFilter();
+    lp.type = "lowpass";
+    lp.frequency.value = opts.cutoff || 1500;
+
+    const gain = ctx.createGain();
+    gain.gain.value = opts.gain || 0.8;
+
+    shaper.connect(lp);
+    lp.connect(gain);
+    gain.connect(ctx.destination);
+
+    const rate = opts.rate || 0.55;
+    // Two voices a hair apart — the doubling is what makes it sound like
+    // something with more than one throat.
+    for (const r of [rate, rate * 0.965]) {
+      const src = ctx.createBufferSource();
+      src.buffer = buf;
+      src.playbackRate.value = r;
+      src.connect(shaper);
+      src.start(0);
+    }
   } catch (e) { /* swallow */ }
 }
 
@@ -973,6 +1610,202 @@ function addTransfer(file, size) {
   });
 }
 
+/* =====================================================================
+   THE SOUL TRANSFER — Sesh 8.
+
+   Reads as an ordinary AIM file transfer right up until the bar fills.
+   Then it doesn't stop: the progress escapes the window, stacks up the
+   screen, and takes the display with it. Ends clean, always, on the
+   normal AIM sign-off — the quiet after the noise is the point.
+
+   Time-boxed to roughly 22s. Every stage is awaited, so it can't
+   overlap itself, and the finally-block guarantees the overlays come
+   down even if something throws.
+   ===================================================================== */
+const GLYPHS = "!@#$%^&*<>?/\\|{}[]~=+_0101█▓▒░";
+
+function scrambleText(str) {
+  let out = "";
+  for (const ch of str) {
+    out += (ch === " " || Math.random() > 0.55)
+      ? ch
+      : GLYPHS[Math.floor(Math.random() * GLYPHS.length)];
+  }
+  return out;
+}
+
+/* His lines in the scrollback come apart while he's being moved, then come
+   back — but signed with his real name, if the doc has picked one. The whole
+   conversation retroactively becomes a conversation with a named boy. */
+function ghostLineNodes() {
+  return Array.from($convo.querySelectorAll(".msg.ghost"));
+}
+
+async function addSoulTransfer() {
+  const $overflow = document.getElementById("overflow");
+  const $glitch   = document.getElementById("glitch");
+  const $white    = document.getElementById("whiteout");
+
+  const label = driveLabel();
+  const file  = label + ".soul";
+
+  const div = document.createElement("div");
+  div.className = "xfer soul";
+  div.innerHTML =
+    '<div class="xfer-h"></div>' +
+    '<div class="xfer-f"><span class="xfer-n"></span><span class="xfer-s"></span></div>' +
+    '<div class="xfer-to"></div>' +
+    '<div class="xfer-bar"><i></i></div>' +
+    '<div class="xfer-st">Waiting for connection…</div>';
+  div.querySelector(".xfer-h").textContent = CONFIG.ghostScreenName + " is sending you a file.";
+  div.querySelector(".xfer-n").textContent = file;
+  div.querySelector(".xfer-s").textContent = "—— MB";
+  // Name the destination on screen. The whole point of the beat is that the
+  // players watch him go somewhere, and the somewhere is in their hand.
+  div.querySelector(".xfer-to").textContent = 'Save to:  Removable Disk (E:)  "' + label + '"';
+  $convo.appendChild(div);
+  scrollToBottom();
+
+  const bar = div.querySelector(".xfer-bar i");
+  const st  = div.querySelector(".xfer-st");
+  const sz  = div.querySelector(".xfer-s");
+
+  // Saved so the log is readable again afterwards.
+  const originals = ghostLineNodes().map(n => {
+    const span = n.lastElementChild;
+    return { node: n, span, text: span.textContent };
+  });
+
+  try {
+    /* --- Stage 1: an ordinary transfer. Slower than the .wav — this one
+           is bigger than a file, and the pacing should say so. ----------- */
+    await wait(900);
+    let pct = 0, mb = 0;
+    while (pct < 100) {
+      pct = Math.min(100, pct + Math.random() * 5 + 2.5);
+      mb += Math.random() * 3.4;
+      bar.style.width = pct.toFixed(1) + "%";
+      st.textContent = "Receiving… " + Math.floor(pct) + "%";
+      sz.textContent = mb.toFixed(1) + " MB";
+      if (Math.random() < 0.22) play("imrcv");
+      scrollToBottom();
+      await wait(120 + Math.random() * 90);
+    }
+
+    /* --- Stage 2: it completes. Let the table exhale for a full beat. --- */
+    bar.style.width = "100%";
+    st.textContent = "Transfer complete.";
+    div.classList.add("done");
+    play("imrcv");
+    await wait(1100);
+
+    /* --- Stage 3: it does not stop. ------------------------------------- */
+    div.classList.remove("done");
+    div.classList.add("over");
+    st.textContent = "Receiving… 100%";
+    await wait(420);
+
+    $overflow.classList.add("on");
+    $glitch.classList.add("on");
+    document.body.classList.add("glitching");
+
+    const CORRUPT = [
+      "Receiving…", "Still receiving…", "Receiving…",
+      "size unknown", "Still receiving…", "no end of file",
+      "Still receiving…", "cannot determine size",
+      "Still receiving…", "he is bigger than the file"
+    ];
+
+    let over = 100, row = null, rows = 0;
+    const OVERFLOW_MS = 6400;
+    const t0 = Date.now();
+    let step = 0;
+
+    while (Date.now() - t0 < OVERFLOW_MS) {
+      const ramp = (Date.now() - t0) / OVERFLOW_MS;      // 0 → 1
+      over += 6 + ramp * ramp * 130;
+      mb   += 4 + ramp * 90;
+
+      // Each additional 100% is another bar stacking up the screen.
+      const want = Math.floor(over / 100);
+      while (rows < want && rows < 46) {
+        row = document.createElement("div");
+        row.className = "orow";
+        $overflow.appendChild(row);
+        rows++;
+        requestAnimationFrame(() => { row.style.width = "100%"; });
+      }
+      bar.style.width = "100%";
+
+      st.textContent = CORRUPT[step % CORRUPT.length] + " " +
+                       Math.floor(over).toLocaleString() + "%";
+      sz.textContent = mb > 9999 ? "————" : mb.toFixed(1) + " MB";
+
+      // The chat itself starts coming apart.
+      if (ramp > 0.25) {
+        for (const o of originals) {
+          if (Math.random() < 0.35 + ramp * 0.5) o.span.textContent = scrambleText(o.text);
+        }
+      }
+      if (Math.random() < 0.25 + ramp * 0.6) play("imrcv");
+
+      step++;
+      await wait(Math.max(45, 190 - ramp * 150));
+    }
+
+    /* --- Stage 4: peak. ------------------------------------------------- */
+    $glitch.classList.add("hot");
+    document.body.classList.add("hot");
+    for (let i = 0; i < 7; i++) { play("imrcv"); await wait(70); }
+    st.textContent = "████████";
+    await wait(700);
+
+    /* --- Stage 5: white, then black, then nothing at all. --------------- */
+    $white.classList.add("on");
+    await wait(230);
+    $glitch.classList.remove("on", "hot");
+    $overflow.classList.remove("on");
+    $overflow.innerHTML = "";
+    document.body.classList.remove("glitching", "hot");
+    $white.classList.add("black");
+    await wait(1400);
+
+    /* --- Stage 6: the window comes back, and it is completely calm. ----- */
+    for (const o of originals) {
+      o.span.textContent = o.text;
+      if (CONFIG.kidName) {
+        const who = o.node.querySelector(".who");
+        if (who) who.textContent = CONFIG.kidName + ": ";
+      }
+    }
+    if (CONFIG.kidName) {
+      $ghostNameTop.textContent = CONFIG.kidName;
+      $titleText.textContent = CONFIG.kidName + " — Instant Message";
+      div.querySelector(".xfer-h").textContent = CONFIG.kidName + " is sending you a file.";
+      // Everything he says from here on is said by a named boy, not a handle.
+      CONFIG.ghostScreenName = CONFIG.kidName;
+    }
+    bar.style.width = "100%";
+    div.classList.remove("over");
+    div.classList.add("done");
+    st.textContent = "Transfer complete.";
+    sz.textContent = "—— MB";
+
+    $white.classList.remove("on");
+    await wait(600);
+    $white.classList.remove("black");
+    scrollToBottom();
+    await wait(700);
+  } finally {
+    // Never leave the prop stuck in a glitch, whatever went wrong.
+    $glitch.classList.remove("on", "hot");
+    $overflow.classList.remove("on");
+    $overflow.innerHTML = "";
+    $white.classList.remove("on", "black");
+    document.body.classList.remove("glitching", "hot");
+  }
+}
+
 function clearChoices() {
   $choices.innerHTML = "";
 }
@@ -1007,6 +1840,58 @@ async function playerSay(text) {
   addMessage("player", CONFIG.playerScreenName, text);
 }
 
+/* The goat gets no typing indicator. It does not compose; it arrives. */
+async function patronSay(line) {
+  const div = document.createElement("div");
+  div.className = "msg patron";
+  const who = document.createElement("span");
+  who.className = "who";
+  const cross = document.createElement("span");
+  cross.className = "cross";
+  cross.textContent = "\u2020";
+  who.appendChild(cross);
+  who.appendChild(document.createTextNode(CONFIG.patronScreenName + ": "));
+  div.appendChild(who);
+  const txt = document.createElement("span");
+  txt.textContent = line;
+  div.appendChild(txt);
+  $convo.appendChild(div);
+  playPatron("imrcv");
+  scrollToBottom();
+}
+
+/* Arrival: a short burst of the same corruption the ritual uses, the sign-on
+   door played backwards and underwater, and then the room is a different
+   colour and there are three names on it. */
+async function patronJoin() {
+  const $glitch = document.getElementById("glitch");
+  playPatron("signon", { reverse: true, rate: 0.5, cutoff: 1200 });
+  $glitch.classList.add("on");
+  document.body.classList.add("glitching");
+  await wait(260);
+  document.body.classList.add("patron");
+  await wait(520);
+  $glitch.classList.remove("on");
+  document.body.classList.remove("glitching");
+
+  $titleText.textContent = "Chat Room \u2014 3 people here";
+  $ghostNameTop.textContent = CONFIG.ghostScreenName + ", " + CONFIG.patronScreenName;
+  addSystem(CONFIG.patronScreenName + " has entered the room.");
+  await wait(700);
+}
+
+async function patronLeave() {
+  playPatron("signoff", { rate: 0.5, cutoff: 1200 });
+  addSystem(CONFIG.patronScreenName + " has left the room.");
+  await wait(650);
+  // The blue coming back is the release. Let it land before anyone speaks.
+  document.body.classList.remove("patron");
+  $titleText.textContent = CONFIG.ghostScreenName + " \u2014 Instant Message";
+  $ghostNameTop.textContent = CONFIG.ghostScreenName;
+  $inputPlaceholder.textContent = "— select a response below —";
+  await wait(900);
+}
+
 async function runNode(key) {
   const node = DIALOGUE[key];
   if (!node) {
@@ -1014,18 +1899,62 @@ async function runNode(key) {
     return;
   }
   clearChoices();
-  for (const line of node.ghost) {
-    await ghostSay(line);
-    await wait(CONFIG.ghostMessageGapMs);
+
+  /* System lines fire before he speaks — the drive mounting is the machine
+     talking, not him, and the players should read the name off the screen
+     a beat before he reacts to seeing it. */
+  if (node.system) {
+    for (const line of node.system) {
+      if (line === "__DRIVE__") {
+        addSystem("New hardware found: USB Mass Storage Device");
+        await wait(700);
+        addSystem('Removable Disk (E:)  ·  volume label "' + driveLabel() + '"');
+      } else {
+        addSystem(line);
+      }
+      await wait(650);
+    }
+    await wait(400);
   }
+
+  if (node.patronJoin) await patronJoin();
+
+  /* Nodes use either `ghost: [...]` (single speaker, the common case) or
+     `lines: [[who, text], ...]` once the goat is in the room. */
+  const script = node.lines
+    ? node.lines
+    : (node.ghost || []).map(l => ["ghost", l]);
+
+  for (const [who, line] of script) {
+    if (who === "patron") {
+      await patronSay(line);
+      await wait(CONFIG.ghostMessageGapMs + 250);
+    } else if (who === "sys") {
+      addSystem(line);
+      await wait(CONFIG.ghostMessageGapMs);
+    } else {
+      await ghostSay(line);
+      await wait(CONFIG.ghostMessageGapMs);
+    }
+  }
+
+  if (node.patronLeave) await patronLeave();
   if (node.transfer) {
     await wait(500);
     await addTransfer(node.transfer.file, node.transfer.size);
     await wait(750);
   }
+  if (node.soul) {
+    await wait(500);
+    await addSoulTransfer();
+    await wait(400);
+    if (node.soulNext) { runNode(node.soulNext); return; }
+    signOff(true);
+    return;
+  }
   if (!node.choices || node.choices.length === 0) {
     await wait(900);
-    signOff();
+    signOff(!!node.moved);
     return;
   }
   renderChoices(node.choices, async (choice) => {
@@ -1035,13 +1964,21 @@ async function runNode(key) {
   });
 }
 
-function signOff() {
+function signOff(moved) {
   play("goodbye");
   clearChoices();
   $inputPlaceholder.textContent = "— conversation ended —";
   setTimeout(() => {
     play("signoff");
-    addSystem(CONFIG.ghostScreenName + " signed off at " + nowStr() + ".");
+    // The screen name signs off either way. After the ritual it's his real one.
+    const who = (moved && CONFIG.kidName) ? CONFIG.kidName : CONFIG.ghostScreenName;
+    addSystem(who + " signed off at " + nowStr() + ".");
+    if (moved) {
+      // The line that tells the table to physically pick up the USB stick.
+      setTimeout(() => {
+        addSystem('Drive "' + driveLabel() + '" is safe to remove.');
+      }, 2200);
+    }
   }, CONFIG.goodbyeToSignoffMs);
 }
 
@@ -1070,12 +2007,36 @@ function startApp() {
   }, 250);
 }
 
+/* The password gate. Wrong answers get the real AIM error and nothing else —
+   no hints, no attempt counter, no lockout. They can try as many times as they
+   like, which matters because the answer is on a sticky note somewhere. */
+function attemptSignOn() {
+  // Unlock audio on the very first tap regardless of the answer: it's a user
+  // gesture, and iOS may not give us another clean one.
+  unlockAudio();
+  const $pw = document.getElementById("pw");
+  const $err = document.getElementById("pwerr");
+  const typed = ($pw.value || "").trim();
+
+  if (typed.toLowerCase() !== PASSWORD.toLowerCase()) {
+    $err.hidden = false;
+    $err.classList.remove("shake");
+    void $err.offsetWidth;          // restart the animation
+    $err.classList.add("shake");
+    $pw.value = "";
+    $pw.focus();
+    return;
+  }
+  $err.hidden = true;
+  startApp();
+}
+
 window.addEventListener("DOMContentLoaded", () => {
   preloadSounds();
   document.getElementById("sn").value = CONFIG.playerScreenName;
-  document.getElementById("signonBtn").addEventListener("click", () => {
-    unlockAudio();
-    startApp();
+  document.getElementById("signonBtn").addEventListener("click", attemptSignOn);
+  document.getElementById("pw").addEventListener("keydown", e => {
+    if (e.key === "Enter") { e.preventDefault(); attemptSignOn(); }
   });
   document.addEventListener("touchstart", unlockAudio, { once: true, passive: true });
   document.addEventListener("gesturestart", e => e.preventDefault());

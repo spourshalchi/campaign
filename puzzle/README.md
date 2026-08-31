@@ -240,7 +240,8 @@ Two rules when editing the front page:
 4. Point `ACTIVE` at it
 
 Candidates already floated: the real-estate firm scouting the mansion, and the
-diary showing Bix's account of his night there is incomplete.
+diary showing Bix's account of his night there is incomplete. (Sesh 8 gives that diary an
+obvious subject: Edward is his father.)
 
 ## Tuning
 
