@@ -725,8 +725,7 @@ const DIALOGUE = {
   howlong: {
     ghost: [
       "i counted at first",
-      "then the power was out for a long time and i lost it",
-      "so. a while"
+      "then the power was out for a long time and i lost it. so. a while"
     ],
     choices: [
       { text: "what happened?", next: "thatnight" },
@@ -764,7 +763,7 @@ const DIALOGUE = {
     ghost: [
       "when i got to the house the door was already open. it was so dark inside",
       "i went in anyway. i kept telling myself it was just a dare",
-      "and then the door locked... almost on their own??",
+      "and then the door locked... almost on its own??",
       "i just ran. i ran for the only light in the whole house",
       "there was a desk. gear everywhere. a computer already on",
       "so i got on aim and started typing to anybody",
@@ -815,8 +814,7 @@ const DIALOGUE = {
     ghost: [
       "theres something. its stupid but theres something",
       "my bag is still in this room. by the desk under the coats",
-      "he never went through it. i dont think he could look at it",
-      "can you get it"
+      "he never went through it. i dont think he could look at it. can you get it"
     ],
     choices: [
       { text: "got it. what's in it?", next: "willow" }
@@ -825,10 +823,10 @@ const DIALOGUE = {
 
   willow: {
     ghost: [
-      "two things in there. dont laugh at the second one",
+      "two things in there. dont laugh",
       "its a wishing willow. one of the little wooden ones",
       "you write what you want on the paper and you snap it and thats supposed to be that",
-      "i paid the goth girl from school to do it properly. the one who does the real spells"
+      "i paid that goth girl from school for it"
     ],
     choices: [
       { text: "what did you wish for?", next: "thewish" },
@@ -861,8 +859,7 @@ const DIALOGUE = {
 
   thefile: {
     ghost: [
-      "front pocket. theres a little drive in there",
-      "plug it into this machine. ",
+      "front pocket. theres a little drive in there. plug it into this machine",
       "the recording... i dont want to hear it again. but people should"
     ],
     choices: [
@@ -872,8 +869,7 @@ const DIALOGUE = {
 
   mount: {
     ghost: [
-      "oh",
-      "oh i see it. its plugged in",
+      "oh. oh i see it, its plugged in",
       "theres a name on it",
       "marcus",
       "...is that me?"
@@ -944,8 +940,7 @@ const DIALOGUE = {
   refused: {
     ghost: [
       "i understand. its a lot to ask",
-      "its just... ill be trapped in here forever",
-      "but i get it"
+      "its just... ill be trapped in here forever. but i get it"
     ],
     choices: [
       { text: "[ okay. pay it. ]", next: "ritual" },
@@ -1097,8 +1092,15 @@ const $ghostNameTop = document.getElementById("ghostNameTop");
 const $inputPlaceholder = document.getElementById("inputPlaceholder");
 
 function scrollToBottom() {
+  $convo.scrollTop = $convo.scrollHeight;
   requestAnimationFrame(() => { $convo.scrollTop = $convo.scrollHeight; });
 }
+/* Keep the transcript pinned to the newest line no matter what changes height —
+   the "X is typing…" indicator swapping in for a full bubble, a message
+   wrapping to more lines, choices rendering. Anything added inside the
+   conversation snaps it back to the bottom, so new lines are never below the fold. */
+new MutationObserver(() => { $convo.scrollTop = $convo.scrollHeight; })
+  .observe($convo, { childList: true, subtree: true, characterData: true });
 
 function addSystem(text) {
   const div = document.createElement("div");

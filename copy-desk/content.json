@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-02T00:59:42.436Z",
-  "totalItems": 746,
+  "generatedAt": "2026-09-02T01:04:21.638Z",
+  "totalItems": 741,
   "sections": [
     {
       "id": "aim",
@@ -194,14 +194,8 @@
             {
               "id": "aim::howlong::line::1",
               "speaker": "ghost",
-              "text": "then the power was out for a long time and i lost it",
+              "text": "then the power was out for a long time and i lost it. so. a while",
               "path": "aim/index.html :: DIALOGUE.howlong.ghost[1]"
-            },
-            {
-              "id": "aim::howlong::line::2",
-              "speaker": "ghost",
-              "text": "so. a while",
-              "path": "aim/index.html :: DIALOGUE.howlong.ghost[2]"
             }
           ],
           "choices": [
@@ -329,7 +323,7 @@
             {
               "id": "aim::theroom::line::2",
               "speaker": "ghost",
-              "text": "and then the door locked... almost on their own??",
+              "text": "and then the door locked... almost on its own??",
               "path": "aim/index.html :: DIALOGUE.theroom.ghost[2]"
             },
             {
@@ -503,14 +497,8 @@
             {
               "id": "aim::backpack::line::2",
               "speaker": "ghost",
-              "text": "he never went through it. i dont think he could look at it",
+              "text": "he never went through it. i dont think he could look at it. can you get it",
               "path": "aim/index.html :: DIALOGUE.backpack.ghost[2]"
-            },
-            {
-              "id": "aim::backpack::line::3",
-              "speaker": "ghost",
-              "text": "can you get it",
-              "path": "aim/index.html :: DIALOGUE.backpack.ghost[3]"
             }
           ],
           "choices": [
@@ -530,7 +518,7 @@
             {
               "id": "aim::willow::line::0",
               "speaker": "ghost",
-              "text": "two things in there. dont laugh at the second one",
+              "text": "two things in there. dont laugh",
               "path": "aim/index.html :: DIALOGUE.willow.ghost[0]"
             },
             {
@@ -548,7 +536,7 @@
             {
               "id": "aim::willow::line::3",
               "speaker": "ghost",
-              "text": "i paid the goth girl from school to do it properly. the one who does the real spells",
+              "text": "i paid that goth girl from school for it",
               "path": "aim/index.html :: DIALOGUE.willow.ghost[3]"
             }
           ],
@@ -647,20 +635,14 @@
             {
               "id": "aim::thefile::line::0",
               "speaker": "ghost",
-              "text": "front pocket. theres a little drive in there",
+              "text": "front pocket. theres a little drive in there. plug it into this machine",
               "path": "aim/index.html :: DIALOGUE.thefile.ghost[0]"
             },
             {
               "id": "aim::thefile::line::1",
               "speaker": "ghost",
-              "text": "plug it into this machine. ",
-              "path": "aim/index.html :: DIALOGUE.thefile.ghost[1]"
-            },
-            {
-              "id": "aim::thefile::line::2",
-              "speaker": "ghost",
               "text": "the recording... i dont want to hear it again. but people should",
-              "path": "aim/index.html :: DIALOGUE.thefile.ghost[2]"
+              "path": "aim/index.html :: DIALOGUE.thefile.ghost[1]"
             }
           ],
           "choices": [
@@ -680,32 +662,26 @@
             {
               "id": "aim::mount::line::0",
               "speaker": "ghost",
-              "text": "oh",
+              "text": "oh. oh i see it, its plugged in",
               "path": "aim/index.html :: DIALOGUE.mount.ghost[0]"
             },
             {
               "id": "aim::mount::line::1",
               "speaker": "ghost",
-              "text": "oh i see it. its plugged in",
+              "text": "theres a name on it",
               "path": "aim/index.html :: DIALOGUE.mount.ghost[1]"
             },
             {
               "id": "aim::mount::line::2",
               "speaker": "ghost",
-              "text": "theres a name on it",
+              "text": "marcus",
               "path": "aim/index.html :: DIALOGUE.mount.ghost[2]"
             },
             {
               "id": "aim::mount::line::3",
               "speaker": "ghost",
-              "text": "marcus",
-              "path": "aim/index.html :: DIALOGUE.mount.ghost[3]"
-            },
-            {
-              "id": "aim::mount::line::4",
-              "speaker": "ghost",
               "text": "...is that me?",
-              "path": "aim/index.html :: DIALOGUE.mount.ghost[4]"
+              "path": "aim/index.html :: DIALOGUE.mount.ghost[3]"
             }
           ],
           "choices": [
@@ -895,14 +871,8 @@
             {
               "id": "aim::refused::line::1",
               "speaker": "ghost",
-              "text": "its just... ill be trapped in here forever",
+              "text": "its just... ill be trapped in here forever. but i get it",
               "path": "aim/index.html :: DIALOGUE.refused.ghost[1]"
-            },
-            {
-              "id": "aim::refused::line::2",
-              "speaker": "ghost",
-              "text": "but i get it",
-              "path": "aim/index.html :: DIALOGUE.refused.ghost[2]"
             }
           ],
           "choices": [
