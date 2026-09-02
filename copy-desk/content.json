@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T01:06:13.610Z",
+  "generatedAt": "2026-09-02T01:06:30.629Z",
   "totalItems": 739,
   "sections": [
     {
@@ -668,7 +668,7 @@
             {
               "id": "aim::mount::line::2",
               "speaker": "ghost",
-              "text": "...is that me?",
+              "text": "... i guess thats me",
               "path": "aim/index.html :: DIALOGUE.mount.ghost[2]"
             }
           ],
