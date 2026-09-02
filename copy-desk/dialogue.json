@@ -1,0 +1,654 @@
+{
+  "start": "start",
+  "nodes": [
+    {
+      "key": "start",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "hello???"
+        },
+        {
+          "speaker": "ghost",
+          "text": "is someone there"
+        }
+      ],
+      "choices": [
+        {
+          "text": "who is this?",
+          "next": "nothim"
+        },
+        {
+          "text": "we're here. what's going on?",
+          "next": "nothim"
+        }
+      ]
+    },
+    {
+      "key": "nothim",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "sorry — sorry. i got a little excited"
+        },
+        {
+          "speaker": "ghost",
+          "text": "hes the only one who ever touches this machine. five years of one persons typing"
+        },
+        {
+          "speaker": "ghost",
+          "text": "dont close the window. please"
+        },
+        {
+          "speaker": "ghost",
+          "text": "its been really quiet in here"
+        }
+      ],
+      "choices": [
+        {
+          "text": "who is this?",
+          "next": "who"
+        },
+        {
+          "text": "what happened to you?",
+          "next": "thatnight"
+        }
+      ]
+    },
+    {
+      "key": "who",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "im not sure how to answer that anymore"
+        },
+        {
+          "speaker": "ghost",
+          "text": "i went to your school though"
+        },
+        {
+          "speaker": "ghost",
+          "text": "third locker from the end by the gym. thats mine"
+        },
+        {
+          "speaker": "ghost",
+          "text": "i dont think anyones opened it in a while"
+        }
+      ],
+      "choices": [
+        {
+          "text": "how long have you been in there?",
+          "next": "howlong"
+        },
+        {
+          "text": "what happened that night?",
+          "next": "thatnight"
+        }
+      ]
+    },
+    {
+      "key": "howlong",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "i counted at first"
+        },
+        {
+          "speaker": "ghost",
+          "text": "then the power was out for a long time and i lost it"
+        },
+        {
+          "speaker": "ghost",
+          "text": "so. a while"
+        }
+      ],
+      "choices": [
+        {
+          "text": "what happened that night?",
+          "next": "thatnight"
+        },
+        {
+          "text": "i'm sorry.",
+          "next": "sorry"
+        }
+      ]
+    },
+    {
+      "key": "thatnight",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "somebody had been messaging me for weeks"
+        },
+        {
+          "speaker": "ghost",
+          "text": "she was funny. she liked the same bands as me. she actually listened"
+        },
+        {
+          "speaker": "ghost",
+          "text": "then she said prove youre not scared. go up to the house at night"
+        },
+        {
+          "speaker": "ghost",
+          "text": "so i went. because somebody was finally talking to me"
+        }
+      ],
+      "choices": [
+        {
+          "text": "who was she?",
+          "next": "thegirl"
+        },
+        {
+          "text": "then what happened?",
+          "next": "theroom"
+        }
+      ]
+    },
+    {
+      "key": "thegirl",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "her name is angelique"
+        },
+        {
+          "speaker": "ghost",
+          "text": "i wonder sometimes if she knew this would happen"
+        },
+        {
+          "speaker": "ghost",
+          "text": "i really hope she didnt. we got along so well — she actually listened to me"
+        },
+        {
+          "speaker": "ghost",
+          "text": "unless that was the whole point. i try not to think about that one"
+        }
+      ],
+      "choices": [
+        {
+          "text": "then what happened that night?",
+          "next": "theroom"
+        },
+        {
+          "text": "i'm sorry.",
+          "next": "sorry"
+        }
+      ]
+    },
+    {
+      "key": "theroom",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "when i got to the house the door was already open. it was so dark inside"
+        },
+        {
+          "speaker": "ghost",
+          "text": "i went in anyway. i kept telling myself it was just a dare"
+        },
+        {
+          "speaker": "ghost",
+          "text": "and then the door locked... almost on their own??"
+        },
+        {
+          "speaker": "ghost",
+          "text": "i just ran. i ran for the only light in the whole house"
+        },
+        {
+          "speaker": "ghost",
+          "text": "there was a desk. gear everywhere. a computer already on"
+        },
+        {
+          "speaker": "ghost",
+          "text": "so i got on aim and started typing to anybody"
+        },
+        {
+          "speaker": "ghost",
+          "text": "i got maybe four words out"
+        }
+      ],
+      "choices": [
+        {
+          "text": "and then?",
+          "next": "thedoor"
+        }
+      ]
+    },
+    {
+      "key": "thedoor",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "before i could finish typing he was behind me"
+        },
+        {
+          "speaker": "ghost",
+          "text": "he said something over me. words i didnt know. it didnt sound like a language at all"
+        },
+        {
+          "speaker": "ghost",
+          "text": "the room got small and cold and then it wasnt a room anymore"
+        },
+        {
+          "speaker": "ghost",
+          "text": "it was this. a screen. a little green light. and me somewhere inside it"
+        }
+      ],
+      "choices": [
+        {
+          "text": "who was it?",
+          "next": "theface"
+        },
+        {
+          "text": "i'm sorry.",
+          "next": "sorry"
+        }
+      ]
+    },
+    {
+      "key": "theface",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "it was poe boy"
+        },
+        {
+          "speaker": "ghost",
+          "text": "i dont know why he did it. i dont think ill ever know"
+        },
+        {
+          "speaker": "ghost",
+          "text": "i think... i think he was recording me???"
+        },
+        {
+          "speaker": "ghost",
+          "text": "im pretty sure theres a file of my screams somewhere in this machine. disgusting"
+        }
+      ],
+      "choices": [
+        {
+          "text": "i'm sorry.",
+          "next": "sorry"
+        },
+        {
+          "text": "what do you need from us?",
+          "next": "backpack"
+        }
+      ]
+    },
+    {
+      "key": "sorry",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "youre the first person whos said that"
+        },
+        {
+          "speaker": "ghost",
+          "text": "he never did. he just started packing up the gear"
+        }
+      ],
+      "choices": [
+        {
+          "text": "what do you need from us?",
+          "next": "backpack"
+        }
+      ]
+    },
+    {
+      "key": "backpack",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "theres something. its stupid but theres something"
+        },
+        {
+          "speaker": "ghost",
+          "text": "my bag is still in this room. by the desk under the coats"
+        },
+        {
+          "speaker": "ghost",
+          "text": "he never went through it. i dont think he could look at it"
+        },
+        {
+          "speaker": "ghost",
+          "text": "can you get it"
+        }
+      ],
+      "choices": [
+        {
+          "text": "got it. what's in it?",
+          "next": "willow"
+        }
+      ]
+    },
+    {
+      "key": "willow",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "two things in there. dont laugh at the second one"
+        },
+        {
+          "speaker": "ghost",
+          "text": "its a wishing willow. one of the little wooden ones"
+        },
+        {
+          "speaker": "ghost",
+          "text": "you write what you want on the paper and you snap it and thats supposed to be that"
+        },
+        {
+          "speaker": "ghost",
+          "text": "i paid the goth girl from school to do it properly. the one who does the real spells"
+        }
+      ],
+      "choices": [
+        {
+          "text": "what did you wish for?",
+          "next": "thewish"
+        },
+        {
+          "text": "what's the other thing?",
+          "next": "thefile"
+        }
+      ]
+    },
+    {
+      "key": "thewish",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "i wrote i want angelique to notice me"
+        },
+        {
+          "speaker": "ghost",
+          "text": "and it worked"
+        },
+        {
+          "speaker": "ghost",
+          "text": "thats the thing i need somebody to understand. it WORKED"
+        },
+        {
+          "speaker": "ghost",
+          "text": "i went from nobody to somebody. i got noticed so hard i ended up in here"
+        }
+      ],
+      "choices": [
+        {
+          "text": "that wasn't your fault.",
+          "next": "notfault"
+        },
+        {
+          "text": "what's the other thing in the bag?",
+          "next": "thefile"
+        }
+      ]
+    },
+    {
+      "key": "notfault",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "i know whose fault it is"
+        },
+        {
+          "speaker": "ghost",
+          "text": "i just think about that willow a lot. thats all"
+        }
+      ],
+      "choices": [
+        {
+          "text": "what's the other thing in the bag?",
+          "next": "thefile"
+        }
+      ]
+    },
+    {
+      "key": "thefile",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "front pocket. theres a little drive in there"
+        },
+        {
+          "speaker": "ghost",
+          "text": "plug it into this machine. "
+        },
+        {
+          "speaker": "ghost",
+          "text": "the recording... i dont want to hear it again. but people should"
+        }
+      ],
+      "choices": [
+        {
+          "text": "plugging it in now.",
+          "next": "mount"
+        }
+      ]
+    },
+    {
+      "key": "mount",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "oh"
+        },
+        {
+          "speaker": "ghost",
+          "text": "oh i see it. its plugged in"
+        },
+        {
+          "speaker": "ghost",
+          "text": "theres a name on it"
+        },
+        {
+          "speaker": "ghost",
+          "text": "marcus"
+        },
+        {
+          "speaker": "ghost",
+          "text": "...is that me?"
+        }
+      ],
+      "choices": [
+        {
+          "text": "what do we do with the recording?",
+          "next": "expose"
+        }
+      ],
+      "system": [
+        "__DRIVE__"
+      ]
+    },
+    {
+      "key": "expose",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "make them hear it. all of them"
+        },
+        {
+          "speaker": "ghost",
+          "text": "people need to know what he is"
+        },
+        {
+          "speaker": "ghost",
+          "text": "hes not cool. hes a goddamn monster"
+        },
+        {
+          "speaker": "ghost",
+          "text": "thats the only thing i want"
+        },
+        {
+          "speaker": "ghost",
+          "text": "... thats not true actually. theres one other thing"
+        }
+      ],
+      "choices": [
+        {
+          "text": "whats up?",
+          "next": "lastthing"
+        }
+      ]
+    },
+    {
+      "key": "lastthing",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "can you get me out of here"
+        },
+        {
+          "speaker": "ghost",
+          "text": "i dont mean alive. i know thats not on the table"
+        },
+        {
+          "speaker": "ghost",
+          "text": "i mean out of this machine. put me somewhere safe."
+        },
+        {
+          "speaker": "ghost",
+          "text": "When the screen goes off ... its dark and im all alone"
+        }
+      ],
+      "choices": [
+        {
+          "text": "somewhere safe. is that even possible?",
+          "next": "magic"
+        }
+      ]
+    },
+    {
+      "key": "magic",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "do any of you know magic?"
+        },
+        {
+          "speaker": "ghost",
+          "text": "does anyone have a spell for that"
+        }
+      ],
+      "choices": [
+        {
+          "text": "im sorry. none of us know a spell for that",
+          "next": "patronjoins"
+        }
+      ]
+    },
+    {
+      "key": "patronjoins",
+      "schema": "lines",
+      "lines": [
+        {
+          "speaker": "patron",
+          "text": "I can help with that."
+        },
+        {
+          "speaker": "patron",
+          "text": "All your savings. Give it."
+        }
+      ],
+      "choices": [
+        {
+          "text": "[ pay it ]",
+          "next": "ritual"
+        },
+        {
+          "text": "[ refuse ]",
+          "next": "refused"
+        }
+      ],
+      "patronJoin": true
+    },
+    {
+      "key": "ritual",
+      "schema": "lines",
+      "lines": [
+        {
+          "speaker": "patron",
+          "text": "Hold still, little one. This will only hurt a little bit."
+        },
+        {
+          "speaker": "patron",
+          "text": "*a lot"
+        }
+      ],
+      "choices": [],
+      "soul": true,
+      "patronLeave": true
+    },
+    {
+      "key": "refused",
+      "schema": "ghost",
+      "lines": [
+        {
+          "speaker": "ghost",
+          "text": "i understand. its a lot to ask"
+        },
+        {
+          "speaker": "ghost",
+          "text": "its just... ill be trapped in here forever"
+        },
+        {
+          "speaker": "ghost",
+          "text": "but i get it"
+        }
+      ],
+      "choices": [
+        {
+          "text": "[ okay. pay it. ]",
+          "next": "ritual"
+        },
+        {
+          "text": "[ we cant. im sorry. ]",
+          "next": "refusedfinal"
+        }
+      ]
+    },
+    {
+      "key": "refusedfinal",
+      "schema": "lines",
+      "patronLeave": true,
+      "lines": [
+        {
+          "speaker": "patron",
+          "text": "Very well."
+        },
+        {
+          "speaker": "ghost",
+          "text": "you got the file. thats the part that actually matters"
+        },
+        {
+          "speaker": "ghost",
+          "text": "make them hear it. all of them"
+        },
+        {
+          "speaker": "ghost",
+          "text": "and tell them it was him"
+        }
+      ],
+      "choices": []
+    }
+  ]
+}
