@@ -1105,6 +1105,12 @@ function scrollToBottom() {
    conversation snaps it back to the bottom, so new lines are never below the fold. */
 new MutationObserver(() => { $convo.scrollTop = $convo.scrollHeight; })
   .observe($convo, { childList: true, subtree: true, characterData: true });
+/* The response options render in a sibling below the transcript, which shrinks
+   the transcript — so pin to the bottom whenever its box resizes too, or the
+   newest line ends up hidden behind the choices until you scroll. */
+if (window.ResizeObserver) {
+  new ResizeObserver(() => { $convo.scrollTop = $convo.scrollHeight; }).observe($convo);
+}
 
 function addSystem(text) {
   const div = document.createElement("div");
