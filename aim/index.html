@@ -884,6 +884,7 @@ const DIALOGUE = {
       "people need to know what he is",
       "hes not cool. hes a goddamn monster",
       "thats the only thing i want",
+      "[[pause:1800]]",
       "... thats not true actually. theres one other thing"
     ],
     choices: [
@@ -916,8 +917,11 @@ const DIALOGUE = {
   patronjoins: {
     lines: [
       ["patron", "I can help with that."],
-      ["patron", "All your savings. Give it."]
+      ["ghost", "WHAT THE FUCK"],
+      ["ghost", "WHAT IS THAT"],
+      ["patron", "Simone."]
     ],
+    pauseIn: 1600,
     patronJoin: true,
     choices: [
       { text: "[ pay it ]", next: "ritual" },
@@ -928,7 +932,9 @@ const DIALOGUE = {
   ritual: {
     lines: [
       ["patron", "Hold still, little one. This will only hurt a little bit."],
-      ["patron", "*a lot"]
+      ["ghost", "[[pause:1500]]"],
+      ["patron", "*a lot"],
+      ["ghost", "[[pause:1800]]"]
     ],
     soul: true,
     patronLeave: true,
@@ -1465,6 +1471,10 @@ async function runNode(key) {
   }
   clearChoices();
 
+  // A held silence before anything in this node — used to let a beat land
+  // (e.g. the room going quiet before the goat speaks up).
+  if (node.pauseIn) await wait(node.pauseIn);
+
   /* System lines fire before he speaks — the drive mounting is the machine
      talking, not him, and the players should read the name off the screen
      a beat before he reacts to seeing it. */
@@ -1491,6 +1501,10 @@ async function runNode(key) {
     : (node.ghost || []).map(l => ["ghost", l]);
 
   for (const [who, line] of script) {
+    // A line of "[[pause]]" or "[[pause:1800]]" is a beat, not a message —
+    // it just holds silence before the next line.
+    const pm = /^\s*\[\[pause(?::(\d+))?\]\]\s*$/.exec(line);
+    if (pm) { await wait(pm[1] ? Number(pm[1]) : 1600); continue; }
     if (who === "patron") {
       await patronSay(line);
       await wait(CONFIG.ghostMessageGapMs + 250);

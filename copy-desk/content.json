@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-02T01:06:30.629Z",
-  "totalItems": 739,
+  "generatedAt": "2026-09-02T01:10:59.646Z",
+  "totalItems": 744,
   "sections": [
     {
       "id": "aim",
@@ -713,8 +713,14 @@
             {
               "id": "aim::expose::line::4",
               "speaker": "ghost",
-              "text": "... thats not true actually. theres one other thing",
+              "text": "[[pause:1800]]",
               "path": "aim/index.html :: DIALOGUE.expose.ghost[4]"
+            },
+            {
+              "id": "aim::expose::line::5",
+              "speaker": "ghost",
+              "text": "... thats not true actually. theres one other thing",
+              "path": "aim/index.html :: DIALOGUE.expose.ghost[5]"
             }
           ],
           "choices": [
@@ -805,9 +811,21 @@
             },
             {
               "id": "aim::patronjoins::line::1",
-              "speaker": "patron",
-              "text": "All your savings. Give it.",
+              "speaker": "ghost",
+              "text": "WHAT THE FUCK",
               "path": "aim/index.html :: DIALOGUE.patronjoins.lines[1][1]"
+            },
+            {
+              "id": "aim::patronjoins::line::2",
+              "speaker": "ghost",
+              "text": "WHAT IS THAT",
+              "path": "aim/index.html :: DIALOGUE.patronjoins.lines[2][1]"
+            },
+            {
+              "id": "aim::patronjoins::line::3",
+              "speaker": "patron",
+              "text": "Simone.",
+              "path": "aim/index.html :: DIALOGUE.patronjoins.lines[3][1]"
             }
           ],
           "choices": [
@@ -838,9 +856,21 @@
             },
             {
               "id": "aim::ritual::line::1",
+              "speaker": "ghost",
+              "text": "[[pause:1500]]",
+              "path": "aim/index.html :: DIALOGUE.ritual.lines[1][1]"
+            },
+            {
+              "id": "aim::ritual::line::2",
               "speaker": "patron",
               "text": "*a lot",
-              "path": "aim/index.html :: DIALOGUE.ritual.lines[1][1]"
+              "path": "aim/index.html :: DIALOGUE.ritual.lines[2][1]"
+            },
+            {
+              "id": "aim::ritual::line::3",
+              "speaker": "ghost",
+              "text": "[[pause:1800]]",
+              "path": "aim/index.html :: DIALOGUE.ritual.lines[3][1]"
             }
           ],
           "choices": [],

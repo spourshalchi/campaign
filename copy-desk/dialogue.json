@@ -474,6 +474,10 @@
         },
         {
           "speaker": "ghost",
+          "text": "[[pause:1800]]"
+        },
+        {
+          "speaker": "ghost",
           "text": "... thats not true actually. theres one other thing"
         }
       ],
@@ -541,8 +545,16 @@
           "text": "I can help with that."
         },
         {
+          "speaker": "ghost",
+          "text": "WHAT THE FUCK"
+        },
+        {
+          "speaker": "ghost",
+          "text": "WHAT IS THAT"
+        },
+        {
           "speaker": "patron",
-          "text": "All your savings. Give it."
+          "text": "Simone."
         }
       ],
       "choices": [
@@ -555,7 +567,8 @@
           "next": "refused"
         }
       ],
-      "patronJoin": true
+      "patronJoin": true,
+      "pauseIn": 1600
     },
     {
       "key": "ritual",
@@ -566,8 +579,16 @@
           "text": "Hold still, little one. This will only hurt a little bit."
         },
         {
+          "speaker": "ghost",
+          "text": "[[pause:1500]]"
+        },
+        {
           "speaker": "patron",
           "text": "*a lot"
+        },
+        {
+          "speaker": "ghost",
+          "text": "[[pause:1800]]"
         }
       ],
       "choices": [],

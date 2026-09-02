@@ -23,7 +23,7 @@ const ROOT = resolve(HERE, '..');
 const AIM = resolve(ROOT, 'aim/index.html');
 const DJSON = resolve(HERE, 'dialogue.json');
 
-const CONTENT_KEYS = ['system', 'transfer', 'patronJoin', 'soul', 'soulNext', 'patronLeave', 'moved'];
+const CONTENT_KEYS = ['pauseIn', 'system', 'transfer', 'patronJoin', 'soul', 'soulNext', 'patronLeave', 'moved'];
 
 function readDialogueLiteral() {
   const src = readFileSync(AIM, 'utf8');
