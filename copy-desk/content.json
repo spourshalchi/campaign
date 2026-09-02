@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-02T01:05:54.153Z",
-  "totalItems": 740,
+  "generatedAt": "2026-09-02T01:06:13.610Z",
+  "totalItems": 739,
   "sections": [
     {
       "id": "aim",
@@ -662,20 +662,14 @@
             {
               "id": "aim::mount::line::1",
               "speaker": "ghost",
-              "text": "theres a name on it",
+              "text": "marcus",
               "path": "aim/index.html :: DIALOGUE.mount.ghost[1]"
             },
             {
               "id": "aim::mount::line::2",
               "speaker": "ghost",
-              "text": "marcus",
-              "path": "aim/index.html :: DIALOGUE.mount.ghost[2]"
-            },
-            {
-              "id": "aim::mount::line::3",
-              "speaker": "ghost",
               "text": "...is that me?",
-              "path": "aim/index.html :: DIALOGUE.mount.ghost[3]"
+              "path": "aim/index.html :: DIALOGUE.mount.ghost[2]"
             }
           ],
           "choices": [
