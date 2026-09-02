@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-02T01:04:21.638Z",
-  "totalItems": 741,
+  "generatedAt": "2026-09-02T01:05:54.153Z",
+  "totalItems": 740,
   "sections": [
     {
       "id": "aim",
@@ -591,12 +591,6 @@
               "text": "that wasn't your fault.",
               "next": "notfault",
               "path": "aim/index.html :: DIALOGUE.thewish.choices[0].text"
-            },
-            {
-              "id": "aim::thewish::choice::1",
-              "text": "what's the other thing in the bag?",
-              "next": "thefile",
-              "path": "aim/index.html :: DIALOGUE.thewish.choices[1].text"
             }
           ],
           "soulNext": null,

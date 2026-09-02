@@ -382,10 +382,6 @@
         {
           "text": "that wasn't your fault.",
           "next": "notfault"
-        },
-        {
-          "text": "what's the other thing in the bag?",
-          "next": "thefile"
         }
       ]
     },
