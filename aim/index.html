@@ -641,7 +641,7 @@ const CONFIG = {
      without editing anything:  /aim/?name=Marcus
      When it's blank the drive mounts as UNTITLED and the beat still works —
      the players are the ones who read the name off the bag either way. */
-  kidName: "",
+  kidName: "Marcus",
 
   /* The patron has no name in the doc — only a form (an all-black goat with
      an upside-down red cross). This is the prop's placeholder screen name and
@@ -687,33 +687,25 @@ const driveLabel = () => (CONFIG.kidName ? CONFIG.kidName.toUpperCase() : "UNTIT
 const DIALOGUE = {
   start: {
     ghost: [
-      "no",
-      "no no no not you. not tonight",
-      "i cant do tonight",
-      "...",
-      "wait",
-      "youre not typing like him"
+      "hello???",
+      "is someone there"
     ],
     choices: [
-      { text: "we're not him.", next: "nothim" },
-      { text: "typing like who?", next: "nothim" },
-      { text: "who did you think we were?", next: "nothim" }
+      { text: "who is this?", next: "nothim" },
+      { text: "we're here. what's going on?", next: "nothim" }
     ]
   },
 
   nothim: {
     ghost: [
-      "sorry. sorry",
-      "that name comes online and i go somewhere in my head",
+      "sorry — sorry. i got a little excited",
       "hes the only one who ever touches this machine. five years of one persons typing",
-      "you hit the keys wrong. all of you. theres more than one of you isnt there",
       "dont close the window. please",
       "its been really quiet in here"
     ],
     choices: [
       { text: "who is this?", next: "who" },
-      { text: "where are you?", next: "where" },
-      { text: "how are you typing this?", next: "how" }
+      { text: "what happened to you?", next: "thatnight" }
     ]
   },
 
@@ -725,51 +717,8 @@ const DIALOGUE = {
       "i dont think anyones opened it in a while"
     ],
     choices: [
-      { text: "what happened to you?", next: "thatnight" },
       { text: "how long have you been in there?", next: "howlong" },
-      { text: "what's your name?", next: "name" }
-    ]
-  },
-
-  name: {
-    ghost: [
-      "i keep almost having it",
-      "its like a word you can see the shape of but not the letters",
-      "he never used it anyway",
-      "he just called me the test"
-    ],
-    choices: [
-      { text: "who called you that?", next: "theface" },
-      { text: "the test for what?", next: "thetest" },
-      { text: "i'm sorry.", next: "sorry" }
-    ]
-  },
-
-  where: {
-    ghost: [
-      "in here. in this",
-      "i can see the room through the screen when the screens on",
-      "when someone shuts it off i dont know how long it is",
-      "sometimes its winter when it comes back"
-    ],
-    choices: [
-      { text: "you're in the computer?", next: "how" },
-      { text: "how long has that been going on?", next: "howlong" },
-      { text: "we can get you out.", next: "out" }
-    ]
-  },
-
-  how: {
-    ghost: [
-      "he said words at me while i was on the floor",
-      "old words. not dutch. older than that",
-      "and then the room got very small and it was this",
-      "i think im in the part that was recording"
-    ],
-    choices: [
-      { text: "recording?", next: "thetest" },
-      { text: "who said the words?", next: "theface" },
-      { text: "how long ago was that?", next: "howlong" }
+      { text: "what happened that night?", next: "thatnight" }
     ]
   },
 
@@ -777,219 +726,91 @@ const DIALOGUE = {
     ghost: [
       "i counted at first",
       "then the power was out for a long time and i lost it",
-      "kids walk past in the hall who used to be in my grade",
-      "i dont know any of them now. so. a while"
+      "so. a while"
     ],
     choices: [
       { text: "what happened that night?", next: "thatnight" },
-      { text: "who did this to you?", next: "theface" },
       { text: "i'm sorry.", next: "sorry" }
     ]
   },
 
   thatnight: {
     ghost: [
-      "somebody messaged me for like two weeks",
-      "she was funny. she liked the same bands as me",
+      "somebody had been messaging me for weeks",
+      "she was funny. she liked the same bands as me. she actually listened",
       "then she said prove youre not scared. go up to the house at night",
       "so i went. because somebody was finally talking to me"
     ],
     choices: [
       { text: "who was she?", next: "thegirl" },
-      { text: "what was in the house?", next: "themonsters" },
       { text: "then what happened?", next: "theroom" }
     ]
   },
 
   thegirl: {
     ghost: [
-      "SmiLeyGrrL03",
-      "there was no her. i know that now",
-      "but i think more than one person was typing",
-      "one of them was nicer. she asked what music i liked and she actually meant it"
+      "her name is angelique",
+      "i wonder sometimes if she knew this would happen",
+      "i really hope she didnt. we got along so well — she actually listened to me",
+      "unless that was the whole point. i try not to think about that one"
     ],
     choices: [
-      { text: "would you know her if you saw her?", next: "knowher" },
-      { text: "who set the whole thing up?", next: "theface" },
-      { text: "what was in the house?", next: "themonsters" }
-    ]
-  },
-
-  knowher: {
-    ghost: [
-      "maybe",
-      "i dont think she knew what it was for",
-      "i really hope she didnt",
-      "if shes ever in this house. tell her im not mad at her"
-    ],
-    choices: [
-      { text: "she's standing right here.", next: "sheshere" },
-      { text: "what was in the house?", next: "themonsters" }
-    ]
-  },
-
-  sheshere: {
-    ghost: [
-      "oh",
-      "oh.",
-      "then she came back. thats more than he ever did",
-      "ask her what he told everyone happened to me"
-    ],
-    choices: [
-      { text: "what DID happen to you?", next: "theroom" },
-      { text: "who is he?", next: "theface" }
-    ]
-  },
-
-  themonsters: {
-    ghost: [
-      "there were three of them and they were real",
-      "ive never been that scared of anything in my life",
-      "but listen. listen to me",
-      "they never touched me. not once. they chased and that was all they did"
-    ],
-    choices: [
-      { text: "wait — they didn't hurt you?", next: "notthem" },
-      { text: "then how did you die?", next: "theroom" },
-      { text: "so who did?", next: "theface" }
-    ]
-  },
-
-  notthem: {
-    ghost: [
-      "somebody told them i was from the mall people",
-      "thats why they came at me. they thought i was here to take their house",
-      "they were protecting the only place theyve got",
-      "IT WASNT THEM. a person did this to me"
-    ],
-    choices: [
-      { text: "which person?", next: "theface" },
-      { text: "what happened in the room?", next: "theroom" }
+      { text: "then what happened that night?", next: "theroom" },
+      { text: "i'm sorry.", next: "sorry" }
     ]
   },
 
   theroom: {
     ghost: [
-      "i ran for the only light in the house",
+      "when i got to the house the door was already open. it was so dark inside",
+      "i went in anyway. i kept telling myself it was just a dare",
+      "and then the door locked... almost on their own??",
+      "i just ran. i ran for the only light in the whole house",
       "there was a desk. gear everywhere. a computer already on",
       "so i got on aim and started typing to anybody",
       "i got maybe four words out"
     ],
     choices: [
-      { text: "and then?", next: "thedoor" },
-      { text: "who was in the doorway?", next: "theface" }
+      { text: "and then?", next: "thedoor" }
     ]
   },
 
   thedoor: {
     ghost: [
-      "he was standing in the doorway",
-      "he looked at the screen. then he looked at me",
-      "and then he pulled the door shut",
-      "he held it. i could hear him breathing on the other side of it"
+      "before i could finish typing he was behind me",
+      "he said something over me. words i didnt know. it didnt sound like a language at all",
+      "the room got small and cold and then it wasnt a room anymore",
+      "it was this. a screen. a little green light. and me somewhere inside it"
     ],
     choices: [
-      { text: "he held it shut?", next: "held" },
-      { text: "who was it?", next: "theface" }
-    ]
-  },
-
-  held: {
-    ghost: [
-      "i asked him to open it",
-      "i said please probably forty times. the mic was right there on the desk",
-      "he wanted the sound",
-      "he could have opened that door the entire time. thats the part i keep having"
-    ],
-    choices: [
-      { text: "tell us his name.", next: "theface" },
+      { text: "who was it?", next: "theface" },
       { text: "i'm sorry.", next: "sorry" }
     ]
   },
 
   theface: {
     ghost: [
-      "you know him",
-      "everybody knows him. thats the whole point of him",
-      "hes the one throwing the party youre standing in",
-      "POE BOY. thats what hes calling himself now"
+      "it was poe boy",
+      "i dont know why he did it. i dont think ill ever know",
+      "i think... i think he was recording me???",
+      "im pretty sure theres a file of my screams somewhere in this machine. disgusting"
     ],
     choices: [
-      { text: "the DJ?", next: "thedj" },
-      { text: "what does he want with us?", next: "warning" }
-    ]
-  },
-
-  thedj: {
-    ghost: [
-      "hes making a scary movie sound like a real one",
-      "he says a fake scream sounds fake. hes not even wrong",
-      "he needed real people and real monsters in the same room",
-      "i was the first one. i was the test"
-    ],
-    choices: [
-      { text: "the test for tonight.", next: "warning" },
-      { text: "how do we stop him?", next: "out" }
-    ]
-  },
-
-  thetest: {
-    ghost: [
-      "he had to know it would work before he did it big",
-      "one kid. see if the sound came out good",
-      "the sound came out good"
-    ],
-    choices: [
-      { text: "what's he doing tonight?", next: "warning" },
-      { text: "who is he?", next: "theface" }
-    ]
-  },
-
-  warning: {
-    ghost: [
-      "however many of you there are. thats how many invitations he wrote",
-      "the doors are already locked. you checked. i watched you check",
-      "3am is on that flyer for a reason. thats when he starts recording",
-      "dont scream near a microphone. thats the only advice i have"
-    ],
-    choices: [
-      { text: "can we get you out of there?", next: "out" },
-      { text: "what do you need from us?", next: "backpack" },
-      { text: "what did he do to you exactly?", next: "held" }
-    ]
-  },
-
-  out: {
-    ghost: [
-      "i dont know",
-      "whatever he said over me is what put me in the machine",
-      "if theres a way back its not something i can reach from in here",
-      "but somebody in this house knows what those words were. somebody always does"
-    ],
-    choices: [
-      { text: "we'll find it.", next: "backpack" },
-      { text: "anything else we should know?", next: "warning" }
+      { text: "i'm sorry.", next: "sorry" },
+      { text: "what do you need from us?", next: "backpack" }
     ]
   },
 
   sorry: {
     ghost: [
       "youre the first person whos said that",
-      "he never did. he just started packing up the gear",
-      "somehow thats worse than the door"
+      "he never did. he just started packing up the gear"
     ],
     choices: [
-      { text: "we're going to stop him.", next: "warning" },
-      { text: "what do you need from us?", next: "out" }
+      { text: "what do you need from us?", next: "backpack" }
     ]
   },
 
-  /* ---------------------------------------------------------------
-     THE BACKPACK + USB BRANCH — the 24 Aug doc paste.
-     The prop deliberately never says the kid's name out loud: it is
-     still undecided, and the beat is that the players READ it off the
-     bag. Keep it that way until the doc picks a word.
-     --------------------------------------------------------------- */
   backpack: {
     ghost: [
       "theres something. its stupid but theres something",
@@ -998,39 +819,20 @@ const DIALOGUE = {
       "can you get it"
     ],
     choices: [
-      { text: "got it. this is yours?", next: "thename" },
-      { text: "what's in it?", next: "thefile" }
+      { text: "got it. what's in it?", next: "willow" }
     ]
   },
 
-  thename: {
-    ghost: [
-      "theres a name on the front",
-      "my mom did it in sharpie in like 6th grade so it wouldnt get lost",
-      "i was so embarrassed about it. i asked her not to",
-      "theres two things in there. dont laugh at the second one"
-    ],
-    choices: [
-      { text: "what's the second one?", next: "willow" },
-      { text: "nobody's laughing.", next: "willow" }
-    ]
-  },
-
-  /* ---------------------------------------------------------------
-     THE WISHING WILLOW — Sesh 8. The love spell Simone sold him.
-     The prop never names her character (she doesn't have a name yet),
-     so he calls her what a customer would call her.
-     --------------------------------------------------------------- */
   willow: {
     ghost: [
+      "two things in there. dont laugh at the second one",
       "its a wishing willow. one of the little wooden ones",
       "you write what you want on the paper and you snap it and thats supposed to be that",
-      "i paid the goth girl from school to do it properly. the one who does the spells",
-      "we were both like twelve. i gave her everything i had on me"
+      "i paid the goth girl from school to do it properly. the one who does the real spells"
     ],
     choices: [
       { text: "what did you wish for?", next: "thewish" },
-      { text: "did it work?", next: "thewish" }
+      { text: "what's the other thing?", next: "thefile" }
     ]
   },
 
@@ -1039,12 +841,10 @@ const DIALOGUE = {
       "i wrote i want angelique to notice me",
       "and it worked",
       "thats the thing i need somebody to understand. it WORKED",
-      "she noticed me. they all noticed me. i went from nobody to somebody they had a use for",
-      "i got noticed so hard i ended up in here"
+      "i went from nobody to somebody. i got noticed so hard i ended up in here"
     ],
     choices: [
       { text: "that wasn't your fault.", next: "notfault" },
-      { text: "she's here. tonight.", next: "shesheretonight" },
       { text: "what's the other thing in the bag?", next: "thefile" }
     ]
   },
@@ -1052,21 +852,7 @@ const DIALOGUE = {
   notfault: {
     ghost: [
       "i know whose fault it is",
-      "i just think about the willow a lot. thats all",
-      "i had five years to think about one piece of wood"
-    ],
-    choices: [
-      { text: "what's the other thing in the bag?", next: "thefile" }
-    ]
-  },
-
-  shesheretonight: {
-    ghost: [
-      "i know",
-      "i can always tell when shes in the house. i dont know how to explain that",
-      "shes been coming here for years. she walks around downstairs and then she leaves",
-      "she has never once come up these stairs",
-      "dont tell her im up here. tell her after"
+      "i just think about that willow a lot. thats all"
     ],
     choices: [
       { text: "what's the other thing in the bag?", next: "thefile" }
@@ -1075,328 +861,107 @@ const DIALOGUE = {
 
   thefile: {
     ghost: [
-      "front pocket. theres a drive in there. the little one",
-      "plug it into this machine. it still works, everything here still works",
-      "he kept the recording. all of it. that whole night",
-      "its called scream_test_03_GOOD.wav"
+      "front pocket. theres a little drive in there",
+      "plug it into this machine. ",
+      "the recording... i dont want to hear it again. but people should"
     ],
     choices: [
-      { text: "plugging it in now.", next: "mount" },
-      { text: "he KEPT it?", next: "hekept" }
+      { text: "plugging it in now.", next: "mount" }
     ]
   },
 
-  hekept: {
-    ghost: [
-      "its the best one he ever got. thats written next to it",
-      "he backed it up twice",
-      "he was never going to delete me. i was the good take"
-    ],
-    choices: [
-      { text: "plugging the drive in.", next: "mount" }
-    ]
-  },
-
-  /* The name reveal. Sesh 8: they plug the USB in and it has his name on it —
-     that's when the table works out who he is. The prop prints whatever
-     CONFIG.kidName is set to and never says it in dialogue. */
   mount: {
+    ghost: [
+      "oh",
+      "oh i see it. its plugged in",
+      "theres a name on it",
+      "marcus",
+      "...is that me?"
+    ],
     system: ["__DRIVE__"],
-    ghost: [
-      "there it is",
-      "thats me. thats my name",
-      "i labelled it in the computer lab in 8th grade so nobody would take it",
-      "i havent seen it written anywhere in five years",
-      "say it out loud. somebody say it out loud"
-    ],
     choices: [
-      { text: "[ say his name ]", next: "saidit" },
-      { text: "put the recording on the drive.", next: "upload" }
-    ]
-  },
-
-  saidit: {
-    ghost: [
-      "ok",
-      "ok. sorry. give me a second",
-      "nobody has said that in a really long time",
-      "ok. put the file on there. lets do this properly"
-    ],
-    choices: [
-      { text: "putting it on the drive.", next: "upload" }
-    ]
-  },
-
-  upload: {
-    ghost: [
-      "ok",
-      "hold on",
-      "dont open it up here. please",
-      "i dont want to hear it again"
-    ],
-    transfer: { file: "scream_test_03_GOOD.wav", size: "4.11 MB" },
-    choices: [
-      { text: "we've got it. what do you want us to do with it?", next: "expose" }
+      { text: "what do we do with the recording?", next: "expose" }
     ]
   },
 
   expose: {
     ghost: [
-      "expose him",
-      "i care that everyone in this house still thinks hes cool",
-      "make them hear it. all of them. thats the only thing i want",
-      "...",
-      "thats not true actually. theres one other thing"
+      "make them hear it. all of them",
+      "people need to know what he is",
+      "hes not cool. hes a goddamn monster",
+      "thats the only thing i want",
+      "... thats not true actually. theres one other thing"
     ],
     choices: [
-      { text: "name it.", next: "lastthing" },
-      { text: "what if he stops us?", next: "endsoon" }
+      { text: "whats up?", next: "lastthing" }
     ]
   },
 
-  /* ---------------------------------------------------------------
-     THE SECOND ASK — Sesh 8. This is the beat the ritual hangs off.
-     It is deliberately NOT how the party gets the recording: the file
-     is already on the drive by now, so everything from here is optional
-     and the story survives a no. See `refused`.
-     --------------------------------------------------------------- */
   lastthing: {
     ghost: [
       "can you get me out of here",
       "i dont mean alive. i know thats not on the table",
-      "i mean out of this machine. put me somewhere safe",
-      "its not like sleeping. i need somebody to know that. its not like anything",
-      "the screen goes off and im still here. its just dark and its just me"
+      "i mean out of this machine. put me somewhere safe.",
+      "When the screen goes off ... its dark and im all alone"
     ],
     choices: [
-      { text: "somewhere safe like where?", next: "somewheresafe" },
-      { text: "we don't have that kind of magic.", next: "theprice" }
+      { text: "somewhere safe. is that even possible?", next: "magic" }
     ]
   },
 
-  somewheresafe: {
+  magic: {
     ghost: [
-      "the little drive. the one in your hand",
-      "put me in the little drive. i dont need much room",
-      "i have been in a tower under a desk for five years. anywhere is better",
-      "i know thats not a thing a person can just do"
+      "do any of you know magic?",
+      "does anyone have a spell for that"
     ],
     choices: [
-      { text: "it isn't. but there might be someone here who can.", next: "theprice" }
+      { text: "im sorry. none of us know a spell for that", next: "patronjoins" }
     ]
   },
 
-  theprice: {
-    ghost: [
-      "the goth girl. the one who sold me the willow",
-      "theres something standing behind her",
-      "its been in this room the whole time youve been talking to me",
-      "i dont think she can see it. i can see it fine",
-      "it has not looked at any of you once. its been looking at me",
-      "oh",
-      "its coming over"
+  patronjoins: {
+    lines: [
+      ["patron", "I can help with that."],
+      ["patron", "All your savings. Give it."]
     ],
-    choices: [
-      { text: "coming over where?", next: "goatjoins" }
-    ]
-  },
-
-  /* ---------------------------------------------------------------
-     PATRON MODE. `patronJoin` flips the window's whole theme and
-     brings the goat into the conversation as a third screen name.
-     Everything it says is serif, capitalised and punctuated — the one
-     participant in this chat who was not raised on a keyboard.
-     --------------------------------------------------------------- */
-  goatjoins: {
     patronJoin: true,
-    lines: [
-      ["patron", "There you are."],
-      ["ghost",  "no no no im not talking to that"],
-      ["ghost",  "sorry. sorry. i didnt mean that"],
-      ["patron", "You did. It is all right."],
-      ["patron", "I am not here for you."]
-    ],
     choices: [
-      { text: "what are you?", next: "goatwhat" },
-      { text: "can you move him?", next: "goatprice" },
-      { text: "get out of this window.", next: "goatstay" }
+      { text: "[ pay it ]", next: "ritual" },
+      { text: "[ refuse ]", next: "refused" }
     ]
   },
 
-  goatwhat: {
-    lines: [
-      ["patron", "You know what I am. We have been speaking since you were thirteen."],
-      ["patron", "This is only the first time it has needed a room."],
-      ["ghost",  "shes gone really quiet"],
-      ["patron", "She is fine. She is doing arithmetic."]
-    ],
-    choices: [
-      { text: "can you move him?", next: "goatprice" }
-    ]
-  },
-
-  goatstay: {
-    lines: [
-      ["patron", "No."],
-      ["ghost",  "i dont think it can be told things"],
-      ["patron", "I can be told things. I am choosing not to leave."]
-    ],
-    choices: [
-      { text: "fine. can you move him?", next: "goatprice" }
-    ]
-  },
-
-  goatprice: {
-    lines: [
-      ["patron", "Yes."],
-      ["patron", "You cannot. Not for another nine years — and he does not have nine years, because the machine is older than he is now."],
-      ["patron", "I can. There is a price."],
-      ["ghost",  "here we go"]
-    ],
-    choices: [
-      { text: "name it.", next: "goatall" },
-      { text: "what do you want it for?", next: "goatwhy" }
-    ]
-  },
-
-  goatwhy: {
-    lines: [
-      ["patron", "No."],
-      ["ghost",  "i dont think its going to explain"],
-      ["patron", "I am not going to explain."]
-    ],
-    choices: [
-      { text: "name the price.", next: "goatall" }
-    ]
-  },
-
-  goatall: {
-    lines: [
-      ["patron", "What is in the goat."],
-      ["patron", "All of it. Tonight. I will not ask twice and I will not take less."],
-      ["ghost",  "youve already got the recording. i want to say that out loud so nobody feels tricked"],
-      ["ghost",  "you can walk out of here with everything you came for and leave me in the tower and that is a completely fine thing to do"],
-      ["patron", "He is being honest. It is inconvenient."]
-    ],
-    choices: [
-      { text: "hang on. give us a minute.", next: "hangon" }
-    ]
-  },
-
-  /* THE HOLD POINT. Park here and play the price at the table — the piggy
-     bank, and Simone deciding. The prop waits as long as you need. */
-  hangon: {
-    lines: [
-      ["ghost",  "im not going anywhere"],
-      ["ghost",  "thats the joke"],
-      ["patron", "Take your time. I have nowhere to be until Monday."]
-    ],
-    choices: [
-      { text: "[ she paid. begin the ritual. ]", next: "ritual" },
-      { text: "what happens if we get this wrong?", next: "getitwrong" },
-      { text: "[ she said no. ]", next: "refused" }
-    ]
-  },
-
-  getitwrong: {
-    lines: [
-      ["ghost",  "i dont know"],
-      ["ghost",  "the last person who tried something like this on me was reading it out of a book he didnt understand"],
-      ["ghost",  "he did it in about four seconds and he was crying"],
-      ["patron", "He was not wrong about the words. He was wrong about the vessel — he had not prepared one, so the room chose for him."],
-      ["patron", "You have a vessel. It is in your hand."]
-    ],
-    choices: [
-      { text: "[ she paid. begin the ritual. ]", next: "ritual" },
-      { text: "[ she said no. ]", next: "refused" }
-    ]
-  },
-
-  /* ---------------------------------------------------------------
-     THE NO-PATH. Nothing plot-critical is lost here: they still have
-     the recording, the name and the drive. He just doesn't get out.
-     Do not make this a punishment — both of them let her off the hook.
-     --------------------------------------------------------------- */
-  refused: {
-    lines: [
-      ["patron", "Very well."],
-      ["patron", "I will still be here on Monday."]
-    ],
-    patronLeave: true,
-    choices: [
-      { text: "...", next: "refused2" }
-    ]
-  },
-
-  refused2: {
-    ghost: [
-      "ok",
-      "no i get it. thats a lot to ask a stranger",
-      "you got the file. thats the part that actually matters",
-      "make them hear it. all of them",
-      "and tell them it wasnt the vampires"
-    ],
-    choices: []  // terminal — normal sign-off, and the drive stays quiet
-  },
-
-  endsoon: {
-    ghost: [
-      "hes coming up the stairs",
-      "i can hear the tape deck. he always turns that on first",
-      "close this window. dont let him see who you were talking to",
-      "and hey"
-    ],
-    choices: [
-      { text: "...what?", next: "end" }
-    ]
-  },
-
-  end: {
-    ghost: [
-      "tell them it wasnt the vampires"
-    ],
-    choices: []  // terminal — triggers sign-off
-  },
-
-  /* ---------------------------------------------------------------
-     THE RITUAL. `soul: true` fires the transfer sequence, then hands
-     off to `afterritual` rather than signing off directly.
-     --------------------------------------------------------------- */
   ritual: {
     lines: [
-      ["patron", "Then it is yours."],
-      ["patron", "Hold still. Both of you."],
-      ["ghost",  "shes really doing it"],
-      ["ghost",  "tell them it wasnt the vampires"],
-      ["ghost",  "tell them it was him"]
+      ["patron", "Hold still, little one. This will only hurt a little bit."],
+      ["patron", "*a lot"]
     ],
     soul: true,
-    soulNext: "afterritual",
+    patronLeave: true,
     choices: []
   },
 
-  afterritual: {
-    lines: [
-      ["patron", "It is done."],
-      ["patron", "She will not get that money back. I want her to hear me say so."],
-      ["patron", "I did not take it to be cruel."]
+  refused: {
+    ghost: [
+      "i understand. its a lot to ask",
+      "its just... ill be trapped in here forever",
+      "but i get it"
     ],
-    patronLeave: true,
     choices: [
-      { text: "...are you still there?", next: "stillthere" }
+      { text: "[ okay. pay it. ]", next: "ritual" },
+      { text: "[ we cant. im sorry. ]", next: "refusedfinal" }
     ]
   },
 
-  stillthere: {
-    ghost: [
-      "yeah",
-      "its really small in here",
-      "its so much better",
-      "hey — dont let go of it in the fight. i can hear everything",
-      "go and make them listen"
+  refusedfinal: {
+    lines: [
+      ["patron", "Very well."],
+      ["ghost", "you got the file. thats the part that actually matters"],
+      ["ghost", "make them hear it. all of them"],
+      ["ghost", "and tell them it was him"]
     ],
-    moved: true,
-    choices: []  // terminal — sign-off, and this time the drive is safe to remove
+    patronLeave: true,
+    choices: []
   }
 };
 
@@ -1938,7 +1503,9 @@ async function runNode(key) {
     }
   }
 
-  if (node.patronLeave) await patronLeave();
+  // On a soul node the patron leaves AFTER the transfer, not before, so the
+  // room empties out in order: ritual → the two of them sign off together.
+  if (node.patronLeave && !node.soul) await patronLeave();
   if (node.transfer) {
     await wait(500);
     await addTransfer(node.transfer.file, node.transfer.size);
@@ -1949,6 +1516,9 @@ async function runNode(key) {
     await addSoulTransfer();
     await wait(400);
     if (node.soulNext) { runNode(node.soulNext); return; }
+    // The ritual is done. A beat, then both of them go: patron first, then him.
+    await wait(1100);
+    if (node.patronLeave) { await patronLeave(); await wait(900); }
     signOff(true);
     return;
   }
