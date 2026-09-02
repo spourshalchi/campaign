@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T01:10:59.646Z",
+  "generatedAt": "2026-09-02T01:12:09.632Z",
   "totalItems": 744,
   "sections": [
     {
@@ -824,7 +824,7 @@
             {
               "id": "aim::patronjoins::line::3",
               "speaker": "patron",
-              "text": "Simone.",
+              "text": "Simone. Give me all your savings.",
               "path": "aim/index.html :: DIALOGUE.patronjoins.lines[3][1]"
             }
           ],
