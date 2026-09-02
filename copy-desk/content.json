@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T00:54:14.002Z",
+  "generatedAt": "2026-09-02T00:57:25.636Z",
   "totalItems": 746,
   "sections": [
     {
@@ -104,7 +104,7 @@
             {
               "id": "aim::nothim::line::1",
               "speaker": "ghost",
-              "text": "hes the only one who ever touches this machine. five years of one persons typing",
+              "text": "hes the only one who ever touches this machine. its just been him typing for a long time",
               "path": "aim/index.html :: DIALOGUE.nothim.ghost[1]"
             },
             {
