@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T00:57:25.636Z",
+  "generatedAt": "2026-09-02T00:59:42.436Z",
   "totalItems": 746,
   "sections": [
     {
@@ -174,7 +174,7 @@
             },
             {
               "id": "aim::who::choice::1",
-              "text": "what happened that night?",
+              "text": "what happened?",
               "next": "thatnight",
               "path": "aim/index.html :: DIALOGUE.who.choices[1].text"
             }
@@ -207,7 +207,7 @@
           "choices": [
             {
               "id": "aim::howlong::choice::0",
-              "text": "what happened that night?",
+              "text": "what happened?",
               "next": "thatnight",
               "path": "aim/index.html :: DIALOGUE.howlong.choices[0].text"
             },
@@ -297,7 +297,7 @@
           "choices": [
             {
               "id": "aim::thegirl::choice::0",
-              "text": "then what happened that night?",
+              "text": "what happened?",
               "next": "theroom",
               "path": "aim/index.html :: DIALOGUE.thegirl.choices[0].text"
             },

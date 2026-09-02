@@ -84,7 +84,7 @@
           "next": "howlong"
         },
         {
-          "text": "what happened that night?",
+          "text": "what happened?",
           "next": "thatnight"
         }
       ]
@@ -108,7 +108,7 @@
       ],
       "choices": [
         {
-          "text": "what happened that night?",
+          "text": "what happened?",
           "next": "thatnight"
         },
         {
@@ -172,7 +172,7 @@
       ],
       "choices": [
         {
-          "text": "then what happened that night?",
+          "text": "what happened?",
           "next": "theroom"
         },
         {
