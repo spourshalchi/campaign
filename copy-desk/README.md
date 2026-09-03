@@ -75,7 +75,6 @@ Every artifact is reviewed in the shape it's actually experienced:
   group jump-nav, then the codex's own grouped cards: characters, relationships, session flow,
   backstory, run of show, combat, props, names, and open questions. `not canon` / `doc` badges
   come straight from the status model in `CANON.md`.
-- **Library Clippings** → the draft handout lore (the prop isn't built yet).
 - **Invite / Settlement / Photograph / Torn Page** → each built handout's copy, in reading order.
 
 ## Editing

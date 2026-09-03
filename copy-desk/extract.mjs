@@ -3,7 +3,7 @@
    Copy Desk — content extractor
    Reads the real prop sources and emits copy-desk/content.json:
    a flat, editable map of every piece of narrative copy across
-   the AIM dialogue, the codex, and the library-clippings brief.
+   the AIM dialogue, the codex.
 
    It never mutates the sources. It only reads them. Re-run it any
    time a source changes (or after Claude applies an edit packet) to
@@ -403,56 +403,6 @@ function extractCodex() {
   };
 }
 
-/* --- Library clippings (markdown brief) ---------------------------- */
-
-function extractLibrary() {
-  const md = read('library-clippings/BRIEF.md');
-  const lines = md.split('\n');
-
-  // Take everything under the "Source material" H2, split into one
-  // editable block per "### N. …" subsection (prose + its blockquotes).
-  // The blockquotes above Source material are canon warnings /
-  // changelog, not handout copy, so they are skipped.
-  let started = false;
-  let curHeader = null;
-  const blocks = [];
-  let buf = [];
-
-  const flush = () => {
-    if (curHeader == null) { buf = []; return; }
-    const text = buf.join('\n').trim();
-    if (text) blocks.push({ header: curHeader, text, idx: blocks.length });
-    buf = [];
-  };
-
-  for (const line of lines) {
-    if (/^##\s+Source material/i.test(line)) { started = true; continue; }
-    if (!started) continue;
-    if (/^##\s/.test(line)) { flush(); break; } // stop at next H2 after source material
-    const h = line.match(/^###\s+(.*)$/);
-    if (h) { flush(); curHeader = h[1].trim(); continue; }
-    buf.push(line);
-  }
-  flush();
-
-  const items = blocks.map((b) => ({
-    key: `lib-${b.idx}`,
-    title: b.header,
-    subtitle: '',
-    group: 'Source lore',
-    status: 'draft',
-    src: 'library-clippings/BRIEF.md',
-    fields: [field(`library::block::${b.idx}`, b.header, b.text, `library-clippings/BRIEF.md :: ### ${b.header}`)],
-  }));
-
-  return {
-    id: 'library',
-    title: 'Library Clippings',
-    subtitle: 'Draft handout copy from the source lore. (Prop not built yet — this is the ### source-material lore only, not the whole brief.)',
-    kind: 'grouped',
-    groups: [{ id: 'blocks', title: 'Source lore & draft copy', items }],
-  };
-}
 
 /* --- printed-handout props (static HTML) ---------------------------
    These props keep their copy inline in the markup, not in JS data.
@@ -586,7 +536,7 @@ function main() {
         'Difficulty', 'Cut to pieces', 'put it back together', 'it’s holding — turn it over', '↔', '↕'],
     }),
   ];
-  const sections = [extractAim(), extractCodex(), extractLibrary(), ...handouts];
+  const sections = [extractAim(), extractCodex(), ...handouts];
   let count = 0;
   const countFields = (s) => {
     if (s.kind === 'dialogue') {

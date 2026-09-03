@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-02T01:12:09.632Z",
-  "totalItems": 744,
+  "generatedAt": "2026-09-03T03:08:34.624Z",
+  "totalItems": 741,
   "sections": [
     {
       "id": "aim",
@@ -6333,68 +6333,6 @@
                   "label": "Detail",
                   "text": "<b>Ostrander.</b> He set a trap in the binding himself, so there's no contractor to trace, and springing it is what summons him to the house. The prop stays silent on who did it, which is still correct. Not in the Google Doc yet.",
                   "path": "codex/index.html :: TODO[24][1]"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "library",
-      "title": "Library Clippings",
-      "subtitle": "Draft handout copy from the source lore. (Prop not built yet — this is the ### source-material lore only, not the whole brief.)",
-      "kind": "grouped",
-      "groups": [
-        {
-          "id": "blocks",
-          "title": "Source lore & draft copy",
-          "items": [
-            {
-              "key": "lib-0",
-              "title": "1. The fampier — the load-bearing clue",
-              "subtitle": "",
-              "group": "Source lore",
-              "status": "draft",
-              "src": "library-clippings/BRIEF.md",
-              "fields": [
-                {
-                  "id": "library::block::0",
-                  "label": "1. The fampier — the load-bearing clue",
-                  "text": "Dutch folklore has almost no vampires. The one real find, from a Frisian folklore site:\n\n> **Vampire (Fampier) (Friesland):** Vampires do not typically feature in Dutch folklore;\n> nevertheless, in 1973, the Frisian skipper Steven de Bruin recounted a legend concerning\n> children who were found dead on the heath, bearing the imprint of teeth upon their throats.\n> A \"devil-banisher\" discovered a fresh corpse buried in the ground at that very spot. He\n> declared: \"This is the evil that has been found upon the heath.\" He placed the body inside\n> a new coffin, positioning a wooden splinter within the lid so that it pointed directly at\n> the corpse's heart. As they nailed the coffin shut, they heard a terrible howling and\n> wailing emanating from within. The corpse was buried once more and could do no further\n> harm. (See also the *champier* and the *bloedsûger*.) — Poortinga, *Skaakspul* 258\n\nSpencer's read: this gives **the method for defeating them** — dig up the coffins holding\nthe vampires' bodies, stake through the heart, rebury.\n\n⚠️ **the 24 Aug doc paste cut the fork**, so this is no longer the payoff of a branch. Its job now is to send the\nparty into the mansion believing they will have to kill three vampires — which makes the reveal land\nharder, because they walk in armed with a method and walk out having never needed it.",
-                  "path": "library-clippings/BRIEF.md :: ### 1. The fampier — the load-bearing clue"
-                }
-              ]
-            },
-            {
-              "key": "lib-1",
-              "title": "2. The Frisian Kingdom — the setting/period texture",
-              "subtitle": "",
-              "group": "Source lore",
-              "status": "draft",
-              "src": "library-clippings/BRIEF.md",
-              "fields": [
-                {
-                  "id": "library::block::1",
-                  "label": "2. The Frisian Kingdom — the setting/period texture",
-                  "text": "Spencer: \"the setting for where the stories take place… we can reference it for making\nmaterials/interactives.\"\n\n- The ancient **Frisii** lived in the low country between the Zuiderzee and the River Ems.\n- Pre-Migration Period (before ~AD 300), the Frisii and the related Chauci, Saxons and Angles\n  held the continental coast from the Zuyder Zee to south Jutland. Shared material culture,\n  so they can't be told apart archaeologically.\n- It was long assumed the Frisii abandoned the land and vanished from the record by AD 400 —\n  but recent excavations in the dunes of **Kennemerland** show continuous habitation.\n- **Malorix and Verritus**, Frisii chieftains, 1st century AD: in **58 AD** they asked the\n  Roman emperor **Nero** to cede territory. While waiting, they walked into the **Theatre of\n  Pompey** and sat down among the **Roman senators** without being given permission. Nero\n  granted them Roman citizenship — and gave the Frisian territory to Rome's allies anyway.\n\nMalorix and Verritus are the most usable thing here: two named historical figures who showed\nup somewhere they weren't invited and sat down anyway. That rhymes with the party walking\ninto the mansion.",
-                  "path": "library-clippings/BRIEF.md :: ### 2. The Frisian Kingdom — the setting/period texture"
-                }
-              ]
-            },
-            {
-              "key": "lib-2",
-              "title": "3. The Gjenganger — the mansion's other haunt (STILL AN OPEN QUESTION)",
-              "subtitle": "",
-              "group": "Source lore",
-              "status": "draft",
-              "src": "library-clippings/BRIEF.md",
-              "fields": [
-                {
-                  "id": "library::block::2",
-                  "label": "3. The Gjenganger — the mansion's other haunt (STILL AN OPEN QUESTION)",
-                  "text": "Scandinavian revenant. Spencer proposed it and ended with \"Up to you if we go with it.\"\n\n> A Gjenganger is a ghost revived from death to purposefully haunt the living. The word\n> combines \"again\" and \"ganger\" (walker) — \"walking again.\" They look wholly corporeal, not\n> at all ghostly. Typically those who died before their time: murder, suicide, another crime\n> or accident. Revenge-motivated and extremely vicious. They attack in the dead of night\n> while the victim sleeps, pinching them and fleeing; the victim wakes to a strange blue\n> spot, a sign of coming sickness and death. They also spread sickness generally — if it\n> touches you, even a brush, your flesh begins to slough away as the virus reaches your heart.\n> **To prevent one, a person at risk must be buried in a specific way, with a specific runic\n> inscription written inside the coffin** so they cannot wake and walk.\n\nSpencer's proposed backstory: the Gjenganger is the **original owner of the mansion** — never\nmarried, no children, isolated himself in the house and eventually killed himself out of\nloneliness. That is a big part of why the house was abandoned, separate from the vampire\nrumors. It also gives Will's antisocial character a development beat.\n\nCombat plan: it has the advantage at close range, so the counterplay is distance. It guards\nthe room with the haunted computer.\n\n---",
-                  "path": "library-clippings/BRIEF.md :: ### 3. The Gjenganger — the mansion's other haunt (STILL AN OPEN QUESTION)"
                 }
               ]
             }
