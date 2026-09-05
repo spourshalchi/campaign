@@ -550,12 +550,12 @@ whether anyone in that house treats him as a person instead of evidence.**
 
 ---
 
-# J. John / Yobo — "stop lying, get stronger" (🟡 Scott, 5 Sep 2026 · not in doc)
+# J. John / Yobo — "stop lying, get stronger" (📗 in the doc: Character Bios + Sesh 8)
 
-> **Status.** The doc has one line for John: *leaning Bard, leaning bully, insecurity TBD.* Everything here
-> is **John's own pitch** (the character Yobo, the Dolly-Parton lie, the musical-theatre framing) plus
-> **Scott's arc design of 5 Sep**. None of it is in the Google Doc. Ships 🟡 until pasted in, and a few
-> pieces are **John's to confirm** — see the open forks.
+> **Status.** 📗 **Now in the doc** (pasted 5 Sep): Character Bios carries Yobo and the Dolly-Parton lie;
+> Sesh 8 carries the debuff→truth→buff arc and the party-room turn. This page is kept as the working
+> build/reference. The only piece the doc leaves genuinely open is the **wig** — it's written in as a
+> question for John, so it's not settled — along with his race, a Bard subclass, and the dice values.
 
 **TLDR:** Yobo stops lying to the group about his origins and is stronger for it.
 
@@ -642,4 +642,4 @@ fraud who never dropped the mask; Yobo is the one who did.
 3. **Race and subclass.** Both open; Glamour rhymes with Poe Boy if you want the duel to mirror hard.
 4. **E. Hoeck is now unclaimed.** The 1938 blood-tie name on the puzzle checkout card was John's; his
    connection is now the party room, so that card thread wants a new owner or a quiet retirement.
-5. **Paste it into the doc** to move any of this off 🟡.
+5. ~~**Paste it into the doc.**~~ **Done, 5 Sep** — Character Bios (Yobo) + Sesh 8 (the arc).

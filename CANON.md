@@ -300,7 +300,7 @@ Not yet pasted into the Google Doc — **do that to make them official.** Until 
 | ✅ **The boards come off the front door; there is no side-entrance tip.** Poe Boy pries the boards away for the party and stacks them against the porch rail — the only visible change to the house in decades, and the invitation. The party walks in the front, and *then* the doors bolt. What he hands them at the gazebo instead: *"I spin up there sometimes"* (Sesh 3, verbatim), *"wait till you see what I've done with the ballroom"*, and *"stick around till three."* The tell is what he leaves out — he never mentions the other room he keeps gear in. | 📗 Sesh 3's tip, **superseded by Sesh 7**. Sesh 3 wrote him as a helpful stranger; Sesh 7 made him the host, and a host who wants five specific people inside opens the door rather than sending them round the back. The old tip also created a contradiction — sneak past a boarded door that then bolts shut behind you |
 | ✅ **The climax happens in the ballroom / great hall**, rigged as a stage, with Poe Boy's decks there and the speakers run through the rest of the house. Keeps the climax clear of the cellar, which Path A needs for the coffins. Also settles that Poe Boy has **two** setups, not one: the old room upstairs with the original recording rig and the occupied computer, and the ballroom he built for tonight. | 🟡 room design — **decided by Scott, 24 Aug 2026.** The doc names no rooms in the mansion at all |
 | ✅ **The house's power is hot-wired off the neighbouring property.** Explains the working computer, the one lit room, and the speakers run through the house. Also the one thread anyone outside could pull on. | 🟡 the doc explains the computer but never the electricity — **decided by Scott** |
-| ✅ **John's PC is Yobo, and his arc is "stop lying, get stronger."** The grandmother-is-Dolly-Parton lie is a **Performance + Bardic-Inspiration debuff** (with a Deception upside) that flips to a buff when he tells the truth in the **party room**, where the frozen ghost-party accepts only a true performance and **Dracula coaches him** through it. Two artifacts: `/photo/` (now also the puzzle key) and a new `/party-room/` prop. Full build in `PROPOSALS.md`. | 🟡 **John's pitch + Scott's design, 5 Sep 2026 · not in doc.** Pending John: the wig, race, subclass, and dice values |
+| ✅ **John's PC is Yobo, and his arc is "stop lying, get stronger."** The grandmother-is-Dolly-Parton lie is a **Performance + Bardic-Inspiration debuff** (with a Deception upside) that flips to a buff when he tells the truth in the **party room**, where the frozen ghost-party accepts only a true performance and **Dracula coaches him** through it. Two artifacts: `/photo/` (now also the puzzle key) and a new `/party-room/` prop. Full build in `PROPOSALS.md`. | 📗 **Now in the doc** — Character Bios (Yobo) + Sesh 8 (the arc), pasted 5 Sep 2026. Only the wig is still open (written in as a question for John); race/subclass/dice unspecified |
 | ⏸ **The 1937 Crier stays 🟡** pending Scott's read of the article text. | unchanged |
 | ⏸ **The Gjenganger / Cornelis Dood stays 🟡** — parked entirely. A draft spec is in `PROPOSALS.md`; none of it is agreed. | unchanged |
 
@@ -393,11 +393,11 @@ the story now** — so this counts as in-doc like anything else, not as one pers
 | **Gnomey's real mansion tie: he owns it.** Great Uncle Vinny won it off Orlok at cards in 1931 and the deed runs with a poker chip in Gnomey's pocket | Sesh 8 |
 | **Simone** — angsty goth warlock, devil patron as an all-black goat with an upside-down red cross, atheist parents, sells love & revenge spells to fund a satanic metal show, frequent detention, loner | Character Bios |
 | **Simone's mansion tie: she sold the dead kid the wishing willow, and her patron's price is the concert fund** — full chain in the Sesh 8 section above | **Sesh 8** |
-| **John** — leaning Bard, leaning bully archetype; words are mechanically the weapon; a glaring insecurity is the reason for the act, **TBD by John** | Character Bios |
+| **John — Yobo**, a musical-theatre bully / popular kid; leaning Bard, words as the weapon. His lie (grandmother = Dolly Parton) props up his status and he's insecure about real talent. Arc: the lie is a Performance/Bardic-Inspiration debuff (Deception upside) that flips to a buff when he tells the truth in the party room, Dracula pushing him. Wig still an open question for John | Character Bios + Sesh 8 |
 | **Cody** — has not submitted a character | Sesh 5 |
 | "Island of misfit toys" — everyone has a reason they ended up in the friend group | Sesh 5 |
 | Scott's floated idea: one PC connected to the mansion by blood (great-grandparent built it or died there); Spencer liked it and said the library is the place to hint | Doc comments |
-| **Answered for Gnomey, and only Gnomey.** His tie is a *debt*, not a bloodline — his great-uncle won the house at cards, hinted on the library checkout card as `V. Soprano`. **The blood-tie idea is no longer pointed at John**, dropped 31 Aug; John's connection is now the party-room performance turn (🟡 `5 Sep · not in doc`) | Sesh 8 + 31 Aug · not in doc |
+| **Answered for Gnomey, and only Gnomey.** His tie is a *debt*, not a bloodline — his great-uncle won the house at cards, hinted on the library checkout card as `V. Soprano`. **The blood-tie idea is no longer pointed at John**, dropped 31 Aug; John's connection is now the party-room performance turn (Sesh 8) | Sesh 8 + 31 Aug · not in doc |
 
 ### NPCs
 | Claim | Source |
@@ -480,15 +480,13 @@ stay on this list until you two decide:
 - ~~Kids visibly heading up the hill at sundown~~ — **removed 24 Aug 2026**, see the decisions table
 
 ### 5. Character details with no source
-- **John / Yobo:** the doc has only "leaning Bard, leaning bully, insecurity TBD." Everything below is
-  **John's pitch + Scott's design, 5 Sep · not in doc**, so it ships 🟡: the character **Yobo**, a
-  musical-theatre kid whose grandmother-is-Dolly-Parton **lie** props up his status; the insecurity named
-  as anxiety about real talent; and the arc — **the lie is a Performance/Bardic-Inspiration debuff (with a
-  Deception upside) that flips to a buff when he tells the truth in the party room**, with Dracula coaching
-  him through it. His **mansion connection is now the party-room turn** (shared with Bix's photograph), so
-  the old 1938 blood tie (E. Hoeck on the checkout card) stays dropped and unclaimed. The earlier
+- **John / Yobo — promoted to 📗 (5 Sep).** The character and arc are now **in the doc**: Character Bios
+  carries Yobo and the Dolly-Parton lie; Sesh 8 carries the arc — the lie is a Performance/Bardic-Inspiration
+  debuff (with a Deception upside) that flips to a buff when he tells the truth in the party room, with
+  Dracula pushing him. So this is no longer AI-uncanon — see the decisions table and the Cast list. The old
   College-of-Whispers / "cruelty is the armor" framing was a separate codex invention and is superseded.
-  **Pending John specifically:** whether Yobo wears a wig, his race, a subclass, and the dice values.
+  **Only the wig is still open** — the doc writes it in as a question for John — along with his race, a Bard
+  subclass, and the dice values. (The 1938 blood tie, E. Hoeck on the checkout card, stays dropped and unclaimed.)
 - **Orlok** does most of the actual frightening on Poe Boy's say-so
 - **Dracula** would happily brag the whole scheme to the heroes by accident
 - **Edward** was turned recently (invented to fix the invented coffin count)
@@ -527,9 +525,9 @@ stay on this list until you two decide:
 2. Who is the dead kid? Name, year, enough of a life that the table feels it. **Sesh 8 moved where the
    name lands** — it is now the volume label on the USB they plug in, not the Sharpie on the bag.
 3. Does the 1937 Crier become canon, get rewritten to the doc's 1973 Frisian version, or stay a prop that nobody has to believe?
-4. ~~John's insecurity — his to name.~~ — **named in John's pitch** (Yobo; the Dolly-Parton lie; anxiety
-   about real talent) and built into an arc by Scott, `5 Sep · not in doc`. 🟡 until pasted in; the wig is
-   still John's call.
+4. ~~John's insecurity — his to name.~~ — **answered and now in the doc** (Character Bios: Yobo, the
+   Dolly-Parton lie, anxiety about real talent; Sesh 8: the debuff→truth→buff arc). Only the **wig** is
+   still John's call — the doc writes it in as a question.
 5. Cody's PC.
 6. The 4th crew member.
 7. Lock or kill: Dood Mansion, Upton Maximillion Livingsworth III, and the DJ/kingpin names that are locked only by repetition.
@@ -550,8 +548,8 @@ stay on this list until you two decide:
 17. **What the botched summoning actually is.** Saturday's mansion combat is now named and nothing else
     about it is written.
 18. **Cody's mansion thread** — the last PC without a room. Gnomey has the study, Bix has the party room,
-    Simone has the computer. **John's is now filled**: Yobo shares the party room (his performance turn),
-    `5 Sep · not in doc` and 🟡 until pasted in. Only Cody is genuinely blank.
+    Simone has the computer. **John's is now filled and in the doc** (Sesh 8): Yobo shares the party room,
+    his performance turn. Only Cody is genuinely blank.
 19. **The satanic metal band has no name.** Sesh 8 made it load-bearing three times over — Simone's
     savings, the goat's price, and Poe Boy's grounding — and it needs to be printable, because it is on
     a shirt and on the tickets his mother hands over.
