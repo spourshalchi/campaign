@@ -402,7 +402,7 @@
   <!-- ============ CAST ============ -->
   <section class="tab" id="tab-cast">
     <h2 class="sec">The cast</h2>
-    <p class="sub">Quick-reference cards. Fields marked TBD are open decisions from the doc (Lil Stinky's and Simone's races, the developer's name, the dead kid's name, Cody's PC, and John's insecurity — which is his to name). Amber blocks flag details this codex invented.</p>
+    <p class="sub">Quick-reference cards. Fields marked TBD are open decisions from the doc (Lil Stinky's and Simone's races, the developer's name, the dead kid's name, and Cody's PC). Amber blocks flag details this codex invented.</p>
     <div id="cast"></div>
   </section>
 
@@ -501,12 +501,12 @@ const NODES = [
     desc:"Worships the Devil — who appears as an all-black goat with an upside-down red cross on its face — and draws magic from that worship. Regular-degular atheist suburban family thinks it's a phase. Frequent detention regular after the principal catches her doing spells on school grounds.",
     hook:"Funds the tour fund by charging classmates for <b>love spells</b> and <b>revenge spells</b>. The money lives in a <b>goat-shaped piggy bank</b> — she has been feeding coins to a goat for years.<br><br><b>Sesh 8 gives her the mansion connection: she sold the dead kid the love spell.</b> He paid her for a <b>wishing willow</b> and wrote <i>I want Angelique to notice me</i> on it. It worked. Angelique noticed him — and when Poe Boy went looking for someone who knew the kid well enough to flirt convincingly, Angelique was the one who could. The willow is still in his backpack upstairs.<br><br><b>Her choice is the second ask.</b> After the recording is safely on the drive, the Spirit asks to be moved somewhere safe. It is far past her level; her patron can lend her the power and names a price — everything in the piggy bank, the whole concert fund. <b>Nothing plot-critical hangs on her yes</b> (see the Spirit's card), which is what makes it a real choice.",
     finale:"<b>She gets the concert anyway.</b> Poe Boy loves the same satanic metal band and had tickets. When his mother arrives in the driveway she grounds him — <i>and he is certainly not going to that satan concert</i> — and the tickets end up with Simone, who spent every dollar she had a few hours earlier. <span class='src'>Sesh 8</span>" },
-  {id:"john", name:"John's Bard", sub:"John · Bully Bard", g:"player", x:120, y:490,
-    role:"Player Character", s:"doc", src:"Character Bios",
-    fields:{Race:"TBD",Class:"Bard (leaning)",Vibe:"School bully who fights with his mouth"},
-    desc:"Leaning Bard, leaning bully archetype: mechanically, his words are the weapon. So that it isn't just a mean character, the bully has some glaring insecurity underneath that explains the act — <b>the insecurity is TBD, and it's John's to name.</b>",
-    hook:"Still open: the insecurity, a character name, race, and any connection to the mansion.",
-    ai:"The codex added College of Whispers specifically, the 'cruelty is the armor' framing, and the idea that John is built to recognize what Poe Boy is doing. The doc says 'leaning Bard' and nothing about subclass.<br><br><b>His mansion connection is back to zero.</b> The 1938-borrower blood tie that used to be pointed at him was <b>dropped 31 Aug</b> — Gnomey's tie turned out to be a deed rather than a bloodline, and rather than re-home the blood idea, Scott wants a new connection for John built from scratch. Nothing is standing in for it." },
+  {id:"john", name:"Yobo", sub:"John · Musical-theatre Bard", g:"player", x:120, y:490,
+    role:"Player Character", s:"doc", src:"Character Bios (leaning Bard)",
+    fields:{Name:"Yobo",Race:"TBD",Class:"Bard (leaning)",Vibe:"Musical-theatre 'popular kid' living a lie"},
+    desc:"The doc's Character Bios has one line: leaning Bard, leaning bully — words as the weapon, with a glaring insecurity under the act. <b>John's own pitch evolved that</b> into <b>Yobo</b>: a musical-theatre kid who transferred in from a school where he was tormented for weak singing and acting. To get in with the cool theatre kids he told everyone <b>his grandmother is Dolly Parton</b> — a lie — so his whole social standing now rests on people believing he's descended from musical royalty. He wants to be a star, but mostly just wants to be accepted, and he is deeply insecure about whether he has any real talent.",
+    hook:"<b>🟡 Arc locked by Scott, 5 Sep · not in the doc.</b> TLDR: <b>Yobo stops lying to the group about his origins and is stronger for it.</b> The lie is a <b>mechanical debuff</b> — juggling an internal performance gives him <b>disadvantage on Performance and weakened Bardic Inspiration</b>, but <b>advantage on Deception</b>. He turns in the <b>party room</b>: the frozen ghost-party accepts only a <i>true</i> performance, Dracula pushes him to drop the act, and when he does the debuff flips to <b>advantage on Performance and enhanced Bardic Inspiration</b> for the rest of the campaign. Full build + puzzle in <code>/PROPOSALS.md</code>; the party-room prop is at <code>/party-room/</code>.",
+    ai:"<b>None of this is in the Google Doc.</b> The doc has only 'leaning Bard, leaning bully, insecurity TBD.' Everything else — Yobo, the Dolly-Parton lie, the musical-theatre framing (John's pitch) and the whole debuff→truth→buff arc (Scott, 5 Sep) — ships 🟡 until it's pasted in.<br><br><b>His mansion connection is the party-room turn</b>, shared with Bix's photograph beat. The old 1938 blood tie (E. Hoeck on the puzzle checkout card) stays dropped and is now unclaimed.<br><br><b>Open, pending JOHN specifically:</b> whether it's canon that Yobo wears a <b>wig</b>; his race; a Bard subclass (Glamour rhymes with Poe Boy); and the exact debuff/buff dice, which are Scott's to tune." },
   {id:"cody", name:"Cody's PC", sub:"Not submitted yet", g:"player", x:120, y:610,
     role:"Player Character — TBD", s:"doc", src:"Sesh 5",
     fields:{Race:"TBD",Class:"TBD"},
@@ -642,8 +642,9 @@ const EDGES = [
   ["john","teacher","family","the class project","doc","Sesh 1"],
   ["cody","teacher","family","the class project","doc","Sesh 1"],
   ["john","gnomey","conflict","taxes the bathroom cigarette trade","ai","invented by the codex"],
-  ["john","poe","conflict","the one kid he cannot get a rise out of","ai","invented by the codex"],
-  ["john","mansion","haunt","nothing — blood tie dropped 31 Aug","ai","placeholder, not a fact"],
+  ["john","poe","conflict","two bards, same weapon — Yobo is the anti-Poe-Boy mirror","ai","5 Sep · not in doc"],
+  ["john","mansion","haunt","the party-room turn — drops the lie, flips the debuff","ai","5 Sep · not in doc"],
+  ["john","drac","haunt","Dracula pushes him to drop the lie and perform true","ai","5 Sep · not in doc"],
   ["librarian","mansion","haunt","warns them away","doc","Sesh 1"],
   ["simone","devil","family","patron / power","doc","Character Bios"],
   ["angelique","spirit","haunt","typed the messages; still can't stop noticing him","doc","Sesh 7 + 8"],
@@ -725,7 +726,7 @@ const FLOW = [
           {who:"The contract",say:"“Title shall rest with the bearer of the marker. The marker being the blue one. We agreed on the blue one.”",
             why:"The one paragraph on that page with no corrections in it. Read it aloud and stop."}
         ]},
-      q:"Still blank: <b>Cody's and John's rooms.</b> Gnomey has the study, Bix has the party room, Simone's thread lands at the computer — two PCs have nothing."}},
+      q:"Still blank: <b>Cody's room.</b> Gnomey has the study, Bix and now Yobo share the party room, Simone's thread lands at the computer — only Cody has nothing."}},
 
   {n:8,title:"The Spirit, the backpack, the USB",where:"The old rig upstairs",s:"doc",src:"Sesh 7 + the 24 Aug doc paste",body:"The room the kid ran into and never left. Poe Boy's <b>original</b> setup — gear, a mic, and a computer somehow still on, hot-wired off the neighbouring property like everything else in this house. He hasn't been back in here since that night. The AIM prop is live at <code>/aim/</code>.<br><br>He was lured by a fake screen name, chased by vampires who believed he was a mall scout, and soul-caged when Poe Boy saw the AIM window open and pulled the door shut. He can name his killer, and he was <b>killed by a human</b>.",
     bridge:{cue:"“my bag is still in this room. by the desk under the coats. can you get it”",
@@ -894,13 +895,13 @@ const TODO = [
   ["Why these five?","The invite is exclusive — five cards, five lockers, nobody else. That makes the guest list a deliberate choice by Poe Boy, and it needs a reason. Candidates: they're the misfits nobody would come looking for; Gnomey knows him from the old crew and knows too much; Angelique is close enough to them to be a problem. Whatever the answer, the players will ask it out loud the moment they realise no one else got a card.","ai"],
   ["Who was the 3AM flyer for?","Sesh 5/6 give a public-looking DJ show flyer for 3AM at Dood Mansion. With nobody else invited, either it went out wide as the <b>cover story</b> — the thing Poe Boy showed the vampires as proof he was staging the big scare they asked for — or it never left his hands and the whole show is for five people. Affects whether the flyer prop gets built as a real handout.","ai"],
   ["How the vamps learn the truth","They believe he went out a window. Decide whether the reveal comes from the Spirit directly, from Angelique, or from the players producing the recording.","doc"],
-  ["John's insecurity","His to name — the doc says TBD. Open alongside it: a character name, race, and any mansion connection.","doc"],
+  ["John / Yobo — arc locked 🟡 (5 Sep)","John's pitch names the insecurity: Yobo lies that his grandmother is Dolly Parton, and is anxious he has no real talent. Scott's 5 Sep arc makes that lie a Performance/Inspiration debuff that flips to a buff when he tells the truth in the party room. <b>Not in the doc.</b> Still pending John: the wig, his race, and a subclass — and the dice are Scott's to tune.","ai"],
   ["Cody's PC","Still not submitted — needs a character, a reason they joined the misfits, and a mansion-lore sprinkle.","doc"],
   ["4th crew member","<b>The crew is three</b> — Poe Boy, Lil Stinky, Angelique, which is what the DJ flyer bills. Sesh 3 wanted a fourth <i>probably also female</i> and never wrote one. Spencer has not agreed to lose her, so it needs raising with him.","doc"],
   ["Party level","<b>Level 3</b>, leveling to 4 at the end of day one — so anything on Sunday is built for five level-4 PCs. Not in the Google Doc yet.","doc"],
   ["NPC races & classes","<b>Settled in the doc, Sesh 8.</b> Poe Boy is a Kenku Bard (Glamour), Lil Stinky a Paladin (Oath of Devotion), Angelique a Changeling Rogue. Sesh 8 also gives Lil Stinky an arc: <i>sworn to a liar without knowing it, his oath breaks when he believes us about the kid.</i> Still genuinely open, and Sesh 8 says so: <b>Lil Stinky's race</b> (Orc or Goliath) and <b>Simone's race</b>.","doc"],
-  ["Per-character house moment","Sesh 5's stated goal: one sprinkle of mansion lore tied to each PC. <b>Sesh 8 closed three of them</b> — Gnomey gets the study and the deed, Bix gets Edward and the photograph, Simone gets the wishing willow and the ritual. <b>John and Cody are still blank</b>, and John's is now genuinely empty: the blood-tie hook that used to stand in for it was dropped 31 Aug.","doc"],
-  ["The blood connection — <b>answered for Gnomey only</b>","Scott's comment idea was a PC connected by blood. <b>Sesh 8 gives Gnomey a *debt* instead of a bloodline</b> — his great-uncle won the house at cards, hinted on the library checkout card as <code>V. Soprano</code>, which honours Spencer's note about where to plant it. <b>The blood-tie idea is no longer pointed at John</b> (dropped 31 Aug) — he gets a different connection, still to be invented.","doc"],
+  ["Per-character house moment","Sesh 5's stated goal: one sprinkle of mansion lore tied to each PC. <b>Sesh 8 closed three of them</b> — Gnomey gets the study and the deed, Bix gets Edward and the photograph, Simone gets the wishing willow and the ritual. <b>Yobo now has the party-room performance turn</b> (🟡 Scott, 5 Sep · not in doc), sharing the room with Bix's photograph — so <b>only Cody is still blank.</b>","doc"],
+  ["The blood connection — <b>answered for Gnomey only</b>","Scott's comment idea was a PC connected by blood. <b>Sesh 8 gives Gnomey a *debt* instead of a bloodline</b> — his great-uncle won the house at cards, hinted on the library checkout card as <code>V. Soprano</code>, which honours Spencer's note about where to plant it. <b>The blood-tie idea is no longer pointed at John</b> (dropped 31 Aug). <b>His connection is now the party-room performance turn</b> (🟡 Scott, 5 Sep · not in doc), not a bloodline.","doc"],
   ["Lock the mansion name","<b>Dood Mansion, and 'Dood' is both</b>: the builder's family surname <i>and</i> the Dutch pun. That answers Spencer's Sesh 6 <i>'lmk if thats too dumb lol'</i> and makes Cornelis Dood a real person in the fiction. Not in the Google Doc yet.","doc"],
   ["Does the 1937 Crier become canon?","The whole newspaper is invented — see the Not Canon tab. Three options: ratify it, rewrite it back to the doc's actual 1973 Frisian source, or leave it as a prop nobody has to believe.","ai"],
   ["Coffin count","The codex was treating this as a canon contradiction: the Crier's three boxes vs. three living vampires. It isn't a contradiction — the count is invented. Only worth solving if the Crier gets ratified.","ai"],
@@ -910,10 +911,11 @@ const TODO = [
 const DOCS = [
   ["Haunted House Invite","BUILT — /invite/ · home-made, clip-arty · 7PM sharp · Sesh 6 spec. Exclusive invite — 5 cards, 5 lockers. The card's mass-flyer voice (<i>FREE admission, bring a friend, the more the scaryer</i>) is deliberate camouflage — and reads better now that a real public flyer exists for 3AM.","doc","Sesh 5, 6"],
   ["DJ Show Flyer","NOT BUILT — <b>and now unblocked.</b> Leaned-out Memphis/Houston rap art, spooky · 3AM at Dood Mansion · bills Poe Boy / Lil Stinky / Angelique. Settled 25 Aug: this one <b>is public</b>, which is where the finale's crowd comes from.","doc","Sesh 5, 6"],
-  ["Library History Clippings","BUILT — /puzzle/ · the volume is intact until they open it and the trap cuts it up. Now carries the <b>checkout card</b>: E. Hoeck (the blood tie, John), U. M. Livingsworth III (Poe Boy's real name, four years ago) and W. Ostrander (the developer — proposal). Still an invented 1937 newspaper; the doc's source is a 1973 Frisian legend.","ai"],
+  ["Library History Clippings","BUILT — /puzzle/ · the volume is intact until they open it and the trap cuts it up. Now carries the <b>checkout card</b>: E. Hoeck (a blood tie — was pointed at John, now unclaimed since Yobo's connection is the party-room arc), U. M. Livingsworth III (Poe Boy's real name, four years ago) and W. Ostrander (the developer — proposal). Still an invented 1937 newspaper; the doc's source is a 1973 Frisian legend.","ai"],
   ["AIM chat with the Spirit","BUILT — /aim/ · Sesh 7, the backpack + USB branch, and <b>Sesh 8's soul transfer</b>: the willow, the drive mounting under his name, the second ask, a hold point for playing the price at the table, a real no-path, and the ritual itself — which reads as an ordinary file transfer until the progress bar exceeds its own boundaries. Set the kid's name with <code>/aim/?name=Marcus</code>.","doc","Sesh 7 + the 24 Aug doc paste + Sesh 8"],
   ["The Articles of Settlement","<b>BUILT — /settlement/</b> · the drunken 1931 contract from the strongbox in the study. Opens folded; tap to unfold. Crossed-out hours, eleven dollars and forty cents, <i>“the marker being the blue one,”</i> the struck-through snoring clause, Dracula witnessing as a non-notary, and Vinny's margin note. <b>The bearer paragraph is the only one on the page with no corrections in it</b> — that's the joke and the plot in one paragraph, and it is set apart visually. Signed <b>C. Dood</b>, in a second hand.","doc","Sesh 8"],
-  ["The photograph","<b>BUILT — /photo/</b> · four figures — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. Tap to turn it over: Goblinenon's handwriting on the back, and she names <i>“Me + E.”</i> <b>Hand Will the iPad and say nothing</b> — he gets the goblin before he gets the fae. Art is stylised (a blown-out flash exposure), not photographic; swap in real art later if you want. 🟡 The date stamp reads <code>10 31 '79</code> and is a guess, since the doc never fixes Bix's age.","doc","Sesh 8"],
+  ["The photograph","<b>BUILT — /photo/</b> · four figures — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. Tap to turn it over: Goblinenon's handwriting on the back, and she names <i>“Me + E.”</i> <b>Hand Will the iPad and say nothing</b> — he gets the goblin before he gets the fae. Art is stylised (a blown-out flash exposure), not photographic; swap in real art later if you want. 🟡 The date stamp reads <code>10 31 '79</code> and is a guess, since the doc never fixes Bix's age.<br>🟡 It now also doubles as the <b>solution key to the party-room puzzle</b> (<code>/party-room/</code>): the tableau the players recreate (figure order L→R, the record playing).","doc","Sesh 8"],
+  ["The frozen party (party room)","<b>BUILT — /party-room/</b> · 🟡 Scott, 5 Sep · not in doc. The digital half of Yobo's party-room turn: light the candles, set the four guests to their marks matching <code>/photo/</code>, and start the gramophone — missteps raise the <b>Revel meter</b> to a curdle (the scare). When the moment is whole the host calls for a song, which is Yobo's Performance check at the table, with DM buttons for a true vs. a borrowed voice. Audio is fully synthesised — no asset files.","ai"],
   ["The poker chip","NOT BOUGHT · <b>hand Julia a physical blue chip at session one</b> and never explain it. Clay or bone, hand-stamped, nothing a casino ever made — and the same mark should appear on the settlement's seal. The set in the study is exactly one short.","doc","Sesh 8"],
   ["The USB stick","NOT BOUGHT · a real thumb drive handed to the players when the Spirit uploads. Put scream_test_03_GOOD.wav on it — and <b>set its volume label to the kid's name</b>, because Sesh 8 makes the mount the moment the table learns who he is.","doc","the 24 Aug doc paste + Sesh 8"],
   ["The AIM password sticky note","NOT BUILT · <b>the thing that unlocks the whole computer-room scene.</b> A sticky note reading <code>Fluffy123</code>, in handwriting, findable somewhere in the house. The prop's sign-on screen will not proceed without it. Since the account is <b>Poe Boy's</b>, the note is his too — the obvious homes are stuck to the monitor, inside the gear case, or in the ballroom rig downstairs, which would make the party carry it up two floors.","doc","30 Aug · not in doc"],
@@ -1476,12 +1478,12 @@ const TODO_LIST = [
   "t": "Give every PC a story arc and a mansion connection",
   "o": "both",
   "c": "Story",
-  "note": "<b>Sesh 8 closed Bix and Simone \u2014 both have a mansion connection and a real arc now.</b> Gnomey has a connection and no arc; John and Cody have neither. Sesh 5 set the goal of one sprinkle of mansion lore per character; the arc half is the part nobody has written down. Both should be true for all five before the weekend.",
+  "note": "<b>Sesh 8 closed Bix, Simone and Gnomey; Yobo is closed as a \ud83d\udfe1 5 Sep proposal.</b> Only Cody now lacks both. Sesh 5 set the goal of one sprinkle of mansion lore per character; the arc half is the part nobody had written down. All five should be true (and, for Yobo, pasted into the doc) before the weekend.",
   "steps": [
    "Bix (Will) — <b>both done, Sesh 8.</b> Mansion: he broke in one rainy night running from a foster home, and the party room is where he finds the photograph. Arc: Edward is his father, his mother Goblinenon was killed clearing this house, and Edward explains himself in the epilogue. The Sesh 6 diary idea now has an obvious subject.",
    "Gnomey (Julia) — <b>both done, Sesh 8.</b> He owns the house: Great Uncle Vinny won it off Orlok at cards in 1931 and the deed runs with the poker chip in Julia's pocket. Arc is quiet-and-overlooked to head of household, found alone in the study and paid off with the public claim and the renewal at the threshold. Childhood dares and the bad Halloween still stand underneath it.",
    "Simone — <b>both done, Sesh 8.</b> Mansion: she sold the dead kid the wishing willow he wished on. Arc: the second ask, the goat's price, the smashed piggy bank, and the concert she gets anyway from the last person she'd want it from.",
-   "John — nothing on either side yet. Scott's blood-connection idea from the doc comments fits him best. Arc hangs off the insecurity he names, plus the fact that Poe Boy is running the same programme he is.",
+   "John (Yobo) — <b>both, 🟡 Scott 5 Sep (not in doc).</b> Mansion: the party room, whose frozen ghost-party accepts only a true performance. Arc: the Dolly-Parton lie is a Performance/Inspiration debuff; Dracula pushes him; he tells the truth and it flips to a buff. Full build in /PROPOSALS.md; prop at /party-room/.",
    "Cody — both, once the bio arrives."
   ],
   "top": 1
@@ -1548,11 +1550,11 @@ const TODO_LIST = [
  },
  {
   "id": "o2",
-  "t": "Ask John what his bully's insecurity is",
+  "t": "Confirm Yobo's arc with John (incl. the wig)",
   "o": "scott",
   "c": "Outbox",
   "needs": 1,
-  "note": "Left open on purpose rather than filled in by the DM — it is the thing that keeps the character from being just a mean guy, so it should be his. The bard, the bully act and the web edges are already in the cast; only this is waiting."
+  "note": "The insecurity is named in John's pitch (Yobo, the Dolly-Parton lie, real-talent anxiety) and Scott locked the arc 5 Sep. What still needs <b>John</b>: is it OK to make it canon that <b>Yobo wears a wig</b>? Plus his race and a Bard subclass. The debuff/buff dice are Scott's to tune. Then paste the arc into the doc."
  },
  {
   "id": "o5",
@@ -1580,7 +1582,7 @@ const TODO_LIST = [
    "Bix — the room he sheltered in that rainy night, still the way he left it, with something in it that contradicts his memory: a second bedroll, a door barred from the inside, the diary. He thinks he knows what happened to him here. The house disagrees.",
    "Gnomey — SUPERSEDED by Sesh 8. His house moment is the study: a poker set one chip short, the last hand still on the table, and a strongbox with the deed and the 1931 settlement. The old suggestion (the broken window with the crew's initials in the sill) is still a nice free detail if you want it somewhere else.",
    "Simone — she is the only PC who would recognise a soul cage for what it is. Give her the moment of naming what was done in the computer room out loud, before anyone else understands it. (Proposal only — this was a codex invention, never discussed by either of you.)",
-   "John — the blood connection, if it goes to him: a portrait, a deed, or a name cut into the Builder's Stone that matches his own. The bully finds out the house is family, in front of everyone he performs for.",
+   "John (Yobo) — <b>the party-room turn (🟡 Scott, 5 Sep).</b> The frozen ghost-party accepts only a true performance, so he has to drop the Dolly-Parton lie in front of everyone he performs for. Findable by the whole party (they recreate the photograph); load-bearing only for him. Prop at /party-room/.",
    "Cody — open until the bio arrives.",
    "Rule for all five: findable by the whole party, but only load-bearing for one of them. If a beat needs its owner present to work at all, it will not survive someone splitting off."
   ]
@@ -1664,7 +1666,7 @@ const TODO_LIST = [
   "steps": [
    "<b>Town is combat-free by decision</b>, not omission \u2014 the 24 Aug doc paste says so explicitly.",
    "<b>Saturday's fight is now in town</b> — the trap in the bound volume, 500 XP. That reverses the 24 Aug doc paste on two counts and leaves the mansion with no combat until Sunday morning.",
-   "Superseded by Sesh 8: the corridor is cut. Sunday's investigation stretch is now the study, the party room, the computer and the cellar \u2014 and Cody's and John's rooms are still blank.",
+   "Superseded by Sesh 8: the corridor is cut. Sunday's investigation stretch is now the study, the party room, the computer and the cellar \u2014 and only Cody's room is still blank (Yobo now shares the party room, \ud83d\udfe1 5 Sep).",
    "The finale is three phases in one continuous sequence, so it covers the whole back end.",
    "Sanity check: no stretch should run much past ninety minutes with neither a fight nor a puzzle paying off. Use hazards and chases rather than a fourth combat \u2014 they cost ten minutes, not fifty."
   ]
@@ -1874,7 +1876,7 @@ const TODO_LIST = [
   "c": "Decision",
   "done": 1,
   "ans": "Kenku · Bard, College of Glamour",
-  "note": "Kenku canonically speak only in sounds recorded from others — a DJ who samples voices, and whose actual crime is trapping a kid's voice inside a machine, cannot speak in one of his own. Glamour supplies the charm that holds the crew together. Note he lands as a bard alongside John, so the final confrontation is two people fighting with the same weapon."
+  "note": "Kenku canonically speak only in sounds recorded from others — a DJ who samples voices, and whose actual crime is trapping a kid's voice inside a machine, cannot speak in one of his own. Glamour supplies the charm that holds the crew together. Note he lands as a bard alongside John's Yobo, so the final confrontation is two people fighting with the same weapon — and Yobo's Whole buff (🟡 5 Sep) is built to make that duel winnable."
  },
  {
   "id": "q5",

@@ -547,3 +547,99 @@ whether anyone in that house treats him as a person instead of evidence.**
    not be a surprise at the table.
 7. **Angelique's player-facing reveal.** She's an NPC, so this is a DM-info question: does the party
    ever learn she was enchanted, or is it only ever Simone's private knowledge?
+
+---
+
+# J. John / Yobo — "stop lying, get stronger" (🟡 Scott, 5 Sep 2026 · not in doc)
+
+> **Status.** The doc has one line for John: *leaning Bard, leaning bully, insecurity TBD.* Everything here
+> is **John's own pitch** (the character Yobo, the Dolly-Parton lie, the musical-theatre framing) plus
+> **Scott's arc design of 5 Sep**. None of it is in the Google Doc. Ships 🟡 until pasted in, and a few
+> pieces are **John's to confirm** — see the open forks.
+
+**TLDR:** Yobo stops lying to the group about his origins and is stronger for it.
+
+## The character (John's pitch)
+
+Yobo transferred in from another school where he was tormented for weak singing and acting. To get in with
+the cool theatre kids he told everyone **his grandmother is Dolly Parton** — a lie. His whole social
+standing now rests on people believing he's descended from musical royalty. He wants to be a star, but
+mostly just wants to be accepted, and he's deeply insecure about whether he has any real talent.
+
+## The mechanic — the lie is a debuff, the truth is a buff
+
+He's a Bard whose signature stat is the thing the lie sabotages, because keeping up an internal performance
+costs him the real one:
+
+| | Masked (living the lie) | Unmasked (after the turn) |
+|---|---|---|
+| **Performance** | disadvantage | **advantage** |
+| **Bardic Inspiration** | weakened (a die step down / stingy) | **enhanced** |
+| **Deception** | **advantage** (he's a practised liar) | (returns to normal) |
+
+Dice values are Scott's to tune; advantage/disadvantage is the clean version. The Deception upside means
+he's never *just* nerfed — he's pointed the wrong way, and it's genuinely useful (see the early beat).
+
+**It is a locked buff, not a nerf.** He ends stronger than a baseline bard, he opts in at Session 0, and
+**he controls when the turn happens.** Frame it that way and every early failed roll is money in the bank.
+
+## Beat 1 — the gazebo (plant the debuff, in secret)
+
+Before they enter, the crew clocks him — *"you're that Dolly Parton guy — do a little riff!"* He tries; it
+comes out thin. **Roll it in secret.** Hand John a note: *something inside you makes the performance
+inauthentic — you have disadvantage.* Reveal the note a piece at a time as the weekend surfaces more of it,
+so the player is in on the mystery the rest of the table isn't.
+
+**Presenting it without souring the player:** to the *players* be transparent out of character (it's a flaw
+with a guaranteed payoff); keep it a secret only *in the fiction*. If a PC asks why he's off, that's John's
+cue to improv a cover — the debuff generating roleplay instead of killing it.
+
+## Beat 2 — the party room (the turn) · prop at `/party-room/`
+
+The party room replays a **frozen ghost-party** — the night Edward & Goblinenon's cart broke down and found
+Orlok & Dracula reveling (this is Bix's photograph scene; the room does double duty). A three-layer puzzle,
+capstoned by Yobo's turn:
+
+- **Layer 1 — Blend in** (social/observation): the party resumes and treats the PCs as guests; they must
+  match the revelers. Missteps raise the **Revel meter** toward hostile. *Irony:* masked Yobo's Deception
+  advantage makes him great at faking belonging here.
+- **Layer 2 — Restore the moment** (match-the-picture): the loop is glitching; **Bix's photograph is the
+  solution key** — recreate its tableau (start the gramophone, set the four guests to their marks L→R:
+  **Orlok, Goblinenon, Edward, Dracula**, light the candles). Wrong placements tick the Revel meter.
+- **Layer 3 — The song** (the turn): the host calls for entertainment; only Yobo can answer. The room
+  rewards a **true** performance, not a high roll — a masked turn makes the ghosts **curdle to menace**
+  (the scare). **Dracula pushes him** to drop the act; he tells the truth → the room erupts and embraces
+  him, the way opens, and the debuff **flips to the buff**.
+
+**Safeguards** (match the anti-gating rule): the Revel meter is a soft timer, not a hard fail; if John keeps
+Yobo masked the room stays hostile and the party can force the exit the hard way. His truth is the *best*
+key, not the only door — nothing plot-critical hides behind his choice.
+
+## Dracula's role
+
+As a performer, Dracula can **diagnose** that Yobo is holding back and **help** him — advice on how to sell
+a true performance, not a temptation to lie forever. He belongs in this room because he was *at* this party
+(he's one of the two vampires in the photograph). His coaching here also pre-loads his canon finale beat
+(seizing the mic to denounce Poe Boy).
+
+## Payoff
+
+Whole-Yobo carries advantage on Performance and enhanced Bardic Inspiration through the finale — the
+bard-vs-bard duel with Poe Boy (Kenku Bard, Glamour) is built to be winnable because of it. Poe Boy is the
+fraud who never dropped the mask; Yobo is the one who did.
+
+## Artifacts
+
+- **`/photo/`** — Bix's photograph, already built. Now also the **solution key** to the party-room puzzle.
+- **`/party-room/`** — new prop: light the candles, place the four guests, start the gramophone, watch the
+  Revel meter, with DM buttons for the true-vs-borrowed-voice outcome. Audio is fully synthesised (no asset
+  files), splash-gated for iOS per CLAUDE.md.
+
+## Open forks
+
+1. **The wig.** Ask John if it's OK to make it canon that Yobo wears one. His call, not the DM's.
+2. **The dice.** Exact debuff/buff values (advantage/disadvantage vs. flat numbers; the Inspiration step).
+3. **Race and subclass.** Both open; Glamour rhymes with Poe Boy if you want the duel to mirror hard.
+4. **E. Hoeck is now unclaimed.** The 1938 blood-tie name on the puzzle checkout card was John's; his
+   connection is now the party room, so that card thread wants a new owner or a quiet retirement.
+5. **Paste it into the doc** to move any of this off 🟡.
