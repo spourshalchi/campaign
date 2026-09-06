@@ -883,6 +883,17 @@ const DIALOGUE = {
       "make them hear it. all of them",
       "people need to know what he is",
       "hes not cool. hes a goddamn monster",
+      "hold on. im uploading the file now"
+    ],
+    // The regular file transfer — the scream recording coming across the wire.
+    transfer: { file: "scream_test_03_GOOD.wav", size: "18.4 MB" },
+    transferNext: "onemorething",
+    choices: []
+  },
+
+  onemorething: {
+    ghost: [
+      "ok. you have it now",
       "thats the only thing i want",
       "[[pause:1800]]",
       "... thats not true actually. theres one other thing"
@@ -1530,6 +1541,9 @@ async function runNode(key) {
     await wait(500);
     await addTransfer(node.transfer.file, node.transfer.size);
     await wait(750);
+    // A transfer node can hand straight to the next node (no tap), so the
+    // beat after the upload lands without the player breaking the moment.
+    if (node.transferNext) { runNode(node.transferNext); return; }
   }
   if (node.soul) {
     await wait(500);
