@@ -172,7 +172,7 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 | **The corridor set-piece is cut** | Sesh 8 |
 | **The poker room**, placed before anything exonerates the vampires | Sesh 8 |
 | **The party room** — where Bix finds the photograph | Sesh 8 |
-| Cody's and John's threads — **still blank** | Sesh 8 |
+| ~~Cody's and John's threads — **still blank**~~ — **Cody's answered Sesh 8** (the cellar infirmary / the badge arc); John's still blank | Sesh 8 |
 | The computer room; Simone's link lands here | Sesh 8 |
 | The cellar / food stash clears the vampires | Sesh 8 (restates Sesh 6) |
 
@@ -196,6 +196,45 @@ The draft spec stays parked in `PROPOSALS.md` as dead work.
   1985, which is too late by five years and is now corrected everywhere.** One string in `/photo/`.
 - Vinny's first name beyond *Vinny*, and *V. Soprano* on the contract.
 - That the cellar still holds Vinny's crates.
+
+---
+
+## 📗 Sesh 8 — Cody's arc: Russ and the Assisting the Elderly badge
+
+Scott pasted this into **Sesh 8** on 7 Sep 2026, so it is canon like anything else in the doc.
+It closes two of the longest-standing open questions — Cody's PC (#5) and Cody's mansion thread (#18).
+
+**TL;DR:** Cody's PC — a Firbolg druid, *"basically Russell from *Up*"*, working name **Russ** — earns his
+Boy-Scout **"Assisting the Elderly"** badge by helping the vampires, and the elder he ends up bonding with
+is **Orlok** (Russell → Carl).
+
+### The badge has three requirements
+
+| Requirement | Where it plays | What happens |
+|---|---|---|
+| **1 · "Lend a hand with something out of reach"** | Saturday, the icebreaker | After Orlok's *"have a look around"* dismissal, Russ finds him frozen at the edge of a sunbeam. Late light has crept through the boarded window onto his **spectacles** on the sill, and a vampire can't cross the light to reach them. Russ walks through the sun and hands them over — trivial for a warm kid, impossible for Orlok. Orlok takes them without thanks and **refuses to sign** the badge card. First of three refusals. |
+| **2 · "Tend your elder's garden"** | Sunday, the cellar | The food-stash reveal *is* an **animal infirmary** (see below). Russ Speak-with-Animals the patients — that's where the exoneration lands — and finds Orlok's dead, ghost-white **medicinal seedlings** straining toward light that isn't there. The old one has tried for years to grow the sun-flower that mends wounds and it always withers in the dark. Russ moves them into the cellar's one blade of daylight (or channels it), they open gold, and he dresses the worst-off animal's wound. |
+| **3 · "Give care when someone is hurting"** | The finale battle | Russ gets the chance to **heal one of the vampires** under fire. The bond, proven. |
+
+- **Epilogue:** **Orlok signs off** on Russ's requirements and **Russ gets his badge** — hand Cody a real badge at the table.
+
+### The vet reframe — now canon, and it protects the exoneration
+
+The cellar's job is to exonerate the vampires (they don't kill people). Because Russ *speaks with animals*,
+Scott settled that **Orlok doesn't kill the animals either — he's a vet.** He takes in injured animals, mends
+them, and in return **they willingly give a little blood** — fair, freely offered, no one taken who doesn't
+heal and go home. So Speak-with-Animals becomes the *strongest* pro-vampire evidence in the game instead of a
+problem: the witnesses are grateful, not victims. The "food stash" reads for one breath as a slaughterhouse,
+then flips to **a clinic**.
+
+### 🟡 Still open inside this arc
+- **The medicinal herb's name.** A sun-loving wound-healer; options floated were *Sun's-mercy* (marigold-gold),
+  *Knitbane/knitwort* (comfrey "knitbone"), or *Dagbloem* (Dutch "day-flower"). **Not chosen yet.**
+- **The badge artwork.** The physical badge Scott hands over in the epilogue — imagery undecided
+  (a paw-print with a drop of blood, a bat-and-rabbit-under-a-moon, etc.).
+- **Russ's exact druid subclass and sheet.** The concept (Firbolg druid, Speak with Animals) is set; the
+  full character sheet is Cody's to hand in, like everyone else's.
+- The prop wording — the printable **Requirements card** — is codex-side texture until it's used.
 
 ---
 
@@ -393,7 +432,7 @@ the story now** — so this counts as in-doc like anything else, not as one pers
 | **Simone** — angsty goth warlock, devil patron as an all-black goat with an upside-down red cross, atheist parents, sells love & revenge spells to fund a satanic metal show, frequent detention, loner | Character Bios |
 | **Simone's mansion tie: she sold the dead kid the wishing willow, and her patron's price is the concert fund** — full chain in the Sesh 8 section above | **Sesh 8** |
 | **John** — leaning Bard, leaning bully archetype; words are mechanically the weapon; a glaring insecurity is the reason for the act, **TBD by John** | Character Bios |
-| **Cody** — has not submitted a character | Sesh 5 |
+| ~~**Cody** — has not submitted a character~~ — **answered in Sesh 8:** Cody's PC is a Firbolg druid (working name **Russ**, *"basically Russell from Up"*) whose arc is earning his **Assisting the Elderly** badge by helping Orlok. Full arc in the Sesh 8 section above | Sesh 5, answered Sesh 8 |
 | "Island of misfit toys" — everyone has a reason they ended up in the friend group | Sesh 5 |
 | Scott's floated idea: one PC connected to the mansion by blood (great-grandparent built it or died there); Spencer liked it and said the library is the place to hint | Doc comments |
 | **Answered for Gnomey, and only Gnomey.** His tie is a *debt*, not a bloodline — his great-uncle won the house at cards, hinted on the library checkout card as `V. Soprano`. **The blood-tie idea is no longer pointed at John**, dropped 31 Aug; John gets a different connection, still to be invented | Sesh 8 + 31 Aug · not in doc |
@@ -523,7 +562,7 @@ stay on this list until you two decide:
    name lands** — it is now the volume label on the USB they plug in, not the Sharpie on the bag.
 3. Does the 1937 Crier become canon, get rewritten to the doc's 1973 Frisian version, or stay a prop that nobody has to believe?
 4. John's insecurity — his to name.
-5. Cody's PC.
+5. ~~Cody's PC.~~ — **answered Sesh 8:** a Firbolg druid (working name Russ) earning his Assisting the Elderly badge by helping Orlok. Still open inside it: the herb's name, the badge art, and Cody's full sheet.
 6. The 4th crew member.
 7. Lock or kill: Dood Mansion, Upton Maximillion Livingsworth III, and the DJ/kingpin names that are locked only by repetition.
 8. **Why these five?** The invite is a deliberate guest list, so it needs a reason the players can be told.
@@ -542,9 +581,10 @@ stay on this list until you two decide:
     through the door is not designed, and is not being designed yet.** Scott's call, 31 Aug.
 17. **What the botched summoning actually is.** Saturday's mansion combat is now named and nothing else
     about it is written.
-18. **Cody's and John's mansion threads** — the last two PCs without a room. Gnomey has the study, Bix has
-    the party room, Simone has the computer. **John's is now genuinely blank**: the blood-tie hook that used
-    to be pointed at him was dropped 31 Aug, so there is nothing standing in for it.
+18. ~~**Cody's and John's mansion threads**~~ — **Cody's answered Sesh 8:** his room is the **cellar infirmary**,
+    where he tends Orlok's animals and grows the medicinal herb (badge requirement 2). Gnomey has the study, Bix
+    the party room, Simone the computer, Cody the cellar. **John's is now genuinely blank**: the blood-tie hook that
+    used to be pointed at him was dropped 31 Aug, so there is nothing standing in for it.
 19. **The satanic metal band has no name.** Sesh 8 made it load-bearing three times over — Simone's
     savings, the goat's price, and Poe Boy's grounding — and it needs to be printable, because it is on
     a shirt and on the tickets his mother hands over.

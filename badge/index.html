@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<!--
+  PROP: Russ's "Assisting the Elderly" merit-badge requirements card + the badge itself.
+  CANON STATUS: 🟡 mostly. The ARC is 📗 in-doc (Sesh 8, pasted 7 Sep 2026): Cody's PC is a
+  Firbolg druid (working name "Russ") who earns his Assisting the Elderly badge by helping the
+  vampires and bonds with Orlok. The THREE REQUIREMENTS and their beats are Sesh 8 too.
+  Still 🟡 / undecided (see CANON.md): the medicinal herb's name, the final badge artwork, the
+  scouting-troop name below (pure prop flavour), and Cody's full character sheet.
+  This is a print handout: print the card, make the badge physical, hand it to Cody in the epilogue.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Badge">
+<meta name="theme-color" content="#3c5a3a">
+<title>Assisting the Elderly &mdash; Merit Badge</title>
+<style>
+  :root{
+    --kraft:#d8c39a; --kraft2:#cbb488; --card:#f3ead2; --ink:#2c2418; --mut:#6b5d43;
+    --forest:#3c5a3a; --forest2:#2c4630; --gold:#b8862f; --blood:#9c2b2b; --line:#b7a179;
+    --f-serif:"Hoefler Text","Georgia","Times New Roman",serif;
+    --f-stamp:"Courier New","Courier",monospace;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:var(--f-serif); color:var(--ink);
+    background:
+      radial-gradient(120% 100% at 50% -20%, rgba(255,255,255,.10), transparent 60%),
+      repeating-linear-gradient(45deg, rgba(0,0,0,.015) 0 3px, transparent 3px 8px),
+      #6f5f42;
+    min-height:100dvh;
+    padding:max(14px,env(safe-area-inset-top)) 14px max(14px,env(safe-area-inset-bottom));
+    display:flex; flex-direction:column; align-items:center; gap:22px;
+  }
+
+  /* -------- screen-only prep brief -------- */
+  .brief{
+    max-width:640px; width:100%;
+    background:#1c2a1c; color:#e9e2cd; border:1px solid #33482f; border-radius:10px;
+    padding:14px 16px; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-size:13px; line-height:1.5;
+  }
+  .brief h1{font-family:var(--f-serif);font-size:18px;margin:0 0 6px;color:#f0e9d2}
+  .brief .status{display:inline-block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+    background:#3c2f12;color:#e6c268;border:1px solid #6b5320;border-radius:999px;padding:2px 9px;margin-bottom:8px}
+  .brief p{margin:0 0 8px;color:#d6cfb8}
+  .brief b{color:#f4eed8}
+  .brief code{font-family:var(--f-stamp);background:#0f180f;border:1px solid #33482f;border-radius:4px;padding:1px 5px;font-size:12px}
+  .brief button{font:inherit;font-weight:600;cursor:pointer;margin-top:4px;
+    background:var(--gold);color:#1c1405;border:none;border-radius:7px;padding:8px 16px}
+  .brief .open{color:#e6c268;font-style:italic}
+
+  /* -------- the printable sheet -------- */
+  .sheet{
+    width:100%; max-width:640px;
+    background:
+      radial-gradient(140% 90% at 50% 0%, #f7efd9, var(--card) 55%, #eadfc0 100%);
+    color:var(--ink);
+    border:1px solid var(--line);
+    border-radius:6px;
+    box-shadow:0 14px 34px rgba(0,0,0,.4), inset 0 0 0 1px rgba(255,255,255,.35);
+    padding:30px 34px 26px;
+    position:relative;
+    overflow:hidden;
+  }
+  .sheet::before{ /* punched holes, like a handbook page */
+    content:""; position:absolute; left:12px; top:0; bottom:0; width:14px;
+    background:radial-gradient(circle at 50% 22px, rgba(0,0,0,.14) 5px, transparent 6px) 0 0/100% 64px repeat-y;
+  }
+  .inner{margin-left:16px}
+
+  .crest{text-align:center; border-bottom:2px solid var(--forest); padding-bottom:12px; margin-bottom:14px}
+  .troop{font-size:11px; letter-spacing:.34em; text-transform:uppercase; color:var(--forest); font-weight:700; margin:0}
+  .doc-t{font-family:var(--f-serif); font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--mut); margin:6px 0 0}
+  .badge-name{font-size:30px; margin:10px 0 2px; color:var(--forest2); font-weight:700; letter-spacing:.01em}
+  .badge-sub{font-style:italic; color:var(--mut); margin:0; font-size:14px}
+
+  .scoutline{display:flex; gap:10px; align-items:flex-end; margin:16px 0 6px; font-size:15px}
+  .scoutline .lab{font-family:var(--f-stamp); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--mut); white-space:nowrap; padding-bottom:2px}
+  .scoutline .val{flex:1; border-bottom:1.5px dotted var(--line); font-weight:700; color:var(--ink); padding:0 4px 2px}
+  .scoutline .val.hand{font-family:var(--f-stamp); font-weight:400}
+
+  .intro{font-size:13.5px; color:var(--mut); line-height:1.5; margin:10px 0 16px; font-style:italic}
+
+  .req{border-top:1px solid var(--line); padding:14px 0 13px; display:flex; gap:14px}
+  .req .box{flex:0 0 30px; height:30px; border:2px solid var(--forest); border-radius:5px; position:relative; background:#fff8}
+  .req .num{position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-family:var(--f-stamp); font-size:13px; color:var(--forest); font-weight:700}
+  .req .body{flex:1}
+  .req h3{margin:0 0 3px; font-size:16.5px; color:var(--ink)}
+  .req p{margin:0 0 9px; font-size:13px; color:var(--mut); line-height:1.5}
+  .req .sig{display:flex; align-items:flex-end; gap:8px; font-size:12px}
+  .req .sig .l{font-family:var(--f-stamp); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--mut); white-space:nowrap; padding-bottom:1px}
+  .req .sig .line{flex:1; border-bottom:1.5px solid var(--line); min-width:80px}
+
+  .foot{border-top:2px solid var(--forest); margin-top:16px; padding-top:12px; display:flex; justify-content:space-between; gap:16px; align-items:flex-end}
+  .motto{font-style:italic; color:var(--forest2); font-size:13px; margin:0}
+  .motto small{display:block; font-style:normal; font-family:var(--f-stamp); font-size:9.5px; letter-spacing:.06em; color:var(--mut); text-transform:uppercase; margin-top:3px}
+  .rank{text-align:right; font-family:var(--f-stamp); font-size:10px; color:var(--mut); text-transform:uppercase; letter-spacing:.05em}
+
+  /* -------- the badge (round patch) -------- */
+  .badge-wrap{width:100%; max-width:640px; display:flex; flex-direction:column; align-items:center; gap:8px}
+  .badge-cap{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; font-size:11px; color:#e9e2cd; letter-spacing:.06em; text-transform:uppercase; opacity:.8}
+  svg.badge{width:220px; height:220px; filter:drop-shadow(0 8px 16px rgba(0,0,0,.45))}
+  .badge-note{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; font-size:11.5px; color:#d8cfb2; text-align:center; max-width:360px; line-height:1.45; font-style:italic}
+
+  @media print{
+    body{background:#fff; padding:0; display:block}
+    .brief,.badge-cap,.badge-note{display:none !important}
+    .sheet{box-shadow:none; border:1px solid #999; border-radius:0; max-width:none; margin:0 auto; page-break-after:always}
+    .badge-wrap{page-break-before:always; margin-top:40px}
+    svg.badge{width:2.5in; height:2.5in; filter:none}
+    @page{margin:0.5in}
+  }
+</style>
+</head>
+<body>
+
+  <!-- screen-only DM brief; hidden in print -->
+  <div class="brief">
+    <span class="status">Prop · arc is canon (Sesh 8) · art &amp; herb name still open</span>
+    <h1>Russ's badge &mdash; how to use it</h1>
+    <p><b>Print the card</b> and hand it to Cody early. Russ ticks a box each time he helps Orlok, but every box needs the <b>elder's signature</b> &mdash; and Orlok refuses to sign all weekend. In the <b>epilogue</b>, Orlok finally signs, and you <b>hand Cody a real badge</b> (the patch below).</p>
+    <p class="open">Still to decide: the medicinal herb's name (Req 2), the final badge artwork, and the troop name is just prop flavour. See <code>/CANON.md</code>.</p>
+    <button onclick="window.print()">Print card + badge</button>
+  </div>
+
+  <!-- ============ THE REQUIREMENTS CARD ============ -->
+  <div class="sheet">
+    <div class="inner">
+      <div class="crest">
+        <p class="troop">Wilderness Scouts of Transyltown &middot; Troop 187</p>
+        <p class="doc-t">Merit Badge &mdash; Requirements Record</p>
+        <h2 class="badge-name">Assisting the Elderly</h2>
+        <p class="badge-sub">&ldquo;A scout is a friend to those in the twilight of their years.&rdquo;</p>
+      </div>
+
+      <div class="scoutline"><span class="lab">Scout</span><span class="val hand">Russ</span><span class="lab">Rank sought</span><span class="val">Senior Explorer</span></div>
+
+      <p class="intro">To earn this badge, the scout shall render genuine, unpaid assistance to an elder of the community, and have each act of service verified by that elder in their own hand. Three acts are required.</p>
+
+      <div class="req">
+        <div class="box"><span class="num">1</span></div>
+        <div class="body">
+          <h3>Lend a hand with something out of reach.</h3>
+          <p>Help your elder retrieve what they cannot reach on their own. Perform the task cheerfully and expect nothing in return.</p>
+          <div class="sig"><span class="l">Verified by your elder</span><span class="line"></span></div>
+        </div>
+      </div>
+
+      <div class="req">
+        <div class="box"><span class="num">2</span></div>
+        <div class="body">
+          <h3>Tend your elder's garden.</h3>
+          <p>Help grow or care for something your elder can no longer keep alive themselves. Leave it thriving.</p>
+          <div class="sig"><span class="l">Verified by your elder</span><span class="line"></span></div>
+        </div>
+      </div>
+
+      <div class="req">
+        <div class="box"><span class="num">3</span></div>
+        <div class="body">
+          <h3>Give care when someone is hurting.</h3>
+          <p>Tend to your elder, or one in their charge, in a moment of real need &mdash; even when it costs you something to do it.</p>
+          <div class="sig"><span class="l">Verified by your elder</span><span class="line"></span></div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <p class="motto">Adiuva senes, semper.<small>Assist the elders, always</small></p>
+        <p class="rank">Badge awarded upon<br>completion of all three</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ THE BADGE (placeholder art) ============ -->
+  <div class="badge-wrap">
+    <span class="badge-cap">The badge &mdash; make it physical for the epilogue</span>
+    <svg class="badge" viewBox="0 0 200 200" role="img" aria-label="Assisting the Elderly merit badge">
+      <defs>
+        <radialGradient id="fill" cx="50%" cy="42%" r="62%">
+          <stop offset="0%" stop-color="#4c6f47"/>
+          <stop offset="100%" stop-color="#2c4630"/>
+        </radialGradient>
+      </defs>
+      <!-- stitched rim -->
+      <circle cx="100" cy="100" r="94" fill="#b8862f"/>
+      <circle cx="100" cy="100" r="88" fill="url(#fill)"/>
+      <circle cx="100" cy="100" r="88" fill="none" stroke="#e8cf8a" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.7"/>
+      <circle cx="100" cy="100" r="70" fill="none" stroke="#e8cf8a" stroke-width="1" opacity="0.55"/>
+      <!-- curved title text -->
+      <path id="top" d="M 40 100 A 60 60 0 0 1 160 100" fill="none"/>
+      <path id="bot" d="M 44 100 A 56 56 0 0 0 156 100" fill="none"/>
+      <text fill="#f0e6c8" font-family="Georgia, serif" font-weight="700" font-size="13" letter-spacing="2">
+        <textPath href="#top" startOffset="50%" text-anchor="middle">ASSISTING THE ELDERLY</textPath>
+      </text>
+      <text fill="#cdbf95" font-family="Georgia, serif" font-size="8.5" letter-spacing="1.5">
+        <textPath href="#bot" startOffset="50%" text-anchor="middle">WILDERNESS SCOUTS · TROOP 187</textPath>
+      </text>
+      <!-- center emblem: a cupped hand under a crescent moon, a rabbit's paw + a single drop -->
+      <g transform="translate(100 102)">
+        <path d="M 20 -30 A 26 26 0 1 0 30 -6 A 20 20 0 1 1 20 -30 Z" fill="#e8cf8a" opacity="0.9"/>
+        <!-- cupped hand -->
+        <path d="M -26 18 q 4 -16 12 -16 q 3 0 4 3 q 2 -6 7 -6 q 3 0 4 3 q 2 -5 7 -5 q 3 0 4 3 q 3 -3 7 -1 q 5 3 2 12 q -3 12 -14 16 q -18 6 -30 -1 q -5 -3 -6 -11 Z" fill="#f0e6c8"/>
+        <!-- a small drop resting in the palm -->
+        <path d="M 3 4 q 5 6 0 11 q -5 -5 0 -11 Z" fill="#9c2b2b"/>
+      </g>
+    </svg>
+    <p class="badge-note">Placeholder art (🟡 not final). Swap in whatever you make &mdash; a paw-print with a drop of blood, a bat and rabbit under a moon, etc.</p>
+  </div>
+
+</body>
+</html>
