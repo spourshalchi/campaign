@@ -213,7 +213,7 @@ is **Orlok** (Russell → Carl).
 | Requirement | Where it plays | What happens |
 |---|---|---|
 | **1 · "Lend a hand with something out of reach"** | Saturday, the icebreaker | After Orlok's *"have a look around"* dismissal, Russ finds him frozen at the edge of a sunbeam. Late light has crept through the boarded window onto his **spectacles** on the sill, and a vampire can't cross the light to reach them. Russ walks through the sun and hands them over — trivial for a warm kid, impossible for Orlok. Orlok takes them without thanks and **refuses to sign** the badge card. First of three refusals. |
-| **2 · "Tend your elder's garden"** | Sunday, the cellar | The food-stash reveal *is* an **animal infirmary** (see below). Russ Speak-with-Animals the patients — that's where the exoneration lands — and finds Orlok's dead, ghost-white **medicinal seedlings** straining toward light that isn't there. The old one has tried for years to grow the sun-flower that mends wounds and it always withers in the dark. Russ moves them into the cellar's one blade of daylight (or channels it), they open gold, and he dresses the worst-off animal's wound. |
+| **2 · "Tend your elder's garden"** | Sunday, the cellar | The food-stash reveal *is* an **animal infirmary** (see below). Russ Speak-with-Animals the patients — that's where the exoneration lands — and finds Orlok's dead, ghost-white **medicinal seedlings** straining toward light that isn't there. The old one has tried for years to grow **Sun's-mercy**, the sun-flower that mends wounds, and it always withers in the dark. Russ moves them into the cellar's one blade of daylight (or channels it), they open gold, and he dresses the worst-off animal's wound. |
 | **3 · "Give care when someone is hurting"** | The finale battle | Russ gets the chance to **heal one of the vampires** under fire. The bond, proven. |
 
 - **Epilogue:** **Orlok signs off** on Russ's requirements and **Russ gets his badge** — hand Cody a real badge at the table.
@@ -228,8 +228,8 @@ problem: the witnesses are grateful, not victims. The "food stash" reads for one
 then flips to **a clinic**.
 
 ### 🟡 Still open inside this arc
-- **The medicinal herb's name.** A sun-loving wound-healer; options floated were *Sun's-mercy* (marigold-gold),
-  *Knitbane/knitwort* (comfrey "knitbone"), or *Dagbloem* (Dutch "day-flower"). **Not chosen yet.**
+- ~~The medicinal herb's name~~ — **chosen: Sun's-mercy**, a marigold-gold, sun-loving wound-healer
+  (Scott, 7 Sep · not in doc — worth pasting in).
 - **The badge artwork.** The physical badge Scott hands over in the epilogue — imagery undecided
   (a paw-print with a drop of blood, a bat-and-rabbit-under-a-moon, etc.).
 - **Russ's exact druid subclass and sheet.** The concept (Firbolg druid, Speak with Animals) is set; the
@@ -562,7 +562,7 @@ stay on this list until you two decide:
    name lands** — it is now the volume label on the USB they plug in, not the Sharpie on the bag.
 3. Does the 1937 Crier become canon, get rewritten to the doc's 1973 Frisian version, or stay a prop that nobody has to believe?
 4. John's insecurity — his to name.
-5. ~~Cody's PC.~~ — **answered Sesh 8:** a Firbolg druid (working name Russ) earning his Assisting the Elderly badge by helping Orlok. Still open inside it: the herb's name, the badge art, and Cody's full sheet.
+5. ~~Cody's PC.~~ — **answered Sesh 8:** a Firbolg druid (working name Russ) earning his Assisting the Elderly badge by helping Orlok. Still open inside it: the badge art and Cody's full sheet.
 6. The 4th crew member.
 7. Lock or kill: Dood Mansion, Upton Maximillion Livingsworth III, and the DJ/kingpin names that are locked only by repetition.
 8. **Why these five?** The invite is a deliberate guest list, so it needs a reason the players can be told.
