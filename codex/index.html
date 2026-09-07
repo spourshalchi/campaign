@@ -50,6 +50,14 @@
   section.tab.active{display:block}
   @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
+  /* ---- in-page sub-navigation for combined tabs ---- */
+  .subnav{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 20px}
+  .subnav button{font-family:var(--f-body);font-size:13px;color:var(--mut);background:#140f22;
+    border:1px solid var(--edge);padding:6px 12px;border-radius:999px;cursor:pointer;transition:.15s}
+  .subnav button:hover{color:var(--ink);background:#1a1428}
+  .subsec{scroll-margin-top:78px;padding-top:8px}
+  .subsec + .subsec{margin-top:34px;border-top:1px solid var(--edge);padding-top:26px}
+
   h2.sec{font-family:var(--f-display);font-size:24px;margin:6px 0 4px}
   .sub{color:var(--dim);margin:0 0 20px;font-size:14.5px}
 
@@ -330,12 +338,8 @@
 
   <nav class="tabs" id="tabs">
     <button data-tab="todo" class="active">To-Do</button>
-    <button data-tab="web">Relationship Web</button>
-    <button data-tab="back">Backstory</button>
-    <button data-tab="flow">Story Flow</button>
-    <button data-tab="cast">The Cast</button>
-    <button data-tab="plan">Weekend Plan</button>
-    <button data-tab="combat">Combat</button>
+    <button data-tab="cast">Cast &amp; Web</button>
+    <button data-tab="weekend">The Weekend</button>
     <button data-tab="names">Names &amp; Open Threads</button>
     <button data-tab="review">⚠ Not Canon Yet</button>
     <span class="flagbar"><label><input type="checkbox" id="flagtoggle" checked> highlight not-canon</label></span>
@@ -365,70 +369,71 @@
     <ul class="td-list" id="td-list"></ul>
   </section>
 
-  <!-- ============ WEB ============ -->
-  <section class="tab" id="tab-web">
-    <h2 class="sec">Who's tangled up with whom</h2>
-    <p class="sub">Click any character to trace their connections and read their thread. Everyone in the friend group is an "island of misfit toys" with a reason they ended up together.</p>
-    <div class="web-layout">
-      <div>
-        <div id="web-holder"><svg id="web" viewBox="0 0 1000 720" preserveAspectRatio="xMidYMid meet"></svg></div>
-        <div class="legend" id="legend"></div>
-        <p class="hint">Tip: click empty space to reset the view.</p>
-      </div>
-      <div class="detail" id="detail">
-        <h3>Click a character</h3>
-        <div class="role">Relationship browser</div>
-        <p>The web maps players (blue), the Bad Kids crew (purple), the three vampires (green), the malevolent forces haunting the house (red), and the townsfolk (grey). Edge <b>color + style</b> both encode the type of bond, so they stay legible even side by side.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ BACKSTORY ============ -->
-  <section class="tab" id="tab-back">
-    <h2 class="sec">What already happened</h2>
-    <p class="sub">This is <b style="color:var(--green)">Brainstorm Sesh 7</b>, near-verbatim — the history the players walk into. None of it is on screen during the sessions; it's what the clues in the mansion are clues <i>to</i>.</p>
-    <p class="sub">Written by Scott in Sesh 7. Story is built by both of you, so this is canon like anything else in the doc — the AIM prop, the Spirit and Angelique's arc all rest on it.</p>
-    <div id="backstory"></div>
-  </section>
-
-  <!-- ============ FLOW ============ -->
-  <section class="tab" id="tab-flow">
-    <h2 class="sec">How the weekend unfolds</h2>
-    <p class="sub">A haunted-house structure: curiosity gets them in, the doors bolt shut, and everything after plays out inside Dood Mansion — and the 24 Aug doc paste cut the fork, so it now runs one line from the locker cards to the Volvo in the driveway.</p>
-    <p class="sub">Between beats is a <b style="color:var(--purple)">transition</b> — a line to <i>say at the table</i> to move them to the next one, plus what to have ready underneath it. Transitions aren’t tracked as canon: they’re table patter, not lore, so say them however you like or ignore them. A <b style="color:#ffcf70">gold dashed transition</b> means there’s still a design question open there. The numbered beats themselves are from the doc.</p>
-    <div class="flow" id="flow"></div>
-  </section>
-
-  <!-- ============ CAST ============ -->
+  <!-- ============ CAST & WEB ============ -->
   <section class="tab" id="tab-cast">
-    <h2 class="sec">The cast</h2>
-    <p class="sub">Quick-reference cards. Fields marked TBD are open decisions from the doc (Lil Stinky's and Simone's races, the developer's name, the dead kid's name, and John's insecurity — which is his to name). Amber blocks flag details this codex invented.</p>
-    <div id="cast"></div>
-  </section>
+    <div class="subnav">
+      <button data-scroll="sub-web">Relationship Web</button>
+      <button data-scroll="sub-cast">The Cast</button>
+    </div>
 
-  <!-- ============ PLAN ============ -->
-  <section class="tab" id="tab-plan">
-    <h2 class="sec">The two-session weekend</h2>
-    <p class="sub">Roughly the first third-to-half of Saturday is town/exposition; the rest of Saturday and all of Sunday live in the mansion. Pacing target from Sesh 1; the fight placement and the no-fork spine are the 24 Aug doc paste. Encounter budgets live on the <b>Combat</b> tab.</p>
-    <div class="days" id="days"></div>
-    <div class="panel" style="margin-top:16px">
-      <h4 style="margin:0 0 8px;font-family:var(--f-display)">Table roles</h4>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 24px" id="roles"></div>
+    <div class="subsec" id="sub-web">
+      <h2 class="sec">Who's tangled up with whom</h2>
+      <p class="sub">Click any character to trace their connections and read their thread. Everyone in the friend group is an "island of misfit toys" with a reason they ended up together.</p>
+      <div class="web-layout">
+        <div>
+          <div id="web-holder"><svg id="web" viewBox="0 0 1000 720" preserveAspectRatio="xMidYMid meet"></svg></div>
+          <div class="legend" id="legend"></div>
+          <p class="hint">Tip: click empty space to reset the view.</p>
+        </div>
+        <div class="detail" id="detail">
+          <h3>Click a character</h3>
+          <div class="role">Relationship browser</div>
+          <p>The web maps players (blue), the Bad Kids crew (purple), the three vampires (green), the malevolent forces haunting the house (red), and the townsfolk (grey). Edge <b>color + style</b> both encode the type of bond, so they stay legible even side by side.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsec" id="sub-cast">
+      <h2 class="sec">The cast</h2>
+      <p class="sub">Quick-reference cards. Fields marked TBD are open decisions from the doc (Lil Stinky's and Simone's races, the developer's name, and the dead kid's name). Amber blocks flag details this codex invented.</p>
+      <div id="cast"></div>
     </div>
   </section>
 
-  <!-- ============ COMBAT ============ -->
-  <section class="tab" id="tab-combat">
-    <h2 class="sec">Combat encounters</h2>
-    <p class="sub">Three fights for the weekend, one held in reserve. The <b>beats</b> are from the doc (Sesh 6, 7 and the 24 Aug doc paste); every <b>number</b> below &mdash; XP budgets, CR picks, HP, stat-block chassis, and the contents of Saturday's fight &mdash; is a proposal built against them and agreed to by nobody. Combat and rules are Scott's lane per Sesh 1.</p>
-    <div class="settled"><span class="ch">✓ Settled 25 Aug &mdash; the two-tier guest list</span>
-      <b>The 7PM card is exclusive. The 3AM flyer is public.</b> Five kids walk into an empty house at seven and have it to themselves for eight hours &mdash; that is the whole investigation. At three the show's audience arrives, the speakers come on, and the finale runs in front of a crowd. Both 24 August decisions survive, and the flyer prop is unblocked. Not in the Google Doc yet.</div>
-    <div class="panel" id="cbudget"></div>
-    <div id="cenc"></div>
-    <div class="panel" style="margin-top:16px">
-      <h4 style="margin:0 0 4px;font-family:var(--f-display)">Three rules that do the work</h4>
-      <p class="sub" style="margin:0 0 12px">Each replaces a die roll with something the players can see and act on.</p>
-      <div id="crules"></div>
+  <!-- ============ THE WEEKEND ============ -->
+  <section class="tab" id="tab-weekend">
+    <div class="subnav">
+      <button data-scroll="sub-back">Backstory</button>
+      <button data-scroll="sub-flow">Story Flow</button>
+      <button data-scroll="sub-combat">Combat</button>
+    </div>
+
+    <div class="subsec" id="sub-back">
+      <h2 class="sec">What already happened</h2>
+      <p class="sub">This is <b style="color:var(--green)">Brainstorm Sesh 7</b>, near-verbatim — the history the players walk into. None of it is on screen during the sessions; it's what the clues in the mansion are clues <i>to</i>.</p>
+      <p class="sub">Written by Scott in Sesh 7. Story is built by both of you, so this is canon like anything else in the doc — the AIM prop, the Spirit and Angelique's arc all rest on it.</p>
+      <div id="backstory"></div>
+    </div>
+
+    <div class="subsec" id="sub-flow">
+      <h2 class="sec">How the weekend unfolds</h2>
+      <p class="sub">A haunted-house structure: curiosity gets them in, the doors bolt shut, and everything after plays out inside Dood Mansion — and the 24 Aug doc paste cut the fork, so it now runs one line from the locker cards to the Volvo in the driveway.</p>
+      <p class="sub">Between beats is a <b style="color:var(--purple)">transition</b> — a line to <i>say at the table</i> to move them to the next one, plus what to have ready underneath it. Transitions aren’t tracked as canon: they’re table patter, not lore, so say them however you like or ignore them. A <b style="color:#ffcf70">gold dashed transition</b> means there’s still a design question open there. The numbered beats themselves are from the doc.</p>
+      <div class="flow" id="flow"></div>
+    </div>
+
+    <div class="subsec" id="sub-combat">
+      <h2 class="sec">Combat encounters</h2>
+      <p class="sub">Three fights for the weekend, one held in reserve. The <b>beats</b> are from the doc (Sesh 6, 7 and the 24 Aug doc paste); every <b>number</b> below &mdash; XP budgets, CR picks, HP, stat-block chassis, and the contents of Saturday's fight &mdash; is a proposal built against them and agreed to by nobody. Combat and rules are Scott's lane per Sesh 1.</p>
+      <div class="settled"><span class="ch">✓ Settled 25 Aug &mdash; the two-tier guest list</span>
+        <b>The 7PM card is exclusive. The 3AM flyer is public.</b> Five kids walk into an empty house at seven and have it to themselves for eight hours &mdash; that is the whole investigation. At three the show's audience arrives, the speakers come on, and the finale runs in front of a crowd. Both 24 August decisions survive, and the flyer prop is unblocked. Not in the Google Doc yet.</div>
+      <div class="panel" id="cbudget"></div>
+      <div id="cenc"></div>
+      <div class="panel" style="margin-top:16px">
+        <h4 style="margin:0 0 4px;font-family:var(--f-display)">Three rules that do the work</h4>
+        <p class="sub" style="margin:0 0 12px">Each replaces a die roll with something the players can see and act on.</p>
+        <div id="crules"></div>
+      </div>
     </div>
   </section>
 
@@ -501,12 +506,12 @@ const NODES = [
     desc:"Worships the Devil — who appears as an all-black goat with an upside-down red cross on its face — and draws magic from that worship. Regular-degular atheist suburban family thinks it's a phase. Frequent detention regular after the principal catches her doing spells on school grounds.",
     hook:"Funds the tour fund by charging classmates for <b>love spells</b> and <b>revenge spells</b>. The money lives in a <b>goat-shaped piggy bank</b> — she has been feeding coins to a goat for years.<br><br><b>Sesh 8 gives her the mansion connection: she sold the dead kid the love spell.</b> He paid her for a <b>wishing willow</b> and wrote <i>I want Angelique to notice me</i> on it. It worked. Angelique noticed him — and when Poe Boy went looking for someone who knew the kid well enough to flirt convincingly, Angelique was the one who could. The willow is still in his backpack upstairs.<br><br><b>Her choice is the second ask.</b> After the recording is safely on the drive, the Spirit asks to be moved somewhere safe. It is far past her level; her patron can lend her the power and names a price — everything in the piggy bank, the whole concert fund. <b>Nothing plot-critical hangs on her yes</b> (see the Spirit's card), which is what makes it a real choice.",
     finale:"<b>She gets the concert anyway.</b> Poe Boy loves the same satanic metal band and had tickets. When his mother arrives in the driveway she grounds him — <i>and he is certainly not going to that satan concert</i> — and the tickets end up with Simone, who spent every dollar she had a few hours earlier. <span class='src'>Sesh 8</span>" },
-  {id:"john", name:"John's Bard", sub:"John · Bully Bard", g:"player", x:120, y:490,
-    role:"Player Character", s:"doc", src:"Character Bios",
-    fields:{Race:"TBD",Class:"Bard (leaning)",Vibe:"School bully who fights with his mouth"},
-    desc:"Leaning Bard, leaning bully archetype: mechanically, his words are the weapon. So that it isn't just a mean character, the bully has some glaring insecurity underneath that explains the act — <b>the insecurity is TBD, and it's John's to name.</b>",
-    hook:"Still open: the insecurity, a character name, race, and any connection to the mansion.",
-    ai:"The codex added College of Whispers specifically, the 'cruelty is the armor' framing, and the idea that John is built to recognize what Poe Boy is doing. The doc says 'leaning Bard' and nothing about subclass.<br><br><b>His mansion connection is back to zero.</b> The 1938-borrower blood tie that used to be pointed at him was <b>dropped 31 Aug</b> — Gnomey's tie turned out to be a deed rather than a bloodline, and rather than re-home the blood idea, Scott wants a new connection for John built from scratch. Nothing is standing in for it." },
+  {id:"john", name:"Yobo", sub:"John · Musical-theatre Bard", g:"player", x:120, y:490,
+    role:"Player Character", s:"doc", src:"Character Bios + Sesh 8",
+    fields:{Name:"Yobo",Race:"TBD",Class:"Bard (leaning)",Vibe:"Musical-theatre bully / popular kid living a lie"},
+    desc:"Character Bios now carries the full entry: a <b>musical-theatre bully / popular kid</b> named <b>Yobo</b> who transferred in from a school where he was tormented for weak singing and acting. To get in with the cool theatre kids he told everyone <b>his grandmother is Dolly Parton</b> — a lie — so his whole social standing rests on people believing he's descended from musical royalty. He wants to be a star, but mostly just wants to be accepted, and he's deeply insecure about whether he has any real talent.",
+    hook:"<b>📗 In the doc, Sesh 8.</b> TLDR: <b>Yobo stops lying to the group about his origins and is stronger for it.</b> The lie is a <b>debuff</b> — juggling an internal performance gives <b>disadvantage on Performance and weakened Bardic Inspiration</b>, but <b>advantage on Deception</b>. The turn is in the <b>party room</b>: the frozen ghost-party accepts only a <i>true</i> performance, Dracula pushes him to drop the act, and it flips to <b>advantage on Performance and enhanced Bardic Inspiration</b> for the rest of the campaign. Prop at <code>/party-room/</code>; full build in <code>/PROPOSALS.md</code>.",
+    ai:"<b>Still open — the doc leaves these:</b> whether it's canon that Yobo wears a <b>wig</b> (the doc writes it as a question for John, so it is NOT yet settled), plus his race, a Bard subclass (Glamour rhymes with Poe Boy), and the exact debuff/buff dice, which are Scott's to tune. The old 1938 blood tie (E. Hoeck on the puzzle checkout card) stays dropped and is now unclaimed." },
   {id:"cody", name:"Russ", sub:"Cody · Firbolg Druid", g:"player", x:120, y:610,
     role:"Player Character", s:"doc", src:"Sesh 8",
     fields:{Race:"Firbolg",Class:"Druid",Vibe:"Earnest wilderness scout — basically Russell from Up"},
@@ -584,7 +589,7 @@ const NODES = [
     fields:{Slot:"Saturday night, late",Job:"Prove the house will actually hurt them"},
     desc:"Saturday's one mansion combat. <b>Something Poe Boy called up and could not put down</b>, sealed in a room upstairs and left there. He studies the occult, he has already miscast one ritual badly enough to kill a boy, and this is the other time it went wrong — the time nobody died, so he stopped thinking about it.",
     hook:"It does two jobs at once. It proves the house is dangerous after an evening in which nothing has actually hurt anyone, and it <b>plants that the dangerous things in this building are human-made</b> — which is the thesis the computer room pays off the next day. The party has no way to know whose it is yet.",
-    ai:"<b>The doc names it and nothing else.</b> That it is Poe Boy's, what it is, what it does, and every number behind it are codex proposals. See the Combat tab for the budget.<br><br>It replaces <b>the Gjenganger</b>, which Sesh 8 retired by displacement: Orlok took the lonely-original-owner backstory, and the corridor set-piece the creature was going to fill was cut. Spencer's <i>“up to you if we go with it”</i> got answered without anyone answering it, and <b>he should be told directly</b> — it was his find. Dead spec kept in <code>/PROPOSALS.md</code>." },
+    ai:"<b>The doc names it and nothing else.</b> That it is Poe Boy's, what it is, what it does, and every number behind it are codex proposals. See the Combat section for the budget.<br><br>It replaces <b>the Gjenganger</b>, which Sesh 8 retired by displacement: Orlok took the lonely-original-owner backstory, and the corridor set-piece the creature was going to fill was cut. Spencer's <i>“up to you if we go with it”</i> got answered without anyone answering it, and <b>he should be told directly</b> — it was his find. Dead spec kept in <code>/PROPOSALS.md</code>." },
 
   {id:"spirit", name:"Spirit in the Computer", sub:"A past victim", g:"force", x:620, y:585,
     role:"Clue-bearer", s:"doc", src:"Sesh 6 + 7",
@@ -649,8 +654,9 @@ const EDGES = [
   ["cody","orlok","family","assists the elder for his badge — Russell to Orlok's Carl","doc","Sesh 8"],
   ["cody","mansion","haunt","the cellar infirmary — tends the animals, grows the herb","doc","Sesh 8"],
   ["john","gnomey","conflict","taxes the bathroom cigarette trade","ai","invented by the codex"],
-  ["john","poe","conflict","the one kid he cannot get a rise out of","ai","invented by the codex"],
-  ["john","mansion","haunt","nothing — blood tie dropped 31 Aug","ai","placeholder, not a fact"],
+  ["john","poe","conflict","two bards, same weapon — Yobo as the anti-Poe-Boy mirror","ai","codex framing, not in doc"],
+  ["john","mansion","haunt","the party-room turn — drops the lie, flips the debuff","doc","Sesh 8"],
+  ["john","drac","haunt","Dracula pushes him to drop the lie and perform true","doc","Sesh 8"],
   ["librarian","mansion","haunt","warns them away","doc","Sesh 1"],
   ["simone","devil","family","patron / power","doc","Character Bios"],
   ["angelique","spirit","haunt","typed the messages; still can't stop noticing him","doc","Sesh 7 + 8"],
@@ -732,7 +738,7 @@ const FLOW = [
           {who:"The contract",say:"“Title shall rest with the bearer of the marker. The marker being the blue one. We agreed on the blue one.”",
             why:"The one paragraph on that page with no corrections in it. Read it aloud and stop."}
         ]},
-      q:"<b>Cody's room is now the cellar</b> (Sesh 8) — the animal infirmary, where Russ tends the animals and grows Orlok's herb. Gnomey has the study, Bix the party room, Simone the computer, Cody the cellar. <b>Only John's room is still blank.</b>"}},
+      q:"<b>Every PC now has a room</b> (Sesh 8). Gnomey has the study, Bix and Yobo share the party room, Simone's thread lands at the computer, and <b>Cody has the cellar</b> — the animal infirmary, where Russ tends the animals and grows Sun's-mercy."}},
 
   {n:8,title:"The Spirit, the backpack, the USB",where:"The old rig upstairs",s:"doc",src:"Sesh 7 + the 24 Aug doc paste",body:"The room the kid ran into and never left. Poe Boy's <b>original</b> setup — gear, a mic, and a computer somehow still on, hot-wired off the neighbouring property like everything else in this house. He hasn't been back in here since that night. The AIM prop is live at <code>/aim/</code>.<br><br>He was lured by a fake screen name, chased by vampires who believed he was a mall scout, and soul-caged when Poe Boy saw the AIM window open and pulled the door shut. He can name his killer, and he was <b>killed by a human</b>.",
     bridge:{cue:"“my bag is still in this room. by the desk under the coats. can you get it”",
@@ -774,20 +780,6 @@ const FLOW = [
 
   {n:12,title:"Resolution & bookend",where:"Back to class",s:"doc",src:"Sesh 5 + doc comments",body:"They recover an ancient Dutch artifact (found after the boss fight, or with the vamps' help), the real-estate company is scared off the land, and they present the artifact in class — closing the loop opened in scene one.<br><br><b>Play the presentation battered.</b> Scott's comment on this beat: <i>“They have scars and black eyes and theyre like ‘and yeah that was our class project’.”</i> Nobody in the room reacts to the state of them, which is the whole joke — let a player deliver the line rather than narrating it.<br><br><b>the finale paste's three closers.</b> Lil Stinky records a diss track — sincere, terrible, devastating. The mega mall breaks ground somewhere else; the brochure says <b>Amityville</b>, quiet neighborhood, waterfront, great bones. And what they actually present is <b>the tape</b>, because the assignment wanted a primary source.<br><br><b>Sesh 8's epilogue beats:</b><br>· <b>Edward explains himself to Bix.</b> The whole timeline — the cart, the party, Goblinenon, the men the company sent, and why he carried a baby down the hill instead of keeping him. Give this its own scene and no jokes in it.<br>· <b>Poe Boy's mother grounds him in the driveway</b>, and he is certainly not going to that satan concert. <b>The tickets go to Simone</b>, who spent every dollar she had a few hours earlier — and who did not earn these and cannot pay for them.<br>· <b>The kid gets uploaded to the library computers</b>, where he helps people find new books to read. The boy who died in a room nobody visited spends his afterlife in the busiest building in town.<br>· <b>Orlok signs Russ's badge.</b> No troop would certify “assisted a vampire,” so the only one who can validate it is the elder himself — and he does, through his teeth, the same way he confirms Gnomey's claim. <b>Hand Cody a real badge at the table.</b> The prop card is live at <code>/badge/</code>."}
 ];
-
-const PLAN = {
-  sat:{title:"Saturday · Session 1",sub:"Town & the threshold · level 3",slots:[
-    {t:"First ~third–half",c:"#9a6ff0",s:"doc",src:"Sesh 1 + the 24 Aug doc paste",h:"Town — and Saturday's fight",p:"Class recap, the locker cards, the Hall of Records and the gazebo. <b>The trap in the bound volume is the weekend's Saturday combat</b> (500 XP), and springing it is what summons Ostrander to the house that night. Reverses the finale paste's combat-free town."},
-    {t:"Evening",c:"#e0aa3e",s:"doc",src:"Sesh 5, 6",h:"Into the mansion",p:"The boards are off the front door. They walk in, and the doors bolt. Angelique finds them. First vampire contact — no fight, and mechanically they cannot kill. Opening puzzles."},
-    {t:"Late",c:"#d23a52",s:"doc",src:"Sesh 8",h:"The botched summoning",p:"Saturday's one mansion fight — something Poe Boy called up and couldn't put down. Roughly 40 minutes. Its job is proving the house will actually hurt them, and it plants that the dangerous things here are human-made. Then level 3 → 4."}
-  ]},
-  sun:{title:"Sunday · Session 2",sub:"One line, no fork, straight to 3AM · level 4",slots:[
-    {t:"Opening",c:"#5b9bd5",s:"doc",src:"Sesh 8",h:"The study & the party room",p:"<b>The corridor set-piece is cut.</b> Sunday opens on the two per-PC rooms: Gnomey finds the deed, the settlement and a poker set one chip short; Bix finds the photograph. Run the study <b>before</b> anything clears the vampires."},
-    {t:"Middle",c:"#4fc08a",s:"doc",src:"the 24 Aug doc paste + Sesh 8",h:"The Spirit & the USB",p:"The AIM prop in the old rig upstairs. The backpack — the wishing willow and the drive — the name on the mounted drive, the upload. Hand the players a real USB stick. <b>Then the second ask and Simone's price</b>, which is optional and must stay optional. Then the cellar: the food-stash puzzle reveals the animal infirmary and clears the vampires, Russ tends it and grows Orlok's herb (badge req 2), and Vinny's crates are still down there from 1933."},
-    {t:"Late",c:"#d23a52",s:"doc",src:"the 24 Aug doc paste",h:"3AM — three phases",p:"The ballroom. Vampires hostile, the developer breaches and dies, then the decks. One continuous sequence with no break in it."},
-    {t:"Close",c:"#e0aa3e",s:"doc",src:"Sesh 5 + the 24 Aug doc paste + Sesh 8",h:"The collapse & bookend",p:"<b>Gnomey's claim and the renewal</b>, Dracula's mic, the Volvo, “Upton, honey?”, grounded, no satan concert, tickets to Simone. Then the epilogue: Edward explains himself to Bix, the kid goes onto the library computers, and Orlok signs Russ's badge. Monday: the diss track, Amityville, the tape in class — and a phone call to a nursing home."}
-  ]}
-};
 
 const BACKSTORY = [
   {h:"Orlok builds the house", when:"Long before any of it", s:"doc", src:"Sesh 6 + Sesh 8",
@@ -865,13 +857,6 @@ const BACKSTORY = [
     ]}
 ];
 
-const ROLES = [
-  ["Story &amp; lore","<b>Shared</b> — both of you build it. (Sesh 1 originally put this on Spencer, along with NPC voices.)","doc","Sesh 1 + current"],
-  ["Scott","Puzzles &amp; room design, running combat, officiating rules &amp; feasibility","doc","Sesh 1"],
-  ["Shared — narration","Either can narrate; decide per scene","doc","Sesh 1"],
-  ["Shared — props","Printed letters, record excerpts, background slides & music","doc","Sesh 1"]
-];
-
 const NAMES = [
   {h:"The DJ", note:"way-too-cool ringleader", s:"doc", src:"Sesh 3", opts:[
     {n:"DJ Poe Boy",lock:true},{n:"DJ ACULA"},{n:"DJ RIP YOUR HEART OUT"},
@@ -893,7 +878,7 @@ const TODO = [
   ["Tell Spencer the fork is cut","the 24 Aug doc paste removed the fight-them / never-had-to fork. <b>That was Spencer's Sesh 2 idea.</b> Cutting it is right for a two-session game, but it should be said to him rather than found in a beat sheet.","doc"],
   ["The Gjenganger — <b>retired</b>","<b>Retired in Sesh 8, by displacement rather than by decision.</b> Orlok took the lonely-original-owner backstory, the corridor set-piece it was going to fill was cut, and Saturday's mansion fight is now a botched summoning. Spencer's <i>“up to you if we go with it”</i> got answered without anyone answering it — <b>tell him directly</b>, it was his find. Dead spec kept in <code>/PROPOSALS.md</code>.","doc"],
   ["Orlok's mortal name — <b>settled</b>","<b>Cornelis Dood is Orlok.</b> Dood is his mortal surname, ratified by Scott 31 Aug. He built the house, the Dutch pun survives, the puzzle prop survives untouched, and the Crier's obituary is technically accurate — the town really did bury him. <b>Not in the Google Doc yet.</b>","doc"],
-  ["What the botched summoning actually is","Saturday's mansion combat is named and nothing else about it is written — what it is, what it does, and every number are codex proposals. See the Combat tab.","ai"],
+  ["What the botched summoning actually is","Saturday's mansion combat is named and nothing else about it is written — what it is, what it does, and every number are codex proposals. See the Combat section.","ai"],
   ["The study door","<b>Deliberately undefined.</b> The room and its contents are Sesh 8; how the party gets through the door is not designed and is not being designed yet (Scott, 31 Aug). One constraint when it is: it should be a <b>whole-party</b> problem, so five people open the room and one of them finds out what it means.","doc"],
   ["The dead kid","<b>the 24 Aug doc paste solved how, not what.</b> He asks the party to fetch his backpack and his mother wrote his name on the front in Sharpie — so a player reads it off a prop instead of getting a lore dump. It needs one word. He still needs a year, and enough of a life that the players feel it. Also: the soul cage left no body, so there was never a search or a funeral — decide what the school thinks happened to him, because that's the version Angelique has been living with.","doc"],
   ["The dead kid","<b>Solved how, not what — and Sesh 8 moved where.</b> The name now comes off the <b>USB</b>: they plug the drive into the machine and it mounts under his name. It needs one word. He still needs a year, and enough of a life that the players feel it. Also: the soul cage left no body, so there was never a search or a funeral — decide what the school thinks happened to him, because that's the version Angelique has been living with.","doc"],
@@ -901,13 +886,13 @@ const TODO = [
   ["Why these five?","The invite is exclusive — five cards, five lockers, nobody else. That makes the guest list a deliberate choice by Poe Boy, and it needs a reason. Candidates: they're the misfits nobody would come looking for; Gnomey knows him from the old crew and knows too much; Angelique is close enough to them to be a problem. Whatever the answer, the players will ask it out loud the moment they realise no one else got a card.","ai"],
   ["Who was the 3AM flyer for?","Sesh 5/6 give a public-looking DJ show flyer for 3AM at Dood Mansion. With nobody else invited, either it went out wide as the <b>cover story</b> — the thing Poe Boy showed the vampires as proof he was staging the big scare they asked for — or it never left his hands and the whole show is for five people. Affects whether the flyer prop gets built as a real handout.","ai"],
   ["How the vamps learn the truth","They believe he went out a window. Decide whether the reveal comes from the Spirit directly, from Angelique, or from the players producing the recording.","doc"],
-  ["John's insecurity","His to name — the doc says TBD. Open alongside it: a character name, race, and any mansion connection.","doc"],
+  ["John / Yobo — arc <b>now in the doc</b>","Character Bios has Yobo (the Dolly-Parton lie, anxious about real talent); Sesh 8 has the arc — the lie is a Performance/Inspiration debuff (Deception upside) that flips to a buff when he tells the truth in the party room. <b>Still open (the doc leaves them):</b> the <b>wig</b> — written in as a question for John, so not yet settled — plus his race, a subclass, and the dice.","doc"],
   ["Cody's PC — <b>answered, Sesh 8</b>","Cody's PC is a <b>Firbolg druid</b> (working name <b>Russ</b>, <i>basically Russell from Up</i>) who earns his <b>Assisting the Elderly</b> badge by helping the vampires and bonds with <b>Orlok</b>. Three requirements — the sunbeam spectacles, the cellar garden, and healing a vampire in the finale — and Orlok signs the badge in the epilogue. The herb is <b>Sun's-mercy</b>; still open inside it: the badge art and Cody's full sheet.","doc"],
   ["4th crew member","<b>The crew is three</b> — Poe Boy, Lil Stinky, Angelique, which is what the DJ flyer bills. Sesh 3 wanted a fourth <i>probably also female</i> and never wrote one. Spencer has not agreed to lose her, so it needs raising with him.","doc"],
   ["Party level","<b>Level 3</b>, leveling to 4 at the end of day one — so anything on Sunday is built for five level-4 PCs. Not in the Google Doc yet.","doc"],
   ["NPC races & classes","<b>Settled in the doc, Sesh 8.</b> Poe Boy is a Kenku Bard (Glamour), Lil Stinky a Paladin (Oath of Devotion), Angelique a Changeling Rogue. Sesh 8 also gives Lil Stinky an arc: <i>sworn to a liar without knowing it, his oath breaks when he believes us about the kid.</i> Still genuinely open, and Sesh 8 says so: <b>Lil Stinky's race</b> (Orc or Goliath) and <b>Simone's race</b>.","doc"],
-  ["Per-character house moment","Sesh 5's stated goal: one sprinkle of mansion lore tied to each PC. <b>Sesh 8 closed four of them</b> — Gnomey gets the study and the deed, Bix gets Edward and the photograph, Simone gets the wishing willow and the ritual, and <b>Cody gets the cellar infirmary</b> (Russ tends the animals and grows Orlok's herb). <b>Only John is still blank</b>, and his is now genuinely empty: the blood-tie hook that used to stand in for it was dropped 31 Aug.","doc"],
-  ["The blood connection — <b>answered for Gnomey only</b>","Scott's comment idea was a PC connected by blood. <b>Sesh 8 gives Gnomey a *debt* instead of a bloodline</b> — his great-uncle won the house at cards, hinted on the library checkout card as <code>V. Soprano</code>, which honours Spencer's note about where to plant it. <b>The blood-tie idea is no longer pointed at John</b> (dropped 31 Aug) — he gets a different connection, still to be invented.","doc"],
+  ["Per-character house moment — <b>all five closed, Sesh 8</b>","Sesh 5's stated goal: one sprinkle of mansion lore tied to each PC. <b>Sesh 8 closed all five</b> — Gnomey gets the study and the deed, Bix gets Edward and the photograph, Simone gets the wishing willow and the ritual, <b>Yobo gets the party-room performance turn</b> (sharing the room with Bix's photograph), and <b>Cody gets the cellar infirmary</b> (Russ tends the animals and grows Sun's-mercy). <b>None are blank.</b>","doc"],
+  ["The blood connection — <b>answered for Gnomey only</b>","Scott's comment idea was a PC connected by blood. <b>Sesh 8 gives Gnomey a *debt* instead of a bloodline</b> — his great-uncle won the house at cards, hinted on the library checkout card as <code>V. Soprano</code>, which honours Spencer's note about where to plant it. <b>The blood-tie idea is no longer pointed at John</b> (dropped 31 Aug). <b>His connection is now the party-room performance turn</b> (Sesh 8), not a bloodline.","doc"],
   ["Lock the mansion name","<b>Dood Mansion, and 'Dood' is both</b>: the builder's family surname <i>and</i> the Dutch pun. That answers Spencer's Sesh 6 <i>'lmk if thats too dumb lol'</i> and makes Cornelis Dood a real person in the fiction. Not in the Google Doc yet.","doc"],
   ["Does the 1937 Crier become canon?","The whole newspaper is invented — see the Not Canon tab. Three options: ratify it, rewrite it back to the doc's actual 1973 Frisian source, or leave it as a prop nobody has to believe.","ai"],
   ["Coffin count","The codex was treating this as a canon contradiction: the Crier's three boxes vs. three living vampires. It isn't a contradiction — the count is invented. Only worth solving if the Crier gets ratified.","ai"],
@@ -917,10 +902,11 @@ const TODO = [
 const DOCS = [
   ["Haunted House Invite","BUILT — /invite/ · home-made, clip-arty · 7PM sharp · Sesh 6 spec. Exclusive invite — 5 cards, 5 lockers. The card's mass-flyer voice (<i>FREE admission, bring a friend, the more the scaryer</i>) is deliberate camouflage — and reads better now that a real public flyer exists for 3AM.","doc","Sesh 5, 6"],
   ["DJ Show Flyer","NOT BUILT — <b>and now unblocked.</b> Leaned-out Memphis/Houston rap art, spooky · 3AM at Dood Mansion · bills Poe Boy / Lil Stinky / Angelique. Settled 25 Aug: this one <b>is public</b>, which is where the finale's crowd comes from.","doc","Sesh 5, 6"],
-  ["Library History Clippings","BUILT — /puzzle/ · the volume is intact until they open it and the trap cuts it up. Now carries the <b>checkout card</b>: E. Hoeck (the blood tie, John), U. M. Livingsworth III (Poe Boy's real name, four years ago) and W. Ostrander (the developer — proposal). Still an invented 1937 newspaper; the doc's source is a 1973 Frisian legend.","ai"],
+  ["Library History Clippings","BUILT — /puzzle/ · the volume is intact until they open it and the trap cuts it up. Now carries the <b>checkout card</b>: E. Hoeck (a blood tie — was pointed at John, now unclaimed since Yobo's connection is the party-room arc), U. M. Livingsworth III (Poe Boy's real name, four years ago) and W. Ostrander (the developer — proposal). Still an invented 1937 newspaper; the doc's source is a 1973 Frisian legend.","ai"],
   ["AIM chat with the Spirit","BUILT — /aim/ · Sesh 7, the backpack + USB branch, and <b>Sesh 8's soul transfer</b>: the willow, the drive mounting under his name, the second ask, a hold point for playing the price at the table, a real no-path, and the ritual itself — which reads as an ordinary file transfer until the progress bar exceeds its own boundaries. Set the kid's name with <code>/aim/?name=Marcus</code>.","doc","Sesh 7 + the 24 Aug doc paste + Sesh 8"],
   ["The Articles of Settlement","<b>BUILT — /settlement/</b> · the drunken 1931 contract from the strongbox in the study. Opens folded; tap to unfold. Crossed-out hours, eleven dollars and forty cents, <i>“the marker being the blue one,”</i> the struck-through snoring clause, Dracula witnessing as a non-notary, and Vinny's margin note. <b>The bearer paragraph is the only one on the page with no corrections in it</b> — that's the joke and the plot in one paragraph, and it is set apart visually. Signed <b>C. Dood</b>, in a second hand.","doc","Sesh 8"],
-  ["The photograph","<b>BUILT — /photo/</b> · four figures — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. Tap to turn it over: Goblinenon's handwriting on the back, and she names <i>“Me + E.”</i> <b>Hand Will the iPad and say nothing</b> — he gets the goblin before he gets the fae. Art is stylised (a blown-out flash exposure), not photographic; swap in real art later if you want. 🟡 The date stamp reads <code>10 31 '79</code> and is a guess, since the doc never fixes Bix's age.","doc","Sesh 8"],
+  ["The photograph","<b>BUILT — /photo/</b> · four figures — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. Tap to turn it over: Goblinenon's handwriting on the back, and she names <i>“Me + E.”</i> <b>Hand Will the iPad and say nothing</b> — he gets the goblin before he gets the fae. Art is stylised (a blown-out flash exposure), not photographic; swap in real art later if you want. 🟡 The date stamp reads <code>10 31 '79</code> and is a guess, since the doc never fixes Bix's age.<br>It now also doubles as the <b>solution key to the party-room puzzle</b> (<code>/party-room/</code>): the tableau the players recreate (figure order L→R, the record playing).","doc","Sesh 8"],
+  ["The frozen party (party room)","<b>BUILT — /party-room/</b> · Sesh 8. The digital half of Yobo's party-room turn: light the candles, set the four guests to their marks matching <code>/photo/</code>, and start the gramophone — missteps raise the <b>Revel meter</b> to a curdle (the scare). When the moment is whole the host calls for a song, which is Yobo's Performance check at the table, with DM buttons for a true vs. a borrowed voice. Audio is fully synthesised — no asset files.","ai"],
   ["The poker chip","NOT BOUGHT · <b>hand Julia a physical blue chip at session one</b> and never explain it. Clay or bone, hand-stamped, nothing a casino ever made — and the same mark should appear on the settlement's seal. The set in the study is exactly one short.","doc","Sesh 8"],
   ["The USB stick","NOT BOUGHT · a real thumb drive handed to the players when the Spirit uploads. Put scream_test_03_GOOD.wav on it — and <b>set its volume label to the kid's name</b>, because Sesh 8 makes the mount the moment the table learns who he is.","doc","the 24 Aug doc paste + Sesh 8"],
   ["The AIM password sticky note","NOT BUILT · <b>the thing that unlocks the whole computer-room scene.</b> A sticky note reading <code>Fluffy123</code>, in handwriting, findable somewhere in the house. The prop's sign-on screen will not proceed without it. Since the account is <b>Poe Boy's</b>, the note is his too — the obvious homes are stuck to the monitor, inside the gear case, or in the ballroom rig downstairs, which would make the party carry it up two floors.","doc","30 Aug · not in doc"],
@@ -1177,16 +1163,6 @@ order.forEach(([g,label])=>{
 });
 cast.innerHTML=castHTML;
 
-/* ---------------- RENDER: PLAN ---------------- */
-const days=document.getElementById("days");
-days.innerHTML=[PLAN.sat,PLAN.sun].map(d=>`
-  <div class="day panel"><h3>${d.title}</h3><div class="dsub">${d.sub}</div>
-  ${d.slots.map(s=>`<div class="slot${stClass(s)}"><div class="bar" style="--sc:${s.c}"></div>
-    <div class="body"><div class="t">${s.t} ${stBadge(s)}</div><h5>${s.h}</h5><p>${s.p}</p></div></div>`).join("")}
-  </div>`).join("");
-document.getElementById("roles").innerHTML=ROLES.map(([who,what,st,src])=>
-  `<div><b style="color:var(--ink)">${who}</b> ${stBadge({s:st,src})}<br><span style="color:var(--mut);font-size:13px">${what}</span></div>`).join("");
-
 /* ---------------- RENDER: BACKSTORY ---------------- */
 document.getElementById("backstory").innerHTML=BACKSTORY.map(b=>`
   <div class="panel bs">
@@ -1216,7 +1192,6 @@ document.getElementById("docs").innerHTML=DOCS.map(([t,d,st,src])=>`<div class="
   push("Cast details with no source", NODES.filter(n=>n.ai).map(n=>[n.name,n.ai]));
   push("Relationships nobody wrote", EDGES.filter(e=>e[4]==="ai").map(e=>
     [`${nodeById[e[0]].name} ↔ ${nodeById[e[1]].name}`,`“${e[3]}” — ${e[5]}.`]));
-  push("Weekend pacing", [...PLAN.sat.slots,...PLAN.sun.slots].filter(x=>x.s==="ai").map(x=>[x.h,x.p]));
   push("Names", NAMES.filter(n=>n.ai).map(n=>[n.h,n.ai]));
   push("Open threads the codex 'answered' on its own", TODO.filter(t=>t[2]==="ai").map(t=>[t[0],t[1]]));
   push("Props", DOCS.filter(d=>d[2]==="ai").map(d=>[d[0],d[1]]));
@@ -1229,8 +1204,8 @@ document.getElementById("docs").innerHTML=DOCS.map(([t,d,st,src])=>`<div class="
     ["The trap on the volume","That anyone touched it at all, that the developer did it, his motive, his disbelief, and the 'accidental irony' that he destroyed the one page carrying both the staking method and the coffin location. Also the trap's whole contents — the shears, the swarms, the book cart — and the rule that the shears' death round sets the puzzle's piece count."],
     ["Every name on the checkout card","E. Hoeck, U. M. Livingsworth III and W. Ostrander. Livingsworth is a Sesh 3 joke made load-bearing; the other two are invented here, and <b>Ostrander is a proposal</b>."]
   ]]);
-  groups.push(["Encounter numbers \u2014 the Combat tab",[
-    ["Every number on the Combat tab","The <b>beats</b> are doc (Sesh 6, 7 and the 24 Aug doc paste). The XP budgets, CR picks, HP figures, stat-block chassis and the contents of Saturday's fight are all proposals built against them. Nothing there has been agreed."],
+  groups.push(["Encounter numbers \u2014 the Combat section",[
+    ["Every number on the Combat section","The <b>beats</b> are doc (Sesh 6, 7 and the 24 Aug doc paste). The XP budgets, CR picks, HP figures, stat-block chassis and the contents of Saturday's fight are all proposals built against them. Nothing there has been agreed."],
     ["Saturday's fight has no contents","the 24 Aug doc paste says there is one, where it sits, and roughly how long it runs. What is actually in the room is unwritten."],
     ["The botched summoning","<b>Sesh 8 names Saturday's mansion fight and nothing else.</b> That it is Poe Boy's, what it is, what it does, and every number are codex proposals."],
     ["~~Orlok's mortal name~~ — settled 31 Aug","Cornelis Dood <b>is</b> Orlok; Dood is his mortal surname. Ratified by Scott, not yet in the doc."],
@@ -1249,7 +1224,7 @@ document.getElementById("docs").innerHTML=DOCS.map(([t,d,st,src])=>`<div class="
     ["The Spirit's ending","He is no longer left in the machine by default. Sesh 8 gives him a second ask, a price, and an epilogue on the <b>library computers</b>."]
   ]]);
   groups.push(["Corrections already applied",[
-    ["Table roles were reversed","Sesh 1 is Spencer's: <i>'I know I am doing the story, the lore… voicing of NPCs'</i> and <i>'you'll be doing puzzles/room design… run combat… officiating rules.'</i> The codex had it swapped. Fixed on the Weekend Plan tab — though story is shared in practice now."],
+    ["Table roles were reversed","Sesh 1 is Spencer's: <i>'I know I am doing the story, the lore… voicing of NPCs'</i> and <i>'you'll be doing puzzles/room design… run combat… officiating rules.'</i> The codex had it swapped. Fixed — though story is shared in practice now."],
     ["Bix ↔ Angelique was tagged romance","Sesh 5 says the friendship got 'more serious <i>platonically</i>' before he pushed her away. Retagged."],
     ["The Backstory tab claimed 'locked canon'","It's Sesh 7 — Scott's write-up, in Spencer's lane, still unanswered. Relabeled."],
     ["Sesh 7's mind-control idea was missing","Poe Boy seizing control of some vampires in the final fight was in the doc and absent from the flow. Restored to beat 9."]
@@ -1493,13 +1468,13 @@ const TODO_LIST = [
   "t": "Give every PC a story arc and a mansion connection",
   "o": "both",
   "c": "Story",
-  "note": "<b>Sesh 8 closed Bix and Simone \u2014 both have a mansion connection and a real arc now.</b> Gnomey, Bix, Simone and Cody are all done; <b>only John has neither.</b> Sesh 5 set the goal of one sprinkle of mansion lore per character; the arc half is the part nobody has written down. Both should be true for all five before the weekend.",
+  "note": "<b>Sesh 8 closed all five \u2014 every PC now has a mansion connection and a real arc.</b> Sesh 5 set the goal of one sprinkle of mansion lore per character; the arc half is the part nobody had written down. All five are now true, ahead of the weekend.",
   "steps": [
    "Bix (Will) — <b>both done, Sesh 8.</b> Mansion: he broke in one rainy night running from a foster home, and the party room is where he finds the photograph. Arc: Edward is his father, his mother Goblinenon was killed clearing this house, and Edward explains himself in the epilogue. The Sesh 6 diary idea now has an obvious subject.",
    "Gnomey (Julia) — <b>both done, Sesh 8.</b> He owns the house: Great Uncle Vinny won it off Orlok at cards in 1931 and the deed runs with the poker chip in Julia's pocket. Arc is quiet-and-overlooked to head of household, found alone in the study and paid off with the public claim and the renewal at the threshold. Childhood dares and the bad Halloween still stand underneath it.",
    "Simone — <b>both done, Sesh 8.</b> Mansion: she sold the dead kid the wishing willow he wished on. Arc: the second ask, the goat's price, the smashed piggy bank, and the concert she gets anyway from the last person she'd want it from.",
-   "John — nothing on either side yet. Scott's blood-connection idea from the doc comments fits him best. Arc hangs off the insecurity he names, plus the fact that Poe Boy is running the same programme he is.",
-   "Cody — <b>both done, Sesh 8.</b> A Firbolg druid (working name <b>Russ</b>, basically Russell from <i>Up</i>). Mansion: the cellar infirmary, where he tends Orlok's animals and grows the medicinal herb. Arc: earning his <b>Assisting the Elderly</b> badge across three requirements and bonding with Orlok, who signs the badge in the epilogue."
+   "John (Yobo) — <b>both, Sesh 8 (arc) + Character Bios (Yobo).</b> Mansion: the party room, whose frozen ghost-party accepts only a true performance. Arc: the Dolly-Parton lie is a Performance/Inspiration debuff; Dracula pushes him; he tells the truth and it flips to a buff. Full build in /PROPOSALS.md; prop at /party-room/.",
+   "Cody — <b>both done, Sesh 8.</b> A Firbolg druid (working name <b>Russ</b>, basically Russell from <i>Up</i>). Mansion: the cellar infirmary, where he tends Orlok's animals and grows Sun's-mercy. Arc: earning his <b>Assisting the Elderly</b> badge across three requirements and bonding with Orlok, who signs the badge in the epilogue."
   ],
   "top": 1
  },
@@ -1565,11 +1540,11 @@ const TODO_LIST = [
  },
  {
   "id": "o2",
-  "t": "Ask John what his bully's insecurity is",
+  "t": "Ask John about the wig (Yobo arc now in doc)",
   "o": "scott",
   "c": "Outbox",
   "needs": 1,
-  "note": "Left open on purpose rather than filled in by the DM — it is the thing that keeps the character from being just a mean guy, so it should be his. The bard, the bully act and the web edges are already in the cast; only this is waiting."
+  "note": "The arc is now in the doc — <b>Sesh 8</b> (the arc) and <b>Character Bios</b> (Yobo). The one thing the doc leaves genuinely open is the <b>wig</b>: it's written in as a question, so it is NOT yet canon — is it OK to make it canon that Yobo wears one? That's John's call. Still to pin down too: his race, a Bard subclass, and the debuff/buff dice (Scott's to tune)."
  },
  {
   "id": "o5",
@@ -1592,13 +1567,13 @@ const TODO_LIST = [
   "t": "Give every PC something in the house that is theirs",
   "o": "scott",
   "c": "Puzzle",
-  "note": "Distinct from the arc item, and this half is room design rather than backstory. Sesh 5 wanted one sprinkle of mansion lore per character; what that actually needs is a physical thing they walk into — a room, an object, an encounter that lands for one player and reads as set dressing to everyone else. Four of five now have both the hook and the beat (Sesh 8: Gnomey the study, Bix the party room, Simone the computer, Cody the cellar); only John is still missing. The unsuperseded proposals below are mine, not canon.",
+  "note": "Distinct from the arc item, and this half is room design rather than backstory. Sesh 5 wanted one sprinkle of mansion lore per character; what that actually needs is a physical thing they walk into — a room, an object, an encounter that lands for one player and reads as set dressing to everyone else. All five now have both the hook and the beat (Sesh 8: Gnomey the study, Bix and Yobo the party room, Simone the computer, Cody the cellar). The unsuperseded proposals below are mine, not canon.",
   "steps": [
    "Bix — the room he sheltered in that rainy night, still the way he left it, with something in it that contradicts his memory: a second bedroll, a door barred from the inside, the diary. He thinks he knows what happened to him here. The house disagrees.",
    "Gnomey — SUPERSEDED by Sesh 8. His house moment is the study: a poker set one chip short, the last hand still on the table, and a strongbox with the deed and the 1931 settlement. The old suggestion (the broken window with the crew's initials in the sill) is still a nice free detail if you want it somewhere else.",
    "Simone — she is the only PC who would recognise a soul cage for what it is. Give her the moment of naming what was done in the computer room out loud, before anyone else understands it. (Proposal only — this was a codex invention, never discussed by either of you.)",
-   "John — the blood connection, if it goes to him: a portrait, a deed, or a name cut into the Builder's Stone that matches his own. The bully finds out the house is family, in front of everyone he performs for.",
-   "Cody — SUPERSEDED by Sesh 8. His room is the cellar infirmary: Russ tends Orlok's animals with Speak with Animals (which is where the exoneration lands) and grows the medicinal herb in the cellar's one blade of daylight. It sits right on the food-stash puzzle, so the whole party opens the room and it lands hardest for him.",
+   "John (Yobo) — <b>the party-room turn (Sesh 8).</b> The frozen ghost-party accepts only a true performance, so he has to drop the Dolly-Parton lie in front of everyone he performs for. Findable by the whole party (they recreate the photograph); load-bearing only for him. Prop at /party-room/.",
+   "Cody — SUPERSEDED by Sesh 8. His room is the cellar infirmary: Russ tends Orlok's animals with Speak with Animals (which is where the exoneration lands) and grows Sun's-mercy in the cellar's one blade of daylight. It sits right on the food-stash puzzle, so the whole party opens the room and it lands hardest for him.",
    "Rule for all five: findable by the whole party, but only load-bearing for one of them. If a beat needs its owner present to work at all, it will not survive someone splitting off."
   ]
  },
@@ -1660,7 +1635,7 @@ const TODO_LIST = [
   "o": "scott",
   "c": "Combat",
   "gate": 1,
-  "note": "the 24 Aug doc paste set the count at three fights plus one held in reserve, and the <b>Combat tab</b> now carries the budget for every one of them. What is left is the stat lines \u2014 nothing below is statted yet. Each needs a stat line, a terrain, and an exit that is not a TPK.",
+  "note": "the 24 Aug doc paste set the count at three fights plus one held in reserve, and the <b>Combat section</b> now carries the budget for every one of them. What is left is the stat lines \u2014 nothing below is statted yet. Each needs a stat line, a terrain, and an exit that is not a TPK.",
   "steps": [
    "Saturday's one fight \u2014 ~600 XP of fragile bodies at level 3. Telegraph anything with a save-or-suck.",
    "Superseded by Sesh 8: the corridor set-piece is cut. Saturday's mansion fight is a botched summoning at level 3 \u2014 a solo CR 3 plus four CR \u00bd minions lands at 1,100 against a 2,000 ceiling.",
@@ -1681,7 +1656,7 @@ const TODO_LIST = [
   "steps": [
    "<b>Town is combat-free by decision</b>, not omission \u2014 the 24 Aug doc paste says so explicitly.",
    "<b>Saturday's fight is now in town</b> — the trap in the bound volume, 500 XP. That reverses the 24 Aug doc paste on two counts and leaves the mansion with no combat until Sunday morning.",
-   "Superseded by Sesh 8: the corridor is cut. Sunday's investigation stretch is now the study, the party room, the computer and the cellar \u2014 and with Cody's room now the cellar infirmary, only John's room is still blank.",
+   "Superseded by Sesh 8: the corridor is cut. Sunday's investigation stretch is now the study, the party room, the computer and the cellar \u2014 and every PC now has a room (Yobo shares the party room, Cody has the cellar infirmary).",
    "The finale is three phases in one continuous sequence, so it covers the whole back end.",
    "Sanity check: no stretch should run much past ninety minutes with neither a fight nor a puzzle paying off. Use hazards and chases rather than a fourth combat \u2014 they cost ten minutes, not fifty."
   ]
@@ -1716,7 +1691,7 @@ const TODO_LIST = [
   "t": "Check every encounter against a five-person party",
   "o": "scott",
   "c": "Combat",
-  "note": "Five PCs is a materially bigger action economy than four \u2014 every encounter budget shifts. <b>Budgets are now on the Combat tab.</b> Include the case where one player is down or absent, and the case where Angelique flips early and makes it six: that pushes the level-4 high line from 2,500 to 3,000 and the benchmark from 5 to 6 total CR. Build her on the Tasha's sidekick rules rather than a full rogue so she doesn't cost table time on Sunday."
+  "note": "Five PCs is a materially bigger action economy than four \u2014 every encounter budget shifts. <b>Budgets are now on the Combat section.</b> Include the case where one player is down or absent, and the case where Angelique flips early and makes it six: that pushes the level-4 high line from 2,500 to 3,000 and the benchmark from 5 to 6 total CR. Build her on the Tasha's sidekick rules rather than a full rogue so she doesn't cost table time on Sunday."
  },
  {
   "id": "m7",
@@ -1891,7 +1866,7 @@ const TODO_LIST = [
   "c": "Decision",
   "done": 1,
   "ans": "Kenku · Bard, College of Glamour",
-  "note": "Kenku canonically speak only in sounds recorded from others — a DJ who samples voices, and whose actual crime is trapping a kid's voice inside a machine, cannot speak in one of his own. Glamour supplies the charm that holds the crew together. Note he lands as a bard alongside John, so the final confrontation is two people fighting with the same weapon."
+  "note": "Kenku canonically speak only in sounds recorded from others — a DJ who samples voices, and whose actual crime is trapping a kid's voice inside a machine, cannot speak in one of his own. Glamour supplies the charm that holds the crew together. Note he lands as a bard alongside John's Yobo, so the final confrontation is two people fighting with the same weapon — and Yobo's Whole buff (Sesh 8) is built to make that duel winnable."
  },
  {
   "id": "q5",
@@ -2067,6 +2042,14 @@ document.querySelectorAll("#tabs button").forEach(b=>{
     b.classList.add("active");
     document.getElementById("tab-"+b.dataset.tab).classList.add("active");
     window.scrollTo({top:0,behavior:"smooth"});
+  });
+});
+
+/* ---------------- IN-PAGE SUB-NAV ---------------- */
+document.querySelectorAll(".subnav button[data-scroll]").forEach(b=>{
+  b.addEventListener("click",()=>{
+    const t=document.getElementById(b.dataset.scroll);
+    if(t)t.scrollIntoView({behavior:"smooth",block:"start"});
   });
 });
 </script>

@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="The Party">
+<meta name="theme-color" content="#0a0710">
+<title>The Frozen Party — Dood Mansion</title>
+<style>
+/* ============================================================
+   THE FROZEN PARTY — the party room set-piece.  🟡 NOT CANON.
+
+   Scott's design, 5 Sep 2026 · not in the Google Doc. This is the
+   digital half of a two-artifact puzzle; the physical half is the
+   photograph already built in /photo/. The photo is the SOLUTION
+   KEY — hand it to the table and let them read it.
+
+   WHAT IT IS (Yobo's arc, Layer 2 + the Revel meter):
+   The party room replays a frozen ghost-party — the night Edward &
+   Goblinenon's cart broke down and found Orlok & Dracula reveling.
+   The moment is stuck in a glitching loop. To move it forward the
+   party recreate the photograph: start the gramophone, set the four
+   guests to their marks (L->R: ORLOK, GOBLINENON, EDWARD, DRACULA,
+   exactly as the photo shows), and light the candles. Missteps tick
+   the REVEL meter toward hostile; max = the ghosts curdle (the scare).
+
+   Once the moment is whole, the host calls for a song — that is
+   Yobo's Performance check at the TABLE, not in code. The two DM
+   buttons at the end just paint the outcome: a TRUE turn (the room
+   erupts, the way opens, Yobo flips to Whole) or a MASKED one (the
+   ghosts curdle).
+
+   AUDIO: fully synthesised via Web Audio (no asset files), unlocked
+   by the splash tap per CLAUDE.md. No HTMLAudio anywhere.
+   ============================================================ */
+
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
+  html,body{margin:0; padding:0; height:100%}
+  body{
+    background:#0a0710;
+    color:#d8c9a0;
+    font-family:"Baskerville","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    overflow:hidden; overscroll-behavior:none;
+    -webkit-user-select:none; user-select:none;
+    height:100dvh;
+  }
+  .wrap{
+    position:relative; width:100%; height:100dvh; overflow:hidden;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% 8%, #241436 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 120%, #1a0c1e 0%, #0a0710 70%);
+    transition:filter 1.2s ease, background 1.2s ease;
+  }
+  /* curdle state — the party turns on them */
+  .wrap.curdled{
+    filter:saturate(.35) contrast(1.12) hue-rotate(-12deg);
+    background:
+      radial-gradient(ellipse 120% 90% at 50% 10%, #4a0f14 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 120%, #250608 0%, #0a0406 72%);
+  }
+  .wrap.restored{
+    background:
+      radial-gradient(ellipse 130% 90% at 50% 6%, #3a2a5c 0%, transparent 58%),
+      radial-gradient(ellipse at 50% 120%, #2a1636 0%, #0a0710 72%);
+  }
+
+  /* ---------------- splash gate (audio unlock) ---------------- */
+  #splash{
+    position:absolute; inset:0; z-index:40;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:26px; text-align:center; padding:0 28px;
+    background:radial-gradient(ellipse at 50% 42%, #1c1024 0%, #070509 78%);
+    transition:opacity .7s ease;
+  }
+  #splash.gone{opacity:0; pointer-events:none}
+  .flame{
+    width:26px; height:60px; border-radius:50% 50% 46% 46%;
+    background:radial-gradient(ellipse at 50% 70%, #fff2c4 0%, #ffb545 42%, #e5591b 72%, transparent 78%);
+    filter:blur(.4px); animation:flick 1.6s ease-in-out infinite;
+    transform-origin:50% 100%;
+  }
+  @keyframes flick{
+    0%,100%{transform:scaleY(1) rotate(-1deg); opacity:.95}
+    50%{transform:scaleY(1.08) rotate(1.5deg); opacity:1}
+  }
+  #splash h1{
+    margin:0; font-weight:400; font-size:clamp(24px,7vw,40px);
+    letter-spacing:.03em; color:#e9d7ad;
+  }
+  #splash p{
+    margin:0; font-size:clamp(14px,3.6vw,17px); color:#9a8a6e; line-height:1.6;
+    max-width:30ch;
+  }
+  .tapline{
+    margin-top:10px; font-size:13px; letter-spacing:.34em; text-transform:uppercase;
+    color:#6f6350; animation:pulse 2.6s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:.35}50%{opacity:.9}}
+
+  /* ---------------- HUD ---------------- */
+  .hud{
+    position:absolute; top:0; left:0; right:0; z-index:20;
+    padding:calc(env(safe-area-inset-top) + 12px) 16px 10px;
+    display:flex; align-items:center; gap:12px;
+    pointer-events:none;
+  }
+  .revel-wrap{flex:1; pointer-events:none}
+  .revel-label{
+    font-size:11px; letter-spacing:.24em; text-transform:uppercase;
+    color:#8a7c62; margin:0 0 5px 2px;
+  }
+  .revel-bar{
+    height:12px; border-radius:7px; overflow:hidden;
+    background:rgba(255,255,255,.08); box-shadow:inset 0 1px 3px rgba(0,0,0,.6);
+    border:1px solid rgba(255,255,255,.06);
+  }
+  .revel-fill{
+    height:100%; width:0%;
+    background:linear-gradient(90deg,#4fc08a 0%,#e0aa3e 55%,#d23a52 100%);
+    transition:width .5s ease;
+  }
+  .hint{
+    position:absolute; left:0; right:0; bottom:calc(env(safe-area-inset-bottom) + 84px);
+    text-align:center; font-size:clamp(13px,3.4vw,16px); color:#b7a681;
+    padding:0 24px; pointer-events:none; transition:opacity .4s ease;
+    text-shadow:0 1px 8px #000;
+  }
+
+  /* ---------------- stage ---------------- */
+  #stage{position:absolute; inset:0; z-index:10}
+
+  /* candelabra row */
+  .candles{
+    position:absolute; top:calc(env(safe-area-inset-top) + 64px); left:0; right:0;
+    display:flex; justify-content:center; gap:min(7vw,44px);
+  }
+  .candle{
+    width:44px; display:flex; flex-direction:column; align-items:center; cursor:pointer;
+  }
+  .candle .wick{
+    width:14px; height:14px; margin-bottom:-3px; border-radius:50%;
+    background:#2a2018; transition:all .3s ease; position:relative; z-index:2;
+  }
+  .candle.lit .wick{
+    background:radial-gradient(ellipse at 50% 60%,#fff2c4 0%,#ffb545 45%,#e5591b 75%,transparent 80%);
+    height:34px; width:18px; border-radius:50% 50% 46% 46%;
+    box-shadow:0 0 22px 6px rgba(255,150,50,.5);
+    animation:flick 1.7s ease-in-out infinite;
+  }
+  .candle .stick{
+    width:12px; height:64px; border-radius:3px;
+    background:linear-gradient(90deg,#c9b48a,#efe0bf 40%,#a68f66);
+    box-shadow:0 2px 6px rgba(0,0,0,.5);
+  }
+
+  /* the four guest marks */
+  .floor{
+    position:absolute; left:0; right:0; bottom:calc(env(safe-area-inset-bottom) + 118px);
+    display:flex; justify-content:center; gap:min(3.5vw,20px); padding:0 10px;
+  }
+  .mark{
+    width:min(21vw,104px); aspect-ratio:1/1.7; cursor:pointer;
+    display:flex; flex-direction:column; align-items:center; justify-content:flex-end;
+    border-radius:10px 10px 6px 6px; position:relative;
+    background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.06));
+    border:1px dashed rgba(216,201,160,.28);
+    transition:all .4s ease;
+  }
+  .mark .ghost{
+    font-size:clamp(30px,9vw,46px); opacity:.32; filter:grayscale(1) blur(.4px);
+    transition:all .45s ease; margin-bottom:6px;
+  }
+  .mark .who{
+    font-size:clamp(10px,2.6vw,12px); letter-spacing:.06em; color:#9a8a6e;
+    padding:0 2px 8px; text-align:center; min-height:2.4em; line-height:1.2;
+  }
+  .mark.settled{
+    border:1px solid rgba(79,192,138,.6);
+    background:linear-gradient(180deg, rgba(79,192,138,.06), rgba(79,192,138,.14));
+    box-shadow:0 0 20px rgba(79,192,138,.22);
+  }
+  .mark.settled .ghost{opacity:1; filter:none; transform:translateY(-2px)}
+  .mark.settled .who{color:#bfe6cf}
+  .mark.wrong{ animation:jitter .25s linear }
+  @keyframes jitter{0%,100%{transform:none}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+
+  /* the gramophone */
+  .gram{
+    position:absolute; left:50%; transform:translateX(-50%);
+    bottom:calc(env(safe-area-inset-bottom) + 18px);
+    display:flex; align-items:center; gap:10px; cursor:pointer;
+    padding:10px 18px; border-radius:40px;
+    background:rgba(255,255,255,.05); border:1px solid rgba(216,201,160,.25);
+    font-size:14px; color:#c9b891; min-height:44px;
+  }
+  .gram .disc{
+    width:26px; height:26px; border-radius:50%;
+    background:repeating-radial-gradient(#161016 0 1px, #0c080c 1px 2px);
+    border:1px solid #3a2c24;
+  }
+  .gram.playing .disc{animation:spin 1.6s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* ---------------- end / DM overlay ---------------- */
+  .overlay{
+    position:absolute; inset:0; z-index:30;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:20px; text-align:center; padding:0 30px;
+    background:rgba(6,4,9,.72); backdrop-filter:blur(3px);
+    transition:opacity .5s ease;
+  }
+  .overlay h2{margin:0; font-size:clamp(22px,6vw,34px); font-weight:400; color:#f0e2bb}
+  .overlay p{margin:0; font-size:clamp(14px,3.7vw,17px); color:#b7a681; line-height:1.6; max-width:34ch}
+  .btnrow{display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:6px}
+  .btn{
+    min-height:48px; padding:12px 22px; border-radius:12px; cursor:pointer;
+    font-family:inherit; font-size:15px; letter-spacing:.02em; border:1px solid;
+    background:rgba(255,255,255,.05); color:#e9d7ad; border-color:rgba(216,201,160,.4);
+  }
+  .btn.true{border-color:#4fc08a; color:#bfe6cf; background:rgba(79,192,138,.12)}
+  .btn.masked{border-color:#d23a52; color:#f0b8bf; background:rgba(210,58,82,.12)}
+  .btn.ghost{border-color:rgba(216,201,160,.28); color:#9a8a6e}
+
+  /* tiny DM tab */
+  #dmtab{
+    position:absolute; right:calc(env(safe-area-inset-right) + 8px);
+    bottom:calc(env(safe-area-inset-bottom) + 8px); z-index:25;
+    font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#5f5647;
+    padding:8px 12px; border-radius:8px; cursor:pointer;
+    background:rgba(0,0,0,.3); border:1px solid rgba(255,255,255,.06);
+  }
+  [hidden]{display:none !important}
+</style>
+</head>
+<body>
+
+<div class="wrap" id="wrap">
+
+  <!-- ===================== STAGE ===================== -->
+  <div id="stage" aria-hidden="false">
+
+    <div class="candles" id="candles"><!-- built by JS --></div>
+
+    <div class="floor" id="floor"><!-- four marks built by JS --></div>
+
+    <div class="gram" id="gram" role="button" tabindex="0" aria-label="The gramophone">
+      <span class="disc"></span><span id="gramlbl">Start the record</span>
+    </div>
+  </div>
+
+  <!-- ===================== HUD ===================== -->
+  <div class="hud">
+    <div class="revel-wrap">
+      <p class="revel-label">The Revel</p>
+      <div class="revel-bar"><div class="revel-fill" id="revelFill"></div></div>
+    </div>
+  </div>
+  <p class="hint" id="hint">Something here is unfinished. Make it like the photograph.</p>
+
+  <!-- ===================== SPLASH ===================== -->
+  <div id="splash">
+    <div class="flame"></div>
+    <h1>The party never ended</h1>
+    <p>A record is skipping somewhere. Nobody has moved in a very long time.</p>
+    <div class="tapline">Tap to step inside</div>
+  </div>
+
+  <!-- ===================== END OVERLAY ===================== -->
+  <div class="overlay" id="restoredOverlay" hidden>
+    <h2>The moment is whole</h2>
+    <p>The loop settles. The laughter lands. Every frozen face turns toward the room — and waits for a song.</p>
+    <p style="color:#8a7c62;font-size:14px"><em>Now the host calls for entertainment. Only Yobo can answer. Run the Performance check at the table — then choose:</em></p>
+    <div class="btnrow">
+      <button class="btn true" id="btnTrue">A true voice</button>
+      <button class="btn masked" id="btnMasked">A borrowed voice</button>
+    </div>
+  </div>
+
+  <div class="overlay" id="triumphOverlay" hidden>
+    <h2>The room erupts</h2>
+    <p>The ghosts pour forward — not to menace, to embrace. Glasses raised, the way out thrown open. Whatever he was hiding, they never needed it.</p>
+    <p style="color:#bfe6cf;font-size:14px"><em>Yobo is Whole: advantage on Performance and enhanced Bardic Inspiration, for the rest of the campaign.</em></p>
+    <div class="btnrow"><button class="btn ghost" id="btnReset1">Run it again</button></div>
+  </div>
+
+  <div class="overlay" id="curdleOverlay" hidden>
+    <h2>They can tell</h2>
+    <p>The smiles hold a half-second too long. Then the whole room remembers it is dead, and it is not happy to be performed at.</p>
+    <div class="btnrow"><button class="btn ghost" id="btnReset2">Let them recover</button></div>
+  </div>
+
+  <!-- DM tab -->
+  <div id="dmtab" role="button" tabindex="0">DM</div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- the solution, read straight off /photo/ (L->R) ---------- */
+  var GUESTS = ["Orlok","Goblinenon","Edward","Dracula"];           // correct order
+  var EMOJI  = {Orlok:"🧛‍♂️",Goblinenon:"🤰",Edward:"🧑",Dracula:"🦇",
+                "— empty —":"❓"};
+  var POOL   = ["— empty —"].concat(GUESTS);                        // cycle options
+  var NUM_CANDLES = 4;
+
+  /* ---------- state ---------- */
+  var slots = [0,0,0,0];        // index into POOL for each mark (0 = empty)
+  var candles = [];             // booleans
+  var gramOn = false;
+  var revel = 0;                // 0..100
+  var finished = false;
+
+  var wrap   = document.getElementById("wrap");
+  var hint   = document.getElementById("hint");
+  var fill   = document.getElementById("revelFill");
+
+  /* =========================================================
+     AUDIO — procedural, no asset files. Web Audio only.
+     A slow, eerie music-box waltz. On curdle it detunes & drags.
+     ========================================================= */
+  var actx=null, master=null, lp=null, playing=false, step=0, timer=null;
+  var TEMPO = 620;              // ms per note (slow waltz)
+  var MELODY = [0,7,12,7,3,10,15,10];          // semitone offsets
+  var ROOT = 220;                               // A3
+  var mood = 1;                                 // 1 = sweet, drops on curdle
+
+  function initAudio(){
+    if(actx) return;
+    try{
+      actx = new (window.AudioContext||window.webkitAudioContext)();
+      master = actx.createGain(); master.gain.value = 0.0;
+      lp = actx.createBiquadFilter(); lp.type="lowpass"; lp.frequency.value=1600;
+      lp.connect(master); master.connect(actx.destination);
+    }catch(e){ actx=null; }
+  }
+  function note(freq,when,dur){
+    if(!actx) return;
+    var o=actx.createOscillator(), g=actx.createGain();
+    o.type="triangle"; o.frequency.value=freq;
+    var o2=actx.createOscillator(), g2=actx.createGain();
+    o2.type="sine"; o2.frequency.value=freq*2.001; g2.gain.value=0.0;
+    o.connect(g); o2.connect(g2); g.connect(lp); g2.connect(lp);
+    var peak=0.16*mood;
+    g.gain.setValueAtTime(0,when);
+    g.gain.linearRampToValueAtTime(peak,when+0.02);
+    g.gain.exponentialRampToValueAtTime(0.0008,when+dur);
+    g2.gain.setValueAtTime(0,when);
+    g2.gain.linearRampToValueAtTime(peak*0.4,when+0.02);
+    g2.gain.exponentialRampToValueAtTime(0.0008,when+dur);
+    o.start(when); o.stop(when+dur+0.05);
+    o2.start(when); o2.stop(when+dur+0.05);
+  }
+  function tick(){
+    if(!playing||!actx) return;
+    var semis = MELODY[step % MELODY.length];
+    var detune = (mood<1)? (Math.random()*2-1)*40*(1-mood) : 0;   // wobble when curdled
+    var f = ROOT * Math.pow(2,(semis+detune)/12);
+    note(f, actx.currentTime+0.02, TEMPO/1000*1.4);
+    if(step%2===0) note(f/2, actx.currentTime+0.02, TEMPO/1000*1.4);   // low drone
+    step++;
+    timer = setTimeout(tick, TEMPO*(mood<1?1.35:1));
+  }
+  function startMusic(){
+    if(!actx||playing) return;
+    playing=true;
+    master.gain.cancelScheduledValues(actx.currentTime);
+    master.gain.linearRampToValueAtTime(0.9, actx.currentTime+0.8);
+    tick();
+  }
+  function stopMusic(){
+    if(!actx) return;
+    playing=false; clearTimeout(timer);
+    master.gain.linearRampToValueAtTime(0.0, actx.currentTime+0.4);
+  }
+  function setMood(m){                      // 1 sweet ... 0 curdled
+    mood=m;
+    if(lp) lp.frequency.linearRampToValueAtTime(400+1200*m, actx.currentTime+0.6);
+  }
+
+  /* ================= build the stage ================= */
+  var candleWrap = document.getElementById("candles");
+  for(var i=0;i<NUM_CANDLES;i++){
+    candles.push(false);
+    var c=document.createElement("div"); c.className="candle"; c.dataset.i=i;
+    c.innerHTML='<div class="wick"></div><div class="stick"></div>';
+    c.addEventListener("click", (function(idx){return function(){toggleCandle(idx);};})(i));
+    candleWrap.appendChild(c);
+  }
+  var floor=document.getElementById("floor");
+  for(var s=0;s<4;s++){
+    var m=document.createElement("div"); m.className="mark"; m.dataset.s=s;
+    m.innerHTML='<div class="ghost">❓</div><div class="who">— empty —</div>';
+    m.addEventListener("click",(function(idx){return function(){cycleSlot(idx);};})(s));
+    floor.appendChild(m);
+  }
+  var markEls=floor.querySelectorAll(".mark");
+  var candleEls=candleWrap.querySelectorAll(".candle");
+
+  /* ================= interactions ================= */
+  function toggleCandle(i){
+    if(finished) return;
+    candles[i]=!candles[i];
+    candleEls[i].classList.toggle("lit",candles[i]);
+    blip(candles[i]?520:0);
+    check();
+  }
+
+  function cycleSlot(s){
+    if(finished) return;
+    var prevCorrect = (POOL[slots[s]]===GUESTS[s]);
+    slots[s]=(slots[s]+1)%POOL.length;
+    var name=POOL[slots[s]];
+    var el=markEls[s];
+    el.querySelector(".ghost").textContent = EMOJI[name]||"❓";
+    el.querySelector(".who").textContent = name;
+    var nowCorrect = (name===GUESTS[s]);
+    el.classList.toggle("settled", nowCorrect);
+    if(nowCorrect){ blip(700); }
+    else if(prevCorrect){ /* left a correct spot, no penalty for tidying */ }
+    else if(name!=="— empty —"){ // placed a wrong guest at a mark
+      el.classList.remove("wrong"); void el.offsetWidth; el.classList.add("wrong");
+      bumpRevel(6); blip(180);
+    }
+    check();
+  }
+
+  function toggleGram(){
+    if(finished) return;
+    gramOn=!gramOn;
+    document.getElementById("gram").classList.toggle("playing",gramOn);
+    document.getElementById("gramlbl").textContent = gramOn? "The record turns" : "Start the record";
+    if(gramOn) startMusic(); else stopMusic();
+    check();
+  }
+  document.getElementById("gram").addEventListener("click",toggleGram);
+  document.getElementById("gram").addEventListener("keydown",function(e){
+    if(e.key==="Enter"||e.key===" "){e.preventDefault();toggleGram();}
+  });
+
+  /* short synth blip for feedback */
+  function blip(freq){
+    if(!actx||!freq) return;
+    var o=actx.createOscillator(),g=actx.createGain();
+    o.type="sine"; o.frequency.value=freq;
+    g.gain.setValueAtTime(0.0001,actx.currentTime);
+    g.gain.linearRampToValueAtTime(0.12,actx.currentTime+0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001,actx.currentTime+0.18);
+    o.connect(g); g.connect(actx.destination);
+    o.start(); o.stop(actx.currentTime+0.2);
+  }
+
+  /* ================= revel meter ================= */
+  function bumpRevel(n){
+    revel=Math.max(0,Math.min(100,revel+n));
+    fill.style.width=revel+"%";
+    var m = 1 - (revel/100)*0.9;      // music sours as revel climbs
+    setMood(m);
+    if(revel>=100 && !finished){ curdle(); }
+  }
+
+  /* slow drift up while wrong guests sit on marks and the room's not whole */
+  setInterval(function(){
+    if(finished) return;
+    var wrongPlaced=0;
+    for(var s=0;s<4;s++){ var n=POOL[slots[s]]; if(n!=="— empty —" && n!==GUESTS[s]) wrongPlaced++; }
+    if(wrongPlaced>0) bumpRevel(wrongPlaced*1);
+  },2500);
+
+  /* ================= win check ================= */
+  function allGuestsRight(){
+    for(var s=0;s<4;s++){ if(POOL[slots[s]]!==GUESTS[s]) return false; }
+    return true;
+  }
+  function allCandlesLit(){ return candles.every(Boolean); }
+
+  function check(){
+    if(finished) return;
+    var g=allGuestsRight(), c=allCandlesLit(), r=gramOn;
+    // gentle guidance
+    if(!r) hint.textContent="The record is skipping. Someone should start it.";
+    else if(!g) hint.textContent="The guests aren't where the photograph shows them.";
+    else if(!c) hint.textContent="It's too dark. Light every candle.";
+    else hint.textContent="";
+    if(g&&c&&r){ restore(); }
+    else { wrap.classList.remove("restored"); }
+  }
+
+  function restore(){
+    finished=true;
+    wrap.classList.remove("curdled");
+    wrap.classList.add("restored");
+    setMood(1); TEMPO=520;
+    hint.textContent="";
+    show("restoredOverlay");
+  }
+  function curdle(){
+    if(finished) return;         // curdle is a fail-state only pre-restore
+    finished=true;
+    wrap.classList.add("curdled");
+    setMood(0.05);
+    show("curdleOverlay");
+  }
+
+  /* ================= overlays ================= */
+  function show(id){ document.getElementById(id).hidden=false; }
+  function hide(id){ document.getElementById(id).hidden=true; }
+
+  document.getElementById("btnTrue").addEventListener("click",function(){
+    hide("restoredOverlay"); show("triumphOverlay");
+    setMood(1); TEMPO=440;
+  });
+  document.getElementById("btnMasked").addEventListener("click",function(){
+    hide("restoredOverlay");
+    wrap.classList.remove("restored"); wrap.classList.add("curdled");
+    setMood(0.05); show("curdleOverlay");
+  });
+  document.getElementById("btnReset1").addEventListener("click",resetAll);
+  document.getElementById("btnReset2").addEventListener("click",function(){
+    // recover from a curdle without a full reset: clear the wrong guests, drop revel
+    hide("curdleOverlay");
+    wrap.classList.remove("curdled");
+    finished=false; revel=Math.max(0,revel-40); fill.style.width=revel+"%"; setMood(1);
+    check();
+  });
+
+  function resetAll(){
+    slots=[0,0,0,0]; candles=candles.map(function(){return false;});
+    gramOn=false; revel=0; finished=false;
+    fill.style.width="0%";
+    markEls.forEach(function(el,s){
+      el.classList.remove("settled","wrong");
+      el.querySelector(".ghost").textContent="❓";
+      el.querySelector(".who").textContent="— empty —";
+    });
+    candleEls.forEach(function(el){el.classList.remove("lit");});
+    document.getElementById("gram").classList.remove("playing");
+    document.getElementById("gramlbl").textContent="Start the record";
+    wrap.classList.remove("curdled","restored");
+    hide("triumphOverlay"); hide("curdleOverlay"); hide("restoredOverlay");
+    stopMusic(); TEMPO=620; setMood(1);
+    check();
+  }
+
+  /* DM tab: quick menu */
+  document.getElementById("dmtab").addEventListener("click",function(){
+    var pick = prompt("DM — type: reset / calm / spike / solve");
+    if(!pick) return;
+    pick=pick.trim().toLowerCase();
+    if(pick==="reset") resetAll();
+    else if(pick==="calm"){ revel=Math.max(0,revel-30); fill.style.width=revel+"%"; setMood(1-(revel/100)*0.9); }
+    else if(pick==="spike"){ bumpRevel(30); }
+    else if(pick==="solve"){ // auto-arrange for demo
+      slots=[1,2,3,4]; candles=candles.map(function(){return true;}); gramOn=true;
+      markEls.forEach(function(el,s){el.classList.add("settled");
+        el.querySelector(".ghost").textContent=EMOJI[GUESTS[s]];
+        el.querySelector(".who").textContent=GUESTS[s];});
+      candleEls.forEach(function(el){el.classList.add("lit");});
+      document.getElementById("gram").classList.add("playing");
+      document.getElementById("gramlbl").textContent="The record turns";
+      initAudio(); if(actx&&actx.state==="suspended")actx.resume(); startMusic(); check();
+    }
+  });
+
+  /* ================= splash / audio unlock ================= */
+  var splash=document.getElementById("splash");
+  function enter(){
+    initAudio();
+    if(actx && actx.state==="suspended") actx.resume();
+    splash.classList.add("gone");
+    setTimeout(function(){ splash.hidden=true; },700);
+    check();
+  }
+  splash.addEventListener("click",enter);
+  splash.addEventListener("touchend",function(e){e.preventDefault();enter();},{passive:false});
+
+  /* ================= iOS gotchas (per CLAUDE.md) ================= */
+  document.addEventListener("touchmove",function(e){
+    if(e.scale!==undefined && e.scale!==1) e.preventDefault();
+  },{passive:false});
+  document.addEventListener("gesturestart",function(e){e.preventDefault();});
+  var lastTouch=0;
+  document.addEventListener("touchend",function(e){
+    var now=Date.now(); if(now-lastTouch<=320) e.preventDefault(); lastTouch=now;
+  },{passive:false});
+
+  check();
+})();
+</script>
+</body>
+</html>
