@@ -405,7 +405,6 @@
     <div class="subnav">
       <button data-scroll="sub-back">Backstory</button>
       <button data-scroll="sub-flow">Story Flow</button>
-      <button data-scroll="sub-plan">Weekend Plan</button>
       <button data-scroll="sub-combat">Combat</button>
     </div>
 
@@ -421,16 +420,6 @@
       <p class="sub">A haunted-house structure: curiosity gets them in, the doors bolt shut, and everything after plays out inside Dood Mansion — and the 24 Aug doc paste cut the fork, so it now runs one line from the locker cards to the Volvo in the driveway.</p>
       <p class="sub">Between beats is a <b style="color:var(--purple)">transition</b> — a line to <i>say at the table</i> to move them to the next one, plus what to have ready underneath it. Transitions aren’t tracked as canon: they’re table patter, not lore, so say them however you like or ignore them. A <b style="color:#ffcf70">gold dashed transition</b> means there’s still a design question open there. The numbered beats themselves are from the doc.</p>
       <div class="flow" id="flow"></div>
-    </div>
-
-    <div class="subsec" id="sub-plan">
-      <h2 class="sec">The two-session weekend</h2>
-      <p class="sub">Roughly the first third-to-half of Saturday is town/exposition; the rest of Saturday and all of Sunday live in the mansion. Pacing target from Sesh 1; the fight placement and the no-fork spine are the 24 Aug doc paste. Encounter budgets live in <b>Combat</b> below.</p>
-      <div class="days" id="days"></div>
-      <div class="panel" style="margin-top:16px">
-        <h4 style="margin:0 0 8px;font-family:var(--f-display)">Table roles</h4>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px 24px" id="roles"></div>
-      </div>
     </div>
 
     <div class="subsec" id="sub-combat">
@@ -785,20 +774,6 @@ const FLOW = [
   {n:12,title:"Resolution & bookend",where:"Back to class",s:"doc",src:"Sesh 5 + doc comments",body:"They recover an ancient Dutch artifact (found after the boss fight, or with the vamps' help), the real-estate company is scared off the land, and they present the artifact in class — closing the loop opened in scene one.<br><br><b>Play the presentation battered.</b> Scott's comment on this beat: <i>“They have scars and black eyes and theyre like ‘and yeah that was our class project’.”</i> Nobody in the room reacts to the state of them, which is the whole joke — let a player deliver the line rather than narrating it.<br><br><b>the finale paste's three closers.</b> Lil Stinky records a diss track — sincere, terrible, devastating. The mega mall breaks ground somewhere else; the brochure says <b>Amityville</b>, quiet neighborhood, waterfront, great bones. And what they actually present is <b>the tape</b>, because the assignment wanted a primary source.<br><br><b>Sesh 8's three epilogue beats:</b><br>· <b>Edward explains himself to Bix.</b> The whole timeline — the cart, the party, Goblinenon, the men the company sent, and why he carried a baby down the hill instead of keeping him. Give this its own scene and no jokes in it.<br>· <b>Poe Boy's mother grounds him in the driveway</b>, and he is certainly not going to that satan concert. <b>The tickets go to Simone</b>, who spent every dollar she had a few hours earlier — and who did not earn these and cannot pay for them.<br>· <b>The kid gets uploaded to the library computers</b>, where he helps people find new books to read. The boy who died in a room nobody visited spends his afterlife in the busiest building in town."}
 ];
 
-const PLAN = {
-  sat:{title:"Saturday · Session 1",sub:"Town & the threshold · level 3",slots:[
-    {t:"First ~third–half",c:"#9a6ff0",s:"doc",src:"Sesh 1 + the 24 Aug doc paste",h:"Town — and Saturday's fight",p:"Class recap, the locker cards, the Hall of Records and the gazebo. <b>The trap in the bound volume is the weekend's Saturday combat</b> (500 XP), and springing it is what summons Ostrander to the house that night. Reverses the finale paste's combat-free town."},
-    {t:"Evening",c:"#e0aa3e",s:"doc",src:"Sesh 5, 6",h:"Into the mansion",p:"The boards are off the front door. They walk in, and the doors bolt. Angelique finds them. First vampire contact — no fight, and mechanically they cannot kill. Opening puzzles."},
-    {t:"Late",c:"#d23a52",s:"doc",src:"Sesh 8",h:"The botched summoning",p:"Saturday's one mansion fight — something Poe Boy called up and couldn't put down. Roughly 40 minutes. Its job is proving the house will actually hurt them, and it plants that the dangerous things here are human-made. Then level 3 → 4."}
-  ]},
-  sun:{title:"Sunday · Session 2",sub:"One line, no fork, straight to 3AM · level 4",slots:[
-    {t:"Opening",c:"#5b9bd5",s:"doc",src:"Sesh 8",h:"The study & the party room",p:"<b>The corridor set-piece is cut.</b> Sunday opens on the two per-PC rooms: Gnomey finds the deed, the settlement and a poker set one chip short; Bix finds the photograph. Run the study <b>before</b> anything clears the vampires."},
-    {t:"Middle",c:"#4fc08a",s:"doc",src:"the 24 Aug doc paste + Sesh 8",h:"The Spirit & the USB",p:"The AIM prop in the old rig upstairs. The backpack — the wishing willow and the drive — the name on the mounted drive, the upload. Hand the players a real USB stick. <b>Then the second ask and Simone's price</b>, which is optional and must stay optional. Then the cellar: the food-stash puzzle clears the vampires, and Vinny's crates are still down there from 1933."},
-    {t:"Late",c:"#d23a52",s:"doc",src:"the 24 Aug doc paste",h:"3AM — three phases",p:"The ballroom. Vampires hostile, the developer breaches and dies, then the decks. One continuous sequence with no break in it."},
-    {t:"Close",c:"#e0aa3e",s:"doc",src:"Sesh 5 + the 24 Aug doc paste + Sesh 8",h:"The collapse & bookend",p:"<b>Gnomey's claim and the renewal</b>, Dracula's mic, the Volvo, “Upton, honey?”, grounded, no satan concert, tickets to Simone. Then the epilogue: Edward explains himself to Bix, the kid goes onto the library computers. Monday: the diss track, Amityville, the tape in class — and a phone call to a nursing home."}
-  ]}
-};
-
 const BACKSTORY = [
   {h:"Orlok builds the house", when:"Long before any of it", s:"doc", src:"Sesh 6 + Sesh 8",
     items:[
@@ -873,13 +848,6 @@ const BACKSTORY = [
       "She can't say it out loud — accusing Poe Boy means admitting her part. So she goes to the mansion the night of the party to find out for herself.",
       "<b>That's why she's already inside when the players get locked in.</b>"
     ]}
-];
-
-const ROLES = [
-  ["Story &amp; lore","<b>Shared</b> — both of you build it. (Sesh 1 originally put this on Spencer, along with NPC voices.)","doc","Sesh 1 + current"],
-  ["Scott","Puzzles &amp; room design, running combat, officiating rules &amp; feasibility","doc","Sesh 1"],
-  ["Shared — narration","Either can narrate; decide per scene","doc","Sesh 1"],
-  ["Shared — props","Printed letters, record excerpts, background slides & music","doc","Sesh 1"]
 ];
 
 const NAMES = [
@@ -1187,16 +1155,6 @@ order.forEach(([g,label])=>{
 });
 cast.innerHTML=castHTML;
 
-/* ---------------- RENDER: PLAN ---------------- */
-const days=document.getElementById("days");
-days.innerHTML=[PLAN.sat,PLAN.sun].map(d=>`
-  <div class="day panel"><h3>${d.title}</h3><div class="dsub">${d.sub}</div>
-  ${d.slots.map(s=>`<div class="slot${stClass(s)}"><div class="bar" style="--sc:${s.c}"></div>
-    <div class="body"><div class="t">${s.t} ${stBadge(s)}</div><h5>${s.h}</h5><p>${s.p}</p></div></div>`).join("")}
-  </div>`).join("");
-document.getElementById("roles").innerHTML=ROLES.map(([who,what,st,src])=>
-  `<div><b style="color:var(--ink)">${who}</b> ${stBadge({s:st,src})}<br><span style="color:var(--mut);font-size:13px">${what}</span></div>`).join("");
-
 /* ---------------- RENDER: BACKSTORY ---------------- */
 document.getElementById("backstory").innerHTML=BACKSTORY.map(b=>`
   <div class="panel bs">
@@ -1226,7 +1184,6 @@ document.getElementById("docs").innerHTML=DOCS.map(([t,d,st,src])=>`<div class="
   push("Cast details with no source", NODES.filter(n=>n.ai).map(n=>[n.name,n.ai]));
   push("Relationships nobody wrote", EDGES.filter(e=>e[4]==="ai").map(e=>
     [`${nodeById[e[0]].name} ↔ ${nodeById[e[1]].name}`,`“${e[3]}” — ${e[5]}.`]));
-  push("Weekend pacing", [...PLAN.sat.slots,...PLAN.sun.slots].filter(x=>x.s==="ai").map(x=>[x.h,x.p]));
   push("Names", NAMES.filter(n=>n.ai).map(n=>[n.h,n.ai]));
   push("Open threads the codex 'answered' on its own", TODO.filter(t=>t[2]==="ai").map(t=>[t[0],t[1]]));
   push("Props", DOCS.filter(d=>d[2]==="ai").map(d=>[d[0],d[1]]));
@@ -1259,7 +1216,7 @@ document.getElementById("docs").innerHTML=DOCS.map(([t,d,st,src])=>`<div class="
     ["The Spirit's ending","He is no longer left in the machine by default. Sesh 8 gives him a second ask, a price, and an epilogue on the <b>library computers</b>."]
   ]]);
   groups.push(["Corrections already applied",[
-    ["Table roles were reversed","Sesh 1 is Spencer's: <i>'I know I am doing the story, the lore… voicing of NPCs'</i> and <i>'you'll be doing puzzles/room design… run combat… officiating rules.'</i> The codex had it swapped. Fixed on the Weekend Plan section — though story is shared in practice now."],
+    ["Table roles were reversed","Sesh 1 is Spencer's: <i>'I know I am doing the story, the lore… voicing of NPCs'</i> and <i>'you'll be doing puzzles/room design… run combat… officiating rules.'</i> The codex had it swapped. Fixed — though story is shared in practice now."],
     ["Bix ↔ Angelique was tagged romance","Sesh 5 says the friendship got 'more serious <i>platonically</i>' before he pushed her away. Retagged."],
     ["The Backstory tab claimed 'locked canon'","It's Sesh 7 — Scott's write-up, in Spencer's lane, still unanswered. Relabeled."],
     ["Sesh 7's mind-control idea was missing","Poe Boy seizing control of some vampires in the final fight was in the doc and absent from the flow. Restored to beat 9."]
