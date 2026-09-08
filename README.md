@@ -21,6 +21,7 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 ├── photo/            ← The party-room photograph (Bix's beat)
 │   └── index.html
 ├── codex/            ← DM-facing campaign codex (not linked from the landing page)
+├── run/              ← DM-facing "Run of Show" — the day-of prompt book (not linked either)
 ├── CANON.md          ← canon ledger: what came from the brainstorm doc vs. what an AI made up
 ├── PROPOSALS.md      ← parked work-in-progress, agreed to by nobody
 ├── CLAUDE.md         ← agent guide for adding new props
@@ -45,6 +46,7 @@ The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
 | Settlement | `settlement/` | The 1931 contract from the strongbox in the study. Opens folded; tap to unfold. Two drunk men signed away a mansion over $11.40, and **the only paragraph on the page with no corrections in it is the one that makes Gnomey the owner.** |
 | Photograph | `photo/` | A flash snapshot from the party room — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. Tap to turn it over for the writing on the back. Bix's beat: hand Will the iPad and say nothing. |
 | Codex | `codex/` | DM-facing campaign reference — to-do list, relationship web, backstory, story flow, cast, weekend plan, and **combat encounters with the XP budgets**. Not a player prop, and deliberately not tiled on the landing page so it can't be opened at the table by accident. |
+| Run of Show | `run/` | DM-facing **day-of view** — the codex's story flow turned into an arrow-key prompt book. Each cue carries read-aloud text, beats, skill checks, combat stat blocks, NPC voicing, hand-out reminders, and a **synthesized soundboard** (ambience + stings, no files), plus an initiative tracker, d20 roller, hand-out checklist and session timer. Also DM-only and not tiled. See [run/README.md](run/README.md). |
 
 ### Not built yet
 

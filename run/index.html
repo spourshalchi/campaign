@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Run of Show">
+<meta name="theme-color" content="#0c0a12">
+<title>Dood Mansion — Run of Show</title>
+<style>
+  :root{
+    --bg:#0a0810; --desk:#12101a; --panel:#16121f; --panel2:#1c1628; --edge:#2a2038;
+    --ink:#f2eefb; --mut:#b3a8cc; --dim:#7d7196;
+    --blood:#e0455d; --purple:#a279f5; --gold:#e7b53f; --green:#54c894;
+    --blue:#5b9bd5; --pink:#ec7ac0; --gray:#8b93a6;
+    --amber:#ffcf7a; --amber-dim:#c99a4a; --crt:#12100a;
+    --shadow:0 10px 40px rgba(0,0,0,.55);
+    --f-disp:"Georgia","Times New Roman",serif;
+    --f-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --f-mono:"SF Mono",ui-monospace,"Roboto Mono",Menlo,Consolas,monospace;
+    --safe-t:env(safe-area-inset-top); --safe-b:env(safe-area-inset-bottom);
+    --safe-l:env(safe-area-inset-left); --safe-r:env(safe-area-inset-right);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0;height:100%;width:100%;overflow:hidden}
+  body{
+    background:
+      radial-gradient(1100px 500px at 82% -12%, rgba(162,121,245,.10), transparent 60%),
+      radial-gradient(900px 480px at 8% 112%, rgba(224,69,93,.10), transparent 55%),
+      var(--bg);
+    color:var(--ink); font-family:var(--f-body); line-height:1.5;
+    -webkit-font-smoothing:antialiased; overscroll-behavior:none;
+    -webkit-user-select:none; user-select:none; -webkit-touch-callout:none;
+  }
+  b{color:var(--ink)} i{color:inherit}
+  code{font-family:var(--f-mono);font-size:.92em;background:#0000004d;border:1px solid var(--edge);
+    padding:1px 5px;border-radius:5px;color:var(--amber)}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-thumb{background:#2c2340;border-radius:6px}
+  ::-webkit-scrollbar-track{background:transparent}
+
+  /* ---------------- SPLASH ---------------- */
+  #splash{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;padding:40px 24px;
+    background:radial-gradient(700px 400px at 50% 30%,#1a1330,#08060e 75%);cursor:pointer}
+  #splash .kick{letter-spacing:.34em;text-transform:uppercase;font-size:12px;color:var(--gold);margin-bottom:14px}
+  #splash h1{font-family:var(--f-disp);font-size:clamp(34px,8vw,62px);margin:0 0 6px;line-height:1;
+    background:linear-gradient(90deg,#fff,#d9c9ff 45%,#f0a0b0);-webkit-background-clip:text;background-clip:text;color:transparent}
+  #splash .sub{color:var(--mut);max-width:520px;margin:6px 0 30px;font-size:15px}
+  #splash .go{font-family:var(--f-disp);font-size:19px;color:#1a1206;background:linear-gradient(180deg,#f4cf72,#d9a02f);
+    border:none;border-radius:12px;padding:16px 40px;box-shadow:0 6px 24px rgba(231,181,63,.3);cursor:pointer;font-weight:700}
+  #splash .go:active{transform:translateY(1px)}
+  #splash .hint{margin-top:26px;color:var(--dim);font-size:12.5px;max-width:560px;line-height:1.6}
+  #splash .hint kbd{font-family:var(--f-mono);background:#241c34;border:1px solid var(--edge);
+    border-bottom-width:2px;border-radius:5px;padding:1px 6px;color:var(--ink);font-size:11.5px}
+
+  /* ---------------- APP SHELL ---------------- */
+  #app{display:none;flex-direction:column;height:100%;width:100%;
+    padding:var(--safe-t) var(--safe-r) 0 var(--safe-l)}
+  #app.on{display:flex}
+
+  /* top bar */
+  .topbar{flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:8px 12px;
+    background:linear-gradient(180deg,#171320,#100d18);border-bottom:1px solid var(--edge)}
+  .brand{font-family:var(--f-disp);font-size:15px;font-weight:700;letter-spacing:.02em;white-space:nowrap}
+  .brand .b2{color:var(--gold)}
+  .act-pill{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+    padding:3px 9px;border-radius:999px;border:1px solid;white-space:nowrap}
+  .spacer{flex:1 1 auto}
+  .counter{font-family:var(--f-mono);font-size:12.5px;color:var(--mut);white-space:nowrap}
+  .counter b{color:var(--gold)}
+  .timer{font-family:var(--f-mono);font-size:13px;color:var(--mut);background:#0000003d;border:1px solid var(--edge);
+    border-radius:7px;padding:3px 9px;cursor:pointer;white-space:nowrap}
+  .timer.paused{color:var(--dim);border-style:dashed}
+  .tbtns{display:flex;gap:5px}
+  .tbtn{font-family:var(--f-body);font-size:12px;color:var(--mut);background:#1a1428;border:1px solid var(--edge);
+    border-radius:8px;padding:6px 10px;cursor:pointer;display:flex;align-items:center;gap:5px;white-space:nowrap}
+  .tbtn:hover{color:var(--ink);border-color:var(--dim)}
+  .tbtn .k{font-family:var(--f-mono);font-size:9.5px;color:var(--dim);border:1px solid var(--edge);border-radius:4px;padding:0 4px}
+  @media(max-width:760px){.tbtn .lbl{display:none}.brand{font-size:13px}}
+
+  /* stage */
+  #stage{flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:16px 18px 26px}
+  .slide-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;margin:2px 0 14px}
+  .slide-head .no{font-family:var(--f-mono);font-size:13px;color:var(--gold)}
+  .slide-head h2{font-family:var(--f-disp);font-size:clamp(22px,3.4vw,30px);margin:0;line-height:1.1}
+  .slide-head .where{font-size:12.5px;color:var(--dim);letter-spacing:.02em;text-transform:uppercase;flex-basis:100%}
+
+  .grid2{display:grid;grid-template-columns:1fr 340px;gap:18px;align-items:start}
+  @media(max-width:940px){.grid2{grid-template-columns:1fr}}
+
+  /* teleprompter read box */
+  .read{position:relative;background:
+      repeating-linear-gradient(0deg, rgba(255,207,122,.05) 0 2px, transparent 2px 4px),
+      radial-gradient(120% 120% at 50% 0%, #1a160c, #0d0b06);
+    border:1px solid #3a2f16;border-radius:14px;padding:18px 20px;margin-bottom:18px;box-shadow:inset 0 0 40px rgba(0,0,0,.6)}
+  .read .rl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber-dim);margin-bottom:8px;font-weight:700}
+  .read p{margin:0 0 10px;font-family:var(--f-disp);font-size:clamp(17px,2.5vw,21px);line-height:1.5;color:var(--amber);
+    text-shadow:0 0 14px rgba(255,180,80,.18)}
+  .read p:last-child{margin-bottom:0}
+  .read p b{color:#fff2d6}
+  .read .who{display:inline-block;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:var(--amber-dim);
+    margin-right:8px;text-transform:uppercase}
+
+  .block{margin-bottom:18px}
+  .block > .h{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--mut);
+    margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  .block > .h::after{content:"";flex:1;height:1px;background:var(--edge)}
+
+  /* beats */
+  ul.beats{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+  ul.beats li{position:relative;padding-left:22px;font-size:15px;line-height:1.5;color:var(--mut);max-width:74ch}
+  ul.beats li::before{content:"";position:absolute;left:4px;top:9px;width:7px;height:7px;border-radius:2px;
+    background:var(--purple);transform:rotate(45deg)}
+  ul.beats li b{color:var(--ink)}
+
+  /* checks */
+  .checks{display:flex;flex-direction:column;gap:8px}
+  .check{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid var(--edge);
+    border-radius:10px;padding:10px 12px}
+  .check .cd{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:66px}
+  .check .skill{font-size:12px;font-weight:700;color:var(--blue);text-align:center;line-height:1.2}
+  .check .dc{font-family:var(--f-mono);font-size:15px;color:var(--gold);font-weight:700}
+  .check .dc .sug{color:var(--amber-dim);font-size:11px}
+  .check .cn{font-size:13px;color:var(--mut);line-height:1.45}
+  .check .cn b{color:var(--ink)}
+
+  /* combat */
+  .combat{background:linear-gradient(180deg,#1d1017,#160c11);border:1px solid #4a2530;border-radius:12px;padding:14px 16px}
+  .combat .ct{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;margin-bottom:4px}
+  .combat .ct h4{margin:0;font-family:var(--f-disp);font-size:17px;color:#ffb3bf}
+  .combat .xp{font-family:var(--f-mono);font-size:12px;color:var(--blood);background:#0000004d;border:1px solid #4a2530;
+    padding:2px 8px;border-radius:999px}
+  .combat .cp{font-size:13px;color:var(--mut);margin:6px 0 10px;line-height:1.5}
+  table.stat{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:10px}
+  table.stat th{text-align:left;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);
+    font-weight:600;padding:4px 8px;border-bottom:1px solid var(--edge)}
+  table.stat td{padding:5px 8px;border-bottom:1px solid #ffffff08;color:var(--mut)}
+  table.stat td:first-child{color:var(--ink);font-weight:600}
+  table.stat .mono{font-family:var(--f-mono);color:var(--gold)}
+  .combat .crule{font-size:12.5px;color:#ffc9d0;background:rgba(224,69,93,.09);border-left:3px solid var(--blood);
+    border-radius:0 8px 8px 0;padding:8px 12px;line-height:1.5;margin-bottom:10px}
+  .combat .addinit{font-family:var(--f-body);font-size:12px;color:#1a0c10;background:linear-gradient(180deg,#f08595,#d0526a);
+    border:none;border-radius:8px;padding:8px 14px;font-weight:700;cursor:pointer}
+  .combat .addinit:active{transform:translateY(1px)}
+
+  /* right rail */
+  .rail{display:flex;flex-direction:column;gap:16px;position:sticky;top:0}
+  @media(max-width:940px){.rail{position:static}}
+  .card{background:var(--panel);border:1px solid var(--edge);border-radius:12px;padding:14px 15px}
+  .card .ch{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--mut);margin:0 0 11px}
+
+  .npc{padding:9px 0;border-top:1px solid var(--edge)}
+  .npc:first-of-type{border-top:none;padding-top:0}
+  .npc .nm{font-size:13.5px;font-weight:700;color:var(--ink)}
+  .npc .vc{font-size:12.5px;color:var(--mut);line-height:1.45;margin-top:2px}
+
+  ul.rem{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+  ul.rem li{position:relative;padding-left:24px;font-size:13px;line-height:1.45;color:var(--mut)}
+  ul.rem li::before{content:"\25C6";position:absolute;left:2px;top:1px;color:var(--gold);font-size:11px}
+  ul.rem li b{color:var(--ink)}
+  ul.rem li.hand::before{content:"\270B";color:var(--green)}
+  ul.rem li.rule::before{content:"\26A0";color:var(--blood)}
+  ul.rem li.level::before{content:"\2B06";color:var(--purple)}
+
+  .cuepills{display:flex;flex-wrap:wrap;gap:7px}
+  .cuepill{font-size:12px;color:var(--ink);background:#0000004d;border:1px solid var(--edge);border-radius:999px;
+    padding:6px 12px;cursor:pointer;display:flex;align-items:center;gap:6px}
+  .cuepill:hover{border-color:var(--dim)}
+  .cuepill .dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
+  .cuepill:active{transform:translateY(1px)}
+
+  .open-q{background:rgba(231,181,63,.07);border:1px dashed var(--gold);border-radius:10px;padding:10px 12px;
+    font-size:12.5px;color:var(--mut);line-height:1.5}
+  .open-q b{color:var(--gold)}
+
+  /* nav arrows */
+  .navbtn{position:fixed;top:50%;transform:translateY(-50%);z-index:30;width:44px;height:76px;
+    background:#1a1428cc;border:1px solid var(--edge);color:var(--mut);font-size:22px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+  .navbtn:hover{color:var(--ink);background:#241c34cc}
+  #prev{left:0;border-radius:0 12px 12px 0;border-left:none}
+  #next{right:0;border-radius:12px 0 0 12px;border-right:none}
+  @media(max-width:940px){.navbtn{opacity:.5;width:38px;height:60px}}
+
+  /* ---------------- SOUNDBOARD ---------------- */
+  #board{flex:0 0 auto;background:linear-gradient(180deg,#14101d,#0c0912);border-top:1px solid var(--edge);
+    padding:8px 12px calc(8px + var(--safe-b));display:flex;align-items:center;gap:14px;overflow-x:auto}
+  #board .grp{display:flex;align-items:center;gap:6px;flex:0 0 auto}
+  #board .gl{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);writing-mode:vertical-rl;
+    transform:rotate(180deg);margin-right:2px}
+  .pad{position:relative;min-width:58px;height:52px;border-radius:10px;border:1px solid var(--edge);
+    background:linear-gradient(180deg,#211a30,#171122);color:var(--mut);cursor:pointer;font-size:11px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:4px 8px;flex:0 0 auto}
+  .pad:hover{color:var(--ink);border-color:var(--dim)}
+  .pad:active{transform:translateY(1px)}
+  .pad .ic{font-size:16px;line-height:1}
+  .pad .hk{position:absolute;top:2px;right:4px;font-family:var(--f-mono);font-size:8.5px;color:var(--dim)}
+  .pad.amb.on{background:linear-gradient(180deg,#2a4a3a,#1a3327);border-color:var(--green);color:#d6ffe9;
+    box-shadow:0 0 14px rgba(84,200,148,.35)}
+  .pad.one:active{background:linear-gradient(180deg,#4a2a34,#331a22)}
+  .pad.suggest{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 0 14px rgba(231,181,63,.35);color:#ffe9b8}
+  .pad.suggest .hk{color:var(--gold)}
+  .pad.stop{background:linear-gradient(180deg,#3a2030,#26141d);border-color:var(--blood);color:#ffc9d0}
+  .vol{display:flex;align-items:center;gap:6px;flex:0 0 auto;color:var(--dim);font-size:11px}
+  .vol input{width:80px}
+
+  /* ---------------- OVERLAYS ---------------- */
+  .overlay{position:fixed;inset:0;z-index:60;background:#06040acc;backdrop-filter:blur(6px);
+    display:none;align-items:flex-start;justify-content:center;padding:40px 16px;overflow-y:auto}
+  .overlay.on{display:flex}
+  .sheet{width:100%;max-width:820px;background:var(--panel);border:1px solid var(--edge);border-radius:16px;
+    box-shadow:var(--shadow);overflow:hidden}
+  .sheet .sh{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--edge);
+    background:linear-gradient(180deg,#1b1528,#140f1e)}
+  .sheet .sh h3{margin:0;font-family:var(--f-disp);font-size:20px;flex:1}
+  .sheet .sh .x{width:32px;height:32px;border-radius:8px;border:1px solid var(--edge);background:#1a1428;color:var(--mut);
+    font-size:16px;cursor:pointer}
+  .sheet .sb{padding:18px 20px}
+
+  /* index overlay */
+  .idx-act{margin-bottom:16px}
+  .idx-act .ial{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin:0 0 8px}
+  .idx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+  .idx-item{text-align:left;background:var(--panel2);border:1px solid var(--edge);border-radius:9px;padding:10px 12px;cursor:pointer}
+  .idx-item:hover{border-color:var(--dim)}
+  .idx-item.cur{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+  .idx-item .in{font-family:var(--f-mono);font-size:11px;color:var(--gold)}
+  .idx-item .it{font-size:13.5px;color:var(--ink);font-weight:600;margin-top:2px}
+
+  /* handout checklist */
+  ul.hlist{list-style:none;margin:0;padding:0}
+  ul.hlist li{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--edge);align-items:flex-start;cursor:pointer}
+  ul.hlist li:first-child{border-top:none}
+  .hmark{flex:0 0 auto;width:20px;height:20px;border-radius:6px;border:1.5px solid var(--dim);margin-top:1px;
+    display:grid;place-items:center;font-size:12px;color:transparent}
+  li.done .hmark{background:var(--green);border-color:var(--green);color:#08150f}
+  .hbody .ht{font-size:14.5px;font-weight:600}
+  li.done .hbody .ht{text-decoration:line-through;color:var(--dim)}
+  .hbody .hw{font-size:12.5px;color:var(--mut);margin-top:2px;line-height:1.45}
+  .hbody .hw b{color:var(--ink)}
+  .hnote{font-size:12px;color:var(--dim);margin:0 0 14px;line-height:1.5}
+
+  /* rules */
+  .rule-item{border-top:1px solid var(--edge);padding:12px 0}
+  .rule-item:first-child{border-top:none}
+  .rule-item .rt{font-size:14.5px;font-weight:700;color:var(--blood);margin-bottom:3px}
+  .rule-item .rb{font-size:13px;color:var(--mut);line-height:1.5}
+  .rule-item .rb b{color:var(--ink)}
+  table.budget{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0 12px}
+  table.budget th,table.budget td{padding:6px 8px;border-bottom:1px solid var(--edge);text-align:left}
+  table.budget th{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
+  table.budget td.mono{font-family:var(--f-mono);color:var(--gold)}
+  table.budget td:first-child{color:var(--ink)}
+
+  /* initiative tracker */
+  .init-add{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+  .init-add input{background:#0000004d;border:1px solid var(--edge);border-radius:8px;padding:9px 11px;color:var(--ink);
+    font-family:var(--f-body);font-size:14px}
+  .init-add input.nm{flex:1 1 160px;min-width:120px}
+  .init-add input.iv{width:72px;text-align:center;font-family:var(--f-mono)}
+  .init-add button{background:linear-gradient(180deg,#6d5aa8,#4a3a7a);border:none;border-radius:8px;color:#fff;
+    padding:9px 16px;font-weight:700;cursor:pointer;font-size:14px}
+  .init-row{display:flex;align-items:center;gap:12px;padding:11px 12px;border:1px solid var(--edge);border-radius:10px;
+    margin-bottom:7px;background:var(--panel2)}
+  .init-row.active{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold);background:#241c10}
+  .init-row .iiv{font-family:var(--f-mono);font-size:17px;color:var(--gold);width:32px;text-align:center;font-weight:700}
+  .init-row .inm{flex:1;font-size:15px;font-weight:600}
+  .init-row .ihp{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--mut)}
+  .init-row .ihp input{width:52px;background:#0000004d;border:1px solid var(--edge);border-radius:6px;color:var(--ink);
+    padding:4px 6px;font-family:var(--f-mono);text-align:center;font-size:13px}
+  .init-row .idel{background:none;border:none;color:var(--dim);cursor:pointer;font-size:16px}
+  .init-row .idel:hover{color:var(--blood)}
+  .init-bar{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+  .init-bar button{background:#1a1428;border:1px solid var(--edge);border-radius:8px;color:var(--mut);padding:8px 14px;
+    cursor:pointer;font-size:13px;font-weight:600}
+  .init-bar button:hover{color:var(--ink);border-color:var(--dim)}
+  .init-bar .round{font-family:var(--f-mono);font-size:13px;color:var(--gold)}
+  .init-empty{color:var(--dim);font-style:italic;font-size:13px;text-align:center;padding:20px}
+
+  /* dice toast */
+  #dice{position:fixed;z-index:70;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);
+    background:#1b1528ee;border:1px solid var(--edge);border-radius:14px;padding:14px 22px;box-shadow:var(--shadow);
+    display:flex;align-items:center;gap:16px;opacity:0;pointer-events:none;transition:.2s}
+  #dice.on{opacity:1;transform:translateX(-50%) translateY(0)}
+  #dice .total{font-family:var(--f-disp);font-size:38px;font-weight:700;color:var(--gold);min-width:56px;text-align:center}
+  #dice .total.crit{color:var(--green)} #dice .total.fumble{color:var(--blood)}
+  #dice .dd{font-size:12px;color:var(--mut);line-height:1.4}
+  #dice .dd b{color:var(--ink)}
+  #dice .adv{display:flex;gap:6px;margin-top:6px}
+  #dice .adv button{font-size:11px;background:#0000004d;border:1px solid var(--edge);border-radius:6px;color:var(--mut);
+    padding:4px 9px;cursor:pointer}
+  #dice .adv button.on{background:var(--gold);color:#1a1206;border-color:var(--gold);font-weight:700}
+
+  .canon-note{font-size:11.5px;color:var(--dim);line-height:1.5;background:#0000002d;border:1px solid var(--edge);
+    border-radius:8px;padding:9px 12px;margin-top:6px}
+  .canon-note b{color:var(--amber-dim)}
+</style>
+</head>
+<body>
+
+<!-- ================= SPLASH ================= -->
+<div id="splash">
+  <div class="kick">Dungeon Master · Run of Show</div>
+  <h1>Dood Mansion</h1>
+  <p class="sub">A cue-to-cue prompt book for running the two-night haunt. Read-aloud, beats, checks, combat, hand-outs and a live soundboard — everything you need to run the moment.</p>
+  <button class="go" id="beginBtn">Take the booth &rsaquo;</button>
+  <p class="hint">
+    <kbd>&larr;</kbd> <kbd>&rarr;</kbd> turn cues &nbsp;·&nbsp; <kbd>1</kbd>&ndash;<kbd>0</kbd> soundboard &nbsp;·&nbsp;
+    <kbd>i</kbd> index &nbsp;·&nbsp; <kbd>t</kbd> initiative &nbsp;·&nbsp; <kbd>h</kbd> hand-outs &nbsp;·&nbsp;
+    <kbd>r</kbd> rules &nbsp;·&nbsp; <kbd>d</kbd> roll d20 &nbsp;·&nbsp; <kbd>Esc</kbd> silence / close<br>
+    Tapping in unlocks the synthesized audio (Web Audio, no files — works offline on the iPad).
+  </p>
+</div>
+
+<!-- ================= APP ================= -->
+<div id="app">
+  <div class="topbar">
+    <span class="brand">Dood Mansion <span class="b2">· Run of Show</span></span>
+    <span class="act-pill" id="actPill"></span>
+    <span class="spacer"></span>
+    <span class="counter" id="counter"></span>
+    <span class="timer" id="timer" title="Tap to pause / resume">00:00</span>
+    <div class="tbtns">
+      <button class="tbtn" data-ov="index"><span class="lbl">Index</span><span class="k">I</span></button>
+      <button class="tbtn" data-ov="tracker"><span class="lbl">Initiative</span><span class="k">T</span></button>
+      <button class="tbtn" data-ov="handouts"><span class="lbl">Hand-outs</span><span class="k">H</span></button>
+      <button class="tbtn" data-ov="rules"><span class="lbl">Rules</span><span class="k">R</span></button>
+      <button class="tbtn" id="fsBtn"><span class="lbl">Full</span><span class="k">F</span></button>
+    </div>
+  </div>
+
+  <div id="stage"></div>
+
+  <button class="navbtn" id="prev" aria-label="Previous">&#8249;</button>
+  <button class="navbtn" id="next" aria-label="Next">&#8250;</button>
+
+  <div id="board"></div>
+</div>
+
+<!-- overlays -->
+<div class="overlay" id="ov-index"><div class="sheet">
+  <div class="sh"><h3>Scene index</h3><button class="x" data-close>&times;</button></div>
+  <div class="sb" id="indexBody"></div>
+</div></div>
+
+<div class="overlay" id="ov-handouts"><div class="sheet">
+  <div class="sh"><h3>Physical hand-outs &amp; props</h3><button class="x" data-close>&times;</button></div>
+  <div class="sb">
+    <p class="hnote">Everything to have in reach before you sit down. Tap to check off as it hits the table. Saved on this device.</p>
+    <ul class="hlist" id="handoutBody"></ul>
+  </div>
+</div></div>
+
+<div class="overlay" id="ov-rules"><div class="sheet">
+  <div class="sh"><h3>House rules &amp; XP budgets</h3><button class="x" data-close>&times;</button></div>
+  <div class="sb" id="rulesBody"></div>
+</div></div>
+
+<div class="overlay" id="ov-tracker"><div class="sheet">
+  <div class="sh"><h3>Initiative</h3><button class="x" data-close>&times;</button></div>
+  <div class="sb">
+    <div class="init-add">
+      <input class="nm" id="iNm" placeholder="Name (e.g. Archival shears A)">
+      <input class="iv" id="iIv" placeholder="init" inputmode="numeric">
+      <button id="iAdd">Add</button>
+    </div>
+    <div class="init-bar">
+      <button id="iNext">Next turn &rsaquo;</button>
+      <span class="round">Round <b id="iRound">1</b></span>
+      <span class="spacer"></span>
+      <button id="iSort">Sort</button>
+      <button id="iClear">Clear</button>
+    </div>
+    <div id="initBody"></div>
+  </div>
+</div></div>
+
+<div id="dice">
+  <div class="total" id="dTotal">&mdash;</div>
+  <div>
+    <div class="dd" id="dDetail">Press <b>d</b> or tap to roll a d20</div>
+    <div class="adv">
+      <button data-mode="norm" class="on">Flat</button>
+      <button data-mode="adv">Advantage</button>
+      <button data-mode="dis">Disadvantage</button>
+      <button data-mode="reroll" style="font-weight:700;color:var(--gold)">Roll d20</button>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+/* =====================================================================
+   DOOD MANSION — RUN OF SHOW  (DM day-of prompt book)
+   Content distilled from /codex/. Read-aloud/cues are codex-sourced DM
+   suggestions; skill-check DCs marked with * are proposals, not canon.
+   ===================================================================== */
+
+/* -------- soundboard cue map: key -> board button index (set later) -------- */
+const CUE_LABEL = {
+  drone:"House drone", rain:"Rain / wind", record:"Record skip", heart:"Heartbeat",
+  crowd:"Crowd murmur", candle:"Candles", aim:"AIM chime", jump:"Jump scare",
+  braaam:"Braaam", bell:"3AM bell", riser:"Tension riser", pa:"PA / feedback",
+  scratch:"Record scratch", levelup:"Level-up", dice:"Dice clatter"
+};
+
+/* ============================= SCENES ============================= */
+const ACTS = {
+  set:    {label:"Set-up",      color:"var(--gray)"},
+  town:   {label:"Sat · Town",  color:"var(--purple)"},
+  night:  {label:"Sat · Night", color:"var(--blood)"},
+  sunday: {label:"Sunday",      color:"var(--green)"},
+  finale: {label:"Finale",      color:"var(--gold)"}
+};
+
+const SCENES = [
+{ act:"set", no:"PREP", title:"On the table before you start", where:"Session zero of the night",
+  read:[{t:"Five kids. Two nights. One house that bolts its doors. Everything below is a physical object you want in reach — the story leans on hand-offs."}],
+  beats:[
+    "<b>Party is level 4</b>, leveling to <b>5</b> at the end of night one. Everything Sunday is built for five level-5 PCs.",
+    "<b>Sunday's four rooms run in any order</b> — Study (Gnomey), Party room (Bix &amp; Yobo), Computer (Simone), Cellar (Cody). The corridor set-piece is cut.",
+    "Only <b>five people</b> are invited (7PM card). The <b>3AM flyer is public</b> — that's when the house fills up for the show.",
+    "Open the <b>Rules</b> panel (<code>R</code>) for the four hard rules and the XP budgets before combat."
+  ],
+  npcs:[],
+  reminders:[
+    {t:"Hand Julia a real <b>blue poker chip</b> at session one and never explain it.", k:"hand"},
+    {t:"Printed <b>invite card</b> for the locker letters &mdash; prop at <code>/invite/</code>.", k:"hand"},
+    {t:"<b>AIM sticky note</b> reading <code>Fluffy123</code>, in handwriting, findable in the house.", k:"hand"},
+    {t:"A real <b>USB stick</b> with <code>scream_test_03_GOOD.wav</code> &mdash; set its volume label to the kid's name.", k:"hand"},
+    {t:"The <b>wishing willow</b> token: <i>I want Angelique to notice me</i>, in twelve-year-old hand.", k:"hand"},
+    {t:"<b>Russ's badge card</b> (<code>/badge/</code>) plus a real merit badge to pin on Cody at the very end.", k:"hand"},
+    {t:"iPad loaded with the props: <code>/puzzle/</code> <code>/settlement/</code> <code>/photo/</code> <code>/party-room/</code> <code>/aim/</code> (set <code>?name=</code> first).", k:""}
+  ],
+  cues:[] },
+
+{ act:"town", no:1, title:"History class", where:"Fantasy high school · the bookend opens",
+  read:[{who:"Bell", t:"That's the bell. You've got about four minutes to hit your locker and get to next period."}],
+  beats:[
+    "The teacher groups the super-seniors for a <b>local-history / folklore project</b> &mdash; the motivation to investigate, and the bookend they return to at the end.",
+    "Why these five are together: <b>senior skip day, and nobody told them.</b> Breakfast Club. Being singled out as a group has already happened to them once.",
+    "Land the constraint on the way out &mdash; <b>a primary source, not the internet</b> &mdash; so the Hall of Records is on the board before any card shows up."
+  ],
+  npcs:[
+    {nm:"History Teacher", vc:"Assigns the project. <b>Not</b> the teacher who believes in Gnomey &mdash; those are two different people."}
+  ],
+  reminders:[{t:"This is the loop you close in the finale: they present the artifact (the tape) back to this class.", k:""}],
+  cues:[] },
+
+{ act:"town", no:2, title:"Letters in the lockers", where:"Smash cut",
+  read:[{t:"It's barely noon. The card says <b>seven</b>. And not one of you has ever heard the name <b>Dood</b> before."}],
+  beats:[
+    "Everyone finds a mysterious invitation to a haunted house at the abandoned Dutch mansion. 7PM sharp.",
+    "<b>Nobody else got a card.</b> Finding that out is the strongest push toward town there is.",
+    "If they march up the hill early: the front is <b>still boarded at this hour</b> and bounces them back &mdash; which is the point. The boards come off during the day.",
+    "<b>If they don't bite, hand a detour to a PC:</b> tell <b>Bix</b> the Records Keeper knows old names; tell <b>Gnomey</b> the old crew at the gazebo will already know."
+  ],
+  npcs:[],
+  reminders:[
+    {t:"Hand out the printed <b>invite</b> (<code>/invite/</code>) &mdash; its mass-flyer voice is deliberate camouflage.", k:"hand"},
+    {t:"Julia has had the <b>blue chip</b> in her pocket since session one.", k:""}
+  ],
+  cues:[] },
+
+{ act:"town", no:3, title:"The library &amp; hall of records", where:"Town · the clincher · Saturday's town fight",
+  read:[{who:"Records Keeper", t:"You can try to put it back together. But I'm guessing, by the magic on them &mdash; someone doesn't want you finding that information."}],
+  beats:[
+    "The clincher lives here: <b>Frisian folklore</b>, the <b>vampire-slaying method</b> (dig up the coffins, stake the heart, rebury), and the <b>Records Keeper's warning</b> &mdash; the one NPC who tells them to stay away.",
+    "The bound volume is <b>intact</b> when she hands it over. Opening it springs Ostrander's trap and the stationery comes to life and goes for the article.",
+    "By the time it's dealt with the page is in pieces &mdash; <b>that's where the torn-page prop comes from.</b>",
+    "In the back pocket of the volume: a checkout card, four names &mdash; <b>U.M. Livingsworth III</b> (Poe Boy's real name), <b>V. Soprano 1938</b>, <b>W. Ostrander</b>.",
+    "<b>Springing the trap also summons Ostrander</b> &mdash; it tells him someone's been in his records, and he drives out to the house that night. The party never learns this."
+  ],
+  checks:[
+    {skill:"Investigation / History", dc:"12", sug:true, note:"Assemble the slaying method from the folklore: coffins, stake, rebury."},
+    {skill:"Insight", dc:"13", sug:true, note:"Clock that the Records Keeper is genuinely <b>warning</b> them, not flavor."}
+  ],
+  combat:{ name:"The trap in the binding", xp:"500 XP · 2.5 CR",
+    p:"The shears <b>ignore the party</b> and go for the article; they only hurt someone who physically interposes. Two shears = two approach lanes to body-block.",
+    rows:[
+      ["Archival shears &times;2","CR &frac12;","&mdash;","&mdash;","Cut the article; interpose to stop them"],
+      ["Swarm of index cards","CR &frac12;","&mdash;","&mdash;","Pressure / area"],
+      ["The book cart","CR 1","&mdash;","&mdash;","Bruiser"]
+    ],
+    rule:"<b>The first cut is the trigger, not an action</b> &mdash; before initiative. Count the cuts: that sets the puzzle. 1&ndash;2 &rarr; 9 pieces, 3&ndash;4 &rarr; 16, 5+ &rarr; 25. It <b>contains and erases; it does not kill.</b>",
+    monsters:[{n:"Archival shears A",cr:""},{n:"Archival shears B",cr:""},{n:"Index-card swarm",cr:""},{n:"Book cart",cr:""}] },
+  npcs:[
+    {nm:"Records Keeper", vc:"The Harbinger with a modern spin. Hands over the volume intact, then warns them off. Beyond that, unwritten &mdash; play to taste."}
+  ],
+  reminders:[
+    {t:"After the fight, open the iPad on <code>/puzzle/</code>'s setup screen &mdash; tap the bracket and set the piece count from the cut count.", k:"hand"},
+    {t:"The town is no longer combat-free, and Saturday's fight is here, not the mansion.", k:""}
+  ],
+  cues:["riser","jump","dice"] },
+
+{ act:"town", no:4, title:"The gazebo", where:"Town · the bad kids",
+  read:[{t:"Whoever's wearing a watch &mdash; it's <b>ten to seven</b>. That's the time on the card."}],
+  beats:[
+    "Meet <b>DJ Poe Boy</b> and his entourage. <b>Angelique tries to warn them and can't</b> &mdash; the crew is standing right there. Play it as a look, a swallowed half-sentence.",
+    "Poe Boy can't help showing off, and every brag is a confession: <i>&ldquo;I spin up there sometimes&rdquo;</i> &middot; <i>&ldquo;wait till you see what I've done with the ballroom&rdquo;</i> &middot; <i>&ldquo;stick around till three.&rdquo;</i>",
+    "<b>The tell is what he leaves out:</b> he never mentions the <b>other</b> room upstairs he keeps gear in &mdash; the one he hasn't been back into. Nobody notices now; they notice later.",
+    "<b>Yobo's arc opens:</b> the crew clocks him &mdash; <i>&ldquo;you're the Dolly Parton guy, do a little riff.&rdquo;</i>"
+  ],
+  checks:[
+    {skill:"Performance", dc:"secret", sug:true, note:"<b>Yobo only, in secret, at disadvantage.</b> Juggling the lie is the debuff. Hand him a note that something inside makes it inauthentic; reveal a line as each beat comes up."},
+    {skill:"Insight", dc:"14", sug:true, note:"Sense the brags are confessions, or that Angelique is holding something back."}
+  ],
+  npcs:[
+    {nm:"DJ Poe Boy", vc:"Kenku &mdash; <b>voice him only in borrowed / sampled lines.</b> Glamour-charming, subversive, real cred. Showing off is the crime leaking out."},
+    {nm:"Angelique", vc:"Wants them warned, can't say it out loud. A held breath, not exposition."}
+  ],
+  reminders:[
+    {t:"By now the <b>boards are off the front door</b>, stacked neat against the porch rail &mdash; the only change to the house in decades. That's the invitation.", k:""},
+    {t:"If they sprang the records trap, Ostrander is already in his car.", k:""}
+  ],
+  cues:["crowd"] },
+
+{ act:"night", no:5, title:"Enter Dood Mansion", where:"The trap springs · everything from here is inside",
+  read:[{t:"That's a bolt throwing behind you. Footsteps overhead &mdash; and a hand comes out of the dark, grabs your sleeve, and pulls you down. It's <b>Angelique</b>."}],
+  beats:[
+    "They go in on pure curiosity, <b>through a front door boarded for decades that isn't any more</b> &mdash; and the doors bolt shut behind them.",
+    "Angelique reaches them first and tells them to hide. <b>Don't let her explain yet</b> &mdash; &ldquo;hiding from what&rdquo; is the investigation's first question. Make them earn it.",
+    "7PM card vs the 3AM flyer = <b>eight hours of house</b> between them.",
+    "<b>If they try to walk out:</b> the door doesn't move (<i>no bolt on your side to throw</i>); Angelique &mdash; <i>&ldquo;Go on then. You'll just have to walk back past whatever I walked past.&rdquo;</i>"
+  ],
+  npcs:[
+    {nm:"Angelique", vc:"A frightened stranger who won't say why she came. Worth far more than an exposition tap. She has her own reason for being here."}
+  ],
+  reminders:[
+    {t:"The doors bolting is canon &mdash; state it flatly, once. It doesn't need justifying.", k:"rule"}
+  ],
+  cues:["jump","drone"] },
+
+{ act:"night", no:6, title:"First vampire encounter", where:"No fight &mdash; a performance · scripted end to end",
+  read:[
+    {who:"Dracula", t:"Five. He said five, and there are five. The boy's finally learning to count."},
+    {who:"Edward", t:"One of them is a child."},
+    {who:"Dracula", t:"They're all children. That's rather the point."},
+    {who:"Orlok", t:"Have our meals been fed?"},
+    {who:"Dracula", t:"Not yet I don't think."},
+    {who:"Orlok", t:"See to it before we begin. I won't have them distracted."},
+    {who:"Orlok · dismissal", t:"The night is young. It would be terribly rude to be finished with you already&hellip; Go on. Have a look around. We'll find you when we're ready."}
+  ],
+  beats:[
+    "The vamps are <b>hosts doing a job they agreed to</b> &mdash; they think this is the big scare that saves their house, and they have no idea anyone ever died here.",
+    "<b>Bix beat 1 of 3:</b> they catch Edward <b>glimmering</b> in the moonlight. The Twilight joke, and the first frame of a reveal. Let it be the silly one.",
+    "Sequence: <b>1</b> Hide (Stealth) &rarr; <b>2</b> the overheard argument, every line true and damning &rarr; <b>3</b> explore under recurring stealth &rarr; <b>4</b> Dracula swoops, grapples &amp; shoves, <b>no damage</b> &rarr; <b>5</b> Orlok ends it with <b>one word</b> &rarr; <b>6</b> he dismisses them.",
+    "Every word of the dismissal is both a threat and an accurate description of a haunted-house attraction. The party hears one thing and tears the house apart looking for an exit &mdash; exactly where you want them."
+  ],
+  checks:[
+    {skill:"Stealth", dc:"13", sug:true, note:"Hide when Angelique pulls them down; then recurring &mdash; eventually someone rolls badly."},
+    {skill:"Insight", dc:"&mdash;", sug:false, note:"They'll <b>misread</b> this as being hunted. Good. Let them. The mechanics are the real clue: the monsters never roll damage."}
+  ],
+  combat:{ name:"Enemy contact — NOT a fight", xp:"Pressure scene",
+    p:"The vampires grapple, shove and frighten and <b>cannot kill a PC</b> &mdash; no Bite, no damage, nobody below 1 HP. A pressure scene, not an encounter to win.",
+    rows:[], rule:"Do <b>not</b> let Orlok discover the locked doors or explain anything &mdash; he decided the doors and owns the building.", monsters:[] },
+  npcs:[
+    {nm:"Dracula", vc:"Campy, theatrical, lays hands on them &mdash; and enjoys it far too much. Stops the instant Orlok speaks."},
+    {nm:"Orlok", vc:"Patience, not menace. Impeccable courtesy while doing something appalling. One syllable is the whole hierarchy."},
+    {nm:"Edward", vc:"Watches Bix. Does not approach. Knows exactly who he is."}
+  ],
+  reminders:[
+    {t:"Vampires <b>cannot kill a PC</b> here or in phase one. The rule is the clue.", k:"rule"}
+  ],
+  cues:["drone","heart","jump","braaam"] },
+
+{ act:"night", no:7, title:"Russ and the spectacles", where:"Saturday night · Cody · badge req 1 of 3",
+  read:[{t:"Spectacles handed over, not a word of thanks. Behind him the house goes dark in every direction."}],
+  beats:[
+    "<b>Badge req 1: &ldquo;lend a hand with something out of reach.&rdquo;</b> Orlok stands frozen at the edge of a sunbeam that's crept onto his <b>spectacles</b> on the sill. A vampire can't cross the light &mdash; he's been waiting hours.",
+    "Russ walks into the light and hands them over &mdash; <b>no roll, that's the point.</b> A two-second favour for a warm kid, impossible for Orlok.",
+    "Orlok takes them without thanks. When Russ points at the &ldquo;verified by your elder&rdquo; line he <b>flatly refuses to sign</b> &mdash; refusal 1 of 3. Keep him cold; the only crack is that the kid didn't flinch and wanted nothing."
+  ],
+  checks:[
+    {skill:"Insight / Perception", dc:"10", sug:true, note:"Optional &mdash; lets a player clock <i>why</i> he's stuck at the light."}
+  ],
+  npcs:[
+    {nm:"Orlok", vc:"Cold. Takes the favour, gives nothing back. Won't sign the card."}
+  ],
+  reminders:[
+    {t:"Show Russ's badge card (<code>/badge/</code>). This also plants the infirmary &mdash; he'll want the specs for fine vet work downstairs.", k:""},
+    {t:"Refusal 1 of 3.", k:""}
+  ],
+  cues:[] },
+
+{ act:"night", no:8, title:"Edward spies on them", where:"Saturday night · Bix · beat 2 of 3",
+  read:[{t:"A door on the top floor you haven't tried is warm to the touch &mdash; and something on the other side of it is breathing."}],
+  beats:[
+    "<b>Bix beat 2 of 3:</b> they catch Edward spying, specifically watching <b>Bix</b>. Play it as a horror beat first &mdash; the read should be <i>the vampire has picked one of us</i>.",
+    "Let them be wrong about it for as long as possible. <b>Edward does not explain himself tonight</b> &mdash; that's the epilogue, and holding it is what makes it land.",
+    "Route them to the sealed room upstairs. The fight is the button on Saturday night."
+  ],
+  npcs:[
+    {nm:"Edward", vc:"Has known who Bix is since they walked in. Watches, doesn't approach. Let him be caught at it twice."}
+  ],
+  reminders:[],
+  cues:["drone","heart","riser"] },
+
+{ act:"night", no:9, title:"The botched summoning", where:"Saturday, late · combat · the Night 1 closer",
+  read:[{who:"On the kill", t:"A monitor deep in the house flickers on by itself. The old AIM chime carries down the hall. One line types itself across a screen nobody is sitting at &mdash; <b>&ldquo;is someone there&rdquo;</b> &mdash; then it goes dark."}],
+  beats:[
+    "Saturday's one mansion fight and the button on Night 1. <b>Poe Boy's second botched ritual</b> &mdash; visibly <b>incomplete</b>, wrong in a way that reads as <i>made</i> rather than born.",
+    "<b>It claws toward one sealed door the whole fight.</b> That pull is the clue: it proves the house will hurt them, and it plants hard that the dangerous things here are <b>human-made</b>.",
+    "In the wreckage: a half-drawn ritual circle and a notebook in a handwriting they'll meet tomorrow.",
+    "<b>End the night the instant the screen dies.</b> Do not let them reach the room tonight. Two questions to drag them back: who's typing, and who's the person behind all this."
+  ],
+  checks:[
+    {skill:"Arcana", dc:"14", sug:true, note:"Recognize it as an <b>incomplete, human-made</b> summoning &mdash; the planted clue."}
+  ],
+  combat:{ name:"The botched summoning", xp:"~1,500 XP · ~40 min",
+    p:"Add <b>minions, not hit points.</b> A lone solo at this tier plays as a coin flip. Keep it bound to its room and straining toward the sealed door.",
+    rows:[
+      ["Botched summoning (solo)","CR 4","statting","&mdash;","Bound to the room; claws upstairs"],
+      ["Ritual fragments &times;4","CR &frac12;","statting","&mdash;","Minions"]
+    ],
+    rule:"Every number is a proposal &mdash; see the Rules panel. This is the last fight before the level 4 &rarr; 5 jump.",
+    monsters:[{n:"Botched summoning"},{n:"Fragment 1"},{n:"Fragment 2"},{n:"Fragment 3"},{n:"Fragment 4"}] },
+  npcs:[],
+  reminders:[
+    {t:"<b>End of session one &mdash; everyone levels to 5.</b>", k:"level"},
+    {t:"Fire the <b>AIM chime</b> as the screen wakes, then kill all sound.", k:""}
+  ],
+  cues:["heart","jump","aim","levelup"] },
+
+{ act:"sunday", no:10, title:"The study", where:"Sunday morning · Gnomey · any-order room",
+  read:[{t:"He's read it three times. The name on the deed is his."}],
+  beats:[
+    "Sunday opens on <b>four per-PC rooms in any order.</b> This one is Gnomey's.",
+    "The study, sealed since the thirties: a poker set exactly <b>one chip short</b>, the last hand still on the table, and a strongbox holding the deed and the signed <b>Articles of Settlement</b> with the bearer clause spelled out.",
+    "<b>Run it before anything exonerates the vampires</b>, so Gnomey discovers he owns a house full of things he still believes are killers &mdash; and has all of Sunday to sit on it.",
+    "<b>Make sure Gnomey is alone.</b> The climax isn't the discovery &mdash; it's walking back into a room full of people who've never looked at him and saying it out loud. Give Julia the secret; let her choose when to spend it.",
+    "The door is <b>deliberately undefined.</b> When you design it, it must be a <b>whole-party</b> problem."
+  ],
+  checks:[
+    {skill:"Investigation", dc:"12", sug:true, note:"Connect the missing chip to the one in Julia's pocket. If nobody does: <b>put the gap in front of them physically</b> &mdash; 49 chips, one gap, the size of the one in her pocket."}
+  ],
+  npcs:[],
+  reminders:[
+    {t:"Show <code>/settlement/</code> on the iPad (tap to unfold). The bearer paragraph is the <b>only one on the page with no corrections</b>.", k:"hand"},
+    {t:"The chip <b>cannot be lost, taken, pickpocketed or Commanded away.</b> The whole arc dies on one bad roll.", k:"rule"}
+  ],
+  cues:[] },
+
+{ act:"sunday", no:11, title:"The party room", where:"Sunday · Bix &amp; Yobo · any-order room",
+  read:[{t:"The photograph's in hand and the ghost-party has gone still again."}],
+  beats:[
+    "The night Edward and Goblinenon's cart broke down and they found two vampires partying. Bottles, a record still on the turntable, forty years of dust on somebody's good night.",
+    "<b>Bix beat 3 of 3:</b> he finds the <b>photograph</b> &mdash; two vampires mugging, a pregnant goblin laughing, a fae with no fangs. <b>Hand him the iPad and say nothing.</b> There's writing on the back in her hand.",
+    "<b>Yobo's turn, three layers &mdash; 1 Blend in:</b> the frozen party wakes and treats the PCs as guests; match the revelers or the <b>Revel meter</b> ticks toward hostile. Masked Yobo's Deception edge actually helps here.",
+    "<b>2 Restore the moment:</b> recreate the photograph's tableau &mdash; cue the gramophone, light the candles in order, guests to their marks. <b>Bix's photo is the key.</b>",
+    "<b>3 The song:</b> the host calls for entertainment and only Yobo can give it. Reward a <b>true</b> performance, not a high roll &mdash; with Dracula pushing, he drops the Dolly-Parton lie, the party erupts, and his debuff flips to a buff for the rest of the campaign."
+  ],
+  checks:[
+    {skill:"Deception", dc:"&mdash;", sug:false, note:"<b>Yobo &mdash; helps him blend in</b> while masked. The one place the lie is an asset."},
+    {skill:"Performance", dc:"true>high", sug:true, note:"The song. Reward <b>honesty over the number</b>. A masked turn curdles the ghosts (the scare); a true one opens the way."}
+  ],
+  npcs:[
+    {nm:"Dracula", vc:"Pushes Yobo to drop the act. The catalyst for the buff flip."}
+  ],
+  reminders:[
+    {t:"Props: <code>/photo/</code> and <code>/party-room/</code>. Bix's find and Yobo's turn are <b>one puzzle</b>.", k:"hand"},
+    {t:"Yobo's Performance / Inspiration buff is <b>permanent</b> after this.", k:"level"}
+  ],
+  cues:["record","crowd","candle","braaam"] },
+
+{ act:"sunday", no:12, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · any-order room",
+  read:[{who:"The Spirit", t:"my bag is still in this room. by the desk under the coats. can you get it"}],
+  beats:[
+    "<b>0 &mdash; log in first.</b> Sign-on screen, account saved as <code>DJPoeBoy187</code>, empty password. <b>Hand them the sticky note:</b> <code>Fluffy123</code> (his cat). Any capitalisation works; wrong answers get the real AIM error, unlimited tries.",
+    "<b>They type as the killer the whole conversation.</b> The boy sees that handle come online and comes apart before he works out it isn't him. <i>&ldquo;youre not typing like him&rdquo;</i> is what saves it.",
+    "He was lured by a fake screen name, chased, and <b>soul-caged when Poe Boy shut the door</b>. He was <b>killed by a human</b> &mdash; the thread that clears the vampires. He can name his killer but stops short of the murder accusation (that lands later).",
+    "<b>The bag has two things, order matters. 1 &mdash; the wishing willow:</b> Simone sold it to him at twelve; <i>I want Angelique to notice me</i>; it worked &mdash; that's why Angelique knew him.",
+    "<b>2 &mdash; the thumb drive:</b> plug it in and it <b>mounts under his name</b> &mdash; how the table learns who he is (set it with <code>/aim/?name=___</code>). He uploads <code>scream_test_03_GOOD.wav</code> over AIM's file-transfer window. First ask: <b>expose him. Hand the players a real USB stick.</b>",
+    "<b>Second ask &mdash; <i>can you get me out of here.</i></b> The goat appears (he sees it, Simone can't); the price is the piggy bank. <b>The goat joins the chat</b> &mdash; theme flips dark, sounds distort &mdash; then parks on the hold node so you play the price at the table."
+  ],
+  checks:[
+    {skill:"Roleplay, not a roll", dc:"&mdash;", sug:false, note:"<i>&ldquo;youre not typing like him&rdquo;</i> is character, not a check. When the drive mounts, Simone &amp; Angelique realize it's the same boy."}
+  ],
+  npcs:[
+    {nm:"The Spirit", vc:"Frightened, types lowercase. Comes apart at Poe Boy's handle. Offers his one wish rather than risk them logging off."},
+    {nm:"The Devil (Goat)", vc:"Serif, capitals, full stops &mdash; never raised on a keyboard. Asked what it wants the money for: <b>&ldquo;No.&rdquo;</b> and nothing else."}
+  ],
+  reminders:[
+    {t:"Set the kid's name in the URL first: <code>/aim/?name=___</code>.", k:"hand"},
+    {t:"Hand the players a <b>real USB stick</b> here.", k:"hand"},
+    {t:"<b>Nothing plot-critical hangs on Simone's yes.</b> The recording, the name and the drive are already theirs. A no costs nothing but him &mdash; the machine goes dark at sunrise. <b>Do not fudge it.</b>", k:"rule"}
+  ],
+  cues:["aim","drone","heart","braaam"] },
+
+{ act:"sunday", no:13, title:"Food-stash puzzle &amp; the infirmary", where:"The cellar · Cody · badge req 2 of 3",
+  read:[{who:"Ending the room", t:"It's three in the morning &mdash; and every speaker in this house just came on at once."}],
+  beats:[
+    "A puzzle reveals the vampires' food stash &mdash; the surprise being it's <b>small animals, not people</b>. Solving it releases a key to a hidden room. <b>This is the proof that clears the vamps.</b>",
+    "The hidden room is an <b>animal infirmary, and Orlok is a vet.</b> Straw-lined crates of healing patients &mdash; a fox in a splint, an owl with a wrapped wing &mdash; bandages, a mortar and pestle, a ledger. He mends them; they give a little blood in return.",
+    "(Vinny's forty-year-old liquor crates are still stacked at the back &mdash; this is Gnomey's cellar too.)",
+    "<b>Badge req 2: &ldquo;tend your elder's garden.&rdquo;</b> Russ kneels to a patient and <b>Speak with Animals is where the exoneration lands</b> &mdash; they're grateful, not afraid, and no vampire is required to vouch.",
+    "Dead ghost-white <b>Sun's-mercy</b> seedlings strain toward light that isn't there. Russ moves them into the cellar's one blade of daylight; they open gold and he dresses a wound. Orlok watches a child do in an afternoon what beat him for a century &mdash; and <b>still won't sign</b> (refusal 2 of 3)."
+  ],
+  checks:[
+    {skill:"The puzzle", dc:"DM-run", sug:false, note:"Solve it to release the key to the hidden room."},
+    {skill:"Nature / Plant Growth", dc:"14", sug:true, note:"Bloom the Sun's-mercy in the blade of daylight (or a spell slot)."},
+    {skill:"Speak with Animals", dc:"auto", sug:false, note:"The patients aren't prey &mdash; this is the beat that <b>exonerates the vampires</b>."}
+  ],
+  npcs:[
+    {nm:"Orlok", vc:"A vet, not a killer. Watches the kid succeed where he failed for a century. Cold. Refusal 2 of 3."}
+  ],
+  reminders:[
+    {t:"The flyer's <b>3AM</b> is the fight's starting gun &mdash; it puts a clock on the whole second half.", k:""},
+    {t:"Because only five were invited, <b>Poe Boy knows exactly who's here</b> and opens the show by naming them.", k:""},
+    {t:"Refusal 2 of 3.", k:""}
+  ],
+  cues:["bell","pa","jump"] },
+
+{ act:"finale", no:"14 · i", title:"Climax — Phase 1: the vampires attack", where:"The ballroom · 3AM · the crowd arrives with the show",
+  read:[{who:"Poe Boy, on the mic", t:"He names all five of them &mdash; and tells the vampires the party are the mall company's people. The same lie that killed the kid."}],
+  beats:[
+    "Venue: the <b>ballroom / great hall</b>, rigged as a stage. Poe Boy's decks are here; the speakers run through the house are what came on at 3AM.",
+    "The control is <b>manipulation, not mind control</b> &mdash; he tells the vamps the party are the developer's people.",
+    "<b>The crowd arrives with the show.</b> The party's been alone eight hours; at three it fills up, and every beat of the collapse has an audience.",
+    "<b>Phase 1:</b> the vampires attack believing they're defending their home. Still <b>no kill.</b> A 2&ndash;3 round pressure scene by rule.",
+    "The party's problem isn't damage &mdash; it's that they <b>can't prove a negative</b>, and Poe Boy is on a live mic reinforcing the lie. Every denial makes it worse."
+  ],
+  combat:{ name:"Phase 1 — the vampires attack", xp:"5,400 XP (held to a pressure scene)",
+    p:"Three CR 5 vampires is right at the level-5 high line &mdash; a genuinely hard fight on paper, held to a pressure scene by the no-kill rule. The math no longer does the work; the rule does.",
+    rows:[["Vampires &times;3","CR 5","statting","&mdash;","Grapple / shove / frighten &mdash; never Bite"]],
+    rule:"They are <b>mechanically incapable of killing a PC</b>: no Bite on a conscious creature, nobody below 1 HP. Afterwards the players can work out the monsters never rolled damage.",
+    monsters:[{n:"Vampire (Orlok)"},{n:"Vampire (Dracula)"},{n:"Vampire (Edward)"}] },
+  npcs:[
+    {nm:"DJ Poe Boy", vc:"On the mic in borrowed lines. An Enthralling Performance holds the 3AM crowd &mdash; he needs them frightened and he needs them to stay."}
+  ],
+  reminders:[
+    {t:"Vampires <b>cannot kill a PC</b>. No Bite, never below 1 HP.", k:"rule"},
+    {t:"Open question to decide: how does the crowd get through a bolted door at 3AM? (Obvious answer: Poe Boy opens the front for his own show.)", k:""}
+  ],
+  cues:["crowd","heart","braaam"] },
+
+{ act:"finale", no:"14 · ii", title:"Climax — Phase 2: the developer breaches", where:"The ballroom · the only lethal fight",
+  read:[{who:"After he goes down", t:"Stop. Let the room be quiet for a moment."}],
+  beats:[
+    "Ostrander breaches and <b>seals the exits behind him &mdash; his own crew included.</b> Three sides, nobody sharing a goal. <b>The only lethal fight of the finale.</b>",
+    "His arrival <b>breaks Poe Boy's lie on sight</b> &mdash; five teenagers are visibly not this man. The vampires stop, then start tearing into his men. That's the cue the room has changed.",
+    "Then the party kills him &mdash; converting &ldquo;not our enemy&rdquo; into &ldquo;the people who solved our actual problem, in front of us.&rdquo; <b>Two moments, not one.</b>",
+    "He's the <b>only death in the story</b> and the only one who isn't a monster. Self-defence &mdash; he sealed them in and attacked first &mdash; but these are teenagers. <b>Let it have its silence before the comedy starts.</b>"
+  ],
+  combat:{ name:"Phase 2 — the developer breaches", xp:"~3,500 XP",
+    p:"Bump him to ~CR 7 to stay lethal against a level-5 party with Counterspell and Fireball. Field six thugs knowing the vampires eat two.",
+    rows:[
+      ["W. Ostrander (abjurer)","~CR 7","statting","&mdash;","Arcane Ward, Seal a door, Counterspell, Shield, Hold Person &mdash; no damage spells"],
+      ["Thugs &times;6","CR &frac12;","statting","&mdash;","The vampires start eating these"]
+    ],
+    rule:"He solves problems by <b>sealing</b> them, never by making noise. At level 5 the party has its own Counterspell &mdash; this is a real spell-duel.",
+    monsters:[{n:"W. Ostrander"},{n:"Thug 1"},{n:"Thug 2"},{n:"Thug 3"},{n:"Thug 4"},{n:"Thug 5"},{n:"Thug 6"}] },
+  npcs:[
+    {nm:"W. Ostrander", vc:"An adult with a clipboard. Within four seconds it stops being folklore and becomes a contamination problem on a site he's paid for. Brushes off Poe Boy's recruit pitch."}
+  ],
+  reminders:[
+    {t:"His death is what <b>flips the vampires &mdash; no persuasion check.</b>", k:""},
+    {t:"Russ badge req 3 opens next phase: heal a vampire under fire.", k:""},
+    {t:"Give the death its <b>silence</b>. The comedy doesn't start until this lands.", k:"rule"}
+  ],
+  cues:["jump","braaam","pa"] },
+
+{ act:"finale", no:"14 · iii", title:"Climax — Phase 3: the booth", where:"The ballroom decks · badge req 3 of 3",
+  read:[
+    {who:"The objective", t:"Get the USB to the decks and get on aux."},
+    {who:"On the last turn", t:"Headlights swing across the ballroom windows. Someone has pulled into the drive. &mdash; &ldquo;Upton, honey?&rdquo;"}
+  ],
+  beats:[
+    "The developer's dead and <b>the vampires turn &mdash; no persuasion check</b>. Party plus three vampires against Poe Boy and Lil Stinky.",
+    "<b>Objective:</b> the USB starts <b>upstairs in the old rig</b> and has to reach the ballroom. <b>The map is the encounter.</b>",
+    "Stinky's <b>Aura of Protection</b> buffs Poe Boy's saves &mdash; a puzzle, not a wall. <b>He isn't charmed; he just believes his friend.</b>",
+    "Poe Boy spends his turns on <i>Command</i> &mdash; &ldquo;Drop.&rdquo; &mdash; to keep the drive off the decks. A delay, not a fail state, and <b>the USB can't be destroyed.</b>",
+    "Then it plays in full: typing, a door, screaming &mdash; and under it Poe Boy's own voice staying calm and adjusting a level. <b>Stinky's oath breaks with no save.</b> Silence, one boo, then the whole room. Dracula seizes the mic. Poe Boy's Command stops landing.",
+    "<b>Badge req 3: &ldquo;give care when someone is hurting.&rdquo;</b> With the vampires taking hits, Russ heals one under fire &mdash; the box that proves the bond, the one Orlok finally signs."
+  ],
+  checks:[
+    {skill:"Get to / hold the decks", dc:"objective", sug:false, note:"The keep-away is the fight. Deal with Stinky to drop the aura, then plug in."}
+  ],
+  combat:{ name:"Phase 3 — the ballroom decks", xp:"2,500 XP · a catharsis, not a grind",
+    p:"Well under the level-5 line, easier still with three vampire allies who are now the party's peers. Only real tuning: Poe Boy's staying power.",
+    rows:[
+      ["DJ Poe Boy","~CR 5","~130 HP · AC 16","DC 16","4 legendary actions (party size &minus; 1); weak weapons, Command is the threat"],
+      ["Lil Stinky","~CR 3","~80 HP · AC 18","&mdash;","Aura of Protection buffs Poe Boy &mdash; deal with him first"],
+      ["Vampire allies &times;3","&mdash;","&mdash;","&mdash;","Now fighting alongside the party"]
+    ],
+    rule:"<b>USB is keep-away, not a fail state &mdash; it cannot be destroyed.</b> Stinky's oath breaks with <b>no saving throw</b>.",
+    monsters:[{n:"DJ Poe Boy"},{n:"Lil Stinky"}] },
+  npcs:[
+    {nm:"DJ Poe Boy", vc:"Not killed &mdash; <b>un-performed</b>. The glamour breaks, then his parents call him Upton."},
+    {nm:"Lil Stinky", vc:"The only one not charmed &mdash; he just believes his friend. Oath breaks, he stops fighting and sits down. Diss track on Monday."},
+    {nm:"Dracula", vc:"Seizes the mic and denounces Poe Boy magnificently. Waited all night for a real audience."}
+  ],
+  reminders:[
+    {t:"<b>Play the recording</b> &mdash; the single biggest table moment, a file you hit play on.", k:"hand"},
+    {t:"USB can't be destroyed; one bad save never ends the campaign.", k:"rule"},
+    {t:"Stinky's oath breaks with <b>no save</b> &mdash; don't put the best beat on a d20.", k:"rule"}
+  ],
+  cues:["crowd","pa","scratch","braaam","levelup"] },
+
+{ act:"finale", no:15, title:"Resolution &amp; bookend", where:"Back to class",
+  read:[{who:"Let a player say it", t:"&ldquo;&hellip;and yeah that was our class project.&rdquo;"}],
+  beats:[
+    "They recover an ancient Dutch <b>artifact</b> (after the boss fight or with the vamps' help), the real-estate company is <b>scared off the land</b>, and they present in class &mdash; closing scene one's loop. <b>Play them battered;</b> nobody reacts, which is the joke.",
+    "<b>The three closers:</b> Lil Stinky records a sincere, terrible, devastating diss track. The mega mall breaks ground elsewhere &mdash; the brochure says <b>Amityville</b>. And what they actually present is <b>the tape</b>, because the assignment wanted a primary source.",
+    "<b>Epilogue:</b> Edward explains himself to Bix (its own scene, no jokes). Poe Boy's mother grounds him in the driveway &mdash; <b>the concert tickets go to Simone</b>, who spent every dollar hours earlier.",
+    "The kid gets <b>uploaded to the library computers</b>, helping people find new books &mdash; the boy who died in a room nobody visited spends his afterlife in the busiest building in town.",
+    "<b>Orlok signs Russ's badge</b> &mdash; the only authority who can certify &ldquo;assisted a vampire,&rdquo; through his teeth, the same way he confirms Gnomey's claim.",
+    "Last beat: Gnomey calls a nursing home. <i>&ldquo;Uncle Vinny. It's me. I collected.&rdquo;</i>"
+  ],
+  npcs:[
+    {nm:"Edward", vc:"The whole timeline to Bix &mdash; the cart, the party, Goblinenon, the men the company sent, why he carried a baby down the hill. No jokes in it."},
+    {nm:"Orlok", vc:"Signs the card through his teeth. A boy who talks to animals turned out to be the sunlight this house was missing."}
+  ],
+  reminders:[
+    {t:"Hand Cody the <b>physical merit badge</b>.", k:"hand"},
+    {t:"Concert-tickets prop (once the band has a name).", k:"hand"},
+    {t:"This is the end. Breathe.", k:""}
+  ],
+  cues:["levelup"] }
+];
+
+/* ============================= CRULES + BUDGET ============================= */
+const CRULES = [
+  ["The vampires cannot kill","No Bite on a conscious creature, ever, in first contact or phase one. Grapple, shove, frighten. The mechanics are the clue, and the reveal depends on this being literally true rather than a near miss."],
+  ["The USB is keep-away, not a fail state","Poe Boy spends his turns on <i>Command</i> &mdash; &ldquo;Drop.&rdquo; The drive <b>cannot be destroyed</b>, so one bad save never ends the campaign; it just costs time while the party is being shot at."],
+  ["The chip cannot be lost or taken","Gnomey's marker is the deed. No failed check, pickpocket or <i>Command</i> separates him from it &mdash; the whole arc dies on one bad roll. It can be <b>demanded</b>, at length, by people being very polite. It cannot be removed."],
+  ["Stinky's oath breaks with no save","He hears his best friend stay calm while a kid dies. Devotion's first tenet is <i>don't lie or cheat</i>, and there is no save against that. Rolling for it would put the campaign's best beat on a d20."]
+];
+const BUDGET = {
+  rows:[
+    ["Saturday · 5 PCs at level 4","1,250","1,875","2,500","5 CR total · solo cap CR 4"],
+    ["Sunday · 5 PCs at level 5","2,500","3,750","5,500","6.25 CR total · solo cap CR 5"],
+    ["Sunday · 6 bodies (Angelique flips)","3,000","4,500","6,600","7.5 CR total · solo cap CR 5"]
+  ],
+  note:"2024 DMG budgets &mdash; <b>no group-size multiplier; you spend raw monster XP.</b> Cross-check the Lazy Encounter Benchmark: deadly if total monster CR exceeds a quarter of summed character levels; a solo may be deadly if its CR exceeds the party's average level. That fragility bites hardest below 5th &mdash; it governs Saturday. By Sunday the party has crossed the level-5 spike."
+};
+
+/* ============================= HAND-OUTS ============================= */
+const HANDOUTS = [
+  ["Blue poker chip","Hand Julia at session one and <b>never explain it</b>. Clay or bone, hand-stamped &mdash; the same mark as the settlement's seal. The study set is exactly one short."],
+  ["Printed invite card","The 5&times;7 for the locker letters. Prop at <code>/invite/</code>."],
+  ["AIM sticky note (Fluffy123)","Handwriting. Findable in the house &mdash; on the monitor, in the gear case, or in the ballroom rig. Unlocks the whole computer-room scene."],
+  ["USB stick + the .wav","A real thumb drive with <code>scream_test_03_GOOD.wav</code>. <b>Set its volume label to the kid's name.</b> Handed over when the Spirit uploads."],
+  ["The wishing willow","A small wooden token with a paper slip &mdash; <i>I want Angelique to notice me</i>, in twelve-year-old hand. The only physical object tying a PC to the body."],
+  ["Russ's badge card + real badge","Card at <code>/badge/</code> with three signature lines. Pin a <b>real merit badge</b> on Cody at the very end."],
+  ["Concert tickets","What Poe Boy's mother gives Simone in the driveway. Only worth printing once the band has a name."],
+  ["iPad, props loaded","<code>/puzzle/</code> · <code>/settlement/</code> · <code>/photo/</code> · <code>/party-room/</code> · <code>/aim/</code> (set <code>?name=</code> first). Cache-bust with <code>?v=</code> after any update."]
+];
+
+/* ===================================================================== */
+/* ============================= ENGINE ================================= */
+/* ===================================================================== */
+const $ = s => document.querySelector(s);
+const stage = $("#stage");
+let cur = 0;
+
+function esc(){ /* content is trusted authored HTML */ }
+
+function render(i){
+  cur = (i + SCENES.length) % SCENES.length;
+  const s = SCENES[cur];
+  const act = ACTS[s.act];
+
+  // top bar
+  const pill = $("#actPill");
+  pill.textContent = act.label;
+  pill.style.color = act.color; pill.style.borderColor = act.color;
+  $("#counter").innerHTML = `Cue <b>${s.no}</b> · ${cur+1}/${SCENES.length}`;
+
+  // read box
+  let readHTML = "";
+  if(s.read && s.read.length){
+    readHTML = `<div class="read"><div class="rl">Read aloud / play the moment</div>` +
+      s.read.map(r => `<p>${r.who?`<span class="who">${r.who}</span>`:""}${r.t}</p>`).join("") +
+      `</div>`;
+  }
+
+  // beats
+  let beatsHTML = "";
+  if(s.beats && s.beats.length){
+    beatsHTML = `<div class="block"><p class="h">The beats</p><ul class="beats">` +
+      s.beats.map(b=>`<li>${b}</li>`).join("") + `</ul></div>`;
+  }
+
+  // checks
+  let checksHTML = "";
+  if(s.checks && s.checks.length){
+    checksHTML = `<div class="block"><p class="h">Potential skill checks</p><div class="checks">` +
+      s.checks.map(c=>`<div class="check"><div class="cd"><span class="skill">${c.skill}</span>`+
+        `<span class="dc">${c.dc==="&mdash;"||c.dc==="secret"||c.dc==="auto"||c.dc==="objective"||c.dc==="DM-run"||c.dc==="true>high"?
+          `<span class="sug">${c.dc}</span>`:`DC ${c.dc}${c.sug?`<span class="sug">*</span>`:``}`}</span></div>`+
+        `<div class="cn">${c.note}</div></div>`).join("") +
+      `</div></div>`;
+  }
+
+  // combat
+  let combatHTML = "";
+  if(s.combat){
+    const c = s.combat;
+    let table = "";
+    if(c.rows && c.rows.length){
+      table = `<table class="stat"><tr><th>Foe</th><th>CR</th><th>HP / AC</th><th>Save</th><th>Notes</th></tr>` +
+        c.rows.map(r=>`<tr><td>${r[0]}</td><td class="mono">${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join("") +
+        `</table>`;
+    }
+    const addBtn = (c.monsters && c.monsters.length) ?
+      `<button class="addinit" data-addinit="${cur}">&#9876; Add ${c.monsters.length} to initiative</button>` : "";
+    combatHTML = `<div class="block"><p class="h">Combat</p><div class="combat">`+
+      `<div class="ct"><h4>${c.name}</h4><span class="xp">${c.xp}</span></div>`+
+      `<p class="cp">${c.p}</p>${table}`+
+      (c.rule?`<div class="crule">${c.rule}</div>`:``)+ addBtn +`</div></div>`;
+  }
+
+  // ---- rail ----
+  let railHTML = "";
+  if(s.npcs && s.npcs.length){
+    railHTML += `<div class="card"><p class="ch">In the scene</p>` +
+      s.npcs.map(n=>`<div class="npc"><div class="nm">${n.nm}</div><div class="vc">${n.vc}</div></div>`).join("") +
+      `</div>`;
+  }
+  if(s.reminders && s.reminders.length){
+    railHTML += `<div class="card"><p class="ch">Reminders</p><ul class="rem">` +
+      s.reminders.map(r=>`<li class="${r.k||''}">${r.t}</li>`).join("") + `</ul></div>`;
+  }
+  if(s.cues && s.cues.length){
+    railHTML += `<div class="card"><p class="ch">Suggested sound cues</p><div class="cuepills">` +
+      s.cues.map(k=>`<button class="cuepill" data-cuefire="${k}"><span class="dot"></span>${CUE_LABEL[k]||k}</button>`).join("") +
+      `</div></div>`;
+  }
+  if(s.act==="set"){
+    railHTML += `<div class="card"><p class="ch">Canon</p><div class="canon-note">Read-aloud lines and cues are drawn from the <b>codex</b> (DM-side suggestions, not player-facing truth). Skill-check DCs marked <b>*</b> are proposals for this tool, not from the brainstorm doc &mdash; tune freely. Nothing here makes anything canon.</div></div>`;
+  }
+
+  stage.innerHTML =
+    `<div class="slide-head"><span class="no">${typeof s.no==="number"?"Scene "+s.no:s.no}</span>`+
+    `<h2>${s.title}</h2><span class="where">${s.where}</span></div>`+
+    `<div class="grid2"><div class="col-main">${readHTML}${beatsHTML}${checksHTML}${combatHTML}</div>`+
+    `<div class="rail">${railHTML}</div></div>`;
+
+  stage.scrollTop = 0;
+  highlightCues(s.cues||[]);
+  markIndexCurrent();
+}
+
+function go(d){ render(cur + d); }
+
+/* ---- cue highlight on soundboard ---- */
+function highlightCues(keys){
+  document.querySelectorAll(".pad").forEach(p=>p.classList.remove("suggest"));
+  keys.forEach(k=>{ const el = padByKey[k]; if(el) el.classList.add("suggest"); });
+}
+
+/* ===================================================================== */
+/* ============================ AUDIO ENGINE =========================== */
+/* ===================================================================== */
+let AC=null, master=null, noiseBuf=null;
+const amb={};            // active looping ambience nodes/intervals by key
+let masterVol=0.8;
+
+function initAudio(){
+  const C = window.AudioContext || window.webkitAudioContext;
+  if(!C) return;
+  AC = new C();
+  master = AC.createGain(); master.gain.value = masterVol; master.connect(AC.destination);
+  // shared noise buffer (2s)
+  const n = AC.sampleRate*2; noiseBuf = AC.createBuffer(1,n,AC.sampleRate);
+  const d = noiseBuf.getChannelData(0);
+  for(let i=0;i<n;i++) d[i]=Math.random()*2-1;
+}
+function unlock(){ if(AC && AC.state==="suspended") AC.resume().catch(()=>{}); }
+function now(){ return AC?AC.currentTime:0; }
+function noiseSrc(loop){ const s=AC.createBufferSource(); s.buffer=noiseBuf; s.loop=!!loop; return s; }
+function env(node,t0,a,peak,rel){ const g=node; g.gain.setValueAtTime(0.0001,t0);
+  g.gain.exponentialRampToValueAtTime(peak,t0+a); g.gain.exponentialRampToValueAtTime(0.0001,t0+a+rel); }
+
+/* ---------- ONE-SHOTS ---------- */
+function fx(key){
+  if(!AC) return;
+  const t=now();
+  switch(key){
+    case "aim": { // friendly two-tone chime
+      [ [660,0],[990,0.12] ].forEach(([f,dt])=>{
+        const o=AC.createOscillator(),g=AC.createGain(); o.type="sine"; o.frequency.value=f;
+        o.connect(g); g.connect(master); env(g,t+dt,0.01,0.5,0.5); o.start(t+dt); o.stop(t+dt+0.6);
+      }); break; }
+    case "jump": { // sharp dissonant hit + noise crack
+      const s=noiseSrc(false),bp=AC.createBiquadFilter(),g=AC.createGain();
+      bp.type="highpass"; bp.frequency.value=1200; s.connect(bp); bp.connect(g); g.connect(master);
+      env(g,t,0.004,0.9,0.25); s.start(t); s.stop(t+0.3);
+      [180,190,370].forEach(f=>{ const o=AC.createOscillator(),og=AC.createGain(); o.type="sawtooth";
+        o.frequency.value=f; o.connect(og); og.connect(master); env(og,t,0.004,0.35,0.4); o.start(t); o.stop(t+0.45);}); break; }
+    case "braaam": { // low brass-ish sting
+      const g=AC.createGain(),lp=AC.createBiquadFilter(); lp.type="lowpass";
+      lp.frequency.setValueAtTime(300,t); lp.frequency.exponentialRampToValueAtTime(900,t+0.4);
+      g.connect(master); lp.connect(g);
+      [55,55.6,82.4,110].forEach(f=>{ const o=AC.createOscillator(); o.type="sawtooth"; o.frequency.value=f;
+        o.connect(lp); o.start(t); o.stop(t+2.6);});
+      g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.6,t+0.25);
+      g.gain.setValueAtTime(0.6,t+1.9); g.gain.exponentialRampToValueAtTime(0.0001,t+2.6); break; }
+    case "bell": { // 3 tolls, FM bell
+      for(let k=0;k<3;k++){ const dt=k*1.15, c=AC.createOscillator(), m=AC.createOscillator(),
+        mg=AC.createGain(), g=AC.createGain();
+        c.type="sine"; c.frequency.value=196; m.type="sine"; m.frequency.value=196*2.4; mg.gain.value=180;
+        m.connect(mg); mg.connect(c.frequency); c.connect(g); g.connect(master);
+        g.gain.setValueAtTime(0.0001,t+dt); g.gain.exponentialRampToValueAtTime(0.55,t+dt+0.01);
+        g.gain.exponentialRampToValueAtTime(0.0001,t+dt+1.1); c.start(t+dt); m.start(t+dt);
+        c.stop(t+dt+1.2); m.stop(t+dt+1.2);} break; }
+    case "riser": { // filtered noise + pitch rise to a hit
+      const s=noiseSrc(true),bp=AC.createBiquadFilter(),g=AC.createGain();
+      bp.type="bandpass"; bp.Q.value=6; bp.frequency.setValueAtTime(300,t);
+      bp.frequency.exponentialRampToValueAtTime(6000,t+4); s.connect(bp); bp.connect(g); g.connect(master);
+      g.gain.setValueAtTime(0.02,t); g.gain.exponentialRampToValueAtTime(0.5,t+4);
+      g.gain.exponentialRampToValueAtTime(0.0001,t+4.5); s.start(t); s.stop(t+4.6);
+      // impact at top
+      const o=AC.createOscillator(),og=AC.createGain(); o.type="sine"; o.frequency.setValueAtTime(120,t+4);
+      o.frequency.exponentialRampToValueAtTime(50,t+4.4); o.connect(og); og.connect(master);
+      env(og,t+4,0.005,0.7,0.4); o.start(t+4); o.stop(t+4.5); break; }
+    case "pa": { // PA feedback swell
+      const o=AC.createOscillator(),g=AC.createGain(); o.type="sine";
+      o.frequency.setValueAtTime(900,t); o.frequency.linearRampToValueAtTime(2400,t+1.6);
+      o.connect(g); g.connect(master); g.gain.setValueAtTime(0.0001,t);
+      g.gain.exponentialRampToValueAtTime(0.35,t+1.2); g.gain.setValueAtTime(0.35,t+1.6);
+      g.gain.exponentialRampToValueAtTime(0.0001,t+1.75); o.start(t); o.stop(t+1.8); break; }
+    case "scratch": { // vinyl stop
+      const s=noiseSrc(false),lp=AC.createBiquadFilter(),g=AC.createGain();
+      lp.type="lowpass"; lp.frequency.setValueAtTime(1400,t); lp.frequency.exponentialRampToValueAtTime(120,t+0.5);
+      s.playbackRate.setValueAtTime(1.4,t); s.playbackRate.exponentialRampToValueAtTime(0.2,t+0.5);
+      s.connect(lp); lp.connect(g); g.connect(master); env(g,t,0.01,0.5,0.45); s.start(t); s.stop(t+0.6); break; }
+    case "levelup": { // little arpeggio
+      [523,659,784,1047].forEach((f,i)=>{ const dt=i*0.09, o=AC.createOscillator(),g=AC.createGain();
+        o.type="triangle"; o.frequency.value=f; o.connect(g); g.connect(master);
+        env(g,t+dt,0.01,0.4,0.35); o.start(t+dt); o.stop(t+dt+0.4);}); break; }
+    case "dice": { // clatter
+      for(let k=0;k<7;k++){ const dt=Math.random()*0.5, s=noiseSrc(false),hp=AC.createBiquadFilter(),g=AC.createGain();
+        hp.type="highpass"; hp.frequency.value=2500; s.connect(hp); hp.connect(g); g.connect(master);
+        env(g,t+dt,0.002,0.3,0.04); s.start(t+dt); s.stop(t+dt+0.08);} break; }
+  }
+}
+
+/* ---------- AMBIENCE (toggle) ---------- */
+function ambStop(key){
+  const a=amb[key]; if(!a) return;
+  if(a.stop){ try{a.g.gain.setTargetAtTime(0.0001,now(),0.3);}catch(e){} setTimeout(()=>{try{a.stop();}catch(e){}},400); }
+  if(a.interval) clearInterval(a.interval);
+  delete amb[key];
+}
+function ambToggle(key){
+  if(!AC) return false;
+  if(amb[key]){ ambStop(key); return false; }
+  const t=now();
+  if(key==="drone"){
+    const g=AC.createGain(),lp=AC.createBiquadFilter(); lp.type="lowpass"; lp.frequency.value=320;
+    g.gain.value=0.0001; g.connect(master); lp.connect(g);
+    const os=[55,55.4,82.5,73.4].map(f=>{const o=AC.createOscillator();o.type="triangle";o.frequency.value=f;o.connect(lp);o.start(t);return o;});
+    g.gain.setTargetAtTime(0.22,t,1.2);
+    // slow swell LFO
+    const lfo=AC.createOscillator(),lg=AC.createGain(); lfo.frequency.value=0.07; lg.gain.value=0.08;
+    lfo.connect(lg); lg.connect(g.gain); lfo.start(t);
+    amb[key]={g,stop:()=>{os.forEach(o=>o.stop());lfo.stop();}};
+  } else if(key==="rain"){
+    const s=noiseSrc(true),bp=AC.createBiquadFilter(),hp=AC.createBiquadFilter(),g=AC.createGain();
+    bp.type="bandpass"; bp.frequency.value=1500; bp.Q.value=0.6; hp.type="highpass"; hp.frequency.value=400;
+    s.connect(hp); hp.connect(bp); bp.connect(g); g.connect(master); g.gain.value=0.0001;
+    s.start(t); g.gain.setTargetAtTime(0.18,t,0.8);
+    amb[key]={g,stop:()=>s.stop()};
+  } else if(key==="record"){ // vinyl crackle bed + periodic skip tick
+    const s=noiseSrc(true),lp=AC.createBiquadFilter(),g=AC.createGain();
+    lp.type="lowpass"; lp.frequency.value=2600; s.connect(lp); lp.connect(g); g.connect(master);
+    g.gain.value=0.0001; s.start(t); g.gain.setTargetAtTime(0.05,t,0.5);
+    const interval=setInterval(()=>{ const tt=now(); const cs=noiseSrc(false),hp=AC.createBiquadFilter(),cg=AC.createGain();
+      hp.type="highpass"; hp.frequency.value=1800; cs.connect(hp); hp.connect(cg); cg.connect(master);
+      env(cg,tt,0.002,0.28,0.05); cs.start(tt); cs.stop(tt+0.08); },1850);
+    amb[key]={g,interval,stop:()=>s.stop()};
+  } else if(key==="heart"){
+    const interval=setInterval(()=>{ const tt=now();
+      [0,0.16].forEach((dt,i)=>{ const o=AC.createOscillator(),g=AC.createGain(); o.type="sine";
+        o.frequency.setValueAtTime(70,tt+dt); o.frequency.exponentialRampToValueAtTime(38,tt+dt+0.14);
+        o.connect(g); g.connect(master); env(g,tt+dt,0.01,i?0.4:0.6,0.16); o.start(tt+dt); o.stop(tt+dt+0.3);});
+    },1050);
+    // fire one immediately
+    amb[key]={interval,stop:()=>{}};
+  } else if(key==="crowd"){
+    const s=noiseSrc(true),bp=AC.createBiquadFilter(),g=AC.createGain();
+    bp.type="bandpass"; bp.frequency.value=700; bp.Q.value=0.8; s.connect(bp); bp.connect(g); g.connect(master);
+    g.gain.value=0.0001; s.start(t); g.gain.setTargetAtTime(0.14,t,0.6);
+    const lfo=AC.createOscillator(),lg=AC.createGain(); lfo.frequency.value=0.5; lg.gain.value=0.05;
+    lfo.connect(lg); lg.connect(g.gain); lfo.start(t);
+    amb[key]={g,stop:()=>{s.stop();lfo.stop();}};
+  } else if(key==="candle"){ // faint fire bed + random pops
+    const s=noiseSrc(true),lp=AC.createBiquadFilter(),g=AC.createGain();
+    lp.type="lowpass"; lp.frequency.value=900; s.connect(lp); lp.connect(g); g.connect(master);
+    g.gain.value=0.0001; s.start(t); g.gain.setTargetAtTime(0.06,t,0.5);
+    const interval=setInterval(()=>{ if(Math.random()<0.6) return; const tt=now();
+      const cs=noiseSrc(false),bp=AC.createBiquadFilter(),cg=AC.createGain(); bp.type="bandpass";
+      bp.frequency.value=800+Math.random()*1200; cs.connect(bp); bp.connect(cg); cg.connect(master);
+      env(cg,tt,0.003,0.22,0.06); cs.start(tt); cs.stop(tt+0.1); },260);
+    amb[key]={g,interval,stop:()=>s.stop()};
+  }
+  return true;
+}
+function stopAll(){ Object.keys(amb).forEach(ambStop); }
+
+/* ===================================================================== */
+/* ============================ SOUNDBOARD UI ========================== */
+/* ===================================================================== */
+const BOARD = [
+  {grp:"Ambience", pads:[
+    {key:"drone", amb:true, ic:"🏚", label:"House", hk:"1"},
+    {key:"rain", amb:true, ic:"🌧", label:"Rain", hk:"2"},
+    {key:"record", amb:true, ic:"💿", label:"Record", hk:"3"},
+    {key:"heart", amb:true, ic:"🫀", label:"Heart", hk:"4"},
+    {key:"crowd", amb:true, ic:"👥", label:"Crowd", hk:"5"},
+    {key:"candle", amb:true, ic:"🕯", label:"Candles", hk:"6"}
+  ]},
+  {grp:"Stings", pads:[
+    {key:"aim", ic:"💬", label:"AIM", hk:"7"},
+    {key:"jump", ic:"⚡", label:"Jump", hk:"8"},
+    {key:"braaam", ic:"🎺", label:"Braaam", hk:"9"},
+    {key:"bell", ic:"🔔", label:"3AM bell", hk:"0"},
+    {key:"riser", ic:"📈", label:"Riser", hk:"g"},
+    {key:"pa", ic:"📢", label:"PA", hk:"p"},
+    {key:"scratch", ic:"⏹", label:"Scratch", hk:"c"},
+    {key:"levelup", ic:"⬆", label:"Level-up", hk:"l"}
+  ]}
+];
+const padByKey={};
+function buildBoard(){
+  const b=$("#board"); let html="";
+  BOARD.forEach(section=>{
+    html+=`<div class="grp"><span class="gl">${section.grp}</span>`;
+    section.pads.forEach(p=>{
+      html+=`<button class="pad ${p.amb?'amb':'one'}" data-pad="${p.key}" data-amb="${p.amb?1:0}">`+
+        `<span class="hk">${p.hk}</span><span class="ic">${p.ic}</span><span>${p.label}</span></button>`;
+    });
+    html+=`</div>`;
+  });
+  html+=`<div class="grp"><button class="pad stop" id="stopAll"><span class="hk">esc</span><span class="ic">■</span><span>Silence</span></button></div>`;
+  html+=`<div class="vol">🔈<input type="range" id="vol" min="0" max="100" value="80">🔊</div>`;
+  b.innerHTML=html;
+  b.querySelectorAll(".pad[data-pad]").forEach(el=>{
+    const key=el.dataset.pad; padByKey[key]=el;
+    el.addEventListener("click",()=>firePad(key,el));
+  });
+  $("#stopAll").addEventListener("click",()=>{stopAll(); document.querySelectorAll(".pad.amb").forEach(p=>p.classList.remove("on"));});
+  $("#vol").addEventListener("input",e=>{ masterVol=e.target.value/100; if(master) master.gain.setTargetAtTime(masterVol,now(),0.05); });
+}
+function firePad(key,el){
+  el=el||padByKey[key]; if(!el) return;
+  unlock();
+  if(el.dataset.amb==="1"){ const on=ambToggle(key); el.classList.toggle("on",on); }
+  else fx(key);
+}
+
+/* ===================================================================== */
+/* ============================ OVERLAYS =============================== */
+/* ===================================================================== */
+function openOv(name){ closeOv(); $("#ov-"+name).classList.add("on"); }
+function closeOv(){ document.querySelectorAll(".overlay.on").forEach(o=>o.classList.remove("on")); }
+
+function buildIndex(){
+  const groups={}; SCENES.forEach((s,i)=>{ (groups[s.act]=groups[s.act]||[]).push({s,i}); });
+  let html="";
+  Object.keys(ACTS).forEach(a=>{ if(!groups[a]) return;
+    html+=`<div class="idx-act"><p class="ial" style="color:${ACTS[a].color}">${ACTS[a].label}</p><div class="idx-grid">`;
+    groups[a].forEach(({s,i})=>{ html+=`<button class="idx-item" data-jump="${i}"><span class="in">${typeof s.no==="number"?"Scene "+s.no:s.no}</span><span class="it">${s.title}</span></button>`; });
+    html+=`</div></div>`;
+  });
+  $("#indexBody").innerHTML=html;
+  $("#indexBody").querySelectorAll("[data-jump]").forEach(b=>b.addEventListener("click",()=>{render(+b.dataset.jump); closeOv();}));
+}
+function markIndexCurrent(){ const b=$("#indexBody"); if(!b) return;
+  b.querySelectorAll(".idx-item").forEach(el=>el.classList.toggle("cur",+el.dataset.jump===cur)); }
+
+function buildRules(){
+  let html=`<div class="rule-item"><div class="rt" style="color:var(--gold)">XP budgets &amp; benchmark</div>`+
+    `<div class="rb">${BUDGET.note}</div><table class="budget"><tr><th>Day</th><th>Low</th><th>Mod</th><th>High</th><th>Benchmark</th></tr>`+
+    BUDGET.rows.map(r=>`<tr><td>${r[0]}</td><td class="mono">${r[1]}</td><td class="mono">${r[2]}</td><td class="mono">${r[3]}</td><td>${r[4]}</td></tr>`).join("")+
+    `</table></div>`;
+  html+=CRULES.map(r=>`<div class="rule-item"><div class="rt">${r[0]}</div><div class="rb">${r[1]}</div></div>`).join("");
+  $("#rulesBody").innerHTML=html;
+}
+
+/* handouts w/ localStorage */
+const HKEY="dood_handouts_v1";
+function loadHand(){ try{return JSON.parse(localStorage.getItem(HKEY))||{};}catch(e){return {};} }
+function saveHand(o){ try{localStorage.setItem(HKEY,JSON.stringify(o));}catch(e){} }
+function buildHandouts(){
+  const state=loadHand(); const ul=$("#handoutBody");
+  ul.innerHTML=HANDOUTS.map((h,i)=>`<li data-h="${i}" class="${state[i]?'done':''}"><span class="hmark">✓</span>`+
+    `<div class="hbody"><div class="ht">${h[0]}</div><div class="hw">${h[1]}</div></div></li>`).join("");
+  ul.querySelectorAll("li").forEach(li=>li.addEventListener("click",()=>{
+    const i=li.dataset.h, st=loadHand(); st[i]=!st[i]; saveHand(st); li.classList.toggle("done",!!st[i]);
+  }));
+}
+
+/* ===================================================================== */
+/* =========================== INITIATIVE ============================== */
+/* ===================================================================== */
+let initList=[], initIdx=0, initRound=1;
+function renderInit(){
+  const body=$("#initBody");
+  if(!initList.length){ body.innerHTML=`<div class="init-empty">No combatants. Add PCs and NPCs, or use a combat scene's &ldquo;Add to initiative&rdquo; button.</div>`; $("#iRound").textContent=initRound; return; }
+  body.innerHTML=initList.map((c,i)=>`<div class="init-row ${i===initIdx?'active':''}">`+
+    `<span class="iiv">${c.iv??"?"}</span><span class="inm">${c.nm}</span>`+
+    `<span class="ihp">HP <input data-hp="${i}" value="${c.hp||''}" inputmode="numeric" placeholder="&mdash;"></span>`+
+    `<button class="idel" data-del="${i}">×</button></div>`).join("");
+  body.querySelectorAll("[data-hp]").forEach(inp=>inp.addEventListener("change",e=>{initList[+e.target.dataset.hp].hp=e.target.value;}));
+  body.querySelectorAll("[data-del]").forEach(b=>b.addEventListener("click",()=>{ initList.splice(+b.dataset.del,1); if(initIdx>=initList.length)initIdx=0; renderInit(); }));
+  $("#iRound").textContent=initRound;
+}
+function initSort(){ initList.sort((a,b)=>(b.iv??-99)-(a.iv??-99)); initIdx=0; renderInit(); }
+function addCombatant(nm,iv,hp){ initList.push({nm,iv:iv===""||iv==null?null:+iv,hp:hp||""}); renderInit(); }
+function addMonsters(sceneIdx){
+  const c=SCENES[sceneIdx].combat; if(!c||!c.monsters) return;
+  c.monsters.forEach(m=>addCombatant(m.n,null,""));
+  openOv("tracker");
+}
+
+/* ===================================================================== */
+/* ============================ DICE ================================== */
+/* ===================================================================== */
+let diceMode="norm", diceTimer=null;
+function rollDie(){ return 1+Math.floor(Math.random()*20); }
+function rollDice(){
+  unlock(); fx("dice");
+  const box=$("#dice"), total=$("#dTotal"), detail=$("#dDetail");
+  let a=rollDie(), b=rollDie(), pick=a, txt="";
+  if(diceMode==="adv"){ pick=Math.max(a,b); txt=`Advantage: rolled <b>${a}</b> and <b>${b}</b> &rarr; keep <b>${pick}</b>`; }
+  else if(diceMode==="dis"){ pick=Math.min(a,b); txt=`Disadvantage: rolled <b>${a}</b> and <b>${b}</b> &rarr; keep <b>${pick}</b>`; }
+  else txt=`d20 &rarr; <b>${pick}</b>`;
+  total.textContent=pick; total.className="total"+(pick===20?" crit":pick===1?" fumble":"");
+  detail.innerHTML=txt+(pick===20?" &mdash; nat 20!":pick===1?" &mdash; nat 1.":"");
+  box.classList.add("on");
+  clearTimeout(diceTimer); diceTimer=setTimeout(()=>box.classList.remove("on"),4200);
+}
+
+/* ===================================================================== */
+/* ============================ TIMER ================================= */
+/* ===================================================================== */
+let tStart=null, tPaused=0, tPauseAt=null, tRun=false, tInt=null;
+function fmt(ms){ const s=Math.floor(ms/1000); const h=Math.floor(s/3600), m=Math.floor((s%3600)/60), ss=s%60;
+  return (h?String(h).padStart(2,"0")+":":"")+String(m).padStart(2,"0")+":"+String(ss).padStart(2,"0"); }
+function tickTimer(){ if(!tRun) return; $("#timer").textContent=fmt(Date.now()-tStart-tPaused); }
+function startTimer(){ tStart=Date.now(); tRun=true; tInt=setInterval(tickTimer,1000); }
+function toggleTimer(){
+  const el=$("#timer");
+  if(tRun){ tRun=false; tPauseAt=Date.now(); el.classList.add("paused"); }
+  else { tPaused+=Date.now()-tPauseAt; tRun=true; el.classList.remove("paused"); }
+}
+
+/* ===================================================================== */
+/* ============================ WIRING ================================ */
+/* ===================================================================== */
+function begin(){
+  $("#splash").style.display="none";
+  $("#app").classList.add("on");
+  initAudio(); unlock();
+  buildBoard(); buildIndex(); buildRules(); buildHandouts(); renderInit();
+  render(0); startTimer();
+}
+$("#beginBtn").addEventListener("click",begin);
+$("#splash").addEventListener("click",e=>{ if(e.target.id==="splash") begin(); });
+
+// nav
+$("#prev").addEventListener("click",()=>go(-1));
+$("#next").addEventListener("click",()=>go(1));
+$("#timer").addEventListener("click",toggleTimer);
+$("#fsBtn").addEventListener("click",toggleFS);
+
+// top bar overlays
+document.querySelectorAll(".tbtn[data-ov]").forEach(b=>b.addEventListener("click",()=>openOv(b.dataset.ov)));
+document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",closeOv));
+document.querySelectorAll(".overlay").forEach(o=>o.addEventListener("click",e=>{ if(e.target===o) closeOv(); }));
+
+// stage delegated clicks (cue pills, add-to-init)
+stage.addEventListener("click",e=>{
+  const cue=e.target.closest("[data-cuefire]"); if(cue){ firePad(cue.dataset.cuefire); return; }
+  const ai=e.target.closest("[data-addinit]"); if(ai){ addMonsters(+ai.dataset.addinit); return; }
+});
+
+// initiative controls
+$("#iAdd").addEventListener("click",()=>{ const nm=$("#iNm").value.trim(); if(!nm) return;
+  addCombatant(nm,$("#iIv").value.trim(),""); $("#iNm").value=""; $("#iIv").value=""; $("#iNm").focus(); });
+$("#iIv").addEventListener("keydown",e=>{ if(e.key==="Enter") $("#iAdd").click(); });
+$("#iNm").addEventListener("keydown",e=>{ if(e.key==="Enter") $("#iIv").focus(); });
+$("#iNext").addEventListener("click",()=>{ if(!initList.length) return; initIdx++; if(initIdx>=initList.length){initIdx=0; initRound++;} renderInit(); });
+$("#iSort").addEventListener("click",initSort);
+$("#iClear").addEventListener("click",()=>{ initList=[]; initIdx=0; initRound=1; renderInit(); });
+
+// dice modes
+$("#dice").addEventListener("click",e=>{
+  const b=e.target.closest("[data-mode]");
+  if(b){ if(b.dataset.mode==="reroll"){ rollDice(); return; }
+    diceMode=b.dataset.mode; document.querySelectorAll("#dice .adv button[data-mode]").forEach(x=>x.classList.toggle("on",x.dataset.mode===diceMode||(x.dataset.mode==="reroll"?false:false))); }
+});
+
+// fullscreen
+function toggleFS(){ const d=document.documentElement;
+  if(!document.fullscreenElement){ (d.requestFullscreen||d.webkitRequestFullscreen||function(){}).call(d); }
+  else { (document.exitFullscreen||document.webkitExitFullscreen||function(){}).call(document); } }
+
+// keyboard
+document.addEventListener("keydown",e=>{
+  if($("#app").classList.contains("on")===false) return;
+  const tag=(e.target.tagName||"").toLowerCase();
+  if(tag==="input"||tag==="textarea") return; // don't hijack typing
+  const k=e.key;
+  // sound hotkeys
+  const hk={"1":"drone","2":"rain","3":"record","4":"heart","5":"crowd","6":"candle",
+            "7":"aim","8":"jump","9":"braaam","0":"bell","g":"riser","p":"pa","c":"scratch","l":"levelup"};
+  if(hk[k]){ firePad(hk[k]); e.preventDefault(); return; }
+  switch(k){
+    case "ArrowRight": case " ": case "PageDown": go(1); e.preventDefault(); break;
+    case "ArrowLeft": case "PageUp": go(-1); e.preventDefault(); break;
+    case "i": case "I": toggle("index"); break;
+    case "t": case "T": toggle("tracker"); break;
+    case "h": case "H": toggle("handouts"); break;
+    case "r": case "R": toggle("rules"); break;
+    case "d": case "D": rollDice(); break;
+    case "f": case "F": toggleFS(); break;
+    case "Escape":
+      if(document.querySelector(".overlay.on")||$("#dice").classList.contains("on")){ closeOv(); $("#dice").classList.remove("on"); }
+      else { stopAll(); document.querySelectorAll(".pad.amb").forEach(p=>p.classList.remove("on")); }
+      break;
+  }
+});
+function toggle(name){ const o=$("#ov-"+name); if(o.classList.contains("on")) closeOv(); else openOv(name); }
+
+// block pinch-zoom & rubber-band
+document.addEventListener("touchmove",e=>{ if(e.scale && e.scale!==1) e.preventDefault(); },{passive:false});
+</script>
+</body>
+</html>
