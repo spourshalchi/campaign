@@ -24,7 +24,7 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 ├── run/              ← DM-facing "Run of Show" — the day-of prompt book (not linked either)
 ├── CANON.md          ← canon ledger: what came from the brainstorm doc vs. what an AI made up
 ├── PROPOSALS.md      ← parked work-in-progress, agreed to by nobody
-├── CLAUDE.md         ← agent guide for adding new props
+├── AGENTS.md         ← agent guide for adding new props (CLAUDE.md imports it)
 ├── README.md         ← this file
 └── split_sounds.py   ← utility for splitting WAV dumps into clips
 ```
@@ -61,12 +61,12 @@ The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
 
 ## Adding a new prop
 
-See [CLAUDE.md](CLAUDE.md) for the full pattern + iPad/iOS gotchas. Short version:
+See [AGENTS.md](AGENTS.md) for the full pattern + iPad/iOS gotchas. Short version:
 
 1. `mkdir <prop-name>/`
 2. Build `<prop-name>/index.html` (single self-contained file — HTML + CSS + JS + assets folder beside it)
 3. Add a tile in the root `index.html` linking to `/<prop-name>/`
-4. Test on the actual iPad (the audio bug from CLAUDE.md is invisible on desktop)
+4. Test on the actual iPad (the audio bug from AGENTS.md is invisible on desktop)
 5. Push to `main`. GitHub Pages redeploys in ~30–60 seconds.
 
 ## Local preview
