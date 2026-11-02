@@ -65,6 +65,99 @@ rather than assuming, because it touches what the bolt actually means for the pa
 
 ---
 
+## 📗 In Person Session
+
+> Notes from Scott and Spencer's in-person session, under the doc heading **IN PERSON SESSION**. The doc
+> notes are stream-of-consciousness; Scott clarified what they mean in conversation on 1 Nov 2026, and
+> confirmed all of it as canon. Cited as `In Person Session`, or `In Person Session, clarified 1 Nov`
+> where the doc line alone doesn't say it.
+
+### Gnomey & Uncle Vinny — the chip comes at the end
+| Claim | Source |
+|---|---|
+| **Gnomey doesn't own the house until the very end.** Uncle Vinny gives him the chip then, because by then he's earned it | In Person Session |
+| Vinny holds the chip the whole weekend. **Gnomey has never carried it** — there is no chip at session one | In Person Session, clarified 1 Nov |
+| **Plant the seed early: Vinny calls Gnomey**, thinking about going to the mansion, so he isn't random when he shows up at the end. What he says on the call is still open | In Person Session, clarified 1 Nov |
+| Vinny **shows up in person** in the ending scene and hands over the chip | In Person Session |
+
+**Replaces in Sesh 8:** the chip pressed into a twelve-year-old's palm, "the chip he has carried since session
+one", and Gnomey calling the nursing home at the end. The study itself is unchanged — the set is still one chip
+short and the strongbox still holds the deed and the settlement — so Gnomey learns that **whoever bears the
+missing chip** owns the house, without holding it.
+
+### The finale — phase 1 is cut
+| Claim | Source |
+|---|---|
+| **Cut phase 1.** No vampire fight in the finale. It runs in two phases: **the developer breaches** (the only lethal fight) → **the booth** | In Person Session, clarified 1 Nov |
+| There is an audience — **he's pretending it's a concert** | In Person Session |
+
+### The concert framing
+| Claim | Source |
+|---|---|
+| Poe Boy is **pretending the whole night is a concert.** He lures them in to get his samples | In Person Session |
+| At the gazebo he says **he'll be playing some new tunes** | In Person Session |
+| **The poster brings the audience.** "Doors open" half an hour before the set | In Person Session |
+| **The AIM room is at the end.** Its door is **locked with a poster on it** if they try to go early, so it is the last room, not one of the any-order rooms | In Person Session, clarified 1 Nov |
+
+### The ending — one scene, everyone arrives
+| Claim | Source |
+|---|---|
+| **Resolve it all right there**, in one scene at the mansion: Poe Boy's **mom**, Russ's **troop leader**, and **Uncle Vinny** | In Person Session, clarified 1 Nov |
+| **The troop leader comes in and hands Russ the badge** | In Person Session |
+
+### Character threads
+| Claim | Source |
+|---|---|
+| **Bix:** his parents have a **distinctive characteristic in the photograph**. **Will supplies it** — a trait of Bix's that Edward and/or Goblinenon carry | In Person Session, clarified 1 Nov |
+| **Yobo:** the party-room photo layer is a **spot-the-difference** between two pictures — the live room and Bix's photograph | In Person Session, clarified 1 Nov |
+| **Angelique plants a seed at the gazebo with a side-eye** — her failed warning (keeps Sesh 5) | In Person Session, clarified 1 Nov |
+| **Angelique is at the finale** | In Person Session, clarified 1 Nov |
+
+### Props & the day
+| Claim | Source |
+|---|---|
+| **One physical prop per PC.** Bix: the photograph, **printed**. Gnomey: the blue poker chip (from Vinny at the end). Simone: the wishing willow. Russ: the badge and the requirements card. **Yobo: undecided** | In Person Session, clarified 1 Nov |
+| Physical: invitation, USB, wishing willow, Assisting the Elderly badge + requirements, sticky note, a prop for each character | In Person Session |
+| Digital: library clippings, deed, photograph / spot-the-difference, DJ poster, **a backstory reminder per character** — what each should remember about their backstory | In Person Session |
+| **Spencer** makes the invitation and the poster | In Person Session |
+| **Scott** does combat prep and ties up loose ends: Vinny's backstory, the distinctive trait from Will, details on what to reveal in dialogue | In Person Session |
+| **Day-of roles:** Spencer runs what the characters say — the dialogue and what we want them to reveal. Scott runs narration. Each gets a tailored bullet list of what to remember | In Person Session |
+| **Meet the day before** | In Person Session |
+
+### 🟡 Not canon — connective tissue added while applying this
+- **The finale's lie still happens.** Poe Boy still tells the vampires on the mic at 3AM that the party are the
+  mall company's people; with phase 1 cut, it never becomes a fight because the developer's breach breaks it on
+  sight. Staging that keeps Sesh 7's manipulation beat alive — not in the notes.
+- **The age-12 visit still happens, without the chip.** *"Twelve years old and he's got a crew." / "I don't have
+  a crew anymore." / "You'll get another one."* — and *"You'll get another one"* pays off at the end, when he
+  hands the chip to a kid who now has one. The notes only say he gives it because Gnomey has earned it.
+- **The public claim moves to the ending scene.** *"This is my house,"* Orlok confirming it through his teeth, and
+  *"You can stay"* all follow Vinny's handover rather than happening in the ballroom.
+- **Orlok still signs the requirements card**; the troop leader hands over the badge. The notes only give the
+  troop leader the hand-over.
+- **The six differences in `/party-room/`** — the clock, the empty turntable, Orlok's claws, Goblinenon's hand,
+  Edward's fangs, Dracula's arms — are the prop's invention.
+
+### Still open from this session
+1. **The invitation:** is it to the concert or to the haunted house? Spencer's, with the poster.
+2. **When the party gets the poster** — shown at the gazebo, or found in the first room.
+3. **What Vinny says on the early call.**
+4. **Will's trait** for Bix's parents.
+5. **Yobo's physical prop.**
+6. **Making it clear the botched summoning is Poe Boy's.**
+7. **What unlocks the AIM room**, and what the poster on its door says.
+8. **How much backstory is written out vs. revealed in dialogue.** Items to place: the silly bandz, 3am, the
+   Dolly Parton riff, Angelique's side-eye.
+9. **What Angelique does at the finale.**
+10. **The troop leader** — who they are, and why they're at the mansion at dawn.
+11. **Where the vampires stand at 3AM before the developer breaches.** Sesh 7's *"Poe Boy takes control of some
+    vampires in the final fight"* is now carried only by the lie.
+
+**Dropped as brainstorming:** the developer group as a shell for a rival gang, a second wave of thugs, the
+"sound check" lock, whether they figure out the vampires are bad beforehand, and Vinny's "seedy characters".
+
+---
+
 ## 📗 Sesh 8 — the two character arcs, locked 30 Aug 2026
 
 Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
@@ -143,16 +236,16 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 | **Title rests with the bearer of the marker** — not his name, not his heirs, not his estate | Sesh 8 |
 | **Vinny let them stay.** "You always collect, and then you're not a bastard about it" | Sesh 8 |
 | **Vinny is alive** — ancient, in a home, mostly gone | Sesh 8 |
-| He gave the chip to a twelve-year-old Gnomey after hearing the kid had an operation going. *"Twelve years old and he's got a crew." / "I don't have a crew anymore." / "You'll get another one."* | Sesh 8 |
+| ~~He gave the chip to a twelve-year-old Gnomey~~ after hearing the kid had an operation going. *"Twelve years old and he's got a crew." / "I don't have a crew anymore." / "You'll get another one."* — **the chip half is replaced by In Person Session:** Vinny keeps it and hands it over at the end | Sesh 8, replaced by In Person Session |
 
 ### Gnomey's arc
 | Claim | Source |
 |---|---|
-| **Gnomey is the rightful owner of the mansion**, via the chip he has carried since session one | Sesh 8 |
+| **Gnomey is the rightful owner of the mansion**, via the chip — ~~he has carried since session one~~ **which Vinny hands him in the ending scene** | Sesh 8, replaced by In Person Session |
 | He becomes **head of household and the new leader of the gang** | Sesh 8 |
 | **The study** — sealed since the thirties. A poker set exactly one chip short, the last hand still on the table, and a strongbox with the deed and the signed settlement | Sesh 8 |
 | **Epilogue:** he fronts for the vampires as the man who can stand in daylight, takes no rent and asks nothing. Orlok is pissed, complies perfectly, and thanks him through his teeth | Sesh 8 |
-| He calls the nursing home at the end | Sesh 8 |
+| ~~He calls the nursing home at the end~~ — **replaced by In Person Session:** Vinny calls *him* early, and shows up in person at the end | Sesh 8, replaced by In Person Session |
 
 ### Saturday night — the revised mansion flow
 | Claim | Source |
@@ -173,7 +266,7 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 | **The poker room**, placed before anything exonerates the vampires | Sesh 8 |
 | **The party room** — where Bix finds the photograph | Sesh 8 |
 | ~~Cody's and John's threads — **still blank**~~ — **Cody's answered Sesh 8** (the cellar infirmary / the badge arc); John's still blank | Sesh 8 |
-| The computer room; Simone's link lands here | Sesh 8 |
+| The computer room; Simone's link lands here. **It is the last room** — locked, with a poster on the door, until the end | Sesh 8 + In Person Session |
 | The cellar / food stash clears the vampires | Sesh 8 (restates Sesh 6) |
 
 ### ⚰️ The Gjenganger is retired
@@ -216,7 +309,7 @@ is **Orlok** (Russell → Carl).
 | **2 · "Tend your elder's garden"** | Sunday, the cellar | The food-stash reveal *is* an **animal infirmary** (see below). Russ Speak-with-Animals the patients — that's where the exoneration lands — and finds Orlok's dead, ghost-white **medicinal seedlings** straining toward light that isn't there. The old one has tried for years to grow **Sun's-mercy**, the sun-flower that mends wounds, and it always withers in the dark. Russ moves them into the cellar's one blade of daylight (or channels it), they open gold, and he dresses the worst-off animal's wound. |
 | **3 · "Give care when someone is hurting"** | The finale battle | Russ gets the chance to **heal one of the vampires** under fire. The bond, proven. |
 
-- **Epilogue:** **Orlok signs off** on Russ's requirements and **Russ gets his badge** — hand Cody a real badge at the table.
+- **Epilogue:** **Orlok signs off** on Russ's requirements and **the troop leader comes in and hands Russ the badge** (In Person Session) — hand Cody a real badge at the table.
 
 ### The vet reframe — now canon, and it protects the exoneration
 
@@ -248,8 +341,8 @@ then flips to **a clinic**.
 |---|---|
 | **The fork is cut.** No fight-them / never-had-to branch — the weekend runs one line | the 24 Aug doc paste (reverses Sesh 2) |
 | Three combats for the weekend: one Saturday, two Sunday. A fourth stays in reserve | the 24 Aug doc paste |
-| The finale runs in three phases: vampires hostile → developer breaches → vampires turn | the 24 Aug doc paste |
-| Phase 2 is the only lethal fight of the finale | the 24 Aug doc paste |
+| ~~The finale runs in three phases: vampires hostile → developer breaches → vampires turn~~ — **phase 1 cut in the In Person Session.** Two phases: developer breaches → the booth (vampires turn) | the 24 Aug doc paste, replaced by In Person Session |
+| The developer's breach (now the first phase) is the only lethal fight of the finale | the 24 Aug doc paste |
 | Town has no combat | the 24 Aug doc paste |
 
 ⚠️ Cutting the fork also strands two things the 24 Aug decisions justified: the **cellar** was kept clear
@@ -284,7 +377,7 @@ survives. The cellar and the corridor are both still fine — they just need new
 This lands neatly on the 24 Aug two-setups decision: the Spirit is upstairs in the **old rig**, the aux is
 downstairs in the **ballroom**, and the USB is the thing that bridges them.
 
-### Phase 3
+### The booth (the second phase)
 | Claim | Source |
 |---|---|
 | The objective is one sentence: **get the USB to the DJ set and get on aux** | the 24 Aug doc paste |
@@ -300,7 +393,7 @@ downstairs in the **ballroom**, and the USB is the thing that bridges them.
 | Silence, then one boo, then the whole room | the 24 Aug doc paste · crowd resolved 25 Aug |
 | **Dracula seizes the mic** and denounces him magnificently | the 24 Aug doc paste |
 | Poe Boy tries to Command his way clear and **it doesn't land** | the 24 Aug doc paste |
-| **His parents arrive.** A Volvo, matching fleece, *"Upton, honey?"* | the 24 Aug doc paste |
+| **His parents arrive.** A Volvo, matching fleece, *"Upton, honey?"* — in the one ending scene with the troop leader and Vinny | the 24 Aug doc paste + In Person Session |
 | Poe Boy is **not killed. He is un-performed** | the 24 Aug doc paste |
 | **Lil Stinky records a diss track.** Sincere, terrible, devastating | the 24 Aug doc paste |
 | The mega mall breaks ground in **Amityville** — quiet neighborhood, waterfront, great bones | the 24 Aug doc paste |
@@ -311,9 +404,9 @@ is now load-bearing. It is what his mother calls him in the driveway.
 ### The vampires
 | Claim | Source |
 |---|---|
-| In first contact and phase 1 they are **mechanically incapable of killing a PC** — grapple, shove, frighten, never Bite | the 24 Aug doc paste |
-| Phase 1 is a pressure scene, not a balanced encounter | the 24 Aug doc paste |
-| Poe Boy sets them on the party with the same lie that killed the kid | Sesh 7 + the 24 Aug doc paste |
+| In first contact they are **mechanically incapable of killing a PC** — grapple, shove, frighten, never Bite. ~~And in phase 1~~ — cut by In Person Session | the 24 Aug doc paste |
+| ~~Phase 1 is a pressure scene, not a balanced encounter~~ — phase 1 cut | the 24 Aug doc paste, replaced by In Person Session |
+| Poe Boy tells them the party are the mall company's people — the same lie that killed the kid. 🟡 With phase 1 cut it never becomes a fight; the developer's breach breaks it on sight | Sesh 7 + the 24 Aug doc paste; 🟡 staging after In Person Session |
 
 ### 🟡 Not canon: the encounter numbers
 Everything on the codex's **Combat** tab that isn't a beat above — XP budgets, CR picks, HP figures,
@@ -336,7 +429,7 @@ Not yet pasted into the Google Doc — **do that to make them official.** Until 
 | ✅ **Races & classes are now IN DOC** — Spencer wrote Scott's picks into the doc as **Brainstorm Sesh 8**, which this ledger had not seen. They are no longer 🟡 anything. Sesh 8 also added Lil Stinky's oathbreak, which the codex had missed entirely. | 🟡 "Scott's pick, not in the doc yet" — **now doc** |
 | ✅ **The invite is exclusive — five cards, five lockers, nobody else got one.** The party arrives at an empty hill: no cars, no line, no lit windows. This **narrows Sesh 7's "invite everyone"**, which is a doc line, so it needs writing into the doc more than anything else on this list. Knock-on: the codex no longer leans on a houseful of other kids to stop the party leaving — the bolted doors do it. | 🟡 codex stagecraft — **now decided by Scott, 24 Aug 2026**, and it overrides a doc line |
 | ✅ **The 3AM DJ show flyer is public — a two-tier guest list.** Five cards at 7PM for the part Poe Boy actually wants recorded; the flyer's audience arrives at 3AM for the scare the vampires agreed to. Resolves the collision between the exclusive invite and the finale's charmed crowd, and unblocks the flyer prop. | 🟡 **decided by Scott, 25 Aug 2026.** Not in the doc yet |
-| ✅ **The boards come off the front door; there is no side-entrance tip.** Poe Boy pries the boards away for the party and stacks them against the porch rail — the only visible change to the house in decades, and the invitation. The party walks in the front, and *then* the doors bolt. What he hands them at the gazebo instead: *"I spin up there sometimes"* (Sesh 3, verbatim), *"wait till you see what I've done with the ballroom"*, and *"stick around till three."* The tell is what he leaves out — he never mentions the other room he keeps gear in. | 📗 Sesh 3's tip, **superseded by Sesh 7**. Sesh 3 wrote him as a helpful stranger; Sesh 7 made him the host, and a host who wants five specific people inside opens the door rather than sending them round the back. The old tip also created a contradiction — sneak past a boarded door that then bolts shut behind you |
+| ✅ **The boards come off the front door; there is no side-entrance tip.** Poe Boy pries the boards away for the party and stacks them against the porch rail — the only visible change to the house in decades, and the invitation. The party walks in the front, and *then* the doors bolt. What he hands them at the gazebo instead: *"I spin up there sometimes"* (Sesh 3, verbatim), *"wait till you see what I've done with the ballroom"*, and *"stick around till three"* — and, from the In Person Session, that **he'll be playing some new tunes**. The tell is what he leaves out — he never mentions the other room he keeps gear in. | 📗 Sesh 3's tip, **superseded by Sesh 7**. Sesh 3 wrote him as a helpful stranger; Sesh 7 made him the host, and a host who wants five specific people inside opens the door rather than sending them round the back. The old tip also created a contradiction — sneak past a boarded door that then bolts shut behind you |
 | ✅ **The climax happens in the ballroom / great hall**, rigged as a stage, with Poe Boy's decks there and the speakers run through the rest of the house. Keeps the climax clear of the cellar, which Path A needs for the coffins. Also settles that Poe Boy has **two** setups, not one: the old room upstairs with the original recording rig and the occupied computer, and the ballroom he built for tonight. | 🟡 room design — **decided by Scott, 24 Aug 2026.** The doc names no rooms in the mansion at all |
 | ✅ **The house's power is hot-wired off the neighbouring property.** Explains the working computer, the one lit room, and the speakers run through the house. Also the one thread anyone outside could pull on. | 🟡 the doc explains the computer but never the electricity — **decided by Scott** |
 | ✅ **John's PC is Yobo, and his arc is "stop lying, get stronger."** The grandmother-is-Dolly-Parton lie is a **Performance + Bardic-Inspiration debuff** (with a Deception upside) that flips to a buff when he tells the truth in the **party room**, where the frozen ghost-party accepts only a true performance and **Dracula coaches him** through it. Two artifacts: `/photo/` (now also the puzzle key) and a new `/party-room/` prop. Full build in `PROPOSALS.md`. | 📗 **Now in the doc** — Character Bios (Yobo) + Sesh 8 (the arc), pasted 5 Sep 2026. Only the wig is still open (written in as a question for John); race/subclass/dice unspecified |
@@ -389,9 +482,9 @@ Three things in the codex were not just unsourced, they were wrong:
 | Combat set-piece guards the way to the computer | Sesh 6 |
 | Biggest clue: the kid was killed by a human | Sesh 6 ("maybe"), Sesh 7 |
 | Real-estate company wants to demolish it for a **mega mall**; scared off the land by the end | Sesh 5, 7 |
-| Poe Boy takes control of some vampires in the final fight — settled in the 24 Aug doc paste as **manipulation, not mind control** | Sesh 7, resolved the 24 Aug doc paste |
+| Poe Boy takes control of some vampires in the final fight — settled in the 24 Aug doc paste as **manipulation, not mind control**. ⚠️ With phase 1 cut (In Person Session) the manipulation is the lie alone — see open question 11 there | Sesh 7, resolved the 24 Aug doc paste |
 | Three named handouts: Haunted House Invite, DJ Show Flyer, Library History Clippings | Sesh 5, 6 |
-| Invite ~7PM; DJ show 3:00AM; working date Halloween | Sesh 6 |
+| Invite ~7PM; DJ show 3:00AM; working date Halloween. The time on the invitation is **7pm** | Sesh 6 + In Person Session |
 | Dood Mansion (*dood* = dead in Dutch) — Spencer flagged *"lmk if thats too dumb"* | Sesh 6 |
 | **Senior skip day, and nobody told them** — why these five are in the room. Breakfast Club vibes | Sesh 1 comments — Spencer floated, Scott took it |
 | The bookend played battered: *"scars and black eyes and theyre like 'and yeah that was our class project'"* | Sesh 5 comments — Scott |
@@ -425,11 +518,12 @@ the story now** — so this counts as in-doc like anything else, not as one pers
 | **Bix's parents: Edward is his father; his mother Goblinenon was killed clearing the house** — full timeline in the Sesh 8 section above | **Sesh 8** |
 | Bix ↔ Angelique: both loners, short friendship, he pushed her away as it got more serious *platonically* | Sesh 5 |
 | A diary in the house may reveal Bix's account is incomplete | Sesh 6 |
+| **Bix's parents carry a distinctive trait in the photograph**, supplied by Will | In Person Session |
 | **Gnomey Soprano** (Julia) — male gnome rogue, cute/deadly, petty schemer, hustler, sells cigarettes in the bathroom, idolizes mob bosses, wholesome family | Character Bios |
 | A teacher genuinely believes in Gnomey; he wavers between street life and college | Character Bios |
 | Gnomey was in the crew in middle school; fell out over Poe Boy skimming the **silly banz** money | Sesh 5 |
 | Gnomey's mansion tie: crew threw rocks and dared each other to ring the doorbell; one Halloween something happened | Sesh 5 |
-| **Gnomey's real mansion tie: he owns it.** Great Uncle Vinny won it off Orlok at cards in 1931 and the deed runs with a poker chip in Gnomey's pocket | Sesh 8 |
+| **Gnomey's real mansion tie: he owns it.** Great Uncle Vinny won it off Orlok at cards in 1931 and the deed runs with a poker chip — which Vinny hands Gnomey at the end | Sesh 8 + In Person Session |
 | **Simone** — angsty goth warlock, devil patron as an all-black goat with an upside-down red cross, atheist parents, sells love & revenge spells to fund a satanic metal show, frequent detention, loner | Character Bios |
 | **Simone's mansion tie: she sold the dead kid the wishing willow, and her patron's price is the concert fund** — full chain in the Sesh 8 section above | **Sesh 8** |
 | **John — Yobo**, a musical-theatre bully / popular kid; leaning Bard, words as the weapon. His lie (grandmother = Dolly Parton) props up his status and he's insecure about real talent. Arc: the lie is a Performance/Bardic-Inspiration debuff (Deception upside) that flips to a buff when he tells the truth in the party room, Dracula pushing him. Wig still an open question for John | Character Bios + Sesh 8 |
@@ -449,7 +543,7 @@ the story now** — so this counts as in-doc like anything else, not as one pers
 | **Lil Stinky** — school kingpin tied to Julia's cigarette trade, stoner, bad rapper, dumb but honest, needs no manipulation, makes music with Poe Boy; Orc or Goliath TBD, tanky TBD | Sesh 3 |
 | **Angelique** — trad goth, nihilist hedonist with empathy, smart but unsure, Poe Boy exploits her low self-worth, the one who can be pulled out of his orbit; Changeling or Genasi TBD | Sesh 3 |
 | **Angelique is the locked name** (Coressa/Angellica/Scarlett are out) | Sesh 7 |
-| **Angelique tries to warn them at the gazebo and can't** — the rest of the crew is standing there | Sesh 5 |
+| **Angelique tries to warn them at the gazebo and can't** — the rest of the crew is standing there. **It's a side-eye** | Sesh 5 + In Person Session |
 | **NPC races & classes**: Poe Boy = Kenku Bard (Glamour); Lil Stinky = Paladin, Oath of Devotion; Angelique = Changeling Rogue. Still open by the doc's own admission: Lil Stinky's race, Simone's race | **Sesh 8** |
 | **Lil Stinky's arc**: *"Sworn to a liar without knowing it. His oath breaks when he believes us about the kid."* | **Sesh 8** |
 | Angelique is the first to run into them in the mansion and tells them to hide | Sesh 5 |
@@ -559,6 +653,8 @@ stay on this list until you two decide:
 ---
 
 ## Open questions worth settling
+
+> The In Person Session adds eleven more — see **Still open from this session** in its section near the top.
 
 1. ~~Is the Gjenganger in?~~ — **retired in Sesh 8 by displacement.** Orlok took its backstory, the corridor was cut, and Saturday's mansion fight is a botched summoning. Spencer should be told directly; it was his find.
 2. Who is the dead kid? Name, year, enough of a life that the table feels it. **Sesh 8 moved where the

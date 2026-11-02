@@ -603,9 +603,12 @@ capstoned by Yobo's turn:
 - **Layer 1 — Blend in** (social/observation): the party resumes and treats the PCs as guests; they must
   match the revelers. Missteps raise the **Revel meter** toward hostile. *Irony:* masked Yobo's Deception
   advantage makes him great at faking belonging here.
-- **Layer 2 — Restore the moment** (match-the-picture): the loop is glitching; **Bix's photograph is the
-  solution key** — recreate its tableau (start the gramophone, set the four guests to their marks L→R:
-  **Orlok, Goblinenon, Edward, Dracula**, light the candles). Wrong placements tick the Revel meter.
+- **Layer 2 — Restore the moment** (spot the difference — In Person Session): the loop is glitching, and the
+  room is *almost* the photograph. **Bix's photograph is the solution key** — the table holds the printed
+  print and finds what in the live room doesn't match it. Each find snaps that detail back; a tap on something
+  that was already right ticks the Revel meter, which also creeps while the loop stays broken. 🟡 The six
+  differences in the prop (a wall clock, the empty turntable, Orlok's claws down, Goblinenon's hand off her
+  belly, fangs on Edward, Dracula's arms down) are the prop's invention — swap freely.
 - **Layer 3 — The song** (the turn): the host calls for entertainment; only Yobo can answer. The room
   rewards a **true** performance, not a high roll — a masked turn makes the ghosts **curdle to menace**
   (the scare). **Dracula pushes him** to drop the act; he tells the truth → the room erupts and embraces
@@ -631,7 +634,7 @@ fraud who never dropped the mask; Yobo is the one who did.
 ## Artifacts
 
 - **`/photo/`** — Bix's photograph, already built. Now also the **solution key** to the party-room puzzle.
-- **`/party-room/`** — new prop: light the candles, place the four guests, start the gramophone, watch the
+- **`/party-room/`** — the live room: tap the six things that don't match the photograph, watch the
   Revel meter, with DM buttons for the true-vs-borrowed-voice outcome. Audio is fully synthesised (no asset
   files), splash-gated for iOS per CLAUDE.md.
 

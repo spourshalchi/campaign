@@ -421,18 +421,21 @@ const SCENES = [
   read:[{t:"Five kids. Two nights. One house that bolts its doors. Everything below is a physical object you want in reach — the story leans on hand-offs."}],
   beats:[
     "<b>Party is level 4</b>, leveling to <b>5</b> at the end of night one. Everything Sunday is built for five level-5 PCs.",
-    "<b>Sunday's four rooms run in any order</b> — Study (Gnomey), Party room (Bix &amp; Yobo), Computer (Simone), Cellar (Cody). The corridor set-piece is cut.",
-    "Only <b>five people</b> are invited (7PM card). The <b>3AM flyer is public</b> — that's when the house fills up for the show.",
+    "<b>Sunday's three rooms run in any order</b> — Study (Gnomey), Party room (Bix &amp; Yobo), Cellar (Cody). <b>The old rig upstairs (Simone) is locked until the end</b> and is always the last room. The corridor set-piece is cut.",
+    "Only <b>five people</b> are invited (7PM card). The <b>3AM flyer is public</b> — that's when the house fills up for the show. Poe Boy sells the whole night as a <b>concert</b>; what he's really after is his samples.",
+    "<b>Who runs what:</b> Spencer voices the NPCs &mdash; the <b>In the scene</b> panel on each cue is his. Scott narrates &mdash; read-aloud, beats, checks and combat.",
     "Open the <b>Rules</b> panel (<code>R</code>) for the four hard rules and the XP budgets before combat."
   ],
   npcs:[],
   reminders:[
-    {t:"Hand Julia a real <b>blue poker chip</b> at session one and never explain it.", k:"hand"},
+    {t:"<b>One physical prop per PC:</b> Bix &mdash; the printed photograph &middot; Gnomey &mdash; the blue chip (Vinny hands it over at the end) &middot; Simone &mdash; the wishing willow &middot; Russ &mdash; badge + card &middot; Yobo &mdash; <b>still undecided</b>.", k:"hand"},
     {t:"Printed <b>invite card</b> for the locker letters &mdash; prop at <code>/invite/</code>.", k:"hand"},
     {t:"<b>AIM sticky note</b> reading <code>Fluffy123</code>, in handwriting, findable in the house.", k:"hand"},
     {t:"A real <b>USB stick</b> with <code>scream_test_03_GOOD.wav</code> &mdash; set its volume label to the kid's name.", k:"hand"},
     {t:"The <b>wishing willow</b> token: <i>I want Angelique to notice me</i>, in twelve-year-old hand.", k:"hand"},
-    {t:"<b>Russ's badge card</b> (<code>/badge/</code>) plus a real merit badge to pin on Cody at the very end.", k:"hand"},
+    {t:"The <b>printed photograph</b> for Bix &mdash; also the key to the party-room spot-the-difference.", k:"hand"},
+    {t:"<b>Russ's badge card</b> (<code>/badge/</code>) plus a real merit badge for the troop leader to hand Cody at the very end.", k:"hand"},
+    {t:"The <b>blue poker chip</b> &mdash; keep it off the table until Vinny hands it to Gnomey in the ending scene.", k:"hand"},
     {t:"iPad loaded with the props: <code>/puzzle/</code> <code>/settlement/</code> <code>/photo/</code> <code>/party-room/</code> <code>/aim/</code> (set <code>?name=</code> first).", k:""}
   ],
   cues:[] },
@@ -456,12 +459,15 @@ const SCENES = [
     "Everyone finds a mysterious invitation to a haunted house at the abandoned Dutch mansion. 7PM sharp.",
     "<b>Nobody else got a card.</b> Finding that out is the strongest push toward town there is.",
     "If they march up the hill early: the front is <b>still boarded at this hour</b> and bounces them back &mdash; which is the point. The boards come off during the day.",
-    "<b>If they don't bite, hand a detour to a PC:</b> tell <b>Bix</b> the Records Keeper knows old names; tell <b>Gnomey</b> the old crew at the gazebo will already know."
+    "<b>If they don't bite, hand a detour to a PC:</b> tell <b>Bix</b> the Records Keeper knows old names; tell <b>Gnomey</b> the old crew at the gazebo will already know.",
+    "<b>Gnomey's phone rings: Great Uncle Vinny.</b> Somewhere in town on Saturday, before the house, Vinny calls him &mdash; and the mansion comes up. It's how Vinny gets introduced early, so he isn't a stranger when he walks in at the end. <b>What he says is still to be written.</b>"
   ],
-  npcs:[],
+  npcs:[
+    {nm:"Great Uncle Vinny (phone)", vc:"Ancient and mostly gone. Lines still to be written."}
+  ],
   reminders:[
     {t:"Hand out the printed <b>invite</b> (<code>/invite/</code>) &mdash; its mass-flyer voice is deliberate camouflage.", k:"hand"},
-    {t:"Julia has had the <b>blue chip</b> in her pocket since session one.", k:""}
+    {t:"Open: is the card an invite to a <b>haunted house</b> or to Poe Boy's <b>concert</b>? Spencer is deciding with the invite.", k:""}
   ],
   cues:[] },
 
@@ -499,8 +505,8 @@ const SCENES = [
 { act:"town", no:4, title:"The gazebo", where:"Town · the bad kids",
   read:[{t:"Whoever's wearing a watch &mdash; it's <b>ten to seven</b>. That's the time on the card."}],
   beats:[
-    "Meet <b>DJ Poe Boy</b> and his entourage. <b>Angelique tries to warn them and can't</b> &mdash; the crew is standing right there. Play it as a look, a swallowed half-sentence.",
-    "Poe Boy can't help showing off, and every brag is a confession: <i>&ldquo;I spin up there sometimes&rdquo;</i> &middot; <i>&ldquo;wait till you see what I've done with the ballroom&rdquo;</i> &middot; <i>&ldquo;stick around till three.&rdquo;</i>",
+    "Meet <b>DJ Poe Boy</b> and his entourage. <b>Angelique tries to warn them and can't</b> &mdash; the crew is standing right there. Play it as a <b>side-eye</b>, a swallowed half-sentence.",
+    "Poe Boy can't help showing off, and every brag is a confession: <i>&ldquo;I spin up there sometimes&rdquo;</i> &middot; <i>&ldquo;wait till you see what I've done with the ballroom&rdquo;</i> &middot; he'll be playing <b>some new tunes</b> &middot; <i>&ldquo;stick around till three.&rdquo;</i> He's selling a concert; the samples are what he wants.",
     "<b>The tell is what he leaves out:</b> he never mentions the <b>other</b> room upstairs he keeps gear in &mdash; the one he hasn't been back into. Nobody notices now; they notice later.",
     "<b>Yobo's arc opens:</b> the crew clocks him &mdash; <i>&ldquo;you're the Dolly Parton guy, do a little riff.&rdquo;</i>"
   ],
@@ -510,7 +516,7 @@ const SCENES = [
   ],
   npcs:[
     {nm:"DJ Poe Boy", vc:"Kenku &mdash; <b>voice him only in borrowed / sampled lines.</b> Glamour-charming, subversive, real cred. Showing off is the crime leaking out."},
-    {nm:"Angelique", vc:"Wants them warned, can't say it out loud. A held breath, not exposition."}
+    {nm:"Angelique", vc:"Wants them warned, can't say it out loud. A side-eye and a held breath, not exposition."}
   ],
   reminders:[
     {t:"By now the <b>boards are off the front door</b>, stacked neat against the porch rail &mdash; the only change to the house in decades. That's the invitation.", k:""},
@@ -563,7 +569,7 @@ const SCENES = [
     {nm:"Edward", vc:"Watches Bix. Does not approach. Knows exactly who he is."}
   ],
   reminders:[
-    {t:"Vampires <b>cannot kill a PC</b> here or in phase one. The rule is the clue.", k:"rule"}
+    {t:"Vampires <b>cannot kill a PC</b> here. The rule is the clue.", k:"rule"}
   ],
   cues:["drone","heart","jump","braaam"] },
 
@@ -590,7 +596,7 @@ const SCENES = [
   read:[{t:"A door on the top floor you haven't tried is warm to the touch &mdash; and something on the other side of it is breathing."}],
   beats:[
     "<b>Bix beat 2 of 3:</b> they catch Edward spying, specifically watching <b>Bix</b>. Play it as a horror beat first &mdash; the read should be <i>the vampire has picked one of us</i>.",
-    "Let them be wrong about it for as long as possible. <b>Edward does not explain himself tonight</b> &mdash; that's the epilogue, and holding it is what makes it land.",
+    "Let them be wrong about it for as long as possible. <b>Edward does not explain himself tonight</b> &mdash; that's the driveway at sunrise, and holding it is what makes it land.",
     "Route them to the sealed room upstairs. The fight is the button on Saturday night."
   ],
   npcs:[
@@ -626,21 +632,22 @@ const SCENES = [
   cues:["heart","jump","aim","levelup"] },
 
 { act:"sunday", no:10, title:"The study", where:"Sunday morning · Gnomey · any-order room",
-  read:[{t:"He's read it three times. The name on the deed is his."}],
+  read:[{t:"He's read it three times. The man who won this house is his great-uncle &mdash; and whoever holds the missing chip owns it."}],
   beats:[
-    "Sunday opens on <b>four per-PC rooms in any order.</b> This one is Gnomey's.",
+    "Sunday opens on <b>three per-PC rooms in any order.</b> This one is Gnomey's.",
     "The study, sealed since the thirties: a poker set exactly <b>one chip short</b>, the last hand still on the table, and a strongbox holding the deed and the signed <b>Articles of Settlement</b> with the bearer clause spelled out.",
-    "<b>Run it before anything exonerates the vampires</b>, so Gnomey discovers he owns a house full of things he still believes are killers &mdash; and has all of Sunday to sit on it.",
-    "<b>Make sure Gnomey is alone.</b> The climax isn't the discovery &mdash; it's walking back into a room full of people who've never looked at him and saying it out loud. Give Julia the secret; let her choose when to spend it.",
+    "<b>Gnomey doesn't have the chip.</b> What he learns here is that his great-uncle won the house, and that title rests with whoever holds the one chip missing from this set. Where it is stays a question until Vinny walks in at the end.",
+    "<b>Run it before anything exonerates the vampires</b>, so Gnomey learns his family has a claim on a house full of things he still believes are killers &mdash; and has all of Sunday to sit on it.",
+    "<b>Make sure Gnomey is alone.</b> The payoff isn't the discovery &mdash; it's the ending, when Vinny hands him the chip and he says it out loud. Give Julia the secret; let her choose who to tell.",
     "The door is <b>deliberately undefined.</b> When you design it, it must be a <b>whole-party</b> problem."
   ],
   checks:[
-    {skill:"Investigation", dc:"12", sug:true, note:"Connect the missing chip to the one in Julia's pocket. If nobody does: <b>put the gap in front of them physically</b> &mdash; 49 chips, one gap, the size of the one in her pocket."}
+    {skill:"Investigation", dc:"12", sug:true, note:"Read the signatures and the bearer clause: <b>V. Soprano</b> won the house, and the missing chip is the deed. If nobody gets there: <b>put the gap in front of them physically</b> &mdash; 49 chips, one empty slot &mdash; and read the bearer paragraph aloud."}
   ],
   npcs:[],
   reminders:[
     {t:"Show <code>/settlement/</code> on the iPad (tap to unfold). The bearer paragraph is the <b>only one on the page with no corrections</b>.", k:"hand"},
-    {t:"The chip <b>cannot be lost, taken, pickpocketed or Commanded away.</b> The whole arc dies on one bad roll.", k:"rule"}
+    {t:"Keep the <b>physical chip</b> hidden. Vinny has it, and it comes out only in the ending scene.", k:"rule"}
   ],
   cues:[] },
 
@@ -648,9 +655,9 @@ const SCENES = [
   read:[{t:"The photograph's in hand and the ghost-party has gone still again."}],
   beats:[
     "The night Edward and Goblinenon's cart broke down and they found two vampires partying. Bottles, a record still on the turntable, forty years of dust on somebody's good night.",
-    "<b>Bix beat 3 of 3:</b> he finds the <b>photograph</b> &mdash; two vampires mugging, a pregnant goblin laughing, a fae with no fangs. <b>Hand him the iPad and say nothing.</b> There's writing on the back in her hand.",
+    "<b>Bix beat 3 of 3:</b> he finds the <b>photograph</b> &mdash; two vampires mugging, a pregnant goblin laughing, a fae with no fangs. <b>Hand Will the printed photo and say nothing.</b> There's writing on the back in her hand (<code>/photo/</code>, tap to turn it over).",
     "<b>Yobo's turn, three layers &mdash; 1 Blend in:</b> the frozen party wakes and treats the PCs as guests; match the revelers or the <b>Revel meter</b> ticks toward hostile. Masked Yobo's Deception edge actually helps here.",
-    "<b>2 Restore the moment:</b> recreate the photograph's tableau &mdash; cue the gramophone, light the candles in order, guests to their marks. <b>Bix's photo is the key.</b>",
+    "<b>2 Restore the moment &mdash; spot the difference:</b> the loop is glitching and the room is <i>almost</i> the photograph. Hand over the iPad on <code>/party-room/</code>: <b>six things in the live room don't match the print.</b> Tap each one to put it right. A tap on something that was already right ticks the Revel meter, and the meter creeps on its own while the loop stays broken. <b>Bix's photo is the key.</b>",
     "<b>3 The song:</b> the host calls for entertainment and only Yobo can give it. Reward a <b>true</b> performance, not a high roll &mdash; with Dracula pushing, he drops the Dolly-Parton lie, the party erupts, and his debuff flips to a buff for the rest of the campaign."
   ],
   checks:[
@@ -661,14 +668,41 @@ const SCENES = [
     {nm:"Dracula", vc:"Pushes Yobo to drop the act. The catalyst for the buff flip."}
   ],
   reminders:[
-    {t:"Props: <code>/photo/</code> and <code>/party-room/</code>. Bix's find and Yobo's turn are <b>one puzzle</b>.", k:"hand"},
+    {t:"Props: the <b>printed photograph</b> (the key) and <code>/party-room/</code> on the iPad. Bix's find and Yobo's turn are <b>one puzzle</b>. Stuck table: the DM tab's <code>nudge</code> rings one difference.", k:"hand"},
+    {t:"Will's <b>distinctive trait for Bix's parents</b> goes into the photograph &mdash; still to come from Will.", k:""},
     {t:"Yobo's Performance / Inspiration buff is <b>permanent</b> after this.", k:"level"}
   ],
   cues:["record","crowd","candle","braaam"] },
 
-{ act:"sunday", no:12, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · any-order room",
-  read:[{who:"The Spirit", t:"my bag is still in this room. by the desk under the coats. can you get it"}],
+{ act:"sunday", no:12, title:"Food-stash puzzle &amp; the infirmary", where:"The cellar · Cody · badge req 2 of 3 · any-order room",
+  read:[{t:"Straw-lined crates, a fox in a splint, an owl with a wrapped wing. It isn't a slaughterhouse. It's a clinic."}],
   beats:[
+    "A puzzle reveals the vampires' food stash &mdash; the surprise being it's <b>small animals, not people</b>. Solving it releases a key to a hidden room. <b>This is the proof that clears the vamps.</b>",
+    "The hidden room is an <b>animal infirmary, and Orlok is a vet.</b> Straw-lined crates of healing patients &mdash; a fox in a splint, an owl with a wrapped wing &mdash; bandages, a mortar and pestle, a ledger. He mends them; they give a little blood in return.",
+    "(Vinny's forty-year-old liquor crates are still stacked at the back &mdash; this is Gnomey's cellar too.)",
+    "<b>Badge req 2: &ldquo;tend your elder's garden.&rdquo;</b> Russ kneels to a patient and <b>Speak with Animals is where the exoneration lands</b> &mdash; they're grateful, not afraid, and no vampire is required to vouch.",
+    "Dead ghost-white <b>Sun's-mercy</b> seedlings strain toward light that isn't there. Russ moves them into the cellar's one blade of daylight; they open gold and he dresses a wound. Orlok watches a child do in an afternoon what beat him for a century &mdash; and <b>still won't sign</b> (refusal 2 of 3)."
+  ],
+  checks:[
+    {skill:"The puzzle", dc:"DM-run", sug:false, note:"Solve it to release the key to the hidden room."},
+    {skill:"Nature / Plant Growth", dc:"14", sug:true, note:"Bloom the Sun's-mercy in the blade of daylight (or a spell slot)."},
+    {skill:"Speak with Animals", dc:"auto", sug:false, note:"The patients aren't prey &mdash; this is the beat that <b>exonerates the vampires</b>."}
+  ],
+  npcs:[
+    {nm:"Orlok", vc:"A vet, not a killer. Watches the kid succeed where he failed for a century. Cold. Refusal 2 of 3."}
+  ],
+  reminders:[
+    {t:"Refusal 2 of 3.", k:""}
+  ],
+  cues:["heart","candle"] },
+
+{ act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room",
+  read:[
+    {who:"The Spirit", t:"my bag is still in this room. by the desk under the coats. can you get it"},
+    {who:"Ending the room", t:"It's three in the morning &mdash; and every speaker in this house just came on at once."}
+  ],
+  beats:[
+    "<b>The door stays locked until the end</b>, with a <b>poster</b> on it. Try it early and it doesn't open; this is the last room every time. <b>What unlocks it is still open.</b>",
     "<b>0 &mdash; log in first.</b> Sign-on screen, account saved as <code>DJPoeBoy187</code>, empty password. <b>Hand them the sticky note:</b> <code>Fluffy123</code> (his cat). Any capitalisation works; wrong answers get the real AIM error, unlimited tries.",
     "<b>They type as the killer the whole conversation.</b> The boy sees that handle come online and comes apart before he works out it isn't him. <i>&ldquo;youre not typing like him&rdquo;</i> is what saves it.",
     "He was lured by a fake screen name, chased, and <b>soul-caged when Poe Boy shut the door</b>. He was <b>killed by a human</b> &mdash; the thread that clears the vampires. He can name his killer but stops short of the murder accusation (that lands later).",
@@ -686,66 +720,27 @@ const SCENES = [
   reminders:[
     {t:"Set the kid's name in the URL first: <code>/aim/?name=___</code>.", k:"hand"},
     {t:"Hand the players a <b>real USB stick</b> here.", k:"hand"},
-    {t:"<b>Nothing plot-critical hangs on Simone's yes.</b> The recording, the name and the drive are already theirs. A no costs nothing but him &mdash; the machine goes dark at sunrise. <b>Do not fudge it.</b>", k:"rule"}
+    {t:"<b>Nothing plot-critical hangs on Simone's yes.</b> The recording, the name and the drive are already theirs. A no costs nothing but him &mdash; the machine goes dark at sunrise. <b>Do not fudge it.</b>", k:"rule"},
+    {t:"The flyer's <b>3AM</b> is the fight's starting gun &mdash; end the room on the speakers coming on.", k:""},
+    {t:"Because only five were invited, <b>Poe Boy knows exactly who's here</b> and opens the show by naming them.", k:""}
   ],
-  cues:["aim","drone","heart","braaam"] },
+  cues:["aim","drone","heart","braaam","bell","pa"] },
 
-{ act:"sunday", no:13, title:"Food-stash puzzle &amp; the infirmary", where:"The cellar · Cody · badge req 2 of 3",
-  read:[{who:"Ending the room", t:"It's three in the morning &mdash; and every speaker in this house just came on at once."}],
-  beats:[
-    "A puzzle reveals the vampires' food stash &mdash; the surprise being it's <b>small animals, not people</b>. Solving it releases a key to a hidden room. <b>This is the proof that clears the vamps.</b>",
-    "The hidden room is an <b>animal infirmary, and Orlok is a vet.</b> Straw-lined crates of healing patients &mdash; a fox in a splint, an owl with a wrapped wing &mdash; bandages, a mortar and pestle, a ledger. He mends them; they give a little blood in return.",
-    "(Vinny's forty-year-old liquor crates are still stacked at the back &mdash; this is Gnomey's cellar too.)",
-    "<b>Badge req 2: &ldquo;tend your elder's garden.&rdquo;</b> Russ kneels to a patient and <b>Speak with Animals is where the exoneration lands</b> &mdash; they're grateful, not afraid, and no vampire is required to vouch.",
-    "Dead ghost-white <b>Sun's-mercy</b> seedlings strain toward light that isn't there. Russ moves them into the cellar's one blade of daylight; they open gold and he dresses a wound. Orlok watches a child do in an afternoon what beat him for a century &mdash; and <b>still won't sign</b> (refusal 2 of 3)."
+{ act:"finale", no:"14 · i", title:"Climax — Phase 1: the developer breaches", where:"The ballroom · 3AM · the crowd arrives with the show · the only lethal fight",
+  read:[
+    {who:"Poe Boy, on the mic", t:"He names all five of them &mdash; and tells the vampires the party are the mall company's people. The same lie that killed the kid."},
+    {who:"After he goes down", t:"Stop. Let the room be quiet for a moment."}
   ],
-  checks:[
-    {skill:"The puzzle", dc:"DM-run", sug:false, note:"Solve it to release the key to the hidden room."},
-    {skill:"Nature / Plant Growth", dc:"14", sug:true, note:"Bloom the Sun's-mercy in the blade of daylight (or a spell slot)."},
-    {skill:"Speak with Animals", dc:"auto", sug:false, note:"The patients aren't prey &mdash; this is the beat that <b>exonerates the vampires</b>."}
-  ],
-  npcs:[
-    {nm:"Orlok", vc:"A vet, not a killer. Watches the kid succeed where he failed for a century. Cold. Refusal 2 of 3."}
-  ],
-  reminders:[
-    {t:"The flyer's <b>3AM</b> is the fight's starting gun &mdash; it puts a clock on the whole second half.", k:""},
-    {t:"Because only five were invited, <b>Poe Boy knows exactly who's here</b> and opens the show by naming them.", k:""},
-    {t:"Refusal 2 of 3.", k:""}
-  ],
-  cues:["bell","pa","jump"] },
-
-{ act:"finale", no:"14 · i", title:"Climax — Phase 1: the vampires attack", where:"The ballroom · 3AM · the crowd arrives with the show",
-  read:[{who:"Poe Boy, on the mic", t:"He names all five of them &mdash; and tells the vampires the party are the mall company's people. The same lie that killed the kid."}],
   beats:[
     "Venue: the <b>ballroom / great hall</b>, rigged as a stage. Poe Boy's decks are here; the speakers run through the house are what came on at 3AM.",
-    "The control is <b>manipulation, not mind control</b> &mdash; he tells the vamps the party are the developer's people.",
-    "<b>The crowd arrives with the show.</b> The party's been alone eight hours; at three it fills up, and every beat of the collapse has an audience.",
-    "<b>Phase 1:</b> the vampires attack believing they're defending their home. Still <b>no kill.</b> A 2&ndash;3 round pressure scene by rule.",
-    "The party's problem isn't damage &mdash; it's that they <b>can't prove a negative</b>, and Poe Boy is on a live mic reinforcing the lie. Every denial makes it worse."
-  ],
-  combat:{ name:"Phase 1 — the vampires attack", xp:"5,400 XP (held to a pressure scene)",
-    p:"Three CR 5 vampires is right at the level-5 high line &mdash; a genuinely hard fight on paper, held to a pressure scene by the no-kill rule. The math no longer does the work; the rule does.",
-    rows:[["Vampires &times;3","CR 5","statting","&mdash;","Grapple / shove / frighten &mdash; never Bite"]],
-    rule:"They are <b>mechanically incapable of killing a PC</b>: no Bite on a conscious creature, nobody below 1 HP. Afterwards the players can work out the monsters never rolled damage.",
-    monsters:[{n:"Vampire (Orlok)"},{n:"Vampire (Dracula)"},{n:"Vampire (Edward)"}] },
-  npcs:[
-    {nm:"DJ Poe Boy", vc:"On the mic in borrowed lines. An Enthralling Performance holds the 3AM crowd &mdash; he needs them frightened and he needs them to stay."}
-  ],
-  reminders:[
-    {t:"Vampires <b>cannot kill a PC</b>. No Bite, never below 1 HP.", k:"rule"},
-    {t:"Open question to decide: how does the crowd get through a bolted door at 3AM? (Obvious answer: Poe Boy opens the front for his own show.)", k:""}
-  ],
-  cues:["crowd","heart","braaam"] },
-
-{ act:"finale", no:"14 · ii", title:"Climax — Phase 2: the developer breaches", where:"The ballroom · the only lethal fight",
-  read:[{who:"After he goes down", t:"Stop. Let the room be quiet for a moment."}],
-  beats:[
+    "<b>The crowd arrives with the show.</b> The party's been alone eight hours; at three it fills up for the concert, and every beat from here has an audience. <b>Angelique is here too</b> &mdash; what she does is still open.",
+    "Poe Boy names the five on the mic and tells the vamps they're the developer's people &mdash; <b>manipulation, not mind control</b>. It never gets to become a fight.",
     "Ostrander breaches and <b>seals the exits behind him &mdash; his own crew included.</b> Three sides, nobody sharing a goal. <b>The only lethal fight of the finale.</b>",
     "His arrival <b>breaks Poe Boy's lie on sight</b> &mdash; five teenagers are visibly not this man. The vampires stop, then start tearing into his men. That's the cue the room has changed.",
     "Then the party kills him &mdash; converting &ldquo;not our enemy&rdquo; into &ldquo;the people who solved our actual problem, in front of us.&rdquo; <b>Two moments, not one.</b>",
     "He's the <b>only death in the story</b> and the only one who isn't a monster. Self-defence &mdash; he sealed them in and attacked first &mdash; but these are teenagers. <b>Let it have its silence before the comedy starts.</b>"
   ],
-  combat:{ name:"Phase 2 — the developer breaches", xp:"~3,500 XP",
+  combat:{ name:"Phase 1 — the developer breaches", xp:"~3,500 XP",
     p:"Bump him to ~CR 7 to stay lethal against a level-5 party with Counterspell and Fireball. Field six thugs knowing the vampires eat two.",
     rows:[
       ["W. Ostrander (abjurer)","~CR 7","statting","&mdash;","Arcane Ward, Seal a door, Counterspell, Shield, Hold Person &mdash; no damage spells"],
@@ -754,16 +749,18 @@ const SCENES = [
     rule:"He solves problems by <b>sealing</b> them, never by making noise. At level 5 the party has its own Counterspell &mdash; this is a real spell-duel.",
     monsters:[{n:"W. Ostrander"},{n:"Thug 1"},{n:"Thug 2"},{n:"Thug 3"},{n:"Thug 4"},{n:"Thug 5"},{n:"Thug 6"}] },
   npcs:[
+    {nm:"DJ Poe Boy", vc:"On the mic in borrowed lines. An Enthralling Performance holds the 3AM crowd &mdash; he needs them frightened and he needs them to stay."},
     {nm:"W. Ostrander", vc:"An adult with a clipboard. Within four seconds it stops being folklore and becomes a contamination problem on a site he's paid for. Brushes off Poe Boy's recruit pitch."}
   ],
   reminders:[
     {t:"His death is what <b>flips the vampires &mdash; no persuasion check.</b>", k:""},
     {t:"Russ badge req 3 opens next phase: heal a vampire under fire.", k:""},
-    {t:"Give the death its <b>silence</b>. The comedy doesn't start until this lands.", k:"rule"}
+    {t:"Give the death its <b>silence</b>. The comedy doesn't start until this lands.", k:"rule"},
+    {t:"Open question to decide: how does the crowd get through a bolted door at 3AM? (Obvious answer: Poe Boy opens the front for his own show &mdash; doors open half an hour before the set.)", k:""}
   ],
-  cues:["jump","braaam","pa"] },
+  cues:["crowd","jump","braaam","pa"] },
 
-{ act:"finale", no:"14 · iii", title:"Climax — Phase 3: the booth", where:"The ballroom decks · badge req 3 of 3",
+{ act:"finale", no:"14 · ii", title:"Climax — Phase 2: the booth", where:"The ballroom decks · badge req 3 of 3",
   read:[
     {who:"The objective", t:"Get the USB to the decks and get on aux."},
     {who:"On the last turn", t:"Headlights swing across the ballroom windows. Someone has pulled into the drive. &mdash; &ldquo;Upton, honey?&rdquo;"}
@@ -779,7 +776,7 @@ const SCENES = [
   checks:[
     {skill:"Get to / hold the decks", dc:"objective", sug:false, note:"The keep-away is the fight. Deal with Stinky to drop the aura, then plug in."}
   ],
-  combat:{ name:"Phase 3 — the ballroom decks", xp:"2,500 XP · a catharsis, not a grind",
+  combat:{ name:"Phase 2 — the ballroom decks", xp:"2,500 XP · a catharsis, not a grind",
     p:"Well under the level-5 line, easier still with three vampire allies who are now the party's peers. Only real tuning: Poe Boy's staying power.",
     rows:[
       ["DJ Poe Boy","~CR 5","~130 HP · AC 16","DC 16","4 legendary actions (party size &minus; 1); weak weapons, Command is the threat"],
@@ -800,23 +797,39 @@ const SCENES = [
   ],
   cues:["crowd","pa","scratch","braaam","levelup"] },
 
-{ act:"finale", no:15, title:"Resolution &amp; bookend", where:"Back to class",
+{ act:"finale", no:15, title:"The driveway", where:"Dood Mansion · sunrise · one scene, everyone arrives",
+  read:[{who:"Poe Boy's mother", t:"&ldquo;Upton, honey?&rdquo;"}],
+  beats:[
+    "<b>Resolve it all right here, in one scene at the house.</b> Three arrivals, back to back, while the crowd is still on the lawn.",
+    "<b>Poe Boy's mom</b> grounds him in front of everyone &mdash; and he is certainly not going to that satan concert. <b>The tickets go to Simone</b>, who spent every dollar she had hours earlier.",
+    "<b>Russ's troop leader</b> comes in. <b>Orlok signs the card</b>, through his teeth, and the troop leader <b>hands Russ the badge</b>.",
+    "<b>Great Uncle Vinny</b> walks in &mdash; the voice from Saturday's phone call &mdash; and <b>hands Gnomey the chip</b>, because he's earned it. From this moment the house is his. Then Gnomey says it out loud: <i>&ldquo;This is my house.&rdquo;</i> Orlok has to confirm it in front of everyone, and Gnomey's renewal at the threshold is plain: <i>&ldquo;You can stay.&rdquo;</i>",
+    "Then the quiet one: <b>Edward explains himself to Bix</b> &mdash; the cart, the party, Goblinenon, the men the company sent, why he carried a baby down the hill. Its own beat, no jokes in it."
+  ],
+  npcs:[
+    {nm:"Poe Boy's parents", vc:"A Volvo, matching fleece, sweet and oblivious. She calls him Upton."},
+    {nm:"Russ's troop leader", vc:"Character still to be written."},
+    {nm:"Great Uncle Vinny", vc:"Ancient and mostly gone. The same voice as Saturday's phone call. Hands over the chip like it was always the plan."},
+    {nm:"Orlok", vc:"Signs Russ's card and confirms Gnomey's claim, both through his teeth. Pissed, and complies perfectly."},
+    {nm:"Edward", vc:"The whole timeline to Bix. No jokes in it."}
+  ],
+  reminders:[
+    {t:"Hand Gnomey the <b>physical blue chip</b> &mdash; from Vinny's hand.", k:"hand"},
+    {t:"The troop leader hands Cody the <b>physical merit badge</b>.", k:"hand"},
+    {t:"Concert-tickets prop (once the band has a name).", k:"hand"}
+  ],
+  cues:["crowd","levelup"] },
+
+{ act:"finale", no:16, title:"Back to class", where:"The bookend",
   read:[{who:"Let a player say it", t:"&ldquo;&hellip;and yeah that was our class project.&rdquo;"}],
   beats:[
     "They recover an ancient Dutch <b>artifact</b> (after the boss fight or with the vamps' help), the real-estate company is <b>scared off the land</b>, and they present in class &mdash; closing scene one's loop. <b>Play them battered;</b> nobody reacts, which is the joke.",
     "<b>The three closers:</b> Lil Stinky records a sincere, terrible, devastating diss track. The mega mall breaks ground elsewhere &mdash; the brochure says <b>Amityville</b>. And what they actually present is <b>the tape</b>, because the assignment wanted a primary source.",
-    "<b>Epilogue:</b> Edward explains himself to Bix (its own scene, no jokes). Poe Boy's mother grounds him in the driveway &mdash; <b>the concert tickets go to Simone</b>, who spent every dollar hours earlier.",
     "The kid gets <b>uploaded to the library computers</b>, helping people find new books &mdash; the boy who died in a room nobody visited spends his afterlife in the busiest building in town.",
-    "<b>Orlok signs Russ's badge</b> &mdash; the only authority who can certify &ldquo;assisted a vampire,&rdquo; through his teeth, the same way he confirms Gnomey's claim.",
-    "Last beat: Gnomey calls a nursing home. <i>&ldquo;Uncle Vinny. It's me. I collected.&rdquo;</i>"
+    "Gnomey leads the gang and fronts for the vampires as the one who can stand in daylight. He takes no rent and asks nothing &mdash; same as Vinny."
   ],
-  npcs:[
-    {nm:"Edward", vc:"The whole timeline to Bix &mdash; the cart, the party, Goblinenon, the men the company sent, why he carried a baby down the hill. No jokes in it."},
-    {nm:"Orlok", vc:"Signs the card through his teeth. A boy who talks to animals turned out to be the sunlight this house was missing."}
-  ],
+  npcs:[],
   reminders:[
-    {t:"Hand Cody the <b>physical merit badge</b>.", k:"hand"},
-    {t:"Concert-tickets prop (once the band has a name).", k:"hand"},
     {t:"This is the end. Breathe.", k:""}
   ],
   cues:["levelup"] }
@@ -824,9 +837,9 @@ const SCENES = [
 
 /* ============================= CRULES + BUDGET ============================= */
 const CRULES = [
-  ["The vampires cannot kill","No Bite on a conscious creature, ever, in first contact or phase one. Grapple, shove, frighten. The mechanics are the clue, and the reveal depends on this being literally true rather than a near miss."],
+  ["The vampires cannot kill","No Bite on a conscious creature, ever, in first contact. Grapple, shove, frighten. The mechanics are the clue, and the reveal depends on this being literally true rather than a near miss."],
   ["The USB is keep-away, not a fail state","Poe Boy spends his turns on <i>Command</i> &mdash; &ldquo;Drop.&rdquo; The drive <b>cannot be destroyed</b>, so one bad save never ends the campaign; it just costs time while the party is being shot at."],
-  ["The chip cannot be lost or taken","Gnomey's marker is the deed. No failed check, pickpocket or <i>Command</i> separates him from it &mdash; the whole arc dies on one bad roll. It can be <b>demanded</b>, at length, by people being very polite. It cannot be removed."],
+  ["The chip stays with Vinny until the end","Gnomey's marker is the deed, and <b>Vinny holds it all weekend</b>. Nothing at the table puts it in Gnomey's hands early &mdash; no roll, no pickpocket, no lucky find in the study. It comes out once, from Vinny, in the ending scene."],
   ["Stinky's oath breaks with no save","He hears his best friend stay calm while a kid dies. Devotion's first tenet is <i>don't lie or cheat</i>, and there is no save against that. Rolling for it would put the campaign's best beat on a d20."]
 ];
 const BUDGET = {
@@ -840,12 +853,14 @@ const BUDGET = {
 
 /* ============================= HAND-OUTS ============================= */
 const HANDOUTS = [
-  ["Blue poker chip","Hand Julia at session one and <b>never explain it</b>. Clay or bone, hand-stamped &mdash; the same mark as the settlement's seal. The study set is exactly one short."],
+  ["Blue poker chip","Vinny hands it to Gnomey in the ending scene &mdash; keep it out of sight until then. Clay or bone, hand-stamped &mdash; the same mark as the settlement's seal. The study set is exactly one short."],
+  ["The printed photograph","Bix's physical prop, aged like it's been in that house his whole life. Also the key to the party-room spot-the-difference. The back is on <code>/photo/</code>."],
   ["Printed invite card","The 5&times;7 for the locker letters. Prop at <code>/invite/</code>."],
   ["AIM sticky note (Fluffy123)","Handwriting. Findable in the house &mdash; on the monitor, in the gear case, or in the ballroom rig. Unlocks the whole computer-room scene."],
   ["USB stick + the .wav","A real thumb drive with <code>scream_test_03_GOOD.wav</code>. <b>Set its volume label to the kid's name.</b> Handed over when the Spirit uploads."],
   ["The wishing willow","A small wooden token with a paper slip &mdash; <i>I want Angelique to notice me</i>, in twelve-year-old hand. The only physical object tying a PC to the body."],
-  ["Russ's badge card + real badge","Card at <code>/badge/</code> with three signature lines. Pin a <b>real merit badge</b> on Cody at the very end."],
+  ["Russ's badge card + real badge","Card at <code>/badge/</code> with three signature lines. The troop leader hands Cody a <b>real merit badge</b> in the ending scene."],
+  ["Yobo's prop","<b>Still undecided.</b> Every other PC has a physical prop; this is the open slot."],
   ["Concert tickets","What Poe Boy's mother gives Simone in the driveway. Only worth printing once the band has a name."],
   ["iPad, props loaded","<code>/puzzle/</code> · <code>/settlement/</code> · <code>/photo/</code> · <code>/party-room/</code> · <code>/aim/</code> (set <code>?name=</code> first). Cache-bust with <code>?v=</code> after any update."]
 ];

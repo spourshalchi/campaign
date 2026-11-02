@@ -20,6 +20,8 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 │   └── index.html
 ├── photo/            ← The party-room photograph (Bix's beat)
 │   └── index.html
+├── party-room/       ← The frozen party: spot the difference against the photograph (Yobo's turn)
+│   └── index.html
 ├── codex/            ← DM-facing campaign codex (not linked from the landing page)
 ├── run/              ← DM-facing "Run of Show" — the day-of prompt book (not linked either)
 ├── CANON.md          ← canon ledger: what came from the brainstorm doc vs. what an AI made up
@@ -44,7 +46,8 @@ The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
 | Torn Page | `puzzle/` | 1937 newspaper front page, cut up in front of them by a trap in the binding. Reassemble, flip for the page-2 lore, and check the pocket card for who borrowed it last — including **V. Soprano, 1938**, which is where Gnomey's tie to the house gets hinted. Springing the trap is what summons the developer to the house that night. See [puzzle/README.md](puzzle/README.md) |
 | Invite | `invite/` | The haunted-house invitation, ~7PM, homemade and clip-arty. |
 | Settlement | `settlement/` | The 1931 contract from the strongbox in the study. Opens folded; tap to unfold. Two drunk men signed away a mansion over $11.40, and **the only paragraph on the page with no corrections in it is the one that makes Gnomey the owner.** |
-| Photograph | `photo/` | A flash snapshot from the party room — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. Tap to turn it over for the writing on the back. Bix's beat: hand Will the iPad and say nothing. |
+| Photograph | `photo/` | A flash snapshot from the party room — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. Tap to turn it over for the writing on the back. Bix's beat: hand Will the iPad and say nothing. **Print it too** — the print is Bix's physical prop and the key to the party room. Still to add: the distinctive trait Will picks for Bix's parents. |
+| Party room | `party-room/` | The frozen ghost-party, almost exactly the photograph. The table holds the printed photo and taps the six things in the live room that don't match it; misses tick the Revel meter toward a curdle. When the room is whole, the host calls for Yobo's song, with DM buttons for a true or a borrowed voice. |
 | Codex | `codex/` | DM-facing campaign reference — to-do list, relationship web, backstory, story flow, cast, weekend plan, and **combat encounters with the XP budgets**. Not a player prop, and deliberately not tiled on the landing page so it can't be opened at the table by accident. |
 | Run of Show | `run/` | DM-facing **day-of view** — the codex's story flow turned into an arrow-key prompt book. Each cue carries read-aloud text, beats, skill checks, combat stat blocks, NPC voicing, hand-out reminders, and a **synthesized soundboard** (ambience + stings, no files), plus an initiative tracker, d20 roller, hand-out checklist and session timer. Also DM-only and not tiled. See [run/README.md](run/README.md). |
 
@@ -54,10 +57,12 @@ The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
 |---|---|
 | `scream_test_03_GOOD.wav` | The recording that plays over the PA in the finale. The single biggest table moment in the campaign, and it's a file you hit play on. |
 | A real USB stick | Handed to the players when the Spirit uploads. Put the .wav on it, and **set its volume label to the dead kid's name** — Sesh 8 makes the mount the moment the table learns who he is. |
-| A blue poker chip | A **physical** chip to hand Julia at session one, never explained. The set in the study is exactly one short, and the mark on it matches the seal on the settlement. |
+| A blue poker chip | A **physical** chip Uncle Vinny hands Julia in the ending scene — Gnomey doesn't hold it until then. The set in the study is exactly one short, and the mark on it matches the seal on the settlement. |
 | The wishing willow | The second thing in the backpack — the love-spell token Simone sold the dead kid, with *I want Angelique to notice me* on the slip. |
 | DJ show flyer | 3AM, Dood Mansion, bills Poe Boy / Lil Stinky / Angelique. |
 | Food-stash puzzle | The mansion's own puzzle — the one that clears the vampires. |
+| Backstory reminders | One per PC: what each player should remember about their backstory going in. Digital. |
+| Yobo's physical prop | Every PC gets one physical prop — Bix the printed photo, Gnomey the chip, Simone the wishing willow, Russ the badge and card. Yobo's isn't picked yet. |
 
 ## Adding a new prop
 

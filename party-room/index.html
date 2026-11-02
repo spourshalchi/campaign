@@ -10,30 +10,36 @@
 <title>The Frozen Party — Dood Mansion</title>
 <style>
 /* ============================================================
-   THE FROZEN PARTY — the party room set-piece.  🟡 NOT CANON.
+   THE FROZEN PARTY — the party room set-piece.
 
-   Scott's design, 5 Sep 2026 · not in the Google Doc. This is the
-   digital half of a two-artifact puzzle; the physical half is the
-   photograph already built in /photo/. The photo is the SOLUTION
-   KEY — hand it to the table and let them read it.
+   Canon: Yobo's party-room turn is Sesh 8. Layer 2 as a
+   spot-the-difference against Bix's photograph is the In Person
+   Session. 🟡 The six differences themselves are this prop's
+   invention — swap any of them freely (search DIFFS).
 
-   WHAT IT IS (Yobo's arc, Layer 2 + the Revel meter):
+   HOW IT PLAYS (Yobo's arc, Layer 2 + the Revel meter):
    The party room replays a frozen ghost-party — the night Edward &
    Goblinenon's cart broke down and found Orlok & Dracula reveling.
-   The moment is stuck in a glitching loop. To move it forward the
-   party recreate the photograph: start the gramophone, set the four
-   guests to their marks (L->R: ORLOK, GOBLINENON, EDWARD, DRACULA,
-   exactly as the photo shows), and light the candles. Missteps tick
-   the REVEL meter toward hostile; max = the ghosts curdle (the scare).
+   The loop is glitching: the room is ALMOST the photograph, and six
+   things in it are wrong. The table holds the printed photograph
+   (the key) and taps each thing on the iPad that doesn't match it.
+   Every find snaps that detail back to the photo. A tap on something
+   that was already right ticks the REVEL meter, and the meter also
+   creeps while the loop stays broken — a soft timer. Max = the
+   ghosts curdle (the scare); "Let them recover" picks it back up.
 
-   Once the moment is whole, the host calls for a song — that is
+   Once all six are put right, the host calls for a song — that is
    Yobo's Performance check at the TABLE, not in code. The two DM
    buttons at the end just paint the outcome: a TRUE turn (the room
    erupts, the way opens, Yobo flips to Whole) or a MASKED one (the
    ghosts curdle).
 
+   ⚠ The figures are copied from /photo/. If Will's distinctive trait
+   for Bix's parents goes into the photograph, copy it in here too,
+   or it becomes a seventh difference nobody meant.
+
    AUDIO: fully synthesised via Web Audio (no asset files), unlocked
-   by the splash tap per CLAUDE.md. No HTMLAudio anywhere.
+   by the splash tap per AGENTS.md. No HTMLAudio anywhere.
    ============================================================ */
 
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
@@ -103,7 +109,7 @@
   .hud{
     position:absolute; top:0; left:0; right:0; z-index:20;
     padding:calc(env(safe-area-inset-top) + 12px) 16px 10px;
-    display:flex; align-items:center; gap:12px;
+    display:flex; align-items:flex-end; gap:16px;
     pointer-events:none;
   }
   .revel-wrap{flex:1; pointer-events:none}
@@ -121,87 +127,39 @@
     background:linear-gradient(90deg,#4fc08a 0%,#e0aa3e 55%,#d23a52 100%);
     transition:width .5s ease;
   }
+  .count{
+    font-size:14px; letter-spacing:.12em; color:#c9b891; white-space:nowrap;
+    padding-bottom:1px;
+  }
+  .count b{color:#bfe6cf; font-weight:400}
   .hint{
-    position:absolute; left:0; right:0; bottom:calc(env(safe-area-inset-bottom) + 84px);
-    text-align:center; font-size:clamp(13px,3.4vw,16px); color:#b7a681;
+    position:absolute; left:0; right:0; bottom:calc(env(safe-area-inset-bottom) + 22px);
+    text-align:center; font-size:clamp(14px,3.4vw,17px); color:#b7a681;
     padding:0 24px; pointer-events:none; transition:opacity .4s ease;
-    text-shadow:0 1px 8px #000;
+    text-shadow:0 1px 8px #000; line-height:1.5;
   }
 
-  /* ---------------- stage ---------------- */
-  #stage{position:absolute; inset:0; z-index:10}
-
-  /* candelabra row */
-  .candles{
-    position:absolute; top:calc(env(safe-area-inset-top) + 64px); left:0; right:0;
-    display:flex; justify-content:center; gap:min(7vw,44px);
+  /* ---------------- stage: the live room ---------------- */
+  #stage{
+    position:absolute; inset:0; z-index:10;
+    display:flex; align-items:center; justify-content:center;
+    padding:calc(env(safe-area-inset-top) + 64px) 16px calc(env(safe-area-inset-bottom) + 72px);
   }
-  .candle{
-    width:44px; display:flex; flex-direction:column; align-items:center; cursor:pointer;
+  #room{
+    display:block; width:min(100%, calc(100dvh - 170px)); aspect-ratio:1/1; height:auto;
+    border-radius:4px; cursor:pointer; touch-action:manipulation;
+    box-shadow:0 22px 50px rgba(0,0,0,.8), 0 0 0 1px rgba(216,201,160,.12);
   }
-  .candle .wick{
-    width:14px; height:14px; margin-bottom:-3px; border-radius:50%;
-    background:#2a2018; transition:all .3s ease; position:relative; z-index:2;
-  }
-  .candle.lit .wick{
-    background:radial-gradient(ellipse at 50% 60%,#fff2c4 0%,#ffb545 45%,#e5591b 75%,transparent 80%);
-    height:34px; width:18px; border-radius:50% 50% 46% 46%;
-    box-shadow:0 0 22px 6px rgba(255,150,50,.5);
-    animation:flick 1.7s ease-in-out infinite;
-  }
-  .candle .stick{
-    width:12px; height:64px; border-radius:3px;
-    background:linear-gradient(90deg,#c9b48a,#efe0bf 40%,#a68f66);
-    box-shadow:0 2px 6px rgba(0,0,0,.5);
-  }
-
-  /* the four guest marks */
-  .floor{
-    position:absolute; left:0; right:0; bottom:calc(env(safe-area-inset-bottom) + 118px);
-    display:flex; justify-content:center; gap:min(3.5vw,20px); padding:0 10px;
-  }
-  .mark{
-    width:min(21vw,104px); aspect-ratio:1/1.7; cursor:pointer;
-    display:flex; flex-direction:column; align-items:center; justify-content:flex-end;
-    border-radius:10px 10px 6px 6px; position:relative;
-    background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.06));
-    border:1px dashed rgba(216,201,160,.28);
-    transition:all .4s ease;
-  }
-  .mark .ghost{
-    font-size:clamp(30px,9vw,46px); opacity:.32; filter:grayscale(1) blur(.4px);
-    transition:all .45s ease; margin-bottom:6px;
-  }
-  .mark .who{
-    font-size:clamp(10px,2.6vw,12px); letter-spacing:.06em; color:#9a8a6e;
-    padding:0 2px 8px; text-align:center; min-height:2.4em; line-height:1.2;
-  }
-  .mark.settled{
-    border:1px solid rgba(79,192,138,.6);
-    background:linear-gradient(180deg, rgba(79,192,138,.06), rgba(79,192,138,.14));
-    box-shadow:0 0 20px rgba(79,192,138,.22);
-  }
-  .mark.settled .ghost{opacity:1; filter:none; transform:translateY(-2px)}
-  .mark.settled .who{color:#bfe6cf}
-  .mark.wrong{ animation:jitter .25s linear }
-  @keyframes jitter{0%,100%{transform:none}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
-
-  /* the gramophone */
-  .gram{
-    position:absolute; left:50%; transform:translateX(-50%);
-    bottom:calc(env(safe-area-inset-bottom) + 18px);
-    display:flex; align-items:center; gap:10px; cursor:pointer;
-    padding:10px 18px; border-radius:40px;
-    background:rgba(255,255,255,.05); border:1px solid rgba(216,201,160,.25);
-    font-size:14px; color:#c9b891; min-height:44px;
-  }
-  .gram .disc{
-    width:26px; height:26px; border-radius:50%;
-    background:repeating-radial-gradient(#161016 0 1px, #0c080c 1px 2px);
-    border:1px solid #3a2c24;
-  }
-  .gram.playing .disc{animation:spin 1.6s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
+  /* the loop breathes, so the room never sits perfectly still */
+  #room .live{animation:breathe 5.5s ease-in-out infinite}
+  @keyframes breathe{0%,100%{opacity:1}50%{opacity:.9}}
+  .diff .right{display:none}
+  .diff.found .right{display:inline}
+  .diff.found .wrong{display:none}
+  .ring{fill:none; stroke-width:2.4; pointer-events:none}
+  .ring.ok{stroke:#4fc08a; opacity:.7}
+  .ring.miss{stroke:#d23a52; animation:missfade .7s ease-out forwards}
+  @keyframes missfade{from{opacity:.9; stroke-width:3}to{opacity:0; stroke-width:1}}
 
   /* ---------------- end / DM overlay ---------------- */
   .overlay{
@@ -228,6 +186,7 @@
     position:absolute; right:calc(env(safe-area-inset-right) + 8px);
     bottom:calc(env(safe-area-inset-bottom) + 8px); z-index:25;
     font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#5f5647;
+    min-width:44px; min-height:44px; display:flex; align-items:center; justify-content:center;
     padding:8px 12px; border-radius:8px; cursor:pointer;
     background:rgba(0,0,0,.3); border:1px solid rgba(255,255,255,.06);
   }
@@ -239,15 +198,196 @@
 <div class="wrap" id="wrap">
 
   <!-- ===================== STAGE ===================== -->
-  <div id="stage" aria-hidden="false">
+  <div id="stage">
+    <svg id="room" viewBox="0 0 400 400" aria-label="The party room">
+      <defs>
+        <radialGradient id="flash" cx="50%" cy="46%" r="64%">
+          <stop offset="0%"   stop-color="#fff3dc" stop-opacity=".95"/>
+          <stop offset="34%"  stop-color="#e8c898" stop-opacity=".52"/>
+          <stop offset="68%"  stop-color="#5d4130" stop-opacity=".22"/>
+          <stop offset="100%" stop-color="#0a0810" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="rim" cx="50%" cy="40%" r="60%">
+          <stop offset="0%" stop-color="#ffe9c4" stop-opacity=".85"/>
+          <stop offset="100%" stop-color="#ffe9c4" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#241a22"/>
+          <stop offset="60%"  stop-color="#140f18"/>
+          <stop offset="100%" stop-color="#0a0810"/>
+        </linearGradient>
+        <radialGradient id="vig" cx="50%" cy="50%" r="72%">
+          <stop offset="55%" stop-color="#000" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#000" stop-opacity=".62"/>
+        </radialGradient>
+      </defs>
 
-    <div class="candles" id="candles"><!-- built by JS --></div>
+      <g class="live">
+        <!-- room -->
+        <rect width="400" height="400" fill="url(#wall)"/>
+        <rect x="16" y="52" width="58" height="188" fill="#0b0810" opacity=".85"/>
+        <rect x="0" y="47" width="400" height="2" fill="#3b2c34" opacity=".5"/>
+        <rect y="318" width="400" height="82" fill="#0d0912"/>
+        <rect y="316" width="400" height="3" fill="#38292f" opacity=".55"/>
 
-    <div class="floor" id="floor"><!-- four marks built by JS --></div>
+        <!-- DIFF clock: a wall clock that isn't in the photograph -->
+        <g class="diff" data-k="clock">
+          <g class="wrong">
+            <circle cx="200" cy="96" r="15" fill="#1c1418" stroke="#6b5b46" stroke-width="1.4"/>
+            <path d="M200 96 L200 85 M200 96 L208 96" stroke="#a08a5e" stroke-width="1.6" stroke-linecap="round"/>
+          </g>
+        </g>
 
-    <div class="gram" id="gram" role="button" tabindex="0" aria-label="The gramophone">
-      <span class="disc"></span><span id="gramlbl">Start the record</span>
-    </div>
+        <!-- bottles: the photograph has three -->
+        <g opacity=".9">
+          <rect x="300" y="286" width="13" height="34" rx="3" fill="#1d2418"/>
+          <rect x="302" y="290" width="4"  height="26" fill="#4d5f3a" opacity=".7"/>
+          <rect x="318" y="292" width="11" height="28" rx="3" fill="#22190f"/>
+          <rect x="320" y="296" width="3"  height="20" fill="#6b5228" opacity=".65"/>
+          <rect x="336" y="298" width="12" height="22" rx="2" fill="#191b22"/>
+        </g>
+        <!-- DIFF bottle: a fourth one -->
+        <g class="diff" data-k="bottle" opacity=".9">
+          <g class="wrong">
+            <rect x="354" y="284" width="12" height="36" rx="3" fill="#2a1a14"/>
+            <rect x="356" y="289" width="3"  height="26" fill="#7a5a30" opacity=".65"/>
+          </g>
+        </g>
+
+        <!-- turntable on a low table, lid up -->
+        <rect x="24" y="272" width="86" height="46" rx="3" fill="#171018" opacity=".9"/>
+        <rect x="24" y="270" width="86" height="5"  rx="2" fill="#3a2b25" opacity=".8"/>
+        <!-- DIFF record: the platter is empty -->
+        <g class="diff" data-k="record">
+          <g class="wrong">
+            <circle cx="67" cy="292" r="17" fill="#2b2329" opacity=".9"/>
+            <circle cx="67" cy="292" r="1.6" fill="#6b5b46"/>
+          </g>
+          <g class="right" opacity=".9">
+            <circle cx="67" cy="292" r="17" fill="#0c090e"/>
+            <circle cx="67" cy="292" r="17" fill="none" stroke="#6b5b46" stroke-width=".8" opacity=".55"/>
+            <circle cx="67" cy="292" r="3.2" fill="#a08a5e" opacity=".7"/>
+          </g>
+        </g>
+
+        <rect width="400" height="400" fill="url(#flash)" opacity=".42"/>
+
+        <!-- ORLOK -->
+        <g>
+          <path d="M106 318 L108 196 q2-15 13-17 q11 2 12 17 L133 318 Z" fill="#0b0810"/>
+          <path d="M108 200 q12-9 24 0" fill="#0b0810"/>
+          <ellipse cx="120" cy="172" rx="12" ry="16" fill="#0e0b11"/>
+          <path d="M109 168 L100 150 L112 162 Z" fill="#0e0b11"/>
+          <path d="M131 168 L140 150 L128 162 Z" fill="#0e0b11"/>
+          <ellipse cx="116" cy="164" rx="8" ry="10" fill="url(#rim)" opacity=".62"/>
+          <ellipse cx="114" cy="181" rx="4" ry="5"  fill="url(#rim)" opacity=".34"/>
+          <ellipse cx="115" cy="171" rx="2.6" ry="3.4" fill="#000" opacity=".92"/>
+          <ellipse cx="126" cy="171" rx="2.6" ry="3.4" fill="#000" opacity=".92"/>
+          <path d="M115 185 q5 2 10 0" stroke="#000" stroke-width="1.5" fill="none"
+                stroke-linecap="round" opacity=".55"/>
+          <!-- DIFF claws: hanging at his side instead of up beside the face -->
+          <g class="diff" data-k="claws">
+            <g class="wrong">
+              <path d="M104 236 l-4 30 M108 238 l-2 32 M112 238 l0 30"
+                    stroke="#0e0b11" stroke-width="4" stroke-linecap="round" fill="none"/>
+              <path d="M104 242 l-3 24 M108 244 l-1.6 26 M112 244 l0 24"
+                    stroke="#e2c294" stroke-width="1.1" stroke-linecap="round" fill="none" opacity=".4"/>
+            </g>
+            <g class="right">
+              <path d="M100 214 l-6-30 M105 214 l-3-33 M110 215 l0-33"
+                    stroke="#0e0b11" stroke-width="4" stroke-linecap="round" fill="none"/>
+              <path d="M100 208 l-5-24 M105 208 l-2-26 M110 209 l0-26"
+                    stroke="#e2c294" stroke-width="1.1" stroke-linecap="round" fill="none" opacity=".62"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- GOBLINENON -->
+        <g>
+          <path d="M160 318 L160 246 q0-14 10-18 q-4-16 10-18 q14 2 10 18 q10 4 10 18 L200 318 Z"
+                fill="#0e1210"/>
+          <ellipse cx="181" cy="272" rx="24" ry="21" fill="#111614"/>
+          <ellipse cx="176" cy="266" rx="14" ry="12" fill="url(#rim)" opacity=".34"/>
+          <!-- DIFF hand: not resting on the belly -->
+          <g class="diff" data-k="hand">
+            <g class="right">
+              <path d="M166 276 q8 7 19 4" stroke="#c6a880" stroke-width="3" fill="none"
+                    stroke-linecap="round" opacity=".55"/>
+            </g>
+          </g>
+          <g transform="rotate(-13 181 224)">
+            <ellipse cx="181" cy="224" rx="15" ry="14" fill="#121815"/>
+            <ellipse cx="177" cy="219" rx="9" ry="8" fill="url(#rim)" opacity=".62"/>
+            <path d="M166 222 l-11 -7 l9 11 Z" fill="#121815"/>
+            <path d="M196 222 l11 -7 l-9 11 Z" fill="#121815"/>
+            <ellipse cx="182" cy="230" rx="5.2" ry="4" fill="#0a0605" opacity=".9"/>
+            <path d="M172 220 q4 -3 8 0 M186 220 q4 -3 8 0"
+                  stroke="#0a0605" stroke-width="1.7" fill="none" stroke-linecap="round" opacity=".8"/>
+          </g>
+        </g>
+
+        <!-- EDWARD -->
+        <g>
+          <path d="M226 318 L226 206 q0-16 15-18 q15 2 15 18 L256 318 Z" fill="#0b0a12"/>
+          <path d="M236 318 L236 210 q5-4 10 0 L246 318 Z" fill="#5e5449" opacity=".82"/>
+          <path d="M236 318 L236 210 q5-4 10 0 L246 318 Z" fill="url(#rim)" opacity=".34"/>
+          <g transform="rotate(7 241 188)">
+            <ellipse cx="241" cy="188" rx="12" ry="14" fill="#12101a"/>
+            <path d="M229 184 q2-15 12-15 q11 0 12 15 q-6-7 -12-6 q-7-1 -12 6 Z" fill="#0d0b13"/>
+            <ellipse cx="239" cy="190" rx="9" ry="10" fill="url(#rim)" opacity=".82"/>
+            <ellipse cx="236" cy="187" rx="1.9" ry="2.4" fill="#241a14" opacity=".85"/>
+            <ellipse cx="245" cy="187" rx="1.9" ry="2.4" fill="#241a14" opacity=".85"/>
+            <path d="M235 196 q6 3 11 -1" stroke="#2a1e18" stroke-width="1.5"
+                  fill="none" stroke-linecap="round" opacity=".7"/>
+            <!-- DIFF fangs: the photograph's fae has none -->
+            <g class="diff" data-k="fangs">
+              <g class="wrong">
+                <path d="M237.5 197 l1 4 M243.5 197 l-1 4"
+                      stroke="#f4e4c6" stroke-width="1.8" stroke-linecap="round" opacity=".92"/>
+              </g>
+            </g>
+          </g>
+          <path d="M228 230 q-15 9 -22 20" stroke="#0b0a12" stroke-width="9"
+                fill="none" stroke-linecap="round"/>
+        </g>
+
+        <!-- DRACULA -->
+        <g>
+          <path d="M262 318 q22 -104 46 -128 q24 24 46 128 Z" fill="#120a10"/>
+          <path d="M270 300 q24 -92 38 -108 q14 16 38 108 Z" fill="#1a0d14" opacity=".9"/>
+          <path d="M296 318 L296 200 q0-14 12-16 q12 2 12 16 L320 318 Z" fill="#0d080c"/>
+          <ellipse cx="308" cy="182" rx="13" ry="15" fill="#110a10"/>
+          <ellipse cx="304" cy="176" rx="8" ry="9" fill="url(#rim)" opacity=".6"/>
+          <!-- DIFF arms: down at his sides instead of flung out -->
+          <g class="diff" data-k="arms">
+            <g class="wrong">
+              <path d="M298 210 q-6 26 -4 52" stroke="#120a10" stroke-width="10"
+                    fill="none" stroke-linecap="round"/>
+              <path d="M318 210 q6 26 4 52" stroke="#120a10" stroke-width="10"
+                    fill="none" stroke-linecap="round"/>
+            </g>
+            <g class="right">
+              <path d="M296 210 q-26 6 -34 22" stroke="#120a10" stroke-width="10"
+                    fill="none" stroke-linecap="round"/>
+              <path d="M320 210 q26 6 34 22" stroke="#120a10" stroke-width="10"
+                    fill="none" stroke-linecap="round"/>
+            </g>
+          </g>
+          <ellipse cx="303" cy="181" rx="2.2" ry="2.8" fill="#000" opacity=".8"/>
+          <ellipse cx="313" cy="181" rx="2.2" ry="2.8" fill="#000" opacity=".8"/>
+          <path d="M304 189 l1.6 5 M312 189 l-1.6 5"
+                stroke="#f4e4c6" stroke-width="2.1" stroke-linecap="round" opacity=".92"/>
+          <path d="M303 188 q5 3 10 0" stroke="#0a0405" stroke-width="2.4"
+                fill="none" stroke-linecap="round" opacity=".75"/>
+        </g>
+
+        <!-- a cold, dead-air grade so the live room never reads as the print -->
+        <rect width="400" height="400" fill="#5d6fae" opacity=".08" style="mix-blend-mode:overlay"/>
+        <rect width="400" height="400" fill="url(#vig)"/>
+      </g>
+
+      <g id="rings"></g>
+    </svg>
   </div>
 
   <!-- ===================== HUD ===================== -->
@@ -256,8 +396,9 @@
       <p class="revel-label">The Revel</p>
       <div class="revel-bar"><div class="revel-fill" id="revelFill"></div></div>
     </div>
+    <div class="count" id="count"><b>0</b> / 6 put right</div>
   </div>
-  <p class="hint" id="hint">Something here is unfinished. Make it like the photograph.</p>
+  <p class="hint" id="hint">Something in here isn't the way the photograph remembers it.</p>
 
   <!-- ===================== SPLASH ===================== -->
   <div id="splash">
@@ -300,23 +441,32 @@
 (function(){
   "use strict";
 
-  /* ---------- the solution, read straight off /photo/ (L->R) ---------- */
-  var GUESTS = ["Orlok","Goblinenon","Edward","Dracula"];           // correct order
-  var EMOJI  = {Orlok:"🧛‍♂️",Goblinenon:"🤰",Edward:"🧑",Dracula:"🦇",
-                "— empty —":"❓"};
-  var POOL   = ["— empty —"].concat(GUESTS);                        // cycle options
-  var NUM_CANDLES = 4;
+  /* ---------- the six differences from /photo/ (SVG coords, tap radius) ---------- */
+  var DIFFS = {
+    clock:  {x:200, y:96,  r:24, say:"There was never a clock on that wall."},
+    bottle: {x:360, y:302, r:22, say:"Three bottles. There were only ever three."},
+    record: {x:67,  y:292, r:26, say:"The record is back on the turntable."},
+    claws:  {x:106, y:230, r:34, say:"His claws go up beside his face, like the picture."},
+    hand:   {x:178, y:276, r:26, say:"Her hand finds her belly again."},
+    fangs:  {x:241, y:197, r:20, say:"No fangs. In the photograph he has none."},
+    arms:   {x:308, y:232, r:34, say:"The cape flings wide. That's how he posed."}
+  };
+  /* "clock" and "bottle" are both extras; the room only ever shows six. */
+  var ACTIVE = ["clock","record","claws","hand","fangs","arms"];
+  var TOTAL = ACTIVE.length;
 
   /* ---------- state ---------- */
-  var slots = [0,0,0,0];        // index into POOL for each mark (0 = empty)
-  var candles = [];             // booleans
-  var gramOn = false;
+  var found = {};
   var revel = 0;                // 0..100
   var finished = false;
 
   var wrap   = document.getElementById("wrap");
   var hint   = document.getElementById("hint");
   var fill   = document.getElementById("revelFill");
+  var room   = document.getElementById("room");
+  var rings  = document.getElementById("rings");
+  var countEl= document.getElementById("count");
+  var NS = "http://www.w3.org/2000/svg";
 
   /* =========================================================
      AUDIO — procedural, no asset files. Web Audio only.
@@ -356,6 +506,8 @@
   }
   function tick(){
     if(!playing||!actx) return;
+    // the record skips until the moment is whole
+    if(!finished && Math.random()<0.18) step=Math.max(0,step-2);
     var semis = MELODY[step % MELODY.length];
     var detune = (mood<1)? (Math.random()*2-1)*40*(1-mood) : 0;   // wobble when curdled
     var f = ROOT * Math.pow(2,(semis+detune)/12);
@@ -381,66 +533,6 @@
     if(lp) lp.frequency.linearRampToValueAtTime(400+1200*m, actx.currentTime+0.6);
   }
 
-  /* ================= build the stage ================= */
-  var candleWrap = document.getElementById("candles");
-  for(var i=0;i<NUM_CANDLES;i++){
-    candles.push(false);
-    var c=document.createElement("div"); c.className="candle"; c.dataset.i=i;
-    c.innerHTML='<div class="wick"></div><div class="stick"></div>';
-    c.addEventListener("click", (function(idx){return function(){toggleCandle(idx);};})(i));
-    candleWrap.appendChild(c);
-  }
-  var floor=document.getElementById("floor");
-  for(var s=0;s<4;s++){
-    var m=document.createElement("div"); m.className="mark"; m.dataset.s=s;
-    m.innerHTML='<div class="ghost">❓</div><div class="who">— empty —</div>';
-    m.addEventListener("click",(function(idx){return function(){cycleSlot(idx);};})(s));
-    floor.appendChild(m);
-  }
-  var markEls=floor.querySelectorAll(".mark");
-  var candleEls=candleWrap.querySelectorAll(".candle");
-
-  /* ================= interactions ================= */
-  function toggleCandle(i){
-    if(finished) return;
-    candles[i]=!candles[i];
-    candleEls[i].classList.toggle("lit",candles[i]);
-    blip(candles[i]?520:0);
-    check();
-  }
-
-  function cycleSlot(s){
-    if(finished) return;
-    var prevCorrect = (POOL[slots[s]]===GUESTS[s]);
-    slots[s]=(slots[s]+1)%POOL.length;
-    var name=POOL[slots[s]];
-    var el=markEls[s];
-    el.querySelector(".ghost").textContent = EMOJI[name]||"❓";
-    el.querySelector(".who").textContent = name;
-    var nowCorrect = (name===GUESTS[s]);
-    el.classList.toggle("settled", nowCorrect);
-    if(nowCorrect){ blip(700); }
-    else if(prevCorrect){ /* left a correct spot, no penalty for tidying */ }
-    else if(name!=="— empty —"){ // placed a wrong guest at a mark
-      el.classList.remove("wrong"); void el.offsetWidth; el.classList.add("wrong");
-      bumpRevel(6); blip(180);
-    }
-    check();
-  }
-
-  function toggleGram(){
-    if(finished) return;
-    gramOn=!gramOn;
-    document.getElementById("gram").classList.toggle("playing",gramOn);
-    document.getElementById("gramlbl").textContent = gramOn? "The record turns" : "Start the record";
-    if(gramOn) startMusic(); else stopMusic();
-    check();
-  }
-  document.getElementById("gram").addEventListener("click",toggleGram);
-  document.getElementById("gram").addEventListener("keydown",function(e){
-    if(e.key==="Enter"||e.key===" "){e.preventDefault();toggleGram();}
-  });
-
   /* short synth blip for feedback */
   function blip(freq){
     if(!actx||!freq) return;
@@ -453,6 +545,61 @@
     o.start(); o.stop(actx.currentTime+0.2);
   }
 
+  /* ================= build the room ================= */
+  var diffEls = {};
+  room.querySelectorAll(".diff").forEach(function(el){
+    var k=el.dataset.k;
+    diffEls[k]=el;
+    if(ACTIVE.indexOf(k)<0) el.classList.add("found");   // inactive extras sit as the photo has them
+  });
+
+  function ring(x,y,r,cls){
+    var c=document.createElementNS(NS,"circle");
+    c.setAttribute("cx",x); c.setAttribute("cy",y); c.setAttribute("r",r);
+    c.setAttribute("class","ring "+cls);
+    rings.appendChild(c);
+    if(cls==="miss") setTimeout(function(){ c.remove(); },750);
+  }
+
+  function toSvg(evt){
+    var pt=room.createSVGPoint();
+    pt.x=evt.clientX; pt.y=evt.clientY;
+    return pt.matrixTransform(room.getScreenCTM().inverse());
+  }
+
+  /* ================= interactions ================= */
+  function tap(evt){
+    if(finished) return;
+    var p=toSvg(evt), best=null, bestD=1e9;
+    ACTIVE.forEach(function(k){
+      if(found[k]) return;
+      var d=DIFFS[k], dist=Math.hypot(p.x-d.x,p.y-d.y);
+      if(dist<=d.r && dist<bestD){ best=k; bestD=dist; }
+    });
+    if(best){ fix(best); }
+    else{
+      ring(p.x,p.y,14,"miss");
+      bumpRevel(8); blip(180);
+      hint.textContent="That's how it was. The room didn't like being doubted.";
+    }
+  }
+  room.addEventListener("click",tap);
+
+  function fix(k){
+    found[k]=true;
+    diffEls[k].classList.add("found");
+    var d=DIFFS[k];
+    ring(d.x,d.y,d.r*0.8,"ok");
+    blip(700);
+    bumpRevel(-6);
+    hint.textContent=d.say;
+    updateCount();
+    if(nFound()===TOTAL) setTimeout(restore,900);
+  }
+
+  function nFound(){ return ACTIVE.filter(function(k){return found[k];}).length; }
+  function updateCount(){ countEl.innerHTML="<b>"+nFound()+"</b> / "+TOTAL+" put right"; }
+
   /* ================= revel meter ================= */
   function bumpRevel(n){
     revel=Math.max(0,Math.min(100,revel+n));
@@ -462,32 +609,11 @@
     if(revel>=100 && !finished){ curdle(); }
   }
 
-  /* slow drift up while wrong guests sit on marks and the room's not whole */
+  /* the loop wears thin while it stays broken — a soft timer, not a hard fail */
   setInterval(function(){
-    if(finished) return;
-    var wrongPlaced=0;
-    for(var s=0;s<4;s++){ var n=POOL[slots[s]]; if(n!=="— empty —" && n!==GUESTS[s]) wrongPlaced++; }
-    if(wrongPlaced>0) bumpRevel(wrongPlaced*1);
-  },2500);
-
-  /* ================= win check ================= */
-  function allGuestsRight(){
-    for(var s=0;s<4;s++){ if(POOL[slots[s]]!==GUESTS[s]) return false; }
-    return true;
-  }
-  function allCandlesLit(){ return candles.every(Boolean); }
-
-  function check(){
-    if(finished) return;
-    var g=allGuestsRight(), c=allCandlesLit(), r=gramOn;
-    // gentle guidance
-    if(!r) hint.textContent="The record is skipping. Someone should start it.";
-    else if(!g) hint.textContent="The guests aren't where the photograph shows them.";
-    else if(!c) hint.textContent="It's too dark. Light every candle.";
-    else hint.textContent="";
-    if(g&&c&&r){ restore(); }
-    else { wrap.classList.remove("restored"); }
-  }
+    if(finished || !splash.hidden) return;
+    bumpRevel(1);
+  },3000);
 
   function restore(){
     finished=true;
@@ -520,49 +646,38 @@
   });
   document.getElementById("btnReset1").addEventListener("click",resetAll);
   document.getElementById("btnReset2").addEventListener("click",function(){
-    // recover from a curdle without a full reset: clear the wrong guests, drop revel
+    // recover from a curdle without a full reset: keep what they found, drop revel
     hide("curdleOverlay");
     wrap.classList.remove("curdled");
     finished=false; revel=Math.max(0,revel-40); fill.style.width=revel+"%"; setMood(1);
-    check();
+    if(nFound()===TOTAL) restore();
   });
 
   function resetAll(){
-    slots=[0,0,0,0]; candles=candles.map(function(){return false;});
-    gramOn=false; revel=0; finished=false;
+    found={}; revel=0; finished=false;
     fill.style.width="0%";
-    markEls.forEach(function(el,s){
-      el.classList.remove("settled","wrong");
-      el.querySelector(".ghost").textContent="❓";
-      el.querySelector(".who").textContent="— empty —";
-    });
-    candleEls.forEach(function(el){el.classList.remove("lit");});
-    document.getElementById("gram").classList.remove("playing");
-    document.getElementById("gramlbl").textContent="Start the record";
+    ACTIVE.forEach(function(k){ diffEls[k].classList.remove("found"); });
+    rings.innerHTML="";
     wrap.classList.remove("curdled","restored");
     hide("triumphOverlay"); hide("curdleOverlay"); hide("restoredOverlay");
-    stopMusic(); TEMPO=620; setMood(1);
-    check();
+    TEMPO=620; setMood(1);
+    hint.textContent="Something in here isn't the way the photograph remembers it.";
+    updateCount();
   }
 
   /* DM tab: quick menu */
   document.getElementById("dmtab").addEventListener("click",function(){
-    var pick = prompt("DM — type: reset / calm / spike / solve");
+    var pick = prompt("DM — type: reset / calm / spike / nudge / solve");
     if(!pick) return;
     pick=pick.trim().toLowerCase();
     if(pick==="reset") resetAll();
     else if(pick==="calm"){ revel=Math.max(0,revel-30); fill.style.width=revel+"%"; setMood(1-(revel/100)*0.9); }
     else if(pick==="spike"){ bumpRevel(30); }
-    else if(pick==="solve"){ // auto-arrange for demo
-      slots=[1,2,3,4]; candles=candles.map(function(){return true;}); gramOn=true;
-      markEls.forEach(function(el,s){el.classList.add("settled");
-        el.querySelector(".ghost").textContent=EMOJI[GUESTS[s]];
-        el.querySelector(".who").textContent=GUESTS[s];});
-      candleEls.forEach(function(el){el.classList.add("lit");});
-      document.getElementById("gram").classList.add("playing");
-      document.getElementById("gramlbl").textContent="The record turns";
-      initAudio(); if(actx&&actx.state==="suspended")actx.resume(); startMusic(); check();
+    else if(pick==="nudge"){ // flash a ring on one they haven't found
+      var left=ACTIVE.filter(function(k){return !found[k];});
+      if(left.length){ var d=DIFFS[left[0]]; ring(d.x,d.y,d.r,"miss"); }
     }
+    else if(pick==="solve"){ ACTIVE.forEach(function(k){ if(!found[k]) fix(k); }); }
   });
 
   /* ================= splash / audio unlock ================= */
@@ -570,14 +685,14 @@
   function enter(){
     initAudio();
     if(actx && actx.state==="suspended") actx.resume();
+    startMusic();
     splash.classList.add("gone");
     setTimeout(function(){ splash.hidden=true; },700);
-    check();
   }
   splash.addEventListener("click",enter);
   splash.addEventListener("touchend",function(e){e.preventDefault();enter();},{passive:false});
 
-  /* ================= iOS gotchas (per CLAUDE.md) ================= */
+  /* ================= iOS gotchas (per AGENTS.md) ================= */
   document.addEventListener("touchmove",function(e){
     if(e.scale!==undefined && e.scale!==1) e.preventDefault();
   },{passive:false});
@@ -587,7 +702,7 @@
     var now=Date.now(); if(now-lastTouch<=320) e.preventDefault(); lastTouch=now;
   },{passive:false});
 
-  check();
+  updateCount();
 })();
 </script>
 </body>
