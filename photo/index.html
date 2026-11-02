@@ -131,6 +131,18 @@
     animation:pulse 2.8s ease-in-out infinite;
   }
   @keyframes pulse{0%,100%{opacity:.4}50%{opacity:.95}}
+
+  /* print: the front only, at real polaroid size (3.5 x 4.2 in) */
+  @media print{
+    @page{size:letter portrait; margin:.75in}
+    html,body{background:#fff !important; height:auto}
+    body{display:block; padding:0; overflow:visible}
+    h1,#hint,.back{display:none !important}
+    #scene{width:3.5in; perspective:none}
+    #card{transform:none !important}
+    .face{box-shadow:none; outline:1px dashed #999; outline-offset:.06in}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  }
 </style>
 </head>
 <body>

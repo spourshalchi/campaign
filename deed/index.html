@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!--
+  PROP: The deed to Dood Mansion — the bearer deed Vinny walked out with on 14 November 1931.
+  CANON: Sesh 8 puts two documents in the study's story — the deed and the settlement. They split the work
+  (Scott, 1 Nov · not in doc): /settlement/ is the clue on the iPad that sets the bearer rule; this deed is
+  the object that carries title. Vinny has held it since 1931 and hands it to Gnomey in the ending scene.
+  It stays formal and dry on purpose — the jokes belong to the settlement. The date, the $11.40, Columbia
+  County, C. Dood and Dracula as witness all match /settlement/.
+  🟡 The wording of the deed itself (the indenture language, "forty rooms", the blank recording line)
+  is this prop's invention.
+  PRINT: US Letter, portrait. Print at 100% / "actual size". Fold in thirds after printing.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Deed">
+<meta name="theme-color" content="#1a1410">
+<title>Deed to Dood Mansion — 14 November 1931</title>
+<style>
+  :root{
+    --paper:#f2e8d0; --paper2:#e8dbbb; --ink:#231c14; --mut:#6e5c40;
+    --blue:#22304d; --seal:#6b2028; --rule:#8a7552;
+    --f-eng:"Hoefler Text","Baskerville","Georgia","Times New Roman",serif;
+    --f-type:"American Typewriter","Courier New",Courier,monospace;
+    --f-hand:"Bradley Hand","Chalkboard SE","Segoe Script",cursive;
+    --f-copper:"Snell Roundhand","Apple Chancery","Zapfino",cursive;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:radial-gradient(ellipse at 50% 20%, #241a12 0%, #0d0a08 70%) fixed;
+    color:var(--ink); font-family:var(--f-type);
+    min-height:100dvh; overscroll-behavior:none;
+    padding:max(16px,env(safe-area-inset-top)) 16px max(24px,env(safe-area-inset-bottom));
+    display:flex; flex-direction:column; align-items:center; gap:20px;
+  }
+
+  /* -------- screen-only brief -------- */
+  .brief{
+    width:100%; max-width:720px;
+    background:#1f1810; color:#e6dac2; border:1px solid #4a3a26; border-radius:10px;
+    padding:14px 16px; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-size:14px; line-height:1.5;
+    -webkit-user-select:none; user-select:none;
+  }
+  .brief h1{font-family:var(--f-eng); font-size:19px; margin:0 0 6px; color:#f3e8cf; font-weight:600}
+  .brief p{margin:0 0 8px; color:#d4c7ab}
+  .brief b{color:#f6eedb}
+  .brief button{
+    font:inherit; font-weight:600; cursor:pointer; min-height:44px;
+    background:#b8862f; color:#1c1405; border:none; border-radius:8px; padding:10px 18px;
+  }
+
+  /* -------- the deed: one US Letter page -------- */
+  .page{
+    width:100%; max-width:720px; aspect-ratio:8.5/11;
+    background:
+      radial-gradient(circle at 10% 7%,  rgba(146,96,34,.13) 0%, transparent 18%),
+      radial-gradient(circle at 91% 94%, rgba(120,78,26,.15) 0%, transparent 20%),
+      linear-gradient(176deg,var(--paper) 0%,#ede2c6 50%,var(--paper2) 100%);
+    box-shadow:0 22px 46px rgba(0,0,0,.72), inset 0 0 70px rgba(122,84,38,.16);
+    padding:4.2%;
+    position:relative;
+    container-type:inline-size;
+  }
+  .frame{
+    position:relative; height:100%;
+    border:2.5px solid var(--ink); outline:1px solid var(--ink); outline-offset:-7px;
+    padding:6.5% 7% 5%;
+    display:flex; flex-direction:column;
+  }
+  .corner{position:absolute; width:9%; height:auto; color:var(--ink)}
+  .corner.tl{top:6px; left:6px}
+  .corner.tr{top:6px; right:6px; transform:scaleX(-1)}
+  .corner.bl{bottom:6px; left:6px; transform:scaleY(-1)}
+  .corner.br{bottom:6px; right:6px; transform:scale(-1,-1)}
+
+  .state{
+    margin:0; text-align:center; font-family:var(--f-eng);
+    font-size:1.75cqi; letter-spacing:.32em; text-transform:uppercase; color:var(--mut);
+  }
+  .indenture{
+    margin:1.6cqi 0 0; text-align:center; font-family:var(--f-eng); font-weight:700;
+    font-size:6.4cqi; letter-spacing:.06em; line-height:1; color:var(--ink);
+  }
+  .kind{
+    margin:1.2cqi 0 0; text-align:center; font-family:var(--f-eng); font-style:italic;
+    font-size:2.5cqi; color:var(--mut);
+  }
+  .rule{height:0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding-top:2px; margin:2.8cqi 18% 2.6cqi}
+
+  .body{font-size:2.05cqi; line-height:1.72; text-align:justify; hyphens:auto; -webkit-hyphens:auto}
+  .body p{margin:0 0 1.6cqi}
+  .body .lead{font-family:var(--f-eng); font-weight:700; letter-spacing:.08em}
+  .fill{font-family:var(--f-hand); color:var(--blue); font-size:1.18em; padding:0 .15em; border-bottom:1px dotted var(--rule)}
+  .caps{font-family:var(--f-eng); font-weight:700; letter-spacing:.06em}
+  .bearer{
+    display:block; text-align:center; margin:.4cqi 0 .2cqi;
+    font-family:var(--f-eng); font-weight:700; font-size:3.1cqi; letter-spacing:.14em;
+  }
+
+  .sigs{margin-top:auto; display:grid; grid-template-columns:1fr 1fr; gap:2cqi 6cqi; align-items:end}
+  .sig{border-top:1px solid var(--ink); padding-top:.8cqi}
+  .sig .who{font-size:1.45cqi; letter-spacing:.18em; text-transform:uppercase; color:var(--mut)}
+  .sig .name{display:block; height:5.2cqi; position:relative}
+  .sig .name span{position:absolute; left:0; bottom:.6cqi}
+  .orl span{font-family:var(--f-copper); font-size:4.4cqi; color:#0b0907; text-shadow:0 0 1px rgba(0,0,0,.4)}
+  .drac span{font-family:var(--f-copper); font-size:4.2cqi; color:#5c1c24; transform:rotate(-3deg)}
+  .recorded{
+    grid-column:1 / -1; display:flex; gap:1.4cqi; align-items:flex-end;
+    font-size:1.55cqi; letter-spacing:.12em; text-transform:uppercase; color:var(--mut); margin-top:1.4cqi;
+  }
+  .recorded .blank{flex:1; border-bottom:1px solid var(--rule); height:1.2em}
+
+  /* pressed over the witness line, the way a real seal overlaps a signature */
+  .seal{position:absolute; right:5%; bottom:6.5%; width:14%; transform:rotate(-8deg); opacity:.8; pointer-events:none}
+
+  @media print{
+    @page{size:letter portrait; margin:0}
+    html,body{background:#fff !important}
+    body{padding:0; display:block; min-height:0}
+    .brief{display:none !important}
+    .page{
+      width:8.5in; height:11in; max-width:none; aspect-ratio:auto;
+      box-shadow:none; padding:.45in; margin:0;
+      -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="brief">
+    <h1>The deed — print at Staples</h1>
+    <p><b>Vinny has carried this since 1931.</b> In the ending scene he hands it to Gnomey, and from that moment the house is his. Before then nobody at the table should see it: the strongbox in the study holds the settlement, and the deed's slot is empty.</p>
+    <p>US Letter, portrait, <b>100% / actual size</b>, colour, on cream or parchment card stock if they have it. Fold it in thirds afterwards so it looks like it has lived in a jacket pocket for seventy years.</p>
+    <button onclick="window.print()">Print the deed</button>
+  </div>
+
+  <div class="page">
+    <div class="frame">
+      <svg class="corner tl" viewBox="0 0 60 60" aria-hidden="true">
+        <path d="M4 56 V4 H56" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M10 50 V10 H50" fill="none" stroke="currentColor" stroke-width=".8"/>
+        <path d="M10 26 q10 -2 14 -12 q2 10 -6 16 q10 0 16 -8" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="10" cy="10" r="3" fill="currentColor"/>
+      </svg>
+      <svg class="corner tr" viewBox="0 0 60 60" aria-hidden="true">
+        <path d="M4 56 V4 H56" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M10 50 V10 H50" fill="none" stroke="currentColor" stroke-width=".8"/>
+        <path d="M10 26 q10 -2 14 -12 q2 10 -6 16 q10 0 16 -8" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="10" cy="10" r="3" fill="currentColor"/>
+      </svg>
+      <svg class="corner bl" viewBox="0 0 60 60" aria-hidden="true">
+        <path d="M4 56 V4 H56" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M10 50 V10 H50" fill="none" stroke="currentColor" stroke-width=".8"/>
+        <path d="M10 26 q10 -2 14 -12 q2 10 -6 16 q10 0 16 -8" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="10" cy="10" r="3" fill="currentColor"/>
+      </svg>
+      <svg class="corner br" viewBox="0 0 60 60" aria-hidden="true">
+        <path d="M4 56 V4 H56" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <path d="M10 50 V10 H50" fill="none" stroke="currentColor" stroke-width=".8"/>
+        <path d="M10 26 q10 -2 14 -12 q2 10 -6 16 q10 0 16 -8" fill="none" stroke="currentColor" stroke-width="1"/>
+        <circle cx="10" cy="10" r="3" fill="currentColor"/>
+      </svg>
+
+      <p class="state">State of New York &middot; County of Columbia &middot; Town of Transyltown</p>
+      <h2 class="indenture">This Indenture</h2>
+      <p class="kind">Bearer Deed of Conveyance</p>
+      <div class="rule"></div>
+
+      <div class="body">
+        <p><span class="lead">MADE</span> the <span class="fill">fourteenth</span> day of <span class="fill">November</span>,
+          in the year nineteen hundred and <span class="fill">thirty-one</span>,</p>
+
+        <p><span class="lead">BETWEEN</span> <span class="fill">Cornelis Dood</span>, of the Town of Transyltown,
+          party of the first part, and</p>
+
+        <span class="bearer">THE BEARER OF THIS DEED</span>
+
+        <p style="text-align:center">party of the second part,</p>
+
+        <p><span class="lead">WITNESSETH</span>, that the party of the first part, in consideration of the sum of
+          <span class="fill">Eleven Dollars and Forty Cents</span> ($<span class="fill">11.40</span>), lawful money of the
+          United States, paid by the party of the second part, does hereby grant and release unto the party of the
+          second part, and unto whosoever shall hold this instrument hereafter,</p>
+
+        <p><span class="caps">ALL THAT</span> certain dwelling known as <span class="caps">DOOD MANSION</span>, standing
+          upon the hill at the edge of the said Town, with its <span class="fill">forty</span> rooms, its cellars, and all
+          land and rights of entry thereto;</p>
+
+        <p><span class="caps">SUBJECT</span> to the Articles of Settlement made between the same parties upon the same
+          night, under which the present occupants may remain at the pleasure of the bearer.</p>
+
+        <p><span class="caps">TO HAVE AND TO HOLD</span> the premises herein granted unto the bearer, and to each bearer
+          after, forever.</p>
+      </div>
+
+      <div class="sigs">
+        <div class="sig orl">
+          <span class="name"><span>C. Dood</span></span>
+          <div class="who">Party of the first part</div>
+        </div>
+        <div class="sig drac">
+          <span class="name"><span>Count Dracula, Esq.</span></span>
+          <div class="who">Witness</div>
+        </div>
+        <div class="recorded"><span>Recorded with the County Clerk</span><span class="blank"></span></div>
+      </div>
+
+      <!-- the same seal as /settlement/ -->
+      <svg class="seal" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="46" fill="none" stroke="#6b2028" stroke-width="2.5" opacity=".78"/>
+        <circle cx="50" cy="50" r="39" fill="none" stroke="#6b2028" stroke-width="1"   opacity=".6"/>
+        <path d="M50 22 L64 42 L58 66 L42 66 L36 42 Z" fill="none" stroke="#6b2028" stroke-width="2.5" opacity=".78"/>
+        <path d="M50 32 L50 60 M40 47 L60 47" stroke="#6b2028" stroke-width="2" opacity=".66"/>
+        <text x="50" y="86" text-anchor="middle" font-family="Georgia,serif" font-size="8.5"
+              letter-spacing="2.4" fill="#6b2028" opacity=".7">D O O D</text>
+      </svg>
+    </div>
+  </div>
+
+<script>
+  /* iOS: kill pinch-zoom and double-tap zoom, per AGENTS.md */
+  document.addEventListener("touchmove", function(e){
+    if(e.scale !== undefined && e.scale !== 1) e.preventDefault();
+  }, {passive:false});
+  document.addEventListener("gesturestart", function(e){ e.preventDefault(); });
+</script>
+</body>
+</html>

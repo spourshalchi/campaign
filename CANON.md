@@ -72,18 +72,31 @@ rather than assuming, because it touches what the bolt actually means for the pa
 > confirmed all of it as canon. Cited as `In Person Session`, or `In Person Session, clarified 1 Nov`
 > where the doc line alone doesn't say it.
 
-### Gnomey & Uncle Vinny — the chip comes at the end
+### Gnomey & Uncle Vinny — the deed comes at the end
 | Claim | Source |
 |---|---|
-| **Gnomey doesn't own the house until the very end.** Uncle Vinny gives him the chip then, because by then he's earned it | In Person Session |
-| Vinny holds the chip the whole weekend. **Gnomey has never carried it** — there is no chip at session one | In Person Session, clarified 1 Nov |
+| **Gnomey doesn't own the house until the very end.** Uncle Vinny gives him the deed then, because by then he's earned it | In Person Session |
+| Vinny holds the deed the whole weekend. **Gnomey has never carried it** | In Person Session, clarified 1 Nov · deed swap 1 Nov · not in doc |
 | **Plant the seed early: Vinny calls Gnomey**, thinking about going to the mansion, so he isn't random when he shows up at the end. What he says on the call is still open | In Person Session, clarified 1 Nov |
-| Vinny **shows up in person** in the ending scene and hands over the chip | In Person Session |
+| Vinny **shows up in person** in the ending scene and hands over the deed | In Person Session · deed swap 1 Nov · not in doc |
 
-**Replaces in Sesh 8:** the chip pressed into a twelve-year-old's palm, "the chip he has carried since session
-one", and Gnomey calling the nursing home at the end. The study itself is unchanged — the set is still one chip
-short and the strongbox still holds the deed and the settlement — so Gnomey learns that **whoever bears the
-missing chip** owns the house, without holding it.
+**Replaces in Sesh 8:** the token pressed into a twelve-year-old's palm, the token "he has carried since session
+one", and Gnomey calling the nursing home at the end. The study keeps the card table with the last hand on it and
+the strongbox with the signed settlement — **but the deed is not in the strongbox.** Its empty slot is the tell:
+the bearer clause says whoever holds the deed owns the house, and Gnomey doesn't have it.
+
+### The deed replaces the poker chip
+| Claim | Source |
+|---|---|
+| **There is no poker chip.** The settlement vests title in **the bearer of the deed** — the deed is the marker, the token and the physical prop all at once | 1 Nov · not in doc |
+| **Vinny walked out with the deed** in 1931 and has held it ever since; he hands it to Gnomey in the ending scene | 1 Nov · not in doc |
+| **The study:** the card table with the last hand still on it, and a strongbox holding the signed settlement with **an empty slot where the deed should be** | 1 Nov · not in doc |
+| **The deed is printed** — Scott takes it to Staples. Gnomey's physical prop. Prop at `/deed/` | 1 Nov · not in doc |
+| Rule: **the deed arrives with Vinny** — nothing at the table puts it in Gnomey's hands early | 1 Nov · not in doc |
+| **Two documents, two jobs** — Sesh 8 already names both. The **settlement** (`/settlement/`, iPad) is the clue in the study: it sets the bearer rule and tells Gnomey whoever holds the deed owns the house. The **deed** (`/deed/`, printed) is the object Vinny hands over. The deed stays formal and dry; the jokes live on the settlement | 1 Nov · not in doc |
+
+This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the blue one"* line, the chip set
+"one short", and every chip row below. Paste it into the doc to make it official.
 
 ### The finale — phase 1 is cut
 | Claim | Source |
@@ -116,7 +129,7 @@ missing chip** owns the house, without holding it.
 ### Props & the day
 | Claim | Source |
 |---|---|
-| **One physical prop per PC.** Bix: the photograph, **printed**. Gnomey: the blue poker chip (from Vinny at the end). Simone: the wishing willow. Russ: the badge and the requirements card. **Yobo: undecided** | In Person Session, clarified 1 Nov |
+| **One physical prop per PC.** Bix: the photograph, **printed**. Gnomey: the printed deed (from Vinny at the end). Simone: the wishing willow. Russ: the badge and the requirements card. **Yobo: undecided** | In Person Session, clarified 1 Nov |
 | Physical: invitation, USB, wishing willow, Assisting the Elderly badge + requirements, sticky note, a prop for each character | In Person Session |
 | Digital: library clippings, deed, photograph / spot-the-difference, DJ poster, **a backstory reminder per character** — what each should remember about their backstory | In Person Session |
 | **Spencer** makes the invitation and the poster | In Person Session |
@@ -128,9 +141,9 @@ missing chip** owns the house, without holding it.
 - **The finale's lie still happens.** Poe Boy still tells the vampires on the mic at 3AM that the party are the
   mall company's people; with phase 1 cut, it never becomes a fight because the developer's breach breaks it on
   sight. Staging that keeps Sesh 7's manipulation beat alive — not in the notes.
-- **The age-12 visit still happens, without the chip.** *"Twelve years old and he's got a crew." / "I don't have
+- **The age-12 visit still happens, with nothing handed over.** *"Twelve years old and he's got a crew." / "I don't have
   a crew anymore." / "You'll get another one."* — and *"You'll get another one"* pays off at the end, when he
-  hands the chip to a kid who now has one. The notes only say he gives it because Gnomey has earned it.
+  hands the deed to a kid who now has one. The notes only say he gives it because Gnomey has earned it.
 - **The public claim moves to the ending scene.** *"This is my house,"* Orlok confirming it through his teeth, and
   *"You can stay"* all follow Vinny's handover rather than happening in the ballroom.
 - **Orlok still signs the requirements card**; the troop leader hands over the badge. The notes only give the
@@ -232,18 +245,18 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 | **The deal:** Orlok gets the cellar filled and takes a case a month. Liquor is one of the only human things that still works on a vampire | Sesh 8 |
 | Monthly delivery, a bottle, and cards — for decades | Sesh 8 |
 | **14 November 1931:** Orlok goes down, keeps playing, and puts the house up because it's the only thing left worth anything | Sesh 8 |
-| **The ARTICLES OF SETTLEMENT** — full drunken contract text, including the eleven-dollars-forty sum, the blue-chip line, and Dracula witnessing as a non-notary | Sesh 8 |
-| **Title rests with the bearer of the marker** — not his name, not his heirs, not his estate | Sesh 8 |
+| **The ARTICLES OF SETTLEMENT** — full drunken contract text, including the eleven-dollars-forty sum, ~~the blue-chip line~~ (replaced by the deed, 1 Nov), and Dracula witnessing as a non-notary | Sesh 8 |
+| **Title rests with the bearer of the ~~marker~~ deed** — not his name, not his heirs, not his estate | Sesh 8, replaced by the deed 1 Nov · not in doc |
 | **Vinny let them stay.** "You always collect, and then you're not a bastard about it" | Sesh 8 |
 | **Vinny is alive** — ancient, in a home, mostly gone | Sesh 8 |
-| ~~He gave the chip to a twelve-year-old Gnomey~~ after hearing the kid had an operation going. *"Twelve years old and he's got a crew." / "I don't have a crew anymore." / "You'll get another one."* — **the chip half is replaced by In Person Session:** Vinny keeps it and hands it over at the end | Sesh 8, replaced by In Person Session |
+| ~~He gave the chip to a twelve-year-old Gnomey~~ (replaced by the deed) after hearing the kid had an operation going. *"Twelve years old and he's got a crew." / "I don't have a crew anymore." / "You'll get another one."* — **the hand-over is replaced by In Person Session:** Vinny keeps the deed and hands it over at the end | Sesh 8, replaced by In Person Session |
 
 ### Gnomey's arc
 | Claim | Source |
 |---|---|
-| **Gnomey is the rightful owner of the mansion**, via the chip — ~~he has carried since session one~~ **which Vinny hands him in the ending scene** | Sesh 8, replaced by In Person Session |
+| **Gnomey is the rightful owner of the mansion**, via ~~the chip~~ **the deed** — ~~he has carried since session one~~ **which Vinny hands him in the ending scene** | Sesh 8, replaced by In Person Session |
 | He becomes **head of household and the new leader of the gang** | Sesh 8 |
-| **The study** — sealed since the thirties. A poker set exactly one chip short, the last hand still on the table, and a strongbox with the deed and the signed settlement | Sesh 8 |
+| **The study** — sealed since the thirties. ~~A poker set exactly one chip short,~~ the last hand still on the table, and a strongbox with ~~the deed and~~ the signed settlement — **the deed's slot empty** | Sesh 8, replaced by the deed 1 Nov · not in doc |
 | **Epilogue:** he fronts for the vampires as the man who can stand in daylight, takes no rent and asks nothing. Orlok is pissed, complies perfectly, and thanks him through his teeth | Sesh 8 |
 | ~~He calls the nursing home at the end~~ — **replaced by In Person Session:** Vinny calls *him* early, and shows up in person at the end | Sesh 8, replaced by In Person Session |
 
@@ -523,7 +536,7 @@ the story now** — so this counts as in-doc like anything else, not as one pers
 | A teacher genuinely believes in Gnomey; he wavers between street life and college | Character Bios |
 | Gnomey was in the crew in middle school; fell out over Poe Boy skimming the **silly banz** money | Sesh 5 |
 | Gnomey's mansion tie: crew threw rocks and dared each other to ring the doorbell; one Halloween something happened | Sesh 5 |
-| **Gnomey's real mansion tie: he owns it.** Great Uncle Vinny won it off Orlok at cards in 1931 and the deed runs with a poker chip — which Vinny hands Gnomey at the end | Sesh 8 + In Person Session |
+| **Gnomey's real mansion tie: he owns it.** Great Uncle Vinny won it off Orlok at cards in 1931 and title runs with the deed — which Vinny hands Gnomey at the end | Sesh 8 + In Person Session + 1 Nov · not in doc |
 | **Simone** — angsty goth warlock, devil patron as an all-black goat with an upside-down red cross, atheist parents, sells love & revenge spells to fund a satanic metal show, frequent detention, loner | Character Bios |
 | **Simone's mansion tie: she sold the dead kid the wishing willow, and her patron's price is the concert fund** — full chain in the Sesh 8 section above | **Sesh 8** |
 | **John — Yobo**, a musical-theatre bully / popular kid; leaning Bard, words as the weapon. His lie (grandmother = Dolly Parton) props up his status and he's insecure about real talent. Arc: the lie is a Performance/Bardic-Inspiration debuff (Deception upside) that flips to a buff when he tells the truth in the party room, Dracula pushing him. Wig still an open question for John | Character Bios + Sesh 8 |

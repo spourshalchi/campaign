@@ -428,14 +428,15 @@ const SCENES = [
   ],
   npcs:[],
   reminders:[
-    {t:"<b>One physical prop per PC:</b> Bix &mdash; the printed photograph &middot; Gnomey &mdash; the blue chip (Vinny hands it over at the end) &middot; Simone &mdash; the wishing willow &middot; Russ &mdash; badge + card &middot; Yobo &mdash; <b>still undecided</b>.", k:"hand"},
+    {t:"<b>One physical prop per PC:</b> Bix &mdash; the printed photograph &middot; Gnomey &mdash; the printed deed (Vinny hands it over at the end) &middot; Simone &mdash; the wishing willow &middot; Russ &mdash; badge + card &middot; Yobo &mdash; <b>still undecided</b>.", k:"hand"},
     {t:"Printed <b>invite card</b> for the locker letters &mdash; prop at <code>/invite/</code>.", k:"hand"},
     {t:"<b>AIM sticky note</b> reading <code>Fluffy123</code>, in handwriting, findable in the house.", k:"hand"},
     {t:"A real <b>USB stick</b> with <code>scream_test_03_GOOD.wav</code> &mdash; set its volume label to the kid's name.", k:"hand"},
     {t:"The <b>wishing willow</b> token: <i>I want Angelique to notice me</i>, in twelve-year-old hand.", k:"hand"},
     {t:"The <b>printed photograph</b> for Bix &mdash; also the key to the party-room spot-the-difference.", k:"hand"},
     {t:"<b>Russ's badge card</b> (<code>/badge/</code>) plus a real merit badge for the troop leader to hand Cody at the very end.", k:"hand"},
-    {t:"The <b>blue poker chip</b> &mdash; keep it off the table until Vinny hands it to Gnomey in the ending scene.", k:"hand"},
+    {t:"The <b>printed deed</b> (<code>/deed/</code>) &mdash; keep it off the table until Vinny hands it to Gnomey in the ending scene.", k:"hand"},
+    {t:"<b>Print run:</b> invite, deed, badge card + badge, photograph (after Will's trait), settlement (optional). Not built yet: DJ poster, backstory cards, concert tickets. Handmade: sticky note, wishing willow.", k:"hand"},
     {t:"iPad loaded with the props: <code>/puzzle/</code> <code>/settlement/</code> <code>/photo/</code> <code>/party-room/</code> <code>/aim/</code> (set <code>?name=</code> first).", k:""}
   ],
   cues:[] },
@@ -632,22 +633,22 @@ const SCENES = [
   cues:["heart","jump","aim","levelup"] },
 
 { act:"sunday", no:10, title:"The study", where:"Sunday morning · Gnomey · any-order room",
-  read:[{t:"He's read it three times. The man who won this house is his great-uncle &mdash; and whoever holds the missing chip owns it."}],
+  read:[{t:"He's read it three times. The man who won this house is his great-uncle &mdash; and whoever holds the deed owns it. The deed isn't here."}],
   beats:[
     "Sunday opens on <b>three per-PC rooms in any order.</b> This one is Gnomey's.",
-    "The study, sealed since the thirties: a poker set exactly <b>one chip short</b>, the last hand still on the table, and a strongbox holding the deed and the signed <b>Articles of Settlement</b> with the bearer clause spelled out.",
-    "<b>Gnomey doesn't have the chip.</b> What he learns here is that his great-uncle won the house, and that title rests with whoever holds the one chip missing from this set. Where it is stays a question until Vinny walks in at the end.",
+    "The study, sealed since the thirties: the card table with the last hand still on it, and a strongbox holding the signed <b>Articles of Settlement</b> with the bearer clause spelled out &mdash; and <b>an empty slot where the deed should be</b>.",
+    "<b>Gnomey doesn't have the deed.</b> What he learns here is that his great-uncle won the house, and that title rests with whoever holds the deed missing from this strongbox. Where it is stays a question until Vinny walks in at the end.",
     "<b>Run it before anything exonerates the vampires</b>, so Gnomey learns his family has a claim on a house full of things he still believes are killers &mdash; and has all of Sunday to sit on it.",
-    "<b>Make sure Gnomey is alone.</b> The payoff isn't the discovery &mdash; it's the ending, when Vinny hands him the chip and he says it out loud. Give Julia the secret; let her choose who to tell.",
+    "<b>Make sure Gnomey is alone.</b> The payoff isn't the discovery &mdash; it's the ending, when Vinny hands him the deed and he says it out loud. Give Julia the secret; let her choose who to tell.",
     "The door is <b>deliberately undefined.</b> When you design it, it must be a <b>whole-party</b> problem."
   ],
   checks:[
-    {skill:"Investigation", dc:"12", sug:true, note:"Read the signatures and the bearer clause: <b>V. Soprano</b> won the house, and the missing chip is the deed. If nobody gets there: <b>put the gap in front of them physically</b> &mdash; 49 chips, one empty slot &mdash; and read the bearer paragraph aloud."}
+    {skill:"Investigation", dc:"12", sug:true, note:"Read the signatures and the bearer clause: <b>V. Soprano</b> won the house, and title goes with the deed. If nobody gets there: <b>point at the empty slot in the strongbox</b> and read the bearer paragraph aloud."}
   ],
   npcs:[],
   reminders:[
     {t:"Show <code>/settlement/</code> on the iPad (tap to unfold). The bearer paragraph is the <b>only one on the page with no corrections</b>.", k:"hand"},
-    {t:"Keep the <b>physical chip</b> hidden. Vinny has it, and it comes out only in the ending scene.", k:"rule"}
+    {t:"Keep the <b>printed deed</b> hidden. Vinny has it, and it comes out only in the ending scene.", k:"rule"}
   ],
   cues:[] },
 
@@ -803,18 +804,18 @@ const SCENES = [
     "<b>Resolve it all right here, in one scene at the house.</b> Three arrivals, back to back, while the crowd is still on the lawn.",
     "<b>Poe Boy's mom</b> grounds him in front of everyone &mdash; and he is certainly not going to that satan concert. <b>The tickets go to Simone</b>, who spent every dollar she had hours earlier.",
     "<b>Russ's troop leader</b> comes in. <b>Orlok signs the card</b>, through his teeth, and the troop leader <b>hands Russ the badge</b>.",
-    "<b>Great Uncle Vinny</b> walks in &mdash; the voice from Saturday's phone call &mdash; and <b>hands Gnomey the chip</b>, because he's earned it. From this moment the house is his. Then Gnomey says it out loud: <i>&ldquo;This is my house.&rdquo;</i> Orlok has to confirm it in front of everyone, and Gnomey's renewal at the threshold is plain: <i>&ldquo;You can stay.&rdquo;</i>",
+    "<b>Great Uncle Vinny</b> walks in &mdash; the voice from Saturday's phone call &mdash; and <b>hands Gnomey the deed</b>, because he's earned it. From this moment the house is his. Then Gnomey says it out loud: <i>&ldquo;This is my house.&rdquo;</i> Orlok has to confirm it in front of everyone, and Gnomey's renewal at the threshold is plain: <i>&ldquo;You can stay.&rdquo;</i>",
     "Then the quiet one: <b>Edward explains himself to Bix</b> &mdash; the cart, the party, Goblinenon, the men the company sent, why he carried a baby down the hill. Its own beat, no jokes in it."
   ],
   npcs:[
     {nm:"Poe Boy's parents", vc:"A Volvo, matching fleece, sweet and oblivious. She calls him Upton."},
     {nm:"Russ's troop leader", vc:"Character still to be written."},
-    {nm:"Great Uncle Vinny", vc:"Ancient and mostly gone. The same voice as Saturday's phone call. Hands over the chip like it was always the plan."},
+    {nm:"Great Uncle Vinny", vc:"Ancient and mostly gone. The same voice as Saturday's phone call. Hands over the deed like it was always the plan."},
     {nm:"Orlok", vc:"Signs Russ's card and confirms Gnomey's claim, both through his teeth. Pissed, and complies perfectly."},
     {nm:"Edward", vc:"The whole timeline to Bix. No jokes in it."}
   ],
   reminders:[
-    {t:"Hand Gnomey the <b>physical blue chip</b> &mdash; from Vinny's hand.", k:"hand"},
+    {t:"Hand Gnomey the <b>printed deed</b> &mdash; from Vinny's hand.", k:"hand"},
     {t:"The troop leader hands Cody the <b>physical merit badge</b>.", k:"hand"},
     {t:"Concert-tickets prop (once the band has a name).", k:"hand"}
   ],
@@ -839,7 +840,7 @@ const SCENES = [
 const CRULES = [
   ["The vampires cannot kill","No Bite on a conscious creature, ever, in first contact. Grapple, shove, frighten. The mechanics are the clue, and the reveal depends on this being literally true rather than a near miss."],
   ["The USB is keep-away, not a fail state","Poe Boy spends his turns on <i>Command</i> &mdash; &ldquo;Drop.&rdquo; The drive <b>cannot be destroyed</b>, so one bad save never ends the campaign; it just costs time while the party is being shot at."],
-  ["The chip stays with Vinny until the end","Gnomey's marker is the deed, and <b>Vinny holds it all weekend</b>. Nothing at the table puts it in Gnomey's hands early &mdash; no roll, no pickpocket, no lucky find in the study. It comes out once, from Vinny, in the ending scene."],
+  ["The deed arrives with Vinny","Title rests with the bearer of the deed, and <b>Vinny holds it all weekend</b>. Nothing at the table puts it in Gnomey's hands early &mdash; no roll, no pickpocket, no lucky find in the study. It comes out once, from Vinny, in the ending scene."],
   ["Stinky's oath breaks with no save","He hears his best friend stay calm while a kid dies. Devotion's first tenet is <i>don't lie or cheat</i>, and there is no save against that. Rolling for it would put the campaign's best beat on a d20."]
 ];
 const BUDGET = {
@@ -853,7 +854,7 @@ const BUDGET = {
 
 /* ============================= HAND-OUTS ============================= */
 const HANDOUTS = [
-  ["Blue poker chip","Vinny hands it to Gnomey in the ending scene &mdash; keep it out of sight until then. Clay or bone, hand-stamped &mdash; the same mark as the settlement's seal. The study set is exactly one short."],
+  ["The deed (print)","Print <code>/deed/</code> at Staples on letter paper. Vinny hands it to Gnomey in the ending scene &mdash; keep it out of sight until then. The strongbox in the study has an empty slot where it belongs."],
   ["The printed photograph","Bix's physical prop, aged like it's been in that house his whole life. Also the key to the party-room spot-the-difference. The back is on <code>/photo/</code>."],
   ["Printed invite card","The 5&times;7 for the locker letters. Prop at <code>/invite/</code>."],
   ["AIM sticky note (Fluffy123)","Handwriting. Findable in the house &mdash; on the monitor, in the gear case, or in the ballroom rig. Unlocks the whole computer-room scene."],
