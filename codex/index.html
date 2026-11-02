@@ -195,6 +195,11 @@
   .td-tag.gate{color:var(--gold);border-color:var(--gold)}
   .td-tag.top{color:#1a1206;background:var(--gold);border-color:var(--gold);font-weight:700}
   .td-tag.live{color:var(--green);border-color:var(--green)}
+  .td-msg{margin:10px 0 0;max-width:72ch;border:1px solid var(--edge);border-radius:10px;background:#0f0b18;padding:10px 12px}
+  .td-msg pre{margin:8px 0 0;font-family:var(--f-body);font-size:13.5px;line-height:1.5;color:var(--ink);
+    white-space:pre-wrap;-webkit-user-select:text;user-select:text}
+  .td-copy{font-family:var(--f-body);font-size:12px;color:#1a1206;background:var(--gold);border:none;
+    border-radius:999px;padding:6px 14px;font-weight:600;cursor:pointer}
 
   /* ---- cast cards ---- */
   .cast-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
@@ -359,7 +364,7 @@
   <!-- ============ TO-DO ============ -->
   <section class="tab active" id="tab-todo">
     <h2 class="sec">Everything still to do</h2>
-    <p class="sub">Ordered by what unblocks the most, not by lane. The story comes first &mdash; the rooms are shaped by it, the encounters by the rooms, and the handouts only get printed once the names on them stop moving. Five items are marked <b>Start here</b>. Every row carries who owns it, and the ones nobody has claimed say so. Items are marked done in the source as they land, so there is nothing to click.</p>
+    <p class="sub">Ordered by what unblocks the most, not by lane. The story comes first &mdash; the rooms are shaped by it, the encounters by the rooms, and the handouts only get printed once the names on them stop moving. The most urgent are marked <b>Start here</b>. Every row carries who owns it, and the ones nobody has claimed say so. Items are marked done in the source as they land, so there is nothing to click.</p>
     <div class="td-bar">
       <div class="td-filters" id="td-filters">
         <button data-f="all" class="on">Everything</button>
@@ -1311,6 +1316,22 @@ document.getElementById("flagtoggle").addEventListener("change",e=>{
 /* ---------------- RENDER: TO-DO ---------------- */
 const TODO_LIST = [
  {
+  "id": "pp1",
+  "t": "Tell the players what to prep",
+  "o": "scott",
+  "c": "Players",
+  "top": 1,
+  "note": "Send this before the weekend. It has no spoilers in it. Pre-making is optional and nobody sends a sheet in, so anyone who shows up without a character builds one at the table.",
+  "msg": "Campaign is this weekend!\n\nIf you can, pre-make your character before you show up. No worries if not, we'll build it together in person.\n\n• Level 4\n• 2024 Player's Handbook rules\n• Point buy or rolled stats, your pick\n• Your class's starting gear\n\nDigital character builder: https://www.dndbeyond.com/characters/builder\n\nNo need to send me anything. Day of, just bring your character, and dice if you have them.",
+  "steps": [
+   "<b>Simone</b> (warlock, Devil patron): still needs a <b>race</b> and a <b>character name</b>.",
+   "<b>John</b> (Yobo, bard): still needs a <b>race</b> and a <b>Bard subclass</b>, and an answer to whether Yobo wears a <b>wig</b>.",
+   "<b>Cody</b> (Russ, Firbolg druid): still needs a <b>druid subclass</b>, and to confirm <b>Russ</b> is the final name.",
+   "<b>Don't tell anyone</b> about their own hooks. Julia's chip, Bix's parents, and what Simone's goat wants from her are all things they find out at the table."
+  ]
+ },
+
+ {
   "id": "m14",
   "t": "The soul transfer is built \u2014 AIM ritual",
   "o": "scott",
@@ -1638,10 +1659,10 @@ const TODO_LIST = [
  },
  {
   "id": "m2",
-  "t": "Collect and check the five character sheets",
+  "t": "Check the five characters at the table",
   "o": "scott",
   "c": "Combat",
-  "note": "The players build their own — Bix Grimlor, Gnomey Soprano, Simone's warlock, John's bully bard, and Cody's, still unsubmitted. What is left for the DM is getting all five in hand, checking them for rules-legality, and knowing what is on them: AC, saves, ranged options and anything that trivialises a puzzle."
+  "note": "Level 4, 2024 PHB, point buy or rolled, class starting gear. Players pre-make if they can and bring the character on the day; nobody sends a sheet in, and anyone without one builds it at the table. So budget build time at the start of session one, then check every sheet for rules-legality and know what is on it: AC, saves, ranged options and anything that trivialises a puzzle. Bix Grimlor, Gnomey Soprano, Simone's warlock, Yobo and Russ."
  },
  {
   "id": "m10",
@@ -2008,6 +2029,7 @@ function tdRender(){
         ${x.ans?`<p class="td-ans"><b>Locked in:</b> ${x.ans}</p>`:""}
         ${x.note?`<p class="td-note">${x.note}</p>`:""}
         ${x.steps?`<ol class="td-steps">${x.steps.map(v=>`<li>${v}</li>`).join("")}</ol>`:""}
+        ${x.msg?`<div class="td-msg"><button type="button" class="td-copy">Copy message</button><pre>${x.msg}</pre></div>`:""}
         <div class="td-tags">${tags}</div>
       </div></li>`;
   }).join("");
@@ -2031,6 +2053,12 @@ function tdFilter(f){
   document.querySelectorAll("#td-filters button").forEach(b=>b.classList.toggle("on", b.dataset.f===f));
 }
 
+document.getElementById("td-list").addEventListener("click",e=>{
+  const b=e.target.closest(".td-copy"); if(!b) return;
+  const txt=b.nextElementSibling.textContent;
+  const done=()=>{b.textContent="Copied";setTimeout(()=>b.textContent="Copy message",1600);};
+  if(navigator.clipboard) navigator.clipboard.writeText(txt).then(done,()=>{});
+});
 document.getElementById("td-filters").addEventListener("click",e=>{
   const b=e.target.closest("[data-f]"); if(b) tdFilter(b.dataset.f);
 });

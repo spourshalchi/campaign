@@ -164,7 +164,7 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 | **Orlok ends it with one word.** Dracula stops instantly; nobody speaks until Orlok is finished | Sesh 8 |
 | His dismissal: *"The night is young. It would be terribly rude to be finished with you already." / "Go on. Have a look around. We'll find you when we're ready."* | Sesh 8 |
 | Explore again, then **Saturday's one combat: a botched summoning** | Sesh 8 |
-| Level 3 → 4 | Sesh 8 (restates the 24 Aug paste) |
+| Level 3 → 4 (**overridden: the party is level 4 → 5**, see Decisions made since the audit) | Sesh 8 (restates the 24 Aug paste) |
 
 ### Sunday — the revised investigation
 | Claim | Source |
@@ -332,7 +332,7 @@ Not yet pasted into the Google Doc — **do that to make them official.** Until 
 | ✅ **The developer is named W. Ostrander** — a proposal, but a live one: it's printed on the checkout card in `/puzzle/`. Still open: company, or family trust? | 🟡 **proposed 26 Aug 2026**, swap freely |
 | ✅ **There's a checkout card** in the back pocket of the volume, viewable in the prop. Three names: **E. Hoeck** (1938 — the blood-tie hook, currently pointed at **John**), **U. M. Livingsworth III** (Oct 2000 — Poe Boy's real name, which nobody will recognise until his mother says it in the driveway, and which meanwhile says he has been interested in this house for four years) and **W. Ostrander** (Jul 2004 — the developer). It proves two other people got here first and the party has met neither. | 🟡 **decided by Scott, 26 Aug 2026** |
 | ✅ **"Dood" is both** — the builder's family surname *and* the Dutch pun. Cornelis Dood is a real person in the fiction. | Sesh 6 had the pun; the prop added the surname. Both now stand. |
-| ✅ **The party is level 3**, leveling to 4 at the end of day one. | new |
+| ✅ **The party is level 4**, leveling to 5 at the end of day one. Sunday runs at level 5. | Sesh 8 says level 3 → 4. **Scott changed it to 4 → 5 on 7 Sep 2026** (the combat re-base) and reconfirmed it 1 Nov 2026. Not in the doc, and it overrides a doc line, so write it in |
 | ✅ **Races & classes are now IN DOC** — Spencer wrote Scott's picks into the doc as **Brainstorm Sesh 8**, which this ledger had not seen. They are no longer 🟡 anything. Sesh 8 also added Lil Stinky's oathbreak, which the codex had missed entirely. | 🟡 "Scott's pick, not in the doc yet" — **now doc** |
 | ✅ **The invite is exclusive — five cards, five lockers, nobody else got one.** The party arrives at an empty hill: no cars, no line, no lit windows. This **narrows Sesh 7's "invite everyone"**, which is a doc line, so it needs writing into the doc more than anything else on this list. Knock-on: the codex no longer leans on a houseful of other kids to stop the party leaving — the bolted doors do it. | 🟡 codex stagecraft — **now decided by Scott, 24 Aug 2026**, and it overrides a doc line |
 | ✅ **The 3AM DJ show flyer is public — a two-tier guest list.** Five cards at 7PM for the part Poe Boy actually wants recorded; the flyer's audience arrives at 3AM for the scare the vampires agreed to. Resolves the collision between the exclusive invite and the finale's charmed crowd, and unblocks the flyer prop. | 🟡 **decided by Scott, 25 Aug 2026.** Not in the doc yet |
