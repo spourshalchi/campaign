@@ -238,6 +238,21 @@
     padding:0 18px; height:46px; min-width:132px; border-radius:5px;
   }
   #bar button:active{background:#2c2114}
+
+  /* print: the unfolded sheet on one US Letter page */
+  @media print{
+    @page{size:letter portrait; margin:.4in}
+    html,body{background:#fff !important; height:auto; overflow:visible}
+    #splash,#bar{display:none !important}
+    #stage{position:static; overflow:visible; padding:0; display:block}
+    #sheet{width:100%; max-width:none; box-shadow:none; transform:none !important; padding:.35in .45in .3in;
+      -webkit-print-color-adjust:exact; print-color-adjust:exact}
+    .vin,.orl{font-size:11.5pt; line-height:1.5}
+    p.cl{margin:0 0 10px}
+    .bearer{margin:12px -8px; padding:10px 14px}
+    .sigs{margin-top:16px; gap:14px}
+    .margin{margin-top:16px; padding-top:10px}
+  }
 </style>
 </head>
 <body>

@@ -150,6 +150,9 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
   troop leader the hand-over.
 - **The six differences in `/party-room/`** — the clock, the empty turntable, Orlok's claws, Goblinenon's hand,
   Edward's fangs, Dracula's arms — are the prop's invention.
+- **The concert tickets in `/tickets/`** — the holder line *LIVINGSWORTH III / UPTON M* (his real name, so
+  Simone reads whose tickets these were), the $27.50 + fees price, the ticket and event codes and the small
+  print are the prop's choices. The band, venue, city and date are left blank to fill in — the band is Spencer's.
 
 ### Still open from this session
 1. **The invitation:** is it to the concert or to the haunted house? Spencer's, with the poster.
@@ -646,6 +649,7 @@ stay on this list until you two decide:
   Edward and Goblinenon arrived is the codex's placement for it
 
 ### 6. Prop texture
+- **Backstory cards (`/backstory/`):** every bullet is sourced (mostly Character Bios, paraphrased into second person) except the texture — the footer taglines, *"Class of '04 — finally"*, *"Everyone has AIM. Nobody has a smartphone"*, the Wilderness Scouts troop name (from `/badge/`), and *"years ago"* for Simone's willow sale. A sixth shared **Transyltown** card fills the last print page.
 - **Invite:** with the guest list now five, the card's mass-event voice — *FREE admission*, *"bring a friend, the more the scaryer!"*, the RSVP line — is a second soft contradiction alongside the one below. Cheapest reading: it is deliberate camouflage, a card built to look like it went to everyone. No rebuild needed if that reading holds.
 - **Invite:** *"LAST YEAR NOBODY DID"* — implies a haunted house ran here before, but per canon this is
   Poe Boy's first, in a house abandoned for decades. Soft contradiction. Also `spookynite2k4@hotmail.com`.

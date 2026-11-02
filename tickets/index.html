@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!--
+  PROP: The concert tickets — two GA tickets to the satanic metal band's show.
+  CANON: Poe Boy loves the same band Simone has been saving for and had tickets; in the ending
+  scene his mom grounds him and the tickets go to Simone (Sesh 8).
+  The BAND IS UNNAMED (codex to-do "Name the satanic metal band", Spencer's call) — fill it in
+  the editor before printing. Venue, city, date and times are blank for the same reason.
+  🟡 Prop texture, not canon: the holder line (his real name, Upton M. Livingsworth III — the
+  Sesh 3 joke), the $27.50 + fees price, the ticket/section codes and the small print.
+  PRINT: US Letter, portrait, 100% / actual size, on cardstock. Both tickets fit one page,
+  each exactly 5.5 x 2 in, with dashed cut lines.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tickets">
+<meta name="theme-color" content="#16121a">
+<title>Concert Tickets — Admit One</title>
+<style>
+  :root{
+    --thermal:#f6f3ea; --ink:#1d1a1f; --mut:#5d5862; --pink:#d9468f; --blue:#2c5fa8;
+    --f-dot:"OCR A Std","Andale Mono","Courier New",Courier,monospace;
+    --f-sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:radial-gradient(ellipse at 50% 0%, #2a2131 0%, #0f0c12 70%) fixed;
+    color:#e9e2ef; font-family:var(--f-sans);
+    min-height:100dvh; overscroll-behavior:none;
+    padding:max(16px,env(safe-area-inset-top)) 16px max(24px,env(safe-area-inset-bottom));
+    display:flex; flex-direction:column; align-items:center; gap:22px;
+  }
+
+  /* ---------------- editor (screen only) ---------------- */
+  .editor{
+    width:100%; max-width:640px; background:#1d1722; border:1px solid #3d3146; border-radius:12px;
+    padding:16px; font-size:14px; line-height:1.5;
+    -webkit-user-select:none; user-select:none;
+  }
+  .editor h1{margin:0 0 4px; font-size:19px; font-weight:700; color:#fff}
+  .editor p{margin:0 0 12px; color:#bfb4c9}
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px 12px}
+  .grid label{display:flex; flex-direction:column; gap:4px; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:#a99cb6}
+  .grid label.wide{grid-column:1 / -1}
+  .grid input{
+    font:inherit; font-size:16px; text-transform:none; letter-spacing:0;
+    min-height:44px; padding:8px 10px; border-radius:8px;
+    background:#0f0c12; color:#fff; border:1px solid #4a3c55;
+    -webkit-user-select:text; user-select:text;
+  }
+  .warn{
+    margin:12px 0 0; padding:10px 12px; border-radius:8px;
+    background:#3a1420; border:1px solid #7a2a40; color:#ffc7d4; font-size:13.5px;
+  }
+  .row{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap}
+  .row button{
+    font:inherit; font-weight:700; min-height:44px; padding:10px 18px; border-radius:8px; cursor:pointer;
+    background:#d9468f; color:#fff; border:none;
+  }
+  .row button.ghost{background:transparent; color:#bfb4c9; border:1px solid #4a3c55}
+  [hidden]{display:none !important}
+  @media (max-width:520px){ .grid{grid-template-columns:1fr} }
+
+  /* ---------------- the sheet ---------------- */
+  .sheet{display:flex; flex-direction:column; align-items:center; gap:28px}
+  .fit{transform-origin:top center}
+  .cut{outline:1.5px dashed rgba(255,255,255,.35); outline-offset:.08in}
+
+  /* one ticket: 5.5in x 2in — stub 1.35in on the right */
+  .ticket{
+    width:5.5in; height:2in; display:flex; position:relative; overflow:hidden;
+    color:var(--ink); font-family:var(--f-dot);
+    background:
+      repeating-linear-gradient(135deg, rgba(217,70,143,.07) 0 6px, transparent 6px 14px),
+      repeating-linear-gradient(45deg, rgba(44,95,168,.06) 0 6px, transparent 6px 14px),
+      var(--thermal);
+    box-shadow:0 14px 30px rgba(0,0,0,.6);
+    -webkit-user-select:none; user-select:none;
+  }
+  .spine{
+    width:.32in; flex:0 0 .32in; background:var(--ink); color:var(--thermal);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .spine span{
+    transform:rotate(-90deg); white-space:nowrap;
+    font-family:var(--f-sans); font-weight:800; font-size:9.5pt; letter-spacing:.32em;
+  }
+  .main{flex:1; padding:.11in .16in .1in; display:flex; flex-direction:column; min-width:0}
+  .top{display:flex; justify-content:space-between; font-size:6.5pt; letter-spacing:.06em; color:var(--mut)}
+  .band{
+    margin:.03in 0 0; font-family:var(--f-sans); font-weight:900; text-transform:uppercase;
+    font-size:17pt; line-height:1.02; letter-spacing:.01em;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .tour{font-size:7.5pt; letter-spacing:.08em; text-transform:uppercase; margin-top:.02in; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .venue{font-size:9pt; font-weight:700; text-transform:uppercase; margin-top:.06in; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .when{font-size:8pt; text-transform:uppercase; margin-top:.02in; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .bottom{margin-top:auto; display:flex; align-items:flex-end; justify-content:space-between; gap:.1in}
+  .admit{font-family:var(--f-sans); font-weight:900; font-size:11pt; letter-spacing:.06em; line-height:1}
+  .admit small{display:block; font-family:var(--f-dot); font-weight:400; font-size:6.5pt; letter-spacing:.04em; margin-top:.03in}
+  .holder{font-size:6.5pt; text-align:right; line-height:1.35; color:var(--mut)}
+  .holder b{color:var(--ink); font-weight:700}
+  .fine{font-size:5pt; line-height:1.25; color:var(--mut); margin-top:.05in; letter-spacing:.02em}
+
+  .perf{
+    width:0; border-left:2px dotted rgba(29,26,31,.55); margin:.06in 0;
+  }
+  .stub{
+    width:1.35in; flex:0 0 1.35in; padding:.11in .1in .08in .12in;
+    display:flex; flex-direction:column; font-size:6.8pt; line-height:1.3;
+  }
+  .stub .k{color:var(--mut); font-size:5.5pt; letter-spacing:.08em}
+  .stub .v{font-weight:700; text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .stub .ga{font-family:var(--f-sans); font-weight:900; font-size:15pt; line-height:1; margin:.02in 0 .03in}
+  .stub svg{margin-top:auto; width:100%; height:.34in; display:block}
+  .stub .num{font-size:5.5pt; letter-spacing:.12em; text-align:center; margin-top:.01in}
+
+  .ph{color:#b04a72; font-style:italic}           /* placeholder on screen */
+
+  @media print{
+    @page{size:letter portrait; margin:.5in}
+    html,body{background:#fff !important}
+    body{padding:0; display:block; min-height:0}
+    .editor{display:none !important}
+    .sheet{gap:.5in; align-items:center; padding-top:.25in}
+    .fit{transform:none !important; height:auto !important}
+    .cut{outline:1px dashed #888; outline-offset:.06in}
+    .ticket{box-shadow:none}
+    .ph{color:var(--ink); font-style:normal}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+
+  <div class="editor">
+    <h1>Concert tickets — Simone's in the end</h1>
+    <p>Poe Boy's two tickets. His mom grounds him in the ending scene and they go to Simone. Fill in the show, then print at <b>100% / actual size on cardstock</b>; both tickets fit one US Letter page with cut lines.</p>
+    <div class="grid">
+      <label class="wide">Band name<input id="f-band" autocomplete="off" placeholder="The band (Spencer's call)"></label>
+      <label class="wide">Tour name (optional)<input id="f-tour" autocomplete="off" placeholder="e.g. a tour name"></label>
+      <label>Venue<input id="f-venue" autocomplete="off" placeholder="Venue"></label>
+      <label>City<input id="f-city" autocomplete="off" placeholder="City, ST"></label>
+      <label>Date<input id="f-date" autocomplete="off" placeholder="SAT NOV 20 2004"></label>
+      <label>Doors / show<input id="f-time" autocomplete="off" placeholder="DOORS 7PM / SHOW 8PM"></label>
+    </div>
+    <p class="warn" id="warn">The band has no name yet. Fill it in before you print — the ticket shows a placeholder until you do.</p>
+    <div class="row">
+      <button id="printBtn" type="button">Print tickets</button>
+      <button id="clearBtn" class="ghost" type="button">Clear fields</button>
+    </div>
+  </div>
+
+  <div class="sheet" id="sheet"></div>
+
+<template id="tpl">
+  <div class="fit"><div class="cut">
+    <div class="ticket">
+      <div class="spine"><span>ADMIT ONE</span></div>
+      <div class="main">
+        <div class="top"><span data-f="evcode"></span><span>GENERAL ADMISSION</span></div>
+        <div class="band" data-f="band"></div>
+        <div class="tour" data-f="tour"></div>
+        <div class="venue" data-f="venuecity"></div>
+        <div class="when" data-f="datetime"></div>
+        <div class="bottom">
+          <div class="admit">ADMIT ONE<small>GA FLOOR &middot; NO RE-ENTRY</small></div>
+          <div class="holder">TICKET HOLDER<br><b>LIVINGSWORTH III / UPTON M</b><br>$27.50 + $8.75 SVC CHG</div>
+        </div>
+        <div class="fine">THIS TICKET IS A REVOCABLE LICENSE. NO REFUNDS OR EXCHANGES. ARTISTS, TIMES AND PROGRAM SUBJECT TO CHANGE. NOT RESPONSIBLE FOR LOST OR STOLEN TICKETS.</div>
+      </div>
+      <div class="perf"></div>
+      <div class="stub">
+        <span class="k">EVENT</span><span class="v" data-f="bandshort"></span>
+        <span class="k">DATE</span><span class="v" data-f="date"></span>
+        <span class="ga">GA</span>
+        <span class="k">ADMIT ONE &middot; $27.50</span>
+        <svg viewBox="0 0 100 30" preserveAspectRatio="none" data-f="barcode"></svg>
+        <div class="num" data-f="num"></div>
+      </div>
+    </div>
+  </div></div>
+</template>
+
+<script>
+(function(){
+  "use strict";
+  var KEYS=["band","tour","venue","city","date","time"];
+  var STORE="tickets.v1";
+  var vals={};
+
+  /* load: localStorage, then URL params override */
+  try{ vals=JSON.parse(localStorage.getItem(STORE)||"{}")||{}; }catch(e){ vals={}; }
+  try{
+    var q=new URLSearchParams(location.search);
+    KEYS.forEach(function(k){ if(q.has(k)) vals[k]=q.get(k); });
+  }catch(e){}
+
+  function save(){ try{ localStorage.setItem(STORE,JSON.stringify(vals)); }catch(e){} }
+
+  /* deterministic fake barcode from a ticket number */
+  function barcode(svg,seed){
+    var x=2, out="", r=seed;
+    while(x<98){
+      r=(r*1103515245+12345)&0x7fffffff;
+      var w=1+(r%3)*0.9, gap=0.8+((r>>4)%3)*0.7;
+      out+='<rect x="'+x.toFixed(2)+'" y="0" width="'+w.toFixed(2)+'" height="30" fill="#1d1a1f"/>';
+      x+=w+gap;
+    }
+    svg.innerHTML=out;
+  }
+
+  var NUMS=["1104 0187 3301","1104 0187 3302"];
+  var sheet=document.getElementById("sheet");
+  var tpl=document.getElementById("tpl");
+  var tickets=[];
+  NUMS.forEach(function(n,i){
+    var node=tpl.content.firstElementChild.cloneNode(true);
+    sheet.appendChild(node);
+    barcode(node.querySelector('[data-f="barcode"]'), 7919*(i+3));
+    node.querySelector('[data-f="num"]').textContent=n;
+    node.querySelector('[data-f="evcode"]').textContent="EVENT CODE 0F187"+(i+1);
+    tickets.push(node);
+  });
+
+  function show(el,text,ph){
+    if(text){ el.textContent=text; el.classList.remove("ph"); }
+    else{ el.textContent=ph; el.classList.add("ph"); }
+  }
+  function up(s){ return (s||"").trim().toUpperCase(); }
+
+  function render(){
+    var band=up(vals.band), venue=up(vals.venue), city=up(vals.city), date=up(vals.date), time=up(vals.time), tour=up(vals.tour);
+    tickets.forEach(function(t){
+      show(t.querySelector('[data-f="band"]'), band, "BAND NAME");
+      var tr=t.querySelector('[data-f="tour"]'); tr.textContent=tour; tr.hidden=!tour;
+      show(t.querySelector('[data-f="venuecity"]'), [venue,city].filter(Boolean).join(" · "), "VENUE · CITY");
+      show(t.querySelector('[data-f="datetime"]'), [date,time].filter(Boolean).join("  "), "DATE  DOORS / SHOW");
+      show(t.querySelector('[data-f="bandshort"]'), band, "BAND NAME");
+      show(t.querySelector('[data-f="date"]'), date, "DATE");
+    });
+    document.getElementById("warn").hidden=!!band;
+  }
+
+  KEYS.forEach(function(k){
+    var inp=document.getElementById("f-"+k);
+    inp.value=vals[k]||"";
+    inp.addEventListener("input",function(){ vals[k]=inp.value; save(); render(); });
+  });
+  document.getElementById("clearBtn").addEventListener("click",function(){
+    KEYS.forEach(function(k){ vals[k]=""; document.getElementById("f-"+k).value=""; });
+    save(); render();
+  });
+  document.getElementById("printBtn").addEventListener("click",function(){ window.print(); });
+
+  /* scale the real-size tickets down to fit a narrow screen (print is always actual size) */
+  function fit(){
+    var avail=Math.min(window.innerWidth-40, 700);
+    tickets.forEach(function(t){
+      var tk=t.querySelector(".ticket"), w=tk.offsetWidth, h=tk.offsetHeight;
+      var s=Math.min(1, avail/(w+16));
+      t.style.transform="scale("+s+")";
+      t.style.height=((h+16)*s)+"px";
+    });
+  }
+  window.addEventListener("resize",fit);
+
+  render(); fit();
+
+  /* iOS: kill pinch-zoom, per AGENTS.md */
+  document.addEventListener("touchmove",function(e){
+    if(e.scale!==undefined && e.scale!==1) e.preventDefault();
+  },{passive:false});
+  document.addEventListener("gesturestart",function(e){ e.preventDefault(); });
+})();
+</script>
+</body>
+</html>

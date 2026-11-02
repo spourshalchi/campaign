@@ -19,6 +19,9 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 ├── settlement/       ← The 1931 Articles of Settlement (the drunken contract)
 │   └── index.html
 ├── deed/             ← The deed to Dood Mansion — print it; Vinny hands it to Gnomey at the end
+├── tickets/          ← The concert tickets Simone ends up with (print)
+├── backstory/        ← One backstory reminder card per PC (print)
+├── print/            ← DM print kit: Staples-ready PDFs + build.py (not tiled)
 │   └── index.html
 ├── photo/            ← The party-room photograph (Bix's beat)
 │   └── index.html
@@ -50,6 +53,8 @@ The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
 | Settlement | `settlement/` | The 1931 contract from the strongbox in the study. Opens folded; tap to unfold. Two drunk men signed away a mansion over $11.40, and **the only paragraph on the page with no corrections in it is the one that vests title in the bearer of the deed.** |
 | Deed | `deed/` | The 1931 deed to Dood Mansion, print-ready on letter paper. Uncle Vinny has carried it since the night he won the house and hands it to Gnomey in the ending scene. **Print it at Staples** — it's Gnomey's physical prop. Deliberately not tiled on the landing page, so nobody finds it on the iPad before Vinny hands it over. |
 | Photograph | `photo/` | A flash snapshot from the party room — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. Tap to turn it over for the writing on the back. Bix's beat: hand Will the iPad and say nothing. **Print it too** — the print is Bix's physical prop and the key to the party room. Still to add: the distinctive trait Will picks for Bix's parents. |
+| Tickets | `tickets/` | Two 2004 Ticketmaster-style concert tickets bought under **LIVINGSWORTH III / UPTON M** — what Poe Boy's mother hands Simone in the ending scene. Band, venue and date are fields on the page; fill them in before printing. |
+| Backstory cards | `backstory/` | One 5×7 reminder card per PC — what each character remembers going in, and nothing they don't know yet — plus a shared Transyltown card. Hand them out before play. |
 | Party room | `party-room/` | The frozen ghost-party, almost exactly the photograph. The table holds the printed photo and taps the six things in the live room that don't match it; misses tick the Revel meter toward a curdle. When the room is whole, the host calls for Yobo's song, with DM buttons for a true or a borrowed voice. |
 | Codex | `codex/` | DM-facing campaign reference — to-do list, relationship web, backstory, story flow, cast, weekend plan, and **combat encounters with the XP budgets**. Not a player prop, and deliberately not tiled on the landing page so it can't be opened at the table by accident. |
 | Run of Show | `run/` | DM-facing **day-of view** — the codex's story flow turned into an arrow-key prompt book. Each cue carries read-aloud text, beats, skill checks, combat stat blocks, NPC voicing, hand-out reminders, and a **synthesized soundboard** (ambience + stings, no files), plus an initiative tracker, d20 roller, hand-out checklist and session timer. Also DM-only and not tiled. See [run/README.md](run/README.md). |
@@ -63,25 +68,25 @@ The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
 | The wishing willow | The second thing in the backpack — the love-spell token Simone sold the dead kid, with *I want Angelique to notice me* on the slip. |
 | DJ show flyer | 3AM, Dood Mansion, bills Poe Boy / Lil Stinky / Angelique. |
 | Food-stash puzzle | The mansion's own puzzle — the one that clears the vampires. |
-| Backstory reminders | One per PC: what each player should remember about their backstory going in. Digital. |
 | Yobo's physical prop | Every PC gets one physical prop — Bix the printed photo, Gnomey the deed, Simone the wishing willow, Russ the badge and card. Yobo's isn't picked yet. |
 
 ## Print list
 
-The live checklist is the codex to-do **"Print list — everything to take to Staples."** What goes on it:
+Everything to print lives in the **print kit at [`print/`](print/)**: two Staples orders, one PDF each, with the exact settings to pick and a cutting guide. The codex to-do **"Print list — everything to take to Staples"** tracks what's in hand.
 
-| Print | Source | Status |
+| File | Paper | What's in it |
 |---|---|---|
-| Invitation | `/invite/` | Built |
-| The deed | `/deed/` | Built — letter, aged paper |
-| Russ's requirements card + the badge | `/badge/` | Built |
-| The photograph | `/photo/` | Built — print after Will's trait for Bix's parents goes in |
-| Articles of Settlement | `/settlement/` | Optional — it reads fine on the iPad |
-| DJ poster | — | Not built (Spencer) |
-| Backstory reminder cards | — | Not built |
-| Concert tickets | — | Not built — needs the band name |
+| `print/1-cardstock.pdf` | Letter cardstock, colour, 1-sided, 1 copy | Invitations ×6, the deed, Russ's card, the badge, the concert tickets, the backstory cards |
+| `print/2-photo-gloss.pdf` | Letter gloss, colour, 1 copy | The photograph — after Will's trait goes in |
+| `print/3-settlement.pdf` | Optional, plain or ivory | The Articles of Settlement |
 
-Handmade, not printed: the AIM sticky note (`Fluffy123`) and the wishing willow slip.
+Rebuild after any prop change (needs Google Chrome and `pypdf`):
+
+```bash
+python3 print/build.py --band "BAND NAME" --venue "VENUE" --city "CITY, NY" --date "SAT NOV 6 2004"
+```
+
+Not printed: the DJ poster (Spencer, not built), the AIM sticky note and the wishing willow slip (handwritten), the USB stick (bought).
 
 ## Adding a new prop
 

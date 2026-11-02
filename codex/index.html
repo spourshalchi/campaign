@@ -947,7 +947,7 @@ const DOCS = [
   ["The USB stick","NOT BOUGHT · a real thumb drive handed to the players when the Spirit uploads. Put scream_test_03_GOOD.wav on it — and <b>set its volume label to the kid's name</b>, because the mount is the moment the table learns who he is.","doc",""],
   ["The AIM password sticky note","NOT BUILT · <b>the thing that unlocks the whole computer-room scene.</b> A sticky note reading <code>Fluffy123</code>, in handwriting, findable somewhere in the house. The prop's sign-on screen will not proceed without it. Since the account is <b>Poe Boy's</b>, the note is his too — the obvious homes are stuck to the monitor, inside the gear case, or in the ballroom rig downstairs, which would make the party carry it up two floors.","doc",""],
   ["The wishing willow","NOT BUILT · the second thing in the backpack. A small wooden token with a paper slip — <i>I want Angelique to notice me</i> — in twelve-year-old handwriting. <b>Simone's physical prop.</b> Cheap to make and it is the only physical object connecting a PC to the body.","doc",""],
-  ["The concert tickets","NOT BUILT · what Poe Boy's mother gives Simone in the ending scene. Only worth printing once the band has a name.","doc",""],
+  ["The concert tickets","<b>BUILT — /tickets/</b> · two 2004 Ticketmaster-style tickets, bought under <b>LIVINGSWORTH III / UPTON M</b> — what Poe Boy's mother gives Simone in the ending scene. Band, venue and date are fields on the page (or <code>--band</code> in the print build); print once the band has a name.","doc",""],
   ["Russ's badge &amp; requirements card","<b>BUILT — /badge/</b> · a Wilderness-Explorer-style card carrying Russ's three requirements (the sunbeam spectacles, the cellar garden, healing a vampire) each with a <b>“verified by your elder” signature line</b> Orlok won't sign until the epilogue — plus the merit badge itself. <b>Russ's physical prop.</b> <b>Print the card; make the badge physical</b>; the <b>troop leader</b> hands it to Cody in the ending scene. The herb is <b>Sun's-mercy</b>; 🟡 the final badge art is still open.","doc",""],
   ["The recording itself","NOT BUILT · the audio that plays over the ballroom PA in phase two. The single biggest table moment in the campaign — and it is a file you hit play on.","doc",""]
 ];
@@ -1322,7 +1322,7 @@ const TODO_LIST = [
   "o": "scott",
   "c": "Handout",
   "top": 1,
-  "note": "One place for every printable. Open each page on a laptop and use the browser's Print at 100% / actual size (each one has a print layout); take the files to Staples. Tick a step off here when it's in hand.",
+  "note": "One place for every printable. <b>The ready-to-upload PDFs and the Staples settings are in the print kit at <code>/print/</code></b> — two orders (cardstock, gloss photo), one copy each, cut at home. Rebuild them with <code>python3 print/build.py</code> after any prop change. Tick a step off here when it's in hand.",
   "steps": [
    "<b>The invite card</b> — <code>/invite/</code>. Built. Spencer may revise it once concert vs. haunted house is decided, so print after that. Five copies, sealed in envelopes for the lockers.",
    "<b>The deed</b> — <code>/deed/</code>. Built. Letter size, one copy, on cream or parchment card stock. Gnomey's prop; Vinny hands it over in the ending scene.",
@@ -1330,8 +1330,8 @@ const TODO_LIST = [
    "<b>The photograph</b> — <code>/photo/</code>. Wait for Will's trait to go in. Prints the front only at polaroid size (3.5×4.2 in) with a cut line; photo paper. The back's writing stays on the iPad. Bix's prop and the key for the party room.",
    "<b>The Articles of Settlement</b> — <code>/settlement/</code>. iPad-only by default; print it only if you want a paper copy in the strongbox.",
    "<b>The DJ show poster</b> — not built. Spencer's.",
-   "<b>Backstory reminder cards</b>, one per PC — not built.",
-   "<b>Concert tickets</b> — not built; needs the band name first.",
+   "<b>Backstory reminder cards</b>, one per PC — <code>/backstory/</code>. Built. Five 5×7 cards, two per sheet, in the cardstock order.",
+   "<b>Concert tickets</b> — <code>/tickets/</code>. Built: two thermal-style tickets on one sheet, in the cardstock order. Band, venue and date are blank until Spencer names the band; rebuild with <code>--band</code>.",
    "<b>Handmade, not printed:</b> the AIM sticky note (<code>Fluffy123</code>) and the wishing willow's paper slip."
   ]
  },
@@ -1383,7 +1383,9 @@ const TODO_LIST = [
   "t": "Backstory reminder cards — one per PC",
   "o": "both",
   "c": "Handout",
-  "note": "A short card for each character: what they should remember and know about their own backstory going in. Digital or printed — if printed, it's on the print list."
+  "built": 1,
+  "done": 1,
+  "note": "Live at <code>/backstory/</code>: a 5×7 card per PC with what they remember going in — and nothing they don't know yet. Printed in the cardstock order (<code>/print/</code>). Hand each player theirs before play."
  },
  {
   "id": "ip6",

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Print Kit">
+<meta name="theme-color" content="#14110d">
+<title>Print Kit — Staples run</title>
+<style>
+  /* DM-facing. Not tiled on the landing page. Every file here is built by print/build.py. */
+  :root{
+    --bg:#14110d; --panel:#1e1a14; --line:#3a3226; --ink:#efe6d2; --mut:#b5a88d; --dim:#8a7e66;
+    --gold:#d9a640; --ok:#7cc79a; --warn:#e8a04a; --bad:#e46a6a;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:16px; line-height:1.55; overscroll-behavior:none;
+    padding:max(18px,env(safe-area-inset-top)) 16px max(28px,env(safe-area-inset-bottom));
+  }
+  main{max-width:780px; margin:0 auto}
+  h1{font-family:"Hoefler Text",Georgia,serif; font-size:30px; margin:6px 0 4px; font-weight:600}
+  .lede{color:var(--mut); margin:0 0 22px}
+  h2{font-family:"Hoefler Text",Georgia,serif; font-size:21px; margin:30px 0 10px; font-weight:600}
+  h2 .n{display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%;
+    background:var(--gold); color:#1a1306; font-family:-apple-system,sans-serif; font-size:15px; font-weight:700; margin-right:8px; vertical-align:2px}
+  p{margin:0 0 10px}
+  a{color:var(--gold)}
+  code{font-family:"SF Mono",Menlo,Consolas,monospace; font-size:13.5px; background:#0e0c09; border:1px solid var(--line); border-radius:5px; padding:1px 6px}
+  pre{font-family:"SF Mono",Menlo,Consolas,monospace; font-size:13px; background:#0e0c09; border:1px solid var(--line);
+    border-radius:8px; padding:12px 14px; overflow-x:auto; white-space:pre-wrap; word-break:break-word; margin:0 0 10px}
+  .panel{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:0 0 12px}
+  .settings{display:grid; grid-template-columns:auto 1fr; gap:4px 14px; margin:8px 0 4px; font-size:15px}
+  .settings dt{color:var(--dim)}
+  .settings dd{margin:0; font-weight:600}
+  .file{display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:0 0 6px}
+  .btn{display:inline-flex; align-items:center; min-height:44px; padding:0 16px; border-radius:9px; font-weight:600;
+    background:var(--gold); color:#1a1306; text-decoration:none}
+  .tag{font-size:12px; letter-spacing:.06em; text-transform:uppercase; border-radius:999px; padding:2px 9px; border:1px solid}
+  .tag.ok{color:var(--ok); border-color:#3d6b4f}
+  .tag.warn{color:var(--warn); border-color:#7a5a2a}
+  .tag.bad{color:var(--bad); border-color:#7a3434}
+  table{width:100%; border-collapse:collapse; font-size:15px; margin:6px 0 4px}
+  th,td{text-align:left; vertical-align:top; padding:8px 8px; border-top:1px solid var(--line)}
+  th{color:var(--dim); font-weight:500; font-size:13px; letter-spacing:.04em; text-transform:uppercase}
+  td:first-child{white-space:nowrap; color:var(--mut)}
+  .check{list-style:none; padding:0; margin:0}
+  .check li{display:flex; gap:10px; align-items:flex-start; padding:8px 0; border-top:1px solid var(--line)}
+  .check li:first-child{border-top:none}
+  .check input{width:22px; height:22px; margin:2px 0 0; accent-color:var(--gold); flex:none}
+  .check label{flex:1}
+  .muted{color:var(--mut)}
+  .small{font-size:14px}
+  .src{font-size:13px; color:var(--dim)}
+  @media (max-width:520px){ td:first-child{white-space:normal} }
+</style>
+</head>
+<body>
+<main>
+
+  <h1>Print Kit</h1>
+  <p class="lede">Everything that gets printed, sorted into <b>two Staples orders</b> by paper. Each PDF is one upload, one copy. Cut at home afterwards.</p>
+
+  <h2>Before you print</h2>
+  <div class="panel">
+    <ul class="check" id="pre">
+      <li><input type="checkbox" id="c1"><label for="c1"><b>Band name.</b> The tickets print with a blank band line until it's set. Spencer's call (codex to-do “Name the satanic metal band”). Then rebuild with <code>--band</code>, below.</label></li>
+      <li><input type="checkbox" id="c2"><label for="c2"><b>Will's trait for Bix's parents</b> goes into <code>/photo/</code> (and <code>/party-room/</code>) before the photograph is printed.</label></li>
+      <li><input type="checkbox" id="c3"><label for="c3"><b>The invitation.</b> Spencer is deciding concert vs. haunted house. If the card changes, rebuild.</label></li>
+      <li><input type="checkbox" id="c4"><label for="c4"><b>Rebuild the PDFs</b> after any of the above (one command, below), then check them on screen.</label></li>
+    </ul>
+  </div>
+
+  <h2>How Staples works</h2>
+  <div class="panel small">
+    <p><b>Online, then pick up</b> (easiest): staples.com &rarr; <b>Print &amp; Marketing Services</b> &rarr; <b>Copies &amp; Documents</b>. Upload the PDF, choose the options below, pick your store. <b>Order by 12 pm for same-day pickup</b>; later orders are next day, and busy periods can push same-day items to next day.</p>
+    <p><b>Or walk in</b> with the PDFs on a USB stick (or emailed to yourself) and ask the copy center for the same settings.</p>
+    <p>Documents print on <b>8.5×11, 8.5×14 or 11×17</b>. <b>Cardstock</b> and <b>gloss</b> are among the premium paper options, and cutting is offered as a finishing option. The site doesn't list exact cardstock weights or cutting prices, so ask for the heaviest cardstock they have and get the price at the counter. Every file is a PDF, which is what they recommend.</p>
+    <p class="src">Sources: <a href="https://www.staples.com/services/printing/copies-documents-printing/">Staples Document &amp; Copy Printing</a> · <a href="https://www.staples.com/services/printing/">Staples Printing &amp; Marketing Services</a> · <a href="https://www.staples.com/sbd/content/rik/deals/samedayservices.html">Staples same-day services</a></p>
+  </div>
+
+  <h2><span class="n">1</span>Cardstock order</h2>
+  <div class="panel">
+    <div class="file"><a class="btn" href="1-cardstock.pdf" download>1-cardstock.pdf</a><span class="tag warn">Band name needed</span></div>
+    <dl class="settings">
+      <dt>Size</dt><dd>8.5 × 11 (Letter)</dd>
+      <dt>Paper</dt><dd>Cardstock, heaviest available, white</dd>
+      <dt>Colour</dt><dd>Full colour</dd>
+      <dt>Sides</dt><dd>1-sided</dd>
+      <dt>Copies</dt><dd>1</dd>
+      <dt>Scaling</dt><dd>Actual size / 100% (no “fit to page”)</dd>
+      <dt>Finishing</dt><dd>None, cut at home</dd>
+    </dl>
+    <table>
+      <tr><th>Page</th><th>What</th><th>Cut</th></tr>
+      <tr><td>1–3</td><td><b>Invitations</b> ×6: five lockers and a spare, two per sheet</td><td>Along the black edge of each card</td></tr>
+      <tr><td>4</td><td><b>The deed</b>: Gnomey's prop</td><td>No cut. Fold in thirds so it looks pocket-worn</td></tr>
+      <tr><td>5</td><td><b>Russ's requirements card</b></td><td>Trim to the card border</td></tr>
+      <tr><td>6</td><td><b>The badge</b>, 3″ plus a 2.25″ spare</td><td>Round, on the dashed circle</td></tr>
+      <tr><td>7</td><td><b>Concert tickets</b> ×2</td><td>On the dashed lines</td></tr>
+      <tr><td>8–10</td><td><b>Backstory cards</b>: five PCs and a shared Transyltown card, 5×7, two per sheet</td><td>On the dashed lines</td></tr>
+    </table>
+    <p class="small muted">If you want the deed on ivory or parchment, print page 4 again as its own order on that paper. Everything else is fine on white.</p>
+  </div>
+
+  <h2><span class="n">2</span>Photo order</h2>
+  <div class="panel">
+    <div class="file"><a class="btn" href="2-photo-gloss.pdf" download>2-photo-gloss.pdf</a><span class="tag bad">Wait for Will's trait</span></div>
+    <dl class="settings">
+      <dt>Size</dt><dd>8.5 × 11 (Letter)</dd>
+      <dt>Paper</dt><dd>Gloss</dd>
+      <dt>Colour</dt><dd>Full colour</dd>
+      <dt>Sides / Copies</dt><dd>1-sided · 1</dd>
+      <dt>Scaling</dt><dd>Actual size / 100%</dd>
+    </dl>
+    <p class="small">One polaroid, 3.5 × 4.2″. Cut on the dashed line. The writing on the back stays on the iPad (<code>/photo/</code>, tap to turn it over). It's also the key for the party-room spot-the-difference.</p>
+  </div>
+
+  <h2>Optional</h2>
+  <div class="panel">
+    <div class="file"><a class="btn" href="3-settlement.pdf" download>3-settlement.pdf</a><span class="tag ok">Ready</span></div>
+    <p class="small">A paper copy of the Articles of Settlement for the study's strongbox. It reads fine on the iPad, so only print it if you want something to hand over. Regular or ivory paper, colour, 1-sided.</p>
+  </div>
+
+  <h2>Not printed</h2>
+  <div class="panel small">
+    <table>
+      <tr><td>DJ show poster</td><td>Spencer's, not built yet. Once it exists, it joins the cardstock order (11×17 if it's a real poster).</td></tr>
+      <tr><td>AIM sticky note</td><td>Handwritten: <code>Fluffy123</code>.</td></tr>
+      <tr><td>Wishing willow</td><td>Handmade token, with a paper slip in twelve-year-old handwriting: <i>I want Angelique to notice me</i>.</td></tr>
+      <tr><td>USB stick</td><td>Buy one; volume label = the kid's name, with <code>scream_test_03_GOOD.wav</code> on it.</td></tr>
+      <tr><td>Yobo's prop</td><td>Not picked yet.</td></tr>
+    </table>
+  </div>
+
+  <h2>Who gets what, and when</h2>
+  <div class="panel small">
+    <table>
+      <tr><td>Invitations</td><td>Lockers, scene 2. One per PC.</td></tr>
+      <tr><td>Backstory cards</td><td>Before play: each player gets their own.</td></tr>
+      <tr><td>Requirements card</td><td>Cody, early. Orlok won't sign until the end.</td></tr>
+      <tr><td>Photograph</td><td>Bix, in the party room.</td></tr>
+      <tr><td>Deed</td><td>Julia, in the ending scene, from Vinny. Keep it hidden until then.</td></tr>
+      <tr><td>Badge</td><td>Cody, in the ending scene, from the troop leader.</td></tr>
+      <tr><td>Concert tickets</td><td>Simone, in the ending scene, from Poe Boy's mom.</td></tr>
+    </table>
+  </div>
+
+  <h2>Rebuilding the PDFs</h2>
+  <div class="panel small">
+    <p>From the repo root, with Google Chrome installed:</p>
+    <pre>python3 print/build.py --band "BAND NAME" --venue "VENUE" --city "CITY, NY" --date "SAT NOV 6 2004" --time "DOORS 7PM / SHOW 8PM"</pre>
+    <p>Every flag is optional. Each prop's own print layout decides how it looks, so fix the prop, not the script. Re-run after any prop change, and commit the new PDFs.</p>
+  </div>
+
+</main>
+<script>
+  // remember the checklist on this device only
+  document.querySelectorAll('#pre input').forEach(function(cb){
+    try{ cb.checked = localStorage.getItem('printkit.'+cb.id) === '1'; }catch(e){}
+    cb.addEventListener('change', function(){
+      try{ localStorage.setItem('printkit.'+cb.id, cb.checked ? '1' : '0'); }catch(e){}
+    });
+  });
+</script>
+</body>
+</html>
