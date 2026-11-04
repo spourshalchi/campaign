@@ -617,25 +617,24 @@ const SCENES = [
   read:[{t:"Whoever's wearing a watch &mdash; it's <b>ten to seven</b>. That's the time on the card."}],
   beats:[
     "Meet <b>DJ Poe Boy</b> and his entourage. <b>Angelique tries to warn them and can't</b> &mdash; the crew is standing right there. Play it as a <b>side-eye</b>, a swallowed half-sentence.",
-    "Poe Boy can't help showing off, and every brag is a confession (his lines are in Spencer's zone). <b>The brags out him as the party's host</b> &mdash; &ldquo;stick around till three&rdquo; &mdash; and he plays it cool about the cards. <span class='ai'>🟡</span> He's selling a Halloween party; the samples are what he wants.",
+    "Poe Boy plays the house down: he's been up there <b>once</b>, with a shrug, and he's cool about the cards. <b>The &ldquo;once&rdquo; is a lie, and the lie is the clue</b> &mdash; it pays off when they find his stage and decks in the ballroom, and at 3AM when his voice comes over the speakers. <span class='ai'>🟡</span> Behind it, the whole night is his Halloween party; the samples are what he wants.",
     "<b>The tell is what he leaves out:</b> he never mentions the <b>other</b> room upstairs he keeps gear in &mdash; the one he hasn't been back into. Nobody notices now; they notice later.",
     "<b>Yobo's arc opens:</b> the crew clocks him and asks for a riff."
   ],
   talk:[
-    {who:"DJ Poe Boy · brags", t:"I spin up there sometimes. &middot; Wait till you see what I've done with the ballroom. &middot; Got some new tunes. &middot; Stick around till three."},
+    {who:"DJ Poe Boy · asked about the house, with a shrug", t:"Been up there once. <span class='ai'>🟡</span>"},
     {who:"The crew · to Yobo", t:"You're the Dolly Parton guy &mdash; do a little riff."}
   ],
   rev:[
-    {by:"DJ Poe Boy", who:"Players", t:"learn the party is <b>Poe Boy's</b> &mdash; his brags give it away. Asked about the cards, he plays it cool."},
-    {by:"DJ Poe Boy", who:"Players", t:"can learn (Insight 14) that he plays at the mansion and has done something to the ballroom. He never mentions the <b>other</b> room upstairs."},
+    {by:"DJ Poe Boy", who:"Players", t:"can sense (Insight 14) the shrug is too easy &mdash; he's been up there more than once. Not why, and not whose party it is. He never mentions the <b>other</b> room upstairs."},
     {by:"Angelique", who:"Players", t:"can learn she's holding something back &mdash; a side-eye, a swallowed half-sentence. Nothing more."}
   ],
   checks:[
     {skill:"Performance", dc:"secret", sug:true, note:"<b>Yobo only, in secret, at disadvantage.</b> Juggling the lie is the debuff. Hand him a note that something inside makes it inauthentic; reveal a line as each beat comes up."},
-    {skill:"Insight", dc:"14", sug:true, note:"Sense the brags are confessions, or that Angelique is holding something back."}
+    {skill:"Insight", dc:"14", sug:true, note:"Sense the &ldquo;once&rdquo; is a lie, or that Angelique is holding something back. <span class='ai'>🟡</span>"}
   ],
   npcs:[
-    {nm:"DJ Poe Boy", vc:"Kenku &mdash; <b>voice him only in borrowed / sampled lines.</b> Glamour-charming, subversive, real cred. Showing off is the crime leaking out. Cool about the cards &mdash; never says he sent them. <span class='ai'>🟡</span>"},
+    {nm:"DJ Poe Boy", vc:"Kenku &mdash; <b>voice him only in borrowed / sampled lines.</b> Glamour-charming, subversive, real cred. Here he plays everything down: been up there once, a shrug, nothing to see. Cool about the cards &mdash; never says he sent them, never says it's his party. <span class='ai'>🟡</span>"},
     {nm:"Angelique", vc:"Wants them warned, can't say it out loud. A side-eye and a held breath, not exposition."}
   ],
   reminders:[
@@ -685,6 +684,7 @@ const SCENES = [
     {by:"spencer", who:"Players", t:"learn the vampires keep &ldquo;meals&rdquo; somewhere in the house. Let them assume the worst; the cellar answers it Sunday."},
     {by:"spencer", who:"Players", t:"can catch, if Dracula's optional line is used, that the <b>party and the haunting are one plan</b>. A free clue."},
     {by:"spencer", who:"Players", t:"hear the dismissal as a hunt. It's really a show schedule &mdash; nobody corrects them."},
+    {by:"scott", who:"Players", t:"learn, the first time they walk into the ballroom and find his <b>stage, decks and rig</b> (any time they explore, tonight or Sunday), that the party is <b>Poe Boy's</b> &mdash; and he lied about being up there once."},
     {by:"scott", who:"Bix", t:"catches Edward <b>glimmering</b> in the moonlight. Bix beat 1 of 3 &mdash; the silly one."},
     {by:"scott", who:"Players", t:"can notice the vampires never roll damage. That's the real clue; don't point at it."}
   ],
@@ -943,6 +943,7 @@ const SCENES = [
     {who:"DJ Poe Boy · on the mic", t:"He names all five of them &mdash; and tells the vampires the party are the mall company's people. The same lie that killed the kid."}
   ],
   rev:[
+    {by:"DJ Poe Boy", who:"Players", t:"hear his voice come over the speakers at 3AM: the party is <b>Poe Boy's</b>, and he lied about being up there once."},
     {by:"DJ Poe Boy", who:"The vampires", t:"are told the party are the developer's people. It's a lie. Play them turning on the party, briefly."},
     {by:"W. Ostrander", who:"The vampires", t:"learn on sight that Poe Boy lied &mdash; five teenagers are visibly not this man. They stop, then go for his thugs."},
     {by:"scott", who:"Players", t:"meet the man behind the checkout card: <b>W. Ostrander</b>, the developer."}
