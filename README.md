@@ -19,7 +19,6 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 ├── settlement/       ← The 1931 Articles of Settlement (the drunken contract)
 │   └── index.html
 ├── deed/             ← The deed to Dood Mansion — print it; Vinny hands it to Gnomey at the end
-├── tickets/          ← The concert tickets Simone ends up with (print)
 ├── backstory/        ← One backstory reminder card per PC (print)
 ├── print/            ← DM print kit: Staples-ready PDFs, the 4×6 photograph + build.py (not tiled)
 │   ├── index.html
@@ -63,7 +62,7 @@ Sunday's three rooms run in any order; only the study has an iPad item (the part
 | Settlement | `settlement/` | The 1931 contract from the strongbox in the study. Opens folded; tap to unfold. Two drunk men signed away a mansion over $11.40, and **the only paragraph on the page with no corrections in it is the one that vests title in the bearer of the deed.** |
 | Deed | `deed/` | The 1931 deed to Dood Mansion, print-ready on letter paper. Uncle Vinny has carried it since the night he won the house and hands it to Gnomey in the ending scene. **Print it at Staples** — it's Gnomey's physical prop. Deliberately not tiled on the landing page, so nobody finds it on the iPad before Vinny hands it over. |
 | Photograph | `print/photo-4x6.jpg` | **Print only.** A 1979 snapshot from the party room — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs — inside a white border, with the orange `10 31 '79` date stamp. A Staples 4×6 photo print; no back side. Bix's beat: hand Will the print and say nothing. |
-| Tickets | `tickets/` | Two 2004 Ticketmaster-style concert tickets to **Total Party Kill**, bought under **LIVINGSWORTH III / UPTON M** — what Poe Boy's mother hands Simone in the ending scene. Playing the Transyltown Armory, Sat Jun 25 2005 — every field is filled in and editable on the page. |
+| Tickets | `print/src/tickets.html` (print only) | Two 2004 Ticketmaster-style concert tickets to **Total Party Kill**, bought under **LIVINGSWORTH III / UPTON M** — what Poe Boy's mother hands Simone in the ending scene. Playing the Transyltown Armory, Sat Jun 25 2005 — every field is filled in and editable on the page. |
 | Backstory cards | `backstory/` | One 5×7 reminder card per PC — what each character remembers going in, and nothing they don't know yet — plus a shared Transyltown card. Hand them out before play. |
 | Ledger | `ledger/` | **Print only at the table.** Orlok's register of patients: one printed page, found on the lectern in the cellar. It shows the clinic and points at the Sun's-mercy. The web page is the DM's copy, with a short DM brief under it. |
 | Codex | `codex/` | DM-facing campaign reference — to-do list, relationship web, backstory, story flow, cast, weekend plan, and **combat encounters with the XP budgets**. Not a player prop, and deliberately not tiled on the landing page so it can't be opened at the table by accident. |
