@@ -482,7 +482,8 @@ then flips to **a clinic**.~~ **Scott, 3 Nov:** no fake-out — the room is plai
 | 🟡 **The cellar has two goals:** the players realise Orlok is a vet, and Russ blooms the Sun's-mercy | Scott, 3 Nov |
 | ✅ **The printed ledger is a real-feeling register**, with a short journal under it in his hand: Sun's-mercy is a seed he keeps sowing, it comes up white and dies without sun, the flower draws infection and mends wounds, and a patient in the register needs it now | Scott, 3 Nov (signed off) |
 | 🟡 **Sesh 6's "puzzle releases a key to a hidden room" is retired** | Scott, 3 Nov |
-| **The wishing willow is made entirely by hand** by Scott — nothing to print | Scott, 3 Nov |
+| **The wishing willow is made by hand** by Scott; **its paper wish tag is printed**, on the badge sheet, and tied on | Scott, 3 Nov; the tag: Scott, 4 Nov |
+| 🟡 **The willow tag** (`print/src/assets/willow-tag.png`, Codex-generated): a worn manila tag with a twine loop, crumpled, a faint coffee ring, *"I want Angelique to notice me"* in a twelve-year-old's pencil. Unsigned: the name comes off the USB | Scott, 4 Nov |
 | **Not needed:** ambient playlists (the Run of Show soundboard covers it), background slides (no second screen), a safety-tools agreement (Scott and Spencer have it covered) | Scott, 3 Nov |
 | **Yobo wears a wig.** Scott and John are aligned. Why he wears it is not specified | Scott, 3 Nov |
 | **Yobo's arc runs on two secret printed cards.** *The Weight of Your Lies* is handed to John at his first Performance check (the gazebo Dolly riff): disadvantage on Performance, advantage on Deception. *Your True Voice* is handed over after a true performance on Dracula's stage: advantage on Performance, plus a Bardic Inspiration boost. Sesh 8's arc stands; these mechanics are Scott's. 🟡 The card wording, being built at `/yobo/` | Scott, 3 Nov |

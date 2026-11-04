@@ -10,7 +10,8 @@
   ART: print/src/assets/badge-art.png, Codex-generated (3 Nov): a scout carrying a huge rune spellbook for a hooded
   old mage, "ASSISTING THE ELDERLY / TROOP 187". Scott picked option B.
   The PNG is 1244px (3 in at ~400dpi) with its corners masked to transparent, so nothing white prints.
-  PRINT: page 1 is the requirements card, page 2 is the badge at 3 in plus a 2.25 in spare, with cut lines.
+  PRINT: page 1 is the requirements card, page 2 is the badge at 3 in plus a 2.25 in spare, with cut lines,
+  and beside them the wishing willow's paper tag (about 2 x 3 in, assets/willow-tag.png, Codex-generated; 🟡).
 -->
 <html lang="en">
 <head>
@@ -114,6 +115,8 @@
   .cut.big .badge{width:220px; height:220px}
   .cut.small .badge{width:165px; height:165px}
   .badge{display:block; border-radius:50%; filter:drop-shadow(0 8px 16px rgba(0,0,0,.45))}
+  .tagcut{outline:1.5px dashed rgba(255,255,255,.45); outline-offset:6px; display:flex}
+  .tag{display:block; height:220px; width:auto}
   .cut-note{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; font-size:12px; color:#d8cfb2; margin:4px 0 0; letter-spacing:.04em}
 
   @media print{
@@ -122,7 +125,9 @@
     .sheet{box-shadow:none; border:1px solid #999; border-radius:0; max-width:none; margin:0 auto; page-break-after:always;
       -webkit-print-color-adjust:exact; print-color-adjust:exact}
     .badge-wrap{page-break-before:always; padding-top:.6in; gap:.4in; max-width:none; width:100%; margin:0 auto}
-    .badges{flex-direction:column; gap:.6in}
+    .badges{display:grid; grid-template-columns:3.2in 2.1in; column-gap:.9in; row-gap:.6in; align-items:center; justify-items:center; justify-content:center}
+    .tagcut{grid-column:2; grid-row:1 / span 2; outline:1px dashed #777; outline-offset:.06in}
+    .tag{height:3.1in; -webkit-print-color-adjust:exact; print-color-adjust:exact}
     .cut{outline:1px dashed #777; outline-offset:.06in}
     .cut.big .badge{width:3in; height:3in}
     .cut.small .badge{width:2.25in; height:2.25in}
@@ -198,8 +203,11 @@
     <div class="badges">
       <div class="cut big"><img class="badge" src="assets/badge-art.png" alt="Assisting the Elderly merit badge: a scout carries a huge rune spellbook for a hooded old mage, Troop 187"></div>
       <div class="cut small"><img class="badge" src="assets/badge-art.png" alt=""></div>
+      <!-- the wishing willow's paper tag: Simone's, not Russ's; it shares this sheet so everything cuts from one page.
+           Tie it to Scott's handmade willow; it's in Marcus's backpack in the computer room. Codex-generated, unsigned. -->
+      <div class="tagcut"><img class="tag" src="assets/willow-tag.png" alt="A worn paper tag in a kid's pencil: I want Angelique to notice me"></div>
     </div>
-    <p class="cut-note">Cut on the dashed line &middot; 3&Prime; badge + 2.25&Prime; spare</p>
+    <p class="cut-note">Cut on the dashed lines &middot; 3&Prime; badge + 2.25&Prime; spare &middot; the willow tag (cut around the tag)</p>
   </div>
 
 </body>

@@ -70,7 +70,7 @@ Sunday's three rooms run in any order and are all paper. Item 2 opens AIM with t
 | Thing | Why it matters |
 |---|---|
 | A real USB stick | Handed to the players when the Spirit uploads. **Set its volume label to `MARCUS_HALE`** — Sesh 8 makes the mount the moment the table learns who he is. The recording itself is narrated at the table; there is no audio file. |
-| The wishing willow | The second thing in the backpack — the love-spell token Simone sold the dead kid, with *I want Angelique to notice me* on the slip. Scott makes it by hand; nothing to print. |
+| The wishing willow | The second thing in the backpack — the love-spell token Simone sold the dead kid, with *I want Angelique to notice me* on its tag. Scott makes the token by hand; the tag prints on the badge sheet (`print/src/badge.html`). |
 | DJ show flyer | 3AM, Dood Mansion, bills Poe Boy / Lil Stinky / Angelique. |
 
 ## Print list
