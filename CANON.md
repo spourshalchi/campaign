@@ -262,10 +262,13 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
   awaiting Scott's review. The arc is canon (Character Bios + Sesh 8: the lie is a debuff, the truth in the party
   room flips it to a buff; the secret note at the gazebo is Sesh 8). The cards are from Scott's brief (Scott, 3 Nov):
   - **The Weight of Your Lies** (the debuff), handed to John face-down at the gazebo, at his first Performance
-    check. Rules: *disadvantage on Performance, advantage on Deception, until you tell the truth* (Scott, 3 Nov).
-  - **Your True Voice** (the buff), handed over in the party room after he tells the truth. Rules: *advantage on
-    Performance, for the rest of the campaign* (Scott, 3 Nov), and **🟡 the Bardic Inspiration die one size
-    larger (a d8 becomes a d10)**, which is a proposal for Scott to tune.
+    check. Rules: *disadvantage on Performance, advantage on Deception* (Scott, 3 Nov). The card never names the
+    cure: nothing on it hints that the truth fixes it, and the lie should feel like it gives him something, the
+    Deception edge (Scott, 3 Nov).
+  - **Your True Voice** (the buff), handed over in the party room after he tells the truth. It says plainly that
+    it **replaces** the debuff: *advantage on Performance, the Bardic Inspiration boost, and the Deception
+    advantage is gone, for the rest of the campaign*, so coming clean is a real trade-off (Scott, 3 Nov).
+    **🟡 The boost as the die one size larger (d8 → d10)** is a proposal for Scott to tune.
   - 🟡 the titles' wording, both flavour lines, and the art: a tarnished rhinestone butterfly weighed down by a
     "LIE" on the debuff, the same butterfly whole and spotlit on the buff (a Dolly nod that doesn't name her).
 
