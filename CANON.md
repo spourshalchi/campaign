@@ -47,12 +47,14 @@ tab is Scott's review queue: every 🟡 item there links to the live page where 
 
 Two decisions from 24 August looked like they contradicted each other. **Scott settled it on 25 August:**
 
-> **The 7PM card is exclusive. The 3AM DJ show flyer is public.**
+> **The 8PM card is exclusive. The 3AM DJ show flyer is public.**
+
+(The card said 7PM when this was settled; Spencer's finished invite says **8 PM**, and that is canon: `Scott, 2026-11-04 · not in doc`.)
 
 | | |
 |---|---|
-| **7PM — the card** | Five cards, five lockers, nobody else. Empty hill: no cars, no line, no lit windows. The boards are off the front door and that is the only thing that has changed about this house in decades. **The emptiness is the wrongness.** |
-| **7PM → 3AM** | Eight hours. The party has the house to themselves. This is the entire investigation. |
+| **8PM — the card** | Five cards, five lockers, nobody else. Empty hill: no cars, no line, no lit windows. The boards are off the front door and that is the only thing that has changed about this house in decades. **The emptiness is the wrongness.** |
+| **8PM → 3AM** | Seven hours. The party has the house to themselves. This is the entire investigation. |
 | **3AM — the flyer** | The show's audience arrives and the house fills up. Speakers come on. Poe Boy performs, charms the crowd, and the finale runs in front of them. |
 
 Both 24 August decisions survive untouched, and this closes three things that were open:
@@ -63,7 +65,7 @@ Both 24 August decisions survive untouched, and this closes three things that we
 
 📗 **Scott, 25 Aug.** It narrows Sesh 7's *"invite everyone"* a second time.
 
-**One small thing left to decide:** how the crowd physically gets in at 3AM, given the doors bolted at 7PM.
+**One small thing left to decide:** how the crowd physically gets in at 3AM, given the doors bolted at 8PM.
 The obvious answer is that Poe Boy opens the front for his own show — but that is worth saying out loud
 rather than assuming, because it touches what the bolt actually means for the party.
 
@@ -119,12 +121,15 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 | **The poster brings the audience.** "Doors open" half an hour before the set | In Person Session |
 | **The AIM room is at the end.** Its door is **locked with a poster on it** if they try to go early, so it is the last room, not one of the any-order rooms | In Person Session, clarified 1 Nov |
 | **The Spirit unlocks it.** Once the party has been through the other rooms, the AIM chime drifts down the hall and the lock clicks open on its own — the kid from the summoning's *"is someone there"* finally reaching them. The DM triggers it when the table is ready; there is no puzzle. The poster stays | Scott, 3 Nov |
-| **There is one event: DJ Poe Boy's Halloween party at Dood Mansion, 3AM.** The public poster advertises it. The five locker cards are **VIP early entry** to that same party, 7PM sharp — *you're on the list*. **There is no separate haunted-house event.** It replaces the "Haunted House Invite" of Sesh 0, Sesh 1 and Sesh 6. The card's own copy is **signed off once the "saved you a spot" line is removed** | Scott, 3 Nov |
-| **The VIP card is anonymous.** It never names Poe Boy or any host, which keeps Sesh 0/1's *mysterious invitations*. It reads *YOU'RE ON THE LIST · VIP EARLY ENTRY · DOOD MANSION · 7PM SHARP*, with at most a small hint that the party starts at 3 — that hint is the 3AM clock. **The optional DJ poster on the AIM door is the only printed thing that names him** | Scott, 3 Nov |
+| **There is one event: DJ Poe Boy's Halloween party at Dood Mansion, 3AM.** The public poster advertises it. The five locker cards are **VIP early entry** to that same party, ~~7PM sharp — *you're on the list*~~ **8 PM**. **There is no separate haunted-house event.** It replaces the "Haunted House Invite" of Sesh 0, Sesh 1 and Sesh 6. ~~The card's own copy is signed off once the "saved you a spot" line is removed~~ — **the card is Spencer's** (row below) | Scott, 3 Nov; 8PM and the card: Scott, 2026-11-04 · not in doc |
+| **The VIP card is anonymous.** It never names Poe Boy or any host, which keeps Sesh 0/1's *mysterious invitations*. ~~It reads *YOU'RE ON THE LIST · VIP EARLY ENTRY · DOOD MANSION · 7PM SHARP*, with at most a small hint that the party starts at 3~~ — **replaced by Spencer's card** (row below), which has no 3AM hint and no VIP wording. **The DJ poster on the AIM door is the only printed thing that names him** | Scott, 3 Nov; the card: Scott, 2026-11-04 · not in doc |
+| ✅ **The invite is Spencer's finished card, used as-is** (`print/src/assets/spencer-invite.jpg`): a haunted house under an orange moon, *HAUNTED HOUSE · DOOD MANSION · 8 PM*. No host named. Printed 5×6.26 in, six copies on cardstock. The old `/invite/` card is retired | Scott, 2026-11-04 · not in doc (signed off) |
+| ✅ **The DJ poster is Spencer's finished poster, used as-is** (`print/src/assets/spencer-poster.jpg`): a purple collage, *HAUNTED BASH · 3 AM · DOOD MANSION · DJ POE BOY · LIL STINKY · ANGELIQUE*. One letter page on plain paper, taped on the AIM-room door | Scott, 2026-11-04 · not in doc (signed off) |
+| **The early-entry time is 8PM** — the time on Spencer's card. Five kids have the house for **seven hours** before the 3AM show | Scott, 2026-11-04 · not in doc |
 | **At the gazebo Poe Boy says he's been up there once**, with a shrug, and nothing else. He plays it cool about the cards. **The "once" is a lie, and the lie is the clue:** later they find his gear, the ballroom stage and his old rig upstairs, and realise he's been here plenty | Scott, 3 Nov |
-| **Poe Boy is revealed as the host** when they find the ballroom setup and when his voice comes over the speakers at 3AM — plus the optional poster on the AIM door | Scott, 3 Nov |
+| **Poe Boy is revealed as the host** when they find the ballroom setup and when his voice comes over the speakers at 3AM — plus the DJ poster on the AIM door | Scott, 3 Nov |
 | **Design intent: a mystery that points the wrong way.** The players may half-suspect Poe Boy, and that's fine. The house then points everything at the vampires — the bolted doors, Angelique pulling them into hiding, the overheard *"Five. He said five…"*, Dracula's grab, Orlok's *"We'll find you when we're ready"*, Edward watching Bix, the library's coffin lore, the "food stash". The reveal — the clinic, Marcus saying a person did it, the recording — recasts *"he said five"* as Poe Boy | Scott, 3 Nov |
-| **Why the VIP card works:** the five missed the senior-skip-day memo and feel lame, and being on a VIP list salvages the day. It's also Poe Boy's lure — who turns down VIP? He wants them alone for eight hours to record real screams | Scott, 3 Nov |
+| **Why the VIP card works:** the five missed the senior-skip-day memo and feel lame, and being on a VIP list salvages the day. It's also Poe Boy's lure — who turns down VIP? He wants them alone for seven hours (8PM card; Scott, 2026-11-04) to record real screams | Scott, 3 Nov |
 | At first contact the party may take the vampires for **costumed party entertainment** — *"is this part of the party?"* | Scott, 3 Nov |
 | **The vampires think the concert is part of their plan.** The five VIPs are the **warm-up scare**; Poe Boy sold them the 3AM crowd as the bait for the big one: they come for the music, they leave screaming, the legend spreads and the mall dies. The vampires don't care about the music; **Dracula secretly wants an audience**. Their own scare plan stands | Scott, 3 Nov |
 | 🟡 Optional line for Dracula in the overheard argument: *"The boy says they come for the music and stay for us."* | Scott, 3 Nov — offered as optional |
@@ -132,12 +137,12 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 ### What everyone thinks tonight is
 | Who | What they think tonight is | Source |
 |---|---|---|
-| **Poe Boy** | A recording session sold as his Halloween party. The five get anonymous VIP cards so he has them alone for eight hours; their screams are his samples; the 3AM crowd is the bait he promised the vampires. At the gazebo he plays it cool — *been up there once* | In Person Session; Scott, 3 Nov |
+| **Poe Boy** | A recording session sold as his Halloween party. The five get anonymous VIP cards so he has them alone for seven hours; their screams are his samples; the 3AM crowd is the bait he promised the vampires. At the gazebo he plays it cool — *been up there once* | In Person Session; Scott, 3 Nov |
 | **The vampires** | The scare that saves their house. The five VIPs are the warm-up scare; the 3AM crowd comes for the music and leaves screaming, the legend spreads and the mall dies. They don't care about the music (Dracula secretly wants the audience), and they believe the kid ran off out a window | Sesh 7, Sesh 8; Scott, 3 Nov |
 | **Angelique** | Poe Boy's show, which she's part of. She feels a magical pull to the house — that's why she came — and tries to warn the five at the gazebo and can't | Sesh 8; Sesh 5 + In Person Session |
 | **The Records Keeper** | A records request gone wrong. The volume was trapped and the page is in pieces, so she points them at the one primary source left, the house: *"But be careful"* | Scott, 3 Nov |
 | **Ostrander** | A trespass on his records. Springing the trap tells him someone opened the volume, and he drives out to the house that night | the 24 Aug doc paste, reflavoured by Scott, 26 Aug |
-| **The party** | An anonymous VIP card to a party at Dood Mansion, 7PM, with a hint it starts at 3. They go because: the project needs a **primary source** and the house is the last one left; they're **teenagers**, the five who missed the skip-day memo, and a VIP list salvages the day; the **personal hooks** (Gnomey's card says *Dood* and Vinny calls about the same house); and once they're in, **the doors bolt**. They may half-suspect Poe Boy; the house points them at the vampires | Sesh 1, Sesh 5; Scott, 3 Nov |
+| **The party** | An anonymous card to a party at Dood Mansion, 8 PM (Spencer's card; no hint that it runs to 3). They go because: the project needs a **primary source** and the house is the last one left; they're **teenagers**, the five who missed the skip-day memo, and a VIP list salvages the day; the **personal hooks** (Gnomey's card says *Dood* and Vinny calls about the same house); and once they're in, **the doors bolt**. They may half-suspect Poe Boy; the house points them at the vampires | Sesh 1, Sesh 5; Scott, 3 Nov |
 
 ### The ending — one scene, everyone arrives
 | Claim | Source |
@@ -162,7 +167,7 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 | **One physical prop per PC.** Bix: the photograph, **printed**. Gnomey: the printed deed (from Vinny at the end). Simone: the wishing willow. Russ: the badge and the requirements card. **Yobo: undecided** | In Person Session, clarified 1 Nov |
 | Physical: invitation, USB, wishing willow, Assisting the Elderly badge + requirements, sticky note, a prop for each character | In Person Session |
 | Digital: library clippings, deed, photograph / ~~spot-the-difference~~ (cut: Scott, 3 Nov), DJ poster, **a backstory reminder per character** — what each should remember about their backstory | In Person Session |
-| **Spencer** makes the invitation and the poster | In Person Session |
+| **Spencer** makes the invitation and the poster — ✅ **both made and signed off as-is** (rows above) | In Person Session; made: Scott, 2026-11-04 · not in doc |
 | **The photograph is print-only:** a 4×6 Staples photo print of the painted snapshot. The digital `/photo/` page is retired. **There is no back** — ~~Goblinenon's "Me + E" handwriting on the back~~ is dropped. Hand Will the print | Scott, 3 Nov |
 | **Scott** does combat prep and ties up loose ends: Vinny's backstory, the distinctive trait from Will, details on what to reveal in dialogue | In Person Session |
 | **Day-of roles:** Spencer runs what the characters say — the dialogue and what we want them to reveal. Scott runs narration. Each gets a tailored bullet list of what to remember | In Person Session |
@@ -253,8 +258,8 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 
 ### Still open from this session
 1. ~~**The invitation:** is it to the concert or to the haunted house?~~ — **answered 3 Nov:** one event, Poe Boy's
-   3AM Halloween party; the locker cards are anonymous VIP early entry at 7PM (table above). `Scott, 3 Nov`.
-2. ~~**When the party gets the poster**~~ — **answered 3 Nov:** it's optional; if Spencer makes it, it's taped on the
+   3AM Halloween party; the locker cards are anonymous VIP early entry at 8PM (table above). `Scott, 3 Nov`; 8PM: `Scott, 2026-11-04 · not in doc`.
+2. ~~**When the party gets the poster**~~ — **answered 3 Nov:** Spencer made it (`Scott, 2026-11-04 · not in doc`); it's taped on the
    locked AIM-room door, not handed out at the gazebo (table above). `Scott, 3 Nov`.
 3. ~~**What Vinny says on the early call.**~~ — **answered 3 Nov:** he thinks it's 1931 and asks about tonight's card game with Cornelis (table above). `Scott, 3 Nov`.
 4. ~~**Will's trait** for Bix's parents.~~ — **done:** painted into the photograph (table above); the painting is in Scott's
@@ -264,7 +269,7 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 6. ~~**Making it clear the botched summoning is Poe Boy's.**~~ — **answered 3 Nov:** it isn't signposted on Saturday;
    the Spirit names him on Sunday. `Scott, 3 Nov`.
 7. ~~**What unlocks the AIM room**~~ — **answered 3 Nov:** the Spirit does, on the DM's cue (table above).
-   `Scott, 3 Nov`. The poster on its door is the optional DJ poster (table above).
+   `Scott, 3 Nov`. The poster on its door is Spencer's DJ poster (table above).
 8. **How much backstory is written out vs. revealed in dialogue.** Items to place: the silly bandz, 3am, the
    Dolly Parton riff, Angelique's side-eye.
 9. **What Angelique does at the finale.**
@@ -272,6 +277,9 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
     visits and drives Vinny up at dawn (table above). His name is still open. `Scott, 3 Nov`.
 11. **Where the vampires stand at 3AM before the developer breaches.** Sesh 7's *"Poe Boy takes control of some
     vampires in the final fight"* is now carried only by the lie.
+12. **The card doesn't say VIP.** Spencer's card reads *Haunted House · Dood Mansion · 8 PM*: no *VIP*, no *you're
+    on the list*, no 3AM hint. The run and codex now play the skip-day beat as *being invited salvages the day*.
+    Open: does anyone tell the five they're VIPs, and how do they learn the night runs to 3AM?
 
 **Dropped as brainstorming:** the developer group as a shell for a rival gang, a second wave of thugs, the
 "sound check" lock, whether they figure out the vampires are bad beforehand, and Vinny's "seedy characters".
@@ -498,7 +506,7 @@ then flips to **a clinic**.~~ **Scott, 3 Nov:** no fake-out — the room is plai
 | **Simone's warlock has no in-world name** — none is needed. Her backstory card says *name TBD*, and no NPC calls her by name. DM-facing notes still say Simone, meaning the player | Scott, 3 Nov |
 | **Lil Stinky's race is deliberately undefined** — it doesn't matter | Scott, 3 Nov |
 | **The crew is three:** Poe Boy, Lil Stinky and Angelique. The fourth crew member is cut | Scott, 3 Nov |
-| **The DJ poster is optional.** Spencer makes it if he can. If it exists, it is **taped on the locked AIM-room door** (the "poster on the door"); it is not a gazebo handout. Same spec — Poe Boy / Lil Stinky / Angelique, a 3AM set — and it reads **doors open 2:30AM** | Scott, 3 Nov |
+| **The DJ poster** ~~is optional~~ — **Spencer made it** (signed off as-is: `Scott, 2026-11-04 · not in doc`). It is **taped on the locked AIM-room door** (the "poster on the door"); it is not a gazebo handout. Poe Boy / Lil Stinky / Angelique, a 3AM set. ~~It reads doors open 2:30AM~~ — the finished poster prints only *3 AM*; doors at 2:30AM stays as story (In Person Session) | Scott, 3 Nov; the poster: Scott, 2026-11-04 · not in doc |
 | **Will's trait is done** in the painted photograph: Goblinenon's short dark-green skin, long ears and small brown leather boots, and Edward's notched ear, echo Will's Bix | Scott, 3 Nov |
 | **The 4×6 photo print is signed off** — the painting, the parents' looks and the `10 31 '79` date stamp, as printed from `print/photo-4x6.html` | Scott, 4 Nov (signed off) |
 | **The session break is deliberately undefined.** Saturday ends wherever time runs out; the botched summoning closes Night 1 if the clock allows but isn't required to. Everyone levels to 5 at the end of day one | Scott, 3 Nov |
@@ -590,7 +598,7 @@ Not yet pasted into the Google Doc — **do that to make them official.** Until 
 | ✅ **The party is level 4**, leveling to 5 at the end of day one. Sunday runs at level 5. | Sesh 8 says level 3 → 4. **Scott changed it to 4 → 5 on 7 Sep 2026** (the combat re-base) and reconfirmed it 1 Nov 2026. Not in the doc, and it overrides a doc line, so write it in |
 | ✅ **Races & classes are now IN DOC** — Spencer wrote Scott's picks into the doc as **Brainstorm Sesh 8**, which this ledger had not seen. They are no longer 🟡 anything. Sesh 8 also added Lil Stinky's oathbreak, which the codex had missed entirely. | 🟡 "Scott's pick, not in the doc yet" — **now doc** |
 | ✅ **The invite is exclusive — five cards, five lockers, nobody else got one.** The party arrives at an empty hill: no cars, no line, no lit windows. This **narrows Sesh 7's "invite everyone"**, which is a doc line, so it needs writing into the doc more than anything else on this list. Knock-on: the codex no longer leans on a houseful of other kids to stop the party leaving — the bolted doors do it. | 🟡 codex stagecraft — **now decided by Scott, 24 Aug 2026**, and it overrides a doc line |
-| ✅ **The 3AM DJ show flyer is public — a two-tier guest list.** Five cards at 7PM for the part Poe Boy actually wants recorded; the flyer's audience arrives at 3AM for the scare the vampires agreed to. Resolves the collision between the exclusive invite and the finale's charmed crowd, and unblocks the flyer prop. | 🟡 **decided by Scott, 25 Aug 2026.** Not in the doc yet |
+| ✅ **The 3AM DJ show flyer is public — a two-tier guest list.** Five cards at ~~7PM~~ 8PM (`Scott, 2026-11-04 · not in doc`) for the part Poe Boy actually wants recorded; the flyer's audience arrives at 3AM for the scare the vampires agreed to. Resolves the collision between the exclusive invite and the finale's charmed crowd, and unblocks the flyer prop. | 🟡 **decided by Scott, 25 Aug 2026.** Not in the doc yet |
 | ✅ **The boards come off the front door; there is no side-entrance tip.** Poe Boy pries the boards away for the party and stacks them against the porch rail — the only visible change to the house in decades, and the invitation. The party walks in the front, and *then* the doors bolt. ~~What he hands them at the gazebo instead: *"I spin up there sometimes"* (Sesh 3, verbatim), *"wait till you see what I've done with the ballroom"*, and *"stick around till three"* — and, from the In Person Session, that **he'll be playing some new tunes**. The tell is what he leaves out — he never mentions the other room he keeps gear in.~~ **Replaced by Scott, 3 Nov:** at the gazebo he only says he's **been up there once**, with a shrug. The "once" is a lie, and the lie is the clue. | 📗 Sesh 3's tip, **superseded by Sesh 7**. Sesh 3 wrote him as a helpful stranger; Sesh 7 made him the host, and a host who wants five specific people inside opens the door rather than sending them round the back. The old tip also created a contradiction — sneak past a boarded door that then bolts shut behind you |
 | ✅ **The climax happens in the ballroom / great hall**, rigged as a stage, with Poe Boy's decks there and the speakers run through the rest of the house. Keeps the climax clear of the cellar, which Path A needs for the coffins. Also settles that Poe Boy has **two** setups, not one: the old room upstairs with the original recording rig and the occupied computer, and the ballroom he built for tonight. | 🟡 room design — **decided by Scott, 24 Aug 2026.** The doc names no rooms in the mansion at all |
 | ✅ **The house's power is hot-wired off the neighbouring property.** Explains the working computer, the one lit room, and the speakers run through the house. Also the one thread anyone outside could pull on. | 🟡 the doc explains the computer but never the electricity — **decided by Scott** |
@@ -629,7 +637,7 @@ Three things in the codex were not just unsourced, they were wrong:
 | Campy early-2000s YA mystery; *I Know What You Did Last Summer* as D&D | Sesh 0 |
 | Super seniors, fantasy high school, Transyltown NY, Hudson Valley suburb | Sesh 0 |
 | Abandoned Dutch mansion on the outskirts; 3 vampires — Orlok-alike, kitschy Dracula, literally Edward | Sesh 0 |
-| Mysterious invitations in their lockers. ~~A haunted-house invite~~ — **changed by Scott:** an **anonymous** VIP early-entry card to the 3AM party — still mysterious, it names no host | Sesh 0, 1; changed: Scott, 3 Nov |
+| Mysterious invitations in their lockers. ~~A haunted-house invite~~ — **changed by Scott:** an **anonymous** VIP early-entry card to the 3AM party — still mysterious, it names no host. Spencer's finished card is headed *Haunted House* again, but it is still the early entry to the one party | Sesh 0, 1; changed: Scott, 3 Nov; the card: Scott, 2026-11-04 · not in doc |
 | History class group project on local history/folklore; bookend by presenting it | Sesh 1 |
 | One weekend, 2 sessions; first third-to-half of Sat in town, rest is the mansion | Sesh 1 |
 | Library / hall of records is the big in-town setting; delivers "the clincher" | Sesh 1 |
@@ -646,10 +654,10 @@ Three things in the codex were not just unsourced, they were wrong:
 | Real-estate company wants to demolish it for a **mega mall**; scared off the land by the end | Sesh 5, 7 |
 | Poe Boy takes control of some vampires in the final fight — settled in the 24 Aug doc paste as **manipulation, not mind control**. ⚠️ With phase 1 cut (In Person Session) the manipulation is the lie alone — see open question 11 there | Sesh 7, resolved the 24 Aug doc paste |
 | Three named handouts: ~~Haunted House Invite~~ **VIP Party Invite** (changed by Scott), DJ Show Flyer, Library History Clippings | Sesh 5, 6; invite changed: Scott, 3 Nov |
-| Invite ~7PM; DJ show 3:00AM; working date Halloween. The time on the invitation is **7pm** | Sesh 6 + In Person Session |
+| Invite ~~about 7PM~~ **8PM**; DJ show 3:00AM; working date Halloween. The time on the invitation is ~~7pm~~ **8 PM** (Spencer's card) | Sesh 6 + In Person Session; 8PM: Scott, 2026-11-04 · not in doc |
 | Dood Mansion (*dood* = dead in Dutch) — Spencer flagged *"lmk if thats too dumb"* | Sesh 6 |
 | **Senior skip day, and nobody told them** — why these five are in the room. Breakfast Club vibes | Sesh 1 comments — Spencer floated, Scott took it |
-| **The skip day is why the VIP card lands.** They're the five who didn't get the skip-day memo, so they feel lame, and being on a VIP list salvages the day | Scott, 3 Nov |
+| **The skip day is why the VIP card lands.** They're the five who didn't get the skip-day memo, so they feel lame, and being on a VIP list salvages the day. ⚠️ Spencer's card doesn't say VIP; open question 12 | Scott, 3 Nov |
 | The bookend played battered: *"scars and black eyes and theyre like 'and yeah that was our class project'"* | Sesh 5 comments — Scott |
 
 ### The Sesh 7 backstory chain
@@ -797,8 +805,9 @@ stay on this list until you two decide:
 
 ### 6. Prop texture
 - **Backstory cards (`/backstory/`):** **✅ signed off, `Scott, 4 Nov (signed off)`.** Each card is a few short bullets that set up that PC's story this weekend, only what a beat uses, not a rehash of the player's own write-up (Scott, 3–4 Nov). All five print on one sheet; there is no shared Transyltown card (Scott, 4 Nov). Bix: his parents and the adventurers story, and *"found in town as a baby"*, foster homes (canon has him carried into town as a baby; the card gives only what he'd have been told). Gnomey: Great Uncle Vinny, *"the family's old bootlegger... He always had a soft spot for you"* (the soft spot sets up his phone call; the visit at twelve stays DM-side), and Poe Boy's crew and the silly bandz. Simone: the wishing-willow sale (*"years ago"*), the Total Party Kill show and the goat piggy bank, the goat. Yobo: the Dolly Parton belief, the riffs, the old school, the doubt, the wig. Russ: one badge left, Assisting the Elderly.
-- **Invite:** ✅ signed off (`Scott, 3 Nov (signed off)`): *"this pass admits one. dont tell anyone"*, *"see if you
-  make it that far"*, the badges, the RSVP line and `spookynite2k4@hotmail.com`.
+- **Invite:** ~~✅ signed off (`Scott, 3 Nov (signed off)`): *"this pass admits one. dont tell anyone"*, *"see if you
+  make it that far"*, the badges, the RSVP line and `spookynite2k4@hotmail.com`.~~ **Retired with `/invite/`:** the invite is
+  Spencer's finished card, signed off as-is (`Scott, 2026-11-04 · not in doc`).
 - **AIM:** the screen name **`DJPoeBoy187`** (the `187` is a police homicide code — he'd have picked it
   at fourteen because it sounded hard, years before it meant anything), and **Poe Boy owning a cat**.
 - **AIM:** the Spirit's reaction to seeing that handle sign on — *"youre not typing like him"* — and the
