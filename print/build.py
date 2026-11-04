@@ -11,6 +11,7 @@ Output (in print/):
     1-cardstock.pdf     everything on cardstock, one upload, one copy
     2-photo-gloss.pdf   the party-room photograph, for gloss/photo paper
     3-settlement.pdf    optional paper copy of the Articles of Settlement
+    4-plain.pdf         the developer's site assessment, on plain paper
     previews/           a JPEG (or PNG) of every page, shown on print/index.html
 
 Needs Google Chrome (headless, for print-to-PDF) and pypdf. Each prop's own
@@ -112,6 +113,7 @@ def main():
     backstory = page("backstory/")
     photo = page("photo/")
     settlement = page("settlement/")
+    survey = page("survey/")
 
     # 1 — cardstock: one upload, one copy, color, single-sided
     w = PdfWriter()
@@ -132,6 +134,12 @@ def main():
         w.add_page(p)
     w.write(os.path.join(OUT, "3-settlement.pdf"))
 
+    # 4 — the developer's memo, a photocopy, so plain paper
+    w = PdfWriter()
+    for p in survey.pages:
+        w.add_page(p)
+    w.write(os.path.join(OUT, "4-plain.pdf"))
+
     # page previews for print/index.html — clear the old ones first
     os.makedirs(PREVIEWS, exist_ok=True)
     for old in glob.glob(os.path.join(PREVIEWS, "*")):
@@ -140,8 +148,9 @@ def main():
     previews("1-cardstock.pdf", "cardstock")
     previews("2-photo-gloss.pdf", "photo")
     previews("3-settlement.pdf", "settlement")
+    previews("4-plain.pdf", "plain")
     manifest = {stem: sorted(os.path.basename(f) for f in glob.glob(os.path.join(PREVIEWS, stem + "-*.*")))
-                for stem in ("cardstock", "photo", "settlement")}
+                for stem in ("cardstock", "photo", "settlement", "plain")}
     with open(os.path.join(PREVIEWS, "manifest.json"), "w") as f:
         json.dump(manifest, f, indent=1)
 
@@ -150,6 +159,7 @@ def main():
     print("1-cardstock.pdf  ", sum(counts.values()), "pages", counts)
     print("2-photo-gloss.pdf ", 1, "page")
     print("3-settlement.pdf  ", len(settlement.pages), "page(s)")
+    print("4-plain.pdf       ", len(survey.pages), "page(s)")
 
 
 if __name__ == "__main__":

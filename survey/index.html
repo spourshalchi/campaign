@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<!--
+  PROP: The developer's site assessment for Dood Mansion — an internal memo from W. Ostrander's company,
+  faxed and photocopied, September 2004. Found in the house.
+  CANON: the company wants the house for a mega mall (Sesh 5, 7); it is the same company whose men
+  cleared the house ~20 years ago (30 Aug · confirmed by Scott, not in doc); its leader is the abjurer
+  W. Ostrander (🟡 proposed 26 Aug; his library checkout is Jul 30 2004); he does not know what's in the
+  house (the 24 Aug doc paste). Columbia County and the Town of Transyltown match /deed/ and /settlement/.
+  🟡 NOT CANON — invented by this prop (3 Nov · not in doc), all logged in CANON.md:
+  the company name (Hudson Crossing Development Corp.) and the mall's name (Hudson Crossing Galleria),
+  the memo date, the tax map number, the acreage, the zoning, every figure in Phase 1, the target
+  demolition date, the site-walk notes, the archived "DOOD-1" file, and the floating-find staging.
+  It must not spoil the deed: nothing past "no recorded deed since 1931".
+  PRINT: US Letter, portrait, 100% / actual size, plain white paper. Built into print/4-plain.pdf.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Site Survey">
+<meta name="theme-color" content="#1b1d1f">
+<title>Site Assessment — Dood Property</title>
+<style>
+  :root{
+    --paper:#ecebe6; --ink:#1c1c1c; --mut:#4d4d4a; --rule:#7a7a76;
+    --red:#b3262a; --post:#f4e04d;
+    --f-fax:"Courier New",Courier,monospace;
+    --f-head:Arial,"Helvetica Neue",Helvetica,sans-serif;
+    --f-body:"Times New Roman",Times,Georgia,serif;
+    --f-hand:"Bradley Hand","Marker Felt","Chalkboard SE","Segoe Print",cursive;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:radial-gradient(ellipse at 50% 15%, #2c3034 0%, #121416 70%) fixed;
+    color:var(--ink); font-family:var(--f-body);
+    min-height:100dvh; overscroll-behavior:none;
+    padding:max(16px,env(safe-area-inset-top)) 16px max(24px,env(safe-area-inset-bottom));
+    display:flex; flex-direction:column; align-items:center; gap:20px;
+  }
+
+  /* -------- screen-only brief -------- */
+  .brief{
+    width:100%; max-width:720px;
+    background:#1d2124; color:#dfe3e6; border:1px solid #3c444a; border-radius:10px;
+    padding:14px 16px; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    font-size:14px; line-height:1.5;
+    -webkit-user-select:none; user-select:none;
+  }
+  .brief h1{font-size:19px; margin:0 0 6px; color:#f2f4f5; font-weight:600}
+  .brief p{margin:0 0 8px; color:#c9cfd3}
+  .brief b{color:#f5f7f8}
+  .brief .canon{border-left:3px solid #e0b83a; padding:6px 10px; background:#26292b; border-radius:0 6px 6px 0}
+  .brief button{
+    font:inherit; font-weight:600; cursor:pointer; min-height:44px;
+    background:#c9a13a; color:#1c1405; border:none; border-radius:8px; padding:10px 18px;
+  }
+
+  /* -------- the memo: one US Letter page, third-generation photocopy -------- */
+  .page{
+    width:100%; max-width:720px; aspect-ratio:8.5/11;
+    position:relative; overflow:hidden;
+    container-type:inline-size;
+    background-color:var(--paper);
+    background-image:
+      /* copier lid shadow down the left edge and across the bottom */
+      linear-gradient(90deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.05) 2.2%, transparent 5%),
+      linear-gradient(0deg,  rgba(0,0,0,.14) 0%, transparent 3.5%),
+      /* a dirty-drum streak */
+      linear-gradient(90deg, transparent 71.2%, rgba(0,0,0,.07) 71.3%, rgba(0,0,0,.07) 71.5%, transparent 71.6%),
+      /* toner grain */
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 -.18'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    box-shadow:0 22px 46px rgba(0,0,0,.72);
+  }
+  /* the copy came through a hair crooked */
+  .sheet{
+    position:absolute; inset:0; padding:2.6% 7.5% 3.4% 8%;
+    display:flex; flex-direction:column;
+    transform:rotate(-.45deg); transform-origin:50% 0;
+    text-shadow:0 0 .35px rgba(0,0,0,.55);   /* toner bleed */
+  }
+
+  .fax{
+    display:flex; justify-content:space-between; gap:2cqi;
+    font-family:var(--f-fax); font-size:1.45cqi; letter-spacing:.04em; color:#3a3a38;
+    border-bottom:1px solid rgba(0,0,0,.25); padding-bottom:.5cqi; margin:0 -3cqi 2.2cqi;
+    white-space:nowrap; -webkit-user-select:none; user-select:none;
+  }
+
+  .lh{display:flex; align-items:center; gap:2cqi; -webkit-user-select:none; user-select:none}
+  .lh svg{width:6cqi; height:auto; flex:none}
+  .lh .co{font-family:var(--f-head); font-weight:700; font-size:2.7cqi; letter-spacing:.02em; line-height:1.05}
+  .lh .tag{font-family:var(--f-head); font-size:1.55cqi; letter-spacing:.2em; text-transform:uppercase; color:var(--mut); margin-top:.5cqi}
+  .lh .stamp{
+    margin-left:auto; font-family:var(--f-head); font-weight:700; font-size:1.7cqi; letter-spacing:.16em;
+    border:2px solid #2a2a2a; padding:.6cqi 1.2cqi; transform:rotate(3deg); opacity:.75; white-space:nowrap;
+  }
+  .bar{height:.6cqi; background:#2b2b2b; margin:1.3cqi 0 1.8cqi; opacity:.85}
+
+  h1.title{
+    font-family:var(--f-head); font-weight:700; font-size:3.6cqi; letter-spacing:.02em; margin:0 0 1.3cqi;
+    text-transform:uppercase;
+  }
+  .memo{display:grid; grid-template-columns:auto 1fr; gap:.15cqi 2.4cqi; font-size:2cqi; line-height:1.3; margin:0 0 1.7cqi; max-width:72%}
+  .memo dt{font-family:var(--f-head); font-weight:700; font-size:1.8cqi; letter-spacing:.08em; padding-top:.25cqi}
+  .memo dd{margin:0}
+
+  h2{
+    font-family:var(--f-head); font-weight:700; font-size:1.9cqi; letter-spacing:.12em; text-transform:uppercase;
+    margin:0 0 .8cqi; padding-bottom:.3cqi; border-bottom:1px solid var(--rule);
+  }
+  .cols{display:grid; grid-template-columns:1.2fr .8fr; gap:3cqi; margin:0 0 1.4cqi}
+
+  table.kv{width:100%; border-collapse:collapse; font-size:1.95cqi; line-height:1.25}
+  table.kv th{
+    text-align:left; vertical-align:top; font-family:var(--f-head); font-weight:700; font-size:1.55cqi;
+    letter-spacing:.06em; text-transform:uppercase; padding:.4cqi 1.6cqi .3cqi 0; white-space:nowrap; color:#2e2e2c;
+  }
+  table.kv td{vertical-align:top; padding:.3cqi 0; border-bottom:1px dotted rgba(0,0,0,.28)}
+  table.kv tr:last-child td{border-bottom:none}
+  .caps{font-family:var(--f-head); font-weight:700; letter-spacing:.04em}
+  .title-line{position:relative; white-space:nowrap}
+  /* someone went over the year in red pen */
+  .circ{position:relative; display:inline-block}
+  .circ::after{
+    content:""; position:absolute; left:-.55em; right:-.55em; top:-.32em; bottom:-.28em;
+    border:2px solid var(--red); border-radius:50%; transform:rotate(-6deg); opacity:.85; text-shadow:none;
+  }
+  .qq{font-family:var(--f-hand); color:var(--red); font-size:2.6cqi; margin-left:1.4cqi; display:inline-block; transform:rotate(-8deg); text-shadow:none}
+
+  .sketch{border:1px solid #3a3a3a; background:rgba(255,255,255,.18)}
+  .sketch svg{display:block; width:100%; height:auto}
+  .cap{font-family:var(--f-head); font-size:1.35cqi; letter-spacing:.08em; text-transform:uppercase; color:var(--mut); margin-top:.6cqi}
+
+  ul.notes{margin:0; padding:0 0 0 2.4cqi; font-size:1.95cqi; line-height:1.3}
+  ul.notes li{margin:0 0 .25cqi}
+
+  .proj{display:grid; grid-template-columns:1fr 22cqi; gap:2.6cqi; margin:0 0 1cqi}
+  .render{
+    border:1.5px dashed #555; display:flex; align-items:center; justify-content:center; text-align:center;
+    font-family:var(--f-head); font-size:1.5cqi; letter-spacing:.1em; text-transform:uppercase; color:#5a5a57;
+    padding:1.4cqi; background:repeating-linear-gradient(135deg, transparent 0 1.2cqi, rgba(0,0,0,.035) 1.2cqi 2.4cqi);
+  }
+  ol.next{margin:0; padding:0 0 0 2.6cqi; font-size:1.95cqi; line-height:1.3}
+  ol.next li{margin:0 0 .2cqi}
+  .demo{
+    display:inline-block; font-family:var(--f-head); font-weight:700; font-size:2.1cqi; letter-spacing:.05em;
+    border:2px solid #222; padding:.3cqi 1cqi; margin:.2cqi 0 .8cqi;
+  }
+
+  .foot{
+    margin-top:auto; display:flex; justify-content:space-between; gap:2cqi;
+    font-family:var(--f-head); font-size:1.3cqi; letter-spacing:.08em; color:#555; text-transform:uppercase;
+    border-top:1px solid var(--rule); padding-top:.7cqi; -webkit-user-select:none; user-select:none;
+  }
+
+  /* -------- things on top of the copy, not in it -------- */
+  .ring{
+    position:absolute; width:27cqi; height:27cqi; right:6cqi; top:11cqi; border-radius:50%; pointer-events:none;
+    background:
+      radial-gradient(circle, transparent 0 60%, rgba(120,72,30,.10) 62%, rgba(105,60,22,.42) 66.5%,
+                      rgba(120,72,30,.16) 68.5%, transparent 71%),
+      radial-gradient(circle at 42% 58%, rgba(140,90,40,.07) 0 52%, transparent 60%);
+    transform:rotate(18deg);
+    -webkit-mask:conic-gradient(#000 0 290deg, rgba(0,0,0,.25) 310deg, #000 345deg);
+            mask:conic-gradient(#000 0 290deg, rgba(0,0,0,.25) 310deg, #000 345deg);
+  }
+  .flag{
+    position:absolute; right:3cqi; top:27.5cqi; width:21cqi; padding:1.4cqi 2.4cqi 1.4cqi 2cqi;
+    background:linear-gradient(180deg, #f7e65c 0%, var(--post) 70%, #e9d23f 100%);
+    box-shadow:-.4cqi .6cqi 1.2cqi rgba(0,0,0,.28);
+    transform:rotate(5deg);
+    font-family:var(--f-hand); font-size:3.3cqi; line-height:1.12; color:#1a1d4a; text-shadow:none;
+  }
+
+  @media (max-width:520px){ body{padding-left:8px; padding-right:8px} }
+
+  @media print{
+    @page{size:letter portrait; margin:0}
+    html,body{background:#fff !important}
+    body{padding:0; display:block; min-height:0}
+    .brief{display:none !important}
+    .page{
+      width:8.5in; height:11in; max-width:none; aspect-ratio:auto;
+      box-shadow:none; margin:0;
+      -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="brief">
+    <h1>Site assessment — a floating find</h1>
+    <p class="canon"><b>Not canon yet.</b> The company name, the mall's name, the dates, numbers and site notes are this prop's invention (3 Nov · not in doc), logged in CANON.md. W. Ostrander and the mega mall are canon; the 1931 line is as far as it goes on the deed.</p>
+    <p><b>No fixed location.</b> Keep it in hand and give it over during one of the times they look around a room. It tells them out loud that someone is buying the house out from under the vampires, that the company hasn't been inside, and that the title stops making sense in 1931. The study's settlement answers that last part.</p>
+    <p>US Letter, portrait, <b>100% / actual size</b>, colour, on <b>plain white paper</b>. It's in <code>print/4-plain.pdf</code>.</p>
+    <button onclick="window.print()">Print the memo</button>
+  </div>
+
+  <div class="page">
+    <div class="sheet">
+      <div class="fax">
+        <span>SEP-14-2004 16:52</span><span>FROM:HUDSON CROSSING DEV</span><span>5185550142</span><span>TO:SITE FILE</span><span>P.01/01</span>
+      </div>
+
+      <div class="lh">
+        <svg viewBox="0 0 60 48" aria-hidden="true">
+          <path d="M4 44 L30 8 L56 44 Z" fill="none" stroke="#1c1c1c" stroke-width="4"/>
+          <path d="M16 44 L30 25 L44 44" fill="none" stroke="#1c1c1c" stroke-width="4"/>
+          <path d="M2 44 H58" stroke="#1c1c1c" stroke-width="4"/>
+        </svg>
+        <div>
+          <div class="co">HUDSON CROSSING<br>DEVELOPMENT CORP.</div>
+          <div class="tag">Land &middot; Retail &middot; Commercial &middot; Albany, New York</div>
+        </div>
+        <div class="stamp">INTERNAL &mdash; DO NOT DISTRIBUTE</div>
+      </div>
+      <div class="bar"></div>
+
+      <h1 class="title">Site Assessment &mdash; Dood Property</h1>
+      <dl class="memo">
+        <dt>TO</dt><dd>Acquisitions Committee</dd>
+        <dt>FROM</dt><dd>Site Planning</dd>
+        <dt>DATE</dt><dd>September 14, 2004</dd>
+        <dt>RE</dt><dd>Tax Map 41.-2-17, Town of Transyltown, Columbia County &mdash; <i>Hudson Crossing Galleria, Phase&nbsp;1</i></dd>
+        <dt>CC</dt><dd>W. Ostrander</dd>
+      </dl>
+
+      <div class="cols">
+        <div>
+          <h2>1 &middot; Parcel</h2>
+          <table class="kv">
+            <tr><th>Location</th><td>Hilltop, edge of town. One unpaved access.</td></tr>
+            <tr><th>Area</th><td>Approx. 38 acres (unsurveyed)</td></tr>
+            <tr><th>Structure</th><td>One residence, masonry, 3 stories + cellar. 19th c. Ground floor boarded. No active utilities.</td></tr>
+            <tr><th>Zoning</th><td>R-1 Residential. Rezone to C-3 Regional Commercial required.</td></tr>
+            <tr><th>Occupancy</th><td><span class="caps">UNKNOWN</span> &mdash; possible squatters. Lights reported after dark. Prior site action: see archived file DOOD-1 (W.O.).</td></tr>
+            <tr><th>Title</th><td><span class="caps">UNRESOLVED</span> &mdash; no recorded deed <span style="white-space:nowrap">since <span class="circ">1931</span>.<span class="qq">??</span></span></td></tr>
+          </table>
+        </div>
+        <div>
+          <h2>2 &middot; Sketch</h2>
+          <div class="sketch">
+            <svg viewBox="0 0 200 170" aria-label="Parcel sketch: hilltop parcel, existing house marked for removal, Phase 1 mall and parking overlaid">
+              <defs>
+                <pattern id="hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <line x1="0" y1="0" x2="0" y2="5" stroke="#555" stroke-width="1"/>
+                </pattern>
+              </defs>
+              <!-- contours -->
+              <g fill="none" stroke="#8a8a86" stroke-width=".7">
+                <ellipse cx="96" cy="78" rx="34" ry="24"/>
+                <ellipse cx="96" cy="80" rx="54" ry="40"/>
+                <ellipse cx="98" cy="84" rx="76" ry="58"/>
+              </g>
+              <!-- parcel line -->
+              <path d="M14 22 L178 12 L190 140 L120 160 L22 150 Z" fill="none" stroke="#1c1c1c" stroke-width="1.6" stroke-dasharray="7 3 2 3"/>
+              <!-- access -->
+              <path d="M22 150 C 40 128, 50 118, 64 112 S 80 100, 84 92" fill="none" stroke="#1c1c1c" stroke-width="3"/>
+              <path d="M22 150 C 40 128, 50 118, 64 112 S 80 100, 84 92" fill="none" stroke="#ecebe6" stroke-width="1.4" stroke-dasharray="3 3"/>
+              <!-- phase 1 footprint -->
+              <rect x="56" y="38" width="104" height="44" fill="none" stroke="#1c1c1c" stroke-width="1.1" stroke-dasharray="4 2"/>
+              <!-- parking -->
+              <rect x="40" y="92" width="136" height="38" fill="url(#hatch)" stroke="#555" stroke-width=".8"/>
+              <!-- existing house, to be removed -->
+              <rect x="88" y="66" width="18" height="13" fill="#2a2a2a"/>
+              <path d="M82 60 L112 85 M112 60 L82 85" stroke="#b3262a" stroke-width="2"/>
+              <!-- north -->
+              <path d="M184 30 L188 18 L192 30 L188 27 Z" fill="#1c1c1c"/>
+              <text x="188" y="40" font-family="Arial" font-size="8" text-anchor="middle" font-weight="700">N</text>
+              <g font-family="Arial" font-size="7" fill="#1c1c1c">
+                <text x="108" y="52" text-anchor="middle" font-weight="700">PHASE 1</text>
+                <text x="108" y="61" text-anchor="middle">ANCHOR + 2 WINGS</text>
+                <text x="108" y="114" text-anchor="middle" font-weight="700" style="paint-order:stroke" stroke="#ecebe6" stroke-width="3">PARKING</text>
+                <text x="116" y="74" font-size="6.2">EXIST. STRUCT.</text>
+                <text x="116" y="81" font-size="6.2">TO BE REMOVED</text>
+                <text x="10" y="164" font-size="6.2">ACCESS</text>
+              </g>
+            </svg>
+          </div>
+          <div class="cap">Not to scale &middot; from tax map &amp; exterior walk</div>
+        </div>
+      </div>
+
+      <h2>3 &middot; Site walk, Sept. 9 (exterior only)</h2>
+      <ul class="notes" style="margin-bottom:1.3cqi">
+        <li>Interior <b>not accessed</b>. Every door secured from the inside.</li>
+        <li>Survey crew declined to stay on site after dark. Remainder of walk to be rescheduled (daylight).</li>
+        <li>Locals call it &ldquo;the Dood house&rdquo; and decline to discuss it.</li>
+      </ul>
+
+      <h2>4 &middot; Project</h2>
+      <div class="proj">
+        <div>
+          <p style="margin:0 0 .6cqi; font-size:1.95cqi; line-height:1.3"><b class="caps">MEGA MALL &mdash; PHASE 1:</b> approx. 640,000 sq ft enclosed regional mall. Three anchors, food court, 12-screen cinema, 3,100 spaces.</p>
+          <div class="demo">TARGET DEMOLITION: MAY 2, 2005</div>
+          <ol class="next">
+            <li>Quiet title action &mdash; counsel to file by Q4.</li>
+            <li>Rezoning petition to Town Board.</li>
+            <li>Post the parcel. No Trespassing.</li>
+            <li>Occupants: coordinate through W.O. <b>No outside contractors.</b></li>
+          </ol>
+        </div>
+        <div class="render">Phase 1 rendering<br>&mdash;<br>architect to supply</div>
+      </div>
+
+      <div class="foot"><span>HCDC Form SP-2 &middot; rev. 3/98</span><span>Confidential</span><span>Page 1 of 1</span></div>
+    </div>
+
+    <div class="ring" aria-hidden="true"></div>
+    <div class="flag">W.O. &mdash; handle personally</div>
+  </div>
+
+<script>
+  /* iOS: kill pinch-zoom and double-tap zoom, per AGENTS.md */
+  document.addEventListener("touchmove", function(e){
+    if(e.scale !== undefined && e.scale !== 1) e.preventDefault();
+  }, {passive:false});
+  document.addEventListener("gesturestart", function(e){ e.preventDefault(); });
+</script>
+</body>
+</html>
