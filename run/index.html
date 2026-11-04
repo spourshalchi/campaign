@@ -153,6 +153,25 @@
   .talk p:last-child{margin-bottom:0}
   .talk .who{display:block;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--pink);text-transform:uppercase}
 
+  /* card zero checklist */
+  .prep{margin:0 0 16px;padding:10px 12px 12px;border:1px solid #5a4520;border-radius:12px;background:#17130b}
+  .prep-h{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+  .prep-t{flex:1;font-family:var(--f-disp);font-size:19px;color:var(--amber)}
+  .prep-t .ai{font-family:var(--f-body);font-size:12px;color:var(--amber-dim)}
+  .prep-n{font-family:var(--f-mono);font-size:15px;color:var(--gold)}
+  .prep-reset{height:36px;padding:0 12px;border-radius:8px;border:1px solid var(--edge);background:transparent;color:var(--mut);
+    font:inherit;font-size:13px;cursor:pointer}
+  .prep-reset:hover{color:var(--ink);border-color:var(--dim)}
+  .prep-g{margin:12px 0 4px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--dim)}
+  .prep-i{display:flex;align-items:flex-start;gap:10px;width:100%;min-height:44px;text-align:left;padding:8px 10px;margin:0 0 4px;
+    border-radius:9px;border:1px solid var(--edge);background:#0000003d;color:var(--ink);font:inherit;font-size:15px;line-height:1.4;cursor:pointer}
+  .prep-i .box{flex:0 0 auto;width:24px;height:24px;border:2px solid var(--amber);border-radius:6px;display:flex;
+    align-items:center;justify-content:center;color:transparent;font-weight:800;margin-top:-1px}
+  .prep-i.done{border-color:#2b5a40;color:var(--mut)}
+  .prep-i.done .box{background:var(--green);border-color:var(--green);color:#0a1a10}
+  .prep-i.done b{color:var(--mut)}
+  .zone .block > .h .ai{font-size:12px;letter-spacing:0;text-transform:none;font-weight:400}
+
   /* ✋ hand-overs: the one thing that must not be missed */
   .hands{display:flex;flex-direction:column;gap:6px;margin:0 0 12px}
   .handover{display:flex;align-items:baseline;gap:10px;padding:9px 12px;border-radius:10px;
@@ -443,7 +462,9 @@ const FLOATING = [
   {id:"sticky", t:"Sticky note <code>Fluffy123</code>", when:"the first time they search any room"},
   {id:"survey", t:"Site survey <code>/survey/</code>", when:"during one of the times they look around a room"}
 ];
-const FKEY="dood_floating_v1";
+const FKEY="dood_floating_v1", PKEY="dood_prep_v1";
+function loadPrep(){ try{return JSON.parse(localStorage.getItem(PKEY))||{};}catch(e){return {};} }
+function savePrep(o){ try{localStorage.setItem(PKEY,JSON.stringify(o));}catch(e){} }
 function loadFloat(){ try{return JSON.parse(localStorage.getItem(FKEY))||{};}catch(e){return {};} }
 function saveFloat(o){ try{localStorage.setItem(FKEY,JSON.stringify(o));}catch(e){} }
 const MANSION_ACTS = ["night","sunday"];
@@ -458,7 +479,33 @@ const ACTS = {
 };
 
 const SCENES = [
-{ act:"set", no:"PREP", title:"On the table before you start", where:"Session zero of the night",
+{ act:"set", no:"PREP", title:"Pre-session checklist", where:"Card zero · tick as you go · saved on this laptop",
+  checklist:[
+    {g:"iPad", items:[
+      {id:"ipad-charged", t:"<b>iPad charged</b>, charger in the bag."},
+      {id:"ipad-home", t:"<b>Props on its home page</b>, items 1&ndash;6. Add to Home Screen done and cache-busted (<code>?v=</code>)."}]},
+    {g:"Print &amp; props", items:[
+      {id:"print", t:"<b>Print run picked up and cut</b>: invites &times;6, backstory cards, Russ's card, the badge, the tickets, the deed, the photo, the survey, the crate tags, the player map (and the ledger folio, if you want paper as well as item 5)."},
+      {id:"usb", t:"<b>USB stick</b> labelled <code>MARCUS_HALE</code>."},
+      {id:"piggy", t:"<b>The goat piggy bank</b> for Simone, if bought."}]},
+    {g:"DM bag", items:[
+      {id:"sticky", t:"<b>Sticky note</b> <code>Fluffy123</code>, handwritten."},
+      {id:"willow", t:"<b>The wishing willow</b>, handmade, with its slip."},
+      {id:"deed", t:"<b>The deed</b> &mdash; hidden."},
+      {id:"tickets", t:"<b>The tickets</b> &mdash; hidden."},
+      {id:"badge", t:"<b>The badge</b> &mdash; hidden."}]},
+    {g:"Laptop", items:[
+      {id:"laptop", t:"<b>Laptop on the Run of Show</b>, sound up, soundboard tested (one ambience, one sting)."}]},
+    {g:"At the table", items:[
+      {id:"backstory", t:"<b>✋ Backstory cards handed out</b>, one per player &mdash; and Russ's requirements card to Cody."},
+      {id:"spencer", t:"<b>Spencer briefed</b> on the SPENCER zones (right-hand side of every cue)."}]}
+  ],
+  spBrief:[
+    "<b>Your zone is the pink one on the right</b>, on every cue.",
+    "<b>Lines</b> at the top are yours to say. <b>IF blocks</b> (dashed) only play if their condition happened.",
+    "Each <b>NPC</b> has a one-line voicing. A <b>🔓 Reveal</b> under an NPC is something they let slip, or something they learn and react to.",
+    "Scott narrates, runs checks and the enemy turns; you voice everyone else."
+  ],
   read:[{t:"Five kids. Two nights. One house that bolts its doors. Everything below is a physical object you want in reach — the story leans on hand-offs."}],
   beats:[
     "<b>Party is level 4</b>, leveling to <b>5</b> at the end of night one. Everything Sunday is built for five level-5 PCs.",
@@ -471,17 +518,12 @@ const SCENES = [
     "<b>📱 The iPad lives on its home page</b> (<code>/</code>) all night: six big numbered items, in story order. A cue that needs one opens with a blue <b>iPad &rarr; item N</b> bar. Tap N, hand it over, and go back to the home page when the scene's done. Sunday's rooms run in any order, so 2, 3&ndash;4 and 5 can swap &mdash; go by the number on the cue." +
       `<div class="ipad-key">${Object.keys(IPAD).map(n=>`<span class="k">${n}</span><span><b>${IPAD[n].room}</b> &mdash; ${IPAD[n].prop} <code>${IPAD[n].path}</code></span>`).join("")}</div>`
   ],
-  hand:[
-    "<b>Backstory cards</b> (<code>/backstory/</code>) &mdash; one per player, before play.",
-    "<b>Russ's requirements card</b> (<code>/badge/</code>) to Cody &mdash; he carries it all weekend."
-  ],
   npcs:[],
   reminders:[
-    {t:"<b>One physical prop per PC:</b> Bix &mdash; the printed photograph &middot; Gnomey &mdash; the printed deed (Vinny hands it over at the end) &middot; Simone &mdash; the wishing willow &middot; Russ &mdash; badge + card &middot; Yobo &mdash; <b>still undecided</b>.", k:"hand"},
-    {t:"<b>Pack list</b>, in hand-over order: invite cards (cue 2) &middot; the mansion map (cue 5) &middot; the sticky note and the site survey (floating, cues 5&ndash;13) &middot; the printed photograph (cue 11) &middot; the crate tags (cue 12) &middot; the wishing willow and the USB stick labelled <code>MARCUS_HALE</code> (cue 13) &middot; the deed, the concert tickets and a real merit badge (cue 15). Each cue says <b>✋ Hand over</b> when it's time.", k:""},
-    {t:"Keep the <b>printed deed</b> out of sight until Vinny hands it to Gnomey in the ending scene.", k:"rule"},
-    {t:"<b>Print run:</b> everything is in the print kit at <code>/print/</code> — <code>1-cardstock.pdf</code> (invites, deed, badge card + badge, tickets, backstory cards) and <code>2-photo-gloss.pdf</code> (the photograph). Not printed: DJ poster (Spencer), sticky note and wishing willow (handmade).", k:"hand"},
-    {t:"<b>iPad on the home page</b>, numbered items 1&ndash;6 showing. Item 6 already names the kid Marcus Hale.", k:""}
+    {t:"<b>One physical prop per PC:</b> Bix &mdash; the printed photograph &middot; Gnomey &mdash; the printed deed (Vinny hands it over at the end) &middot; Simone &mdash; the wishing willow &middot; Russ &mdash; badge + card &middot; Yobo &mdash; <b>still undecided</b>.", k:""},
+    {t:"<b>Hand-over order</b>: invites (cue 2) &middot; the house plan (cue 5) &middot; sticky note and survey (floating, cues 5&ndash;13) &middot; the photograph (cue 11) &middot; crate tags (cue 12) &middot; willow and USB (cue 13) &middot; tickets, badge and deed (cue 15). Each cue says <b>✋ Hand over</b> when it's time.", k:""},
+    {t:"Keep the <b>deed, tickets and badge</b> out of sight until the driveway.", k:"rule"},
+    {t:"Everything printed is in the kit at <code>/print/</code>. Not printed: the DJ poster (Spencer), the sticky note and the willow (handmade).", k:""}
   ],
   cues:[] },
 
@@ -603,7 +645,7 @@ const SCENES = [
   cues:["crowd"] },
 
 { act:"night", no:5, title:"Enter Dood Mansion", where:"The trap springs · everything from here is inside",
-  hand:["<b>The mansion map</b> (<code>/map/</code>) &mdash; the first time they're inside and can look around."],
+  hand:["<b>The house plan</b> (<code>/map/?view=player</code>), rolled in the hall-table drawer &mdash; the first time they're inside and can look around. Your DM map is <code>/map/</code>."],
   read:[{t:"That's a bolt throwing behind you. Footsteps overhead &mdash; and a hand comes out of the dark, grabs your sleeve, and pulls you down. It's <b>Angelique</b>."}],
   beats:[
     "They go in on pure curiosity, <b>through a front door boarded for decades that isn't any more</b> &mdash; and the doors bolt shut behind them.",
@@ -809,8 +851,8 @@ const SCENES = [
   cues:["record","crowd","candle","braaam"] },
 
 { act:"sunday", no:12, title:"The patient ledger &amp; the infirmary", where:"The cellar · Cody · badge req 2 of 3 · any-order room", ipad:[5],
-  hand:["<b>The crate tags</b> &mdash; one per crate, to match against Orlok's ledger on iPad item 5."],
-  stuck:"<b>Russ's Speak with Animals is the shortcut</b>: a patient tells him which crate is missing its neighbour, and where they took him.",
+  hand:["<b>A crate tag</b> (<code>/ledger/tags/</code>) each time someone checks a crate &mdash; they match them against Orlok's ledger on iPad item 5."],
+  stuck:"<b>Russ's Speak with Animals is the shortcut</b>: the patients tell him the doe isn't in any crate, and which way she went. Full fail-forward in the ledger's DM notes (<code>/ledger/?dm=1</code>).",
   backup:"<b>The vampires are good</b> &mdash; if the cellar goes sideways, the finale clears them anyway: they hear the recording with everyone else and are as horrified as the crowd.",
   read:[{t:"Straw-lined crates, a fox in a splint, an owl with a wrapped wing. It isn't a slaughterhouse. It's a clinic."}],
   beats:[
@@ -1118,6 +1160,17 @@ function render(i){
       `</div></div>`;
   }
 
+  // card zero: pre-session checklist, ticks saved per device
+  let checkHTML = "";
+  if(s.checklist){
+    const st = loadPrep(), all = s.checklist.flatMap(g=>g.items), done = all.filter(it=>st[it.id]).length;
+    checkHTML = `<div class="prep"><div class="prep-h"><span class="prep-t">Before the night <span class="ai">🟡 review</span></span>`+
+      `<span class="prep-n" id="prepN">${done} / ${all.length}</span><button class="prep-reset" data-prepreset>Reset for next run</button></div>`+
+      s.checklist.map(g=>`<p class="prep-g">${g.g}</p>`+g.items.map(it=>
+        `<button class="prep-i${st[it.id]?" done":""}" data-prep="${it.id}"><span class="box">✓</span><span>${it.t}</span></button>`).join("")).join("")+
+      `</div>`;
+  }
+
   // ✋ hand-overs
   const handHTML = (s.hand && s.hand.length) ?
     `<div class="hands">${s.hand.map(h=>`<div class="handover"><span class="hk">✋ Hand over</span><span class="ht">${h}</span></div>`).join("")}</div>` : "";
@@ -1173,6 +1226,7 @@ function render(i){
   if(s.talk && s.talk.length){
     spHTML += `<div class="talk">` + s.talk.map(l=>`<p><span class="who">${l.who}</span>${l.t}</p>`).join("") + `</div>`;
   }
+  if(s.spBrief){ spHTML += `<div class="block"><p class="h">Spencer's briefing <span class="ai">🟡</span></p><ul class="rem">${s.spBrief.map(b=>`<li>${b}</li>`).join("")}</ul></div>`; }
   if(s.ifblock){ const b = s.ifblock;
     spHTML += `<div class="ifb"><p class="ifw">${b.when} <span class="ai">🟡</span></p><p class="ifs">${b.say}</p>` +
       `<div class="talk">${b.lines.map(l=>`<p><span class="who">${l.who}</span>${l.t}</p>`).join("")}</div>` +
@@ -1190,7 +1244,7 @@ function render(i){
     `<h2>${s.title}</h2><span class="where">${s.where}</span></div>`+
     `<div class="zones">`+
       `<section class="zone z-scott"><p class="zh"><span>Scott</span> · narrate</p>`+
-        `${handHTML}${ipadHTML}${floatHTML}${readHTML}${fightHTML}${netHTML}${revBlock(revs.filter(r=>r.by==="scott"))}${remHTML}${beatsHTML}${checksHTML}${cuesHTML}${canonHTML}</section>`+
+        `${checkHTML}${handHTML}${ipadHTML}${floatHTML}${readHTML}${fightHTML}${netHTML}${revBlock(revs.filter(r=>r.by==="scott"))}${remHTML}${beatsHTML}${checksHTML}${cuesHTML}${canonHTML}</section>`+
       `<section class="zone z-spencer"><p class="zh"><span>Spencer</span> · voice</p>${spHTML}</section>`+
     `</div>`;
 
@@ -1491,6 +1545,11 @@ function hpOf(key,max){ return key in HP ? HP[key] : max; }
 
 // stage delegated clicks (cue pills, floating props, HP trackers)
 stage.addEventListener("click",e=>{
+  const pi=e.target.closest("[data-prep]"); if(pi){ const id=pi.dataset.prep, st=loadPrep(); st[id]=!st[id]; savePrep(st);
+    pi.classList.toggle("done",!!st[id]);
+    const n=stage.querySelectorAll(".prep-i.done").length, t=stage.querySelectorAll(".prep-i").length; $("#prepN").textContent=`${n} / ${t}`; return; }
+  if(e.target.closest("[data-prepreset]")){ if(confirm("Clear every tick on the checklist and the floating props?")){
+    try{ localStorage.removeItem(PKEY); localStorage.removeItem(FKEY); }catch(err){} render(cur); } return; }
   const hb=e.target.closest("[data-hpd]"); if(hb){ const row=hb.closest("[data-hpkey]"), key=row.dataset.hpkey, max=+row.dataset.max;
     const d=hb.dataset.hpd; HP[key] = d==="reset" ? max : Math.max(0, hpOf(key,max) + (+d));
     row.querySelector(".hpv").textContent=HP[key]; row.classList.toggle("down",HP[key]<=0); return; }

@@ -23,7 +23,9 @@ the night one moment at a time, with everything you need to run that moment on s
 
 ## What's on each slide
 
-Each of the 18 cues maps to a moment in the [codex Story Flow](../codex/), enriched for live play.
+**Card zero is the pre-session checklist**: iPad, print run, USB, the DM bag, laptop and soundboard, backstory cards, Spencer's briefing. Ticks are saved on the device; **Reset for next run** clears them (and the floating-prop ticks).
+
+Each of the other cues maps to a moment in the [codex Story Flow](../codex/), enriched for live play.
 Scott and Spencer share one laptop, so every cue is split into two colour-coded zones on one screen;
 on a wide enough screen each zone scrolls on its own, and below 700px they stack.
 
