@@ -149,7 +149,7 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 | Claim | Source |
 |---|---|
 | **Bix:** his parents have a **distinctive characteristic in the photograph**. **Will supplies it** — a trait of Bix's that Edward and/or Goblinenon carry | In Person Session, clarified 1 Nov |
-| **Yobo:** the party-room photo layer is a **spot-the-difference** between two pictures — the live room and Bix's photograph | In Person Session, clarified 1 Nov |
+| ~~**Yobo:** the party-room photo layer is a **spot-the-difference** between two pictures — the live room and Bix's photograph~~ — **cut by Scott.** The party room is a performance beat (see the Yobo rows in the 24 Aug finale section's decisions table) | In Person Session, clarified 1 Nov; cut: Scott, 3 Nov |
 | **Angelique plants a seed at the gazebo with a side-eye** — her failed warning (keeps Sesh 5) | In Person Session, clarified 1 Nov |
 | **Angelique is at the finale** | In Person Session, clarified 1 Nov |
 
@@ -158,7 +158,7 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 |---|---|
 | **One physical prop per PC.** Bix: the photograph, **printed**. Gnomey: the printed deed (from Vinny at the end). Simone: the wishing willow. Russ: the badge and the requirements card. **Yobo: undecided** | In Person Session, clarified 1 Nov |
 | Physical: invitation, USB, wishing willow, Assisting the Elderly badge + requirements, sticky note, a prop for each character | In Person Session |
-| Digital: library clippings, deed, photograph / spot-the-difference, DJ poster, **a backstory reminder per character** — what each should remember about their backstory | In Person Session |
+| Digital: library clippings, deed, photograph / ~~spot-the-difference~~ (cut: Scott, 3 Nov), DJ poster, **a backstory reminder per character** — what each should remember about their backstory | In Person Session |
 | **Spencer** makes the invitation and the poster | In Person Session |
 | **The photograph is print-only:** a 4×6 Staples photo print of the painted snapshot. The digital `/photo/` page is retired. **There is no back** — ~~Goblinenon's "Me + E" handwriting on the back~~ is dropped. Hand Will the print | Scott, 3 Nov |
 | **Scott** does combat prep and ties up loose ends: Vinny's backstory, the distinctive trait from Will, details on what to reveal in dialogue | In Person Session |
@@ -176,10 +176,7 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
   *"You can stay"* all follow Vinny's handover rather than happening in the ballroom.
 - **Orlok still signs the requirements card**; the troop leader hands over the badge. The notes only give the
   troop leader the hand-over.
-- **The six differences in `/party-room/`** (Scott, 3 Nov) — the live room is the photograph's painting with six
-  things changed: **a brass wall clock** on the wall beside Orlok's head, **fangs on Edward**, **Dracula's waistcoat blue**
-  instead of red, **Edward's sash mustard-gold** instead of dark wine, **a fourth bottle** on the left-hand table,
-  and **the armchair green** instead of red. All six are the prop's invention.
+- ~~**The six differences in `/party-room/`**~~ — cut with the spot-the-difference; the prop is deleted (`Scott, 3 Nov`).
 - **The concert tickets in `/tickets/`** — the holder line *LIVINGSWORTH III / UPTON M* (his real name, so
   Simone reads whose tickets these were), the $27.50 + fees price, the ticket and event codes and the small
   print are the prop's choices. So are the venue (**Transyltown Armory**), the date (**Sat Jun 25 2005**, read off
@@ -270,7 +267,8 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 3. ~~**What Vinny says on the early call.**~~ — **answered 3 Nov:** he thinks it's 1931 and asks about tonight's card game with Cornelis (table above). `Scott, 3 Nov`.
 4. ~~**Will's trait** for Bix's parents.~~ — **done:** painted into the photograph (table above); the painting is in Scott's
    review queue. `Scott, 3 Nov`.
-5. ~~**Yobo's physical prop.**~~ — **answered: he doesn't get one.** `Scott, 3 Nov`.
+5. ~~**Yobo's physical prop.**~~ — **answered: no house prop.** He gets two secret printed cards instead (table in the finale
+   section). `Scott, 3 Nov`.
 6. ~~**Making it clear the botched summoning is Poe Boy's.**~~ — **answered 3 Nov:** it isn't signposted on Saturday;
    the Spirit names him on Sunday. `Scott, 3 Nov`.
 7. ~~**What unlocks the AIM room**~~ — **answered 3 Nov:** the Spirit does, on the DM's cue (table above).
@@ -488,13 +486,16 @@ then flips to **a clinic**.
 | **The wishing willow is made entirely by hand** by Scott — nothing to print | Scott, 3 Nov |
 | **Not needed:** ambient playlists (the Run of Show soundboard covers it), background slides (no second screen), a safety-tools agreement (Scott and Spencer have it covered) | Scott, 3 Nov |
 | **Yobo wears a wig.** Scott and John are aligned. Why he wears it is not specified | Scott, 3 Nov |
+| **Yobo's arc runs on two secret printed cards.** *The Weight of Your Lies* is handed to John at his first Performance check (the gazebo Dolly riff): disadvantage on Performance, advantage on Deception, until he tells the truth. *Your True Voice* is handed over after he tells the truth: advantage on Performance, plus a Bardic Inspiration boost. Sesh 8's arc stands; these mechanics are Scott's. 🟡 The card wording, being built at `/yobo/` | Scott, 3 Nov |
+| **No dedicated Deception beat.** He can deceive whenever he likes | Scott, 3 Nov |
+| **The party room, cut down:** Bix finds the photograph (the 4×6 print). The frozen party needs a performance before anything moves, and only Yobo can give it; his Performance check runs at disadvantage. **Dracula appears**, sees what's holding him back and pushes him to live as his true self. If John drops the lie he gets *Your True Voice* and the party erupts; if he stays masked, the ghosts curdle (the scare). ~~Blend in, the spot-the-difference and the Revel meter~~ are cut, and `/party-room/` is deleted | Scott, 3 Nov |
 | **Contingencies** (they kill the vampires early, they won't go in): none written; they'll improvise | Scott, 3 Nov |
 | **The mansion has enough puzzles:** the study door, the party room, the cellar ledger and the sticky note | Scott, 3 Nov |
 | **Simone's warlock has no in-world name** — none is needed. Her backstory card says *name TBD*, and no NPC calls her by name. DM-facing notes still say Simone, meaning the player | Scott, 3 Nov |
 | **Lil Stinky's race is deliberately undefined** — it doesn't matter | Scott, 3 Nov |
 | **The crew is three:** Poe Boy, Lil Stinky and Angelique. The fourth crew member is cut | Scott, 3 Nov |
 | **The DJ poster is optional.** Spencer makes it if he can. If it exists, it is **taped on the locked AIM-room door** (the "poster on the door"); it is not a gazebo handout. Same spec — Poe Boy / Lil Stinky / Angelique, a 3AM set — and it reads **doors open 2:30AM** | Scott, 3 Nov |
-| **Will's trait is done** in the painted photograph: Goblinenon's short dark-green skin, long ears and small brown leather boots, and Edward's notched ear, echo Will's Bix. `/party-room/` uses the same painting. The looks stay 🟡 until Scott reviews the photo | Scott, 3 Nov |
+| **Will's trait is done** in the painted photograph: Goblinenon's short dark-green skin, long ears and small brown leather boots, and Edward's notched ear, echo Will's Bix. The looks stay 🟡 until Scott reviews the photo | Scott, 3 Nov |
 | **The session break is deliberately undefined.** Saturday ends wherever time runs out; the botched summoning closes Night 1 if the clock allows but isn't required to. Everyone levels to 5 at the end of day one | Scott, 3 Nov |
 | ~~The finale runs in three phases: vampires hostile → developer breaches → vampires turn~~ — **phase 1 cut in the In Person Session.** Two phases: developer breaches → the booth (vampires turn) | the 24 Aug doc paste, replaced by In Person Session |
 | The developer's breach (now the first phase) is the only lethal fight of the finale | the 24 Aug doc paste |
@@ -588,7 +589,7 @@ Not yet pasted into the Google Doc — **do that to make them official.** Until 
 | ✅ **The boards come off the front door; there is no side-entrance tip.** Poe Boy pries the boards away for the party and stacks them against the porch rail — the only visible change to the house in decades, and the invitation. The party walks in the front, and *then* the doors bolt. ~~What he hands them at the gazebo instead: *"I spin up there sometimes"* (Sesh 3, verbatim), *"wait till you see what I've done with the ballroom"*, and *"stick around till three"* — and, from the In Person Session, that **he'll be playing some new tunes**. The tell is what he leaves out — he never mentions the other room he keeps gear in.~~ **Replaced by Scott, 3 Nov:** at the gazebo he only says he's **been up there once**, with a shrug. The "once" is a lie, and the lie is the clue. | 📗 Sesh 3's tip, **superseded by Sesh 7**. Sesh 3 wrote him as a helpful stranger; Sesh 7 made him the host, and a host who wants five specific people inside opens the door rather than sending them round the back. The old tip also created a contradiction — sneak past a boarded door that then bolts shut behind you |
 | ✅ **The climax happens in the ballroom / great hall**, rigged as a stage, with Poe Boy's decks there and the speakers run through the rest of the house. Keeps the climax clear of the cellar, which Path A needs for the coffins. Also settles that Poe Boy has **two** setups, not one: the old room upstairs with the original recording rig and the occupied computer, and the ballroom he built for tonight. | 🟡 room design — **decided by Scott, 24 Aug 2026.** The doc names no rooms in the mansion at all |
 | ✅ **The house's power is hot-wired off the neighbouring property.** Explains the working computer, the one lit room, and the speakers run through the house. Also the one thread anyone outside could pull on. | 🟡 the doc explains the computer but never the electricity — **decided by Scott** |
-| ✅ **John's PC is Yobo, and his arc is "stop lying, get stronger."** The grandmother-is-Dolly-Parton lie is a **Performance + Bardic-Inspiration debuff** (with a Deception upside) that flips to a buff when he tells the truth in the **party room**, where the frozen ghost-party accepts only a true performance and **Dracula coaches him** through it. Two artifacts: the photograph (print-only now, Scott, 3 Nov; also the puzzle key) and a new `/party-room/` prop. Full build in `PROPOSALS.md`. | 📗 **Now in the doc** — Character Bios (Yobo) + Sesh 8 (the arc), pasted 5 Sep 2026. Yobo wears a wig: Scott, 3 Nov, aligned with John. Race/subclass/dice unspecified |
+| ✅ **John's PC is Yobo, and his arc is "stop lying, get stronger."** The grandmother-is-Dolly-Parton lie is a **Performance + Bardic-Inspiration debuff** (with a Deception upside) that flips to a buff when he tells the truth in the **party room**, where the frozen ghost-party accepts only a true performance and **Dracula coaches him** through it. Two artifacts: the photograph (print-only now, Scott, 3 Nov; also the puzzle key) and a new `/party-room/` prop (deleted: Scott, 3 Nov). Full build in `PROPOSALS.md`. | 📗 **Now in the doc** — Character Bios (Yobo) + Sesh 8 (the arc), pasted 5 Sep 2026. Yobo wears a wig: Scott, 3 Nov, aligned with John. Race/subclass/dice unspecified |
 | ⏸ **The 1937 Crier stays 🟡 pending Scott's review** of the live prop, https://spourshalchi.github.io/campaign/puzzle/ (`Scott, 3 Nov`) | unchanged |
 | ⏸ **The Gjenganger / Cornelis Dood stays 🟡** — parked entirely. A draft spec is in `PROPOSALS.md`; none of it is agreed. | unchanged |
 
@@ -775,8 +776,8 @@ stay on this list until you two decide:
   debuff (with a Deception upside) that flips to a buff when he tells the truth in the party room, with
   Dracula pushing him. So this is no longer AI-uncanon — see the decisions table and the Cast list. The old
   College-of-Whispers / "cruelty is the armor" framing was a separate codex invention and is superseded.
-  **Yobo wears a wig** (`Scott, 3 Nov`, aligned with John). Still open: his race, a Bard
-  subclass, and the dice values. (The 1938 blood tie, E. Hoeck on the checkout card, stays dropped and unclaimed.)
+  **Yobo wears a wig** (`Scott, 3 Nov`, aligned with John). Still open: his race and a Bard
+  subclass. The mechanics are Scott's two cards (`Scott, 3 Nov`); their wording is 🟡. (The 1938 blood tie, E. Hoeck on the checkout card, stays dropped and unclaimed.)
 - **Orlok** does most of the actual frightening on Poe Boy's say-so
 - **Dracula** would happily brag the whole scheme to the heroes by accident
 - **Edward** was turned recently (invented to fix the invented coffin count)

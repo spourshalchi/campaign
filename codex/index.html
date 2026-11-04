@@ -537,8 +537,8 @@ const NODES = [
     role:"Player Character", s:"doc",
     fields:{Name:"Yobo",Race:"TBD",Class:"Bard (leaning)",Vibe:"Musical-theatre bully / popular kid living a lie",Wig:"Yes"},
     desc:"A <b>musical-theatre bully / popular kid</b> named <b>Yobo</b> who transferred in from a school where he was tormented for weak singing and acting. To get in with the cool theatre kids he told everyone <b>his grandmother is Dolly Parton</b> — a lie — so his whole social standing rests on people believing he's descended from musical royalty. He wants to be a star, but mostly just wants to be accepted, and he's deeply insecure about whether he has any real talent. He wears a <b>wig</b>.",
-    hook:"TLDR: <b>Yobo stops lying to the group about his origins and is stronger for it.</b> The lie is a <b>debuff</b> — juggling an internal performance gives <b>disadvantage on Performance and weakened Bardic Inspiration</b>, but <b>advantage on Deception</b>. The turn is in the <b>party room</b>: the frozen ghost-party accepts only a <i>true</i> performance, Dracula pushes him to drop the act, and it flips to <b>advantage on Performance and enhanced Bardic Inspiration</b> for the rest of the campaign. Prop at <code>/party-room/</code>; full build in <code>/PROPOSALS.md</code>.",
-    ai:"<b>Still open:</b> his race, a Bard subclass (Glamour rhymes with Poe Boy), and the exact debuff/buff dice, which are Scott's to tune. The old 1938 blood tie (E. Hoeck on the puzzle checkout card) stays dropped and is now unclaimed." },
+    hook:"TLDR: <b>Yobo stops lying to the group about his origins and is stronger for it.</b> It runs on <b>two secret printed cards</b>. At his first Performance check — the Dolly riff at the gazebo — John gets <b>The Weight of Your Lies</b>: <b>disadvantage on Performance, advantage on Deception</b>, until he tells the truth. There's no dedicated Deception beat; he can deceive whenever he likes. The turn is in the <b>party room</b>: the frozen party needs a performance and only he can give it, Dracula pushes him to live as his true self, and if he drops the lie he gets <b>Your True Voice</b>: <b>advantage on Performance and a Bardic Inspiration boost</b>. If he stays masked, the ghosts curdle.",
+    ai:"<b>Still open:</b> his race and a Bard subclass (Glamour rhymes with Poe Boy). The cards' wording is 🟡, being built at <code>/yobo/</code>. The old 1938 blood tie (E. Hoeck on the puzzle checkout card) stays dropped and is now unclaimed." },
   {id:"cody", name:"Russ", sub:"Cody · Firbolg Druid", g:"player", x:120, y:610,
     role:"Player Character", s:"doc",
     fields:{Race:"Firbolg",Class:"Druid",Vibe:"Earnest wilderness scout — basically Russell from Up"},
@@ -602,7 +602,7 @@ const NODES = [
     role:"Vampire (secretly good)", s:"doc",
     fields:{Style:"Campy Count Dracula"},
     desc:"The over-the-top theatrical one for comic relief. <b>He is also Orlok's sire</b> — he turned up uninvited at the worst possible moment and wouldn't take no for an answer, which is exactly why Orlok cannot stand him and exactly why Orlok can never be rid of him. He witnessed and \"notarized\" the 1931 settlement, and is not a notary.<br><br><b>He doesn't care about the music either</b> — the 3AM crowd is bait for the scare — <b>but he secretly wants an audience.</b>",
-    hook:"<b>He is the one who lays hands on the party.</b> When the stealth finally fails on Saturday night he swoops in and grapples, pushes and shoves — enjoying it far too much and doing <b>no damage</b>. Then Orlok says one word and he stops instantly. That single exchange establishes the whole hierarchy without a fight.",
+    hook:"<b>He is the one who lays hands on the party.</b> When the stealth finally fails on Saturday night he swoops in and grapples, pushes and shoves — enjoying it far too much and doing <b>no damage</b>. Then Orlok says one word and he stops instantly. That single exchange establishes the whole hierarchy without a fight.<br><br><b>He is Yobo's mentor, for one scene.</b> In the party room he appears, sees what's holding Yobo back, and pushes him to live as his true self.",
     finale:"<b>He gets the campaign's biggest laugh and its cleanest catharsis.</b> When the recording finishes and the room wakes up, Dracula seizes the mic and denounces Poe Boy magnificently — he has waited all night for a real audience. The crowd cheers, and plenty still aren't sure it isn't part of the show. Also bound by the no-Bite rule in first contact.",
     ai:"'Treats the haunted-house plan as a performance and would happily brag the whole scheme by accident' was a codex invention. So is the optional line for the overheard argument: <i>“The boy says they come for the music and stay for us.”</i>" },
   {id:"edward", name:"Vamp: Edward", sub:"Bix's father", g:"vamp", x:880, y:430,
@@ -731,7 +731,7 @@ const FLOW = [
       note:"The records hall gives them the lore, the nudge up the hill and Saturday’s fight; the gazebo gives them the host. Either can come first.",
       q:"This changes the plan twice over — town is no longer combat-free, and Saturday’s fight is no longer in the mansion; the mansion’s fight moves to early Sunday."}},
 
-  {n:4,title:"The gazebo",where:"Town · the bad kids",s:"doc",par:"town",body:"The gazebo <i>near the school</i> where the Bad Kids smoke — where they meet <b>DJ Poe Boy</b> and his entourage, and where <b>Angelique tries to warn them and can’t</b> because the rest of the crew is standing right there — all she gets out is a side-eye.<br><br><b>What Poe Boy gives them here is almost nothing.</b> Asked about the house, he says he’s <b>been up there once</b> — with a shrug — and nothing else. He plays it cool about the cards.<br><br><b>The “once” is a lie, and the lie is the clue.</b> Later they find his gear, the ballroom rigged as a stage and his old rig upstairs, and realise he’s been here plenty.<br><br><b>Yobo’s arc opens here.</b> The crew clocks him — <i>“you’re the Dolly Parton guy — do a little riff”</i> — and he has to perform the lie. Roll his Performance <b>in secret, at disadvantage</b> (juggling the lie is the debuff) and hand him a note that something inside him is making it inauthentic, revealing a line of it as each beat comes up. It plants the debuff that pays off in the party room on Sunday.",
+  {n:4,title:"The gazebo",where:"Town · the bad kids",s:"doc",par:"town",body:"The gazebo <i>near the school</i> where the Bad Kids smoke — where they meet <b>DJ Poe Boy</b> and his entourage, and where <b>Angelique tries to warn them and can’t</b> because the rest of the crew is standing right there — all she gets out is a side-eye.<br><br><b>What Poe Boy gives them here is almost nothing.</b> Asked about the house, he says he’s <b>been up there once</b> — with a shrug — and nothing else. He plays it cool about the cards.<br><br><b>The “once” is a lie, and the lie is the clue.</b> Later they find his gear, the ballroom rigged as a stage and his old rig upstairs, and realise he’s been here plenty.<br><br><b>Yobo’s arc opens here.</b> The crew clocks him — <i>“you’re the Dolly Parton guy — do a little riff”</i> — and he has to perform the lie. That's his first Performance check: hand John the secret card <b>The Weight of Your Lies</b> — <b>disadvantage on Performance, advantage on Deception</b>, until he tells the truth. It pays off in the party room on Sunday.",
     bridge:{cue:"Whoever’s wearing a watch — it’s ten to seven. That’s the time on the card.",
       note:"A clock nudge, not a crowd. What’s waiting at the top of the hill: empty road, no cars, no light in any window — and <b>the boards are off the front door</b>, pried away and stacked neat against the porch rail. That is the only thing about this house that has changed in decades, and it is the invitation. <b>The emptiness is the wrongness</b>: no line to join and no social default to hide behind, so going in is curiosity and the assignment and nothing else.<br><br>And if they sprang the trap in the records hall, <b>they’ve already summoned the villain without knowing it</b> — Ostrander’s in his car, and nobody at the table finds out until 3AM.",
       q:"The DJ poster isn’t handed out here. If Spencer makes it, it’s taped on the locked AIM-room door."}},
@@ -792,8 +792,8 @@ const FLOW = [
         ]},
       q:"<b>Every PC has a room.</b> Gnomey’s study, Bix and Yobo’s party room and Cody’s cellar run in any order. Simone’s computer room upstairs is locked, and it comes last."}},
 
-  {n:11,title:"The party room",where:"Sunday · Bix & Yobo",s:"doc",par:"rooms",body:"<b>The party room</b> — the night Edward and Goblinenon’s cart broke down and they found two vampires partying. Bottles, a record still on the turntable, forty years of dust on somebody’s good night.<br><br><b>Bix finds the photograph here</b> — four figures, two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. <b>Bix beat three, and the payoff of the other two:</b> hand Will the <b>printed photograph</b> and say nothing. Both his parents in it carry the distinctive trait Will picks for Bix (still to get from him). Bix’s player does the arithmetic in front of everybody — a pregnant goblin, in this house, roughly his age ago, standing next to a man who is still here. <b>It's a print: hand Will the 4×6 photo and say nothing.</b><br><br><b>Yobo’s turn runs this room in three layers.</b> <b>1 · Blend in</b> — the frozen party wakes and treats the PCs as guests, so they have to match the revelers (take a glass, join the dance, mirror the mood); missteps tick a <b>Revel meter</b> toward hostile, and masked Yobo’s Deception edge actually helps here. <b>2 · Spot the difference</b> — the loop is glitching: the room is almost the photograph, and six things in it are wrong. The table holds the <b>printed photograph</b> and taps each thing on the iPad that doesn’t match it. A wrong tap ticks the Revel meter, and the meter creeps while the loop stays broken. <b>Bix’s photo is the key</b>, so his find and Yobo’s turn are one puzzle. <b>3 · The song</b> — the host calls for entertainment and only Yobo can give it. The room rewards a <i>true</i> performance, not a high roll: a masked turn curdles the ghosts to menace (the scare), but with <b>Dracula pushing him he drops the Dolly-Parton lie</b> — the party erupts, the ghosts embrace, the way opens, and his Performance/Inspiration debuff flips to a buff for the rest of the campaign. Prop at <code>/party-room/</code>.",
-    bridge:{cue:"The photograph’s in hand and the ghost-party has gone still again.",
+  {n:11,title:"The party room",where:"Sunday · Bix & Yobo",s:"doc",par:"rooms",body:"<b>The party room</b> — the night Edward and Goblinenon’s cart broke down and they found two vampires partying. Bottles, a record still on the turntable, forty years of dust on somebody’s good night.<br><br><b>Bix finds the photograph here</b> — four figures, two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. <b>Bix beat three, and the payoff of the other two:</b> hand Will the <b>printed photograph</b> and say nothing. Both his parents in it carry the distinctive trait Will picks for Bix (still to get from him). Bix’s player does the arithmetic in front of everybody — a pregnant goblin, in this house, roughly his age ago, standing next to a man who is still here. <b>It's a print: hand Will the 4×6 photo and say nothing.</b><br><br><b>Then the frozen party.</b> Nothing in the room moves until someone performs, and only Yobo can give it. His Performance check runs <b>at disadvantage</b> — the weight of the lie. <b>Dracula appears</b>, sees what's holding him back, and pushes him to live as his true self.<br>· <b>If John drops the Dolly-Parton lie</b>, hand him <b>Your True Voice</b> — advantage on Performance and a Bardic Inspiration boost — and the party erupts.<br>· <b>If he stays masked</b>, the ghosts curdle to menace. That's the scare.",
+    bridge:{cue:"The photograph’s in hand and the ghost-party has gone quiet again.",
       note:"The photograph and Yobo’s turn both land in this room. Where they head next is up to them."}},
 
   {n:12,title:"The food-stash puzzle — and the infirmary",where:"The cellar",s:"doc",par:"rooms",body:"A puzzle reveals the vampires' food stash — the surprise being it's small animals, not people. Solving it releases a key to a hidden room. This is the proof that clears the vamps.<br><br><b>The room is an animal infirmary, and Orlok is a vet.</b> The party comes down braced for a slaughterhouse and finds straw-lined crates of healing patients — a fox in a splint, an owl with a wrapped wing — bandages, a mortar and pestle, whittled bone splints, a ledger. <b>He doesn't kill the animals; he mends them, and they willingly give a little blood in return.</b> The reveal flips in one breath from <i>“what happened down here”</i> to <i>“…it's a clinic.”</i> (Vinny's forty-year-old liquor crates are still stacked at the back — this is Gnomey's cellar too.)<br><br><b>Russ badge requirement 2: “tend your elder's garden.”</b> Russ kneels to a patient and <b>Speak with Animals is where the exoneration lands</b> — the animals aren't afraid, they're grateful, and no vampire required to vouch for them. Woven in: the old one's medicine keeps dying. In the corner are dead, ghost-white <b>seedlings</b> straining toward light that isn't there — Orlok has tried for years to grow <b>Sun's-mercy</b>, the sun-flower that mends wounds, and it always withers in the dark. Russ moves them into the cellar's one blade of daylight (Plant Growth / a Nature check / a slot), they open gold, and he dresses the worst-off animal's wound on the spot. Orlok watches a child do in an afternoon what beat him for a century — and still won't sign the card.",
@@ -960,9 +960,9 @@ const DOCS = [
   ["Library History Clippings","BUILT — /puzzle/ · the volume is intact until they open it and the trap cuts it up. Now carries the <b>checkout card</b>: E. Hoeck (a blood tie — was pointed at John, now unclaimed since Yobo's connection is the party-room arc), U. M. Livingsworth III (Poe Boy's real name, four years ago) and W. Ostrander (the developer — proposal). Still an invented 1937 newspaper; the actual source is a 1973 Frisian legend.","ai"],
   ["AIM chat with the Spirit","BUILT — /aim/ · the backpack + USB branch, and <b>the soul transfer</b>: the willow, the drive mounting under his name, the second ask, a hold point for playing the price at the table, a real no-path, and the ritual itself — which reads as an ordinary file transfer until the progress bar exceeds its own boundaries. Set the kid's name with <code>/aim/?name=Marcus</code>.","doc",""],
   ["The Articles of Settlement","<b>BUILT — /settlement/</b> · the drunken 1931 contract from the strongbox in the study. Opens folded; tap to unfold. Crossed-out hours, eleven dollars and forty cents, the bearer-of-the-deed clause, the struck-through snoring clause, Dracula witnessing as a non-notary, and Vinny's margin note. <b>The bearer paragraph is the only one on the page with no corrections in it</b> — that's the joke and the plot in one paragraph, and it is set apart visually. Signed <b>C. Dood</b>, in a second hand.","doc",""],
-  ["The photograph","<b>BUILT — print only</b> · a <b>4×6 Staples photo print</b> of the painted snapshot; there is no digital page and nothing on the back. Four figures — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. <b>Hand Will the print and say nothing</b> — he gets the goblin before he gets the fae. The art is a storybook-gouache painting styled as a 1979 flash snapshot. 🟡 The parents are drawn to echo Will's description of Bix — Goblinenon is short and dark green with long ears and small brown leather boots, and Edward has notches in one ear — and none of those looks are in the doc. 🟡 The date stamp reads <code>10 31 '79</code> and is a guess, since Bix's age is never fixed.<br>It doubles as the <b>key to the party-room spot-the-difference</b> (<code>/party-room/</code>).","doc",""],
-  ["The printed photograph","NOT PRINTED YET · <b>Bix's physical prop.</b> The 4×6 photo print, handed to Will in the party room, and the key the table holds for the spot-the-difference.","doc",""],
-  ["The frozen party (party room)","<b>BUILT — /party-room/</b> · the digital half of Yobo's party-room turn, a <b>spot-the-difference</b>: the live room is almost Bix's photograph, and six things in it are wrong. The table holds the printed photo and taps what doesn't match; wrong taps and a slow creep raise the <b>Revel meter</b> to a curdle (the scare). 🟡 The six differences are the prop's own. When all six are put right the host calls for a song, which is Yobo's Performance check at the table, with DM buttons for a true vs. a borrowed voice. Audio is fully synthesised — no asset files.","doc",""],
+  ["The photograph","<b>BUILT — print only</b> · a <b>4×6 Staples photo print</b> of the painted snapshot; there is no digital page and nothing on the back. Four figures — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. <b>Hand Will the print and say nothing</b> — he gets the goblin before he gets the fae. The art is a storybook-gouache painting styled as a 1979 flash snapshot. 🟡 The parents are drawn to echo Will's description of Bix — Goblinenon is short and dark green with long ears and small brown leather boots, and Edward has notches in one ear — and none of those looks are in the doc. 🟡 The date stamp reads <code>10 31 '79</code> and is a guess, since Bix's age is never fixed.","doc",""],
+  ["The printed photograph","NOT PRINTED YET · <b>Bix's physical prop.</b> The 4×6 photo print, handed to Will in the party room.","doc",""],
+  ["Yobo's two secret cards","NOT BUILT · being built at <code>/yobo/</code>. Two printed cards for John: <b>The Weight of Your Lies</b> (at his first Performance check, the gazebo riff: disadvantage on Performance, advantage on Deception, until he tells the truth) and <b>Your True Voice</b> (after he tells the truth: advantage on Performance and a Bardic Inspiration boost). 🟡 The wording is the prop's, waiting on Scott.","doc",""],
   ["The developer's site assessment","<b>BUILT — /survey/</b> · a faxed, photocopied 2004 internal memo from the developer's office: the mega mall, W. Ostrander, and a site that doesn't know what's in it. Prints on plain paper (<code>print/4-plain.pdf</code>). A floating find, handed over during one of the times they look around a room. 🟡 The company, the mall's name, the dates, numbers and site notes are the prop's own — <b>needs Scott's review</b>.","ai",""],
   ["The deed","<b>BUILT — /deed/</b> · <b>Gnomey's physical prop.</b> The 1931 deed to Dood Mansion, conveyed to the bearer under the Articles of Settlement and carrying the same DOOD seal. Letter size — <b>print it at Staples</b> (see the print list). <b>Uncle Vinny hands it to Julia in the ending scene</b>; until then the strongbox in the study only has the empty slot.","doc",""],
   ["The USB stick","NOT BOUGHT · a real thumb drive handed to the players when the Spirit uploads. <b>Set its volume label to <code>MARCUS_HALE</code></b> (FAT32 allows 11 characters), because the mount is the moment the table learns who he is. There is no audio file to put on it; the recording is narrated.","doc",""],
@@ -1358,6 +1358,7 @@ const TODO_LIST = [
    "<b>Backstory reminder cards</b>, one per PC \u2014 <code>/backstory/</code>. Built. Six 5\u00d77 cards (one per PC and a shared Transyltown card), two per sheet, in the cardstock order.",
    "<b>Concert tickets</b> \u2014 <code>/tickets/</code>. Built: two thermal-style tickets to <b>Total Party Kill</b> at the Transyltown Armory, Sat Jun 25 2005, on one sheet, in the cardstock order. Ready to print.",
    "<b>The developer's site assessment</b> \u2014 <code>/survey/</code>. Built: a faxed, photocopied 2004 memo, one page in <code>4-plain.pdf</code> on plain paper. A floating find, handed over during one of the times they look around a room.",
+   "<b>Yobo's two secret cards</b> \u2014 <i>The Weight of Your Lies</i> and <i>Your True Voice</i>. Being built at <code>/yobo/</code>; print once built.",
    "<b>Handmade, not printed:</b> the AIM sticky note (<code>Fluffy123</code>) and the wishing willow, which Scott makes entirely by hand."
   ]
  },
@@ -1389,7 +1390,7 @@ const TODO_LIST = [
   "c": "Handout",
   "done": 1,
   "ans": "Done \u2014 in the painted photograph",
-  "note": "Will's trait is in the painted photograph: Goblinenon has short dark-green skin, long ears and small brown leather boots, and Edward has a notched ear, echoing Will's Bix. <code>/party-room/</code> uses the same painting, so both match. \ud83d\udfe1 The looks wait on Scott's review of the photo."
+  "note": "Will's trait is in the painted photograph: Goblinenon has short dark-green skin, long ears and small brown leather boots, and Edward has a notched ear, echoing Will's Bix. \ud83d\udfe1 The looks wait on Scott's review of the photo."
  },
  {
   "id": "ip4",
@@ -1449,14 +1450,14 @@ const TODO_LIST = [
   "o": "scott",
   "c": "Prop",
   "done": 1,
-  "ans": "Four PCs get one; Yobo doesn't",
+  "ans": "Four PCs get a house prop; Yobo gets his two cards",
   "note": "Every player walks away holding something.",
   "steps": [
    "Bix (Will) \u2014 the <b>printed photograph</b>.",
    "Gnomey (Julia) \u2014 the <b>printed deed</b> (<code>/deed/</code>), handed over by Vinny in the ending scene.",
    "Simone \u2014 the <b>wishing willow</b>.",
    "Russ (Cody) \u2014 the <b>badge and requirements card</b>, both printed from <code>/badge/</code>.",
-   "Yobo (John) \u2014 <b>no physical prop.</b>"
+   "Yobo (John) \u2014 no house prop. He gets <b>two secret printed cards</b>: <b>The Weight of Your Lies</b> and <b>Your True Voice</b>."
   ]
  },
  {
@@ -1464,7 +1465,7 @@ const TODO_LIST = [
   "t": "Day-of bullet lists \u2014 Spencer and Scott",
   "o": "both",
   "c": "Weekend",
-  "ans": "Run of Show one-screen layout (in progress)",
+  "ans": "The Run of Show: a Setting narration and a numbered Pacing sequence per cue (in progress)",
   "note": "Spencer voices the NPCs: the dialogue and what each one reveals. Scott narrates and runs combat. Each of you writes a tight bullet list of what you need to remember on the day."
  },
  {
@@ -1478,14 +1479,12 @@ const TODO_LIST = [
  },
  {
   "id": "ip12",
-  "t": "The party room is a spot-the-difference \u2014 built",
+  "t": "The party room puzzle",
   "o": "scott",
   "c": "Prop",
-  "built": 1,
-  "review": 1,
-  "url": "../party-room/",
   "done": 1,
-  "note": "Live at <code>/party-room/</code>. The live room is almost Bix's photograph, and six things in it are wrong. The table holds the printed photo and taps what doesn't match; wrong taps tick the Revel meter, and it creeps while the loop stays broken. All six put right \u2192 the host calls for Yobo's song. \ud83d\udfe1 The six differences are the prop's own; swap them freely."
+  "ans": "The room is a performance beat",
+  "note": "The party room is Bix's photograph and Yobo's performance: the frozen party needs a performance, Dracula pushes him, and the truth earns him <b>Your True Voice</b>. Scott, 3 Nov."
  },
  {
   "id": "pp1",
@@ -1572,6 +1571,13 @@ const TODO_LIST = [
   "review": 1,
   "url": "../puzzle/",
   "note": "Live at <code>/puzzle/</code>. \ud83d\udfe1 The whole newspaper is the prop's own: the 1937 date, every name in it and the coffin count. Until Scott signs off it stays not canon."
+ },
+ {
+  "id": "h15",
+  "t": "Yobo's two secret cards",
+  "o": "scott",
+  "c": "Handout",
+  "note": "Two printed cards, handed to John in secret. <b>The Weight of Your Lies</b> at his first Performance check (the gazebo Dolly riff): disadvantage on Performance, advantage on Deception, until he tells the truth. <b>Your True Voice</b> after he tells the truth in the party room: advantage on Performance and a Bardic Inspiration boost. Being built at <code>/yobo/</code>; \ud83d\udfe1 the wording waits on Scott. Print them once built."
  },
  {
   "id": "h11",
@@ -1702,7 +1708,8 @@ const TODO_LIST = [
    "Run the clue chain against the two-ways-in rule: the cut-up page, the checkout card, the recording.",
    "Saturday ends wherever time runs out; the botched summoning closes Night 1 if the clock allows."
   ],
-  "top": 1
+  "top": 1,
+  "ans": "Being folded into the Run of Show's per-cue Pacing sequences"
  },
  {
   "id": "s8",
@@ -1737,7 +1744,7 @@ const TODO_LIST = [
    "Bix (Will) \u2014 <b>both done.</b> Mansion: he broke in one rainy night running from a foster home, and the party room is where he finds the photograph. Arc: Edward is his father, his mother Goblinenon was killed clearing this house, and Edward explains himself in the epilogue. The diary idea now has an obvious subject.",
    "Gnomey (Julia) \u2014 <b>both done.</b> He owns the house by the end: Great Uncle Vinny won it off Orlok at cards in 1931, title rests with whoever holds the deed, and Vinny hands it to him in the ending scene. Arc is quiet-and-overlooked to head of household, found alone in the study and paid off with the deed, the public claim and the renewal at the threshold. Childhood dares and the bad Halloween still stand underneath it.",
    "Simone \u2014 <b>both done.</b> Mansion: she sold the dead kid the wishing willow he wished on. Arc: the second ask, the goat's price, the smashed piggy bank, and the concert she gets anyway from the last person she'd want it from.",
-   "John (Yobo) \u2014 <b>both done.</b> Mansion: the party room, whose frozen ghost-party accepts only a true performance. Arc: the Dolly-Parton lie is a Performance/Inspiration debuff; Dracula pushes him; he tells the truth and it flips to a buff. Full build in /PROPOSALS.md; prop at /party-room/.",
+   "John (Yobo) \u2014 <b>both done.</b> Mansion: the party room, whose frozen ghost-party accepts only a true performance. Arc: two secret cards \u2014 <b>The Weight of Your Lies</b> (disadvantage on Performance, advantage on Deception) until he tells the truth, then <b>Your True Voice</b> (advantage on Performance, a Bardic Inspiration boost). Dracula pushes him.",
    "Cody \u2014 <b>both done.</b> A Firbolg druid (working name <b>Russ</b>, basically Russell from <i>Up</i>). Mansion: the cellar infirmary, where he tends Orlok's animals and grows Sun's-mercy. Arc: earning his <b>Assisting the Elderly</b> badge across three requirements and bonding with Orlok, who signs the card; his troop leader hands him the badge in the ending scene."
   ]
  },
@@ -1854,7 +1861,7 @@ const TODO_LIST = [
    "Bix \u2014 the room he sheltered in that rainy night, still the way he left it, with something in it that contradicts his memory: a second bedroll, a door barred from the inside, the diary. He thinks he knows what happened to him here. The house disagrees.",
    "Gnomey \u2014 SUPERSEDED. His house moment is the study: the card table with the last hand still on it, and a strongbox with the 1931 settlement and an empty slot where the deed should be. The old suggestion (the broken window with the crew's initials in the sill) is still a nice free detail if you want it somewhere else.",
    "Simone \u2014 she is the only PC who would recognise a soul cage for what it is. Give her the moment of naming what was done in the computer room out loud, before anyone else understands it. (Proposal only \u2014 this was a codex invention, never discussed by either of you.)",
-   "John (Yobo) \u2014 <b>the party-room turn.</b> The frozen ghost-party accepts only a true performance, so he has to drop the Dolly-Parton lie in front of everyone he performs for. Findable by the whole party (they recreate the photograph); load-bearing only for him. Prop at /party-room/.",
+   "John (Yobo) \u2014 <b>the party-room turn.</b> The frozen ghost-party accepts only a true performance, so he has to drop the Dolly-Parton lie in front of everyone he performs for. Findable by the whole party; load-bearing only for him. Dracula pushes him, and the truth earns him the <b>Your True Voice</b> card.",
    "Cody \u2014 SUPERSEDED. His room is the cellar infirmary: Russ tends Orlok's animals with Speak with Animals (which is where the exoneration lands) and grows Sun's-mercy in the cellar's one blade of daylight. It sits right on the food-stash puzzle, so the whole party opens the room and it lands hardest for him.",
    "Rule for all five: findable by the whole party, but only load-bearing for one of them. If a beat needs its owner present to work at all, it will not survive someone splitting off."
   ]
