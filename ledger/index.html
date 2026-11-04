@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <!--
-  PROP: Orlok's patient ledger — one folio of his register, in the cellar of Dood Mansion. Cody's room,
-  badge requirement 2. The party matches the crate tags (/ledger/tags/) against it and finds one patient
-  still in care with no crate: the doe, in the hidden infirmary behind Vinny's crates.
-  CANON: Orlok is a vet; the animals give a little blood, freely; a fox in a splint and an owl with a
-  wrapped wing; Vinny's liquor crates at the back; Sun's-mercy; Russ's Speak with Animals (Sesh 8);
-  Cornelis Dood is Orlok (Scott, 31 Aug). Puzzle design chosen by Scott, 3 Nov.
-  🟡 NOT CANON — invented by this prop (3 Nov), all logged in CANON.md: every patient past the fox and
-  the owl, the patient numbers, the dates, the injuries, the house rule at the top, the doe, "the old
-  room", the hidden room being Vinny's old raid room under the ballroom, the light-well, the trail, and
-  the fail-forward.
-  Printed, not on the iPad: the players get the paper folio. This page is the DM's copy; the DM tab confirms before showing notes (?dm=1 opens them).
-  PRINT: US Letter, portrait, 100%. Built into print/4-plain.pdf. The DM notes never print.
+  PROP: Orlok's register of patients: one printed page, found on the lectern in the cellar of Dood Mansion
+  (Cody's room, badge requirement 2). It shows the clinic and points at the Sun's-mercy.
+  CANON: Orlok is a vet; a fox in a splint and an owl with a wrapped wing; Sun's-mercy seedlings that need
+  light Orlok can't bring them; Russ blooms them (Sesh 8). Cornelis Dood is Orlok (Scott, 31 Aug). The cellar
+  is simply the clinic, and the ledger is a handout that points at the Sun's-mercy (Scott, 3 Nov).
+  🟡 NOT CANON YET, logged in CANON.md: every patient past the fox and the owl, the dates, the places, the
+  "bled" entries, and the margin notes.
+  Printed, not on the iPad. This page is the DM's copy; the brief under the page never prints.
+  PRINT: US Letter, portrait, 100%. Built into print/4-plain.pdf.
 -->
 <html lang="en">
 <head>
@@ -24,7 +21,7 @@
 <title>Register of Patients — Dood Mansion</title>
 <style>
   :root{
-    --paper:#efe4c8; --ink:#2a1a10; --ink2:#4a3020; --rule:#9fb3c4; --red:#a8322c; --fade:#7b6a52;
+    --paper:#efe4c8; --ink:#2a1a10; --ink2:#4a3020; --ink3:#3b3324; --rule:#9fb3c4; --red:#a8322c; --fade:#7b6a52;
     --f-hand:"Snell Roundhand","Apple Chancery","Zapfino",cursive;
     --f-fig:"Hoefler Text","Baskerville",Georgia,serif;
     --f-print:"Copperplate","Hoefler Text",Georgia,serif;
@@ -41,16 +38,14 @@
   }
 
   /* -------- screen chrome -------- */
-  .bar{width:100%; max-width:760px; display:flex; justify-content:space-between; align-items:center; gap:10px;
+  .bar{width:100%; max-width:760px; display:flex; justify-content:flex-start; align-items:center; gap:10px;
     -webkit-user-select:none; user-select:none}
-  .bar button, .bar a{
+  .bar button{
     font:600 15px -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; min-height:44px; min-width:44px;
-    padding:0 16px; border-radius:9px; border:1px solid #5a4430; background:#241a11; color:#e9dcc2; cursor:pointer;
-    display:inline-flex; align-items:center; gap:6px; text-decoration:none}
+    padding:0 16px; border-radius:9px; border:1px solid #5a4430; background:#241a11; color:#e9dcc2; cursor:pointer}
   .bar button[aria-pressed="true"]{background:#c9a13a; color:#1c1405; border-color:#c9a13a}
-  .bar .dmtab{font-size:12px; color:#7d6a52; background:transparent; border-color:#3a2c1e}
 
-  /* -------- the folio: one US Letter page -------- */
+  /* -------- the page: one US Letter sheet -------- */
   .page{
     width:100%; max-width:760px; aspect-ratio:8.5/11; position:relative; overflow:hidden;
     container-type:inline-size;
@@ -63,63 +58,53 @@
       url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .35  0 0 0 0 .22  0 0 0 0 .08  0 0 0 .22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
     box-shadow:0 24px 50px rgba(0,0,0,.75);
   }
-  .sheet{position:absolute; inset:0; padding:4.2% 5.5% 4% 7%; display:flex; flex-direction:column}
+  .sheet{position:absolute; inset:0; padding:4.2% 4.5% 4% 6%; display:flex; flex-direction:column}
 
   /* stationer's printed head */
-  .head{display:flex; align-items:flex-end; justify-content:space-between; border-bottom:.35cqi double var(--red); padding-bottom:.8cqi}
+  .head{display:flex; align-items:flex-end; justify-content:space-between; border-bottom:.35cqi double var(--red); padding-bottom:.8cqi; margin-bottom:1cqi}
   .head .t{font-family:var(--f-print); font-size:3.3cqi; letter-spacing:.14em; color:#3d2a1c}
   .head .t small{display:block; font-size:1.55cqi; letter-spacing:.2em; color:var(--fade); margin-top:.4cqi}
-  .head .fol{font-family:var(--f-print); font-size:1.7cqi; letter-spacing:.14em; color:var(--fade); text-align:right}
-  .head .fol .h{font-family:var(--f-hand); font-size:3.4cqi; letter-spacing:0; color:var(--ink); display:block; line-height:1}
-
-  .rule-line{font-family:var(--f-hand); font-size:2.85cqi; line-height:1.3; color:var(--ink2); margin:1.6cqi 0 1.2cqi; text-align:center}
-  .rule-line .sig{font-size:2.5cqi; margin-left:1.2cqi; white-space:nowrap}
+  .head .fol{font-family:var(--f-print); font-size:1.6cqi; letter-spacing:.14em; color:var(--fade); text-align:right; line-height:1.5}
+  .head .fol .h{font-family:var(--f-hand); font-size:3cqi; letter-spacing:0; color:var(--ink); margin-left:.6cqi}
 
   /* the register */
-  table{width:100%; border-collapse:collapse; table-layout:fixed; flex:1}
-  col.no{width:9%} col.pt{width:17%} col.cx{width:32%} col.ad{width:10%} col.bl{width:19%} col.rl{width:13%}
-  thead th{font-family:var(--f-print); font-weight:400; font-size:1.42cqi; letter-spacing:.1em; color:#3d2a1c;
-    text-align:left; vertical-align:bottom; padding:.6cqi .8cqi .7cqi; border-bottom:.25cqi solid var(--red); line-height:1.25}
-  thead th.bl{color:var(--red)}
+  table{width:100%; border-collapse:collapse; table-layout:fixed}
+  col.dt{width:8.5%} col.an{width:12.5%} col.fd{width:14%} col.in{width:15%} col.tr{width:17%} col.pr{width:18%} col.rl{width:15%}
+  thead th{font-family:var(--f-print); font-weight:400; font-size:1.3cqi; letter-spacing:.08em; color:#3d2a1c;
+    text-align:left; vertical-align:bottom; padding:.6cqi .7cqi .7cqi; border-bottom:.25cqi solid var(--red); line-height:1.25}
   tbody td{
-    font-family:var(--f-hand); font-size:2.42cqi; line-height:1.24; color:var(--ink);
-    vertical-align:top; padding:1cqi .8cqi .8cqi; border-bottom:.12cqi solid var(--rule);
+    font-family:var(--f-hand); font-size:2.08cqi; line-height:1.22; color:var(--ink);
+    vertical-align:top; padding:.75cqi .7cqi .6cqi; border-bottom:.12cqi solid var(--rule);
   }
   th + th, td + td{border-left:.14cqi solid rgba(168,50,44,.55)}
-  td.no{font-family:var(--f-fig); font-style:italic; font-size:2.3cqi; color:var(--ink2)}
-  td.ad, td.rl{font-size:2.3cqi}
-  td .fig{font-family:var(--f-fig); font-style:italic; font-size:.92em}
-  td .sp{display:block; font-size:.8em; color:var(--ink2)}
-  td.bl{color:#5a1f18}
-  td.open{color:var(--fade)}
+  td.dt{font-size:1.95cqi}
+  td .fig{font-family:var(--f-fig); font-style:italic; font-size:.9em}
+  td .sp{display:block; font-size:.82em; color:var(--ink2)}
+  td .later{display:block; color:var(--ink3); margin-top:.3cqi}
+  td.died{color:#5a1f18}
+  tr.blank td{height:5.6cqi}
+
+  /* the margin: written in more than once, in more than one ink */
+  .margin{margin-top:auto; padding-top:1.6cqi; display:flex; flex-direction:column; gap:.5cqi;
+    font-family:var(--f-hand); color:var(--ink2); transform:rotate(-1.2deg); transform-origin:left top; width:62%}
+  .margin p{margin:0; font-size:2.15cqi; line-height:1.25}
+  .margin p.old{color:#6d5f4b}
+  .margin p.new{color:#2b1c12}
+  .margin .fig{font-family:var(--f-fig); font-style:italic; font-size:.9em}
   .blot{position:absolute; border-radius:50%; background:radial-gradient(circle, rgba(30,15,8,.75) 0 40%, rgba(30,15,8,.25) 62%, transparent 70%)}
 
-  .foot{margin-top:1.6cqi; font-family:var(--f-hand); font-size:2.55cqi; line-height:1.35; color:var(--ink2)}
-  .foot .mem{font-family:var(--f-print); font-size:1.5cqi; letter-spacing:.14em; color:var(--fade); margin-right:1cqi}
+  /* plain-text reading aid (screen only) */
+  body.legible tbody td, body.legible .margin p, body.legible .head .fol .h{
+    font-family:var(--f-plain); font-style:normal; font-size:1.8cqi; line-height:1.28; letter-spacing:0}
 
-  /* plain-text reading aid for the table (screen only) */
-  body.legible tbody td, body.legible .rule-line, body.legible .foot, body.legible .head .fol .h{
-    font-family:var(--f-plain); font-style:normal; font-size:2.05cqi; line-height:1.3; letter-spacing:0}
-  body.legible .rule-line{font-size:2.2cqi}
-
-  /* -------- DM notes -------- */
-  #dm{width:100%; max-width:760px; background:#1d1712; color:#e6dccb; border:1px solid #4d3c2a; border-radius:12px;
+  /* -------- DM brief (screen only) -------- */
+  #dm{width:100%; max-width:760px; background:#1d1712; color:#d6cab4; border:1px solid #4d3c2a; border-radius:12px;
     padding:16px 18px; font:15.5px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-  #dm[hidden]{display:none}
-  #dm h2{font:600 19px "Hoefler Text",Georgia,serif; color:#f3e7cf; margin:18px 0 8px}
-  #dm h2:first-child{margin-top:0}
-  #dm p, #dm li{color:#d6cab4}
+  #dm h2{font:600 18px "Hoefler Text",Georgia,serif; color:#f3e7cf; margin:0 0 8px}
   #dm b{color:#fbf1dc}
-  #dm ul, #dm ol{padding-left:22px; margin:6px 0 10px}
-  #dm li{margin:4px 0}
+  #dm ul{padding-left:22px; margin:6px 0 0}
+  #dm li{margin:5px 0}
   #dm .canon{border-left:3px solid #e0b83a; background:#29211a; padding:8px 12px; border-radius:0 8px 8px 0; margin:0 0 10px}
-  #dm table{width:100%; border-collapse:collapse; font-size:14.5px; margin:6px 0 10px; table-layout:auto}
-  #dm th, #dm td{font:inherit; text-align:left; vertical-align:top; padding:6px 8px; border-top:1px solid #3e3124; color:#d6cab4}
-  #dm th{color:#a8977a; font-size:12.5px; text-transform:uppercase; letter-spacing:.05em}
-  #dm tr.hit td{background:#3a2a14; color:#fbe7b5}
-  #dm .q{font-family:"Hoefler Text",Georgia,serif; font-size:17px; color:#f6e2b8; border-left:3px solid #8a6a3a; padding:4px 12px; margin:8px 0}
-  #dm code{font:13.5px "SF Mono",Menlo,monospace; background:#120e0a; border:1px solid #3e3124; border-radius:5px; padding:1px 6px}
-  #dm a{color:#e0b83a}
 
   @media print{
     @page{size:letter portrait; margin:0}
@@ -135,129 +120,72 @@
 
 <div class="bar">
   <button type="button" id="legible" aria-pressed="false">Aa Plain text</button>
-  <button type="button" id="dmbtn" class="dmtab" aria-pressed="false" aria-label="DM notes">DM</button>
 </div>
 
-<div class="page" id="folio">
+<div class="page">
   <div class="sheet">
     <div class="head">
       <div class="t">Register of Patients<small>Admitted &middot; Treated &middot; Discharged</small></div>
-      <div class="fol">Folio<span class="h">sixty-one</span></div>
+      <div class="fol">Folio<span class="h">212</span><br>Year<span class="h">2005</span></div>
     </div>
 
-    <p class="rule-line">Nothing is taken from a patient in danger. Nothing is taken that is not offered.<span class="sig">&mdash; C. D.</span></p>
-
     <table>
-      <colgroup><col class="no"><col class="pt"><col class="cx"><col class="ad"><col class="bl"><col class="rl"></colgroup>
+      <colgroup><col class="dt"><col class="an"><col class="fd"><col class="in"><col class="tr"><col class="pr"><col class="rl"></colgroup>
       <thead><tr>
-        <th>No.</th><th>Patient</th><th>Complaint &amp; Care</th><th>Admitted</th>
-        <th class="bl">A little blood taken<br>(freely given)</th><th>Released</th>
+        <th>Date</th><th>Animal</th><th>Where found</th><th>Injury</th><th>Treatment</th><th>Progress</th><th>Released</th>
       </tr></thead>
       <tbody id="rows"></tbody>
     </table>
 
-    <p class="foot"><span class="mem">Mem.</span>The Sun&rsquo;s-mercy has failed again. Seedlings white as paper, every one leaning to the grate. They want the light, &amp; I cannot carry it to them.</p>
+    <div class="margin">
+      <p class="old" style="opacity:.88">Sun&rsquo;s-mercy, 2<sup>nd</sup> sowing. Damped off.</p>
+      <p class="old">Sun&rsquo;s-mercy, 3<sup>rd</sup> sowing. Damped off.</p>
+      <p class="new">Sun&rsquo;s-mercy, 4<sup>th</sup> sowing. Up. White. Leaning to the grate. Wants light.</p>
+    </div>
   </div>
-  <i class="blot" style="left:83%;top:37.5%;width:1.6%;aspect-ratio:1"></i>
-  <i class="blot" style="left:94%;top:93%;width:1.1%;aspect-ratio:1;opacity:.7"></i>
+  <i class="blot" style="left:61%;top:38%;width:1.3%;aspect-ratio:1"></i>
+  <i class="blot" style="left:93%;top:94%;width:1.1%;aspect-ratio:1;opacity:.7"></i>
 </div>
 
-<section id="dm" hidden>
-  <h2>Orlok's ledger &mdash; DM notes</h2>
-  <p class="canon">🟡 <b>Not canon yet.</b> The players get this as a <b>printed folio</b> (plain paper, in the print kit); this page is the DM's copy, and the DM tab asks before it shows these notes. Print the <a href="tags/">crate tags</a> on cardstock. Built 3 Nov for Scott's review. Scott chose the design (ledger + crate tags, one patient unaccounted for). Every patient past the fox and the owl, the numbers, the dates, the doe and where she is are this prop's invention, logged in <code>CANON.md</code>.</p>
-
-  <h2>The set-up</h2>
+<section id="dm">
+  <h2>DM brief</h2>
+  <p class="canon">🟡 Not canon yet. Every patient past the fox and the owl, the dates, the places, the bleeding and the margin notes are this prop's, logged in <code>CANON.md</code>.</p>
   <ul>
-    <li><b>The cellar</b> (stair down from the kitchen): straw-lined crates along the walls, a lamp, and the ledger open on a lectern by the stair. The read-aloud from the run sheet lands here: <i>a fox in a splint, an owl with a wrapped wing. It isn't a slaughterhouse. It's a clinic.</i></li>
-    <li><b>Six crates carry tags</b> (print: <a href="tags/">crate tags</a>, cardstock). Hand a tag over each time someone checks a crate, or all six at once if the table is slow.</li>
-    <li><b>Vinny's liquor crates</b> are stacked against the back (east) wall, forty years of dust on them. One stack is a door: it swings on a hinged pallet into <b>Vinny's old raid room</b>, dug under the ballroom floor, where he hid the good stock when the law came up the hill. Orlok made it his infirmary.</li>
-    <li>The dates read <i>ult.</i> (last month) and <i>inst.</i> (this month), the way a nineteenth-century hand keeps books. Nothing in the puzzle turns on them.</li>
+    <li>Printed page. It's open on the lectern in the cellar, by the stair. Hand it over when someone picks it up.</li>
+    <li>The fox and the owl are in the room, still in care: the fox on a blanket in her splint, the owl on a perch with the wing bound.</li>
+    <li>&ldquo;Bled&rdquo; in the treatment column is where his blood comes from. Don't explain it. If they ask, it's old medicine.</li>
+    <li>The margin notes point at the tray of white seedlings by the grate. Russ blooms them: Nature or Plant Growth DC 14, or a spell slot. Badge requirement 2. Orlok still won't sign (2 of 3).</li>
+    <li>Speak with Animals: the patients say he feeds them, mends them and lets them go.</li>
   </ul>
-
-  <h2>The solution (about ten minutes)</h2>
-  <p>Eight patients in the book. Three are released. Five are still in care, and only four of them are in a crate.</p>
-  <table>
-    <tr><th>No.</th><th>Patient</th><th>Status</th><th>Crate tag?</th></tr>
-    <tr><td>1183</td><td>Grey squirrel</td><td>Released</td><td>Tag on an empty crate, straw cold</td></tr>
-    <tr><td>1184</td><td>Little brown bat</td><td>Released</td><td>No tag (a released patient: fine)</td></tr>
-    <tr><td>1185</td><td>Red fox, vixen &mdash; splint</td><td>In care</td><td>Yes</td></tr>
-    <tr><td>1186</td><td>Raccoon &mdash; burnt paws</td><td>In care</td><td>Yes</td></tr>
-    <tr><td>1187</td><td>Barn owl &mdash; wing bound</td><td>In care</td><td>Yes</td></tr>
-    <tr><td>1188</td><td>Crow</td><td>Released</td><td>Tag on an empty crate, straw cold</td></tr>
-    <tr><td>1189</td><td>Opossum &amp; six young</td><td>In care</td><td>Yes</td></tr>
-    <tr class="hit"><td>1190</td><td>Whitetail doe &mdash; torn flank, fever</td><td><b>In care</b></td><td><b>No crate anywhere. She's the one.</b></td></tr>
-  </table>
-  <p>Her entry says she's kept <b>quiet in the old room</b>, and no blood has been taken because she wouldn't survive it. Once they know they're looking for a <b>deer</b>, the trail is plain:</p>
-  <ul>
-    <li><b>Hoof-scuffs and drag marks in the dust</b> run to Vinny's stack. Investigation or Perception <b>DC 10</b> once they know what to look for; DC 18 if they're searching blind.</li>
-    <li>A <b>lamp hook</b> on the stack with fresh drips of wax, and a smear of salve on the pallet edge.</li>
-    <li>The stack swings. Behind it: the infirmary.</li>
-  </ul>
-
-  <h2>Russ's shortcut</h2>
-  <p><b>Speak with Animals skips the ledger.</b> The patients say it outright: they're fed, mended, and they let him take a little because he asks. Ask any of them who's missing and they'll tell Russ.</p>
-  <p class="q">Fox: &ldquo;The deer. He took her through the bottles. She smells bad. Not dead-bad. Hot-bad.&rdquo;</p>
-  <p class="q">Opossum: &ldquo;He sits with her. All day. Then he sits with us.&rdquo;</p>
-  <p class="q">Owl, unimpressed: &ldquo;He reads to the crow. The crow doesn't deserve it.&rdquo;</p>
-
-  <h2>Fail-forward</h2>
-  <p>If they stall, push one rung at a time:</p>
-  <ol>
-    <li><b>~5 min:</b> a hoof knocks against wood somewhere behind the bottles. Then a long, wet breath.</li>
-    <li><b>~8 min:</b> any check on the ledger: point at the one entry with <b>no release and no crate</b>, and at <i>&ldquo;the old room.&rdquo;</i></li>
-    <li><b>Still stuck:</b> Orlok on the stair, without looking at them: <i>&ldquo;She's through there. Mind the stitches. Don't let the lamp near her eyes.&rdquo;</i> It costs the scene some magic and none of the reveal.</li>
-  </ol>
-
-  <h2>In the infirmary &mdash; badge requirement 2</h2>
-  <ul>
-    <li>A table scrubbed white, bandages, a mortar and pestle, a chair pulled close to a straw bed. <b>The doe</b> is on it: eleven stitches, fevered, too weak to stand. She's the <b>worst-off patient</b> Russ dresses.</li>
-    <li>Pots of <b>Sun's-mercy</b> seedlings, dead white, all leaning toward a <b>light-well grate</b> high in the wall that opens under the terrace. Orlok can't stand in its light, so the pots sit just out of it.</li>
-    <li><b>Tend your elder's garden:</b> Russ moves them into the light from the grate, or channels it (Nature / Plant Growth DC 14, or a spell slot, as on the run sheet). They open gold. He dresses the doe's wound with it.</li>
-    <li>Orlok watches a child do in an afternoon what beat him for a century. <b>He still won't sign</b>: refusal 2 of 3.</li>
-  </ul>
-
-  <h2>Seams for Scott</h2>
-  <ul>
-    <li><b>Daylight at night.</b> In the fiction the house runs 7PM to 3AM, so the grate may hold moonlight, not sun. If so, the channelled version is the only one that works.</li>
-    <li><b>The run sheet's cue 12</b> says the puzzle <i>releases a key</i> and puts the fox and owl in the hidden room. This prop puts the tagged crates in the outer cellar and the hidden room behind Vinny's crates, with no key.</li>
-    <li><b>The raccoon's burns</b> come from <i>the new wire along the east wall</i>: a quiet nod to the hot-wired power. Cut the line if it says too much.</li>
-  </ul>
-  <p><a href="../map/">House map &rarr;</a> shows the cellar, the stack and the raid room.</p>
 </section>
 
 <script>
-  // Orlok's register. Shared shape with /ledger/tags/: change a patient here and there.
+  // Orlok's register. Dates are this spring; the year is in the head.
   var ROWS = [
-    {no:1183, pt:"Grey squirrel", cx:"Tail crushed under a fallen limb. Dressed.", ad:"21st ult.", bl:"a few drops, 2nd inst.", rl:"4th inst. To the oak by the gate."},
-    {no:1184, pt:"Little brown bat", cx:"Tear in the left wing. Stitched with silk.", ad:"24th ult.", bl:"one drop, 30th ult.", rl:"1st inst., at dusk."},
-    {no:1185, pt:"Red fox", sp:"a vixen", cx:"Right foreleg broken in a snare. Set &amp; splinted. Bites the splint.", ad:"27th ult.", bl:"&frac12; dram, 9th inst.", rl:""},
-    {no:1186, pt:"Raccoon", cx:"Both forepaws burnt on the new wire along the east wall. Comfrey salve, linen.", ad:"3rd inst.", bl:"&frac12; dram, 11th inst.", rl:""},
-    {no:1187, pt:"Barn owl", cx:"Left wing torn on fence wire. Bound to the body. Eats well.", ad:"6th inst.", bl:"a few drops, 14th inst.", rl:""},
-    {no:1188, pt:"Crow", cx:"Birdshot in the shoulder, three pellets drawn. Abusive.", ad:"8th inst.", bl:"&frac12; dram, 15th inst.", rl:"17th inst. He will be back."},
-    {no:1189, pt:"Opossum", sp:"&amp; six young", cx:"Struck by a motor-car on the hill road. Hind leg bruised, not broken.", ad:"12th inst.", bl:"None. She is nursing.", rl:""},
-    {no:1190, pt:"Whitetail doe", sp:"a yearling", cx:"Flank torn by dogs, deep. Washed &amp; stitched, eleven. Fever. Kept quiet in the old room. Sat with her.", ad:"16th inst.", bl:"None. She would not live.", rl:""}
+    {dt:"Mar. 11", an:"Grey squirrel", fd:"Under the beech, north lawn", in:"Tail crushed, fallen limb", tr:"Cleaned. Dressed.", pr:"Eating. Climbs the crate.", rl:"Mar. 22. The beech."},
+    {dt:"Mar. 15", an:"Little brown bat", fd:"Ball room, behind the drapes", in:"L. wing torn", tr:"Stitched, silk.", pr:"Flies the length of the room.", rl:"Mar. 30, at dusk. From the terrace."},
+    {dt:"Mar. 19", an:"Crow", fd:"Hill road", in:"Birdshot, R. shoulder", tr:"Three pellets drawn. Bled 1 dr.", pr:"Eating. Abusive.", rl:"Apr. 1. Will be back."},
+    {dt:"Mar. 27", an:"Red fox", sp:"vixen", fd:"Snare, the lower wood", in:"R. foreleg broken", tr:"Set. Splinted. Bled &frac12; oz.", pr:"Splint bitten through. Reset.", later:"Apr. 14. Reset. Eating.", rl:""},
+    {dt:"Apr. 2", an:"Raccoon", fd:"Rear yard", in:"Tin on the head. Cut about the neck.", tr:"Tin removed. Washed. Bled &frac12; oz.", pr:"Eating. Unrepentant.", rl:"Apr. 9. The creek."},
+    {dt:"Apr. 5", an:"Barn owl", fd:"Fence wire, hill road", in:"L. wing torn", tr:"Wing bound to the body. Bled 1 dr.", pr:"Eats well.", later:"Apr. 19. Bound again. Not yet.", rl:""},
+    {dt:"Apr. 9", an:"Opossum", sp:"& six young", fd:"Hill road. Motor-car.", in:"Hind leg bruised", tr:"Rest. Nursing.", pr:"Young thriving. Six.", rl:"Apr. 20. The lower wood."},
+    {dt:"Apr. 13", an:"Mourning dove", fd:"Drawing room window", in:"Struck the glass", tr:"Kept dark.", pr:"Flew.", rl:"Apr. 13."},
+    {dt:"Apr. 21", an:"Cottontail", sp:"kit", fd:"Under the porch. The cat.", in:"Bitten, flank", tr:"Washed. Dressed.", pr:"", died:"Apr. 22. Died.", rl:""}
   ];
   var figs = function(s){ return s.replace(/(\d+)(st|nd|rd|th)\b/g, '<span class="fig">$1<sup>$2</sup></span>'); };
+  var amp = function(s){ return s.replace(/&(?![a-z#]+;)/g, '&amp;'); };
   document.getElementById('rows').innerHTML = ROWS.map(function(r){
-    return '<tr><td class="no">' + r.no + '</td>' +
-      '<td>' + r.pt + (r.sp ? '<span class="sp">' + r.sp + '</span>' : '') + '</td>' +
-      '<td>' + r.cx + '</td>' +
-      '<td class="ad">' + figs(r.ad) + '</td>' +
-      '<td class="bl">' + figs(r.bl) + '</td>' +
-      '<td class="rl' + (r.rl ? '' : ' open') + '">' + figs(r.rl) + '</td></tr>';
-  }).join('');
+    return '<tr><td class="dt">' + r.dt + '</td>' +
+      '<td>' + r.an + (r.sp ? '<span class="sp">' + amp(r.sp) + '</span>' : '') + '</td>' +
+      '<td>' + r.fd + '</td><td>' + r.in + '</td><td>' + r.tr + '</td>' +
+      '<td' + (r.died ? ' class="died"' : '') + '>' + (r.died || r.pr) + (r.later ? '<span class="later">' + r.later + '</span>' : '') + '</td>' +
+      '<td>' + figs(r.rl) + '</td></tr>';
+  }).join('') + '<tr class="blank"><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>'.repeat(2);
 
-  // reading aid for the players, and the DM notes
-  var leg = document.getElementById('legible'), dmb = document.getElementById('dmbtn'), dm = document.getElementById('dm');
+  var leg = document.getElementById('legible');
   leg.addEventListener('click', function(){
     var on = document.body.classList.toggle('legible'); leg.setAttribute('aria-pressed', on);
   });
-  function showDM(on){ dm.hidden = !on; dmb.setAttribute('aria-pressed', on); if(on) dm.scrollIntoView({behavior:'smooth'}); }
-  dmb.addEventListener('click', function(){
-    if(dm.hidden && !confirm('DM notes: spoilers for this puzzle. Open them?')) return;
-    showDM(dm.hidden);
-  });
-  if(/[?&]dm=1/.test(location.search)) showDM(true);
 
   document.addEventListener('touchmove', function(e){ if(e.scale && e.scale !== 1) e.preventDefault(); }, {passive:false});
 </script>

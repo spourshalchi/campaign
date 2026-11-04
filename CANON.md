@@ -211,35 +211,23 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
   paste's *"he does not know what's in the house"*. The memo says *squatters*, not vampires, so it holds, but
   cut the line if it says too much.
 
-- **Orlok's patient ledger in `/ledger/`** (printed on plain paper, `print/4-plain.pdf` p.2)
-  **and the crate tags in `/ledger/tags/`** (cardstock, `print/1-cardstock.pdf` p.11) — built 3 Nov, awaiting
-  Scott's review. **⚠ Redesigned by Scott, 3 Nov** (decisions table, finale section): no crates, no missing
-  patient, no hidden room, so the crate tags, the doe trail, the hinged pallet and the raid-room surgery below
-  are cut, and the ledger's margin notes should point to the seedlings by the grate. The prop needs that pass. **The design is Scott's** (Scott, 3 Nov): crate tags matched against the ledger; one patient
-  unaccounted for; following it finds the hidden infirmary and badge requirement 2; Russ's Speak with Animals is
-  the shortcut. Canon behind it: Orlok is a vet, the animals give a little blood freely, the fox in a splint and
-  the owl with a wrapped wing, Vinny's crates at the back, Sun's-mercy (Sesh 8). Everything else is the prop's:
-  - the register itself — *Folio sixty-one*, patient numbers **1183–1190**, dates written *ult.*/*inst.* so no
-    month or year is fixed, and the house rule at the top, *"Nothing is taken from a patient in danger. Nothing is
-    taken that is not offered. — C. D."*;
-  - the six patients past the fox and the owl: a grey squirrel and a little brown bat (released), a raccoon with
-    paws burnt on *"the new wire along the east wall"* (a nod to the hot-wired power), a crow (released, *"He will
-    be back"*), an opossum nursing six young, and **the missing patient: a whitetail doe**, torn by dogs, eleven
-    stitches, fevered, *"kept quiet in the old room"*, no blood taken *"She would not live"*;
-  - the tags: six crates tagged (two of them empty, released patients), no tag for the bat or the doe;
-  - the trail (hoof-scuffs and drag marks to Vinny's stack, DC 10 once they know it's a deer), a lamp hook with
-    fresh wax, and **a stack of Vinny's crates that swings on a hinged pallet**;
-  - **the hidden infirmary is Vinny's old raid room**, dug under the ballroom, where he hid the good stock from
-    the law; Orlok turned it into his surgery. It has a **light-well grate** under the terrace, and the doe is
-    the worst-off patient Russ dresses;
-  - the fail-forward ladder (a hoof knocking behind the bottles; point at the entry; Orlok on the stair: *"She's
-    through there. Mind the stitches."*) and the animals' lines to Russ;
-  - the *Mem.* at the foot of the page that plants the Sun's-mercy failing in the dark.
-
-  **Two seams.** In the fiction the house runs 7PM–3AM, so the grate holds moonlight, not *"the cellar's one
-  blade of daylight"* (Sesh 8); the channelled version (Plant Growth / a spell slot) is the one that works. And
-  the run sheet's cue 12 still puts the fox and the owl *in* the hidden room; this prop has the tagged crates in
-  the outer cellar and only the doe and the seedlings behind the door.
+- **Orlok's register of patients in `/ledger/`** (one printed page on plain paper, `print/4-plain.pdf` p.2) —
+  built 3 Nov, awaiting Scott's review. **The design is Scott's** (Scott, 3 Nov): the cellar is plainly Orlok's
+  clinic, and the ledger is a handout found on the lectern whose job is to point at the Sun's-mercy. It reads as a
+  real register, written by the author with nothing explained. Canon behind it: Orlok is a vet, the animals give a
+  little blood, the fox in a splint and the owl with a wrapped wing, Sun's-mercy (Sesh 8); Cornelis Dood is Orlok
+  (Scott, 31 Aug). Everything else is the prop's:
+  - the page itself: *Folio 212*, *Year 2005*, dated entries from Mar. 11 to Apr. 21, and the columns date, animal,
+    where found, injury, treatment, progress, released;
+  - the seven patients past the fox and the owl: a grey squirrel, a little brown bat, a crow (*"Abusive"*, *"Will be
+    back"*), a raccoon with a tin on its head, an opossum with six young, a mourning dove off the drawing-room
+    window, and a cottontail kit that died;
+  - the feeding, shown only as **"Bled 1 dr." / "Bled ½ oz."** in the treatment column for the crow, the fox, the
+    raccoon and the owl;
+  - the margin, in three inks: *"Sun's-mercy, 2nd sowing. Damped off."*, *"3rd sowing. Damped off."*, *"4th sowing.
+    Up. White. Leaning to the grate. Wants light."*;
+  - the screen-only DM brief under the page (where it's found, the fox and owl in the room, the Sun's-mercy check
+    as on the run sheet).
 - **The house map in `/map/`** — a DM map and a player plan (`print/4-plain.pdf` p.3) — built 3 Nov, awaiting
   Scott's review. The rooms and their beats are canon (Sesh 8, In Person Session, the 24 Aug doc paste,
   Scott 1–3 Nov); **the layout is the map's**:
