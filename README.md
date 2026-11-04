@@ -8,7 +8,7 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 
 ```
 .
-├── index.html        ← iPad home: numbered items 1–3 in story order, digital props only
+├── index.html        ← iPad home: numbered items 1–2 in story order, digital props only
 ├── aim/              ← Haunted AOL Instant Messenger prop
 │   ├── index.html
 │   └── sounds/
@@ -42,15 +42,14 @@ The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
 
 ## The iPad home page
 
-The landing page is what the players' iPad shows all night: three big numbered items in the order the story reaches them, labelled by room so nothing on the page spoils a scene. The [Run of Show](run/) puts **📱 iPad → item N** at the top of every cue that needs one, so the DM just taps the number.
+The landing page is what the players' iPad shows all night: two big numbered items in the order the story reaches them, labelled by room so nothing on the page spoils a scene. The [Run of Show](run/) puts **📱 iPad → item N** at the top of every cue that needs one, so the DM just taps the number.
 
 | # | Tile | Prop | Cue |
 |---|------|------|-----|
 | 1 | The Library | `puzzle/` — the torn Crier page | 3 · the hall of records, after the fight |
-| 2 | The Study | `settlement/` | 10 · the study |
-| 3 | The Computer | `aim/` | 13 · the old rig upstairs, always last |
+| 2 | The Computer | `aim/` | 13 · the old rig upstairs, always last |
 
-Sunday's three rooms run in any order; only the study has an iPad item (the party room and the cellar are all paper). Item 3 opens AIM with the dead kid already named Marcus Hale (the drive mounts as `MARCUS_HALE`); `aim/?name=` still overrides it. **Digital props only:** anything printed (the photograph, Yobo's cards, Orlok's ledger, the survey) is a hand-over, never an iPad item. The DM pages (codex, run, print) are deliberately not on it either.
+Sunday's three rooms run in any order and are all paper. Item 2 opens AIM with the dead kid already named Marcus Hale (the drive mounts as `MARCUS_HALE`); `aim/?name=` still overrides it. **Digital props only:** anything printed (the photograph, Yobo's cards, Orlok's ledger, the survey) is a hand-over, never an iPad item. The DM pages (codex, run, print) are deliberately not on it either.
 
 ## Current props
 

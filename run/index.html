@@ -459,9 +459,7 @@ const CUE_LABEL = {
 const IPAD = {
   1:{room:"The Library",    prop:"the torn Crier page",                 path:"/puzzle/",
      when:"After the fight: tap the bracket on the setup screen and set the pieces from the cut count &mdash; 1&ndash;2 cuts &rarr; 9, 3&ndash;4 &rarr; 16, 5+ &rarr; 25. Then hand it over."},
-  2:{room:"The Study",      prop:"the Articles of Settlement",          path:"/settlement/",
-     when:"Opens folded; they tap to unfold."},
-  3:{room:"The Computer",   prop:"AIM, the Spirit",                     path:"/aim/",
+  2:{room:"The Computer",   prop:"AIM, the Spirit",                     path:"/aim/",
      when:"Opens as <b>Marcus Hale</b>; the drive mounts as <code>MARCUS_HALE</code>. To force the name, open <code>/aim/?name=Marcus%20Hale</code>."}
 };
 
@@ -493,16 +491,16 @@ const SCENES = [
   checklist:[
     {g:"iPad", items:[
       {id:"ipad-charged", t:"<b>iPad charged</b>, charger in the bag."},
-      {id:"ipad-home", t:"<b>Props on its home page</b>, items 1&ndash;3. Add to Home Screen done and cache-busted (<code>?v=</code>)."}]},
+      {id:"ipad-home", t:"<b>Props on its home page</b>, items 1&ndash;2. Add to Home Screen done and cache-busted (<code>?v=</code>)."}]},
     {g:"Print &amp; props", items:[
-      {id:"print", t:"<b>Print run picked up and cut</b>: invites &times;6, backstory cards, Russ's card, the badge, the concert tickets, the deed, the survey, Orlok's ledger, Yobo's two secret cards."},
+      {id:"print", t:"<b>Print run picked up and cut</b>: invites &times;6, backstory cards, Russ's card, the badge, the concert tickets, the deed, the Articles of Settlement, the survey, Orlok's ledger, Yobo's two secret cards."},
       {id:"photo", t:"<b>The photograph</b>: a Staples 4&times;6 photo print of <code>print/photo-4x6.jpg</code>, glossy or lustre. Same-day at most stores."},
       {id:"usb", t:"<b>USB stick</b> labelled <code>MARCUS_HALE</code>."},
       {id:"piggy", t:"<b>The goat piggy bank</b> for Simone, if bought."}]},
     {g:"DM bag", items:[
       {id:"sticky", t:"<b>Sticky note</b> <code>Fluffy123</code>, handwritten."},
       {id:"willow", t:"<b>The wishing willow</b>, handmade, with its slip."},
-      {id:"deed", t:"<b>The deed</b> &mdash; hidden."},
+      {id:"deed", t:"<b>The deed</b> (printed) &mdash; hidden."},
       {id:"tickets", t:"<b>The concert tickets</b> (printed) &mdash; hidden."},
       {id:"badge", t:"<b>The badge</b> (printed) &mdash; hidden."}]},
     {g:"Laptop", items:[
@@ -526,7 +524,7 @@ const SCENES = [
     "<b>🔓 Reveal</b> markers flag the moment someone learns something they didn't know &mdash; the players, one PC, or an NPC. Each one sits in the zone of whoever delivers it or has to react. When one fires, <b>both of you play the reaction</b>. They're 🟡 AI staging until Scott signs off.",
     "<b>⚔ Rolls, initiative and turn order stay at the table.</b> A fight cue gives you the story rule and an <b>enemy turn card</b> per enemy type: what it does, in priority order, its attacks, AC and a tap-to-subtract HP tracker. Numbers are 🟡 drafts.",
     "<b>🪢 If stuck</b> lines are fail-forwards for puzzles; <b>↪ Backup</b> lines give each big reveal a second way in.",
-    "<b>📱 The iPad lives on its home page</b> (<code>/</code>) all night: three big numbered items, in story order. A cue that needs one opens with a blue <b>iPad &rarr; item N</b> bar. Tap N, hand it over, and go back to the home page when the scene's done. Sunday's rooms run in any order; only the study has an iPad item, so go by the number on the cue." +
+    "<b>📱 The iPad lives on its home page</b> (<code>/</code>) all night: two big numbered items, in story order. A cue that needs one opens with a blue <b>iPad &rarr; item N</b> bar. Tap N, hand it over, and go back to the home page when the scene's done. Sunday's rooms run in any order and none of them uses the iPad." +
       `<div class="ipad-key">${Object.keys(IPAD).map(n=>`<span class="k">${n}</span><span><b>${IPAD[n].room}</b> &mdash; ${IPAD[n].prop} <code>${IPAD[n].path}</code></span>`).join("")}</div>`
   ],
   npcs:[],
@@ -858,11 +856,12 @@ const SCENES = [
   ],
   cues:["heart","jump","aim","levelup"] },
 
-{ act:"sunday", no:10, title:"The study", where:"Sunday morning · Gnomey · any-order room", ipad:[2],
+{ act:"sunday", no:10, title:"The study", where:"Sunday morning · Gnomey · any-order room",
+  hand:["<b>The Articles of Settlement (printed)</b>, from the strongbox."],
   setting:"A door sealed since the thirties. Behind it, a card table with the last hand still dealt: cards face-down under a skin of dust, an ashtray, a chair pushed back as if someone just stood up. In the corner, a strongbox.",
   pace:[
     "Get the door open &mdash; <b>deliberately undefined</b>; when you design it, make it a whole-party problem.",
-    "The strongbox: &#128241; <b>item 2</b>, the Articles of Settlement. Get <b>Gnomey alone</b> with it.",
+    "The strongbox: &#9995; <b>the Articles of Settlement (printed)</b>. Get <b>Gnomey alone</b> with it.",
     "Investigation 12: &#128275; <b>V. Soprano won the house</b>, the bearer clause, and <b>the empty slot</b> where the deed should be.",
     "Julia decides who Gnomey tells. &#128275;"
   ],
@@ -885,7 +884,7 @@ const SCENES = [
   ],
   npcs:[],
   reminders:[
-    {t:"On iPad item 2, the bearer paragraph is the <b>only one on the page with no corrections</b>.", k:""},
+    {t:"On the printed settlement, the bearer paragraph is the <b>only one on the page with no corrections</b>.", k:""},
     {t:"Keep the <b>printed deed</b> hidden. Vinny has it, and it comes out only in the ending scene.", k:"rule"}
   ],
   cues:[] },
@@ -964,7 +963,7 @@ const SCENES = [
   ],
   cues:["candle"] },
 
-{ act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room", ipad:[3],
+{ act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room", ipad:[2],
   setting:"The last door, at the end of the upstairs hall. Inside: coats heaped by the desk, a mic on a stand, cables everywhere, and an old beige computer that is somehow still on, an AIM sign-on box glowing on the screen. The air is stale; nobody has been in here in years.",
   pace:[
     "When the table is ready: &#127925; the <b>AIM chime</b> down the hall, then the lock clicks open by itself (read-aloud).",
@@ -1177,7 +1176,7 @@ const SCENES = [
   hand:[
     "<b>The concert tickets (printed)</b> to Simone &mdash; from Upton's mother's hand.",
     "<b>The badge (printed)</b> to Cody (Russ) &mdash; from the troop leader, once Orlok signs.",
-    "<b>The printed deed</b> (<code>/deed/</code>) to Julia (Gnomey) &mdash; from Vinny's hand."
+    "<b>The deed (printed)</b> to Julia (Gnomey), from Vinny."
   ],
   reminders:[],
   cues:["crowd","levelup"] },
