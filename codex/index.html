@@ -201,6 +201,11 @@
   .td-tag.gate{color:var(--gold);border-color:var(--gold)}
   .td-tag.top{color:#1a1206;background:var(--gold);border-color:var(--gold);font-weight:700}
   .td-tag.live{color:var(--green);border-color:var(--green)}
+  .td-msg{margin:10px 0 0;max-width:72ch;border:1px solid var(--edge);border-radius:10px;background:#0f0b18;padding:10px 12px}
+  .td-msg pre{margin:8px 0 0;font-family:var(--f-body);font-size:13.5px;line-height:1.5;color:var(--ink);
+    white-space:pre-wrap;-webkit-user-select:text;user-select:text}
+  .td-copy{font-family:var(--f-body);font-size:12px;color:#1a1206;background:var(--gold);border:none;
+    border-radius:999px;padding:6px 14px;font-weight:600;cursor:pointer}
 
   /* ---- cast cards ---- */
   .cast-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
@@ -369,7 +374,7 @@
   <!-- ============ TO-DO ============ -->
   <section class="tab active" id="tab-todo">
     <h2 class="sec">Everything still to do</h2>
-    <p class="sub">Ordered by what unblocks the most, not by lane. The story comes first &mdash; the rooms are shaped by it, the encounters by the rooms, and the handouts only get printed once the names on them stop moving. Five items are marked <b>Start here</b>. Every row carries who owns it, and the ones nobody has claimed say so. Items are marked done in the source as they land, so there is nothing to click.</p>
+    <p class="sub">Ordered by what unblocks the most, not by lane. The story comes first &mdash; the rooms are shaped by it, the encounters by the rooms, and the handouts only get printed once the names on them stop moving. The most urgent are marked <b>Start here</b>. Every row carries who owns it, and the ones nobody has claimed say so. Items are marked done in the source as they land, so there is nothing to click.</p>
     <div class="td-bar">
       <div class="td-filters" id="td-filters">
         <button data-f="all" class="on">Everything</button>
@@ -950,7 +955,7 @@ const DOCS = [
   ["Library History Clippings","BUILT — /puzzle/ · the volume is intact until they open it and the trap cuts it up. Now carries the <b>checkout card</b>: E. Hoeck (a blood tie — was pointed at John, now unclaimed since Yobo's connection is the party-room arc), U. M. Livingsworth III (Poe Boy's real name, four years ago) and W. Ostrander (the developer — proposal). Still an invented 1937 newspaper; the actual source is a 1973 Frisian legend.","ai"],
   ["AIM chat with the Spirit","BUILT — /aim/ · the backpack + USB branch, and <b>the soul transfer</b>: the willow, the drive mounting under his name, the second ask, a hold point for playing the price at the table, a real no-path, and the ritual itself — which reads as an ordinary file transfer until the progress bar exceeds its own boundaries. Set the kid's name with <code>/aim/?name=Marcus</code>.","doc",""],
   ["The Articles of Settlement","<b>BUILT — /settlement/</b> · the drunken 1931 contract from the strongbox in the study. Opens folded; tap to unfold. Crossed-out hours, eleven dollars and forty cents, the bearer-of-the-deed clause, the struck-through snoring clause, Dracula witnessing as a non-notary, and Vinny's margin note. <b>The bearer paragraph is the only one on the page with no corrections in it</b> — that's the joke and the plot in one paragraph, and it is set apart visually. Signed <b>C. Dood</b>, in a second hand.","doc",""],
-  ["The photograph","<b>BUILT — /photo/</b> · four figures — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. Tap to turn it over: Goblinenon's handwriting on the back, and she names <i>“Me + E.”</i> <b>Hand Will the printed photograph and say nothing</b> — he gets the goblin before he gets the fae. The iPad copy carries the back. Art is stylised (a blown-out flash exposure), not photographic; swap in real art later if you want. 🟡 The date stamp reads <code>10 31 '79</code> and is a guess, since Bix's age is never fixed.<br>It doubles as the <b>key to the party-room spot-the-difference</b> (<code>/party-room/</code>). <b>Still to add:</b> the distinctive trait Will picks for Bix, worn by his parents — and copy it into /party-room/ too.","doc",""],
+  ["The photograph","<b>BUILT — /photo/</b> · four figures — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. Tap to turn it over: Goblinenon's handwriting on the back, and she names <i>“Me + E.”</i> <b>Hand Will the printed photograph and say nothing</b> — he gets the goblin before he gets the fae. The iPad copy carries the back. The art is a storybook-gouache painting styled as a 1979 flash snapshot. 🟡 The parents are drawn to echo Will's description of Bix — Goblinenon is short and dark green with long ears and small brown leather boots, and Edward has notches in one ear — and none of those looks are in the doc. 🟡 The date stamp reads <code>10 31 '79</code> and is a guess, since Bix's age is never fixed.<br>It doubles as the <b>key to the party-room spot-the-difference</b> (<code>/party-room/</code>). <b>Still to add:</b> the distinctive trait Will picks for Bix, worn by his parents — and copy it into /party-room/ too.","doc",""],
   ["The printed photograph","NOT PRINTED · <b>Bix's physical prop.</b> An aged print of /photo/, handed to Will in the party room, and the key the table holds for the spot-the-difference. Print it once Will's trait is in.","doc",""],
   ["The frozen party (party room)","<b>BUILT — /party-room/</b> · the digital half of Yobo's party-room turn, a <b>spot-the-difference</b>: the live room is almost Bix's photograph, and six things in it are wrong. The table holds the printed photo and taps what doesn't match; wrong taps and a slow creep raise the <b>Revel meter</b> to a curdle (the scare). 🟡 The six differences are the prop's own. When all six are put right the host calls for a song, which is Yobo's Performance check at the table, with DM buttons for a true vs. a borrowed voice. Audio is fully synthesised — no asset files.","doc",""],
   ["The deed","<b>BUILT — /deed/</b> · <b>Gnomey's physical prop.</b> The 1931 deed to Dood Mansion, conveyed to the bearer under the Articles of Settlement and carrying the same DOOD seal. Letter size — <b>print it at Staples</b> (see the print list). <b>Uncle Vinny hands it to Julia in the ending scene</b>; until then the strongbox in the study only has the empty slot.","doc",""],
@@ -1460,6 +1465,23 @@ const TODO_LIST = [
   "note": "Live at <code>/party-room/</code>. The live room is almost Bix's photograph, and six things in it are wrong. The table holds the printed photo and taps what doesn't match; wrong taps tick the Revel meter, and it creeps while the loop stays broken. All six put right → the host calls for Yobo's song. 🟡 The six differences are the prop's own; swap them freely."
  },
  {
+  "id": "pp1",
+  "done": 1,
+  "t": "Tell the players what to prep",
+  "o": "scott",
+  "c": "Players",
+  "top": 1,
+  "note": "Send this before the weekend. It has no spoilers in it. Pre-making is optional and nobody sends a sheet in, so anyone who shows up without a character builds one at the table.",
+  "msg": "Campaign is this weekend!\n\nIf you can, pre-make your character before you show up. No worries if not, we'll build it together in person.\n\n• Level 4\n• 2024 Player's Handbook rules\n• Point buy or rolled stats, your pick\n• Your class's starting gear\n\nDigital character builder: https://www.dndbeyond.com/characters/builder\n\nNo need to send me anything. Day of, just bring your character, and dice if you have them.",
+  "steps": [
+   "<b>Simone</b> (warlock, Devil patron): still needs a <b>race</b> and a <b>character name</b>.",
+   "<b>John</b> (Yobo, bard): still needs a <b>race</b> and a <b>Bard subclass</b>, and an answer to whether Yobo wears a <b>wig</b>.",
+   "<b>Cody</b> (Russ, Firbolg druid): still needs a <b>druid subclass</b>, and to confirm <b>Russ</b> is the final name.",
+   "<b>Don't tell anyone</b> about their own hooks. Julia's chip, Bix's parents, and what Simone's goat wants from her are all things they find out at the table."
+  ]
+ },
+
+ {
   "id": "m14",
   "t": "The soul transfer is built \u2014 AIM ritual",
   "o": "scott",
@@ -1470,6 +1492,7 @@ const TODO_LIST = [
  },
  {
   "id": "h10",
+  "done": 1,
   "t": "Write the AIM password sticky note",
   "o": "scott",
   "c": "Handout",
@@ -1483,7 +1506,9 @@ const TODO_LIST = [
   "t": "Make the photograph — Bix's whole reveal",
   "o": "both",
   "c": "Handout",
-  "note": "Four figures: two vampires mugging, a pregnant goblin laughing, and <b>a fae with no fangs</b>. This single handout carries the entire Edward reveal — hand it over and say nothing. The iPad copy is live at <code>/photo/</code>. <b>Still to do:</b> put the distinctive trait Will picks for Bix on his parents (see the Will item), then <b>print it</b> (it's on the print list) — the aged print is Bix's physical prop and the key the table holds in the party room. Age it; it should look like it has been in this house as long as Bix has been alive."
+  "done": 1,
+  "built": 1,
+  "note": "Live at <code>/photo/</code>. Four figures: two vampires mugging, a pregnant goblin laughing, and <b>a fae with no fangs</b>, painted in storybook gouache as an aged 1979 flash snapshot. Goblinenon's dark green skin, long ears and small brown leather boots, and the notches in Edward's ear, echo Bix so Will can make the connection himself. This single handout carries the entire Edward reveal \u2014 hand it over and say nothing. The aged print is Bix's physical prop and the key the table holds in the party room; it's on the print list."
  },
  {
   "id": "h9",
@@ -1808,10 +1833,10 @@ const TODO_LIST = [
  },
  {
   "id": "m2",
-  "t": "Collect and check the five character sheets",
+  "t": "Check the five characters at the table",
   "o": "scott",
   "c": "Combat",
-  "note": "The players build their own — Bix Grimlor, Gnomey Soprano, Simone's warlock, John's bully bard, and Cody's, still unsubmitted. What is left for the DM is getting all five in hand, checking them for rules-legality, and knowing what is on them: AC, saves, ranged options and anything that trivialises a puzzle."
+  "note": "Level 4, 2024 PHB, point buy or rolled, class starting gear. Players pre-make if they can and bring the character on the day; nobody sends a sheet in, and anyone without one builds it at the table. So budget build time at the start of session one, then check every sheet for rules-legality and know what is on it: AC, saves, ranged options and anything that trivialises a puzzle. Bix Grimlor, Gnomey Soprano, Simone's warlock, Yobo and Russ."
  },
  {
   "id": "m10",
@@ -2184,6 +2209,7 @@ function tdRender(){
         ${x.ans?`<p class="td-ans"><b>Locked in:</b> ${x.ans}</p>`:""}
         ${x.note?`<p class="td-note">${x.note}</p>`:""}
         ${x.steps?`<ol class="td-steps">${x.steps.map(v=>`<li>${v}</li>`).join("")}</ol>`:""}
+        ${x.msg?`<div class="td-msg"><button type="button" class="td-copy">Copy message</button><pre>${x.msg}</pre></div>`:""}
         <div class="td-tags">${tags}</div>
       </div></li>`;
   }).join("");
@@ -2207,6 +2233,12 @@ function tdFilter(f){
   document.querySelectorAll("#td-filters button").forEach(b=>b.classList.toggle("on", b.dataset.f===f));
 }
 
+document.getElementById("td-list").addEventListener("click",e=>{
+  const b=e.target.closest(".td-copy"); if(!b) return;
+  const txt=b.nextElementSibling.textContent;
+  const done=()=>{b.textContent="Copied";setTimeout(()=>b.textContent="Copy message",1600);};
+  if(navigator.clipboard) navigator.clipboard.writeText(txt).then(done,()=>{});
+});
 document.getElementById("td-filters").addEventListener("click",e=>{
   const b=e.target.closest("[data-f]"); if(b) tdFilter(b.dataset.f);
 });

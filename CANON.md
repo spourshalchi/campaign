@@ -159,6 +159,34 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
   print are the prop's choices. So are the venue (**Transyltown Armory**), the date (**Sat Jun 25 2005**, read off
   Character Bios' "in town at the end of the school year") and the doors/show times. The band prints as
   **Total Party Kill** (see Simone, below).
+- **The developer's site assessment in `/survey/`** (printed, `print/4-plain.pdf`) — `3 Nov · not in doc`. A
+  faxed, photocopied internal memo the party finds in the house. Like the sticky note it is a **floating find**:
+  the DM hands it over during one of the times they look around a room. Canon behind it: the mega mall
+  (Sesh 5, 7), W. Ostrander (🟡, 26 Aug), the same company ~20 years ago (30 Aug), and that he doesn't know
+  what's in the house (the 24 Aug doc paste). Everything else is the prop's invention:
+  - the company, **Hudson Crossing Development Corp.** (Albany), and the mall, **Hudson Crossing Galleria**.
+    This picks *company* over *family trust* for the open question below; one string each to swap;
+  - the memo itself: dated **Sept 14, 2004**, faxed the same day, from Site Planning to the Acquisitions
+    Committee, cc W. Ostrander, form *HCDC SP-2*;
+  - the parcel: **Tax Map 41.-2-17**, **~38 acres**, one unpaved access, a three-storey masonry house with a
+    cellar, zoned **R-1** and needing a rezone to C-3;
+  - *"Occupancy: unknown, possible squatters. Lights reported after dark"* and *"Prior site action: see
+    archived file **DOOD-1** (W.O.)"*, a quiet nod to the clearing that killed Goblinenon;
+  - *"Title: unresolved, no recorded deed since 1931"*, with **1931** circled in red pen. It goes no further
+    than that toward the deed;
+  - a site walk on **Sept 9**, exterior only: interior not accessed, every door secured from inside, the crew
+    wouldn't stay after dark, locals won't discuss the house;
+  - **Phase 1** at ~640,000 sq ft, three anchors, a food court, a 12-screen cinema and 3,100 spaces; a
+    **target demolition of May 2, 2005**; next steps ending *"Occupants: coordinate through W.O. No outside
+    contractors"*;
+  - a yellow sticky tab, *"W.O. — handle personally"*, and a coffee ring.
+
+  **Two seams to check.** *"No recorded deed since 1931"* reads as if something was recorded in 1931, but
+  `/deed/` has a blank *Recorded with the County Clerk* line. Both can be true, since the line only says nothing
+  has been recorded *since*, but if Scott wants it airtight, change it to *"no conveyance of record; chain of
+  title breaks 1931"*. And **DOOD-1** says the company has a file on the house, which sits beside the 24 Aug
+  paste's *"he does not know what's in the house"*. The memo says *squatters*, not vampires, so it holds, but
+  cut the line if it says too much.
 
 ### Still open from this session
 1. **The invitation:** is it to the concert or to the haunted house? Spencer's, with the poster.
@@ -286,7 +314,7 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 | His dismissal: *"The night is young. It would be terribly rude to be finished with you already." / "Go on. Have a look around. We'll find you when we're ready."* | Sesh 8 |
 | Explore again, then **Saturday's one combat: a botched summoning** | Sesh 8 |
 | **The summoning stays unsignposted on Saturday.** It is Poe Boy's, but nothing on the night says so — no notebook, no handwriting tell. The payoff is the Spirit naming him on Sunday | 3 Nov · not in doc |
-| Level 3 → 4 | Sesh 8 (restates the 24 Aug paste) |
+| Level 3 → 4 (**overridden: the party is level 4 → 5**, see Decisions made since the audit) | Sesh 8 (restates the 24 Aug paste) |
 
 ### Sunday — the revised investigation
 | Claim | Source |
@@ -312,6 +340,11 @@ The draft spec stays parked in `PROPOSALS.md` as dead work.
 - **The study door puzzle** — left deliberately open. No proposal on the table.
 - **The botched summoning** — that it's Poe Boy's, and every stat behind it.
 - **The party room** as a built location, and the photograph's placement in it.
+- **The parents' looks in the photograph.** Built to echo Will's description of Bix (short, dark green
+  skin, cuts on his long pointed ears, small brown leather boots): Goblinenon is short and dark green with
+  long pointed ears and the same small brown leather boots; Edward has healed cuts on the rim of one ear.
+  Nothing in the doc describes either parent. `3 Nov 2026 · not in doc` — Scott asked for the echo; the
+  specific traits were picked in the image brief.
 - **The year on the photograph.** The prop stamps `10 31 '79`. The doc never fixes Bix's age, so it
   never fixes this date — he's an early-to-mid-20s super senior in 2004 and was born ~9 months after
   the cart broke down, which lands somewhere around '79–'80. **A codex session briefly wrote this as
@@ -456,7 +489,7 @@ Not yet pasted into the Google Doc — **do that to make them official.** Until 
 | ✅ **The developer is named W. Ostrander** — a proposal, but a live one: it's printed on the checkout card in `/puzzle/`. Still open: company, or family trust? | 🟡 **proposed 26 Aug 2026**, swap freely |
 | ✅ **There's a checkout card** in the back pocket of the volume, viewable in the prop. Three names: **E. Hoeck** (1938 — the blood-tie hook, currently pointed at **John**), **U. M. Livingsworth III** (Oct 2000 — Poe Boy's real name, which nobody will recognise until his mother says it in the driveway, and which meanwhile says he has been interested in this house for four years) and **W. Ostrander** (Jul 2004 — the developer). It proves two other people got here first and the party has met neither. | 🟡 **decided by Scott, 26 Aug 2026** |
 | ✅ **"Dood" is both** — the builder's family surname *and* the Dutch pun. Cornelis Dood is a real person in the fiction. | Sesh 6 had the pun; the prop added the surname. Both now stand. |
-| ✅ **The party is level 3**, leveling to 4 at the end of day one. | new |
+| ✅ **The party is level 4**, leveling to 5 at the end of day one. Sunday runs at level 5. | Sesh 8 says level 3 → 4. **Scott changed it to 4 → 5 on 7 Sep 2026** (the combat re-base) and reconfirmed it 1 Nov 2026. Not in the doc, and it overrides a doc line, so write it in |
 | ✅ **Races & classes are now IN DOC** — Spencer wrote Scott's picks into the doc as **Brainstorm Sesh 8**, which this ledger had not seen. They are no longer 🟡 anything. Sesh 8 also added Lil Stinky's oathbreak, which the codex had missed entirely. | 🟡 "Scott's pick, not in the doc yet" — **now doc** |
 | ✅ **The invite is exclusive — five cards, five lockers, nobody else got one.** The party arrives at an empty hill: no cars, no line, no lit windows. This **narrows Sesh 7's "invite everyone"**, which is a doc line, so it needs writing into the doc more than anything else on this list. Knock-on: the codex no longer leans on a houseful of other kids to stop the party leaving — the bolted doors do it. | 🟡 codex stagecraft — **now decided by Scott, 24 Aug 2026**, and it overrides a doc line |
 | ✅ **The 3AM DJ show flyer is public — a two-tier guest list.** Five cards at 7PM for the part Poe Boy actually wants recorded; the flyer's audience arrives at 3AM for the scare the vampires agreed to. Resolves the collision between the exclusive invite and the finale's charmed crowd, and unblocks the flyer prop. | 🟡 **decided by Scott, 25 Aug 2026.** Not in the doc yet |
