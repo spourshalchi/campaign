@@ -531,6 +531,7 @@ const SCENES = [
   ],
   npcs:[],
   reminders:[
+    {t:"<b>Yobo's debuff card doesn't say how to lose it. Don't hint.</b> The buff flips only when he performs as himself for Dracula in the party room; an earlier confession doesn't flip it. <span class='ai'>🟡</span>", k:"rule"},
     {t:"<b>One physical prop per PC:</b> Bix &mdash; the printed photograph &middot; Gnomey &mdash; the printed deed (Vinny hands it over at the end) &middot; Simone &mdash; the wishing willow &middot; Russ &mdash; badge + card &middot; Yobo &mdash; two secret printed cards, <i>The Weight of Your Lies</i> (gazebo) and <i>Your True Voice</i> (party room).", k:""},
     {t:"<b>Hand-over order</b>: invites (cue 2) &middot; the house plan (cue 5) &middot; sticky note and survey (floating, cues 5&ndash;13) &middot; the photograph (cue 11) &middot; crate tags (cue 12) &middot; willow and USB (cue 13) &middot; tickets, badge and deed (cue 15). Each cue says <b>✋ Hand over</b> when it's time.", k:""},
     {t:"Keep the <b>deed, tickets and badge</b> out of sight until the driveway.", k:"rule"},
@@ -650,6 +651,7 @@ const SCENES = [
   read:[{t:"Whoever's wearing a watch &mdash; it's <b>ten to seven</b>. That's the time on the card."}],
   beats:[
     "Poe Boy plays the house down: he's been up there <b>once</b>, with a shrug, and he's cool about the cards. <b>The &ldquo;once&rdquo; is a lie, and the lie is the clue</b> &mdash; it pays off when they find his stage and decks in the ballroom, and at 3AM when his voice comes over the speakers. <span class='ai'>🟡</span> Behind it, the whole night is his Halloween party; the samples are what he wants.",
+    "<b>The debuff card doesn't say how to lose it. Don't hint.</b> John learns honesty matters only from Dracula, in the party room. <span class='ai'>🟡</span>",
     "<b>The tell is what he leaves out:</b> he never mentions the <b>other</b> room upstairs he keeps gear in &mdash; the one he hasn't been back into. Nobody notices now; they notice later."
   ],
   hand:["<b>The Weight of Your Lies</b> (<code>/yobo/</code>, printed, face-down) to John (Yobo), the moment the crew asks for a Dolly riff &mdash; disadvantage on Performance, advantage on Deception. <span class='ai'>🟡</span>"],
@@ -891,46 +893,52 @@ const SCENES = [
   cues:[] },
 
 { act:"sunday", no:11, title:"The party room", where:"Sunday · Bix &amp; Yobo · any-order room",
-  setting:"The party room, preserved exactly as it was left: bottles on every surface, a record still on the turntable, forty years of dust on somebody's good night. The air smells of old wine and candle wax, and nothing in here has moved in decades.",
+  setting:"Dracula's shrine. He has kept the party room untouched since that night in '79, the best night of his unlife: dust on everything, bottles where they were set down, a record still on the turntable, and the smell of old wax.",
   pace:[
     "Prompt them to look around. <b>Bix finds the photograph.</b> &#9995; Hand Will the 4&times;6 print and say nothing. &#128275; Bix: his parents.",
-    "The frozen party <b>stirs</b>. The ghost host waits for a song, and nothing in the room moves until someone gives one &mdash; <b>only Yobo can</b>.",
-    "<b>Yobo's Performance check</b>, at disadvantage: he still carries the debuff (<i>The Weight of Your Lies</i>).",
-    "<b>Dracula appears</b> (Spencer). He sees exactly what's holding Yobo back and pushes him to stop hiding and live as himself.",
-    "<b>If John drops the Dolly Parton lie</b> &rarr; &#9995; hand John <b>Your True Voice</b>: advantage on Performance and a Bardic Inspiration boost. The party erupts and the way opens. <b>If he stays masked</b> &rarr; the ghosts curdle into menace (the scare), and the way opens the hard way."
+    "<b>Dracula is in the doorway.</b> He drops the needle and the room <i>remembers</i>: faint echoes of that night shimmer in &mdash; revellers mid-laugh, a cape flaring, someone dancing with a hand on her belly. Impressions, not ghosts: nobody can talk to them, and they fade when the music stops. &#128275; Bix may know them from the photo. Then Dracula blocks the exit (Spencer).",
+    "<b>Yobo's Performance check</b>, at disadvantage (the debuff). <b>The roll can't win it</b>: it only measures how good the fake is. High or low, Dracula answers it (Spencer) and the door stays shut.",
+    "<b>Dracula clocks the fake</b> (Spencer) and pushes Yobo to stop hiding and live as himself. &#128275; Dracula sees through Yobo.",
+    "<b>If John drops the Dolly Parton lie and performs as himself</b> &rarr; &#9995; hand John <b>Your True Voice</b>. The echoes cheer, the song ends, and Dracula bows them out. <b>If he stays masked</b> &rarr; Dracula sulks theatrically, steps aside and lets them go; the debuff stays."
   ],
-  ends:"when the room settles (read-aloud).",
-  stuck:"If nobody steps up, the ghost host turns and waits on Yobo. If he stalls, bring Dracula in early.",
+  ends:"when the needle lifts and the echoes fade (read-aloud) &mdash; with Dracula bowing them out, or sulking aside.",
+  stuck:"If nobody steps up to sing, Dracula looks straight at Yobo and waits. He has all the time in the world. <span class='ai'>🟡</span>",
   backup:"<b>Edward is Bix's father</b> &mdash; if Will doesn't get there from the photograph, Edward's epilogue in the driveway says it outright.",
-  read:[{t:"The photograph's in hand and the ghost-party has gone still again."}],
+  read:[{t:"The needle lifts. The echoes thin to nothing, and the room is dust and bottles again. <span class='ai'>🟡</span>"}],
   beats:[
+    "<b>DM note:</b> a vampire kindly coaching a kid is an early, soft hint that <b>the vampires aren't monsters</b> &mdash; before the cellar proves it. <span class='ai'>🟡</span>",
     "Whose party this was: the night Edward and Goblinenon's cart broke down and they found two vampires partying.",
-    "<b>Reward the truth, not the number.</b> The roll is at disadvantage on purpose; what opens the room properly is John dropping the lie. <span class='ai'>🟡</span>"
+    "<b>The roll can't win it.</b> The door opens only for a true performance, or when John refuses and Dracula sulks and lets them go. <span class='ai'>🟡</span>",
+    "<b>Coming clean early doesn't flip it.</b> The debuff card never mentions the cure; John learns honesty matters only from Dracula. If he confesses somewhere earlier, play it &mdash; but the buff flips only when he <b>performs as himself</b> on the stage Dracula gives him. <span class='ai'>🟡</span>"
   ],
   checks:[
-    {skill:"Performance", dc:"true>high", sug:true, note:"<b>Yobo, at disadvantage</b> (The Weight of Your Lies). Reward <b>honesty over the number</b>: a true song opens the way and earns <i>Your True Voice</i>; a masked one curdles the ghosts. <span class='ai'>🟡</span>"}
+    {skill:"Performance", dc:"true>high", sug:true, note:"<b>Yobo, at disadvantage</b> (The Weight of Your Lies). The number only says how good the fake is &mdash; <b>it never opens the door</b>. Only a true performance earns <i>Your True Voice</i>. <span class='ai'>🟡</span>"}
   ],
   hand:[
     "<b>The photograph</b> (<code>print/photo-4x6.jpg</code>, the 4&times;6 print) to Will (Bix) &mdash; say nothing.",
     "<b>Your True Voice</b> (<code>/yobo/</code>, printed, face-down) to John (Yobo) &mdash; only if he drops the lie. It takes the place of the debuff card. <span class='ai'>🟡</span>"
   ],
   talk:[
-    {who:"Dracula · to Yobo, theatrical", t:"Oh, <i>stop</i>. I've watched you wear that story all night like a borrowed cape, and it doesn't fit. Nobody in this room is waiting for Dolly Parton's grandson. <span class='ai'>🟡</span>"},
-    {who:"Dracula", t:"Sing as yourself, darling. The dead can always tell &mdash; and so, frankly, can I. <span class='ai'>🟡</span>"}
+    {who:"Dracula · blocking the exit", t:"Nobody leaves my party without giving me a song. <span class='ai'>🟡</span>"},
+    {who:"Dracula · if the roll is high", t:"Technically flawless. Completely empty. Again, and this time be someone. <span class='ai'>🟡</span>"},
+    {who:"Dracula · if the roll is low", t:"Ah. There's the wobble. What are you hiding, darling? <span class='ai'>🟡</span>"},
+    {who:"Dracula · to Yobo, clocking the fake", t:"I know a costume when I see one, darling. I've worn this one for centuries. <span class='ai'>🟡</span>"}
   ],
   rev:[
     {by:"scott", who:"Bix", t:"learns from the photograph: the pregnant goblin is his mother, and the fae with no fangs beside her is Edward, before he was turned. Hand Will the print and say nothing &mdash; he gets the goblin before the fae."},
+    {by:"scott", who:"Bix", t:"may recognise the echoes from the photograph &mdash; the woman dancing with a hand on her belly is the goblin in the picture."},
     {by:"scott", who:"The rest of the party", t:"learn whatever Bix says out loud. Don't prompt him."},
+    {by:"Dracula", who:"Yobo", t:"learns Dracula sees straight through the Dolly Parton act &mdash; and wants the real voice."},
     {by:"Dracula", who:"The party", t:"learn the truth about Yobo's origins <i>if</i> he drops the act for the song. What he says is John's call."}
   ],
   npcs:[
-    {nm:"The ghost host", vc:"Frozen mid-toast. Waits for a song; nothing in the room moves until it gets one. <span class='ai'>🟡</span>"},
-    {nm:"Dracula", vc:"Campy and theatrical &mdash; and for once completely sincere. Sees exactly what's holding Yobo back and won't let him hide behind it. The catalyst for the buff flip."}
+    {nm:"Dracula", vc:"This room is his shrine: untouched since '79, the best night of his unlife. Campy and theatrical &mdash; and here, kind. Blocks the door for a song, sees through Yobo, and coaches him to drop the act. Sulks magnificently if refused. <span class='ai'>🟡</span>"},
+    {nm:"The echoes", vc:"Impressions of that night, not ghosts. They can't be spoken to; they laugh, dance and cheer, and fade when the music stops. <span class='ai'>🟡</span>"}
   ],
   reminders:[
     {t:"<i>Your True Voice</i> is <b>permanent</b> after this, through the finale.", k:"level"}
   ],
-  cues:["record","crowd","candle","braaam"] },
+  cues:["record","crowd","candle"] },
 
 { act:"sunday", no:12, title:"The patient ledger &amp; the infirmary", where:"The cellar · Cody · badge req 2 of 3 · any-order room",
   setting:"Stone steps down into the cellar: cold, damp, and the smell of straw and animals. Crates stacked in rows, each with a paper tag, Vinny's forty-year-old liquor crates at the very back &mdash; and one blade of daylight falling from somewhere high up.",
