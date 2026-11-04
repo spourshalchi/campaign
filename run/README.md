@@ -28,13 +28,14 @@ Scott and Spencer share one laptop, so every cue is split into two colour-coded 
 on a wide enough screen each zone scrolls on its own, and below 700px they stack.
 
 **SCOTT · narrate** (gold, left)
+- **✋ Hand over** — every physical hand-out, on the cue where it goes to the table.
 - **📱 iPad → item N** — which numbered item to open on the players' iPad.
-- **🗂 Floating props** — on every mansion cue: the sticky note, with a handed-over checkbox.
+- **🗂 Floating** — on every mansion cue: the sticky note and the site survey, each with a handed-over checkbox (saved on the device).
 - **Read aloud** — the boxed teleprompter narration.
+- **⚔ Combat: run it at the table** — fights are run off-screen; the cue keeps only the fight's name and its one story rule.
 - **🔓 Reveals** — what someone learns from Scott's narration or a prop.
-- **Hand-outs & reminders** — hand-outs (✋), rules (⚠), and level-ups (⬆) tied to that moment.
-- **The beats**, **skill checks** (`*` = proposed DC) and **combat** (stat blocks, XP, the hard rule, **Add to initiative**).
-- **Sound cues** — the soundboard buttons to reach for, highlighted on the board too.
+- **Reminders** — rules (⚠) and level-ups (⬆) tied to that moment.
+- **The beats**, **skill checks** (`*` = proposed DC) and **sound cues** (highlighted on the board too).
 
 **SPENCER · voice** (pink, right)
 - **Lines** — the dialogue script: who says what.
@@ -51,15 +52,12 @@ both of you play the reaction. Every reveal is 🟡 AI staging until Scott revie
 | `1`–`6` | Toggle ambience (house drone, rain, record skip, heartbeat, crowd, candles) |
 | `7`–`0`, `g` `p` `c` `l` | Fire a sting (AIM, jump, braaam, 3AM bell, riser, PA, scratch, level-up) |
 | `i` | Scene index (jump anywhere) |
-| `t` | Initiative tracker |
-| `h` | Hand-out checklist (saved on the device) |
-| `r` | House rules + XP budgets |
 | `d` | Roll a d20 (flat / advantage / disadvantage) |
 | `f` | Fullscreen |
 | `Esc` | Close an overlay, or silence all sound |
 
-The top bar also has buttons for everything, and there are on-screen arrows — it's fully
-touch-usable on the iPad.
+The top bar has ‹ › cue buttons beside the counter, plus Index and Full, so it's fully
+touch-usable on the iPad. Nothing floats over the reading area.
 
 ## The soundboard
 
@@ -78,5 +76,5 @@ Home Screen from Safari for a fullscreen booth.
 ## Editing the content
 
 It's a single self-contained `index.html`. The slides live in the `SCENES` array near the
-top of the `<script>`; house rules in `CRULES` / `BUDGET`; the prep checklist in `HANDOUTS`.
-Each is plain data — add a cue, a check or a reminder by editing the array.
+top of the `<script>`, with the iPad items in `IPAD` and the floating props in `FLOATING`.
+Each is plain data — add a cue, a hand-over (`hand`), a reveal (`rev`) or a line (`talk`) by editing the array.

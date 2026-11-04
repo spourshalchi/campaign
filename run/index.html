@@ -62,33 +62,37 @@
   #app.on{display:flex}
 
   /* top bar */
-  .topbar{flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:8px 12px;
+  .topbar{flex:0 0 auto;display:flex;align-items:center;gap:12px;padding:8px 14px;min-height:52px;
     background:linear-gradient(180deg,#171320,#100d18);border-bottom:1px solid var(--edge)}
   .brand{font-family:var(--f-disp);font-size:15px;font-weight:700;letter-spacing:.02em;white-space:nowrap}
   .brand .b2{color:var(--gold)}
-  .codex-link{font-size:12px;color:var(--mut);text-decoration:none;white-space:nowrap;
-    padding:6px 10px;border:1px solid var(--edge);border-radius:8px;background:#1a1428;min-height:30px;display:flex;align-items:center}
+  .codex-link{font-size:13px;color:var(--mut);text-decoration:none;white-space:nowrap;
+    padding:0 12px;border:1px solid var(--edge);border-radius:8px;height:36px;display:flex;align-items:center}
   .codex-link:hover{color:var(--ink);border-color:var(--dim)}
   .act-pill{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
     padding:3px 9px;border-radius:999px;border:1px solid;white-space:nowrap}
   .spacer{flex:1 1 auto}
   .counter{font-family:var(--f-mono);font-size:12.5px;color:var(--mut);white-space:nowrap}
   .counter b{color:var(--gold)}
-  .timer{font-family:var(--f-mono);font-size:13px;color:var(--mut);background:#0000003d;border:1px solid var(--edge);
-    border-radius:7px;padding:3px 9px;cursor:pointer;white-space:nowrap}
+  .timer{font-family:var(--f-mono);font-size:13px;color:var(--dim);padding:0 4px;cursor:pointer;white-space:nowrap}
   .timer.paused{color:var(--dim);border-style:dashed}
-  .tbtns{display:flex;gap:5px}
-  .tbtn{font-family:var(--f-body);font-size:12px;color:var(--mut);background:#1a1428;border:1px solid var(--edge);
-    border-radius:8px;padding:6px 10px;cursor:pointer;display:flex;align-items:center;gap:5px;white-space:nowrap}
+  .tbtns{display:flex;gap:6px}
+  .tbtn{font-family:var(--f-body);font-size:13px;color:var(--mut);background:transparent;border:1px solid var(--edge);
+    border-radius:8px;padding:0 12px;height:36px;cursor:pointer;white-space:nowrap}
   .tbtn:hover{color:var(--ink);border-color:var(--dim)}
-  .tbtn .k{font-family:var(--f-mono);font-size:9.5px;color:var(--dim);border:1px solid var(--edge);border-radius:4px;padding:0 4px}
-  @media(max-width:1100px){.tbtn .k,.brand .b2{display:none}}
-  @media(max-width:860px){.brand{display:none}}
-  @media(max-width:760px){.tbtn .lbl{display:none}}
+  /* cue navigation lives in the header, never over the reading area */
+  .nav{display:flex;align-items:center;gap:4px;background:#0000003d;border:1px solid var(--edge);border-radius:10px;padding:3px}
+  .navbtn{width:40px;height:36px;border:none;border-radius:7px;background:#221a33;color:var(--ink);font-size:22px;line-height:1;
+    cursor:pointer;display:flex;align-items:center;justify-content:center}
+  .navbtn:hover{background:#2e2444}
+  .navbtn:active{transform:translateY(1px)}
+  .nav .counter{padding:0 8px;min-width:92px;text-align:center}
+  @media(max-width:1000px){.brand .b2{display:none}}
+  @media(max-width:820px){.brand{display:none}.nav .counter{min-width:0}}
 
   /* stage */
-  #stage{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:12px 52px 12px}
-  @media(max-width:940px){#stage{padding:10px 14px 12px}}
+  #stage{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 18px}
+  @media(max-width:820px){#stage{padding:10px 12px}}
   .slide-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin:0 0 10px;flex:0 0 auto}
   .slide-head .no{font-family:var(--f-mono);font-size:13px;color:var(--gold)}
   .slide-head h2{font-family:var(--f-disp);font-size:clamp(22px,3.4vw,30px);margin:0;line-height:1.1}
@@ -110,17 +114,17 @@
   .ipad-key{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:6px 0 2px;font-size:14px}
   .ipad-key .k{font-family:Tahoma,Geneva,sans-serif;font-weight:700;color:#1a1206;background:var(--gold);
     border-radius:5px;min-width:26px;text-align:center}
-  .floating{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:0 0 16px;padding:8px 10px 8px 14px;
-    background:#1e1a10;border:1px dashed var(--amber-dim);border-radius:12px}
-  .floating .fh{font-size:14px;font-weight:700;color:var(--amber);letter-spacing:.02em}
-  .floating .fp{display:flex;align-items:center;gap:10px;min-height:44px;padding:6px 14px 6px 8px;cursor:pointer;
+  .floating{display:flex;flex-wrap:nowrap;align-items:center;gap:8px;margin:0 0 14px;padding:4px 6px 4px 12px;
+    background:#1e1a10;border:1px dashed var(--amber-dim);border-radius:10px;overflow-x:auto;scrollbar-width:none}
+  .floating::-webkit-scrollbar{display:none}
+  @media(max-width:1279px){.floating .fsub,.floating .fp code{display:none}}
+  .floating .fh{flex:1 0 auto;font-size:14px;font-weight:700;color:var(--amber);white-space:nowrap}
+  .floating .fp{flex:0 0 auto;display:flex;align-items:center;gap:8px;min-height:40px;padding:4px 12px 4px 6px;cursor:pointer;white-space:nowrap;
     background:#0000004d;border:1px solid var(--amber-dim);border-radius:9px;color:var(--ink);font:inherit;font-size:14px}
-  .floating .fp .box{width:24px;height:24px;border:2px solid var(--amber);border-radius:5px;display:flex;
+  .floating .fp .box{width:22px;height:22px;border:2px solid var(--amber);border-radius:5px;display:flex;
     align-items:center;justify-content:center;color:transparent;font-weight:700}
-  .floating .fp .fs{font-size:11.5px;color:var(--amber);text-transform:uppercase;letter-spacing:.08em}
   .floating .fp.done{opacity:.6;border-color:var(--green)}
   .floating .fp.done .box{background:var(--green);border-color:var(--green);color:#0a1a10}
-  .floating .fp.done .fs{color:var(--green)}
   .idx-item .ip{font-size:11px;color:var(--blue);margin-left:6px;font-family:var(--f-mono)}
 
   /* Two zones on one screen: Scott narrates (gold), Spencer voices (pink).
@@ -148,6 +152,20 @@
   .talk p{margin:0 0 9px;font-family:var(--f-disp);font-size:17px;line-height:1.45;color:#ffd6ee}
   .talk p:last-child{margin-bottom:0}
   .talk .who{display:block;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--pink);text-transform:uppercase}
+
+  /* ✋ hand-overs: the one thing that must not be missed */
+  .hands{display:flex;flex-direction:column;gap:6px;margin:0 0 12px}
+  .handover{display:flex;align-items:baseline;gap:10px;padding:9px 12px;border-radius:10px;
+    background:linear-gradient(180deg,#14301f,#0f2318);border:2px solid var(--green);font-size:15px;line-height:1.4;color:var(--ink)}
+  .handover .hk{flex:0 0 auto;font-weight:800;color:var(--green);font-size:14px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+  .handover .ht b{color:#d6ffe9}
+
+  /* ⚔ fights are run at the table */
+  .fight{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:10px 12px;margin:0 0 14px;border-radius:10px;
+    background:rgba(224,69,93,.09);border:1px solid #4a2530;border-left:4px solid var(--blood)}
+  .fight .fk{font-weight:800;color:#ffb3bf;font-size:14px;letter-spacing:.04em;text-transform:uppercase}
+  .fight .fn{font-family:var(--f-disp);font-size:17px;color:var(--ink)}
+  .fight .fr{flex-basis:100%;font-size:14.5px;color:#ffd9de;line-height:1.45}
 
   /* 🔓 reveals */
   .revs{margin:0 0 14px}
@@ -197,24 +215,6 @@
   .check .cn{font-size:14px;color:var(--mut);line-height:1.45}
   .check .cn b{color:var(--ink)}
 
-  /* combat */
-  .combat{background:linear-gradient(180deg,#1d1017,#160c11);border:1px solid #4a2530;border-radius:12px;padding:14px 16px}
-  .combat .ct{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;margin-bottom:4px}
-  .combat .ct h4{margin:0;font-family:var(--f-disp);font-size:17px;color:#ffb3bf}
-  .combat .xp{font-family:var(--f-mono);font-size:12px;color:var(--blood);background:#0000004d;border:1px solid #4a2530;
-    padding:2px 8px;border-radius:999px}
-  .combat .cp{font-size:14px;color:var(--mut);margin:6px 0 10px;line-height:1.5}
-  table.stat{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:10px}
-  table.stat th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);
-    font-weight:600;padding:4px 8px;border-bottom:1px solid var(--edge)}
-  table.stat td{padding:5px 8px;border-bottom:1px solid #ffffff08;color:var(--mut)}
-  table.stat td:first-child{color:var(--ink);font-weight:600}
-  table.stat .mono{font-family:var(--f-mono);color:var(--gold)}
-  .combat .crule{font-size:14px;color:#ffc9d0;background:rgba(224,69,93,.09);border-left:3px solid var(--blood);
-    border-radius:0 8px 8px 0;padding:8px 12px;line-height:1.5;margin-bottom:10px}
-  .combat .addinit{font-family:var(--f-body);font-size:12px;color:#1a0c10;background:linear-gradient(180deg,#f08595,#d0526a);
-    border:none;border-radius:8px;padding:8px 14px;font-weight:700;cursor:pointer}
-  .combat .addinit:active{transform:translateY(1px)}
 
   .npc{padding:10px 0;border-top:1px solid var(--edge)}
   .zone .npc:first-of-type{border-top:none}
@@ -235,19 +235,6 @@
   .cuepill:hover{border-color:var(--dim)}
   .cuepill .dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
   .cuepill:active{transform:translateY(1px)}
-
-  .open-q{background:rgba(231,181,63,.07);border:1px dashed var(--gold);border-radius:10px;padding:10px 12px;
-    font-size:12.5px;color:var(--mut);line-height:1.5}
-  .open-q b{color:var(--gold)}
-
-  /* nav arrows */
-  .navbtn{position:fixed;top:50%;transform:translateY(-50%);z-index:30;width:44px;height:76px;
-    background:#1a1428cc;border:1px solid var(--edge);color:var(--mut);font-size:22px;cursor:pointer;
-    display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
-  .navbtn:hover{color:var(--ink);background:#241c34cc}
-  #prev{left:0;border-radius:0 12px 12px 0;border-left:none}
-  #next{right:0;border-radius:12px 0 0 12px;border-right:none}
-  @media(max-width:940px){.navbtn{opacity:.5;width:38px;height:60px}}
 
   /* ---------------- SOUNDBOARD ---------------- */
   #board{flex:0 0 auto;background:linear-gradient(180deg,#14101d,#0c0912);border-top:1px solid var(--edge);
@@ -294,56 +281,6 @@
   .idx-item .in{font-family:var(--f-mono);font-size:11px;color:var(--gold)}
   .idx-item .it{font-size:13.5px;color:var(--ink);font-weight:600;margin-top:2px}
 
-  /* handout checklist */
-  ul.hlist{list-style:none;margin:0;padding:0}
-  ul.hlist li{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--edge);align-items:flex-start;cursor:pointer}
-  ul.hlist li:first-child{border-top:none}
-  .hmark{flex:0 0 auto;width:20px;height:20px;border-radius:6px;border:1.5px solid var(--dim);margin-top:1px;
-    display:grid;place-items:center;font-size:12px;color:transparent}
-  li.done .hmark{background:var(--green);border-color:var(--green);color:#08150f}
-  .hbody .ht{font-size:14.5px;font-weight:600}
-  li.done .hbody .ht{text-decoration:line-through;color:var(--dim)}
-  .hbody .hw{font-size:12.5px;color:var(--mut);margin-top:2px;line-height:1.45}
-  .hbody .hw b{color:var(--ink)}
-  .hnote{font-size:12px;color:var(--dim);margin:0 0 14px;line-height:1.5}
-
-  /* rules */
-  .rule-item{border-top:1px solid var(--edge);padding:12px 0}
-  .rule-item:first-child{border-top:none}
-  .rule-item .rt{font-size:14.5px;font-weight:700;color:var(--blood);margin-bottom:3px}
-  .rule-item .rb{font-size:13px;color:var(--mut);line-height:1.5}
-  .rule-item .rb b{color:var(--ink)}
-  table.budget{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0 12px}
-  table.budget th,table.budget td{padding:6px 8px;border-bottom:1px solid var(--edge);text-align:left}
-  table.budget th{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim)}
-  table.budget td.mono{font-family:var(--f-mono);color:var(--gold)}
-  table.budget td:first-child{color:var(--ink)}
-
-  /* initiative tracker */
-  .init-add{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-  .init-add input{background:#0000004d;border:1px solid var(--edge);border-radius:8px;padding:9px 11px;color:var(--ink);
-    font-family:var(--f-body);font-size:14px}
-  .init-add input.nm{flex:1 1 160px;min-width:120px}
-  .init-add input.iv{width:72px;text-align:center;font-family:var(--f-mono)}
-  .init-add button{background:linear-gradient(180deg,#6d5aa8,#4a3a7a);border:none;border-radius:8px;color:#fff;
-    padding:9px 16px;font-weight:700;cursor:pointer;font-size:14px}
-  .init-row{display:flex;align-items:center;gap:12px;padding:11px 12px;border:1px solid var(--edge);border-radius:10px;
-    margin-bottom:7px;background:var(--panel2)}
-  .init-row.active{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold);background:#241c10}
-  .init-row .iiv{font-family:var(--f-mono);font-size:17px;color:var(--gold);width:32px;text-align:center;font-weight:700}
-  .init-row .inm{flex:1;font-size:15px;font-weight:600}
-  .init-row .ihp{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--mut)}
-  .init-row .ihp input{width:52px;background:#0000004d;border:1px solid var(--edge);border-radius:6px;color:var(--ink);
-    padding:4px 6px;font-family:var(--f-mono);text-align:center;font-size:13px}
-  .init-row .idel{background:none;border:none;color:var(--dim);cursor:pointer;font-size:16px}
-  .init-row .idel:hover{color:var(--blood)}
-  .init-bar{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
-  .init-bar button{background:#1a1428;border:1px solid var(--edge);border-radius:8px;color:var(--mut);padding:8px 14px;
-    cursor:pointer;font-size:13px;font-weight:600}
-  .init-bar button:hover{color:var(--ink);border-color:var(--dim)}
-  .init-bar .round{font-family:var(--f-mono);font-size:13px;color:var(--gold)}
-  .init-empty{color:var(--dim);font-style:italic;font-size:13px;text-align:center;padding:20px}
-
   /* dice toast */
   #dice{position:fixed;z-index:70;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);
     background:#1b1528ee;border:1px solid var(--edge);border-radius:14px;padding:14px 22px;box-shadow:var(--shadow);
@@ -358,7 +295,7 @@
     padding:4px 9px;cursor:pointer}
   #dice .adv button.on{background:var(--gold);color:#1a1206;border-color:var(--gold);font-weight:700}
 
-  .canon-note{font-size:11.5px;color:var(--dim);line-height:1.5;background:#0000002d;border:1px solid var(--edge);
+  .canon-note{font-size:14px;color:var(--dim);line-height:1.5;background:#0000002d;border:1px solid var(--edge);
     border-radius:8px;padding:9px 12px;margin-top:6px}
   .canon-note b{color:var(--amber-dim)}
 </style>
@@ -369,12 +306,11 @@
 <div id="splash">
   <div class="kick">Dungeon Master · Run of Show</div>
   <h1>Dood Mansion</h1>
-  <p class="sub">A cue-to-cue prompt book for running the two-night haunt. Read-aloud, beats, checks, combat, hand-outs and a live soundboard — everything you need to run the moment.</p>
+  <p class="sub">A cue-to-cue prompt book for running the two-night haunt. Read-aloud, beats, checks, hand-overs, reveals and a live soundboard — everything you need to run the moment.</p>
   <button class="go" id="beginBtn">Take the booth &rsaquo;</button>
   <p class="hint">
     <kbd>&larr;</kbd> <kbd>&rarr;</kbd> turn cues &nbsp;·&nbsp; <kbd>1</kbd>&ndash;<kbd>0</kbd> soundboard &nbsp;·&nbsp;
-    <kbd>i</kbd> index &nbsp;·&nbsp; <kbd>t</kbd> initiative &nbsp;·&nbsp; <kbd>h</kbd> hand-outs &nbsp;·&nbsp;
-    <kbd>r</kbd> rules &nbsp;·&nbsp; <kbd>d</kbd> roll d20 &nbsp;·&nbsp; <kbd>Esc</kbd> silence / close<br>
+    <kbd>i</kbd> index &nbsp;·&nbsp; <kbd>f</kbd> full screen &nbsp;·&nbsp; <kbd>d</kbd> roll d20 &nbsp;·&nbsp; <kbd>Esc</kbd> silence / close<br>
     Tapping in unlocks the synthesized audio (Web Audio, no files — works offline on the iPad).
   </p>
 </div>
@@ -386,21 +322,19 @@
     <span class="brand">Dood Mansion <span class="b2">· Run of Show</span></span>
     <span class="act-pill" id="actPill"></span>
     <span class="spacer"></span>
-    <span class="counter" id="counter"></span>
+    <div class="nav">
+      <button class="navbtn" id="prev" aria-label="Previous cue" title="Previous cue (&larr;)">&#8249;</button>
+      <span class="counter" id="counter"></span>
+      <button class="navbtn" id="next" aria-label="Next cue" title="Next cue (&rarr;)">&#8250;</button>
+    </div>
     <span class="timer" id="timer" title="Tap to pause / resume">00:00</span>
     <div class="tbtns">
-      <button class="tbtn" data-ov="index"><span class="lbl">Index</span><span class="k">I</span></button>
-      <button class="tbtn" data-ov="tracker"><span class="lbl">Initiative</span><span class="k">T</span></button>
-      <button class="tbtn" data-ov="handouts"><span class="lbl">Hand-outs</span><span class="k">H</span></button>
-      <button class="tbtn" data-ov="rules"><span class="lbl">Rules</span><span class="k">R</span></button>
-      <button class="tbtn" id="fsBtn"><span class="lbl">Full</span><span class="k">F</span></button>
+      <button class="tbtn" data-ov="index" title="Scene index (I)">Index</button>
+      <button class="tbtn" id="fsBtn" title="Full screen (F)">Full</button>
     </div>
   </div>
 
   <div id="stage"></div>
-
-  <button class="navbtn" id="prev" aria-label="Previous">&#8249;</button>
-  <button class="navbtn" id="next" aria-label="Next">&#8250;</button>
 
   <div id="board"></div>
 </div>
@@ -409,38 +343,6 @@
 <div class="overlay" id="ov-index"><div class="sheet">
   <div class="sh"><h3>Scene index</h3><button class="x" data-close>&times;</button></div>
   <div class="sb" id="indexBody"></div>
-</div></div>
-
-<div class="overlay" id="ov-handouts"><div class="sheet">
-  <div class="sh"><h3>Physical hand-outs &amp; props</h3><button class="x" data-close>&times;</button></div>
-  <div class="sb">
-    <p class="hnote">Everything to have in reach before you sit down. Tap to check off as it hits the table. Saved on this device.</p>
-    <ul class="hlist" id="handoutBody"></ul>
-  </div>
-</div></div>
-
-<div class="overlay" id="ov-rules"><div class="sheet">
-  <div class="sh"><h3>House rules &amp; XP budgets</h3><button class="x" data-close>&times;</button></div>
-  <div class="sb" id="rulesBody"></div>
-</div></div>
-
-<div class="overlay" id="ov-tracker"><div class="sheet">
-  <div class="sh"><h3>Initiative</h3><button class="x" data-close>&times;</button></div>
-  <div class="sb">
-    <div class="init-add">
-      <input class="nm" id="iNm" placeholder="Name (e.g. Archival shears A)">
-      <input class="iv" id="iIv" placeholder="init" inputmode="numeric">
-      <button id="iAdd">Add</button>
-    </div>
-    <div class="init-bar">
-      <button id="iNext">Next turn &rsaquo;</button>
-      <span class="round">Round <b id="iRound">1</b></span>
-      <span class="spacer"></span>
-      <button id="iSort">Sort</button>
-      <button id="iClear">Clear</button>
-    </div>
-    <div id="initBody"></div>
-  </div>
 </div></div>
 
 <div id="dice">
@@ -478,7 +380,7 @@ const CUE_LABEL = {
    top of its cue. Keep in step with the tiles in /index.html. */
 const IPAD = {
   1:{room:"The Library",    prop:"the torn Crier page",                 path:"/puzzle/",
-     when:"After the fight: tap the bracket on the setup screen and set the piece count from the cut count, then hand it over."},
+     when:"After the fight: tap the bracket on the setup screen and set the pieces from the cut count &mdash; 1&ndash;2 cuts &rarr; 9, 3&ndash;4 &rarr; 16, 5+ &rarr; 25. Then hand it over."},
   2:{room:"The Study",      prop:"the Articles of Settlement",          path:"/settlement/",
      when:"Opens folded; they tap to unfold."},
   3:{room:"The Photograph", prop:"the back of the photograph",          path:"/photo/",
@@ -490,12 +392,15 @@ const IPAD = {
 };
 
 /* ============================= FLOATING PROPS ============================= */
-/* Props with no fixed spot: handed over the first time the party searches any
-   room in the house. The strip shows on every mansion cue (acts night + sunday);
-   its checkbox is the matching HANDOUTS row, so both lists tick together. */
+/* Props with no fixed spot, handed over when the party searches a room. The strip
+   shows on every mansion cue (acts night + sunday); ticks are saved on this device. */
 const FLOATING = [
-  {h:"AIM sticky note (Fluffy123)", t:"AIM sticky note &mdash; <code>Fluffy123</code>"}
+  {id:"sticky", t:"Sticky note <code>Fluffy123</code>", when:"the first time they search any room"},
+  {id:"survey", t:"Site survey <code>/survey/</code>", when:"during one of the times they look around a room"}
 ];
+const FKEY="dood_floating_v1";
+function loadFloat(){ try{return JSON.parse(localStorage.getItem(FKEY))||{};}catch(e){return {};} }
+function saveFloat(o){ try{localStorage.setItem(FKEY,JSON.stringify(o));}catch(e){} }
 const MANSION_ACTS = ["night","sunday"];
 
 /* ============================= SCENES ============================= */
@@ -514,22 +419,21 @@ const SCENES = [
     "<b>Party is level 4</b>, leveling to <b>5</b> at the end of night one. Everything Sunday is built for five level-5 PCs.",
     "<b>Sunday's three rooms run in any order</b> — Study (Gnomey), Party room (Bix &amp; Yobo), Cellar (Cody). <b>The old rig upstairs (Simone) is locked until the end</b> and is always the last room. The corridor set-piece is cut.",
     "Only <b>five people</b> are invited (7PM card). The <b>3AM flyer is public</b> — that's when the house fills up for the show. Poe Boy sells the whole night as a <b>concert</b>; what he's really after is his samples.",
-    "<b>One laptop, two zones.</b> Every cue splits in two: <b style=\"color:var(--gold)\">SCOTT · narrate</b> on the left (read-aloud, beats, checks, combat, the iPad item) and <b style=\"color:var(--pink)\">SPENCER · voice</b> on the right (who's in the scene, how they sound, their lines). Each side scrolls on its own.",
+    "<b>One laptop, two zones.</b> Every cue splits in two: <b style=\"color:var(--gold)\">SCOTT · narrate</b> on the left (hand-overs, the iPad item, read-aloud, beats, checks) and <b style=\"color:var(--pink)\">SPENCER · voice</b> on the right (who's in the scene, how they sound, their lines). Each side scrolls on its own.",
     "<b>🔓 Reveal</b> markers flag the moment someone learns something they didn't know &mdash; the players, one PC, or an NPC. Each one sits in the zone of whoever delivers it or has to react. When one fires, <b>both of you play the reaction</b>. They're 🟡 AI staging until Scott signs off.",
-    "Open the <b>Rules</b> panel (<code>R</code>) for the four hard rules and the XP budgets before combat.",
+    "<b>⚔ Combat runs at the table</b>, off this screen. A fight cue just names the fight and its one story rule.",
     "<b>📱 The iPad lives on its home page</b> (<code>/</code>) all night: five big numbered items, in story order. A cue that needs one opens with a blue <b>iPad &rarr; item N</b> bar. Tap N, hand it over, and go back to the home page when the scene's done. Sunday's rooms run in any order, so 2 and 3&ndash;4 can swap &mdash; go by the number on the cue." +
       `<div class="ipad-key">${Object.keys(IPAD).map(n=>`<span class="k">${n}</span><span><b>${IPAD[n].room}</b> &mdash; ${IPAD[n].prop} <code>${IPAD[n].path}</code></span>`).join("")}</div>`
+  ],
+  hand:[
+    "<b>Backstory cards</b> (<code>/backstory/</code>) &mdash; one per player, before play.",
+    "<b>Russ's requirements card</b> (<code>/badge/</code>) to Cody &mdash; he carries it all weekend."
   ],
   npcs:[],
   reminders:[
     {t:"<b>One physical prop per PC:</b> Bix &mdash; the printed photograph &middot; Gnomey &mdash; the printed deed (Vinny hands it over at the end) &middot; Simone &mdash; the wishing willow &middot; Russ &mdash; badge + card &middot; Yobo &mdash; <b>still undecided</b>.", k:"hand"},
-    {t:"Printed <b>invite card</b> for the locker letters &mdash; prop at <code>/invite/</code>.", k:"hand"},
-    {t:"<b>AIM sticky note</b> reading <code>Fluffy123</code>, in handwriting. <b>Floating prop:</b> hand it over the first time they search any room in the house &mdash; every mansion cue shows the strip.", k:"hand"},
-    {t:"A real <b>USB stick</b> with <code>scream_test_03_GOOD.wav</code> &mdash; label it <code>MARCUS_HALE</code>.", k:"hand"},
-    {t:"The <b>wishing willow</b> token: <i>I want Angelique to notice me</i>, in twelve-year-old hand.", k:"hand"},
-    {t:"The <b>printed photograph</b> for Bix &mdash; also the key to the party-room spot-the-difference.", k:"hand"},
-    {t:"<b>Russ's badge card</b> (<code>/badge/</code>) plus a real merit badge for the troop leader to hand Cody at the very end.", k:"hand"},
-    {t:"The <b>printed deed</b> (<code>/deed/</code>) &mdash; keep it off the table until Vinny hands it to Gnomey in the ending scene.", k:"hand"},
+    {t:"<b>Pack list</b>, in hand-over order: invite cards (cue 2) &middot; the sticky note and the site survey (floating, cues 5&ndash;13) &middot; the printed photograph (cue 11) &middot; the wishing willow and the USB stick labelled <code>MARCUS_HALE</code> (cue 13) &middot; the deed, the concert tickets and a real merit badge (cue 15). Each cue says <b>✋ Hand over</b> when it's time.", k:""},
+    {t:"Keep the <b>printed deed</b> out of sight until Vinny hands it to Gnomey in the ending scene.", k:"rule"},
     {t:"<b>Print run:</b> everything is in the print kit at <code>/print/</code> — <code>1-cardstock.pdf</code> (invites, deed, badge card + badge, tickets, backstory cards) and <code>2-photo-gloss.pdf</code> (the photograph). Not printed: DJ poster (Spencer), sticky note and wishing willow (handmade).", k:"hand"},
     {t:"<b>iPad on the home page</b>, numbered items 1&ndash;5 showing. Item 5 already names the kid Marcus Hale.", k:""}
   ],
@@ -567,8 +471,8 @@ const SCENES = [
   npcs:[
     {nm:"Great Uncle Vinny (phone)", vc:"Ancient and mostly gone, and sure it's 1931. Doesn't explain who Cornelis is."}
   ],
+  hand:["<b>The invite cards</b> (<code>/invite/</code>), one in each locker &mdash; the mass-flyer voice is deliberate camouflage."],
   reminders:[
-    {t:"Hand out the printed <b>invite</b> (<code>/invite/</code>) &mdash; its mass-flyer voice is deliberate camouflage.", k:"hand"},
     {t:"Open: is the card an invite to a <b>haunted house</b> or to Poe Boy's <b>concert</b>? Spencer is deciding with the invite.", k:""}
   ],
   cues:[] },
@@ -593,20 +497,11 @@ const SCENES = [
     {skill:"Investigation / History", dc:"12", sug:true, note:"Assemble the slaying method from the folklore: coffins, stake, rebury."},
     {skill:"Insight", dc:"13", sug:true, note:"Clock that the Records Keeper is genuinely <b>warning</b> them, not flavor."}
   ],
-  combat:{ name:"The trap in the binding", xp:"500 XP · 2.5 CR",
-    p:"The shears <b>ignore the party</b> and go for the article; they only hurt someone who physically interposes. Two shears = two approach lanes to body-block.",
-    rows:[
-      ["Archival shears &times;2","CR &frac12;","&mdash;","&mdash;","Cut the article; interpose to stop them"],
-      ["Swarm of index cards","CR &frac12;","&mdash;","&mdash;","Pressure / area"],
-      ["The book cart","CR 1","&mdash;","&mdash;","Bruiser"]
-    ],
-    rule:"<b>The first cut is the trigger, not an action</b> &mdash; before initiative. Count the cuts: that sets the puzzle. 1&ndash;2 &rarr; 9 pieces, 3&ndash;4 &rarr; 16, 5+ &rarr; 25. It <b>contains and erases; it does not kill.</b>",
-    monsters:[{n:"Archival shears A",cr:""},{n:"Archival shears B",cr:""},{n:"Index-card swarm",cr:""},{n:"Book cart",cr:""}] },
+  fight:{name:"The trap in the binding", rule:"The shears go for the article, not the party. It <b>contains and erases; it does not kill.</b> Count the cuts &mdash; they set the puzzle."},
   npcs:[
     {nm:"Records Keeper", vc:"The Harbinger with a modern spin. Hands over the volume intact, then warns them off. Beyond that, unwritten &mdash; play to taste."}
   ],
   reminders:[
-    {t:"After the fight, open iPad item 1 (<code>/puzzle/</code>) on its setup screen &mdash; tap the bracket and set the piece count from the cut count.", k:"hand"},
     {t:"The town is no longer combat-free, and Saturday's fight is here, not the mansion.", k:""}
   ],
   cues:["riser","jump","dice"] },
@@ -686,15 +581,14 @@ const SCENES = [
     "The vamps are <b>hosts doing a job they agreed to</b> &mdash; they think this is the big scare that saves their house, and they have no idea anyone ever died here.",
     "<b>Bix beat 1 of 3:</b> they catch Edward <b>glimmering</b> in the moonlight. The Twilight joke, and the first frame of a reveal. Let it be the silly one.",
     "Sequence: <b>1</b> Hide (Stealth) &rarr; <b>2</b> the overheard argument (Spencer), every line true and damning &rarr; <b>3</b> explore under recurring stealth &rarr; <b>4</b> Dracula swoops, grapples &amp; shoves, <b>no damage</b> &rarr; <b>5</b> Orlok ends it with <b>one word</b> &rarr; <b>6</b> he dismisses them.",
-    "Every word of the dismissal is both a threat and an accurate description of a haunted-house attraction. The party hears one thing and tears the house apart looking for an exit &mdash; exactly where you want them."
+    "Every word of the dismissal is both a threat and an accurate description of a haunted-house attraction. The party hears one thing and tears the house apart looking for an exit &mdash; exactly where you want them.",
+    "Do <b>not</b> let Orlok discover the locked doors or explain anything &mdash; he decided the doors and owns the building."
   ],
   checks:[
     {skill:"Stealth", dc:"13", sug:true, note:"Hide when Angelique pulls them down; then recurring &mdash; eventually someone rolls badly."},
     {skill:"Insight", dc:"&mdash;", sug:false, note:"They'll <b>misread</b> this as being hunted. Good. Let them. The mechanics are the real clue: the monsters never roll damage."}
   ],
-  combat:{ name:"Enemy contact — NOT a fight", xp:"Pressure scene",
-    p:"The vampires grapple, shove and frighten and <b>cannot kill a PC</b> &mdash; no Bite, no damage, nobody below 1 HP. A pressure scene, not an encounter to win.",
-    rows:[], rule:"Do <b>not</b> let Orlok discover the locked doors or explain anything &mdash; he decided the doors and owns the building.", monsters:[] },
+  fight:{name:"First contact &mdash; a pressure scene, not a fight", rule:"<b>The vampires can't kill a PC.</b> Grapple, shove, frighten: no Bite, no damage, nobody below 1 HP. The rule is the clue."},
   npcs:[
     {nm:"Dracula", vc:"Campy, theatrical, lays hands on them &mdash; and enjoys it far too much. Stops the instant Orlok speaks."},
     {nm:"Orlok", vc:"Patience, not menace. Impeccable courtesy while doing something appalling. One syllable is the whole hierarchy."},
@@ -723,7 +617,7 @@ const SCENES = [
     {nm:"Orlok", vc:"Cold. Takes the favour, gives nothing back. Won't sign the card."}
   ],
   reminders:[
-    {t:"Show Russ's badge card (<code>/badge/</code>). This also plants the infirmary &mdash; he'll want the specs for fine vet work downstairs.", k:""},
+    {t:"Russ's requirements card comes out here (he's had it since before play). This also plants the infirmary &mdash; he'll want the specs for fine vet work downstairs.", k:""},
     {t:"Refusal 1 of 3.", k:""}
   ],
   cues:[] },
@@ -759,14 +653,7 @@ const SCENES = [
   checks:[
     {skill:"Arcana", dc:"14", sug:true, note:"Recognize it as an <b>incomplete, human-made</b> summoning &mdash; the planted clue."}
   ],
-  combat:{ name:"The botched summoning", xp:"~1,500 XP · ~40 min",
-    p:"Add <b>minions, not hit points.</b> A lone solo at this tier plays as a coin flip. Keep it bound to its room and straining toward the sealed door.",
-    rows:[
-      ["Botched summoning (solo)","CR 4","statting","&mdash;","Bound to the room; claws upstairs"],
-      ["Ritual fragments &times;4","CR &frac12;","statting","&mdash;","Minions"]
-    ],
-    rule:"Every number is a proposal &mdash; see the Rules panel. This is the last fight before the level 4 &rarr; 5 jump.",
-    monsters:[{n:"Botched summoning"},{n:"Fragment 1"},{n:"Fragment 2"},{n:"Fragment 3"},{n:"Fragment 4"}] },
+  fight:{name:"The botched summoning", rule:"It's bound to its room and <b>claws toward the sealed door</b> the whole fight. That pull is the clue."},
   npcs:[],
   reminders:[
     {t:"<b>End of session one &mdash; everyone levels to 5.</b>", k:"level"},
@@ -793,7 +680,7 @@ const SCENES = [
   ],
   npcs:[],
   reminders:[
-    {t:"Show iPad item 2 (<code>/settlement/</code>, tap to unfold). The bearer paragraph is the <b>only one on the page with no corrections</b>.", k:"hand"},
+    {t:"On iPad item 2, the bearer paragraph is the <b>only one on the page with no corrections</b>.", k:""},
     {t:"Keep the <b>printed deed</b> hidden. Vinny has it, and it comes out only in the ending scene.", k:"rule"}
   ],
   cues:[] },
@@ -811,6 +698,7 @@ const SCENES = [
     {skill:"Deception", dc:"&mdash;", sug:false, note:"<b>Yobo &mdash; helps him blend in</b> while masked. The one place the lie is an asset."},
     {skill:"Performance", dc:"true>high", sug:true, note:"The song. Reward <b>honesty over the number</b>. A masked turn curdles the ghosts (the scare); a true one opens the way."}
   ],
+  hand:["<b>The printed photograph</b> to Will (Bix) &mdash; say nothing. It stays on the table as the key to the spot-the-difference."],
   rev:[
     {by:"scott", who:"Bix", t:"learns from the photograph: the pregnant goblin is his mother, and the fae with no fangs beside her (&ldquo;Me + E.&rdquo; on the back) is Edward, before he was turned. Hand Will the print and say nothing &mdash; he gets the goblin before the fae."},
     {by:"scott", who:"The rest of the party", t:"learn whatever Bix says out loud. Don't prompt him."},
@@ -820,7 +708,7 @@ const SCENES = [
     {nm:"Dracula", vc:"Pushes Yobo to drop the act. The catalyst for the buff flip."}
   ],
   reminders:[
-    {t:"Props: the <b>printed photograph</b> (the key) and iPad item 4 (<code>/party-room/</code>). Bix's find and Yobo's turn are <b>one puzzle</b>. Stuck table: the DM tab's <code>nudge</code> rings one difference.", k:"hand"},
+    {t:"Bix's find and Yobo's turn are <b>one puzzle</b>: the printed photo is the key to iPad item 4. Stuck table: the DM tab's <code>nudge</code> rings one difference.", k:""},
     {t:"Will's <b>distinctive trait for Bix's parents</b> goes into the photograph &mdash; still to come from Will.", k:""},
     {t:"Yobo's Performance / Inspiration buff is <b>permanent</b> after this.", k:"level"}
   ],
@@ -872,6 +760,10 @@ const SCENES = [
   checks:[
     {skill:"Roleplay, not a roll", dc:"&mdash;", sug:false, note:"<i>&ldquo;youre not typing like him&rdquo;</i> is character, not a check. When the drive mounts, Simone &amp; Angelique realize it's the same boy."}
   ],
+  hand:[
+    "<b>The wishing willow</b> to Simone, from the bag &mdash; <i>I want Angelique to notice me</i>.",
+    "<b>The USB stick</b> labelled <code>MARCUS_HALE</code>, when the drive mounts and he uploads the file."
+  ],
   talk:[
     {who:"The Spirit · on screen, read it if they don't", t:"my bag is still in this room. by the desk under the coats. can you get it"}
   ],
@@ -890,8 +782,7 @@ const SCENES = [
     {nm:"The Devil (Goat)", vc:"Serif, capitals, full stops &mdash; never raised on a keyboard. Asked what it wants the money for: <b>&ldquo;No.&rdquo;</b> and nothing else."}
   ],
   reminders:[
-    {t:"iPad item 5 opens as Marcus Hale. Direct link if you need it: <code>/aim/?name=Marcus%20Hale</code>.", k:"hand"},
-    {t:"Hand the players a <b>real USB stick</b> here.", k:"hand"},
+
     {t:"<b>Nothing plot-critical hangs on Simone's yes.</b> The recording, the name and the drive are already theirs. A no costs nothing but him &mdash; the machine goes dark at sunrise. <b>Do not fudge it.</b>", k:"rule"},
     {t:"The flyer's <b>3AM</b> is the fight's starting gun &mdash; end the room on the speakers coming on.", k:""},
     {t:"Because only five were invited, <b>Poe Boy knows exactly who's here</b> and opens the show by naming them.", k:""}
@@ -919,21 +810,14 @@ const SCENES = [
     "Then the party kills him &mdash; converting &ldquo;not our enemy&rdquo; into &ldquo;the people who solved our actual problem, in front of us.&rdquo; <b>Two moments, not one.</b>",
     "He's the <b>only death in the story</b> and the only one who isn't a monster. Self-defence &mdash; he sealed them in and attacked first &mdash; but these are teenagers. <b>Let it have its silence before the comedy starts.</b>"
   ],
-  combat:{ name:"Phase 1 — the developer breaches", xp:"~3,500 XP",
-    p:"Bump him to ~CR 7 to stay lethal against a level-5 party with Counterspell and Fireball. Field six thugs knowing the vampires eat two.",
-    rows:[
-      ["W. Ostrander (abjurer)","~CR 7","statting","&mdash;","Arcane Ward, Seal a door, Counterspell, Shield, Hold Person &mdash; no damage spells"],
-      ["Thugs &times;6","CR &frac12;","statting","&mdash;","The vampires start eating these"]
-    ],
-    rule:"He solves problems by <b>sealing</b> them, never by making noise. At level 5 the party has its own Counterspell &mdash; this is a real spell-duel.",
-    monsters:[{n:"W. Ostrander"},{n:"Thug 1"},{n:"Thug 2"},{n:"Thug 3"},{n:"Thug 4"},{n:"Thug 5"},{n:"Thug 6"}] },
+  fight:{name:"The developer breaches", rule:"<b>The only lethal fight.</b> Ostrander seals the exits behind him, his own crew included. His death flips the vampires &mdash; no persuasion check."},
   npcs:[
     {nm:"DJ Poe Boy", vc:"On the mic in borrowed lines. An Enthralling Performance holds the 3AM crowd &mdash; he needs them frightened and he needs them to stay."},
     {nm:"W. Ostrander", vc:"An adult with a clipboard. Within four seconds it stops being folklore and becomes a contamination problem on a site he's paid for. Brushes off Poe Boy's recruit pitch."}
   ],
   reminders:[
     {t:"His death is what <b>flips the vampires &mdash; no persuasion check.</b>", k:""},
-    {t:"Russ badge req 3 opens next phase: heal a vampire under fire.", k:""},
+    {t:"Russ's badge req 3 opens next: heal a vampire under fire.", k:""},
     {t:"Give the death its <b>silence</b>. The comedy doesn't start until this lands.", k:"rule"},
     {t:"Open question to decide: how does the crowd get through a bolted door at 3AM? (Obvious answer: Poe Boy opens the front for his own show &mdash; doors open half an hour before the set.)", k:""}
   ],
@@ -955,15 +839,7 @@ const SCENES = [
   checks:[
     {skill:"Get to / hold the decks", dc:"objective", sug:false, note:"The keep-away is the fight. Deal with Stinky to drop the aura, then plug in."}
   ],
-  combat:{ name:"Phase 2 — the ballroom decks", xp:"2,500 XP · a catharsis, not a grind",
-    p:"Well under the level-5 line, easier still with three vampire allies who are now the party's peers. Only real tuning: Poe Boy's staying power.",
-    rows:[
-      ["DJ Poe Boy","~CR 5","~130 HP · AC 16","DC 16","4 legendary actions (party size &minus; 1); weak weapons, Command is the threat"],
-      ["Lil Stinky","~CR 3","~80 HP · AC 18","&mdash;","Aura of Protection buffs Poe Boy &mdash; deal with him first"],
-      ["Vampire allies &times;3","&mdash;","&mdash;","&mdash;","Now fighting alongside the party"]
-    ],
-    rule:"<b>USB is keep-away, not a fail state &mdash; it cannot be destroyed.</b> Stinky's oath breaks with <b>no saving throw</b>.",
-    monsters:[{n:"DJ Poe Boy"},{n:"Lil Stinky"}] },
+  fight:{name:"The ballroom decks", rule:"<b>The USB can't be destroyed</b> &mdash; Command (&ldquo;Drop.&rdquo;) only costs time. When it plays, <b>Stinky's oath breaks with no save.</b>"},
   rev:[
     {by:"scott", who:"The vampires", t:"learn from the recording that <b>a boy died in their house</b> and Poe Boy let it happen. They had no idea."},
     {by:"scott", who:"The 3AM crowd", t:"hear the recording and Poe Boy's calm voice under it. Silence, one boo, then the whole room."},
@@ -976,7 +852,7 @@ const SCENES = [
     {nm:"Dracula", vc:"Seizes the mic and denounces Poe Boy magnificently. Waited all night for a real audience."}
   ],
   reminders:[
-    {t:"<b>Play the recording</b> &mdash; the single biggest table moment, a file you hit play on.", k:"hand"},
+    {t:"<b>Play the recording</b> &mdash; the single biggest table moment, a file you hit play on.", k:""},
     {t:"USB can't be destroyed; one bad save never ends the campaign.", k:"rule"},
     {t:"Stinky's oath breaks with <b>no save</b> &mdash; don't put the best beat on a d20.", k:"rule"}
   ],
@@ -1010,11 +886,12 @@ const SCENES = [
     {nm:"Orlok", vc:"Signs Russ's card and confirms Gnomey's claim, both through his teeth. Pissed, and complies perfectly."},
     {nm:"Edward", vc:"The whole timeline to Bix. No jokes in it."}
   ],
-  reminders:[
-    {t:"Hand Gnomey the <b>printed deed</b> &mdash; from Vinny's hand.", k:"hand"},
-    {t:"The troop leader hands Cody the <b>physical merit badge</b>.", k:"hand"},
-    {t:"The <b>concert tickets</b> (<code>/tickets/</code>) &mdash; two to Total Party Kill, from his mother&rsquo;s hand to Simone.", k:"hand"}
+  hand:[
+    "<b>The concert tickets</b> (<code>/tickets/</code>) to Simone &mdash; from Upton's mother's hand.",
+    "<b>The real merit badge</b> to Cody (Russ) &mdash; from the troop leader, once Orlok signs.",
+    "<b>The printed deed</b> (<code>/deed/</code>) to Julia (Gnomey) &mdash; from Vinny's hand."
   ],
+  reminders:[],
   cues:["crowd","levelup"] },
 
 { act:"finale", no:16, title:"Back to class", where:"The bookend",
@@ -1030,37 +907,6 @@ const SCENES = [
     {t:"This is the end. Breathe.", k:""}
   ],
   cues:["levelup"] }
-];
-
-/* ============================= CRULES + BUDGET ============================= */
-const CRULES = [
-  ["The vampires cannot kill","No Bite on a conscious creature, ever, in first contact. Grapple, shove, frighten. The mechanics are the clue, and the reveal depends on this being literally true rather than a near miss."],
-  ["The USB is keep-away, not a fail state","Poe Boy spends his turns on <i>Command</i> &mdash; &ldquo;Drop.&rdquo; The drive <b>cannot be destroyed</b>, so one bad save never ends the campaign; it just costs time while the party is being shot at."],
-  ["The deed arrives with Vinny","Title rests with the bearer of the deed, and <b>Vinny holds it all weekend</b>. Nothing at the table puts it in Gnomey's hands early &mdash; no roll, no pickpocket, no lucky find in the study. It comes out once, from Vinny, in the ending scene."],
-  ["Stinky's oath breaks with no save","He hears his best friend stay calm while a kid dies. Devotion's first tenet is <i>don't lie or cheat</i>, and there is no save against that. Rolling for it would put the campaign's best beat on a d20."]
-];
-const BUDGET = {
-  rows:[
-    ["Saturday · 5 PCs at level 4","1,250","1,875","2,500","5 CR total · solo cap CR 4"],
-    ["Sunday · 5 PCs at level 5","2,500","3,750","5,500","6.25 CR total · solo cap CR 5"],
-    ["Sunday · 6 bodies (Angelique flips)","3,000","4,500","6,600","7.5 CR total · solo cap CR 5"]
-  ],
-  note:"2024 DMG budgets &mdash; <b>no group-size multiplier; you spend raw monster XP.</b> Cross-check the Lazy Encounter Benchmark: deadly if total monster CR exceeds a quarter of summed character levels; a solo may be deadly if its CR exceeds the party's average level. That fragility bites hardest below 5th &mdash; it governs Saturday. By Sunday the party has crossed the level-5 spike."
-};
-
-/* ============================= HAND-OUTS ============================= */
-const HANDOUTS = [
-  ["The deed (print)","Print <code>/deed/</code> at Staples on letter paper. Vinny hands it to Gnomey in the ending scene &mdash; keep it out of sight until then. The strongbox in the study has an empty slot where it belongs."],
-  ["The printed photograph","Bix's physical prop, aged like it's been in that house his whole life. Also the key to the party-room spot-the-difference. The back is on <code>/photo/</code>."],
-  ["Printed invite card","The 5&times;7 for the locker letters. Prop at <code>/invite/</code>."],
-  ["AIM sticky note (Fluffy123)","Handwriting. <b>Floating prop:</b> no fixed spot &mdash; hand it over the first time they search any room in the house. Unlocks the whole computer-room scene."],
-  ["USB stick + the .wav","A real thumb drive with <code>scream_test_03_GOOD.wav</code>. <b>Label it <code>MARCUS_HALE</code>.</b> Handed over when the Spirit uploads."],
-  ["The wishing willow","A small wooden token with a paper slip &mdash; <i>I want Angelique to notice me</i>, in twelve-year-old hand. The only physical object tying a PC to the body."],
-  ["Russ's badge card + real badge","Card at <code>/badge/</code> with three signature lines. The troop leader hands Cody a <b>real merit badge</b> in the ending scene."],
-  ["Yobo's prop","<b>Still undecided.</b> Every other PC has a physical prop; this is the open slot."],
-  ["Concert tickets","<code>/tickets/</code> &mdash; two tickets in Upton&rsquo;s name. Poe Boy&rsquo;s mother hands them to Simone in the driveway. <b>Total Party Kill</b>, Transyltown Armory, Sat Jun 25 2005."],
-  ["Backstory cards","<code>/backstory/</code> &mdash; one per player, handed out before play."],
-  ["iPad on the home page","Numbered items in story order: <b>1</b> The Library (<code>/puzzle/</code>) · <b>2</b> The Study (<code>/settlement/</code>) · <b>3</b> The Photograph (<code>/photo/</code>) · <b>4</b> The Party (<code>/party-room/</code>) · <b>5</b> The Computer (<code>/aim/</code>, opens as Marcus Hale). Cache-bust with <code>?v=</code> after any update."]
 ];
 
 /* ===================================================================== */
@@ -1096,11 +942,10 @@ function render(i){
   // floating props strip
   let floatHTML = "";
   if(MANSION_ACTS.includes(s.act)){
-    const st = loadHand();
-    floatHTML = `<div class="floating"><span class="fh">🗂 Floating props: hand over when they search</span>` +
-      FLOATING.map(f=>{ const i = HANDOUTS.findIndex(h=>h[0]===f.h);
-        return `<button class="fp${st[i]?" done":""}" data-float="${i}"><span class="box">✓</span>`+
-          `<span class="ft">${f.t}</span><span class="fs">${st[i]?"handed over":"not yet"}</span></button>`; }).join("") +
+    const st = loadFloat();
+    floatHTML = `<div class="floating"><span class="fh">🗂 Floating<span class="fsub"> · hand over when they search</span></span>` +
+      FLOATING.map(f=>`<button class="fp${st[f.id]?" done":""}" data-float="${f.id}" title="Hand over ${f.when}">`+
+        `<span class="box">✓</span><span class="ft">${f.t}</span></button>`).join("") +
       `</div>`;
   }
 
@@ -1130,23 +975,13 @@ function render(i){
       `</div></div>`;
   }
 
-  // combat
-  let combatHTML = "";
-  if(s.combat){
-    const c = s.combat;
-    let table = "";
-    if(c.rows && c.rows.length){
-      table = `<table class="stat"><tr><th>Foe</th><th>CR</th><th>HP / AC</th><th>Save</th><th>Notes</th></tr>` +
-        c.rows.map(r=>`<tr><td>${r[0]}</td><td class="mono">${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join("") +
-        `</table>`;
-    }
-    const addBtn = (c.monsters && c.monsters.length) ?
-      `<button class="addinit" data-addinit="${cur}">&#9876; Add ${c.monsters.length} to initiative</button>` : "";
-    combatHTML = `<div class="block"><p class="h">Combat</p><div class="combat">`+
-      `<div class="ct"><h4>${c.name}</h4><span class="xp">${c.xp}</span></div>`+
-      `<p class="cp">${c.p}</p>${table}`+
-      (c.rule?`<div class="crule">${c.rule}</div>`:``)+ addBtn +`</div></div>`;
-  }
+  // ✋ hand-overs
+  const handHTML = (s.hand && s.hand.length) ?
+    `<div class="hands">${s.hand.map(h=>`<div class="handover"><span class="hk">✋ Hand over</span><span class="ht">${h}</span></div>`).join("")}</div>` : "";
+
+  // ⚔ fights are run at the table; the cue keeps only the name and the story rule
+  const fightHTML = s.fight ?
+    `<div class="fight"><span class="fk">⚔ Combat: run it at the table</span><span class="fn">${s.fight.name}</span><span class="fr">${s.fight.rule}</span></div>` : "";
 
   // reveals: rev[].by is "scott", "spencer", or an NPC name (renders under that NPC)
   const revs = s.rev || [];
@@ -1185,7 +1020,7 @@ function render(i){
     `<h2>${s.title}</h2><span class="where">${s.where}</span></div>`+
     `<div class="zones">`+
       `<section class="zone z-scott"><p class="zh"><span>Scott</span> · narrate</p>`+
-        `${ipadHTML}${floatHTML}${readHTML}${revBlock(revs.filter(r=>r.by==="scott"))}${remHTML}${beatsHTML}${checksHTML}${combatHTML}${cuesHTML}${canonHTML}</section>`+
+        `${handHTML}${ipadHTML}${floatHTML}${readHTML}${fightHTML}${revBlock(revs.filter(r=>r.by==="scott"))}${remHTML}${beatsHTML}${checksHTML}${cuesHTML}${canonHTML}</section>`+
       `<section class="zone z-spencer"><p class="zh"><span>Spencer</span> · voice</p>${spHTML}</section>`+
     `</div>`;
 
@@ -1424,51 +1259,6 @@ function buildIndex(){
 function markIndexCurrent(){ const b=$("#indexBody"); if(!b) return;
   b.querySelectorAll(".idx-item").forEach(el=>el.classList.toggle("cur",+el.dataset.jump===cur)); }
 
-function buildRules(){
-  let html=`<div class="rule-item"><div class="rt" style="color:var(--gold)">XP budgets &amp; benchmark</div>`+
-    `<div class="rb">${BUDGET.note}</div><table class="budget"><tr><th>Day</th><th>Low</th><th>Mod</th><th>High</th><th>Benchmark</th></tr>`+
-    BUDGET.rows.map(r=>`<tr><td>${r[0]}</td><td class="mono">${r[1]}</td><td class="mono">${r[2]}</td><td class="mono">${r[3]}</td><td>${r[4]}</td></tr>`).join("")+
-    `</table></div>`;
-  html+=CRULES.map(r=>`<div class="rule-item"><div class="rt">${r[0]}</div><div class="rb">${r[1]}</div></div>`).join("");
-  $("#rulesBody").innerHTML=html;
-}
-
-/* handouts w/ localStorage */
-const HKEY="dood_handouts_v1";
-function loadHand(){ try{return JSON.parse(localStorage.getItem(HKEY))||{};}catch(e){return {};} }
-function saveHand(o){ try{localStorage.setItem(HKEY,JSON.stringify(o));}catch(e){} }
-function buildHandouts(){
-  const state=loadHand(); const ul=$("#handoutBody");
-  ul.innerHTML=HANDOUTS.map((h,i)=>`<li data-h="${i}" class="${state[i]?'done':''}"><span class="hmark">✓</span>`+
-    `<div class="hbody"><div class="ht">${h[0]}</div><div class="hw">${h[1]}</div></div></li>`).join("");
-  ul.querySelectorAll("li").forEach(li=>li.addEventListener("click",()=>{
-    const i=li.dataset.h, st=loadHand(); st[i]=!st[i]; saveHand(st); li.classList.toggle("done",!!st[i]);
-  }));
-}
-
-/* ===================================================================== */
-/* =========================== INITIATIVE ============================== */
-/* ===================================================================== */
-let initList=[], initIdx=0, initRound=1;
-function renderInit(){
-  const body=$("#initBody");
-  if(!initList.length){ body.innerHTML=`<div class="init-empty">No combatants. Add PCs and NPCs, or use a combat scene's &ldquo;Add to initiative&rdquo; button.</div>`; $("#iRound").textContent=initRound; return; }
-  body.innerHTML=initList.map((c,i)=>`<div class="init-row ${i===initIdx?'active':''}">`+
-    `<span class="iiv">${c.iv??"?"}</span><span class="inm">${c.nm}</span>`+
-    `<span class="ihp">HP <input data-hp="${i}" value="${c.hp||''}" inputmode="numeric" placeholder="&mdash;"></span>`+
-    `<button class="idel" data-del="${i}">×</button></div>`).join("");
-  body.querySelectorAll("[data-hp]").forEach(inp=>inp.addEventListener("change",e=>{initList[+e.target.dataset.hp].hp=e.target.value;}));
-  body.querySelectorAll("[data-del]").forEach(b=>b.addEventListener("click",()=>{ initList.splice(+b.dataset.del,1); if(initIdx>=initList.length)initIdx=0; renderInit(); }));
-  $("#iRound").textContent=initRound;
-}
-function initSort(){ initList.sort((a,b)=>(b.iv??-99)-(a.iv??-99)); initIdx=0; renderInit(); }
-function addCombatant(nm,iv,hp){ initList.push({nm,iv:iv===""||iv==null?null:+iv,hp:hp||""}); renderInit(); }
-function addMonsters(sceneIdx){
-  const c=SCENES[sceneIdx].combat; if(!c||!c.monsters) return;
-  c.monsters.forEach(m=>addCombatant(m.n,null,""));
-  openOv("tracker");
-}
-
 /* ===================================================================== */
 /* ============================ DICE ================================== */
 /* ===================================================================== */
@@ -1508,7 +1298,7 @@ function begin(){
   $("#splash").style.display="none";
   $("#app").classList.add("on");
   initAudio(); unlock();
-  buildBoard(); buildIndex(); buildRules(); buildHandouts(); renderInit();
+  buildBoard(); buildIndex();
   render(0); startTimer();
 }
 $("#beginBtn").addEventListener("click",begin);
@@ -1525,22 +1315,12 @@ document.querySelectorAll(".tbtn[data-ov]").forEach(b=>b.addEventListener("click
 document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",closeOv));
 document.querySelectorAll(".overlay").forEach(o=>o.addEventListener("click",e=>{ if(e.target===o) closeOv(); }));
 
-// stage delegated clicks (cue pills, add-to-init)
+// stage delegated clicks (cue pills, floating props)
 stage.addEventListener("click",e=>{
   const cue=e.target.closest("[data-cuefire]"); if(cue){ firePad(cue.dataset.cuefire); return; }
-  const ai=e.target.closest("[data-addinit]"); if(ai){ addMonsters(+ai.dataset.addinit); return; }
-  const fp=e.target.closest("[data-float]"); if(fp){ const i=fp.dataset.float, st=loadHand(); st[i]=!st[i]; saveHand(st);
-    fp.classList.toggle("done",!!st[i]); fp.querySelector(".fs").textContent=st[i]?"handed over":"not yet"; buildHandouts(); return; }
+  const fp=e.target.closest("[data-float]"); if(fp){ const id=fp.dataset.float, st=loadFloat(); st[id]=!st[id]; saveFloat(st);
+    fp.classList.toggle("done",!!st[id]); return; }
 });
-
-// initiative controls
-$("#iAdd").addEventListener("click",()=>{ const nm=$("#iNm").value.trim(); if(!nm) return;
-  addCombatant(nm,$("#iIv").value.trim(),""); $("#iNm").value=""; $("#iIv").value=""; $("#iNm").focus(); });
-$("#iIv").addEventListener("keydown",e=>{ if(e.key==="Enter") $("#iAdd").click(); });
-$("#iNm").addEventListener("keydown",e=>{ if(e.key==="Enter") $("#iIv").focus(); });
-$("#iNext").addEventListener("click",()=>{ if(!initList.length) return; initIdx++; if(initIdx>=initList.length){initIdx=0; initRound++;} renderInit(); });
-$("#iSort").addEventListener("click",initSort);
-$("#iClear").addEventListener("click",()=>{ initList=[]; initIdx=0; initRound=1; renderInit(); });
 
 // dice modes
 $("#dice").addEventListener("click",e=>{
@@ -1568,9 +1348,6 @@ document.addEventListener("keydown",e=>{
     case "ArrowRight": case " ": case "PageDown": go(1); e.preventDefault(); break;
     case "ArrowLeft": case "PageUp": go(-1); e.preventDefault(); break;
     case "i": case "I": toggle("index"); break;
-    case "t": case "T": toggle("tracker"); break;
-    case "h": case "H": toggle("handouts"); break;
-    case "r": case "R": toggle("rules"); break;
     case "d": case "D": rollDice(); break;
     case "f": case "F": toggleFS(); break;
     case "Escape":
