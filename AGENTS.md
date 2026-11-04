@@ -4,26 +4,32 @@ This repo holds a collection of single-page, themed, interactable webpages used 
 
 ## Canon discipline — read before writing any lore
 
-The campaign's story is decided by Scott and Spencer in the
-[brainstorm doc](https://docs.google.com/document/d/1UXole4uGten28LVWA-ePK14ten4GIOj_ZfYEnsIRuWM/edit).
-**Nothing becomes canon by being written into this repo.** Props and the codex have previously invented
-whole characters, dates, documents and motives that then got treated as established fact.
+**The repo is the source of truth.** The old brainstorm Google Doc is retired; its `Sesh N` sessions stay
+as history and are still cited. **Canon means Scott (or Spencer) reviewed it and signed off.** Nothing an
+agent writes is canon until then — props and the codex have previously invented whole characters, dates,
+documents and motives that then got treated as established fact.
+
+**The review loop:** a session builds something and ships it live with the 🟡 *Not canon yet* flag → the
+manager session sends Scott the links → Scott reviews and signs off → the flag flips to canon and the
+`CANON.md` row cites `Scott, <date>`. Content does not wait for sign-off to go live; it waits to lose the flag.
 
 - Read **[CANON.md](CANON.md)** before adding or changing any story detail.
 - Anything you invent — a name, a date, an NPC's motive, a connective story beat — ships as
-  **not canon** and gets logged in `CANON.md` under 🟡 with a note on where it came from.
+  **🟡 not canon yet** and gets logged in `CANON.md` with a note on where it came from.
 - In the codex, that means `s:"ai"` on the data item (or an `ai:"..."` note on an otherwise
-  doc-sourced item). The badge and the Not Canon Yet tab render themselves from that field.
+  signed-off item). The badge and the **Not Canon Yet** tab — Scott's review queue — render themselves from
+  that field. Give queue items a link to the live page (`url:` on to-dos, a `/prop/` path in DOCS) so Scott
+  can review in one tap. A built prop or handout that is waiting on Scott gets `review:1` on its to-do.
 - In a prop, that means a canon-status banner at the top of the prop's README/brief.
 - Half-finished design work goes in `PROPOSALS.md`, never into the codex as fact.
-- Never write "Answered" or "Locked" next to something the doc doesn't say. If the doc hedges
+- Never write "Answered" or "Locked" next to something Scott hasn't decided. If a source hedges
   ("could be", "up to you if we go with it"), the codex hedges too.
-- Cite the session (`Sesh 5`, `Character Bios`) for anything marked 📗.
-- **⛔ Never invent a Sesh number.** Sessions exist only in the Google Doc and only Scott creates them.
-  Do not coin one as a placeholder or a "safe assumption" — it fabricates a source, and the next reader
-  cannot tell it from a real citation. If Scott pasted something in but you don't know the heading, cite
-  it as `the <date> doc paste`. If it was decided in conversation and not pasted, cite `<date> · not in doc`.
-  See the rule box in `CANON.md`.
+- **Cite the source.** `Sesh 5`, `Character Bios`, `the 24 Aug doc paste` for history from the retired doc;
+  `Scott, <date>` (or `Spencer, <date>`) for a decision made in conversation or a sign-off.
+- **⛔ Never invent a Sesh number.** Sessions existed only in the retired Google Doc and only Scott created
+  them. Do not coin one as a placeholder or a "safe assumption" — it fabricates a source, and the next
+  reader cannot tell it from a real citation. New decisions are cited `Scott, <date>`. See the rule box in
+  `CANON.md`.
 - **Fact-check against canon before proposing anything.** Grep the repo (codex data arrays, prop copy,
   `CANON.md`) for the specific fact — times, names, who-knows-what, who-was-where — *before* writing prose.
   Contradicting canon, reusing a sensory beat that belongs to a later scene, or asserting a detail canon

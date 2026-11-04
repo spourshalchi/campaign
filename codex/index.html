@@ -293,6 +293,13 @@
   .review-item:first-child{border-top:none}
   .review-item .rt{font-size:14px;color:var(--ink);font-weight:600;margin-bottom:3px}
   .review-item .rd{font-size:12.8px;color:var(--mut)}
+  .review-item{display:flex;gap:14px;align-items:flex-start}
+  .review-item .rbody{flex:1;min-width:0}
+  .rev-go{flex:none;display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:9px;
+    font-size:13px;font-weight:600;text-decoration:none;color:var(--gold);border:1px solid #7a5a2a;background:#1a1428;white-space:nowrap}
+  .rev-go:hover{background:#2e2246}
+  .td-tag.review{color:#1a1206;background:#e0b83a;border-color:#e0b83a;font-weight:700}
+  .td-open{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;font-size:13px;font-weight:600;color:var(--gold);text-decoration:none}
   .finale-box{margin:10px 0 0;padding:10px 12px;border-radius:9px;font-size:12.9px;line-height:1.5;
     border:1px solid #3a2f1a;background:linear-gradient(180deg,#1d1810,#151109);color:var(--mut)}
   .finale-box .fh{display:block;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
@@ -525,7 +532,6 @@ const NODES = [
     fields:{Race:"TBD",Class:"Warlock (Devil patron)",Vibe:"Angsty goth loner, feared & misunderstood"},
     desc:"Worships the Devil — who appears as an all-black goat with an upside-down red cross on its face — and draws magic from that worship. Regular-degular atheist suburban family thinks it's a phase. Frequent detention regular after the principal catches her doing spells on school grounds.",
     hook:"Saving for <b>Total Party Kill</b>, her favourite satanic metal band, playing in town at the end of the school year. She pays for it by charging classmates for <b>love spells</b> and <b>revenge spells</b>. The money lives in a <b>goat-shaped piggy bank</b> — she has been feeding coins to a goat for years.<br><br><b>Her mansion connection: she sold the dead kid the love spell.</b> He paid her for a <b>wishing willow</b> and wrote <i>I want Angelique to notice me</i> on it. It worked. Angelique noticed him — and when Poe Boy went looking for someone who knew the kid well enough to flirt convincingly, Angelique was the one who could. The willow is still in his backpack upstairs.<br><br><b>Her choice is the second ask.</b> After the recording is safely on the drive, the Spirit asks to be moved somewhere safe. It is far past her level; her patron can lend her the power and names a price — everything in the piggy bank, the whole concert fund. <b>Nothing plot-critical hangs on her yes</b> (see the Spirit's card), which is what makes it a real choice.",
-    ai:"<b>The band's name, Total Party Kill,</b> is Scott's pick and is not in the doc yet. The band was Spencer's call, so it is worth confirming with him.",
     finale:"<b>She gets the concert anyway.</b> Poe Boy loves Total Party Kill too and had tickets. When his mother arrives in the driveway she grounds him — <i>and he is certainly not going to that satan concert</i> — and the tickets end up with Simone, who spent every dollar she had a few hours earlier." },
   {id:"john", name:"Yobo", sub:"John · Musical-theatre Bard", g:"player", x:120, y:490,
     role:"Player Character", s:"doc",
@@ -548,7 +554,7 @@ const NODES = [
     desc:"Gnomey's great-uncle. Ran cigarettes and liquor on the back roads at night through Prohibition. Nobody in the family thinks he's anything. <b>He needed somewhere to keep the liquor</b>, and there was exactly one building in the county nobody would ever search — so he walked up the hill and asked, which nobody had done in two hundred years.<br><br><b>The deal:</b> Orlok gets the cellar filled and takes a case a month off the top. Liquor turns out to be one of the only human things that still works on a vampire — the one pleasure he has left. Every month Vinny comes up with the delivery, they crack a bottle, and they play cards.",
     hook:"<b>14 November 1931.</b> Orlok goes down, keeps playing to get it back, goes further down, and by four in the morning the only thing he has left worth anything is the house. They draft the settlement drunk. Vinny walks out with the deed — and then <b>lets them stay, rent-free, in writing, forever.</b> That's the family principle in full: you always collect, and then you're not a bastard about it.<br><br>Years later he hears a twelve-year-old relative had a little operation going and blew it up rather than eat a skim. He drives over that week:<br><br><i>“Twelve years old and he's got a crew.”</i><br><i>“I don't have a crew anymore.”</i><br><i>“You'll get another one.”</i><br><br>He keeps the deed.",
     finale:"He is <b>alive and mostly gone</b>. The table meets him <b>early</b>: minutes after Gnomey reads <i>Dood</i> on his card in the lockers scene, his flip phone rings, and Vinny — confused, sure it's 1931 — asks <i>“Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch.”</i> So he isn't a stranger when Russ's troop leader drives him up the hill at dawn and he <b>turns up at the house in the ending scene</b> and hands Gnomey the deed, because he has earned it.",
-    ai:"Keeping the age-twelve visit with nothing changing hands is a codex reading of the In Person Session. So is <i>“You'll get another one”</i> paying off when he hands the deed to a kid who has a crew again. The phone call and the dawn ride up the hill in the troop leader's car are decided in conversation, not yet in the doc." },
+    ai:"Keeping the age-twelve visit with nothing changing hands is a codex reading of the In Person Session. So is <i>“You'll get another one”</i> paying off when he hands the deed to a kid who has a crew again." },
 
   {id:"devil", name:"The Devil (Goat)", sub:"Simone's patron", g:"force", x:255, y:560,
     role:"Otherworldly patron", s:"doc",
@@ -602,7 +608,7 @@ const NODES = [
   {id:"edward", name:"Vamp: Edward", sub:"Bix's father", g:"vamp", x:880, y:430,
     role:"Vampire (secretly good) · the Bix reveal", s:"doc",
     fields:{Style:"Just Edward from Twilight",Was:"A fae — no fangs",Is:"Bix Grimlor's father"},
-    desc:"Exactly what it says on the tin, and <b>He is the answer to Bix's whole backstory.</b> All three vampires want the same thing — to be left alone — and all three believe the kid who came up the hill that night ran off out a window. Nobody has told them he died, or that Poe Boy has had him in a machine ever since.",
+    desc:"Exactly what it says on the tin, and <b>He is the answer to Bix's whole backstory.</b> All three vampires want the same thing — to be left alone — and all three believe the kid who came up the hill that night ran off out a window. Nobody has told them he died, or that Poe Boy has had him in a machine ever since. They find out in the finale, from the recording over the PA, at the same moment as the crowd.",
     hook:"<b>How he got here.</b> Originally the house was just Orlok and Dracula. On a rainy night Edward and <b>Goblinenon</b> — Bix's mother — were passing through town when their cart threw a tire, and they knocked at the nearest big house looking for help. What they found was two vampires having a party, Rocky Horror style. They had such a good time that they gave up the nomadic life and squatted here. About nine months later, <b>Bix was born</b>.<br><br>Around that time the real-estate company hired men to clear the squatters and the vampires out. <b>Goblinenon was killed</b> and Edward was badly hurt; the vampires turned him to save his life. He woke up as a vampire, was horrified at what he was, and carried the baby down into town in the middle of the night — because anything was better than being raised by a single father who was now a monster.<br><br><b>Playing him tonight:</b> he knows exactly who Bix is and has known since the party walked in. He watches and does not approach. Let him be caught at it twice before anyone gets an explanation.",
     finale:"Bound by the no-Bite rule in first contact. All three turn the moment the developer dies — the party killed the man taking their home, in front of them, so it costs <b>no persuasion check</b>. Then they fight alongside the party: roughly three more bodies at the party's own level, which is why phase two is a catharsis rather than a hard fight.",
     ai:"The codex proposed Edward was turned recently, to reconcile three vampires against the puzzle prop's three coffins. Both the coffin count and this fix are invented." },
@@ -612,7 +618,7 @@ const NODES = [
     fields:{Slot:"Saturday night, late",Job:"Prove the house will actually hurt them"},
     desc:"Saturday's one mansion combat, and the button on Night 1 if the clock allows. <b>Poe Boy's second botched ritual</b> — he studies the occult, he has already miscast one badly enough to kill a boy, and this is the other time it went wrong. He couldn't finish it and couldn't put it down, so he sealed it in a room upstairs and stopped thinking about it. It is visibly <b>incomplete</b> — a summoning that half-worked, wrong in a way that reads as made rather than born.",
     hook:"It earns its slot three ways. It proves the house is dangerous after an evening in which nothing has actually hurt anyone; it <b>plants that the dangerous things here are human-made</b>; and, when it closes the night, it <b>ends Night 1 on a hook</b>. The thing claws toward one sealed door the whole fight, and when it drops that room answers — a monitor wakes by itself and an AIM line types itself across it (<i>\"is someone there\"</i>) before the screen dies. In the wreckage: a half-drawn ritual circle. <b>Nothing on the night says whose it is</b> — the payoff is the Spirit naming Poe Boy on Sunday. The party leaves the night knowing a person is behind this, and that something upstairs is trying to talk.",
-    ai:"<b>The fight's slot is settled; this is the shape it has been given.</b> That it is Poe Boy's second botched ritual, that it claws upstairs, and that killing it wakes the computer — the cliffhanger when it closes Night 1 — are a <b>direction decided in conversation, not yet in the doc</b>; every stat behind it is still a proposal (see the Combat section).<br><br>It replaces <b>the Gjenganger</b>, retired by displacement: Orlok took the lonely-original-owner backstory, and the corridor set-piece the creature was going to fill was cut. Dead spec kept in <code>/PROPOSALS.md</code>." },
+    ai:"<b>The fight's slot is settled; this is the shape it has been given.</b> That it is Poe Boy's second botched ritual, that it claws upstairs, and that killing it wakes the computer — the cliffhanger when it closes Night 1 — are <b>Scott's direction</b>; every stat behind it is still a proposal (see the Combat section).<br><br>It replaces <b>the Gjenganger</b>, retired by displacement: Orlok took the lonely-original-owner backstory, and the corridor set-piece the creature was going to fill was cut. Dead spec kept in <code>/PROPOSALS.md</code>." },
 
   {id:"spirit", name:"Spirit in the Computer", sub:"A past victim", g:"force", x:620, y:585,
     role:"Clue-bearer", s:"doc",
@@ -639,7 +645,7 @@ const NODES = [
     fields:{Troop:"187",Look:"Khaki shorts in November, whistle, clipboard",Name:"Open"},
     desc:"Russ's scout troop leader: an <b>over-earnest scout dad</b> in khaki shorts in November, with a whistle and a clipboard, completely unfazed by vampires as long as the paperwork is in order. He runs <b>Troop 187's volunteer visits to the nursing home</b>, which is how he knows Uncle Vinny.",
     finale:"<b>He drives Vinny up the hill at dawn</b> — one car explains both arrivals. In the ending scene he <b>hands Russ his Assisting the Elderly badge</b>, once Orlok has signed the card.",
-    ai:"The scout dad, Troop 187's nursing-home visits and the dawn drive with Vinny are decided in conversation, not yet in the doc. His name is open." },
+    ai:"The scout dad, Troop 187's nursing-home visits and the dawn drive with Vinny are Scott's, 3 Nov. His name is open." },
   {id:"realestate", name:"W. Ostrander", sub:"The developer · dies", g:"force", x:915, y:560,
     role:"Antagonist · The only death", s:"doc",
     fields:{Goal:"Demolish the mansion for a mega mall",Class:"Wizard — Abjurer",Name:"Ostrander — proposal",Fate:"Killed in phase one"},
@@ -822,7 +828,7 @@ const FLOW = [
 
   {n:15,title:"The collapse",where:"He is un-performed",s:"doc",body:"Stinky stands on the decks; his Aura of Protection is buffing Poe Boy's saves, so he's a puzzle rather than a wall — and <b>he isn't charmed, he just believes his friend</b>. Poe Boy spends his turns on <i>Command</i> — “Drop.” — to keep the drive off the deck: a delay, not a fail state, and the USB can't be destroyed. Then it plays, in full, and the party switches from attacking to defending.",
     bridge:{cue:"Headlights swing across the ballroom windows. Someone has pulled into the drive.",
-      note:"In order: the recording plays whole — typing, a door, screaming, and under it Poe Boy's own voice staying calm and adjusting a level. <b>Stinky's oath breaks with no saving throw</b> (Devotion's first tenet is <i>don't lie or cheat</i>); he stops fighting and sits down. Silence, one boo, then the whole room. <b>Dracula seizes the mic</b> and denounces him magnificently — he has waited all night for a real audience — and a good number of them still aren't sure it isn't part of the show. Poe Boy tries to Command his way clear and it doesn't land. Then: a Volvo, two sweet oblivious parents in matching fleece, and <b>“Upton, honey?”</b> A throwaway joke about his real name turns out to be load-bearing.",
+      note:"In order: the recording plays whole over the PA — typing, a door, screaming, and under it Poe Boy's own voice staying calm and adjusting a level. <b>The vampires hear it with everyone else</b>, and that is how they learn the kid never went out a window. <b>Stinky's oath breaks with no saving throw</b> (Devotion's first tenet is <i>don't lie or cheat</i>); he stops fighting and sits down. Silence, one boo, then the whole room. <b>Dracula seizes the mic</b> and denounces him magnificently — he has waited all night for a real audience — and a good number of them still aren't sure it isn't part of the show. Poe Boy tries to Command his way clear and it doesn't land. Then: a Volvo, two sweet oblivious parents in matching fleece, and <b>“Upton, honey?”</b> A throwaway joke about his real name turns out to be load-bearing.",
       q:"Minor and worth deciding: <b>how does the crowd get in at 3AM</b> when the doors bolted at 7PM? The obvious answer is that Poe Boy opens the front for his own show — but say it out loud, because it touches what the bolt actually means for the party."}},
 
   {n:16,title:"Resolution & bookend",where:"Back to class",s:"doc",body:"They recover an ancient Dutch artifact (found after the boss fight, or with the vamps' help), the real-estate company is scared off the land, and they present the artifact in class — closing the loop opened in scene one.<br><br><b>Play the presentation battered:</b> <i>“They have scars and black eyes and theyre like ‘and yeah that was our class project’.”</i> Nobody in the room reacts to the state of them, which is the whole joke — let a player deliver the line rather than narrating it.<br><br><b>The three closers.</b> Lil Stinky records a diss track — sincere, terrible, devastating. The mega mall breaks ground somewhere else; the brochure says <b>Amityville</b>, quiet neighborhood, waterfront, great bones. And what they actually present is <b>the tape</b>, because the assignment wanted a primary source.<br><br><b>The ending scene, at the house.</b> One scene, three arrivals:<br>· <b>Poe Boy's mother grounds him</b>, and he is certainly not going to that satan concert. <b>The tickets go to Simone</b>, who spent every dollar she had a few hours earlier — and who did not earn these and cannot pay for them.<br>· <b>Russ's troop leader</b> — an over-earnest scout dad in khaki shorts in November, whistle and clipboard, unfazed by vampires as long as the paperwork is in order — comes in and hands him his badge. Orlok has signed the card, through his teeth. <b>Hand Cody a real badge at the table.</b> The card is live at <code>/badge/</code>.<br>· <b>Uncle Vinny</b>, who rode up the hill in the troop leader's car (he knows him from Troop 187's nursing-home visits), hands Gnomey the deed, because he has earned it. <b>Hand Julia the printed deed at the table.</b> That is the moment the house is his: Gnomey says it out loud — <i>“This is my house”</i> — Orlok confirms it in front of everyone, and Gnomey gives the renewal at the threshold: <i>“You can stay.”</i><br><br><b>The epilogue beats:</b><br>· <b>Edward explains himself to Bix.</b> The whole timeline — the cart, the party, Goblinenon, the men the company sent, and why he carried a baby down the hill instead of keeping him. Give this its own scene and no jokes in it.<br>· <b>The kid gets uploaded to the library computers</b>, where he helps people find new books to read. The boy who died in a room nobody visited spends his afterlife in the busiest building in town."}
@@ -924,18 +930,18 @@ const TODO = [
   ["The cellar and the corridor — <b>answered</b>","<b>The corridor set-piece is cut entirely</b>. <b>The cellar has a reason again:</b> it's where Vinny kept the liquor from 1920, repeal came in '33 and he never came back for it, so a wall of forty-year-old crates is still down there — and it's where the vampires keep the animals, which is what the food-stash puzzle reveals. One room, two payoffs.","doc"],
   ["The Gjenganger — <b>retired</b>","<b>Retired by displacement rather than by decision.</b> Orlok took the lonely-original-owner backstory, the corridor set-piece it was going to fill was cut, and Saturday's mansion fight is now a botched summoning. Dead spec kept in <code>/PROPOSALS.md</code>.","doc"],
   ["Orlok's mortal name — <b>settled</b>","<b>Cornelis Dood is Orlok.</b> Dood is his mortal surname. He built the house, the Dutch pun survives, the puzzle prop survives untouched, and the Crier's obituary is technically accurate — the town really did bury him.","doc"],
-  ["The botched summoning — direction set","Now <b>Poe Boy's second botched ritual</b>: it claws toward the computer room, and killing it wakes the Spirit (an AIM line types itself) — the Night 1 cliffhanger when time allows. Nothing on the night signposts it as his; the Spirit names him on Sunday. Decided in conversation; still to paste into the doc, and every stat is still a proposal.","ai"],
+  ["The botched summoning — direction set","Now <b>Poe Boy's second botched ritual</b>: it claws toward the computer room, and killing it wakes the Spirit (an AIM line types itself) — the Night 1 cliffhanger when time allows. Nothing on the night signposts it as his; the Spirit names him on Sunday. Scott's direction; every stat is still a proposal.","ai"],
   ["The invitation: concert or haunted house?","Poe Boy sells the whole night as a concert. Whether the 7PM card is an invitation to <b>his show</b> or to a <b>haunted house</b> is Spencer's call; he is making the invitation and the poster.","doc","open"],
   ["When do they get the concert poster?","The poster is what brings the 3AM audience, and doors open half an hour before the set. Whether the party sees it at the gazebo or on the wall of the mansion's first room is open.","doc","open"],
-  ["What opens the computer room — <b>settled</b>","<b>The Spirit does.</b> Once the party has been through the other rooms, the AIM chime drifts down the hall and the lock clicks open on its own. The DM triggers it when the table is ready, so there is no puzzle. The poster stays on the door. Decided in conversation, not yet in the doc.","doc"],
+  ["What opens the computer room — <b>settled</b>","<b>The Spirit does.</b> Once the party has been through the other rooms, the AIM chime drifts down the hall and the lock clicks open on its own. The DM triggers it when the table is ready, so there is no puzzle. The poster stays on the door. Scott, 3 Nov.","doc"],
   ["The vampires before the turn","With no vampire fight in the finale, Poe Boy's lie on the mic is all that is left of Sesh 7's <i>takes control of some vampires in the final fight</i>, and the breach breaks it on sight. Where the vampires stand between 3AM and the developer's death is open.","doc","open"],
   ["Backstory: written, or in dialogue?","How much of each backstory reaches the players on paper and how much through NPC dialogue. On the list: the <b>silly bandz</b>, <b>3am</b>, the <b>Dolly Parton riff</b>, and <b>Angelique's side-eye</b>.","doc","open"],
   ["The study door","<b>Deliberately undefined.</b> The room and its contents are settled; how the party gets through the door is not designed and is not being designed yet. One constraint when it is: it should be a <b>whole-party</b> problem, so five people open the room and one of them finds out what it means.","doc"],
   ["The dead kid — <b>named</b>","<b>Marcus Hale</b>, who died in 1999 at about twelve. The name comes off the <b>USB</b>: they plug the drive into the machine and it mounts as <code>MARCUS_HALE</code>. He still needs enough of a life that the players feel it. Also: the soul cage left no body, so there was never a search or a funeral — decide what the school thinks happened to him, because that's the version Angelique has been living with.","doc"],
-  ["The band's name — <b>settled</b>","<b>Total Party Kill.</b> Simone's favourite satanic metal band is load-bearing in three places — her savings, the goat's price, and Poe Boy's grounding — and the name is printable: it is on the shirt she wears all weekend and on the tickets his mother hands over. Scott's pick, not in the doc yet; the band was Spencer's call, so confirm it with him.","doc"],
-  ["Why these five?","The invite is exclusive — five cards, five lockers, nobody else. That makes the guest list a deliberate choice by Poe Boy, and it needs a reason. Candidates: they're the misfits nobody would come looking for; Gnomey knows him from the old crew and knows too much; Angelique is close enough to them to be a problem. Whatever the answer, the players will ask it out loud the moment they realise no one else got a card.","ai"],
+  ["The band's name — <b>settled</b>","<b>Total Party Kill.</b> Simone's favourite satanic metal band is load-bearing in three places — her savings, the goat's price, and Poe Boy's grounding — and the name is printable: it is on the shirt she wears all weekend and on the tickets his mother hands over. Scott, 3 Nov; the band was Spencer's call, so confirm it with him.","doc"],
+  ["Why these five? — <b>deliberately unexplained</b>","The invite is exclusive — five cards, five lockers, nobody else — and nobody ever says why these five. The players will ask it out loud the moment they realise no one else got a card; let the question hang. Scott, 3 Nov.","doc"],
   ["Who was the 3AM flyer for?","There is a public-looking DJ show flyer for 3AM at Dood Mansion. With nobody else invited, either it went out wide as the <b>cover story</b> — the thing Poe Boy showed the vampires as proof he was staging the big scare they asked for — or it never left his hands and the whole show is for five people. Affects whether the flyer prop gets built as a real handout.","ai"],
-  ["How the vamps learn the truth","They believe he went out a window. Decide whether the reveal comes from the Spirit directly, from Angelique, or from the players producing the recording.","doc","open"],
+  ["How the vamps learn the truth — <b>settled</b>","They believe he went out a window. <b>They learn the truth from the recording over the PA in the finale</b>, hearing it with everyone else. Scott, 3 Nov.","doc"],
   ["John / Yobo — arc <b>settled</b>","Yobo (the Dolly-Parton lie, anxious about real talent) and his arc are settled — the lie is a Performance/Inspiration debuff (Deception upside) that flips to a buff when he tells the truth in the party room. <b>Still open:</b> the <b>wig</b> — written in as a question for John, so not yet settled — plus his race, a subclass, and the dice.","doc"],
   ["Cody's PC — <b>answered</b>","Cody's PC is a <b>Firbolg druid</b> (working name <b>Russ</b>, <i>basically Russell from Up</i>) who earns his <b>Assisting the Elderly</b> badge by helping the vampires and bonds with <b>Orlok</b>. Three requirements — the sunbeam spectacles, the cellar garden, and healing a vampire in the finale — then Orlok signs the card and his troop leader hands over the badge in the ending scene. The herb is <b>Sun's-mercy</b>; still open inside it: Cody's full sheet.","doc"],
   ["4th crew member","<b>The crew is three</b> — Poe Boy, Lil Stinky, Angelique, which is what the DJ flyer bills. A fourth was wanted <i>probably also female</i> and never written. Spencer has not agreed to lose her, so it needs raising with him.","doc","open"],
@@ -958,11 +964,12 @@ const DOCS = [
   ["The photograph","<b>BUILT — /photo/</b> · four figures — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. Tap to turn it over: Goblinenon's handwriting on the back, and she names <i>“Me + E.”</i> <b>Hand Will the printed photograph and say nothing</b> — he gets the goblin before he gets the fae. The iPad copy carries the back. The art is a storybook-gouache painting styled as a 1979 flash snapshot. 🟡 The parents are drawn to echo Will's description of Bix — Goblinenon is short and dark green with long ears and small brown leather boots, and Edward has notches in one ear — and none of those looks are in the doc. 🟡 The date stamp reads <code>10 31 '79</code> and is a guess, since Bix's age is never fixed.<br>It doubles as the <b>key to the party-room spot-the-difference</b> (<code>/party-room/</code>). <b>Still to add:</b> the distinctive trait Will picks for Bix, worn by his parents — and copy it into /party-room/ too.","doc",""],
   ["The printed photograph","NOT PRINTED · <b>Bix's physical prop.</b> An aged print of /photo/, handed to Will in the party room, and the key the table holds for the spot-the-difference. Print it once Will's trait is in.","doc",""],
   ["The frozen party (party room)","<b>BUILT — /party-room/</b> · the digital half of Yobo's party-room turn, a <b>spot-the-difference</b>: the live room is almost Bix's photograph, and six things in it are wrong. The table holds the printed photo and taps what doesn't match; wrong taps and a slow creep raise the <b>Revel meter</b> to a curdle (the scare). 🟡 The six differences are the prop's own. When all six are put right the host calls for a song, which is Yobo's Performance check at the table, with DM buttons for a true vs. a borrowed voice. Audio is fully synthesised — no asset files.","doc",""],
+  ["The developer's site assessment","<b>BUILT — /survey/</b> · a faxed, photocopied 2004 internal memo from the developer's office: the mega mall, W. Ostrander, and a site that doesn't know what's in it. Prints on plain paper (<code>print/4-plain.pdf</code>). A floating find, handed over during one of the times they look around a room. 🟡 The company, the mall's name, the dates, numbers and site notes are the prop's own — <b>needs Scott's review</b>.","ai",""],
   ["The deed","<b>BUILT — /deed/</b> · <b>Gnomey's physical prop.</b> The 1931 deed to Dood Mansion, conveyed to the bearer under the Articles of Settlement and carrying the same DOOD seal. Letter size — <b>print it at Staples</b> (see the print list). <b>Uncle Vinny hands it to Julia in the ending scene</b>; until then the strongbox in the study only has the empty slot.","doc",""],
   ["The USB stick","NOT BOUGHT · a real thumb drive handed to the players when the Spirit uploads. Put scream_test_03_GOOD.wav on it — and <b>set its volume label to <code>MARCUS_HALE</code></b> (FAT32 allows 11 characters), because the mount is the moment the table learns who he is.","doc",""],
   ["The AIM password sticky note","NOT BUILT · <b>the thing that unlocks the whole computer-room scene.</b> A sticky note reading <code>Fluffy123</code>, in handwriting. <b>A floating prop:</b> keep it in hand and give it over the first time they search any room in the house (<i>“look around”</i>) — no fixed location. The prop's sign-on screen will not proceed without it. Since the account is <b>Poe Boy's</b>, the note is his too — the obvious homes are stuck to the monitor, inside the gear case, or in the ballroom rig downstairs, which would make the party carry it up two floors.","doc",""],
   ["The wishing willow","NOT BUILT · the second thing in the backpack. A small wooden token with a paper slip — <i>I want Angelique to notice me</i> — in twelve-year-old handwriting. <b>Simone's physical prop.</b> Cheap to make and it is the only physical object connecting a PC to the body.","doc",""],
-  ["The concert tickets","<b>BUILT — /tickets/</b> · two 2004 Ticketmaster-style tickets, bought under <b>LIVINGSWORTH III / UPTON M</b> — what Poe Boy's mother gives Simone in the ending scene. <b>Total Party Kill</b> at the Transyltown Armory, Sat Jun 25 2005 — the end of the school year. Every field is editable on the page. 🟡 The venue, date and times are prop texture.","doc",""],
+  ["The concert tickets","<b>BUILT — /tickets/</b> · two 2004 Ticketmaster-style tickets, bought under <b>LIVINGSWORTH III / UPTON M</b> — what Poe Boy's mother gives Simone in the ending scene. <b>Total Party Kill</b> at the Transyltown Armory, Sat Jun 25 2005 — the end of the school year. Every field is editable on the page. 🟡 The venue, date and times are prop texture — <b>needs Scott's review</b>.","doc",""],
   ["Russ's badge &amp; requirements card","<b>BUILT — /badge/</b> · a Wilderness-Explorer-style card carrying Russ's three requirements (the sunbeam spectacles, the cellar garden, healing a vampire) each with a <b>“verified by your elder” signature line</b> Orlok won't sign until the epilogue — plus the merit badge itself. <b>Russ's physical prop.</b> <b>Print the card; make the badge physical</b>; the <b>troop leader</b> hands it to Cody in the ending scene. The herb is <b>Sun's-mercy</b>. The badge art is <b>option B</b> — the scout carrying a huge rune spellbook for a hooded old mage, at <code>/badge/art/</code>.","doc",""],
   ["The recording itself","NOT BUILT · the audio that plays over the ballroom PA in phase two. The single biggest table moment in the campaign — and it is a file you hit play on.","doc",""]
 ];
@@ -991,7 +998,7 @@ const CENC = [
    p:"Saturday's one mansion fight, and the close of Night 1 if the clock allows. <b>Poe Boy's second botched ritual</b> — the same hand that soul-caged the dead kid — sealed in a room upstairs and visibly <b>incomplete</b>. It claws toward the computer room the whole fight; killing it wakes the Spirit (an AIM line types itself) and leaves a half-drawn ritual circle, planting that the dangerous things here are <b>human-made</b> without saying whose.",
    math:[["Budget · 5 PCs at level 4","1,250 low / 2,500 high"],["A solo CR 4","1,100 XP — swingy, not hard"],["Solo CR 4 + 4× CR ½","1,500 XP"],["Lazy benchmark","5 CR total · solo cap CR 4"]],
    verdict:"Add minions rather than hit points. At level 4 a solo CR 4 plus four CR ½ minions lands at ~1,500 — between the low and moderate lines, under both the total-CR and solo caps. A lone solo at this tier reads as undertuned on the budget and plays as a coin flip. This is the last fight before the level-4 → 5 jump.",
-   note:"<b>The fight's slot is doc; the shape here is a direction decided in conversation, not yet in the doc — and every number is still a proposal.</b><br><br>Design notes that follow from it: keep it <b>bound to its room</b> rather than roaming, so it reads as something left behind, not something hunting; make it <b>visibly incomplete</b>, the tell that a person made it; and have it strain toward the sealed computer room, so its death can wake the Spirit as the Night 1 cliffhanger. The party has no way to know whose it is until Sunday.<br><br><b>It replaces the Gjenganger</b>, retired by displacement. See the Not Canon tab."},
+   note:"<b>The fight's slot is doc; the shape here is Scott's direction — and every number is still a proposal.</b><br><br>Design notes that follow from it: keep it <b>bound to its room</b> rather than roaming, so it reads as something left behind, not something hunting; make it <b>visibly incomplete</b>, the tell that a person made it; and have it strain toward the sealed computer room, so its death can wake the Spirit as the Night 1 cliffhanger. The party has no way to know whose it is until Sunday.<br><br><b>It replaces the Gjenganger</b>, retired by displacement. See the Not Canon tab."},
 
   {act:"Finale · phase 1",title:"The developer breaches",st:"todo",stl:"Not statted",c:"#d23a52",s:"doc",
    p:"An abjurer who seals the exits behind him — his own crew included — and a crew who came to clear a site. Three sides, nobody sharing a goal. <b>The only lethal fight of the finale</b>, and the only enemy in the story with a mundane, entirely legal motive.",
@@ -1244,18 +1251,22 @@ document.getElementById("names-grid").innerHTML=NAMES.map(b=>`
 document.getElementById("todo").innerHTML=TODO.map(([t,d,st])=>`<li class="${st==="ai"?"is-ai":""}"><span><b>${t}</b> ${stBadge({s:st})} — ${d}</span></li>`).join("");
 document.getElementById("docs").innerHTML=DOCS.map(([t,d,st,src])=>`<div class="docpill${stClass({s:st})}">${t} ${stBadge({s:st,src})}<small>${d}</small></div>`).join("");
 
-/* ---------------- RENDER: REVIEW ---------------- */
-(function(){
+/* ---------------- RENDER: REVIEW (called once TODO_LIST exists) ---------------- */
+function renderReview(){
   const groups=[];
   const push=(h,items)=>{if(items.length)groups.push([h,items]);};
-  push("Cast details with no source", NODES.filter(n=>n.ai).map(n=>[n.name,n.ai]));
+  /* the live page for a DOCS row: the first /prop/ path in its text */
+  const propUrl=d=>{const m=d.match(/\/([a-z][a-z0-9-]*)\/(?![a-z])/);return m?`../${m[1]}/`:"#names";};
+  push("Built — waiting for Scott's sign-off", TODO_LIST.filter(x=>x.review).map(x=>[x.t,x.note||"",x.url||`#todo/${x.id}`]));
+  push("Cast details with no source", NODES.filter(n=>n.ai).map(n=>[n.name,n.ai,`#cast/${n.id}`]));
   push("Relationships nobody wrote", EDGES.filter(e=>e[4]==="ai").map(e=>
-    [`${nodeById[e[0]].name} ↔ ${nodeById[e[1]].name}`,`“${e[3]}” — ${e[5]}.`]));
-  push("Names", NAMES.filter(n=>n.ai).map(n=>[n.h,n.ai]));
-  push("Open threads the codex 'answered' on its own", TODO.filter(t=>t[2]==="ai").map(t=>[t[0],t[1]]));
-  push("Open questions still to decide", TODO.filter(t=>t[3]==="open").map(t=>[t[0],t[1]]));
-  push("Props", DOCS.filter(d=>d[2]==="ai").map(d=>[d[0],d[1]]));
-  groups.push(["Invented wholesale — the 1937 Transyltown Crier (shipped in /puzzle/)",[
+    [`${nodeById[e[0]].name} ↔ ${nodeById[e[1]].name}`,`“${e[3]}” — ${e[5]}.`,`#cast/${e[0]}`]));
+  push("Names", NAMES.filter(n=>n.ai).map(n=>[n.h,n.ai,"#names"]));
+  push("Open threads the codex 'answered' on its own", TODO.filter(t=>t[2]==="ai").map(t=>[t[0],t[1],"#names"]));
+  push("Open questions still to decide", TODO.filter(t=>t[3]==="open").map(t=>[t[0],t[1],"#names"]));
+  push("Props", DOCS.filter(d=>d[2]==="ai").map(d=>[d[0],d[1],propUrl(d[1])]));
+  const link=(items,href)=>items.map(i=>[...i,href]);
+  groups.push(["Invented wholesale — the 1937 Transyltown Crier (shipped in /puzzle/)",link([
     ["The newspaper itself","The actual source is a <b>1973</b> legend from a Frisian skipper. The 1937 local-newspaper framing is a transposition invented for the prop."],
     ["Every name in it","Joost Wiegman, Dr. Emmerich Vance, Aletta Bruin, the Hoeck boy, Rev. Ackerman, the Dood trustees, the Vlietberg heath."],
     ["Cornelis Dood, the builder","Turns Spencer's Dutch pun (<i>dood</i> = dead) into a family surname. Two origin stories for one name."],
@@ -1263,19 +1274,19 @@ document.getElementById("docs").innerHTML=DOCS.map(([t,d,st,src])=>`<div class="
     ["Three coffins, two under the chapel floor","Invented. The codex was treating this as a canon contradiction with the three living vampires — there's nothing to contradict."],
     ["The trap on the volume","That anyone touched it at all, that the developer did it, his motive, his disbelief, and the 'accidental irony' that he destroyed the one page carrying both the staking method and the coffin location. Also the trap's whole contents — the shears, the swarms, the book cart — and the rule that the shears' death round sets the puzzle's piece count."],
     ["Every name on the checkout card","E. Hoeck, U. M. Livingsworth III and W. Ostrander. Livingsworth is a joke made load-bearing; the other two are invented here, and <b>Ostrander is a proposal</b>."]
-  ]]);
-  groups.push(["Encounter numbers \u2014 the Combat section",[
+  ],"../puzzle/")]);
+  groups.push(["Encounter numbers \u2014 the Combat section",link([
     ["Every number on the Combat section","The <b>beats</b> are settled. The XP budgets, CR picks, HP figures, stat-block chassis and the contents of Saturday's fight are all proposals built against them. Nothing there has been agreed."],
     ["Saturday's fight has no contents","The plan says there is one, where it sits, and roughly how long it runs. What is actually in the room is unwritten."],
-    ["The botched summoning","Now given a shape: <b>Poe Boy's second botched ritual</b>, clawing toward the computer room, that can end Night 1 by waking the Spirit. Direction decided in conversation, not yet in the doc; the stats stay a proposal."],
+    ["The botched summoning","Now given a shape: <b>Poe Boy's second botched ritual</b>, clawing toward the computer room, that can end Night 1 by waking the Spirit. Scott's direction; the stats stay a proposal."],
     ["~~Orlok's mortal name~~ — settled","Cornelis Dood <b>is</b> Orlok; Dood is his mortal surname. Ratified."],
     ["The study door","Deliberately left undefined. The room and its contents are settled; the door is not."],
     ["The party room","Bix finds the photograph. A preserved party room from the night Edward and Goblinenon arrived is the codex's placement for it."],
     ["The crowd at the collapse","<b>Resolved</b> \u2014 it was a contradiction between two of your own decisions, not an invention. The two-tier guest list settles it: 7PM card exclusive, 3AM flyer public."]
-  ]]);
+  ],"#weekend")]);
   groups.push(["Invented prop texture",[
-    ["Invite: “LAST YEAR NOBODY DID”","Implies a haunted house ran here before. Per canon this is Poe Boy's first, in a house abandoned for decades. Also spookynite2k4@hotmail.com."],
-    ["AIM screen names","l0stsignal99 and SmiLeyGrrL03, 'third locker from the end by the gym', 'he just called me the test.' Consistent with the backstory, but invented."]
+    ["Invite: “LAST YEAR NOBODY DID”","Implies a haunted house ran here before. Per canon this is Poe Boy's first, in a house abandoned for decades. Also spookynite2k4@hotmail.com.","../invite/"],
+    ["AIM screen names","l0stsignal99 and SmiLeyGrrL03, 'third locker from the end by the gym', 'he just called me the test.' Consistent with the backstory, but invented.","../aim/"]
   ]]);
   groups.push(["Now resolved",[
     ["Simone had no mansion connection","She has one now, and it is canon: she sold the dead kid the <b>wishing willow</b> he wished on. The codex's old floated hooks \u2014 a vague 'love spell gone wrong' thread and Simone-recognises-a-soul-cage \u2014 are superseded by the real thing."],
@@ -1290,9 +1301,9 @@ document.getElementById("docs").innerHTML=DOCS.map(([t,d,st,src])=>`<div class="
     ["The mind-control idea was missing","Poe Boy seizing control of some vampires in the final fight was canon and absent from the flow. Restored to the finale."]
   ]]);
   document.getElementById("review").innerHTML=groups.map(([h,items])=>
-    `<div class="review-h">${h}</div>`+items.map(([t,d])=>
-      `<div class="review-item"><div class="rt">${t}</div><div class="rd">${d}</div></div>`).join("")).join("");
-})();
+    `<div class="review-h">${h}</div>`+items.map(([t,d,href])=>
+      `<div class="review-item"><div class="rbody"><div class="rt">${t}</div><div class="rd">${d}</div></div>${href?`<a class="rev-go" href="${href}">Review ↗</a>`:""}</div>`).join("")).join("");
+}
 
 /* ---------------- RENDER: COMBAT ---------------- */
 document.getElementById("cbudget").innerHTML =
@@ -1333,20 +1344,21 @@ document.getElementById("flagtoggle").addEventListener("change",e=>{
 const TODO_LIST = [
  {
   "id": "pr1",
-  "t": "Print list — everything to take to Staples",
+  "t": "Print list \u2014 everything to take to Staples",
   "o": "scott",
   "c": "Handout",
   "top": 1,
-  "note": "One place for every printable. <b>The ready-to-upload PDFs and the Staples settings are in the print kit at <code>/print/</code></b> — two orders (cardstock, gloss photo), one copy each, cut at home. Rebuild them with <code>python3 print/build.py</code> after any prop change. Tick a step off here when it's in hand.",
+  "note": "One place for every printable. <b>The ready-to-upload PDFs and the Staples settings are in the print kit at <code>/print/</code></b> \u2014 three orders (cardstock, gloss photo, plain), one copy each, cut at home. Rebuild them with <code>python3 print/build.py</code> after any prop change. Tick a step off here when it's in hand.",
   "steps": [
-   "<b>The invite card</b> — <code>/invite/</code>. Built. Spencer may revise it once concert vs. haunted house is decided, so print after that. Six copies (five lockers and a spare), two per sheet in the cardstock order.",
-   "<b>The deed</b> — <code>/deed/</code>. Built. Letter size, one copy, on cream or parchment card stock. Gnomey's prop; Vinny hands it over in the ending scene.",
-   "<b>Russ's requirements card + badge</b> — <code>/badge/</code>. Built. Prints as two pages: the card (letter, card stock) and the badge page — a 3 in badge plus a 2.25 in spare with dashed cut lines. Sticker paper or card stock; cut round and pin or stick it on Cody.",
-   "<b>The photograph</b> — <code>/photo/</code>. Wait for Will's trait to go in. Prints the front only at polaroid size (3.5×4.2 in) with a cut line; photo paper. The back's writing stays on the iPad. Bix's prop and the key for the party room.",
-   "<b>The Articles of Settlement</b> — <code>/settlement/</code>. iPad-only by default; print it only if you want a paper copy in the strongbox.",
-   "<b>The DJ show poster</b> — not built. Spencer's.",
-   "<b>Backstory reminder cards</b>, one per PC — <code>/backstory/</code>. Built. Six 5×7 cards (one per PC and a shared Transyltown card), two per sheet, in the cardstock order.",
-   "<b>Concert tickets</b> — <code>/tickets/</code>. Built: two thermal-style tickets to <b>Total Party Kill</b> at the Transyltown Armory, Sat Jun 25 2005, on one sheet, in the cardstock order. Ready to print.",
+   "<b>The invite card</b> \u2014 <code>/invite/</code>. Built. Spencer may revise it once concert vs. haunted house is decided, so print after that. Six copies (five lockers and a spare), two per sheet in the cardstock order.",
+   "<b>The deed</b> \u2014 <code>/deed/</code>. Built. Letter size, one copy, on cream or parchment card stock. Gnomey's prop; Vinny hands it over in the ending scene.",
+   "<b>Russ's requirements card + badge</b> \u2014 <code>/badge/</code>. Built. Prints as two pages: the card (letter, card stock) and the badge page \u2014 a 3 in badge plus a 2.25 in spare with dashed cut lines. Sticker paper or card stock; cut round and pin or stick it on Cody.",
+   "<b>The photograph</b> \u2014 <code>/photo/</code>. Wait for Will's trait to go in. Prints the front only at polaroid size (3.5\u00d74.2 in) with a cut line; photo paper. The back's writing stays on the iPad. Bix's prop and the key for the party room.",
+   "<b>The Articles of Settlement</b> \u2014 <code>/settlement/</code>. iPad-only by default; print it only if you want a paper copy in the strongbox.",
+   "<b>The DJ show poster</b> \u2014 not built. Spencer's.",
+   "<b>Backstory reminder cards</b>, one per PC \u2014 <code>/backstory/</code>. Built. Six 5\u00d77 cards (one per PC and a shared Transyltown card), two per sheet, in the cardstock order.",
+   "<b>Concert tickets</b> \u2014 <code>/tickets/</code>. Built: two thermal-style tickets to <b>Total Party Kill</b> at the Transyltown Armory, Sat Jun 25 2005, on one sheet, in the cardstock order. Ready to print.",
+   "<b>The developer's site assessment</b> \u2014 <code>/survey/</code>. Built: a faxed, photocopied 2004 memo, one page in <code>4-plain.pdf</code> on plain paper. A floating find, handed over during one of the times they look around a room.",
    "<b>Handmade, not printed:</b> the AIM sticky note (<code>Fluffy123</code>) and the wishing willow's paper slip."
   ]
  },
@@ -1379,12 +1391,13 @@ const TODO_LIST = [
  },
  {
   "id": "ip4",
-  "t": "What each NPC reveals — in dialogue or in writing",
+  "t": "What each NPC reveals \u2014 in dialogue or in writing",
   "o": "scott",
   "c": "Story",
+  "ans": "Run of Show one-screen layout (in progress)",
   "note": "Decide how much of each backstory reaches the players through NPC dialogue and how much on paper. Spencer voices the dialogue, so this list is what he runs from.",
   "steps": [
-   "The silly bandz — Gnomey and Poe Boy's falling-out.",
+   "The silly bandz \u2014 Gnomey and Poe Boy's falling-out.",
    "3am.",
    "The Dolly Parton riff at the gazebo.",
    "Angelique's side-eye at the gazebo."
@@ -1392,12 +1405,14 @@ const TODO_LIST = [
  },
  {
   "id": "ip5",
-  "t": "Backstory reminder cards — one per PC",
+  "t": "Backstory reminder cards \u2014 one per PC",
   "o": "both",
   "c": "Handout",
   "built": 1,
+  "review": 1,
+  "url": "../backstory/",
   "done": 1,
-  "note": "Live at <code>/backstory/</code>: a 5×7 card per PC with what they remember going in — and nothing they don't know yet. Printed in the cardstock order (<code>/print/</code>). Hand each player theirs before play."
+  "note": "Live at <code>/backstory/</code>: a 5\u00d77 card per PC with what they remember going in \u2014 and nothing they don't know yet. Printed in the cardstock order (<code>/print/</code>). Hand each player theirs before play."
  },
  {
   "id": "ip6",
@@ -1431,21 +1446,23 @@ const TODO_LIST = [
   "t": "One physical prop per PC",
   "o": "scott",
   "c": "Prop",
-  "needs": 1,
+  "done": 1,
+  "ans": "Four PCs get one; Yobo doesn't",
   "note": "Every player walks away holding something.",
   "steps": [
-   "Bix (Will) — the <b>printed photograph</b>. Print it once Will's trait is in.",
-   "Gnomey (Julia) — the <b>printed deed</b> (<code>/deed/</code>), handed over by Vinny in the ending scene.",
-   "Simone — the <b>wishing willow</b>.",
-   "Russ (Cody) — the <b>badge and requirements card</b>, both printed from <code>/badge/</code>.",
-   "Yobo (John) — <b>undecided.</b>"
+   "Bix (Will) \u2014 the <b>printed photograph</b>. Print it once Will's trait is in.",
+   "Gnomey (Julia) \u2014 the <b>printed deed</b> (<code>/deed/</code>), handed over by Vinny in the ending scene.",
+   "Simone \u2014 the <b>wishing willow</b>.",
+   "Russ (Cody) \u2014 the <b>badge and requirements card</b>, both printed from <code>/badge/</code>.",
+   "Yobo (John) \u2014 <b>no physical prop.</b>"
   ]
  },
  {
   "id": "ip10",
-  "t": "Day-of bullet lists — Spencer and Scott",
+  "t": "Day-of bullet lists \u2014 Spencer and Scott",
   "o": "both",
   "c": "Weekend",
+  "ans": "Run of Show one-screen layout (in progress)",
   "note": "Spencer voices the NPCs: the dialogue and what each one reveals. Scott narrates and runs combat. Each of you writes a tight bullet list of what you need to remember on the day."
  },
  {
@@ -1453,16 +1470,20 @@ const TODO_LIST = [
   "t": "Meet the day before",
   "o": "both",
   "c": "Weekend",
+  "done": 1,
+  "ans": "Handled in Scott's group text",
   "note": "A prep meeting the day before the session."
  },
  {
   "id": "ip12",
-  "t": "The party room is a spot-the-difference — built",
+  "t": "The party room is a spot-the-difference \u2014 built",
   "o": "scott",
   "c": "Prop",
   "built": 1,
+  "review": 1,
+  "url": "../party-room/",
   "done": 1,
-  "note": "Live at <code>/party-room/</code>. The live room is almost Bix's photograph, and six things in it are wrong. The table holds the printed photo and taps what doesn't match; wrong taps tick the Revel meter, and it creeps while the loop stays broken. All six put right → the host calls for Yobo's song. 🟡 The six differences are the prop's own; swap them freely."
+  "note": "Live at <code>/party-room/</code>. The live room is almost Bix's photograph, and six things in it are wrong. The table holds the printed photo and taps what doesn't match; wrong taps tick the Revel meter, and it creeps while the loop stays broken. All six put right \u2192 the host calls for Yobo's song. \ud83d\udfe1 The six differences are the prop's own; swap them freely."
  },
  {
   "id": "pp1",
@@ -1518,11 +1539,33 @@ const TODO_LIST = [
   "note": "A small wooden token with a paper slip in twelve-year-old handwriting: <i>I want Angelique to notice me</i>. The second thing in the backpack, and the <b>only physical object tying a PC to the body</b>. Cheap to make and it does a lot of work."
  },
  {
+  "id": "h12",
+  "t": "Review the concert tickets' copy",
+  "o": "scott",
+  "c": "Handout",
+  "built": 1,
+  "review": 1,
+  "url": "../tickets/",
+  "note": "Live at <code>/tickets/</code> and in the cardstock print. \ud83d\udfe1 The venue (Transyltown Armory), the date (Sat Jun 25 2005), the doors/show times, the price, the codes and the small print are the prop's own. Total Party Kill and the LIVINGSWORTH III / UPTON M holder line are canon."
+ },
+ {
+  "id": "h13",
+  "t": "Review the deed's wording",
+  "o": "scott",
+  "c": "Handout",
+  "built": 1,
+  "review": 1,
+  "url": "../deed/",
+  "note": "Live at <code>/deed/</code> and in the cardstock print. \ud83d\udfe1 The indenture language, <i>forty rooms</i> and the blank recording line are the prop's own. Vinny handing it over, the bearer rule and the 1931 card game are canon."
+ },
+ {
   "id": "h11",
   "t": "Russ's badge & requirements card",
   "o": "scott",
   "c": "Handout",
   "built": 1,
+  "review": 1,
+  "url": "../badge/art/",
   "note": "Live at <code>/badge/</code>. A Wilderness-Explorer-style <b>Requirements card</b> with Russ's three boxes \u2014 the sunbeam spectacles, the cellar garden, healing a vampire \u2014 each with a <b>\u201cverified by your elder\u201d signature line Orlok won't sign until the epilogue</b>, plus the merit badge itself. <b>Print the card and the badge</b> (both on the print list; the badge prints at 3 in on card stock); the <b>troop leader</b> hands it to Cody in the ending scene. The herb is <b>Sun's-mercy</b>. The art is <b>option B</b> \u2014 the scout carrying a huge rune spellbook for a hooded old mage, at <code>/badge/art/</code>."
  },
  {
@@ -1696,7 +1739,9 @@ const TODO_LIST = [
   "t": "The other malevolent forces",
   "o": "both",
   "c": "Story",
-  "note": "Each backstory looks vampire-related but turns out to be something else — the trapped spirit, the botched summoning, whatever else."
+  "done": 1,
+  "ans": "The Spirit, the botched summoning and the developer cover it",
+  "note": "Each backstory looks vampire-related but turns out to be something else \u2014 the trapped spirit, the botched summoning, whatever else."
  },
  {
   "id": "s10",
@@ -1719,6 +1764,8 @@ const TODO_LIST = [
   "t": "The teacher character",
   "o": "both",
   "c": "Story",
+  "done": 1,
+  "ans": "Stays undefined",
   "note": "Flagged as next session's work, never returned to. Also the bookend: the party presents the Dutch artifact to the class."
  },
  {
@@ -1726,6 +1773,8 @@ const TODO_LIST = [
   "t": "The harbinger librarian",
   "o": "both",
   "c": "Story",
+  "done": 1,
+  "ans": "Stays undefined \u2014 Spencer voices her",
   "note": "The one NPC who warns them off. There should be a modern spin on the archetype."
  },
  {
@@ -1758,7 +1807,9 @@ const TODO_LIST = [
   "t": "Finish recording the locked decisions as official canon",
   "o": "scott",
   "c": "Outbox",
-  "note": "Partly done. Three race/class picks are settled — Poe Boy as a Kenku Bard (Glamour), Lil Stinky as a Paladin (Oath of Devotion), Angelique as a Changeling Rogue — plus the note that Lil Stinky's and Simone's races are still open. Six are still missing: the DJ's stage name, Lil Stinky's name, cutting the fourth crew member, keeping Dood Mansion, the Gjenganger being in, and killed-by-a-human as the Spirit's clue. The older material still asks whether Dood Mansion is too dumb and still bills a 4th member on the flyer, so anyone reading it cold gets the old answer."
+  "done": 1,
+  "ans": "Moot \u2014 the repo is the source of truth",
+  "note": "The brainstorm doc is retired, so there is nothing left to transcribe into it. Canon is what Scott (or Spencer) has signed off on, recorded in CANON.md."
  },
  {
   "id": "p1",
@@ -1933,15 +1984,20 @@ const TODO_LIST = [
  {
   "id": "h4",
   "t": "Real estate scouting documents",
-  "o": "none",
+  "o": "scott",
   "c": "Handout",
-  "note": "Floated as a clue that the mansion is being bought out from under the vampires. Decide whether it earns a prop."
+  "built": 1,
+  "review": 1,
+  "url": "../survey/",
+  "note": "<b>Built at <code>/survey/</code></b> \u2014 the developer's site assessment, a faxed, photocopied 2004 memo that shows the mansion is being bought out from under the vampires. Prints on plain paper (<code>4-plain.pdf</code>, on the print list). A floating find: hand it over during one of the times they look around a room. \ud83d\udfe1 The company, the mall's name, the dates, numbers and site notes are the prop's own and wait on Scott's sign-off."
  },
  {
   "id": "h5",
   "t": "Bix's diary from the night he sheltered there",
   "o": "none",
   "c": "Handout",
+  "done": 1,
+  "ans": "Dropped",
   "note": "Will's account of that night is incomplete and the diary fills in what he missed. Needs Will's buy-in before it gets written."
  },
  {
@@ -1969,7 +2025,9 @@ const TODO_LIST = [
   "id": "t1",
   "t": "Lock date, place, food and session length",
   "o": "both",
-  "c": "Weekend"
+  "c": "Weekend",
+  "done": 1,
+  "ans": "Handled in Scott's group text"
  },
  {
   "id": "t7",
@@ -2200,15 +2258,17 @@ function tdRender(){
     if(x.blocked) tags+=`<span class="td-tag flag">Blocking</span>`;
     if(x.needs)   tags+=`<span class="td-tag flag">Needs input</span>`;
     if(x.built)   tags+=`<span class="td-tag live">Live</span>`;
+    if(x.review)  tags+=`<span class="td-tag review">Needs review</span>`;
     if(x.gate)    tags+=`<span class="td-tag gate">Gates the rest</span>`;
     if(x.top)     tags+=`<span class="td-tag top">Start here</span>`;
-    return `<li class="td-item${x.done?" is-done":""}" data-o="${x.o}" data-done="${x.done?1:0}">
+    return `<li class="td-item${x.done?" is-done":""}" id="td-${x.id}" data-o="${x.o}" data-done="${x.done?1:0}">
       <span class="td-mark">&#10003;</span>
       <div class="td-body">
         <div class="td-t">${x.t}</div>
         ${x.ans?`<p class="td-ans"><b>Locked in:</b> ${x.ans}</p>`:""}
         ${x.note?`<p class="td-note">${x.note}</p>`:""}
         ${x.steps?`<ol class="td-steps">${x.steps.map(v=>`<li>${v}</li>`).join("")}</ol>`:""}
+        ${x.url?`<a class="td-open" href="${x.url}">Open ${x.url.replace("../","/")} ↗</a>`:""}
         ${x.msg?`<div class="td-msg"><button type="button" class="td-copy">Copy message</button><pre>${x.msg}</pre></div>`:""}
         <div class="td-tags">${tags}</div>
       </div></li>`;
@@ -2243,6 +2303,7 @@ document.getElementById("td-filters").addEventListener("click",e=>{
   const b=e.target.closest("[data-f]"); if(b) tdFilter(b.dataset.f);
 });
 tdRender();
+renderReview();
 
 /* ---------------- TABS ---------------- */
 document.querySelectorAll("#tabs button").forEach(b=>{
@@ -2254,6 +2315,20 @@ document.querySelectorAll("#tabs button").forEach(b=>{
     window.scrollTo({top:0,behavior:"smooth"});
   });
 });
+
+/* ---------------- HASH LINKS: #cast/vinny, #todo/h4, #names ---------------- */
+function openHash(){
+  const [tab,id]=decodeURIComponent(location.hash.slice(1)).split("/");
+  const b=document.querySelector(`#tabs button[data-tab="${tab}"]`); if(!b) return;
+  document.querySelectorAll("#tabs button").forEach(x=>x.classList.toggle("active",x===b));
+  document.querySelectorAll("section.tab").forEach(x=>x.classList.toggle("active",x.id==="tab-"+tab));
+  let target=document.getElementById("tab-"+tab);
+  if(tab==="cast"&&id&&nodeById[id]){ select(id); target=document.getElementById("detail"); }
+  if(tab==="todo"&&id){ tdFilter("all"); target=document.getElementById("td-"+id)||target; }
+  requestAnimationFrame(()=>target.scrollIntoView({block:tab==="todo"&&id?"center":"start"}));
+}
+window.addEventListener("hashchange",openHash);
+if(location.hash) openHash();
 
 /* ---------------- IN-PAGE SUB-NAV ---------------- */
 document.querySelectorAll(".subnav button[data-scroll]").forEach(b=>{

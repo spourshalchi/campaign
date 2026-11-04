@@ -1,25 +1,30 @@
 # Canon Ledger
 
-**One question per line: was this discussed in the Google Doc, or did an AI make it up?**
+**One question per line: did Scott (or Spencer) sign off on it, or did a session make it and nobody has
+reviewed it yet?**
 
-- 📗 **IN DOC** — it appears in the [brainstorm doc](https://docs.google.com/document/d/1UXole4uGten28LVWA-ePK14ten4GIOj_ZfYEnsIRuWM/edit). Cited by session.
-- 🟡 **NOT CANON** — it originated in the codex, a prop, or a build brief. Never discussed by Scott and Spencer.
+**The repo is the source of truth.** The old [brainstorm doc](https://docs.google.com/document/d/1UXole4uGten28LVWA-ePK14ten4GIOj_ZfYEnsIRuWM/edit)
+is retired. Its sessions (`Sesh 0`–`Sesh 8`, `Character Bios`, `the 24 Aug doc paste`) stay as history
+and are still cited.
 
-"In doc" does not mean settled — Spencer writes in *maybe / could be* language and the only explicit
-lock list in the whole doc is Sesh 7's two lines. It means **you two put it there**, which is the
-distinction that matters. Every 🟡 item below is a suggestion wearing canon's clothes until one of
-you says otherwise.
+- 📗 **CANON** — Scott or Spencer decided it or reviewed it and signed off. Cited by doc session for the
+  history, or `Scott, <date>` for anything decided since.
+- 🟡 **NOT CANON YET** — a session made it (the codex, a prop, a build brief) and Scott hasn't reviewed it.
+
+**The review loop.** Content ships live with the 🟡 flag; the manager session sends Scott the links; Scott
+reviews and signs off; the row flips to 📗 and cites `Scott, <date>`. Nothing waits for sign-off to go
+live — it waits to lose the flag.
+
+Doc sessions were never all settled — Spencer writes in *maybe / could be* language and the only explicit
+lock list in the whole doc is Sesh 7's two lines — so a hedge in the history stays a hedge here.
 
 The codex (`/codex/`) renders these same statuses as badges on every card, and its **Not Canon Yet**
-tab is the live version of this file's 🟡 list.
-
-**Rule going forward:** anything an agent adds to a prop or the codex ships as 🟡 and gets logged here.
-It only turns 📗 by being written into the doc.
+tab is Scott's review queue: every 🟡 item there links to the live page where he can check it.
 
 > ## ⛔ Never invent a Sesh number
 >
-> **Brainstorm sessions exist only in the Google Doc, and only Scott creates them.** `Sesh 0` through
-> `Sesh 8` are real because they are headings in that document.
+> **Brainstorm sessions existed only in the retired Google Doc, and only Scott created them.** `Sesh 0`
+> through `Sesh 8` are real because they are headings in that document.
 >
 > An agent must **never** coin a new one — not as a placeholder, not as a "safe assumption," not with a
 > caveat attached. It fabricates a source, and a fabricated source is worse than no source, because the
@@ -30,8 +35,8 @@ It only turns 📗 by being written into the doc.
 >
 > | Situation | Cite it as |
 > |---|---|
-> | Scott pasted it into the doc, heading unknown | `the <date> doc paste` |
-> | Scott decided it in conversation, not yet pasted | `<date> · not in doc` |
+> | History: Scott pasted it into the doc, heading unknown | `the <date> doc paste` |
+> | Scott (or Spencer) decided it in conversation, or signed off on it | `Scott, <date>` |
 > | An agent made it up | 🟡, and log it below |
 >
 > If Scott later says which Sesh something became, that is the moment it gets a number — not before.
@@ -56,8 +61,7 @@ Both 24 August decisions survive untouched, and this closes three things that we
 - **What did Poe Boy tell the vampires?** → He didn't lie about the houseful. He **staggered** it: five early for the part he actually wants recorded, everyone else at three for the scare the vampires agreed to. No wedge needed — he kept his word on a technicality, which is exactly how he operates.
 - **Why isn't the party charmed?** → **They were already inside, in the back half of the house, when he performed.** Cleaner than the side-entrance reasoning the finale first used, since the 24 Aug decision removed the side entrance anyway.
 
-⚠️ **Still 🟡 — decided by Scott, not yet in the Google Doc.** Paste it in to make it official. It also
-narrows Sesh 7's *"invite everyone"* a second time, so it belongs in the doc more than most things on this list.
+📗 **Scott, 25 Aug.** It narrows Sesh 7's *"invite everyone"* a second time.
 
 **One small thing left to decide:** how the crowd physically gets in at 3AM, given the doors bolted at 7PM.
 The obvious answer is that Poe Boy opens the front for his own show — but that is worth saying out loud
@@ -76,9 +80,9 @@ rather than assuming, because it touches what the bolt actually means for the pa
 | Claim | Source |
 |---|---|
 | **Gnomey doesn't own the house until the very end.** Uncle Vinny gives him the deed then, because by then he's earned it | In Person Session |
-| Vinny holds the deed the whole weekend. **Gnomey has never carried it** | In Person Session, clarified 1 Nov · deed swap 1 Nov · not in doc |
+| Vinny holds the deed the whole weekend. **Gnomey has never carried it** | In Person Session, clarified 1 Nov; deed swap: Scott, 1 Nov |
 | **Plant the seed early: Vinny calls Gnomey**, thinking about going to the mansion, so he isn't random when he shows up at the end. What he says on the call is still open | In Person Session, clarified 1 Nov |
-| Vinny **shows up in person** in the ending scene and hands over the deed | In Person Session · deed swap 1 Nov · not in doc |
+| Vinny **shows up in person** in the ending scene and hands over the deed | In Person Session; deed swap: Scott, 1 Nov |
 
 **Replaces in Sesh 8:** the token pressed into a twelve-year-old's palm, the token "he has carried since session
 one", and Gnomey calling the nursing home at the end. The study keeps the card table with the last hand on it and
@@ -88,15 +92,15 @@ the bearer clause says whoever holds the deed owns the house, and Gnomey doesn't
 ### The deed replaces the poker chip
 | Claim | Source |
 |---|---|
-| **There is no poker chip.** The settlement vests title in **the bearer of the deed** — the deed is the marker, the token and the physical prop all at once | 1 Nov · not in doc |
-| **Vinny walked out with the deed** in 1931 and has held it ever since; he hands it to Gnomey in the ending scene | 1 Nov · not in doc |
-| **The study:** the card table with the last hand still on it, and a strongbox holding the signed settlement with **an empty slot where the deed should be** | 1 Nov · not in doc |
-| **The deed is printed** — Scott takes it to Staples. Gnomey's physical prop. Prop at `/deed/` | 1 Nov · not in doc |
-| Rule: **the deed arrives with Vinny** — nothing at the table puts it in Gnomey's hands early | 1 Nov · not in doc |
-| **Two documents, two jobs** — Sesh 8 already names both. The **settlement** (`/settlement/`, iPad) is the clue in the study: it sets the bearer rule and tells Gnomey whoever holds the deed owns the house. The **deed** (`/deed/`, printed) is the object Vinny hands over. The deed stays formal and dry; the jokes live on the settlement | 1 Nov · not in doc |
+| **There is no poker chip.** The settlement vests title in **the bearer of the deed** — the deed is the marker, the token and the physical prop all at once | Scott, 1 Nov |
+| **Vinny walked out with the deed** in 1931 and has held it ever since; he hands it to Gnomey in the ending scene | Scott, 1 Nov |
+| **The study:** the card table with the last hand still on it, and a strongbox holding the signed settlement with **an empty slot where the deed should be** | Scott, 1 Nov |
+| **The deed is printed** — Scott takes it to Staples. Gnomey's physical prop. Prop at `/deed/` | Scott, 1 Nov |
+| Rule: **the deed arrives with Vinny** — nothing at the table puts it in Gnomey's hands early | Scott, 1 Nov |
+| **Two documents, two jobs** — Sesh 8 already names both. The **settlement** (`/settlement/`, iPad) is the clue in the study: it sets the bearer rule and tells Gnomey whoever holds the deed owns the house. The **deed** (`/deed/`, printed) is the object Vinny hands over. The deed stays formal and dry; the jokes live on the settlement | Scott, 1 Nov |
 
 This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the blue one"* line, the chip set
-"one short", and every chip row below. Paste it into the doc to make it official.
+"one short", and every chip row below.
 
 ### The finale — phase 1 is cut
 | Claim | Source |
@@ -111,16 +115,16 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 | At the gazebo he says **he'll be playing some new tunes** | In Person Session |
 | **The poster brings the audience.** "Doors open" half an hour before the set | In Person Session |
 | **The AIM room is at the end.** Its door is **locked with a poster on it** if they try to go early, so it is the last room, not one of the any-order rooms | In Person Session, clarified 1 Nov |
-| **The Spirit unlocks it.** Once the party has been through the other rooms, the AIM chime drifts down the hall and the lock clicks open on its own — the kid from the summoning's *"is someone there"* finally reaching them. The DM triggers it when the table is ready; there is no puzzle. The poster stays | 3 Nov · not in doc |
+| **The Spirit unlocks it.** Once the party has been through the other rooms, the AIM chime drifts down the hall and the lock clicks open on its own — the kid from the summoning's *"is someone there"* finally reaching them. The DM triggers it when the table is ready; there is no puzzle. The poster stays | Scott, 3 Nov |
 
 ### The ending — one scene, everyone arrives
 | Claim | Source |
 |---|---|
 | **Resolve it all right there**, in one scene at the mansion: Poe Boy's **mom**, Russ's **troop leader**, and **Uncle Vinny** | In Person Session, clarified 1 Nov |
 | **The troop leader comes in and hands Russ the badge** | In Person Session |
-| **Vinny's early call.** Minutes after Gnomey reads *Dood* on his card in the lockers scene, his flip phone rings. Vinny is confused and thinks it's 1931: *"Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch."* | 3 Nov · not in doc |
-| **The troop leader is an over-earnest scout dad** — khaki shorts in November, whistle, clipboard, unfazed by vampires as long as the paperwork is in order. His name is open | 3 Nov · not in doc |
-| He runs **Troop 187's nursing-home volunteer visits**, which is how he knows Vinny, and **he drives Vinny up the hill at dawn** — one car explains both arrivals | 3 Nov · not in doc |
+| **Vinny's early call.** Minutes after Gnomey reads *Dood* on his card in the lockers scene, his flip phone rings. Vinny is confused and thinks it's 1931: *"Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch."* | Scott, 3 Nov |
+| **The troop leader is an over-earnest scout dad** — khaki shorts in November, whistle, clipboard, unfazed by vampires as long as the paperwork is in order. His name is open | Scott, 3 Nov |
+| He runs **Troop 187's nursing-home volunteer visits**, which is how he knows Vinny, and **he drives Vinny up the hill at dawn** — one car explains both arrivals | Scott, 3 Nov |
 
 ### Character threads
 | Claim | Source |
@@ -159,7 +163,7 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
   print are the prop's choices. So are the venue (**Transyltown Armory**), the date (**Sat Jun 25 2005**, read off
   Character Bios' "in town at the end of the school year") and the doors/show times. The band prints as
   **Total Party Kill** (see Simone, below).
-- **The developer's site assessment in `/survey/`** (printed, `print/4-plain.pdf`) — `3 Nov · not in doc`. A
+- **The developer's site assessment in `/survey/`** (printed, `print/4-plain.pdf`) — built 3 Nov, awaiting Scott's review. A
   faxed, photocopied internal memo the party finds in the house. Like the sticky note it is a **floating find**:
   the DM hands it over during one of the times they look around a room. Canon behind it: the mega mall
   (Sesh 5, 7), W. Ostrander (🟡, 26 Aug), the same company ~20 years ago (30 Aug), and that he doesn't know
@@ -191,18 +195,18 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 ### Still open from this session
 1. **The invitation:** is it to the concert or to the haunted house? Spencer's, with the poster.
 2. **When the party gets the poster** — shown at the gazebo, or found in the first room.
-3. ~~**What Vinny says on the early call.**~~ — **answered 3 Nov:** he thinks it's 1931 and asks about tonight's card game with Cornelis (table above). `3 Nov · not in doc`.
+3. ~~**What Vinny says on the early call.**~~ — **answered 3 Nov:** he thinks it's 1931 and asks about tonight's card game with Cornelis (table above). `Scott, 3 Nov`.
 4. **Will's trait** for Bix's parents.
-5. **Yobo's physical prop.**
+5. ~~**Yobo's physical prop.**~~ — **answered: he doesn't get one.** `Scott, 3 Nov`.
 6. ~~**Making it clear the botched summoning is Poe Boy's.**~~ — **answered 3 Nov:** it isn't signposted on Saturday;
-   the Spirit names him on Sunday. `3 Nov · not in doc`.
+   the Spirit names him on Sunday. `Scott, 3 Nov`.
 7. ~~**What unlocks the AIM room**~~ — **answered 3 Nov:** the Spirit does, on the DM's cue (table above).
-   `3 Nov · not in doc`. Still open: what the poster on its door says.
+   `Scott, 3 Nov`. Still open: what the poster on its door says.
 8. **How much backstory is written out vs. revealed in dialogue.** Items to place: the silly bandz, 3am, the
    Dolly Parton riff, Angelique's side-eye.
 9. **What Angelique does at the finale.**
 10. ~~**The troop leader**~~ — **answered 3 Nov:** an over-earnest scout dad who runs Troop 187's nursing-home
-    visits and drives Vinny up at dawn (table above). His name is still open. `3 Nov · not in doc`.
+    visits and drives Vinny up at dawn (table above). His name is still open. `Scott, 3 Nov`.
 11. **Where the vampires stand at 3AM before the developer breaches.** Sesh 7's *"Poe Boy takes control of some
     vampires in the final fight"* is now carried only by the lie.
 
@@ -240,24 +244,24 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 | At the computer, he tells them to get the USB | Sesh 8 |
 | **In the backpack: the USB *and* the wishing willow** Simone gave him for the spell | Sesh 8 |
 | **They plug the USB in and it has his name on it** — that is when they ask if he's ⟨name⟩, and Simone and Angelique realise it's the same person | Sesh 8 |
-| **The dead kid is Marcus Hale.** He died in **1999 at about twelve** — the five years of listening to one person at a keyboard. The USB's volume label is **`MARCUS_HALE`** (FAT32 allows 11 characters) | 3 Nov · not in doc |
+| **The dead kid is Marcus Hale.** He died in **1999 at about twelve** — the five years of listening to one person at a keyboard. The USB's volume label is **`MARCUS_HALE`** (FAT32 allows 11 characters) | Scott, 3 Nov |
 | He does the file transfer and asks them to expose DJ Poe Boy | Sesh 8 |
 | **Then one last thing: can you get me out of here — use your magic to put my soul somewhere safe** | Sesh 8 |
 | Simone can't do it at her level. **Her patron appears, can do it, and asks a price** | Sesh 8 |
 | The price is her money — **stored in a goat-shaped piggy bank**, saved for the concert. If she says yes she **smashes it** and gains the power to run a ritual that moves not just the file but his soul to the USB | Sesh 8 |
 | **The ritual visual:** like a file transfer, but the loading bar exceeds the boundaries, the screen goes weird and glitchy, and then the AIM sign-off sound / message appears | Sesh 8 |
 | **Poe Boy also loves the band** and had tickets. When his mom comes at the end she says he's grounded and not going to the satan concert — **Simone gets the tickets anyway** | Sesh 8 |
-| **The band is called Total Party Kill.** It goes on her shirt and on the tickets | 3 Nov · not in doc — Scott's pick; the band was Spencer's call, so worth confirming with him |
+| **The band is called Total Party Kill.** It goes on her shirt and on the tickets | Scott, 3 Nov — the band was Spencer's call, so worth confirming with him |
 | **Epilogue:** the kid's spirit is uploaded to the **library computers**, where he helps people find new books to read | Sesh 8 |
 
-### Settled in conversation, not yet pasted into the doc
+### Settled by Scott in conversation
 
 | Claim | Source |
 |---|---|
-| **The company that hired the men who killed Goblinenon is the same real-estate company** that wants the land today — so it has been after this house for ~20 years, and it is the reason Bix is an orphan | 30 Aug · confirmed by Scott, not in doc |
-| **The patron joins the AIM conversation** as a third screen name rather than appearing only at the table: the window becomes a group chat, the theme flips, and it negotiates on screen | 30 Aug · Scott's idea, not in doc |
-| **The party has to log in.** The computer sits at an AIM sign-on screen with **`DJPoeBoy187`** saved — Sesh 7 already makes the machine his — and the password box empty. The password is **`Fluffy123`**, his cat, handed over on a sticky note | 30 Aug · Scott's decision, not in doc |
-| **The sticky note is a floating prop.** The DM keeps it in hand and gives it over the first time they search any room in the house; it has no fixed location | 3 Nov · not in doc |
+| **The company that hired the men who killed Goblinenon is the same real-estate company** that wants the land today — so it has been after this house for ~20 years, and it is the reason Bix is an orphan | Scott, 30 Aug |
+| **The patron joins the AIM conversation** as a third screen name rather than appearing only at the table: the window becomes a group chat, the theme flips, and it negotiates on screen | Scott, 30 Aug (his idea) |
+| **The party has to log in.** The computer sits at an AIM sign-on screen with **`DJPoeBoy187`** saved — Sesh 7 already makes the machine his — and the password box empty. The password is **`Fluffy123`**, his cat, handed over on a sticky note | Scott, 30 Aug |
+| **The sticky note is a floating prop.** The DM keeps it in hand and gives it over the first time they search any room in the house; it has no fixed location | Scott, 3 Nov |
 | Therefore **the party types to the Spirit as his killer** for the whole conversation | 30 Aug · follows from the above |
 
 > ⛔ **The load-bearing constraint, and it is a design rule rather than a lore fact.** The USB, the
@@ -289,7 +293,7 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 | Monthly delivery, a bottle, and cards — for decades | Sesh 8 |
 | **14 November 1931:** Orlok goes down, keeps playing, and puts the house up because it's the only thing left worth anything | Sesh 8 |
 | **The ARTICLES OF SETTLEMENT** — full drunken contract text, including the eleven-dollars-forty sum, ~~the blue-chip line~~ (replaced by the deed, 1 Nov), and Dracula witnessing as a non-notary | Sesh 8 |
-| **Title rests with the bearer of the ~~marker~~ deed** — not his name, not his heirs, not his estate | Sesh 8, replaced by the deed 1 Nov · not in doc |
+| **Title rests with the bearer of the ~~marker~~ deed** — not his name, not his heirs, not his estate | Sesh 8; the deed: Scott, 1 Nov |
 | **Vinny let them stay.** "You always collect, and then you're not a bastard about it" | Sesh 8 |
 | **Vinny is alive** — ancient, in a home, mostly gone | Sesh 8 |
 | ~~He gave the chip to a twelve-year-old Gnomey~~ (replaced by the deed) after hearing the kid had an operation going. *"Twelve years old and he's got a crew." / "I don't have a crew anymore." / "You'll get another one."* — **the hand-over is replaced by In Person Session:** Vinny keeps the deed and hands it over at the end | Sesh 8, replaced by In Person Session |
@@ -299,7 +303,7 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 |---|---|
 | **Gnomey is the rightful owner of the mansion**, via ~~the chip~~ **the deed** — ~~he has carried since session one~~ **which Vinny hands him in the ending scene** | Sesh 8, replaced by In Person Session |
 | He becomes **head of household and the new leader of the gang** | Sesh 8 |
-| **The study** — sealed since the thirties. ~~A poker set exactly one chip short,~~ the last hand still on the table, and a strongbox with ~~the deed and~~ the signed settlement — **the deed's slot empty** | Sesh 8, replaced by the deed 1 Nov · not in doc |
+| **The study** — sealed since the thirties. ~~A poker set exactly one chip short,~~ the last hand still on the table, and a strongbox with ~~the deed and~~ the signed settlement — **the deed's slot empty** | Sesh 8; the deed: Scott, 1 Nov |
 | **Epilogue:** he fronts for the vampires as the man who can stand in daylight, takes no rent and asks nothing. Orlok is pissed, complies perfectly, and thanks him through his teeth | Sesh 8 |
 | ~~He calls the nursing home at the end~~ — **replaced by In Person Session:** Vinny calls *him* early, and shows up in person at the end | Sesh 8, replaced by In Person Session |
 
@@ -313,7 +317,7 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 | **Orlok ends it with one word.** Dracula stops instantly; nobody speaks until Orlok is finished | Sesh 8 |
 | His dismissal: *"The night is young. It would be terribly rude to be finished with you already." / "Go on. Have a look around. We'll find you when we're ready."* | Sesh 8 |
 | Explore again, then **Saturday's one combat: a botched summoning** | Sesh 8 |
-| **The summoning stays unsignposted on Saturday.** It is Poe Boy's, but nothing on the night says so — no notebook, no handwriting tell. The payoff is the Spirit naming him on Sunday | 3 Nov · not in doc |
+| **The summoning stays unsignposted on Saturday.** It is Poe Boy's, but nothing on the night says so — no notebook, no handwriting tell. The payoff is the Spirit naming him on Sunday | Scott, 3 Nov |
 | Level 3 → 4 (**overridden: the party is level 4 → 5**, see Decisions made since the audit) | Sesh 8 (restates the 24 Aug paste) |
 
 ### Sunday — the revised investigation
@@ -336,14 +340,14 @@ The draft spec stays parked in `PROPOSALS.md` as dead work.
 ### 🟡 Still not canon inside this arc
 - ~~Orlok's mortal name~~ — **ratified by Scott, 31 Aug.** Cornelis Dood and Orlok are the same man;
   **Dood is Orlok's mortal surname.** The Dutch pun and the puzzle prop both survive, and the Crier's
-  obituary is technically accurate. `31 Aug · not in doc` — worth pasting in.
+  obituary is technically accurate. `Scott, 31 Aug`.
 - **The study door puzzle** — left deliberately open. No proposal on the table.
 - **The botched summoning** — that it's Poe Boy's, and every stat behind it.
 - **The party room** as a built location, and the photograph's placement in it.
 - **The parents' looks in the photograph.** Built to echo Will's description of Bix (short, dark green
   skin, cuts on his long pointed ears, small brown leather boots): Goblinenon is short and dark green with
   long pointed ears and the same small brown leather boots; Edward has healed cuts on the rim of one ear.
-  Nothing in the doc describes either parent. `3 Nov 2026 · not in doc` — Scott asked for the echo; the
+  Nothing in the doc describes either parent. `Scott, 3 Nov 2026` — Scott asked for the echo; the
   specific traits were picked in the image brief.
 - **The year on the photograph.** The prop stamps `10 31 '79`. The doc never fixes Bix's age, so it
   never fixes this date — he's an early-to-mid-20s super senior in 2004 and was born ~9 months after
@@ -384,10 +388,10 @@ then flips to **a clinic**.
 
 ### 🟡 Still open inside this arc
 - ~~The medicinal herb's name~~ — **chosen: Sun's-mercy**, a marigold-gold, sun-loving wound-healer
-  (Scott, 7 Sep · not in doc — worth pasting in).
+  (Scott, 7 Sep).
 - ~~The badge artwork~~ — **chosen: Codex option B**, an embroidered-patch scout carrying a huge
   rune-stamped spellbook for a stooped, hooded old mage, ringed *"ASSISTING THE ELDERLY / TROOP 187"*
-  (Codex-generated art, `badge/art/option-b.png`; Scott, 3 Nov · not in doc). 🟡 Prop art, not canon.
+  (Codex-generated art, `badge/art/option-b.png`; Scott, 3 Nov). 🟡 Prop art, not canon.
 - **Russ's exact druid subclass and sheet.** The concept (Firbolg druid, Speak with Animals) is set; the
   full character sheet is Cody's to hand in, like everyone else's.
 - The prop wording — the printable **Requirements card** — is codex-side texture until it's used.
@@ -404,7 +408,10 @@ then flips to **a clinic**.
 |---|---|
 | **The fork is cut.** No fight-them / never-had-to branch — the weekend runs one line | the 24 Aug doc paste (reverses Sesh 2) |
 | Three combats for the weekend: one Saturday, two Sunday. A fourth stays in reserve | the 24 Aug doc paste |
-| **The session break is deliberately undefined.** Saturday ends wherever time runs out; the botched summoning closes Night 1 if the clock allows but isn't required to. Everyone levels to 5 at the end of day one | 3 Nov · not in doc |
+| **The vampires learn the truth from the recording over the PA** in the finale — they hear it with everyone else, and that is how they find out the kid never went out a window | Scott, 3 Nov |
+| **Left undefined on purpose:** the history teacher; the Records Keeper (Spencer voices her); why these five got the card | Scott, 3 Nov |
+| **The other malevolent forces** are the Spirit, the botched summoning and the developer — nothing more is needed | Scott, 3 Nov |
+| **The session break is deliberately undefined.** Saturday ends wherever time runs out; the botched summoning closes Night 1 if the clock allows but isn't required to. Everyone levels to 5 at the end of day one | Scott, 3 Nov |
 | ~~The finale runs in three phases: vampires hostile → developer breaches → vampires turn~~ — **phase 1 cut in the In Person Session.** Two phases: developer breaches → the booth (vampires turn) | the 24 Aug doc paste, replaced by In Person Session |
 | The developer's breach (now the first phase) is the only lethal fight of the finale | the 24 Aug doc paste |
 | Town has no combat | the 24 Aug doc paste |
@@ -418,7 +425,7 @@ survives. The cellar and the corridor are both still fine — they just need new
 |---|---|
 | The real-estate developer is a **wizard, an abjurer** — a man who solves problems by sealing them | the 24 Aug doc paste |
 | He destroyed the 1937 page **himself**, which is why there's no contractor to trace | the 24 Aug doc paste |
-| **Springing the trap summons him.** The party's cleverest move in town puts him in his car | the 24 Aug doc paste, reflavoured 26 Aug · not in doc |
+| **Springing the trap summons him.** The party's cleverest move in town puts him in his car | the 24 Aug doc paste, reflavoured by Scott, 26 Aug |
 | He does not know what's in the house. He finds out, updates in four seconds, starts giving orders | the 24 Aug doc paste |
 | He breaches at 3AM and seals the exits behind him — his own crew included | the 24 Aug doc paste |
 | **He is the only death in the story**, and the only one who isn't a monster. Self-defence | the 24 Aug doc paste |
@@ -581,20 +588,20 @@ the story now** — so this counts as in-doc like anything else, not as one pers
 | Bix's mansion tie: broke in one rainy night after running from a foster home, encountered something | Sesh 5 |
 | **Bix's parents: Edward is his father; his mother Goblinenon was killed clearing the house** — full timeline in the Sesh 8 section above | **Sesh 8** |
 | Bix ↔ Angelique: both loners, short friendship, he pushed her away as it got more serious *platonically* | Sesh 5 |
-| A diary in the house may reveal Bix's account is incomplete | Sesh 6 |
+| ~~A diary in the house may reveal Bix's account is incomplete~~ — **dropped** | Sesh 6; dropped: Scott, 3 Nov |
 | **Bix's parents carry a distinctive trait in the photograph**, supplied by Will | In Person Session |
 | **Gnomey Soprano** (Julia) — male gnome rogue, cute/deadly, petty schemer, hustler, sells cigarettes in the bathroom, idolizes mob bosses, wholesome family | Character Bios |
 | A teacher genuinely believes in Gnomey; he wavers between street life and college | Character Bios |
 | Gnomey was in the crew in middle school; fell out over Poe Boy skimming the **silly banz** money | Sesh 5 |
 | Gnomey's mansion tie: crew threw rocks and dared each other to ring the doorbell; one Halloween something happened | Sesh 5 |
-| **Gnomey's real mansion tie: he owns it.** Great Uncle Vinny won it off Orlok at cards in 1931 and title runs with the deed — which Vinny hands Gnomey at the end | Sesh 8 + In Person Session + 1 Nov · not in doc |
+| **Gnomey's real mansion tie: he owns it.** Great Uncle Vinny won it off Orlok at cards in 1931 and title runs with the deed — which Vinny hands Gnomey at the end | Sesh 8 + In Person Session + Scott, 1 Nov |
 | **Simone** — angsty goth warlock, devil patron as an all-black goat with an upside-down red cross, atheist parents, sells love & revenge spells to fund a satanic metal show, frequent detention, loner | Character Bios |
 | **Simone's mansion tie: she sold the dead kid the wishing willow, and her patron's price is the concert fund** — full chain in the Sesh 8 section above | **Sesh 8** |
 | **John — Yobo**, a musical-theatre bully / popular kid; leaning Bard, words as the weapon. His lie (grandmother = Dolly Parton) props up his status and he's insecure about real talent. Arc: the lie is a Performance/Bardic-Inspiration debuff (Deception upside) that flips to a buff when he tells the truth in the party room, Dracula pushing him. Wig still an open question for John | Character Bios + Sesh 8 |
 | ~~**Cody** — has not submitted a character~~ — **answered in Sesh 8:** Cody's PC is a Firbolg druid (working name **Russ**, *"basically Russell from Up"*) whose arc is earning his **Assisting the Elderly** badge by helping Orlok. Full arc in the Sesh 8 section above | Sesh 5, answered Sesh 8 |
 | "Island of misfit toys" — everyone has a reason they ended up in the friend group | Sesh 5 |
 | Scott's floated idea: one PC connected to the mansion by blood (great-grandparent built it or died there); Spencer liked it and said the library is the place to hint | Doc comments |
-| **Answered for Gnomey, and only Gnomey.** His tie is a *debt*, not a bloodline — his great-uncle won the house at cards, hinted on the library checkout card as `V. Soprano`. **The blood-tie idea is no longer pointed at John**, dropped 31 Aug; John's connection is now the party-room performance turn (Sesh 8) | Sesh 8 + 31 Aug · not in doc |
+| **Answered for Gnomey, and only Gnomey.** His tie is a *debt*, not a bloodline — his great-uncle won the house at cards, hinted on the library checkout card as `V. Soprano`. **The blood-tie idea is no longer pointed at John**, dropped 31 Aug; John's connection is now the party-room performance turn (Sesh 8) | Sesh 8 + Scott, 31 Aug |
 
 ### NPCs
 | Claim | Source |
@@ -724,26 +731,27 @@ stay on this list until you two decide:
 1. ~~Is the Gjenganger in?~~ — **retired in Sesh 8 by displacement.** Orlok took its backstory, the corridor was cut, and Saturday's mansion fight is a botched summoning. Scott and Spencer are aligned on it (3 Nov).
 2. ~~Who is the dead kid? Name, year~~ — **answered 3 Nov: Marcus Hale, died 1999 at about twelve.** The name
    lands as the USB's volume label, `MARCUS_HALE` (Sesh 8 put it on the USB). Still worth a note: enough of
-   a life that the table feels it. `3 Nov · not in doc`.
+   a life that the table feels it. `Scott, 3 Nov`.
 3. Does the 1937 Crier become canon, get rewritten to the doc's 1973 Frisian version, or stay a prop that nobody has to believe?
 4. ~~John's insecurity — his to name.~~ — **answered and now in the doc** (Character Bios: Yobo, the
    Dolly-Parton lie, anxiety about real talent; Sesh 8: the debuff→truth→buff arc). Only the **wig** is
    still John's call — the doc writes it in as a question.
-5. ~~Cody's PC.~~ — **answered Sesh 8:** a Firbolg druid (working name Russ) earning his Assisting the Elderly badge by helping Orlok. Still open inside it: Cody's full sheet (the badge art is chosen: Codex option B, Scott, 3 Nov · not in doc).
+5. ~~Cody's PC.~~ — **answered Sesh 8:** a Firbolg druid (working name Russ) earning his Assisting the Elderly badge by helping Orlok. Still open inside it: Cody's full sheet (the badge art is chosen: Codex option B, Scott, 3 Nov).
 6. The 4th crew member.
 7. Lock or kill: Dood Mansion, Upton Maximillion Livingsworth III, and the DJ/kingpin names that are locked only by repetition.
-8. **Why these five?** The invite is a deliberate guest list, so it needs a reason the players can be told.
+8. ~~**Why these five?**~~ — **answered: deliberately unexplained.** The invite is a deliberate guest list and
+   nobody ever says why. `Scott, 3 Nov`.
 9. ~~Who was the 3AM DJ flyer for?~~ — **answered 25 Aug: public.** The flyer prop is unblocked.
 10. ~~What did Poe Boy tell the vampires?~~ — **answered 25 Aug: he staggered the houseful rather than lying about it.**
 11. ~~The crowd~~ — **resolved 25 Aug.** See the two-tier guest list at the top. Remaining: how the crowd gets through a bolted door at 3AM.
 12. **The developer's name.** He is now the third faction and the only death in the story, and he has no name. Company, or family trust?
 13. ~~**The dead kid's name.**~~ — **answered 3 Nov: Marcus Hale, 1999.** It comes off the **USB** when they
-    plug it in (Sesh 8), labelled `MARCUS_HALE`. `3 Nov · not in doc`.
+    plug it in (Sesh 8), labelled `MARCUS_HALE`. `Scott, 3 Nov`.
 14. ~~**New reasons for the cellar and the choke-point corridor**~~ — **answered in Sesh 8.** The corridor is
     cut entirely. The cellar is where Vinny kept the liquor from 1920 to 1933 and where the vampires keep
     the animals now, so it carries both the food stash and forty-year-old crates nobody came back for.
 15. ~~**Orlok's mortal name**~~ — **answered 31 Aug.** Cornelis Dood *is* Orlok. Dood is his mortal surname,
-    the Dutch pun survives, and the Crier's obituary is accurate. `31 Aug · not in doc`.
+    the Dutch pun survives, and the Crier's obituary is accurate. `Scott, 31 Aug`.
 16. **The study door — deliberately undefined.** The room and its contents are Sesh 8; **how the party gets
     through the door is not designed, and is not being designed yet.** Scott's call, 31 Aug.
 17. **What the botched summoning actually is.** Saturday's mansion combat is now named and nothing else
@@ -755,9 +763,9 @@ stay on this list until you two decide:
 19. ~~**The satanic metal band has no name**~~ — **answered 3 Nov: Total Party Kill.** Sesh 8 made it
     load-bearing three times over — Simone's savings, the goat's price, and Poe Boy's grounding — and the
     name is printable, on a shirt and on the tickets his mother hands over. Scott's pick; the band was
-    Spencer's call, so confirm it with him. `3 Nov · not in doc`.
+    Spencer's call, so confirm it with him. `Scott, 3 Nov`.
 20. ~~**Where the sticky note is found.**~~ — **answered 3 Nov:** nowhere fixed. It's a floating prop the DM
-    hands over the first time they search any room. `3 Nov · not in doc`. 🟡 **The cat is invented**: `Fluffy123` is Scott's password, but nothing says Poe Boy has a
+    hands over the first time they search any room. `Scott, 3 Nov`. 🟡 **The cat is invented**: `Fluffy123` is Scott's password, but nothing says Poe Boy has a
     cat. It fits (sweet, out-of-touch parents who spoil him) and it rhymes with the Volvo, so it's cheap
     to keep and cheap to drop.
 21. **Whether Bix's Sesh 5 overnight and Sesh 8's Edward connect.** Bix broke into this house as a
