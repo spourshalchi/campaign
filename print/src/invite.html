@@ -5,7 +5,8 @@
   "Haunted House · Dood Mansion · 8 PM". It names no host.
   ✅ Signed off as-is (Scott, 2026-11-04 · not in doc). See CANON.md.
   PRINT ONLY: print/build.py renders it into print/1-cardstock.pdf. US Letter, 100% / actual size, cardstock.
-  Each card is 5 x 6.26 in (the art's own shape), turned sideways, two per sheet, with crop marks.
+  Each card is 4 x 5 in portrait (the art at 4 in wide is 5.01 in tall; the extra 0.01 in is trimmed), so it slides
+  sideways into a 6.25 x 4.25 in envelope. Printed turned sideways, two per sheet, with crop marks.
   ?n= sets how many cards (default 6: five lockers and a spare).
 -->
 <html lang="en">
@@ -46,10 +47,11 @@
   /* -------- print: two cards per letter sheet, sideways -------- */
   .sheets{display:none}
   .sheet{width:8.5in; height:11in; overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.3in}
-  .slot{position:relative; width:6.26in; height:5in}
-  .slot img{position:absolute; left:50%; top:50%; width:5in; height:6.26in;
+  .slot{position:relative; width:5in; height:4in}
+  .slot .card-face{position:absolute; left:50%; top:50%; width:4in; height:5in; overflow:hidden;
     transform:translate(-50%,-50%) rotate(-90deg)}
-  .slot svg{position:absolute; left:-.3in; top:-.3in; width:6.86in; height:5.6in; overflow:visible}
+  .slot .card-face img{display:block; width:4in; height:5in; object-fit:cover}
+  .slot svg{position:absolute; left:-.3in; top:-.3in; width:5.6in; height:4.6in; overflow:visible}
 
   @media print{
     @page{size:letter portrait; margin:0}
@@ -67,7 +69,7 @@
   <div class="brief">
     <h1>The invitation — print at Staples</h1>
     <p><b>One in each of the five lockers</b>, scene 2. Spencer's card, printed as he made it.</p>
-    <p>US Letter, <b>100% / actual size</b>, colour, cardstock. Two cards per sheet, turned sideways; cut on the crop marks at the corners.</p>
+    <p>US Letter, <b>100% / actual size</b>, colour, cardstock. Each card is <b>4 × 5 in</b> and fits a 6.25 × 4.25 in envelope sideways. Two cards per sheet, turned sideways; cut on the crop marks at the corners.</p>
     <button onclick="window.print()">Print the invitations</button>
   </div>
 
@@ -77,8 +79,8 @@
 
 <script>
   // crop marks sit just outside each corner of the card
-  var MARKS = '<svg viewBox="0 0 686 560" aria-hidden="true"><g stroke="#888" stroke-width="1" fill="none">' +
-    [[30,30,-1,-1],[656,30,1,-1],[30,530,-1,1],[656,530,1,1]].map(function(c){
+  var MARKS = '<svg viewBox="0 0 560 460" aria-hidden="true"><g stroke="#888" stroke-width="1" fill="none">' +
+    [[30,30,-1,-1],[530,30,1,-1],[30,430,-1,1],[530,430,1,1]].map(function(c){
       var x=c[0], y=c[1], dx=c[2], dy=c[3];
       return '<path d="M'+(x+dx*6)+' '+y+' H'+(x+dx*26)+' M'+x+' '+(y+dy*6)+' V'+(y+dy*26)+'"/>';
     }).join('') + '</g></svg>';
@@ -87,7 +89,7 @@
   for (var i = 0; i < n; i += 2) {
     out += '<div class="sheet">';
     for (var j = i; j < Math.min(i + 2, n); j++)
-      out += '<div class="slot"><img src="assets/spencer-invite.jpg" alt="">' + MARKS + '</div>';
+      out += '<div class="slot"><div class="card-face"><img src="assets/spencer-invite.jpg" alt=""></div>' + MARKS + '</div>';
     out += '</div>';
   }
   document.getElementById('sheets').innerHTML = out;
