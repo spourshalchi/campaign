@@ -116,6 +116,19 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 | **The poster brings the audience.** "Doors open" half an hour before the set | In Person Session |
 | **The AIM room is at the end.** Its door is **locked with a poster on it** if they try to go early, so it is the last room, not one of the any-order rooms | In Person Session, clarified 1 Nov |
 | **The Spirit unlocks it.** Once the party has been through the other rooms, the AIM chime drifts down the hall and the lock clicks open on its own — the kid from the summoning's *"is someone there"* finally reaching them. The DM triggers it when the table is ready; there is no puzzle. The poster stays | Scott, 3 Nov |
+| **The invitation is a haunted-house card** for 7PM, and it promises the 3AM after-party to whoever lasts the night: *"MAKE IT TO 3AM → YOU'RE ON THE LIST FOR DJ POE BOY'S AFTER-PARTY."* **Poe Boy's lure is the haunted house; the concert is the prize.** The public DJ poster is the after-party for everyone else | Scott, 3 Nov |
+| **The vampires think the concert is part of their plan.** Poe Boy sold them the 3AM crowd as the bait for the scare: they come for the music, they leave screaming, the legend spreads and the mall dies. The vampires don't care about the music; **Dracula secretly wants an audience** | Scott, 3 Nov |
+| 🟡 Optional line for Dracula in the overheard argument: *"The boy says they come for the music and stay for us."* | Scott, 3 Nov — offered as optional |
+
+### What everyone thinks tonight is
+| Who | What they think tonight is | Source |
+|---|---|---|
+| **Poe Boy** | A recording session sold as a concert. The haunted house lures the five; their screams are his samples; the 3AM crowd is the bait he promised the vampires | In Person Session; Scott, 3 Nov |
+| **The vampires** | The scare that saves their house. The five get a whole night of terror, the 3AM crowd comes for the music and leaves screaming, the legend spreads and the mall dies. They don't care about the music (Dracula secretly wants the audience), and they believe the kid ran off out a window | Sesh 7, Sesh 8; Scott, 3 Nov |
+| **Angelique** | Poe Boy's show, which she's part of. She feels a magical pull to the house — that's why she came — and tries to warn the five at the gazebo and can't | Sesh 8; Sesh 5 + In Person Session |
+| **The Records Keeper** | A records request gone wrong. The volume was trapped and the page is in pieces, so she points them at the one primary source left, the house: *"But be careful"* | Scott, 3 Nov |
+| **Ostrander** | A trespass on his records. Springing the trap tells him someone opened the volume, and he drives out to the house that night | the 24 Aug doc paste, reflavoured by Scott, 26 Aug |
+| **The party** | A haunted house, with an after-party as the prize. They go because: the project needs a **primary source** and the house is the last one left; they're **teenagers**, and the five who missed the skip-day memo want to salvage the day; the **personal hooks** (Gnomey's card says *Dood* and Vinny calls about the same house); and once they're in, **the doors bolt** | Sesh 1, Sesh 5; Scott, 3 Nov |
 
 ### The ending — one scene, everyone arrives
 | Claim | Source |
@@ -243,7 +256,8 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
   a cellar. Either add a top floor to the map or change the memo to *two-storey*.
 
 ### Still open from this session
-1. **The invitation:** is it to the concert or to the haunted house? Spencer's, with the poster.
+1. ~~**The invitation:** is it to the concert or to the haunted house?~~ — **answered 3 Nov:** a haunted-house card,
+   with the 3AM after-party as the prize for lasting the night (table above). `Scott, 3 Nov`.
 2. ~~**When the party gets the poster**~~ — **answered 3 Nov:** it's optional; if Spencer makes it, it's taped on the
    locked AIM-room door, not handed out at the gazebo (table above). `Scott, 3 Nov`.
 3. ~~**What Vinny says on the early call.**~~ — **answered 3 Nov:** he thinks it's 1931 and asks about tonight's card game with Cornelis (table above). `Scott, 3 Nov`.
@@ -461,7 +475,7 @@ then flips to **a clinic**.
 | **The fork is cut.** No fight-them / never-had-to branch — the weekend runs one line | the 24 Aug doc paste (reverses Sesh 2) |
 | Three combats for the weekend: one Saturday, two Sunday. A fourth stays in reserve | the 24 Aug doc paste |
 | **The vampires learn the truth from the recording over the PA** in the finale — they hear it with everyone else, and that is how they find out the kid never went out a window | Scott, 3 Nov |
-| **Left undefined on purpose:** the history teacher; the Records Keeper (Spencer voices her); why these five got the card | Scott, 3 Nov |
+| **Left undefined on purpose:** the history teacher; the Records Keeper beyond her nudge (Spencer voices her); why these five got the card | Scott, 3 Nov |
 | **The other malevolent forces** are the Spirit, the botched summoning and the developer — nothing more is needed | Scott, 3 Nov |
 | **The cellar puzzle is Orlok's patient ledger.** Crate tags are matched to ledger entries; one patient is unaccounted for, and that leads to the hidden infirmary. Russ's Speak with Animals is the shortcut. Prop at `/ledger/` | Scott, 3 Nov |
 | **The wishing willow is made entirely by hand** by Scott — nothing to print | Scott, 3 Nov |
@@ -606,8 +620,8 @@ Three things in the codex were not just unsourced, they were wrong:
 | History class group project on local history/folklore; bookend by presenting it | Sesh 1 |
 | One weekend, 2 sessions; first third-to-half of Sat in town, rest is the mansion | Sesh 1 |
 | Library / hall of records is the big in-town setting; delivers "the clincher" | Sesh 1 |
-| Records keeper / librarian is the **harbinger** — the only NPC who warns them off, with a modern spin | Sesh 1 |
-| **Hall of records = librarian** — explicitly locked | Sesh 7 |
+| ~~Records keeper / librarian is the **harbinger** — the only NPC who warns them off, with a modern spin~~ — **changed by Scott:** she is no longer a "stay away" harbinger. She tells them the primary source is gone, so to technically have one they'd have to go see the house themselves: *"But be careful."* Her warning is a nudge, and it's why they go | Sesh 1; changed: Scott, 3 Nov |
+| **Hall of records = librarian** — explicitly locked. Still holds; what she does there **changed** (row above) | Sesh 7; changed: Scott, 3 Nov |
 | Twist: whoever lured them in is not one of the vamps | Sesh 1 |
 | The vampires are good; they live off small animals; they want to be left alone | Sesh 5, 6 |
 | ~~Fork: find an advantage to fight them **vs.** discover you never had to~~ — **cut in the 24 Aug doc paste.** Spencer's idea; Scott and Spencer are aligned on the cut (3 Nov) | Sesh 2, reversed the 24 Aug doc paste |
@@ -622,6 +636,7 @@ Three things in the codex were not just unsourced, they were wrong:
 | Invite ~7PM; DJ show 3:00AM; working date Halloween. The time on the invitation is **7pm** | Sesh 6 + In Person Session |
 | Dood Mansion (*dood* = dead in Dutch) — Spencer flagged *"lmk if thats too dumb"* | Sesh 6 |
 | **Senior skip day, and nobody told them** — why these five are in the room. Breakfast Club vibes | Sesh 1 comments — Spencer floated, Scott took it |
+| **The skip day is why the party sounds good.** They're the five who didn't get the skip-day memo, so they feel lame, and a party after the haunted house sounds like a way to salvage the day | Scott, 3 Nov |
 | The bookend played battered: *"scars and black eyes and theyre like 'and yeah that was our class project'"* | Sesh 5 comments — Scott |
 
 ### The Sesh 7 backstory chain
@@ -716,18 +731,18 @@ below is a transposition invented to make it a local 1937 newspaper.
   property, that he doesn't believe a word of it
 - The "accidental irony" beat — that he destroyed the one page carrying both the staking method and
   the coffin location, so the company trying to take the house has been protecting its tenants
-- That he can't touch word of mouth, which is why the harbinger still warns
+- That he can't touch word of mouth
 - The trap's contents — the shears, the swarms, the book cart — and the rule that the shears' death
   round sets the puzzle's piece count
 - **W. Ostrander** as his name, and every name on the checkout card
 - The codex listed this under Open Threads as **"Answered."** It is not answered; it is invented.
 
 ### 3. The Records Keeper
-- Her quoted line: *"You can try to put it back together. But I'm guessing, by the magic on them —
-  someone doesn't want you finding that information."*
-- The paragraph analyzing why each clause of it works
+- Her nudge is canon (`Scott, 3 Nov`); only *"But be careful."* is Scott's wording. The rest of the codex's
+  quoted line — *"That page was your primary source, and now it's in pieces. If you still need one… you'd
+  have to go and see the house for yourselves"* — is the codex's
 - The ruling that she has no personal stake in the 1937 story and does not appear in it
-- The doc's position is simply: *"That character is not written yet."*
+- Beyond that she is unwritten; Spencer voices her
 
 ### 4. Story beats that arrived as stagecraft
 The codex's **transitions** — the lines the DM says to move the party from one beat to the next — are
@@ -737,8 +752,8 @@ in a transition binds anybody.
 But a few things smuggled themselves in *through* those transitions and are real world facts, so they
 stay on this list until you two decide:
 
-- The **"primary source, not the internet"** assignment constraint — this is what the teacher actually set,
-  and it's the only reason the Hall of Records is on the board
+- ~~The **"primary source, not the internet"** assignment constraint~~ — **canon:** the project needs a primary
+  source, and once the page is gone the house is the last one left (see *What everyone thinks tonight is*). `Scott, 3 Nov`
 - The **overheard three-vampires-arguing** scene, and the "boxes in the cellar" / "have they been fed" split
   that turns one conversation into the fork
 - The single shared **choke-point corridor** where both fork paths converge — this is map design, and Scott's call
