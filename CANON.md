@@ -111,12 +111,16 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 | At the gazebo he says **he'll be playing some new tunes** | In Person Session |
 | **The poster brings the audience.** "Doors open" half an hour before the set | In Person Session |
 | **The AIM room is at the end.** Its door is **locked with a poster on it** if they try to go early, so it is the last room, not one of the any-order rooms | In Person Session, clarified 1 Nov |
+| **The Spirit unlocks it.** Once the party has been through the other rooms, the AIM chime drifts down the hall and the lock clicks open on its own — the kid from the summoning's *"is someone there"* finally reaching them. The DM triggers it when the table is ready; there is no puzzle. The poster stays | 3 Nov · not in doc |
 
 ### The ending — one scene, everyone arrives
 | Claim | Source |
 |---|---|
 | **Resolve it all right there**, in one scene at the mansion: Poe Boy's **mom**, Russ's **troop leader**, and **Uncle Vinny** | In Person Session, clarified 1 Nov |
 | **The troop leader comes in and hands Russ the badge** | In Person Session |
+| **Vinny's early call.** Minutes after Gnomey reads *Dood* on his card in the lockers scene, his flip phone rings. Vinny is confused and thinks it's 1931: *"Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch."* | 3 Nov · not in doc |
+| **The troop leader is an over-earnest scout dad** — khaki shorts in November, whistle, clipboard, unfazed by vampires as long as the paperwork is in order. His name is open | 3 Nov · not in doc |
+| He runs **Troop 187's nursing-home volunteer visits**, which is how he knows Vinny, and **he drives Vinny up the hill at dawn** — one car explains both arrivals | 3 Nov · not in doc |
 
 ### Character threads
 | Claim | Source |
@@ -152,21 +156,25 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
   Edward's fangs, Dracula's arms — are the prop's invention.
 - **The concert tickets in `/tickets/`** — the holder line *LIVINGSWORTH III / UPTON M* (his real name, so
   Simone reads whose tickets these were), the $27.50 + fees price, the ticket and event codes and the small
-  print are the prop's choices. The band prints as **Total Party Kill** (see Simone, below); venue, city and date
-  are left blank to fill in.
+  print are the prop's choices. So are the venue (**Transyltown Armory**), the date (**Sat Jun 25 2005**, read off
+  Character Bios' "in town at the end of the school year") and the doors/show times. The band prints as
+  **Total Party Kill** (see Simone, below).
 
 ### Still open from this session
 1. **The invitation:** is it to the concert or to the haunted house? Spencer's, with the poster.
 2. **When the party gets the poster** — shown at the gazebo, or found in the first room.
-3. **What Vinny says on the early call.**
+3. ~~**What Vinny says on the early call.**~~ — **answered 3 Nov:** he thinks it's 1931 and asks about tonight's card game with Cornelis (table above). `3 Nov · not in doc`.
 4. **Will's trait** for Bix's parents.
 5. **Yobo's physical prop.**
-6. **Making it clear the botched summoning is Poe Boy's.**
-7. **What unlocks the AIM room**, and what the poster on its door says.
+6. ~~**Making it clear the botched summoning is Poe Boy's.**~~ — **answered 3 Nov:** it isn't signposted on Saturday;
+   the Spirit names him on Sunday. `3 Nov · not in doc`.
+7. ~~**What unlocks the AIM room**~~ — **answered 3 Nov:** the Spirit does, on the DM's cue (table above).
+   `3 Nov · not in doc`. Still open: what the poster on its door says.
 8. **How much backstory is written out vs. revealed in dialogue.** Items to place: the silly bandz, 3am, the
    Dolly Parton riff, Angelique's side-eye.
 9. **What Angelique does at the finale.**
-10. **The troop leader** — who they are, and why they're at the mansion at dawn.
+10. ~~**The troop leader**~~ — **answered 3 Nov:** an over-earnest scout dad who runs Troop 187's nursing-home
+    visits and drives Vinny up at dawn (table above). His name is still open. `3 Nov · not in doc`.
 11. **Where the vampires stand at 3AM before the developer breaches.** Sesh 7's *"Poe Boy takes control of some
     vampires in the final fight"* is now carried only by the lie.
 
@@ -204,6 +212,7 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 | At the computer, he tells them to get the USB | Sesh 8 |
 | **In the backpack: the USB *and* the wishing willow** Simone gave him for the spell | Sesh 8 |
 | **They plug the USB in and it has his name on it** — that is when they ask if he's ⟨name⟩, and Simone and Angelique realise it's the same person | Sesh 8 |
+| **The dead kid is Marcus Hale.** He died in **1999 at about twelve** — the five years of listening to one person at a keyboard. The USB's volume label is **`MARCUS_HALE`** (FAT32 allows 11 characters) | 3 Nov · not in doc |
 | He does the file transfer and asks them to expose DJ Poe Boy | Sesh 8 |
 | **Then one last thing: can you get me out of here — use your magic to put my soul somewhere safe** | Sesh 8 |
 | Simone can't do it at her level. **Her patron appears, can do it, and asks a price** | Sesh 8 |
@@ -220,6 +229,7 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 | **The company that hired the men who killed Goblinenon is the same real-estate company** that wants the land today — so it has been after this house for ~20 years, and it is the reason Bix is an orphan | 30 Aug · confirmed by Scott, not in doc |
 | **The patron joins the AIM conversation** as a third screen name rather than appearing only at the table: the window becomes a group chat, the theme flips, and it negotiates on screen | 30 Aug · Scott's idea, not in doc |
 | **The party has to log in.** The computer sits at an AIM sign-on screen with **`DJPoeBoy187`** saved — Sesh 7 already makes the machine his — and the password box empty. The password is **`Fluffy123`**, his cat, handed over on a sticky note | 30 Aug · Scott's decision, not in doc |
+| **The sticky note is a floating prop.** The DM keeps it in hand and gives it over the first time they search any room in the house; it has no fixed location | 3 Nov · not in doc |
 | Therefore **the party types to the Spirit as his killer** for the whole conversation | 30 Aug · follows from the above |
 
 > ⛔ **The load-bearing constraint, and it is a design rule rather than a lore fact.** The USB, the
@@ -275,6 +285,7 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 | **Orlok ends it with one word.** Dracula stops instantly; nobody speaks until Orlok is finished | Sesh 8 |
 | His dismissal: *"The night is young. It would be terribly rude to be finished with you already." / "Go on. Have a look around. We'll find you when we're ready."* | Sesh 8 |
 | Explore again, then **Saturday's one combat: a botched summoning** | Sesh 8 |
+| **The summoning stays unsignposted on Saturday.** It is Poe Boy's, but nothing on the night says so — no notebook, no handwriting tell. The payoff is the Spirit naming him on Sunday | 3 Nov · not in doc |
 | Level 3 → 4 | Sesh 8 (restates the 24 Aug paste) |
 
 ### Sunday — the revised investigation
@@ -360,6 +371,7 @@ then flips to **a clinic**.
 |---|---|
 | **The fork is cut.** No fight-them / never-had-to branch — the weekend runs one line | the 24 Aug doc paste (reverses Sesh 2) |
 | Three combats for the weekend: one Saturday, two Sunday. A fourth stays in reserve | the 24 Aug doc paste |
+| **The session break is deliberately undefined.** Saturday ends wherever time runs out; the botched summoning closes Night 1 if the clock allows but isn't required to. Everyone levels to 5 at the end of day one | 3 Nov · not in doc |
 | ~~The finale runs in three phases: vampires hostile → developer breaches → vampires turn~~ — **phase 1 cut in the In Person Session.** Two phases: developer breaches → the booth (vampires turn) | the 24 Aug doc paste, replaced by In Person Session |
 | The developer's breach (now the first phase) is the only lethal fight of the finale | the 24 Aug doc paste |
 | Town has no combat | the 24 Aug doc paste |
@@ -494,7 +506,7 @@ Three things in the codex were not just unsourced, they were wrong:
 | **Hall of records = librarian** — explicitly locked | Sesh 7 |
 | Twist: whoever lured them in is not one of the vamps | Sesh 1 |
 | The vampires are good; they live off small animals; they want to be left alone | Sesh 5, 6 |
-| ~~Fork: find an advantage to fight them **vs.** discover you never had to~~ — **cut in the 24 Aug doc paste.** Spencer's idea; say it to him rather than letting him find it in a beat sheet | Sesh 2, reversed the 24 Aug doc paste |
+| ~~Fork: find an advantage to fight them **vs.** discover you never had to~~ — **cut in the 24 Aug doc paste.** Spencer's idea; Scott and Spencer are aligned on the cut (3 Nov) | Sesh 2, reversed the 24 Aug doc paste |
 | Doors bolt shut on pure curiosity; the assignment is motivation enough | Sesh 5 |
 | Ancient Dutch artifact recovered at the end, presented in the bookend class | Sesh 5 |
 | Final-room puzzle reveals the food stash (small animals), releases a key to a hidden room | Sesh 6 |
@@ -676,9 +688,10 @@ stay on this list until you two decide:
 
 > The In Person Session adds eleven more — see **Still open from this session** in its section near the top.
 
-1. ~~Is the Gjenganger in?~~ — **retired in Sesh 8 by displacement.** Orlok took its backstory, the corridor was cut, and Saturday's mansion fight is a botched summoning. Spencer should be told directly; it was his find.
-2. Who is the dead kid? Name, year, enough of a life that the table feels it. **Sesh 8 moved where the
-   name lands** — it is now the volume label on the USB they plug in, not the Sharpie on the bag.
+1. ~~Is the Gjenganger in?~~ — **retired in Sesh 8 by displacement.** Orlok took its backstory, the corridor was cut, and Saturday's mansion fight is a botched summoning. Scott and Spencer are aligned on it (3 Nov).
+2. ~~Who is the dead kid? Name, year~~ — **answered 3 Nov: Marcus Hale, died 1999 at about twelve.** The name
+   lands as the USB's volume label, `MARCUS_HALE` (Sesh 8 put it on the USB). Still worth a note: enough of
+   a life that the table feels it. `3 Nov · not in doc`.
 3. Does the 1937 Crier become canon, get rewritten to the doc's 1973 Frisian version, or stay a prop that nobody has to believe?
 4. ~~John's insecurity — his to name.~~ — **answered and now in the doc** (Character Bios: Yobo, the
    Dolly-Parton lie, anxiety about real talent; Sesh 8: the debuff→truth→buff arc). Only the **wig** is
@@ -691,8 +704,8 @@ stay on this list until you two decide:
 10. ~~What did Poe Boy tell the vampires?~~ — **answered 25 Aug: he staggered the houseful rather than lying about it.**
 11. ~~The crowd~~ — **resolved 25 Aug.** See the two-tier guest list at the top. Remaining: how the crowd gets through a bolted door at 3AM.
 12. **The developer's name.** He is now the third faction and the only death in the story, and he has no name. Company, or family trust?
-13. **The dead kid's name.** Sesh 8: it comes off the **USB** when they plug it in. The AIM prop is live
-    without it and takes it as `/aim/?name=Marcus` so it can be set at the table. His year too.
+13. ~~**The dead kid's name.**~~ — **answered 3 Nov: Marcus Hale, 1999.** It comes off the **USB** when they
+    plug it in (Sesh 8), labelled `MARCUS_HALE`. `3 Nov · not in doc`.
 14. ~~**New reasons for the cellar and the choke-point corridor**~~ — **answered in Sesh 8.** The corridor is
     cut entirely. The cellar is where Vinny kept the liquor from 1920 to 1933 and where the vampires keep
     the animals now, so it carries both the food stash and forty-year-old crates nobody came back for.
@@ -710,9 +723,8 @@ stay on this list until you two decide:
     load-bearing three times over — Simone's savings, the goat's price, and Poe Boy's grounding — and the
     name is printable, on a shirt and on the tickets his mother hands over. Scott's pick; the band was
     Spencer's call, so confirm it with him. `3 Nov · not in doc`.
-20. **Where the sticky note is found.** The account is settled — it's Poe Boy's — but the note has no home
-    yet. Stuck to the monitor is easiest; down in the ballroom rig is better, because it makes them carry
-    it back up. 🟡 **The cat is invented**: `Fluffy123` is Scott's password, but nothing says Poe Boy has a
+20. ~~**Where the sticky note is found.**~~ — **answered 3 Nov:** nowhere fixed. It's a floating prop the DM
+    hands over the first time they search any room. `3 Nov · not in doc`. 🟡 **The cat is invented**: `Fluffy123` is Scott's password, but nothing says Poe Boy has a
     cat. It fits (sweet, out-of-touch parents who spoil him) and it rhymes with the Volvo, so it's cheap
     to keep and cheap to drop.
 21. **Whether Bix's Sesh 5 overnight and Sesh 8's Edward connect.** Bix broke into this house as a

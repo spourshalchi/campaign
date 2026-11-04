@@ -66,6 +66,9 @@
     background:linear-gradient(180deg,#171320,#100d18);border-bottom:1px solid var(--edge)}
   .brand{font-family:var(--f-disp);font-size:15px;font-weight:700;letter-spacing:.02em;white-space:nowrap}
   .brand .b2{color:var(--gold)}
+  .codex-link{font-size:12px;color:var(--mut);text-decoration:none;white-space:nowrap;
+    padding:6px 10px;border:1px solid var(--edge);border-radius:8px;background:#1a1428;min-height:30px;display:flex;align-items:center}
+  .codex-link:hover{color:var(--ink);border-color:var(--dim)}
   .act-pill{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
     padding:3px 9px;border-radius:999px;border:1px solid;white-space:nowrap}
   .spacer{flex:1 1 auto}
@@ -87,6 +90,35 @@
   .slide-head .no{font-family:var(--f-mono);font-size:13px;color:var(--gold)}
   .slide-head h2{font-family:var(--f-disp);font-size:clamp(22px,3.4vw,30px);margin:0;line-height:1.1}
   .slide-head .where{font-size:12.5px;color:var(--dim);letter-spacing:.02em;text-transform:uppercase;flex-basis:100%}
+
+  /* iPad call-out: the number matches the landing page's numbered items */
+  .ipad{display:flex;flex-direction:column;gap:8px;margin:0 0 16px}
+  .ipad-row{display:flex;align-items:center;gap:14px;background:linear-gradient(180deg,#0a64bd,#0a246a);
+    border:2px solid #5b9bd5;border-radius:12px;padding:10px 16px 10px 10px;box-shadow:0 0 0 1px #0006,0 6px 22px rgba(91,155,213,.25)}
+  .ipad-row .n{flex:0 0 auto;min-width:64px;height:64px;padding:0 8px;border-radius:8px;
+    background:linear-gradient(180deg,#fffce0,#ffcc00);color:#3a2400;font-family:Tahoma,Geneva,sans-serif;
+    font-weight:700;font-size:44px;line-height:64px;text-align:center}
+  .ipad-row .tx{flex:1;min-width:0}
+  .ipad-row .go{font-size:clamp(18px,2.4vw,22px);font-weight:700;color:#fff;line-height:1.25}
+  .ipad-row .go .rm{color:#ffe58a}
+  .ipad-row .pr{font-size:13.5px;color:#d8e6ff;margin-top:2px}
+  .ipad-row .pr code{color:#ffe58a}
+  .ipad-row .wn{font-size:13.5px;color:#fff;margin-top:4px}
+  .ipad-key{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:6px 0 2px;font-size:14px}
+  .ipad-key .k{font-family:Tahoma,Geneva,sans-serif;font-weight:700;color:#1a1206;background:var(--gold);
+    border-radius:5px;min-width:26px;text-align:center}
+  .floating{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:0 0 16px;padding:8px 10px 8px 14px;
+    background:#1e1a10;border:1px dashed var(--amber-dim);border-radius:12px}
+  .floating .fh{font-size:13px;font-weight:700;color:var(--amber);letter-spacing:.02em}
+  .floating .fp{display:flex;align-items:center;gap:10px;min-height:44px;padding:6px 14px 6px 8px;cursor:pointer;
+    background:#0000004d;border:1px solid var(--amber-dim);border-radius:9px;color:var(--ink);font:inherit;font-size:14px}
+  .floating .fp .box{width:24px;height:24px;border:2px solid var(--amber);border-radius:5px;display:flex;
+    align-items:center;justify-content:center;color:transparent;font-weight:700}
+  .floating .fp .fs{font-size:11.5px;color:var(--amber);text-transform:uppercase;letter-spacing:.08em}
+  .floating .fp.done{opacity:.6;border-color:var(--green)}
+  .floating .fp.done .box{background:var(--green);border-color:var(--green);color:#0a1a10}
+  .floating .fp.done .fs{color:var(--green)}
+  .idx-item .ip{font-size:11px;color:var(--blue);margin-left:6px;font-family:var(--f-mono)}
 
   .grid2{display:grid;grid-template-columns:1fr 340px;gap:18px;align-items:start}
   @media(max-width:940px){.grid2{grid-template-columns:1fr}}
@@ -318,6 +350,7 @@
 <!-- ================= APP ================= -->
 <div id="app">
   <div class="topbar">
+    <a class="codex-link" href="../codex/">&larr; Codex</a>
     <span class="brand">Dood Mansion <span class="b2">· Run of Show</span></span>
     <span class="act-pill" id="actPill"></span>
     <span class="spacer"></span>
@@ -407,6 +440,32 @@ const CUE_LABEL = {
   scratch:"Record scratch", levelup:"Level-up", dice:"Dice clatter"
 };
 
+/* ============================= iPAD ITEMS ============================= */
+/* The players' iPad sits on the landing page (/), which shows these as big
+   numbered items in story order. A scene's ipad:[n] puts "iPad → item n" at the
+   top of its cue. Keep in step with the tiles in /index.html. */
+const IPAD = {
+  1:{room:"The Library",    prop:"the torn Crier page",                 path:"/puzzle/",
+     when:"After the fight: tap the bracket on the setup screen and set the piece count from the cut count, then hand it over."},
+  2:{room:"The Study",      prop:"the Articles of Settlement",          path:"/settlement/",
+     when:"Opens folded; they tap to unfold."},
+  3:{room:"The Photograph", prop:"the back of the photograph",          path:"/photo/",
+     when:"Only once Will has the printed photo. They tap to turn it over."},
+  4:{room:"The Party",      prop:"the frozen party, spot the difference", path:"/party-room/",
+     when:"The printed photo is the key. Stuck table: the DM tab's <code>nudge</code>."},
+  5:{room:"The Computer",   prop:"AIM, the Spirit",                     path:"/aim/",
+     when:"Opens as <b>Marcus Hale</b>; the drive mounts as <code>MARCUS_HALE</code>. To force the name, open <code>/aim/?name=Marcus%20Hale</code>."}
+};
+
+/* ============================= FLOATING PROPS ============================= */
+/* Props with no fixed spot: handed over the first time the party searches any
+   room in the house. The strip shows on every mansion cue (acts night + sunday);
+   its checkbox is the matching HANDOUTS row, so both lists tick together. */
+const FLOATING = [
+  {h:"AIM sticky note (Fluffy123)", t:"AIM sticky note &mdash; <code>Fluffy123</code>"}
+];
+const MANSION_ACTS = ["night","sunday"];
+
 /* ============================= SCENES ============================= */
 const ACTS = {
   set:    {label:"Set-up",      color:"var(--gray)"},
@@ -424,20 +483,22 @@ const SCENES = [
     "<b>Sunday's three rooms run in any order</b> — Study (Gnomey), Party room (Bix &amp; Yobo), Cellar (Cody). <b>The old rig upstairs (Simone) is locked until the end</b> and is always the last room. The corridor set-piece is cut.",
     "Only <b>five people</b> are invited (7PM card). The <b>3AM flyer is public</b> — that's when the house fills up for the show. Poe Boy sells the whole night as a <b>concert</b>; what he's really after is his samples.",
     "<b>Who runs what:</b> Spencer voices the NPCs &mdash; the <b>In the scene</b> panel on each cue is his. Scott narrates &mdash; read-aloud, beats, checks and combat.",
-    "Open the <b>Rules</b> panel (<code>R</code>) for the four hard rules and the XP budgets before combat."
+    "Open the <b>Rules</b> panel (<code>R</code>) for the four hard rules and the XP budgets before combat.",
+    "<b>📱 The iPad lives on its home page</b> (<code>/</code>) all night: five big numbered items, in story order. A cue that needs one opens with a blue <b>iPad &rarr; item N</b> bar. Tap N, hand it over, and go back to the home page when the scene's done. Sunday's rooms run in any order, so 2 and 3&ndash;4 can swap &mdash; go by the number on the cue." +
+      `<div class="ipad-key">${Object.keys(IPAD).map(n=>`<span class="k">${n}</span><span><b>${IPAD[n].room}</b> &mdash; ${IPAD[n].prop} <code>${IPAD[n].path}</code></span>`).join("")}</div>`
   ],
   npcs:[],
   reminders:[
     {t:"<b>One physical prop per PC:</b> Bix &mdash; the printed photograph &middot; Gnomey &mdash; the printed deed (Vinny hands it over at the end) &middot; Simone &mdash; the wishing willow &middot; Russ &mdash; badge + card &middot; Yobo &mdash; <b>still undecided</b>.", k:"hand"},
     {t:"Printed <b>invite card</b> for the locker letters &mdash; prop at <code>/invite/</code>.", k:"hand"},
-    {t:"<b>AIM sticky note</b> reading <code>Fluffy123</code>, in handwriting, findable in the house.", k:"hand"},
-    {t:"A real <b>USB stick</b> with <code>scream_test_03_GOOD.wav</code> &mdash; set its volume label to the kid's name.", k:"hand"},
+    {t:"<b>AIM sticky note</b> reading <code>Fluffy123</code>, in handwriting. <b>Floating prop:</b> hand it over the first time they search any room in the house &mdash; every mansion cue shows the strip.", k:"hand"},
+    {t:"A real <b>USB stick</b> with <code>scream_test_03_GOOD.wav</code> &mdash; label it <code>MARCUS_HALE</code>.", k:"hand"},
     {t:"The <b>wishing willow</b> token: <i>I want Angelique to notice me</i>, in twelve-year-old hand.", k:"hand"},
     {t:"The <b>printed photograph</b> for Bix &mdash; also the key to the party-room spot-the-difference.", k:"hand"},
     {t:"<b>Russ's badge card</b> (<code>/badge/</code>) plus a real merit badge for the troop leader to hand Cody at the very end.", k:"hand"},
     {t:"The <b>printed deed</b> (<code>/deed/</code>) &mdash; keep it off the table until Vinny hands it to Gnomey in the ending scene.", k:"hand"},
     {t:"<b>Print run:</b> everything is in the print kit at <code>/print/</code> — <code>1-cardstock.pdf</code> (invites, deed, badge card + badge, tickets, backstory cards) and <code>2-photo-gloss.pdf</code> (the photograph). Not printed: DJ poster (Spencer), sticky note and wishing willow (handmade).", k:"hand"},
-    {t:"iPad loaded with the props: <code>/puzzle/</code> <code>/settlement/</code> <code>/photo/</code> <code>/party-room/</code> <code>/aim/</code> (set <code>?name=</code> first).", k:""}
+    {t:"<b>iPad on the home page</b>, numbered items 1&ndash;5 showing. Item 5 already names the kid Marcus Hale.", k:""}
   ],
   cues:[] },
 
@@ -461,10 +522,10 @@ const SCENES = [
     "<b>Nobody else got a card.</b> Finding that out is the strongest push toward town there is.",
     "If they march up the hill early: the front is <b>still boarded at this hour</b> and bounces them back &mdash; which is the point. The boards come off during the day.",
     "<b>If they don't bite, hand a detour to a PC:</b> tell <b>Bix</b> the Records Keeper knows old names; tell <b>Gnomey</b> the old crew at the gazebo will already know.",
-    "<b>Gnomey's phone rings: Great Uncle Vinny.</b> Somewhere in town on Saturday, before the house, Vinny calls him &mdash; and the mansion comes up. It's how Vinny gets introduced early, so he isn't a stranger when he walks in at the end. <b>What he says is still to be written.</b>"
+    "<b>Gnomey's flip phone rings &mdash; the second he reads &ldquo;Dood&rdquo; on his card.</b> It's <b>Great Uncle Vinny</b>, confused, and convinced it's 1931: <i>&ldquo;Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch.&rdquo;</i> Let it sit there unexplained. It's how the table meets Vinny early, so he isn't a stranger when he walks in at the end."
   ],
   npcs:[
-    {nm:"Great Uncle Vinny (phone)", vc:"Ancient and mostly gone. Lines still to be written."}
+    {nm:"Great Uncle Vinny (phone)", vc:"Ancient and mostly gone, and sure it's 1931: <i>&ldquo;Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch.&rdquo;</i> Doesn't explain who Cornelis is."}
   ],
   reminders:[
     {t:"Hand out the printed <b>invite</b> (<code>/invite/</code>) &mdash; its mass-flyer voice is deliberate camouflage.", k:"hand"},
@@ -472,7 +533,7 @@ const SCENES = [
   ],
   cues:[] },
 
-{ act:"town", no:3, title:"The library &amp; hall of records", where:"Town · the clincher · Saturday's town fight",
+{ act:"town", no:3, title:"The library &amp; hall of records", where:"Town · the clincher · Saturday's town fight", ipad:[1],
   read:[{who:"Records Keeper", t:"You can try to put it back together. But I'm guessing, by the magic on them &mdash; someone doesn't want you finding that information."}],
   beats:[
     "The clincher lives here: <b>Frisian folklore</b>, the <b>vampire-slaying method</b> (dig up the coffins, stake the heart, rebury), and the <b>Records Keeper's warning</b> &mdash; the one NPC who tells them to stay away.",
@@ -498,7 +559,7 @@ const SCENES = [
     {nm:"Records Keeper", vc:"The Harbinger with a modern spin. Hands over the volume intact, then warns them off. Beyond that, unwritten &mdash; play to taste."}
   ],
   reminders:[
-    {t:"After the fight, open the iPad on <code>/puzzle/</code>'s setup screen &mdash; tap the bracket and set the piece count from the cut count.", k:"hand"},
+    {t:"After the fight, open iPad item 1 (<code>/puzzle/</code>) on its setup screen &mdash; tap the bracket and set the piece count from the cut count.", k:"hand"},
     {t:"The town is no longer combat-free, and Saturday's fight is here, not the mansion.", k:""}
   ],
   cues:["riser","jump","dice"] },
@@ -611,7 +672,7 @@ const SCENES = [
   beats:[
     "Saturday's one mansion fight and the button on Night 1. <b>Poe Boy's second botched ritual</b> &mdash; visibly <b>incomplete</b>, wrong in a way that reads as <i>made</i> rather than born.",
     "<b>It claws toward one sealed door the whole fight.</b> That pull is the clue: it proves the house will hurt them, and it plants hard that the dangerous things here are <b>human-made</b>.",
-    "In the wreckage: a half-drawn ritual circle and a notebook in a handwriting they'll meet tomorrow.",
+    "In the wreckage: a half-drawn ritual circle. <b>Leave who drew it open tonight</b> &mdash; the Spirit naming Poe Boy on Sunday is the payoff.",
     "<b>End the night the instant the screen dies.</b> Do not let them reach the room tonight. Two questions to drag them back: who's typing, and who's the person behind all this."
   ],
   checks:[
@@ -632,7 +693,7 @@ const SCENES = [
   ],
   cues:["heart","jump","aim","levelup"] },
 
-{ act:"sunday", no:10, title:"The study", where:"Sunday morning · Gnomey · any-order room",
+{ act:"sunday", no:10, title:"The study", where:"Sunday morning · Gnomey · any-order room", ipad:[2],
   read:[{t:"He's read it three times. The man who won this house is his great-uncle &mdash; and whoever holds the deed owns it. The deed isn't here."}],
   beats:[
     "Sunday opens on <b>three per-PC rooms in any order.</b> This one is Gnomey's.",
@@ -647,18 +708,18 @@ const SCENES = [
   ],
   npcs:[],
   reminders:[
-    {t:"Show <code>/settlement/</code> on the iPad (tap to unfold). The bearer paragraph is the <b>only one on the page with no corrections</b>.", k:"hand"},
+    {t:"Show iPad item 2 (<code>/settlement/</code>, tap to unfold). The bearer paragraph is the <b>only one on the page with no corrections</b>.", k:"hand"},
     {t:"Keep the <b>printed deed</b> hidden. Vinny has it, and it comes out only in the ending scene.", k:"rule"}
   ],
   cues:[] },
 
-{ act:"sunday", no:11, title:"The party room", where:"Sunday · Bix &amp; Yobo · any-order room",
+{ act:"sunday", no:11, title:"The party room", where:"Sunday · Bix &amp; Yobo · any-order room", ipad:[3,4],
   read:[{t:"The photograph's in hand and the ghost-party has gone still again."}],
   beats:[
     "The night Edward and Goblinenon's cart broke down and they found two vampires partying. Bottles, a record still on the turntable, forty years of dust on somebody's good night.",
-    "<b>Bix beat 3 of 3:</b> he finds the <b>photograph</b> &mdash; two vampires mugging, a pregnant goblin laughing, a fae with no fangs. <b>Hand Will the printed photo and say nothing.</b> There's writing on the back in her hand (<code>/photo/</code>, tap to turn it over).",
+    "<b>Bix beat 3 of 3:</b> he finds the <b>photograph</b> &mdash; two vampires mugging, a pregnant goblin laughing, a fae with no fangs. <b>Hand Will the printed photo and say nothing.</b> There's writing on the back in her hand (iPad item 3, <code>/photo/</code>, tap to turn it over).",
     "<b>Yobo's turn, three layers &mdash; 1 Blend in:</b> the frozen party wakes and treats the PCs as guests; match the revelers or the <b>Revel meter</b> ticks toward hostile. Masked Yobo's Deception edge actually helps here.",
-    "<b>2 Restore the moment &mdash; spot the difference:</b> the loop is glitching and the room is <i>almost</i> the photograph. Hand over the iPad on <code>/party-room/</code>: <b>six things in the live room don't match the print.</b> Tap each one to put it right. A tap on something that was already right ticks the Revel meter, and the meter creeps on its own while the loop stays broken. <b>Bix's photo is the key.</b>",
+    "<b>2 Restore the moment &mdash; spot the difference:</b> the loop is glitching and the room is <i>almost</i> the photograph. Hand over iPad item 4 (<code>/party-room/</code>): <b>six things in the live room don't match the print.</b> Tap each one to put it right. A tap on something that was already right ticks the Revel meter, and the meter creeps on its own while the loop stays broken. <b>Bix's photo is the key.</b>",
     "<b>3 The song:</b> the host calls for entertainment and only Yobo can give it. Reward a <b>true</b> performance, not a high roll &mdash; with Dracula pushing, he drops the Dolly-Parton lie, the party erupts, and his debuff flips to a buff for the rest of the campaign."
   ],
   checks:[
@@ -669,7 +730,7 @@ const SCENES = [
     {nm:"Dracula", vc:"Pushes Yobo to drop the act. The catalyst for the buff flip."}
   ],
   reminders:[
-    {t:"Props: the <b>printed photograph</b> (the key) and <code>/party-room/</code> on the iPad. Bix's find and Yobo's turn are <b>one puzzle</b>. Stuck table: the DM tab's <code>nudge</code> rings one difference.", k:"hand"},
+    {t:"Props: the <b>printed photograph</b> (the key) and iPad item 4 (<code>/party-room/</code>). Bix's find and Yobo's turn are <b>one puzzle</b>. Stuck table: the DM tab's <code>nudge</code> rings one difference.", k:"hand"},
     {t:"Will's <b>distinctive trait for Bix's parents</b> goes into the photograph &mdash; still to come from Will.", k:""},
     {t:"Yobo's Performance / Inspiration buff is <b>permanent</b> after this.", k:"level"}
   ],
@@ -697,18 +758,20 @@ const SCENES = [
   ],
   cues:["heart","candle"] },
 
-{ act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room",
+{ act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room", ipad:[5],
   read:[
+    {who:"The door opens · when the table is ready", t:"From down the hall, faint and tinny: the old AIM chime. Then the lock on the door with the poster clicks open &mdash; and nobody touched it."},
     {who:"The Spirit", t:"my bag is still in this room. by the desk under the coats. can you get it"},
     {who:"Ending the room", t:"It's three in the morning &mdash; and every speaker in this house just came on at once."}
   ],
   beats:[
-    "<b>The door stays locked until the end</b>, with a <b>poster</b> on it. Try it early and it doesn't open; this is the last room every time. <b>What unlocks it is still open.</b>",
-    "<b>0 &mdash; log in first.</b> Sign-on screen, account saved as <code>DJPoeBoy187</code>, empty password. <b>Hand them the sticky note:</b> <code>Fluffy123</code> (his cat). Any capitalisation works; wrong answers get the real AIM error, unlimited tries.",
+    "<b>The door stays locked until the end</b>, with a <b>poster</b> on it. Try it early and it doesn't open; this is the last room every time.",
+    "<b>It opens by itself.</b> Once the party has done the other rooms and the table is ready, fire the <b>AIM chime</b> and read the bridge: the chime drifts down the hall and the lock clicks. <b>That's the Spirit, finally reaching them.</b> No key, no check &mdash; you choose the moment.",
+    "<b>0 &mdash; log in first.</b> Sign-on screen, account saved as <code>DJPoeBoy187</code>, empty password. The password is on the sticky note, <code>Fluffy123</code> (his cat) &mdash; <b>if they don't have it yet, hand it over now.</b> Any capitalisation works; wrong answers get the real AIM error, unlimited tries.",
     "<b>They type as the killer the whole conversation.</b> The boy sees that handle come online and comes apart before he works out it isn't him. <i>&ldquo;youre not typing like him&rdquo;</i> is what saves it.",
     "He was lured by a fake screen name, chased, and <b>soul-caged when Poe Boy shut the door</b>. He was <b>killed by a human</b> &mdash; the thread that clears the vampires. He can name his killer but stops short of the murder accusation (that lands later).",
     "<b>The bag has two things, order matters. 1 &mdash; the wishing willow:</b> Simone sold it to him at twelve; <i>I want Angelique to notice me</i>; it worked &mdash; that's why Angelique knew him.",
-    "<b>2 &mdash; the thumb drive:</b> plug it in and it <b>mounts under his name</b> &mdash; how the table learns who he is (set it with <code>/aim/?name=___</code>). He uploads <code>scream_test_03_GOOD.wav</code> over AIM's file-transfer window. First ask: <b>expose him. Hand the players a real USB stick.</b>",
+    "<b>2 &mdash; the thumb drive:</b> plug it in and it <b>mounts under his name</b> &mdash; how the table learns who he is: <code>MARCUS_HALE</code>. He uploads <code>scream_test_03_GOOD.wav</code> over AIM's file-transfer window. First ask: <b>expose him. Hand the players a real USB stick.</b>",
     "<b>Second ask &mdash; <i>can you get me out of here.</i></b> The goat appears (he sees it, Simone can't); the price is the piggy bank. <b>The goat joins the chat</b> &mdash; theme flips dark, sounds distort &mdash; then parks on the hold node so you play the price at the table."
   ],
   checks:[
@@ -719,7 +782,7 @@ const SCENES = [
     {nm:"The Devil (Goat)", vc:"Serif, capitals, full stops &mdash; never raised on a keyboard. Asked what it wants the money for: <b>&ldquo;No.&rdquo;</b> and nothing else."}
   ],
   reminders:[
-    {t:"Set the kid's name in the URL first: <code>/aim/?name=___</code>.", k:"hand"},
+    {t:"iPad item 5 opens as Marcus Hale. Direct link if you need it: <code>/aim/?name=Marcus%20Hale</code>.", k:"hand"},
     {t:"Hand the players a <b>real USB stick</b> here.", k:"hand"},
     {t:"<b>Nothing plot-critical hangs on Simone's yes.</b> The recording, the name and the drive are already theirs. A no costs nothing but him &mdash; the machine goes dark at sunrise. <b>Do not fudge it.</b>", k:"rule"},
     {t:"The flyer's <b>3AM</b> is the fight's starting gun &mdash; end the room on the speakers coming on.", k:""},
@@ -801,15 +864,15 @@ const SCENES = [
 { act:"finale", no:15, title:"The driveway", where:"Dood Mansion · sunrise · one scene, everyone arrives",
   read:[{who:"Poe Boy's mother", t:"&ldquo;Upton, honey?&rdquo;"}],
   beats:[
-    "<b>Resolve it all right here, in one scene at the house.</b> Three arrivals, back to back, while the crowd is still on the lawn.",
+    "<b>Resolve it all right here, in one scene at the house.</b> Two cars, back to back, while the crowd is still on the lawn: the parents' Volvo, then the troop leader's car with <b>Vinny in the passenger seat</b>.",
     "<b>Poe Boy's mom</b> grounds him in front of everyone &mdash; and he is certainly not going to that satan concert. <b>The tickets go to Simone</b>, who spent every dollar she had hours earlier.",
-    "<b>Russ's troop leader</b> comes in. <b>Orlok signs the card</b>, through his teeth, and the troop leader <b>hands Russ the badge</b>.",
+    "<b>Russ's troop leader</b> comes in &mdash; an over-earnest scout dad who runs Troop 187's nursing-home visits, which is how he came to drive Vinny up the hill. Vampires don't faze him as long as the paperwork's in order. <b>Orlok signs the card</b>, through his teeth, and the troop leader <b>hands Russ the badge</b>.",
     "<b>Great Uncle Vinny</b> walks in &mdash; the voice from Saturday's phone call &mdash; and <b>hands Gnomey the deed</b>, because he's earned it. From this moment the house is his. Then Gnomey says it out loud: <i>&ldquo;This is my house.&rdquo;</i> Orlok has to confirm it in front of everyone, and Gnomey's renewal at the threshold is plain: <i>&ldquo;You can stay.&rdquo;</i>",
     "Then the quiet one: <b>Edward explains himself to Bix</b> &mdash; the cart, the party, Goblinenon, the men the company sent, why he carried a baby down the hill. Its own beat, no jokes in it."
   ],
   npcs:[
     {nm:"Poe Boy's parents", vc:"A Volvo, matching fleece, sweet and oblivious. She calls him Upton."},
-    {nm:"Russ's troop leader", vc:"Character still to be written."},
+    {nm:"Russ's troop leader", vc:"Over-earnest scout dad: khaki shorts in November, a whistle, a clipboard. Runs Troop 187's nursing-home visits and drove Vinny up. <b>Completely unfazed by vampires</b> as long as the paperwork is in order."},
     {nm:"Great Uncle Vinny", vc:"Ancient and mostly gone. The same voice as Saturday's phone call. Hands over the deed like it was always the plan."},
     {nm:"Orlok", vc:"Signs Russ's card and confirms Gnomey's claim, both through his teeth. Pissed, and complies perfectly."},
     {nm:"Edward", vc:"The whole timeline to Bix. No jokes in it."}
@@ -857,14 +920,14 @@ const HANDOUTS = [
   ["The deed (print)","Print <code>/deed/</code> at Staples on letter paper. Vinny hands it to Gnomey in the ending scene &mdash; keep it out of sight until then. The strongbox in the study has an empty slot where it belongs."],
   ["The printed photograph","Bix's physical prop, aged like it's been in that house his whole life. Also the key to the party-room spot-the-difference. The back is on <code>/photo/</code>."],
   ["Printed invite card","The 5&times;7 for the locker letters. Prop at <code>/invite/</code>."],
-  ["AIM sticky note (Fluffy123)","Handwriting. Findable in the house &mdash; on the monitor, in the gear case, or in the ballroom rig. Unlocks the whole computer-room scene."],
-  ["USB stick + the .wav","A real thumb drive with <code>scream_test_03_GOOD.wav</code>. <b>Set its volume label to the kid's name.</b> Handed over when the Spirit uploads."],
+  ["AIM sticky note (Fluffy123)","Handwriting. <b>Floating prop:</b> no fixed spot &mdash; hand it over the first time they search any room in the house. Unlocks the whole computer-room scene."],
+  ["USB stick + the .wav","A real thumb drive with <code>scream_test_03_GOOD.wav</code>. <b>Label it <code>MARCUS_HALE</code>.</b> Handed over when the Spirit uploads."],
   ["The wishing willow","A small wooden token with a paper slip &mdash; <i>I want Angelique to notice me</i>, in twelve-year-old hand. The only physical object tying a PC to the body."],
   ["Russ's badge card + real badge","Card at <code>/badge/</code> with three signature lines. The troop leader hands Cody a <b>real merit badge</b> in the ending scene."],
   ["Yobo's prop","<b>Still undecided.</b> Every other PC has a physical prop; this is the open slot."],
-  ["Concert tickets","<code>/tickets/</code> &mdash; two tickets in Upton&rsquo;s name. Poe Boy&rsquo;s mother hands them to Simone in the driveway. The band is <b>Total Party Kill</b>; fill in venue and date before printing."],
+  ["Concert tickets","<code>/tickets/</code> &mdash; two tickets in Upton&rsquo;s name. Poe Boy&rsquo;s mother hands them to Simone in the driveway. <b>Total Party Kill</b>, Transyltown Armory, Sat Jun 25 2005."],
   ["Backstory cards","<code>/backstory/</code> &mdash; one per player, handed out before play."],
-  ["iPad, props loaded","<code>/puzzle/</code> · <code>/settlement/</code> · <code>/photo/</code> · <code>/party-room/</code> · <code>/aim/</code> (set <code>?name=</code> first). Cache-bust with <code>?v=</code> after any update."]
+  ["iPad on the home page","Numbered items in story order: <b>1</b> The Library (<code>/puzzle/</code>) · <b>2</b> The Study (<code>/settlement/</code>) · <b>3</b> The Photograph (<code>/photo/</code>) · <b>4</b> The Party (<code>/party-room/</code>) · <b>5</b> The Computer (<code>/aim/</code>, opens as Marcus Hale). Cache-bust with <code>?v=</code> after any update."]
 ];
 
 /* ===================================================================== */
@@ -886,6 +949,27 @@ function render(i){
   pill.textContent = act.label;
   pill.style.color = act.color; pill.style.borderColor = act.color;
   $("#counter").innerHTML = `Cue <b>${s.no}</b> · ${cur+1}/${SCENES.length}`;
+
+  // iPad call-out
+  let ipadHTML = "";
+  if(s.ipad && s.ipad.length){
+    ipadHTML = `<div class="ipad">` + s.ipad.map(n=>{ const it = IPAD[n];
+      return `<div class="ipad-row"><span class="n">${n}</span><div class="tx">`+
+        `<div class="go">📱 iPad &rarr; item ${n} · <span class="rm">${it.room}</span></div>`+
+        `<div class="pr">${it.prop} · <code>${it.path}</code></div>`+
+        (it.when?`<div class="wn">${it.when}</div>`:``)+`</div></div>`; }).join("") + `</div>`;
+  }
+
+  // floating props strip
+  let floatHTML = "";
+  if(MANSION_ACTS.includes(s.act)){
+    const st = loadHand();
+    floatHTML = `<div class="floating"><span class="fh">🗂 Floating props: hand over when they search</span>` +
+      FLOATING.map(f=>{ const i = HANDOUTS.findIndex(h=>h[0]===f.h);
+        return `<button class="fp${st[i]?" done":""}" data-float="${i}"><span class="box">✓</span>`+
+          `<span class="ft">${f.t}</span><span class="fs">${st[i]?"handed over":"not yet"}</span></button>`; }).join("") +
+      `</div>`;
+  }
 
   // read box
   let readHTML = "";
@@ -953,7 +1037,7 @@ function render(i){
 
   stage.innerHTML =
     `<div class="slide-head"><span class="no">${typeof s.no==="number"?"Scene "+s.no:s.no}</span>`+
-    `<h2>${s.title}</h2><span class="where">${s.where}</span></div>`+
+    `<h2>${s.title}</h2><span class="where">${s.where}</span></div>`+ ipadHTML + floatHTML +
     `<div class="grid2"><div class="col-main">${readHTML}${beatsHTML}${checksHTML}${combatHTML}</div>`+
     `<div class="rail">${railHTML}</div></div>`;
 
@@ -1182,7 +1266,7 @@ function buildIndex(){
   let html="";
   Object.keys(ACTS).forEach(a=>{ if(!groups[a]) return;
     html+=`<div class="idx-act"><p class="ial" style="color:${ACTS[a].color}">${ACTS[a].label}</p><div class="idx-grid">`;
-    groups[a].forEach(({s,i})=>{ html+=`<button class="idx-item" data-jump="${i}"><span class="in">${typeof s.no==="number"?"Scene "+s.no:s.no}</span><span class="it">${s.title}</span></button>`; });
+    groups[a].forEach(({s,i})=>{ html+=`<button class="idx-item" data-jump="${i}"><span class="in">${typeof s.no==="number"?"Scene "+s.no:s.no}${s.ipad&&s.ipad.length?`<span class="ip">📱 ${s.ipad.join(" + ")}</span>`:""}</span><span class="it">${s.title}</span></button>`; });
     html+=`</div></div>`;
   });
   $("#indexBody").innerHTML=html;
@@ -1296,6 +1380,8 @@ document.querySelectorAll(".overlay").forEach(o=>o.addEventListener("click",e=>{
 stage.addEventListener("click",e=>{
   const cue=e.target.closest("[data-cuefire]"); if(cue){ firePad(cue.dataset.cuefire); return; }
   const ai=e.target.closest("[data-addinit]"); if(ai){ addMonsters(+ai.dataset.addinit); return; }
+  const fp=e.target.closest("[data-float]"); if(fp){ const i=fp.dataset.float, st=loadHand(); st[i]=!st[i]; saveHand(st);
+    fp.classList.toggle("done",!!st[i]); fp.querySelector(".fs").textContent=st[i]?"handed over":"not yet"; buildHandouts(); return; }
 });
 
 // initiative controls

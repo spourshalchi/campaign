@@ -173,8 +173,8 @@
   <h2>Rebuilding the PDFs</h2>
   <div class="panel small">
     <p>From the repo root, with Google Chrome installed:</p>
-    <pre>python3 print/build.py --band "Total Party Kill" --venue "VENUE" --city "CITY, NY" --date "SAT NOV 6 2004" --time "DOORS 7PM / SHOW 8PM"</pre>
-    <p>Every flag is optional. Each prop's own print layout decides how it looks, so fix the prop, not the script. Re-run after any prop change, and commit the new PDFs.</p>
+    <pre>python3 print/build.py</pre>
+    <p>The tickets print their own show details; <code>--band</code>, <code>--venue</code>, <code>--city</code>, <code>--date</code> and <code>--time</code> override them. Each prop's own print layout decides how it looks, so fix the prop, not the script. Re-run after any prop change, and commit the new PDFs.</p>
   </div>
 
 </main>

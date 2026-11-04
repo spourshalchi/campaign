@@ -38,6 +38,12 @@
   .chip{font-size:12.5px;padding:5px 11px;border-radius:999px;border:1px solid var(--edge);
     background:#0f0b18;color:var(--mut)}
   .chip b{color:var(--ink);font-weight:600}
+  .dmlinks{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .dmlinks a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:10px;
+    font-size:15px;font-weight:600;text-decoration:none;color:#fff;border:1px solid #3a2c54;
+    background:linear-gradient(180deg,#2a1f40,#20182f);transition:.15s;-webkit-tap-highlight-color:transparent}
+  .dmlinks a.run{border-color:#7a5a2a;color:var(--gold)}
+  .dmlinks a:hover{background:#2e2246}
 
   nav.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:22px 0 18px;position:sticky;top:0;z-index:20;
     padding:10px;background:rgba(12,10,18,.82);backdrop-filter:blur(8px);border:1px solid var(--edge);border-radius:12px}
@@ -340,6 +346,10 @@
       <span class="chip"><b>Twist:</b> the vampires are the good guys</span>
       <span class="chip"><b>Big Bad:</b> DJ Poe Boy</span>
     </div>
+    <nav class="dmlinks" aria-label="DM pages">
+      <a class="run" href="../run/">▶ Run of Show</a>
+      <a href="../print/">🖨 Print Kit</a>
+    </nav>
   </header>
 
   <nav class="tabs" id="tabs">
@@ -400,7 +410,7 @@
 
     <div class="subsec" id="sub-cast">
       <h2 class="sec">The cast</h2>
-      <p class="sub">Quick-reference cards. Fields marked TBD are open decisions (Lil Stinky's and Simone's races, the developer's name, and the dead kid's name). Amber blocks flag details this codex invented.</p>
+      <p class="sub">Quick-reference cards. Fields marked TBD are open decisions (Lil Stinky's and Simone's races, and the developer's name). Amber blocks flag details this codex invented.</p>
       <div id="cast"></div>
     </div>
   </section>
@@ -525,15 +535,15 @@ const NODES = [
     hook:"<b>His full arc: he earns his Assisting the Elderly badge by helping the vampires</b>, and the elder he bonds with is <b>Orlok</b> — Russell to Orlok's Carl. He carries a <b>Requirements card</b> with three boxes, each of which needs the elder's signature, and Orlok refuses to sign until the very end.<br><br><b>Req 1 — “Lend a hand with something out of reach.”</b> Saturday's icebreaker. Orlok is stuck at the edge of a sunbeam that has landed on his <b>spectacles</b>; a vampire can't cross the light. Russ walks through it and hands them over — trivial for a warm, living kid, impossible for Orlok.<br><br><b>Req 2 — “Tend your elder's garden.”</b> The cellar. The food-stash reveal is an <b>animal infirmary</b> (Orlok is a vet, not a killer), and Russ's <b>Speak with Animals</b> is what exonerates the vampires — the patients are grateful, not prey. He finds Orlok's dead medicinal seedlings, straining for a light he can never give them, and grows <b>Sun's-mercy</b> — the sun-flower that mends wounds — in the cellar's one blade of daylight.<br><br><b>Req 3 — “Give care when someone is hurting.”</b> The finale, when he gets to heal one of the vampires under fire.",
     finale:"<b>His whole arc is the movie's arc.</b> Orlok — alone in forty rooms, once dying by his own hand, his house taken by a developer — is Carl, and Russ is the kid who won't leave him alone. Keep Orlok <b>cold through Saturday</b>: Req 1 and 2 are Russ working at a stone wall. Req 3 under fire is what finally cracks it.",
     epilogue:"<b>Orlok signs the card</b>, through his teeth, the same way he confirms Gnomey's claim. Then, in the ending scene, <b>Russ's troop leader</b> comes in and hands him the badge. <b>Hand Cody a real badge at the table.</b>",
-    ai:"The character concept — <b>Firbolg druid, working name “Russ”</b> — is Cody's; the arc itself is canon. The herb is <b>Sun's-mercy</b>. Still open inside it: the <b>badge artwork</b>, and Cody's full sheet and druid subclass. The spectacles, the seedlings and the vet framing are all settled." },
+    ai:"The character concept — <b>Firbolg druid, working name “Russ”</b> — is Cody's; the arc itself is canon. The herb is <b>Sun's-mercy</b>. Still open inside it: Cody's full sheet and druid subclass. The spectacles, the seedlings and the vet framing are all settled." },
 
   {id:"vinny", name:"Great Uncle Vinny", sub:"Won the house in 1931", g:"town", x:270, y:180,
     role:"Backstory NPC · alive", s:"doc",
     fields:{Race:"Gnome",Trade:"Untaxed cigarettes & bootleg liquor",Status:"Alive, ancient, in a home"},
     desc:"Gnomey's great-uncle. Ran cigarettes and liquor on the back roads at night through Prohibition. Nobody in the family thinks he's anything. <b>He needed somewhere to keep the liquor</b>, and there was exactly one building in the county nobody would ever search — so he walked up the hill and asked, which nobody had done in two hundred years.<br><br><b>The deal:</b> Orlok gets the cellar filled and takes a case a month off the top. Liquor turns out to be one of the only human things that still works on a vampire — the one pleasure he has left. Every month Vinny comes up with the delivery, they crack a bottle, and they play cards.",
     hook:"<b>14 November 1931.</b> Orlok goes down, keeps playing to get it back, goes further down, and by four in the morning the only thing he has left worth anything is the house. They draft the settlement drunk. Vinny walks out with the deed — and then <b>lets them stay, rent-free, in writing, forever.</b> That's the family principle in full: you always collect, and then you're not a bastard about it.<br><br>Years later he hears a twelve-year-old relative had a little operation going and blew it up rather than eat a skim. He drives over that week:<br><br><i>“Twelve years old and he's got a crew.”</i><br><i>“I don't have a crew anymore.”</i><br><i>“You'll get another one.”</i><br><br>He keeps the deed.",
-    finale:"He is <b>alive and mostly gone</b>. The table meets him <b>early</b>, on a phone call to Gnomey (what he says is still to write), so he isn't a stranger when he <b>turns up at the house in the ending scene</b> and hands Gnomey the deed, because he has earned it.",
-    ai:"Keeping the age-twelve visit with nothing changing hands is a codex reading of the In Person Session. So is <i>“You'll get another one”</i> paying off when he hands the deed to a kid who has a crew again. How a man who is ancient and in a home gets to the house at dawn is open." },
+    finale:"He is <b>alive and mostly gone</b>. The table meets him <b>early</b>: minutes after Gnomey reads <i>Dood</i> on his card in the lockers scene, his flip phone rings, and Vinny — confused, sure it's 1931 — asks <i>“Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch.”</i> So he isn't a stranger when Russ's troop leader drives him up the hill at dawn and he <b>turns up at the house in the ending scene</b> and hands Gnomey the deed, because he has earned it.",
+    ai:"Keeping the age-twelve visit with nothing changing hands is a codex reading of the In Person Session. So is <i>“You'll get another one”</i> paying off when he hands the deed to a kid who has a crew again. The phone call and the dawn ride up the hill in the troop leader's car are decided in conversation, not yet in the doc." },
 
   {id:"devil", name:"The Devil (Goat)", sub:"Simone's patron", g:"force", x:255, y:560,
     role:"Otherworldly patron", s:"doc",
@@ -566,7 +576,7 @@ const NODES = [
     fields:{Name:"'Dood' = dead (Dutch)",History:"Abandoned Dutch mansion on the edge of town"},
     desc:"Where the whole back half plays out. The front door has been boarded for decades — until the night of the party, when the boards come off and are stacked against the porch rail. That un-boarding is the only visible change to the house, and it's the invitation. Once they're inside, the doors bolt shut. Rooms are built around puzzles and one combat set-piece, ending in the food-stash reveal and a hidden room.<br><br><b>Two of Poe Boy's setups, not one.</b> The old room upstairs holds his original recording rig and the computer the kid is inside — he hasn't been back in it. The <b>ballroom</b> is the show he's built for tonight, wired to speakers through the rest of the house, and it's where the climax happens. The power is <b>hot-wired off the neighbouring property</b> — which is also the one thread anyone outside the house could pull on.",
     finale:"The back half runs as <b>one line with no fork</b>: locked in, the botched summoning, then the study, the party room and the cellar in any order, the Spirit and the USB upstairs last, then 3AM and two phases with no break. The two-setups decision pays off directly — the Spirit is in the <b>old rig upstairs</b> and the aux is on the <b>ballroom decks</b>, so the finale's objective is a journey across the map.",
-    hook:"Rumored haunted because of the vampires. A real-estate company wants to demolish it for a <b>mega mall</b>, and has knocked in daylight several times — when the vampires can't answer the door or defend themselves at all.<br><br><b>Orlok built it</b>, lost it at cards in 1931, and has needed someone else's permission to live in it ever since. <b>It does not belong to the vampires and has not for seventy years.</b><br><br><b>Rooms on the map:</b><br>· <b>The study</b> — sealed since the thirties. The card table with the last hand still on it, and a strongbox holding the signed settlement — and an empty slot where the deed should be. Gnomey's room.<br>· <b>The party room</b> — the night Edward and Goblinenon's cart broke down and they found two vampires partying. Bottles, a record still on the turntable, forty years of dust on somebody's good night. <b>Where Bix finds the photograph.</b><br>· <b>The cellar</b> — Vinny's liquor went in here from 1920 and repeal came in '33 and he never came back for it, so a wall of crates is still down there. It is also the <b>animal infirmary</b> where Orlok mends injured animals who give a little blood in return — the food-stash puzzle reveals a clinic, not a slaughterhouse — and it is <b>Cody's room</b>, where Russ tends the animals and grows Orlok's medicinal herb.<br>· <b>The old rig upstairs</b> — the computer, the Spirit, the backpack. <b>Locked until last</b>, with a poster on the door.<br>· <b>The ballroom</b> — tonight's show and the climax.",
+    hook:"Rumored haunted because of the vampires. A real-estate company wants to demolish it for a <b>mega mall</b>, and has knocked in daylight several times — when the vampires can't answer the door or defend themselves at all.<br><br><b>Orlok built it</b>, lost it at cards in 1931, and has needed someone else's permission to live in it ever since. <b>It does not belong to the vampires and has not for seventy years.</b><br><br><b>Rooms on the map:</b><br>· <b>The study</b> — sealed since the thirties. The card table with the last hand still on it, and a strongbox holding the signed settlement — and an empty slot where the deed should be. Gnomey's room.<br>· <b>The party room</b> — the night Edward and Goblinenon's cart broke down and they found two vampires partying. Bottles, a record still on the turntable, forty years of dust on somebody's good night. <b>Where Bix finds the photograph.</b><br>· <b>The cellar</b> — Vinny's liquor went in here from 1920 and repeal came in '33 and he never came back for it, so a wall of crates is still down there. It is also the <b>animal infirmary</b> where Orlok mends injured animals who give a little blood in return — the food-stash puzzle reveals a clinic, not a slaughterhouse — and it is <b>Cody's room</b>, where Russ tends the animals and grows Orlok's medicinal herb.<br>· <b>The old rig upstairs</b> — the computer, the Spirit, the backpack. <b>Locked until last</b>, with a poster on the door. The Spirit opens it himself: the AIM chime down the hall, then the lock clicks.<br>· <b>The ballroom</b> — tonight's show and the climax.",
     ai:"<b>Ratified:</b> 'Dood' is both — the builder's family surname <i>and</i> the Dutch pun, so Cornelis Dood is a real person in the fiction. That also answers the old 'lmk if thats too dumb lol' about the mansion name.<br><br><b>And Cornelis Dood is Orlok.</b> Orlok is the man who built this house; Dood is his mortal surname. The town buried him and he never left, which is why the Crier's obituary is technically accurate." },
 
   {id:"orlok", name:"Vamp: Orlok", sub:"True-to-folklore", g:"vamp", x:880, y:150,
@@ -595,16 +605,16 @@ const NODES = [
   {id:"summon", name:"The Botched Summoning", sub:"Saturday's mansion fight", g:"force", x:790, y:560,
     role:"Combat set-piece", s:"doc",
     fields:{Slot:"Saturday night, late",Job:"Prove the house will actually hurt them"},
-    desc:"Saturday's one mansion combat, and the button on Night 1. <b>Poe Boy's second botched ritual</b> — he studies the occult, he has already miscast one badly enough to kill a boy, and this is the other time it went wrong. He couldn't finish it and couldn't put it down, so he sealed it in a room upstairs and stopped thinking about it. It is visibly <b>incomplete</b> — a summoning that half-worked, wrong in a way that reads as made rather than born.",
-    hook:"It earns its slot three ways. It proves the house is dangerous after an evening in which nothing has actually hurt anyone; it <b>plants that the dangerous things here are human-made</b>; and it <b>ends Night 1 on a hook</b>. The thing claws toward one sealed door the whole fight, and when it drops that room answers — a monitor wakes by itself and an AIM line types itself across it (<i>\"is someone there\"</i>) before the screen dies. In the wreckage: a half-drawn ritual circle and a notebook in the handwriting they will see on Sunday. The party leaves the night knowing a person is behind this, and that something upstairs is trying to talk.",
-    ai:"<b>The fight's slot is settled; this is the shape it has been given.</b> That it is Poe Boy's second botched ritual, that it claws upstairs, and that killing it wakes the computer and drops the culprit's notebook — Night 1's cliffhanger — are a <b>direction decided in conversation, not yet in the doc</b>; every stat behind it is still a proposal (see the Combat section).<br><br>It replaces <b>the Gjenganger</b>, retired by displacement: Orlok took the lonely-original-owner backstory, and the corridor set-piece the creature was going to fill was cut. Spencer's <i>“up to you if we go with it”</i> got answered without anyone answering it, and <b>he should be told directly</b> — it was his find. Dead spec kept in <code>/PROPOSALS.md</code>." },
+    desc:"Saturday's one mansion combat, and the button on Night 1 if the clock allows. <b>Poe Boy's second botched ritual</b> — he studies the occult, he has already miscast one badly enough to kill a boy, and this is the other time it went wrong. He couldn't finish it and couldn't put it down, so he sealed it in a room upstairs and stopped thinking about it. It is visibly <b>incomplete</b> — a summoning that half-worked, wrong in a way that reads as made rather than born.",
+    hook:"It earns its slot three ways. It proves the house is dangerous after an evening in which nothing has actually hurt anyone; it <b>plants that the dangerous things here are human-made</b>; and, when it closes the night, it <b>ends Night 1 on a hook</b>. The thing claws toward one sealed door the whole fight, and when it drops that room answers — a monitor wakes by itself and an AIM line types itself across it (<i>\"is someone there\"</i>) before the screen dies. In the wreckage: a half-drawn ritual circle. <b>Nothing on the night says whose it is</b> — the payoff is the Spirit naming Poe Boy on Sunday. The party leaves the night knowing a person is behind this, and that something upstairs is trying to talk.",
+    ai:"<b>The fight's slot is settled; this is the shape it has been given.</b> That it is Poe Boy's second botched ritual, that it claws upstairs, and that killing it wakes the computer — the cliffhanger when it closes Night 1 — are a <b>direction decided in conversation, not yet in the doc</b>; every stat behind it is still a proposal (see the Combat section).<br><br>It replaces <b>the Gjenganger</b>, retired by displacement: Orlok took the lonely-original-owner backstory, and the corridor set-piece the creature was going to fill was cut. Dead spec kept in <code>/PROPOSALS.md</code>." },
 
   {id:"spirit", name:"Spirit in the Computer", sub:"A past victim", g:"force", x:620, y:585,
     role:"Clue-bearer", s:"doc",
-    fields:{State:"Soul-caged into Poe Boy's computer",Name:"TBD — read off the USB",Ends:"On the library computers"},
-    desc:"A kid from school, lured to the mansion by a fake AIM screen name as Poe Boy's test run. The vampires chased him exactly as agreed; he broke for the one lit room, got to the keyboard and started typing for help. Poe Boy saw the open AIM window, shut the door and held it. Then he panicked over the body and cast a half-understood <b>soul cage</b> with no vessel prepared — so the machine still recording him took all of him.",
+    fields:{State:"Soul-caged into Poe Boy's computer",Name:"Marcus Hale — read off the USB",Died:"1999, about twelve",Ends:"On the library computers"},
+    desc:"<b>Marcus Hale</b>, a kid from school who died in 1999 at about twelve, lured to the mansion by a fake AIM screen name as Poe Boy's test run. The vampires chased him exactly as agreed; he broke for the one lit room, got to the keyboard and started typing for help. Poe Boy saw the open AIM window, shut the door and held it. Then he panicked over the body and cast a half-understood <b>soul cage</b> with no vessel prepared — so the machine still recording him took all of him.",
     hook:"Biggest clue in the house: he was <b>killed by a human</b>, not a monster — the thread that exonerates the vampires. He can name Poe Boy.",
-    finale:"<b>He arms the party.</b> He asks them to fetch his backpack, still in that room after all these years. Inside are <b>two things</b>: the thumb drive, and the <b>wishing willow</b> he bought from Simone when they were twelve. <b>They plug the drive into the machine and it mounts under his name</b> — which is the moment Simone and Angelique work out that this is the same boy. He uploads the recording of his own death over AIM's file-transfer window: <code>scream_test_03_GOOD.wav</code>, a filename <b>Poe Boy chose</b>, which the kid has had to look at every time the monitor wakes up. His first ask isn't directions — it's <i>expose him</i>. <b>Hand the players a real USB stick.</b><br><br><b>Then the second ask: <i>can you get me out of here.</i></b> Not alive — out of the machine, into the drive, somewhere safe. Simone can't do it at her level; her patron can, for the price of her concert fund. <b>This is deliberately not how the party gets the recording</b> — the file is already on the drive before he asks, so a no costs them nothing but him. Say the no-path out loud in your own head before you run it: they still win, the machine simply goes dark at sunrise.<br><br><b>If she pays</b>, the ritual runs in the AIM prop and looks like an ordinary file transfer until the progress bar exceeds its own boundaries.",
+    finale:"<b>He arms the party.</b> He asks them to fetch his backpack, still in that room after all these years. Inside are <b>two things</b>: the thumb drive, and the <b>wishing willow</b> he bought from Simone when they were twelve. <b>They plug the drive into the machine and it mounts as <code>MARCUS_HALE</code></b> — which is the moment Simone and Angelique work out that this is the same boy. He uploads the recording of his own death over AIM's file-transfer window: <code>scream_test_03_GOOD.wav</code>, a filename <b>Poe Boy chose</b>, which the kid has had to look at every time the monitor wakes up. His first ask isn't directions — it's <i>expose him</i>. <b>Hand the players a real USB stick.</b><br><br><b>Then the second ask: <i>can you get me out of here.</i></b> Not alive — out of the machine, into the drive, somewhere safe. Simone can't do it at her level; her patron can, for the price of her concert fund. <b>This is deliberately not how the party gets the recording</b> — the file is already on the drive before he asks, so a no costs them nothing but him. Say the no-path out loud in your own head before you run it: they still win, the machine simply goes dark at sunrise.<br><br><b>If she pays</b>, the ritual runs in the AIM prop and looks like an ordinary file transfer until the progress bar exceeds its own boundaries.",
     epilogue:"<b>He gets a job.</b> The kid's spirit ends up uploaded to the <b>library computers</b>, where he helps people find new books to read. The boy who died alone in a room nobody visited spends his afterlife in the one building in town that is always full of people looking for something.",
     ai:"The AIM prop gives him voice and texture that isn't otherwise written: the screen names l0stsignal99 and SmiLeyGrrL03, 'third locker from the end by the gym,' 'he just called me the test.' The prop also assumes he labelled the drive himself in a school computer lab, which is how it comes to carry his name." },
 
@@ -619,11 +629,12 @@ const NODES = [
     desc:"Keeper of the library / hall of records — the one NPC who warns them against going to the mansion. 'Hall of records = librarian' is locked, and she wants 'some sort of modern spin on the archetype.' <b>Beyond that she is not written.</b>",
     line:"You can try to put it back together. But I'm guessing, by the magic on them — someone doesn't want you finding that information.",
     ai:"Everything past 'harbinger who warns them': the quoted line above, the analysis of why it works, and the ruling that she has no stake in the 1937 story and doesn't appear in it. All codex-side decisions." },
-  {id:"troop", name:"Russ's Troop Leader", sub:"Hands over the badge", g:"town", x:300, y:670,
+  {id:"troop", name:"Russ's Troop Leader", sub:"Scout dad · drives Vinny up", g:"town", x:300, y:670,
     role:"Townsfolk · the ending scene", s:"doc",
-    fields:{Status:"Not written yet"},
-    desc:"Russ's scout troop leader. Comes into the ending scene at the house and <b>hands Russ his Assisting the Elderly badge</b>, once Orlok has signed the card. Beyond that, not written.",
-    ai:"Name, race, voice, and how they end up at the house at dawn are all undefined." },
+    fields:{Troop:"187",Look:"Khaki shorts in November, whistle, clipboard",Name:"Open"},
+    desc:"Russ's scout troop leader: an <b>over-earnest scout dad</b> in khaki shorts in November, with a whistle and a clipboard, completely unfazed by vampires as long as the paperwork is in order. He runs <b>Troop 187's volunteer visits to the nursing home</b>, which is how he knows Uncle Vinny.",
+    finale:"<b>He drives Vinny up the hill at dawn</b> — one car explains both arrivals. In the ending scene he <b>hands Russ his Assisting the Elderly badge</b>, once Orlok has signed the card.",
+    ai:"The scout dad, Troop 187's nursing-home visits and the dawn drive with Vinny are decided in conversation, not yet in the doc. His name is open." },
   {id:"realestate", name:"W. Ostrander", sub:"The developer · dies", g:"force", x:915, y:560,
     role:"Antagonist · The only death", s:"doc",
     fields:{Goal:"Demolish the mansion for a mega mall",Class:"Wizard — Abjurer",Name:"Ostrander — proposal",Fate:"Killed in phase one"},
@@ -692,7 +703,7 @@ const FLOW = [
     bridge:{cue:"That’s the bell. You’ve got about four minutes to hit your locker and get to next period.",
       note:"Ends the scene on a clock, not a decision — nobody has to agree to anything for the story to move. Land the assignment constraint on the way out (<b>a primary source, not the internet</b>) so the Hall of Records is already on the board before anyone sees a card."}},
 
-  {n:2,title:"Letters in the lockers",where:"Smash cut",s:"doc",body:"Everyone finds a mysterious invitation to a haunted house at the abandoned Dutch mansion. Ooo, spooky.<br><br><b>Gnomey gets a phone call.</b> Great Uncle Vinny rings him, rambling about the house on the hill. It's the table's first look at Vinny, so he isn't a stranger when he turns up at the end. What he says, and exactly when the call lands, is still to write.",
+  {n:2,title:"Letters in the lockers",where:"Smash cut",s:"doc",body:"Everyone finds a mysterious invitation to a haunted house at the abandoned Dutch mansion. Ooo, spooky.<br><br><b>Gnomey gets a phone call.</b> Minutes after he reads <i>Dood</i> on his card, his flip phone rings. It's Great Uncle Vinny, confused and sure it's 1931, on about the same house: <i>“Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch.”</i> It's the table's first look at Vinny, so he isn't a stranger when he turns up at the end.",
     bridge:{cue:"It’s barely noon. The card says seven. And not one of you has ever heard the name Dood before.",
       note:"Hours to kill plus a name nobody recognises is the itch; the class project is the excuse. Let them ask around if they want to — <b>nobody else got a card</b>, and finding that out is the strongest push toward town there is. If they march straight up the hill instead, the front is still boarded at this hour and bounces them back — <b>which is the point.</b> Anyone who goes early has seen the boards on. They come off during the day.",
       q:"Spencer's call: is the card an invitation to <b>Poe Boy's concert</b> or to a <b>haunted house</b>? He sells the whole night as a concert either way.",
@@ -754,11 +765,10 @@ const FLOW = [
     bridge:{cue:"A door on the top floor you haven’t tried is warm to the touch — and something on the other side of it is breathing.",
       note:"The night has to end on something that finally lays hands on them for real. Route them to the sealed room upstairs; the fight is the button on Saturday night."}},
 
-  {n:9,title:"The botched summoning",where:"Saturday night, late · combat · Night 1 closer",s:"doc",body:"<b>Saturday’s one combat, and the button on Night 1.</b> Sealed in a room upstairs is <b>Poe Boy’s second botched ritual</b> — the same amateur-occultist hand that soul-caged the dead kid, only this one he couldn’t finish and couldn’t put down. It’s visibly <b>incomplete</b>: a summoning that half-worked, wrong in a way that reads as <i>made</i> rather than born.<br><br><b>It wants upstairs.</b> All through the fight it claws toward one sealed door down the hall, and that pull is the clue — it proves the house will actually hurt them <i>and</i> plants, hard, that the dangerous things here are <b>human-made</b>.<br><br><b>The cliffhanger.</b> When it finally drops, the room it was clawing toward <b>answers</b>: a monitor deep in the house flickers on by itself, the old AIM chime carries down the hall, and one line types itself across a screen nobody is sitting at — <i>“is someone there”</i> — then it goes dark. In the wreckage they find the rest: a half-drawn ritual circle and a notebook in a handwriting they’ll meet again tomorrow (the sticky note, the checkout card). <b>Two gut-punches to close the night on — something in this house is awake and trying to talk, and a person made all of this.</b>",
+  {n:9,title:"The botched summoning",where:"Saturday night, late · combat",s:"doc",body:"<b>Saturday’s one mansion combat, and the button on Night 1 if the clock allows.</b> Sealed in a room upstairs is <b>Poe Boy’s second botched ritual</b> — the same amateur-occultist hand that soul-caged the dead kid, only this one he couldn’t finish and couldn’t put down. It’s visibly <b>incomplete</b>: a summoning that half-worked, wrong in a way that reads as <i>made</i> rather than born.<br><br><b>It wants upstairs.</b> All through the fight it claws toward one sealed door down the hall, and that pull is the clue — it proves the house will actually hurt them <i>and</i> plants, hard, that the dangerous things here are <b>human-made</b>.<br><br><b>The cliffhanger.</b> When it finally drops, the room it was clawing toward <b>answers</b>: a monitor deep in the house flickers on by itself, the old AIM chime carries down the hall, and one line types itself across a screen nobody is sitting at — <i>“is someone there”</i> — then it goes dark. In the wreckage they find the rest: a half-drawn ritual circle. <b>Two gut-punches to close the night on — something in this house is awake and trying to talk, and a person made all of this.</b><br><br><b>Don’t signpost whose it is.</b> Nothing on Saturday points at Poe Boy; the payoff is the Spirit naming him on Sunday.",
     enc:"⚔ Saturday’s mansion fight — <b>the botched summoning</b> (~1,500 XP): a <b>solo CR 4</b> plus <b>four CR ½ minions</b>, roughly 40 minutes.",
-    bridge:{cue:"End of session one. Everyone levels to 5.",
-      note:"End the night the instant that screen dies — do <b>not</b> let them reach the room tonight. The two questions it leaves — who’s typing, and who’s the person behind all this — are what drag them back to the table on Sunday. Everything Sunday is built for five level-5 PCs, and with the corridor set-piece cut, day two opens on investigation.",
-      q:"Still to settle: how to make it unmistakable that this is <b>Poe Boy’s</b> botched summoning. The notebook’s handwriting is the current tell."}},
+    bridge:{cue:"End of day one. Everyone levels to 5.",
+      note:"<b>Saturday ends wherever time runs out.</b> The summoning closes Night 1 if the clock allows; it doesn’t have to. When it does, end the night the instant that screen dies — do <b>not</b> let them reach the room tonight. The two questions it leaves — who’s typing, and who’s the person behind all this — are what drag them back to the table on Sunday. If time runs out first, stop where you are and pick it up Sunday. Either way, everyone levels to 5 at the end of day one: everything Sunday is built for five level-5 PCs."}},
 
   {n:10,title:"The study",where:"Sunday morning · Gnomey",s:"doc",par:"rooms",body:"<b>The corridor set-piece is cut.</b> Sunday opens on three per-PC rooms the party can take in any order. The computer room upstairs stays locked until last. This one is Gnomey’s.<br><br><b>The study</b> — sealed since the thirties. Inside: the card table with the last hand still on it, and a strongbox holding the signed <i>Articles of Settlement</i> with the bearer clause spelled out — and an <b>empty slot where the deed should be</b>. <b>The house belongs to whoever holds the deed, and Gnomey doesn’t have it.</b> What he has is the name on the contract: his great-uncle won this house. <b>Run it before anything exonerates the vampires</b>, so Gnomey learns his family has a claim on a house full of things he still believes are killers, and has all of Sunday to sit on it. The deed itself comes at the very end, from Vinny.",
     bridge:{cue:"He’s read it three times. The name on the contract is his great-uncle’s.",
@@ -780,9 +790,9 @@ const FLOW = [
     bridge:{cue:"The patients settle. There’s one door in this house you still haven’t been through.",
       note:"Point them upstairs at the locked computer room. It comes last, after every any-order room."}},
 
-  {n:13,title:"The Spirit, the backpack, the USB",where:"The old rig upstairs · last",s:"doc",body:"<b>The last room, and it’s locked.</b> The door stays shut until every other room is done, and there’s a poster on it. If they try it early, that’s all they get. What opens it is still to design.<br><br>The room the kid ran into and never left. Poe Boy's <b>original</b> setup — gear, a mic, and a computer somehow still on, hot-wired off the neighbouring property like everything else in this house. He hasn't been back in here since that night. The AIM prop is live at <code>/aim/</code>.<br><br>He was lured by a fake screen name, chased by vampires who believed he was a mall scout, and soul-caged when Poe Boy saw the AIM window open and pulled the door shut. He can name his killer, and he was <b>killed by a human</b>.",
+  {n:13,title:"The Spirit, the backpack, the USB",where:"The old rig upstairs · last",s:"doc",body:"<b>The last room, and it’s locked.</b> The door stays shut until every other room is done, and there’s a poster on it. If they try it early, that’s all they get.<br><br><b>The Spirit opens it.</b> Once they've been through the other rooms, the AIM chime drifts down the hall and the lock clicks open on its own: the kid who typed <i>“is someone there”</i> after the summoning, finally reaching them. <b>You trigger it when the table is ready</b> — there's no puzzle.<br><br>The room Marcus ran into and never left, in 1999. Poe Boy's <b>original</b> setup — gear, a mic, and a computer somehow still on, hot-wired off the neighbouring property like everything else in this house. He hasn't been back in here since that night. The AIM prop is live at <code>/aim/</code>.<br><br>He was lured by a fake screen name, chased by vampires who believed he was a mall scout, and soul-caged when Poe Boy saw the AIM window open and pulled the door shut. He can name his killer, and he was <b>killed by a human</b>.",
     bridge:{cue:"It’s three in the morning — and every speaker in this house just came on at once.",
-      note:"<b>His first line, once they’re in:</b> <i>“my bag is still in this room. by the desk under the coats. can you get it”</i><br><br><b>0 · They have to log in first.</b> The machine sits at an AIM sign-on screen with the account already saved — <b>DJPoeBoy187</b>, because this is his computer — and an empty password box. <b>Hand them the sticky note.</b> The password is <code>Fluffy123</code>, his cat, and the prop takes it in any capitalisation so a fat-fingered capital doesn't cost you the scene. Wrong answers get the real AIM error and nothing else: no hints, no lockout, unlimited tries.<br><br><b>They spend this entire conversation typing as the killer.</b> Every line they send arrives under his handle, and the opening is written for it: the boy sees that name come online and comes apart before he works out it isn't him. What saves it is rhythm — <i>“youre not typing like him”</i> — five years of listening to one person at a keyboard. <b>He stops short of naming him as the murderer</b>; he's frightened of a handle, which could just be a bully. The accusation still lands later, in its own beat.<br><br><b>The bag has two things in it, and the order matters.</b><br><br><b>1 · The wishing willow</b>. The little wooden token Simone sold him when they were both twelve. He wrote <i>I want Angelique to notice me</i> on it, and it worked — which is the whole reason Angelique knew him well enough to be handed a keyboard. Play his account of it flat and slightly embarrassed. Simone's player will get there first.<br><br><b>2 · The thumb drive.</b> They plug it into the machine and <b>it mounts under his name</b> — that is how the dead kid finally gets one, read off a screen by a player rather than delivered as a lore dump. <b>You two still need one word.</b> The AIM prop takes it as <code>?name=</code> in the URL, so you can set it from the iPad mid-session without editing anything.<br><br>Then he uploads <code>scream_test_03_GOOD.wav</code> over AIM's real file-transfer window — <b>Poe Boy named that file</b>, and the kid has had to look at it every time the monitor wakes up. First ask: <i>expose him</i>. <b>Hand the players an actual USB stick here.</b><br><br><b>3 · Then the second ask — <i>can you get me out of here.</i></b> Somewhere safe; the little drive; he doesn't need much room. The goat appears — <b>he can see it and Simone can't</b> — and the price is the piggy bank. <b>The goat joins the chat.</b> The prop turns into a group chat when it arrives — the theme flips dark, the sounds distort, and it negotiates on screen in front of everyone. Then it <b>parks on the hold node</b> so you can play the piggy bank at the table. Three buttons are waiting: she paid, what happens if we get it wrong, and she said no.<br><br><b>⛔ Nothing plot-critical is behind this.</b> The recording, the name and the drive are all already theirs before he asks. A no costs them nothing but him — the machine simply goes dark at sunrise, and they still win the night. Do not fudge it if she declines.<br><br><b>Then 3AM.</b> The flyer’s 3AM is canon; using it as the fight’s starting gun is a codex idea, and a good one — it puts a clock on the whole second half from the moment they read the flyer. <b>Because only five people were invited, Poe Boy knows exactly who is in his house</b>, so the show can open by naming them. The bolted doors are the only thing holding them here.<br><br><b>Settled:</b> the 7PM card was exclusive, but <b>the 3AM flyer is public</b> — so this is the moment the house stops being empty. The speakers come on and the guests arrive at the same time. Poe Boy still knows exactly who the five are and can open the show by naming them; the difference is that now there are people to name them <i>in front of</i>. It also answers what he told the vampires: he didn't lie about the houseful, he <b>staggered</b> it.",
+      note:"<b>Opening the door.</b> Don't wait for a puzzle to be solved — read the table. When the other rooms are done and the energy is right, play the AIM chime from somewhere down the hall, then the click of the lock. The poster stays on the door; the door just isn't locked any more.<br><br><b>His first line, once they’re in:</b> <i>“my bag is still in this room. by the desk under the coats. can you get it”</i><br><br><b>0 · They have to log in first.</b> The machine sits at an AIM sign-on screen with the account already saved — <b>DJPoeBoy187</b>, because this is his computer — and an empty password box. <b>They already have the sticky note</b> — you handed it over the first time they searched any room. The password is <code>Fluffy123</code>, his cat, and the prop takes it in any capitalisation so a fat-fingered capital doesn't cost you the scene. Wrong answers get the real AIM error and nothing else: no hints, no lockout, unlimited tries.<br><br><b>They spend this entire conversation typing as the killer.</b> Every line they send arrives under his handle, and the opening is written for it: the boy sees that name come online and comes apart before he works out it isn't him. What saves it is rhythm — <i>“youre not typing like him”</i> — five years of listening to one person at a keyboard. <b>He stops short of naming him as the murderer</b>; he's frightened of a handle, which could just be a bully. The accusation still lands later, in its own beat.<br><br><b>The bag has two things in it, and the order matters.</b><br><br><b>1 · The wishing willow</b>. The little wooden token Simone sold him when they were both twelve. He wrote <i>I want Angelique to notice me</i> on it, and it worked — which is the whole reason Angelique knew him well enough to be handed a keyboard. Play his account of it flat and slightly embarrassed. Simone's player will get there first.<br><br><b>2 · The thumb drive.</b> They plug it into the machine and <b>it mounts as <code>MARCUS_HALE</code></b> — that is how the table learns his name, <b>Marcus Hale</b>, read off a screen by a player rather than delivered as a lore dump. The AIM prop takes the name as <code>?name=</code> in the URL, so you can set it from the iPad without editing anything.<br><br>Then he uploads <code>scream_test_03_GOOD.wav</code> over AIM's real file-transfer window — <b>Poe Boy named that file</b>, and the kid has had to look at it every time the monitor wakes up. First ask: <i>expose him</i>. <b>Hand the players an actual USB stick here.</b><br><br><b>3 · Then the second ask — <i>can you get me out of here.</i></b> Somewhere safe; the little drive; he doesn't need much room. The goat appears — <b>he can see it and Simone can't</b> — and the price is the piggy bank. <b>The goat joins the chat.</b> The prop turns into a group chat when it arrives — the theme flips dark, the sounds distort, and it negotiates on screen in front of everyone. Then it <b>parks on the hold node</b> so you can play the piggy bank at the table. Three buttons are waiting: she paid, what happens if we get it wrong, and she said no.<br><br><b>⛔ Nothing plot-critical is behind this.</b> The recording, the name and the drive are all already theirs before he asks. A no costs them nothing but him — the machine simply goes dark at sunrise, and they still win the night. Do not fudge it if she declines.<br><br><b>Then 3AM.</b> The flyer’s 3AM is canon; using it as the fight’s starting gun is a codex idea, and a good one — it puts a clock on the whole second half from the moment they read the flyer. <b>Because only five people were invited, Poe Boy knows exactly who is in his house</b>, so the show can open by naming them. The bolted doors are the only thing holding them here.<br><br><b>Settled:</b> the 7PM card was exclusive, but <b>the 3AM flyer is public</b> — so this is the moment the house stops being empty. The speakers come on and the guests arrive at the same time. Poe Boy still knows exactly who the five are and can open the show by naming them; the difference is that now there are people to name them <i>in front of</i>. It also answers what he told the vampires: he didn't lie about the houseful, he <b>staggered</b> it.",
       fallbacks:{lbl:"If they don't think to ask what he needs",
         items:[
           {who:"The Spirit",say:"“theres something. its stupid but theres something.”",
@@ -810,7 +820,7 @@ const FLOW = [
       note:"In order: the recording plays whole — typing, a door, screaming, and under it Poe Boy's own voice staying calm and adjusting a level. <b>Stinky's oath breaks with no saving throw</b> (Devotion's first tenet is <i>don't lie or cheat</i>); he stops fighting and sits down. Silence, one boo, then the whole room. <b>Dracula seizes the mic</b> and denounces him magnificently — he has waited all night for a real audience — and a good number of them still aren't sure it isn't part of the show. Poe Boy tries to Command his way clear and it doesn't land. Then: a Volvo, two sweet oblivious parents in matching fleece, and <b>“Upton, honey?”</b> A throwaway joke about his real name turns out to be load-bearing.",
       q:"Minor and worth deciding: <b>how does the crowd get in at 3AM</b> when the doors bolted at 7PM? The obvious answer is that Poe Boy opens the front for his own show — but say it out loud, because it touches what the bolt actually means for the party."}},
 
-  {n:16,title:"Resolution & bookend",where:"Back to class",s:"doc",body:"They recover an ancient Dutch artifact (found after the boss fight, or with the vamps' help), the real-estate company is scared off the land, and they present the artifact in class — closing the loop opened in scene one.<br><br><b>Play the presentation battered:</b> <i>“They have scars and black eyes and theyre like ‘and yeah that was our class project’.”</i> Nobody in the room reacts to the state of them, which is the whole joke — let a player deliver the line rather than narrating it.<br><br><b>The three closers.</b> Lil Stinky records a diss track — sincere, terrible, devastating. The mega mall breaks ground somewhere else; the brochure says <b>Amityville</b>, quiet neighborhood, waterfront, great bones. And what they actually present is <b>the tape</b>, because the assignment wanted a primary source.<br><br><b>The ending scene, at the house.</b> One scene, three arrivals:<br>· <b>Poe Boy's mother grounds him</b>, and he is certainly not going to that satan concert. <b>The tickets go to Simone</b>, who spent every dollar she had a few hours earlier — and who did not earn these and cannot pay for them.<br>· <b>Russ's troop leader</b> comes in and hands him his badge. Orlok has signed the card, through his teeth. <b>Hand Cody a real badge at the table.</b> The card is live at <code>/badge/</code>.<br>· <b>Uncle Vinny</b> hands Gnomey the deed, because he has earned it. <b>Hand Julia the printed deed at the table.</b> That is the moment the house is his: Gnomey says it out loud — <i>“This is my house”</i> — Orlok confirms it in front of everyone, and Gnomey gives the renewal at the threshold: <i>“You can stay.”</i><br><br><b>The epilogue beats:</b><br>· <b>Edward explains himself to Bix.</b> The whole timeline — the cart, the party, Goblinenon, the men the company sent, and why he carried a baby down the hill instead of keeping him. Give this its own scene and no jokes in it.<br>· <b>The kid gets uploaded to the library computers</b>, where he helps people find new books to read. The boy who died in a room nobody visited spends his afterlife in the busiest building in town."}
+  {n:16,title:"Resolution & bookend",where:"Back to class",s:"doc",body:"They recover an ancient Dutch artifact (found after the boss fight, or with the vamps' help), the real-estate company is scared off the land, and they present the artifact in class — closing the loop opened in scene one.<br><br><b>Play the presentation battered:</b> <i>“They have scars and black eyes and theyre like ‘and yeah that was our class project’.”</i> Nobody in the room reacts to the state of them, which is the whole joke — let a player deliver the line rather than narrating it.<br><br><b>The three closers.</b> Lil Stinky records a diss track — sincere, terrible, devastating. The mega mall breaks ground somewhere else; the brochure says <b>Amityville</b>, quiet neighborhood, waterfront, great bones. And what they actually present is <b>the tape</b>, because the assignment wanted a primary source.<br><br><b>The ending scene, at the house.</b> One scene, three arrivals:<br>· <b>Poe Boy's mother grounds him</b>, and he is certainly not going to that satan concert. <b>The tickets go to Simone</b>, who spent every dollar she had a few hours earlier — and who did not earn these and cannot pay for them.<br>· <b>Russ's troop leader</b> — an over-earnest scout dad in khaki shorts in November, whistle and clipboard, unfazed by vampires as long as the paperwork is in order — comes in and hands him his badge. Orlok has signed the card, through his teeth. <b>Hand Cody a real badge at the table.</b> The card is live at <code>/badge/</code>.<br>· <b>Uncle Vinny</b>, who rode up the hill in the troop leader's car (he knows him from Troop 187's nursing-home visits), hands Gnomey the deed, because he has earned it. <b>Hand Julia the printed deed at the table.</b> That is the moment the house is his: Gnomey says it out loud — <i>“This is my house”</i> — Orlok confirms it in front of everyone, and Gnomey gives the renewal at the threshold: <i>“You can stay.”</i><br><br><b>The epilogue beats:</b><br>· <b>Edward explains himself to Bix.</b> The whole timeline — the cart, the party, Goblinenon, the men the company sent, and why he carried a baby down the hill instead of keeping him. Give this its own scene and no jokes in it.<br>· <b>The kid gets uploaded to the library computers</b>, where he helps people find new books to read. The boy who died in a room nobody visited spends his afterlife in the busiest building in town."}
 ];
 
 const BACKSTORY = [
@@ -907,23 +917,22 @@ const TODO = [
   ["The two-tier guest list — <b>settled</b>","<b>The 7PM card is exclusive; the 3AM flyer is public.</b> Five kids alone in the house for eight hours, then it fills up for the show. Settles the collision between the exclusive invite and the finale's charmed crowd, keeps both earlier decisions, unblocks the flyer prop, and answers what Poe Boy told the vampires — he staggered the houseful rather than lying about it. <b>Settled.</b> One small thing left: how the crowd gets through a bolted door at 3AM.","doc"],
   ["The developer's name — <b>proposed</b>","<b>W. Ostrander</b> — a genuine Hudson Valley Dutch surname that sounds like a sign on a construction fence. <b>It is printed on the checkout card in /puzzle/</b>, so it is in front of players the moment you run the records hall; swap it now if you want something else. He is the third faction: an abjurer who trapped the volume himself, gets summoned when the party springs it, seals the exits at 3AM, and is the only death in the story. Still open: company, or family trust?","doc"],
   ["The cellar and the corridor — <b>answered</b>","<b>The corridor set-piece is cut entirely</b>. <b>The cellar has a reason again:</b> it's where Vinny kept the liquor from 1920, repeal came in '33 and he never came back for it, so a wall of forty-year-old crates is still down there — and it's where the vampires keep the animals, which is what the food-stash puzzle reveals. One room, two payoffs.","doc"],
-  ["Tell Spencer the fork is cut","The fight-them / never-had-to fork is removed. <b>That was Spencer's idea.</b> Cutting it is right for a two-session game, but it should be said to him rather than found in a beat sheet.","doc"],
-  ["The Gjenganger — <b>retired</b>","<b>Retired by displacement rather than by decision.</b> Orlok took the lonely-original-owner backstory, the corridor set-piece it was going to fill was cut, and Saturday's mansion fight is now a botched summoning. Spencer's <i>“up to you if we go with it”</i> got answered without anyone answering it — <b>tell him directly</b>, it was his find. Dead spec kept in <code>/PROPOSALS.md</code>.","doc"],
+  ["The Gjenganger — <b>retired</b>","<b>Retired by displacement rather than by decision.</b> Orlok took the lonely-original-owner backstory, the corridor set-piece it was going to fill was cut, and Saturday's mansion fight is now a botched summoning. Dead spec kept in <code>/PROPOSALS.md</code>.","doc"],
   ["Orlok's mortal name — <b>settled</b>","<b>Cornelis Dood is Orlok.</b> Dood is his mortal surname. He built the house, the Dutch pun survives, the puzzle prop survives untouched, and the Crier's obituary is technically accurate — the town really did bury him.","doc"],
-  ["The botched summoning — direction set","Now <b>Poe Boy's second botched ritual</b>: it claws toward the computer room, and killing it wakes the Spirit (an AIM line types itself) and drops the culprit's notebook — the Night 1 cliffhanger. Decided in conversation; still to paste into the doc, and every stat is still a proposal. <b>Open (In Person Session):</b> how to make it unmistakable that it's Poe Boy's.","ai"],
+  ["The botched summoning — direction set","Now <b>Poe Boy's second botched ritual</b>: it claws toward the computer room, and killing it wakes the Spirit (an AIM line types itself) — the Night 1 cliffhanger when time allows. Nothing on the night signposts it as his; the Spirit names him on Sunday. Decided in conversation; still to paste into the doc, and every stat is still a proposal.","ai"],
   ["The invitation: concert or haunted house?","Poe Boy sells the whole night as a concert. Whether the 7PM card is an invitation to <b>his show</b> or to a <b>haunted house</b> is Spencer's call; he is making the invitation and the poster.","doc","open"],
   ["When do they get the concert poster?","The poster is what brings the 3AM audience, and doors open half an hour before the set. Whether the party sees it at the gazebo or on the wall of the mansion's first room is open.","doc","open"],
-  ["What opens the computer room?","The AIM room is locked until last, with a poster on the door. What opens it is not designed.","doc","open"],
+  ["What opens the computer room — <b>settled</b>","<b>The Spirit does.</b> Once the party has been through the other rooms, the AIM chime drifts down the hall and the lock clicks open on its own. The DM triggers it when the table is ready, so there is no puzzle. The poster stays on the door. Decided in conversation, not yet in the doc.","doc"],
   ["The vampires before the turn","With no vampire fight in the finale, Poe Boy's lie on the mic is all that is left of Sesh 7's <i>takes control of some vampires in the final fight</i>, and the breach breaks it on sight. Where the vampires stand between 3AM and the developer's death is open.","doc","open"],
   ["Backstory: written, or in dialogue?","How much of each backstory reaches the players on paper and how much through NPC dialogue. On the list: the <b>silly bandz</b>, <b>3am</b>, the <b>Dolly Parton riff</b>, and <b>Angelique's side-eye</b>.","doc","open"],
   ["The study door","<b>Deliberately undefined.</b> The room and its contents are settled; how the party gets through the door is not designed and is not being designed yet. One constraint when it is: it should be a <b>whole-party</b> problem, so five people open the room and one of them finds out what it means.","doc"],
-  ["The dead kid","<b>Solved how and where, not what.</b> The name now comes off the <b>USB</b>: they plug the drive into the machine and it mounts under his name. It needs one word. He still needs a year, and enough of a life that the players feel it. Also: the soul cage left no body, so there was never a search or a funeral — decide what the school thinks happened to him, because that's the version Angelique has been living with.","doc","open"],
+  ["The dead kid — <b>named</b>","<b>Marcus Hale</b>, who died in 1999 at about twelve. The name comes off the <b>USB</b>: they plug the drive into the machine and it mounts as <code>MARCUS_HALE</code>. He still needs enough of a life that the players feel it. Also: the soul cage left no body, so there was never a search or a funeral — decide what the school thinks happened to him, because that's the version Angelique has been living with.","doc"],
   ["The band's name — <b>settled</b>","<b>Total Party Kill.</b> Simone's favourite satanic metal band is load-bearing in three places — her savings, the goat's price, and Poe Boy's grounding — and the name is printable: it is on the shirt she wears all weekend and on the tickets his mother hands over. Scott's pick, not in the doc yet; the band was Spencer's call, so confirm it with him.","doc"],
   ["Why these five?","The invite is exclusive — five cards, five lockers, nobody else. That makes the guest list a deliberate choice by Poe Boy, and it needs a reason. Candidates: they're the misfits nobody would come looking for; Gnomey knows him from the old crew and knows too much; Angelique is close enough to them to be a problem. Whatever the answer, the players will ask it out loud the moment they realise no one else got a card.","ai"],
   ["Who was the 3AM flyer for?","There is a public-looking DJ show flyer for 3AM at Dood Mansion. With nobody else invited, either it went out wide as the <b>cover story</b> — the thing Poe Boy showed the vampires as proof he was staging the big scare they asked for — or it never left his hands and the whole show is for five people. Affects whether the flyer prop gets built as a real handout.","ai"],
   ["How the vamps learn the truth","They believe he went out a window. Decide whether the reveal comes from the Spirit directly, from Angelique, or from the players producing the recording.","doc","open"],
   ["John / Yobo — arc <b>settled</b>","Yobo (the Dolly-Parton lie, anxious about real talent) and his arc are settled — the lie is a Performance/Inspiration debuff (Deception upside) that flips to a buff when he tells the truth in the party room. <b>Still open:</b> the <b>wig</b> — written in as a question for John, so not yet settled — plus his race, a subclass, and the dice.","doc"],
-  ["Cody's PC — <b>answered</b>","Cody's PC is a <b>Firbolg druid</b> (working name <b>Russ</b>, <i>basically Russell from Up</i>) who earns his <b>Assisting the Elderly</b> badge by helping the vampires and bonds with <b>Orlok</b>. Three requirements — the sunbeam spectacles, the cellar garden, and healing a vampire in the finale — then Orlok signs the card and his troop leader hands over the badge in the ending scene. The herb is <b>Sun's-mercy</b>; still open inside it: the badge art and Cody's full sheet.","doc"],
+  ["Cody's PC — <b>answered</b>","Cody's PC is a <b>Firbolg druid</b> (working name <b>Russ</b>, <i>basically Russell from Up</i>) who earns his <b>Assisting the Elderly</b> badge by helping the vampires and bonds with <b>Orlok</b>. Three requirements — the sunbeam spectacles, the cellar garden, and healing a vampire in the finale — then Orlok signs the card and his troop leader hands over the badge in the ending scene. The herb is <b>Sun's-mercy</b>; still open inside it: Cody's full sheet.","doc"],
   ["4th crew member","<b>The crew is three</b> — Poe Boy, Lil Stinky, Angelique, which is what the DJ flyer bills. A fourth was wanted <i>probably also female</i> and never written. Spencer has not agreed to lose her, so it needs raising with him.","doc","open"],
   ["Party level","<b>Level 4</b>, leveling to 5 at the end of day one — so anything on Sunday is built for five level-5 PCs (was level 3 → 4).","doc"],
   ["NPC races & classes","<b>Settled.</b> Poe Boy is a Kenku Bard (Glamour), Lil Stinky a Paladin (Oath of Devotion), Angelique a Changeling Rogue. Lil Stinky also has an arc: <i>sworn to a liar without knowing it, his oath breaks when he believes us about the kid.</i> Still genuinely open: <b>Lil Stinky's race</b> (Orc or Goliath) and <b>Simone's race</b>.","doc"],
@@ -945,11 +954,11 @@ const DOCS = [
   ["The printed photograph","NOT PRINTED · <b>Bix's physical prop.</b> An aged print of /photo/, handed to Will in the party room, and the key the table holds for the spot-the-difference. Print it once Will's trait is in.","doc",""],
   ["The frozen party (party room)","<b>BUILT — /party-room/</b> · the digital half of Yobo's party-room turn, a <b>spot-the-difference</b>: the live room is almost Bix's photograph, and six things in it are wrong. The table holds the printed photo and taps what doesn't match; wrong taps and a slow creep raise the <b>Revel meter</b> to a curdle (the scare). 🟡 The six differences are the prop's own. When all six are put right the host calls for a song, which is Yobo's Performance check at the table, with DM buttons for a true vs. a borrowed voice. Audio is fully synthesised — no asset files.","doc",""],
   ["The deed","<b>BUILT — /deed/</b> · <b>Gnomey's physical prop.</b> The 1931 deed to Dood Mansion, conveyed to the bearer under the Articles of Settlement and carrying the same DOOD seal. Letter size — <b>print it at Staples</b> (see the print list). <b>Uncle Vinny hands it to Julia in the ending scene</b>; until then the strongbox in the study only has the empty slot.","doc",""],
-  ["The USB stick","NOT BOUGHT · a real thumb drive handed to the players when the Spirit uploads. Put scream_test_03_GOOD.wav on it — and <b>set its volume label to the kid's name</b>, because the mount is the moment the table learns who he is.","doc",""],
-  ["The AIM password sticky note","NOT BUILT · <b>the thing that unlocks the whole computer-room scene.</b> A sticky note reading <code>Fluffy123</code>, in handwriting, findable somewhere in the house. The prop's sign-on screen will not proceed without it. Since the account is <b>Poe Boy's</b>, the note is his too — the obvious homes are stuck to the monitor, inside the gear case, or in the ballroom rig downstairs, which would make the party carry it up two floors.","doc",""],
+  ["The USB stick","NOT BOUGHT · a real thumb drive handed to the players when the Spirit uploads. Put scream_test_03_GOOD.wav on it — and <b>set its volume label to <code>MARCUS_HALE</code></b> (FAT32 allows 11 characters), because the mount is the moment the table learns who he is.","doc",""],
+  ["The AIM password sticky note","NOT BUILT · <b>the thing that unlocks the whole computer-room scene.</b> A sticky note reading <code>Fluffy123</code>, in handwriting. <b>A floating prop:</b> keep it in hand and give it over the first time they search any room in the house (<i>“look around”</i>) — no fixed location. The prop's sign-on screen will not proceed without it. Since the account is <b>Poe Boy's</b>, the note is his too — the obvious homes are stuck to the monitor, inside the gear case, or in the ballroom rig downstairs, which would make the party carry it up two floors.","doc",""],
   ["The wishing willow","NOT BUILT · the second thing in the backpack. A small wooden token with a paper slip — <i>I want Angelique to notice me</i> — in twelve-year-old handwriting. <b>Simone's physical prop.</b> Cheap to make and it is the only physical object connecting a PC to the body.","doc",""],
-  ["The concert tickets","<b>BUILT — /tickets/</b> · two 2004 Ticketmaster-style tickets, bought under <b>LIVINGSWORTH III / UPTON M</b> — what Poe Boy's mother gives Simone in the ending scene. The band is <b>Total Party Kill</b>; venue and date are fields on the page (or <code>--venue</code> / <code>--date</code> in the print build).","doc",""],
-  ["Russ's badge &amp; requirements card","<b>BUILT — /badge/</b> · a Wilderness-Explorer-style card carrying Russ's three requirements (the sunbeam spectacles, the cellar garden, healing a vampire) each with a <b>“verified by your elder” signature line</b> Orlok won't sign until the epilogue — plus the merit badge itself. <b>Russ's physical prop.</b> <b>Print the card; make the badge physical</b>; the <b>troop leader</b> hands it to Cody in the ending scene. The herb is <b>Sun's-mercy</b>; 🟡 the final badge art is still open.","doc",""],
+  ["The concert tickets","<b>BUILT — /tickets/</b> · two 2004 Ticketmaster-style tickets, bought under <b>LIVINGSWORTH III / UPTON M</b> — what Poe Boy's mother gives Simone in the ending scene. <b>Total Party Kill</b> at the Transyltown Armory, Sat Jun 25 2005 — the end of the school year. Every field is editable on the page. 🟡 The venue, date and times are prop texture.","doc",""],
+  ["Russ's badge &amp; requirements card","<b>BUILT — /badge/</b> · a Wilderness-Explorer-style card carrying Russ's three requirements (the sunbeam spectacles, the cellar garden, healing a vampire) each with a <b>“verified by your elder” signature line</b> Orlok won't sign until the epilogue — plus the merit badge itself. <b>Russ's physical prop.</b> <b>Print the card; make the badge physical</b>; the <b>troop leader</b> hands it to Cody in the ending scene. The herb is <b>Sun's-mercy</b>. The badge art is <b>option B</b> — the scout carrying a huge rune spellbook for a hooded old mage, at <code>/badge/art/</code>.","doc",""],
   ["The recording itself","NOT BUILT · the audio that plays over the ballroom PA in phase two. The single biggest table moment in the campaign — and it is a file you hit play on.","doc",""]
 ];
 
@@ -974,7 +983,7 @@ const CENC = [
    note:"<b>The shears don't attack people.</b> Every turn they move for the article and cut; they only hurt someone who physically interposes. They're also the only cutting things in the room, so it is never ambiguous which enemies matter.<br><br><b>Two shears means two approach lanes</b>, and the party has to cover both with bodies. Killing one halves the pressure immediately, which hands them a target priority without you naming it.<br><br><b>The first cut is the trigger, not an action</b> — they come out of the spine as the trap fires, before initiative. The page always gets cut at least once, with no fudging.<br><br><b>Count the cuts; that's the puzzle.</b> The prop opens on a <b>setup screen</b> — tap the bracket and hand the iPad over. One or two cuts → 9 pieces, three or four → 16, five or more → 25. <b>The timer is gone</b>: nothing is resisting them any more, so it's a jigsaw, and the difficulty they earned in the fight is the whole tension.<br><br>It <b>contains and erases; it does not kill</b>. He's a businessman scrubbing a stigmatised property, not a murderer, and he wouldn't leave something lethal in a public library. That's what makes him frightening eight hours later, when he is willing."},
 
   {act:"Saturday · late",title:"The botched summoning",st:"todo",stl:"Named, not statted",c:"#d23a52",s:"doc",
-   p:"Saturday's one mansion fight, and the close of Night 1. <b>Poe Boy's second botched ritual</b> — the same hand that soul-caged the dead kid — sealed in a room upstairs and visibly <b>incomplete</b>. It claws toward the computer room the whole fight; killing it wakes the Spirit (an AIM line types itself) and leaves the culprit's notebook behind, planting that the dangerous things here are <b>human-made</b>.",
+   p:"Saturday's one mansion fight, and the close of Night 1 if the clock allows. <b>Poe Boy's second botched ritual</b> — the same hand that soul-caged the dead kid — sealed in a room upstairs and visibly <b>incomplete</b>. It claws toward the computer room the whole fight; killing it wakes the Spirit (an AIM line types itself) and leaves a half-drawn ritual circle, planting that the dangerous things here are <b>human-made</b> without saying whose.",
    math:[["Budget · 5 PCs at level 4","1,250 low / 2,500 high"],["A solo CR 4","1,100 XP — swingy, not hard"],["Solo CR 4 + 4× CR ½","1,500 XP"],["Lazy benchmark","5 CR total · solo cap CR 4"]],
    verdict:"Add minions rather than hit points. At level 4 a solo CR 4 plus four CR ½ minions lands at ~1,500 — between the low and moderate lines, under both the total-CR and solo caps. A lone solo at this tier reads as undertuned on the budget and plays as a coin flip. This is the last fight before the level-4 → 5 jump.",
    note:"<b>The fight's slot is doc; the shape here is a direction decided in conversation, not yet in the doc — and every number is still a proposal.</b><br><br>Design notes that follow from it: keep it <b>bound to its room</b> rather than roaming, so it reads as something left behind, not something hunting; make it <b>visibly incomplete</b>, the tell that a person made it; and have it strain toward the sealed computer room, so its death can wake the Spirit as the Night 1 cliffhanger. The party has no way to know whose it is until Sunday.<br><br><b>It replaces the Gjenganger</b>, retired by displacement. See the Not Canon tab."},
@@ -1253,7 +1262,7 @@ document.getElementById("docs").innerHTML=DOCS.map(([t,d,st,src])=>`<div class="
   groups.push(["Encounter numbers \u2014 the Combat section",[
     ["Every number on the Combat section","The <b>beats</b> are settled. The XP budgets, CR picks, HP figures, stat-block chassis and the contents of Saturday's fight are all proposals built against them. Nothing there has been agreed."],
     ["Saturday's fight has no contents","The plan says there is one, where it sits, and roughly how long it runs. What is actually in the room is unwritten."],
-    ["The botched summoning","Now given a shape: <b>Poe Boy's second botched ritual</b>, clawing toward the computer room, that ends Night 1 by waking the Spirit and dropping the culprit's notebook. Direction decided in conversation, not yet in the doc; the stats stay a proposal."],
+    ["The botched summoning","Now given a shape: <b>Poe Boy's second botched ritual</b>, clawing toward the computer room, that can end Night 1 by waking the Spirit. Direction decided in conversation, not yet in the doc; the stats stay a proposal."],
     ["~~Orlok's mortal name~~ — settled","Cornelis Dood <b>is</b> Orlok; Dood is his mortal surname. Ratified."],
     ["The study door","Deliberately left undefined. The room and its contents are settled; the door is not."],
     ["The party room","Bix finds the photograph. A preserved party room from the night Edward and Goblinenon arrived is the codex's placement for it."],
@@ -1266,7 +1275,7 @@ document.getElementById("docs").innerHTML=DOCS.map(([t,d,st,src])=>`<div class="
   groups.push(["Now resolved",[
     ["Simone had no mansion connection","She has one now, and it is canon: she sold the dead kid the <b>wishing willow</b> he wished on. The codex's old floated hooks \u2014 a vague 'love spell gone wrong' thread and Simone-recognises-a-soul-cage \u2014 are superseded by the real thing."],
     ["Bix's mansion night 'ties back to his parents'","The codex had flagged this as an invention. It is now true and much more specific: <b>Edward is his father</b>, his mother Goblinenon was killed by the developer's men, and the vampires turned Edward to save him."],
-    ["The dead kid's name comes off the backpack","Superseded. It is now on the <b>USB</b> \u2014 they plug it in and it mounts under his name. Still one word short."],
+    ["The dead kid's name","<b>Marcus Hale.</b> It is on the <b>USB</b> \u2014 they plug it in and it mounts as <code>MARCUS_HALE</code>."],
     ["The Spirit's ending","He is no longer left in the machine by default. He now has a second ask, a price, and an epilogue on the <b>library computers</b>."]
   ]]);
   groups.push(["Corrections already applied",[
@@ -1332,7 +1341,7 @@ const TODO_LIST = [
    "<b>The Articles of Settlement</b> — <code>/settlement/</code>. iPad-only by default; print it only if you want a paper copy in the strongbox.",
    "<b>The DJ show poster</b> — not built. Spencer's.",
    "<b>Backstory reminder cards</b>, one per PC — <code>/backstory/</code>. Built. Six 5×7 cards (one per PC and a shared Transyltown card), two per sheet, in the cardstock order.",
-   "<b>Concert tickets</b> — <code>/tickets/</code>. Built: two thermal-style tickets to <b>Total Party Kill</b> on one sheet, in the cardstock order. Venue and date are blank; rebuild with <code>--venue</code> and <code>--date</code> to fill them.",
+   "<b>Concert tickets</b> — <code>/tickets/</code>. Built: two thermal-style tickets to <b>Total Party Kill</b> at the Transyltown Armory, Sat Jun 25 2005, on one sheet, in the cardstock order. Ready to print.",
    "<b>Handmade, not printed:</b> the AIM sticky note (<code>Fluffy123</code>) and the wishing willow's paper slip."
   ]
  },
@@ -1351,12 +1360,9 @@ const TODO_LIST = [
   "o": "scott",
   "c": "Story",
   "top": 1,
-  "note": "He has to be introduced early so he isn't random when he turns up at the end. The plan is a <b>phone call to Gnomey</b> — the lockers scene is the current slot. Write what he says. Then the ending: he walks into the house and hands Gnomey the deed, because he has earned it.",
-  "steps": [
-   "Fill in his backstory beyond Sesh 8 — what Julia should know about him going in.",
-   "Write the phone call.",
-   "How a man who is ancient and in a home gets to the house at dawn."
-  ]
+  "done": 1,
+  "ans": "Vinny thinks it's 1931 \u2014 \u201cCornelis owes me a rematch\u201d",
+  "note": "Minutes after Gnomey reads <i>Dood</i> on his card in the lockers scene, his flip phone rings. Vinny is confused and thinks it's 1931: <i>\u201cIs it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch.\u201d</i> That introduces him early, so he isn't random when he turns up at the end. In the ending he walks into the house and hands Gnomey the deed, because he has earned it; Russ's troop leader drives him up the hill at dawn."
  },
  {
   "id": "ip3",
@@ -1393,21 +1399,27 @@ const TODO_LIST = [
   "t": "The troop leader",
   "o": "both",
   "c": "Story",
-  "note": "New NPC. Comes into the ending scene and hands Russ his badge, after Orlok has signed the card. Nothing else is written: name, race, voice, how they end up at the house at dawn."
+  "done": 1,
+  "ans": "An over-earnest scout dad who drives Vinny up at dawn",
+  "note": "Comes into the ending scene and hands Russ his badge, after Orlok has signed the card. An <b>over-earnest scout dad</b>: khaki shorts in November, a whistle, a clipboard, and unfazed by vampires as long as the paperwork is in order. He runs <b>Troop 187's nursing-home volunteer visits</b>, which is how he knows Vinny, and he's the one who <b>drives Vinny up the hill at dawn</b> \u2014 one car explains both arrivals. His name is still open."
  },
  {
   "id": "ip7",
   "t": "What opens the computer-room door?",
   "o": "scott",
   "c": "Puzzle",
-  "note": "The AIM room is locked until last, with a poster on the door. If they try it early, that is all they get. What opens it is not designed."
+  "done": 1,
+  "ans": "The Spirit opens it \u2014 the AIM chime, then the lock clicks",
+  "note": "The AIM room is locked until last, with a poster on the door. If they try it early, that is all they get. <b>The Spirit unlocks it:</b> once the party has been through the other rooms, the AIM chime drifts down the hall and the lock clicks open on its own \u2014 the kid who typed <i>\u201cis someone there\u201d</i> after the summoning, finally reaching them. The DM triggers it when the table is ready, so there is no puzzle. The poster stays."
  },
  {
   "id": "ip8",
   "t": "Make the botched summoning read as Poe Boy's",
   "o": "both",
   "c": "Story",
-  "note": "The notebook's handwriting is the current tell, paid off later by the sticky note and the checkout card. Decide whether the table needs a louder one on the night."
+  "done": 1,
+  "ans": "Left ambiguous \u2014 the Spirit names him on Sunday",
+  "note": "The botched summoning is Poe Boy's, and nothing on Saturday says so. There is no notebook or handwriting tell: the wreckage is a half-drawn ritual circle, and the payoff is the Spirit naming him on Sunday."
  },
  {
   "id": "ip9",
@@ -1462,7 +1474,9 @@ const TODO_LIST = [
   "o": "scott",
   "c": "Handout",
   "top": 1,
-  "note": "One sticky note reading <code>Fluffy123</code>. <b>The prop's sign-on screen is now a real gate</b> \u2014 <b>DJPoeBoy187</b> is saved on the machine and the password box is empty, and nothing happens until they type it. Unlimited attempts, case-insensitive, real AIM error on a miss. <b>Still to decide: where they find it.</b>"
+  "done": 1,
+  "ans": "Floating prop \u2014 handed over on the first search of any room",
+  "note": "One sticky note reading <code>Fluffy123</code>. <b>The prop's sign-on screen is a real gate</b> \u2014 <b>DJPoeBoy187</b> is saved on the machine and the password box is empty, and nothing happens until they type it. Unlimited attempts, case-insensitive, real AIM error on a miss. <b>It's a floating prop:</b> keep it in hand and give it over the first time they search any room in the house (<i>\u201clook around\u201d</i>), so there's no fixed location. Scott writes it out by hand."
  },
  {
   "id": "h8",
@@ -1484,7 +1498,7 @@ const TODO_LIST = [
   "o": "scott",
   "c": "Handout",
   "built": 1,
-  "note": "Live at <code>/badge/</code>. A Wilderness-Explorer-style <b>Requirements card</b> with Russ's three boxes — the sunbeam spectacles, the cellar garden, healing a vampire — each with a <b>“verified by your elder” signature line Orlok won't sign until the epilogue</b>, plus the merit badge itself. <b>Print the card and the badge</b> (both on the print list; the badge prints at 3 in on card stock); the <b>troop leader</b> hands it to Cody in the ending scene. The herb is <b>Sun's-mercy</b>."
+  "note": "Live at <code>/badge/</code>. A Wilderness-Explorer-style <b>Requirements card</b> with Russ's three boxes \u2014 the sunbeam spectacles, the cellar garden, healing a vampire \u2014 each with a <b>\u201cverified by your elder\u201d signature line Orlok won't sign until the epilogue</b>, plus the merit badge itself. <b>Print the card and the badge</b> (both on the print list; the badge prints at 3 in on card stock); the <b>troop leader</b> hands it to Cody in the ending scene. The herb is <b>Sun's-mercy</b>. The art is <b>option B</b> \u2014 the scout carrying a huge rune spellbook for a hooded old mage, at <code>/badge/art/</code>."
  },
  {
   "id": "q14",
@@ -1533,9 +1547,11 @@ const TODO_LIST = [
  },
  {
   "id": "s14",
-  "t": "The cellar and the corridor — answered",
+  "t": "The cellar and the corridor \u2014 answered",
   "o": "scott",
   "c": "Puzzle",
+  "done": 1,
+  "ans": "Corridor cut; the cellar holds the liquor and the infirmary",
   "note": "The corridor is cut entirely. The cellar has a reason again: Vinny kept the bootleg liquor in it from 1920, repeal came in '33 and he never came back for the crates \u2014 and it is where the vampires keep the animals, which is what the food-stash puzzle reveals. One room, two payoffs."
  },
  {
@@ -1545,7 +1561,7 @@ const TODO_LIST = [
   "c": "Prop",
   "built": 1,
   "done": 1,
-  "note": "Live at /aim/. Six new nodes plus a working <b>file-transfer window</b> \u2014 he asks them to fetch his backpack, the willow, the drive mounting under his name, the file Poe Boy named, the upload, and 'expose him'. <b>Extended</b> with the second ask, the hold point, the no-path and the soul transfer \u2014 see the entry at the top of this list. <b>The prop still never speaks the kid's name</b>, because it isn't picked; it prints whatever <code>?name=</code> is set to and the players read it off the screen."
+  "note": "Live at /aim/. Six new nodes plus a working <b>file-transfer window</b> \u2014 he asks them to fetch his backpack, the willow, the drive mounting under his name, the file Poe Boy named, the upload, and 'expose him'. <b>Extended</b> with the second ask, the hold point, the no-path and the soul transfer \u2014 see the entry at the top of this list. The prop names him from its config or <code>?name=</code>, and the players read it off the screen."
  },
  {
   "id": "r9",
@@ -1560,7 +1576,7 @@ const TODO_LIST = [
   "t": "Buy a real USB stick",
   "o": "scott",
   "c": "Handout",
-  "note": "Handed to the players at the table when the Spirit uploads. Cheap, matches everything else in the repo, and if you put the .wav on it one of your players will absolutely plug it into a laptop between sessions. Period-correct: thumb drives were everywhere by 2004."
+  "note": "Handed to the players at the table when the Spirit uploads. Cheap, matches everything else in the repo, and if you put the .wav on it one of your players will absolutely plug it into a laptop between sessions. Period-correct: thumb drives were everywhere by 2004. <b>Label the stick <code>MARCUS_HALE</code></b> \u2014 FAT32 allows 11 characters, and the mount is how the table learns his name."
  },
  {
   "id": "q11",
@@ -1594,14 +1610,13 @@ const TODO_LIST = [
   "t": "Walk the mansion half of the story end to end",
   "o": "scott",
   "c": "Puzzle",
-  "note": "The backstory is settled now, so the front half holds together. This is the pass over everything after the doors bolt — does each beat still hand the next one a reason to happen, or were some leaning on things that have since changed?",
+  "note": "The backstory is settled now, so the front half holds together. This is the pass over everything after the doors bolt \u2014 does each beat still hand the next one a reason to happen, or were some leaning on things that have since changed?",
   "steps": [
    "Start at the doors bolting and go beat by beat. Every scene has to end owing the next one something.",
-   "The fork: how do the players find out there is a choice at all, and does that survive them splitting the party?",
-   "Superseded: the fork is cut and so is the corridor. Sunday opens on the study and the party room instead.",
-   "Reveal order — food stash, the Spirit naming Poe Boy, Angelique's confession, the vampires learning the kid never got out. Decide which lands first and whether any order defuses the others.",
-   "Run the clue chain against the two-ways-in rule: the cut-up page, the checkout card, the recording, the coffin count that does not match the Crier.",
-   "Pick the Saturday cliffhanger. Ideally just inside the mansion with a thread pulled."
+   "Sunday opens on the study, the party room and the cellar.",
+   "Reveal order \u2014 food stash, the Spirit naming Poe Boy, Angelique's confession, the vampires learning the kid never got out. Decide which lands first and whether any order defuses the others.",
+   "Run the clue chain against the two-ways-in rule: the cut-up page, the checkout card, the recording.",
+   "Saturday ends wherever time runs out; the botched summoning closes Night 1 if the clock allows."
   ],
   "top": 1
  },
@@ -1610,38 +1625,46 @@ const TODO_LIST = [
   "t": "Branch map: fight-advantage route vs no-fight route",
   "o": "both",
   "c": "Story",
-  "note": "The fork where they either learn how to kill the vampires — dig up the coffins, stake, rebury — or learn they never had to.",
-  "top": 1
+  "top": 1,
+  "done": 1,
+  "ans": "Cut \u2014 the story runs one line",
+  "note": "The fork where they either learn how to kill the vampires \u2014 dig up the coffins, stake, rebury \u2014 or learn they never had to."
  },
  {
   "id": "s3",
   "t": "The vampire trio as characters",
   "o": "both",
   "c": "Story",
-  "note": "Their position is settled. What is missing is the three of them as people: Orlok does the actual frightening, Dracula treats it as theatre and would blab, Edward is the one who breaks first. Names, races and classes still open.",
-  "top": 1
+  "top": 1,
+  "done": 1,
+  "ans": "Written",
+  "note": "Their position is settled. What is missing is the three of them as people: Orlok does the actual frightening, Dracula treats it as theatre and would blab, Edward is the one who breaks first. Names, races and classes still open."
  },
  {
   "id": "s2",
   "t": "Give every PC a story arc and a mansion connection",
   "o": "both",
   "c": "Story",
-  "note": "<b>All five are closed — every PC now has a mansion connection and a real arc.</b> The goal was one sprinkle of mansion lore per character; the arc half is the part nobody had written down. All five are now true, ahead of the weekend.",
+  "top": 1,
+  "done": 1,
+  "ans": "All five arcs and mansion connections are written",
+  "note": "<b>All five are closed \u2014 every PC now has a mansion connection and a real arc.</b> The goal was one sprinkle of mansion lore per character; the arc half is the part nobody had written down. All five are now true, ahead of the weekend.",
   "steps": [
-   "Bix (Will) — <b>both done.</b> Mansion: he broke in one rainy night running from a foster home, and the party room is where he finds the photograph. Arc: Edward is his father, his mother Goblinenon was killed clearing this house, and Edward explains himself in the epilogue. The diary idea now has an obvious subject.",
-   "Gnomey (Julia) — <b>both done.</b> He owns the house by the end: Great Uncle Vinny won it off Orlok at cards in 1931, title rests with whoever holds the deed, and Vinny hands it to him in the ending scene. Arc is quiet-and-overlooked to head of household, found alone in the study and paid off with the deed, the public claim and the renewal at the threshold. Childhood dares and the bad Halloween still stand underneath it.",
-   "Simone — <b>both done.</b> Mansion: she sold the dead kid the wishing willow he wished on. Arc: the second ask, the goat's price, the smashed piggy bank, and the concert she gets anyway from the last person she'd want it from.",
-   "John (Yobo) — <b>both done.</b> Mansion: the party room, whose frozen ghost-party accepts only a true performance. Arc: the Dolly-Parton lie is a Performance/Inspiration debuff; Dracula pushes him; he tells the truth and it flips to a buff. Full build in /PROPOSALS.md; prop at /party-room/.",
-   "Cody — <b>both done.</b> A Firbolg druid (working name <b>Russ</b>, basically Russell from <i>Up</i>). Mansion: the cellar infirmary, where he tends Orlok's animals and grows Sun's-mercy. Arc: earning his <b>Assisting the Elderly</b> badge across three requirements and bonding with Orlok, who signs the card; his troop leader hands him the badge in the ending scene."
-  ],
-  "top": 1
+   "Bix (Will) \u2014 <b>both done.</b> Mansion: he broke in one rainy night running from a foster home, and the party room is where he finds the photograph. Arc: Edward is his father, his mother Goblinenon was killed clearing this house, and Edward explains himself in the epilogue. The diary idea now has an obvious subject.",
+   "Gnomey (Julia) \u2014 <b>both done.</b> He owns the house by the end: Great Uncle Vinny won it off Orlok at cards in 1931, title rests with whoever holds the deed, and Vinny hands it to him in the ending scene. Arc is quiet-and-overlooked to head of household, found alone in the study and paid off with the deed, the public claim and the renewal at the threshold. Childhood dares and the bad Halloween still stand underneath it.",
+   "Simone \u2014 <b>both done.</b> Mansion: she sold the dead kid the wishing willow he wished on. Arc: the second ask, the goat's price, the smashed piggy bank, and the concert she gets anyway from the last person she'd want it from.",
+   "John (Yobo) \u2014 <b>both done.</b> Mansion: the party room, whose frozen ghost-party accepts only a true performance. Arc: the Dolly-Parton lie is a Performance/Inspiration debuff; Dracula pushes him; he tells the truth and it flips to a buff. Full build in /PROPOSALS.md; prop at /party-room/.",
+   "Cody \u2014 <b>both done.</b> A Firbolg druid (working name <b>Russ</b>, basically Russell from <i>Up</i>). Mansion: the cellar infirmary, where he tends Orlok's animals and grows Sun's-mercy. Arc: earning his <b>Assisting the Elderly</b> badge across three requirements and bonding with Orlok, who signs the card; his troop leader hands him the badge in the ending scene."
+  ]
  },
  {
   "id": "s11",
   "t": "Name the kid in the computer, and the year he died",
   "o": "both",
   "c": "Story",
-  "note": "Everything else about him is settled. He has no name and no year, and the AIM prop is live without them."
+  "done": 1,
+  "ans": "Marcus Hale \u2014 died 1999, about twelve",
+  "note": "<b>Marcus Hale</b>, who died in 1999 at about twelve \u2014 the five years the Spirit has spent listening to one person at a keyboard. The USB's volume label is <code>MARCUS_HALE</code> (FAT32 allows 11 characters). Still worth a note: enough of a life that the table feels it."
  },
  {
   "id": "s5",
@@ -1655,7 +1678,9 @@ const TODO_LIST = [
   "t": "Pick the session break point",
   "o": "both",
   "c": "Story",
-  "note": "Two sessions, Saturday and Sunday. Ideally Saturday ends just inside the mansion on a cliffhanger."
+  "done": 1,
+  "ans": "Deliberately undefined \u2014 Saturday ends wherever time runs out",
+  "note": "Two sessions, Saturday and Sunday. Saturday ends wherever time runs out. The botched summoning closes Night 1 if the clock allows; it isn't required to. Everyone levels to 5 at the end of day one."
  },
  {
   "id": "s9",
@@ -1683,7 +1708,9 @@ const TODO_LIST = [
   "t": "Reconcile the coffin count",
   "o": "both",
   "c": "Story",
-  "note": "The Crier leaves two coffins under the chapel floor. There are three vampires. Either the prop is wrong, or one of them is not buried where the others are — and that second option is a better story than a typo."
+  "done": 1,
+  "ans": "Moot \u2014 the 1937 Crier isn't canon",
+  "note": "The Crier leaves two coffins under the chapel floor. There are three vampires. Either the prop is wrong, or one of them is not buried where the others are \u2014 and that second option is a better story than a typo."
  },
  {
   "id": "s1",
@@ -1691,7 +1718,7 @@ const TODO_LIST = [
   "o": "spencer",
   "c": "Story",
   "done": 1,
-  "note": "<b>Both are now in.</b> Cody's PC is a <b>Firbolg druid</b> (working name <b>Russ</b>, basically Russell from <i>Up</i>): the mansion connection is the <b>cellar infirmary</b> and the arc is earning his <b>Assisting the Elderly</b> badge by helping Orlok, who signs it in the epilogue. Still to hand in like everyone else \u2014 the full character sheet and druid subclass; the herb is <b>Sun's-mercy</b>, and the badge art is still open."
+  "note": "<b>Both are now in.</b> Cody's PC is a <b>Firbolg druid</b> (working name <b>Russ</b>, basically Russell from <i>Up</i>): the mansion connection is the <b>cellar infirmary</b> and the arc is earning his <b>Assisting the Elderly</b> badge by helping Orlok, who signs it in the epilogue. Still to hand in like everyone else \u2014 the full character sheet and druid subclass; the herb is <b>Sun's-mercy</b>, and the badge art is option B at <code>/badge/art/</code>."
  },
  {
   "id": "o2",
@@ -1722,13 +1749,15 @@ const TODO_LIST = [
   "t": "Give every PC something in the house that is theirs",
   "o": "scott",
   "c": "Puzzle",
-  "note": "Distinct from the arc item, and this half is room design rather than backstory. One sprinkle of mansion lore per character was the goal; what that actually needs is a physical thing they walk into — a room, an object, an encounter that lands for one player and reads as set dressing to everyone else. All five now have both the hook and the beat: Gnomey the study, Bix and Yobo the party room, Simone the computer, Cody the cellar. The unsuperseded proposals below are mine, not canon.",
+  "done": 1,
+  "ans": "Every PC has a room",
+  "note": "Distinct from the arc item, and this half is room design rather than backstory. One sprinkle of mansion lore per character was the goal; what that actually needs is a physical thing they walk into \u2014 a room, an object, an encounter that lands for one player and reads as set dressing to everyone else. All five now have both the hook and the beat: Gnomey the study, Bix and Yobo the party room, Simone the computer, Cody the cellar. The unsuperseded proposals below are mine, not canon.",
   "steps": [
-   "Bix — the room he sheltered in that rainy night, still the way he left it, with something in it that contradicts his memory: a second bedroll, a door barred from the inside, the diary. He thinks he knows what happened to him here. The house disagrees.",
-   "Gnomey — SUPERSEDED. His house moment is the study: the card table with the last hand still on it, and a strongbox with the 1931 settlement and an empty slot where the deed should be. The old suggestion (the broken window with the crew's initials in the sill) is still a nice free detail if you want it somewhere else.",
-   "Simone — she is the only PC who would recognise a soul cage for what it is. Give her the moment of naming what was done in the computer room out loud, before anyone else understands it. (Proposal only — this was a codex invention, never discussed by either of you.)",
-   "John (Yobo) — <b>the party-room turn.</b> The frozen ghost-party accepts only a true performance, so he has to drop the Dolly-Parton lie in front of everyone he performs for. Findable by the whole party (they recreate the photograph); load-bearing only for him. Prop at /party-room/.",
-   "Cody — SUPERSEDED. His room is the cellar infirmary: Russ tends Orlok's animals with Speak with Animals (which is where the exoneration lands) and grows Sun's-mercy in the cellar's one blade of daylight. It sits right on the food-stash puzzle, so the whole party opens the room and it lands hardest for him.",
+   "Bix \u2014 the room he sheltered in that rainy night, still the way he left it, with something in it that contradicts his memory: a second bedroll, a door barred from the inside, the diary. He thinks he knows what happened to him here. The house disagrees.",
+   "Gnomey \u2014 SUPERSEDED. His house moment is the study: the card table with the last hand still on it, and a strongbox with the 1931 settlement and an empty slot where the deed should be. The old suggestion (the broken window with the crew's initials in the sill) is still a nice free detail if you want it somewhere else.",
+   "Simone \u2014 she is the only PC who would recognise a soul cage for what it is. Give her the moment of naming what was done in the computer room out loud, before anyone else understands it. (Proposal only \u2014 this was a codex invention, never discussed by either of you.)",
+   "John (Yobo) \u2014 <b>the party-room turn.</b> The frozen ghost-party accepts only a true performance, so he has to drop the Dolly-Parton lie in front of everyone he performs for. Findable by the whole party (they recreate the photograph); load-bearing only for him. Prop at /party-room/.",
+   "Cody \u2014 SUPERSEDED. His room is the cellar infirmary: Russ tends Orlok's animals with Speak with Animals (which is where the exoneration lands) and grows Sun's-mercy in the cellar's one blade of daylight. It sits right on the food-stash puzzle, so the whole party opens the room and it lands hardest for him.",
    "Rule for all five: findable by the whole party, but only load-bearing for one of them. If a beat needs its owner present to work at all, it will not survive someone splitting off."
   ]
  },
@@ -1741,10 +1770,12 @@ const TODO_LIST = [
  },
  {
   "id": "p3",
-  "t": "Computer room — the gating fight is CUT",
+  "t": "Computer room \u2014 the gating fight is CUT",
   "o": "scott",
   "c": "Puzzle",
-  "note": "Combat is the price of admission to the AIM prop. The room is Poe Boy's own recording setup — the room the kid ran into and never left — so the door, the desk and the mic are all set dressing the players can read before they sit down at the machine. <b>The room is locked until last</b>, with a poster on the door — if they try it early, that is all they get. What opens it is still to design."
+  "done": 1,
+  "ans": "Cut \u2014 the Spirit opens the door",
+  "note": "There is no gating fight. The room is Poe Boy's own recording setup \u2014 the room the kid ran into and never left \u2014 so the door, the desk and the mic are all set dressing the players can read before they sit down at the machine. <b>The room is locked until last</b>, with a poster on the door \u2014 if they try it early, that is all they get. The Spirit opens it himself once the other rooms are done."
  },
  {
   "id": "p4",
@@ -1804,21 +1835,25 @@ const TODO_LIST = [
   "t": "Make sure every act has a fight in it",
   "o": "scott",
   "c": "Combat",
+  "done": 1,
+  "ans": "Placement settled \u2014 the Combat section has it",
   "note": "Three fights, one Saturday and two Sunday, with a fourth held in reserve. What is left is the placement argument.",
   "steps": [
    "<b>Town is combat-free by decision</b>, not omission.",
-   "<b>Saturday's fight is now in town</b> — the trap in the bound volume, 500 XP. That leaves the mansion with no combat until Sunday morning.",
-   "Sunday's investigation stretch is the study, the party room and the cellar in any order, then the locked computer room last — and every PC has a room (Yobo shares the party room, Cody has the cellar infirmary).",
+   "<b>Saturday's fight is now in town</b> \u2014 the trap in the bound volume, 500 XP. That leaves the mansion with no combat until Sunday morning.",
+   "Sunday's investigation stretch is the study, the party room and the cellar in any order, then the locked computer room last \u2014 and every PC has a room (Yobo shares the party room, Cody has the cellar infirmary).",
    "The finale is two phases in one continuous sequence, so it covers the whole back end.",
-   "Sanity check: no stretch should run much past ninety minutes with neither a fight nor a puzzle paying off. Use hazards and chases rather than a fourth combat — they cost ten minutes, not fifty."
+   "Sanity check: no stretch should run much past ninety minutes with neither a fight nor a puzzle paying off. Use hazards and chases rather than a fourth combat \u2014 they cost ten minutes, not fifty."
   ]
  },
  {
   "id": "m3",
-  "t": "Corridor set-piece stat block — creature still parked",
+  "t": "Corridor set-piece stat block \u2014 creature still parked",
   "o": "scott",
   "c": "Combat",
-  "note": "On hold with the rest of the creature. Draft spec is in PROPOSALS.md and is canon to nobody. If it stays: folklore gives it the advantage in close range, so the counterplay is distance, and that is room design as much as a stat block. If it goes: the mansion loses its only set-piece and needs another."
+  "done": 1,
+  "ans": "Cut \u2014 the corridor and its creature are gone",
+  "note": "The corridor set-piece is cut, and the creature with it. The draft spec stays in PROPOSALS.md and is canon to nobody."
  },
  {
   "id": "m4",
@@ -2055,8 +2090,9 @@ const TODO_LIST = [
   "t": "Use the Gjenganger at all?",
   "o": "scott",
   "c": "Decision",
-  "ans": "RETIRED — by displacement",
-  "note": "Answered without anyone answering it. The lonely-original-owner backstory went to Orlok, the corridor set-piece the creature was going to fill was cut, and Saturday's mansion fight is now a botched summoning. Spencer's 'Up to you if we go with it' has therefore been overtaken by a schedule change — TELL HIM DIRECTLY, it was his find. Dead spec kept in PROPOSALS.md."
+  "done": 1,
+  "ans": "RETIRED \u2014 by displacement",
+  "note": "The lonely-original-owner backstory went to Orlok, the corridor set-piece the creature was going to fill was cut, and Saturday's mansion fight is a botched summoning. Dead spec kept in PROPOSALS.md."
  },
  {
   "id": "q10",

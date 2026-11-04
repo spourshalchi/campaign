@@ -636,12 +636,12 @@ const CONFIG = {
   },
   goodbyeToSignoffMs: 700,          // pause between goodbye and door slam
 
-  /* The dead kid's name is still an open question in the doc, so the prop
-     never speaks it. Set it here once it's picked, or pass it at the table
-     without editing anything:  /aim/?name=Marcus
+  /* The dead kid: Marcus Hale, died 1999 at about twelve. The drive mounts as
+     MARCUS_HALE (spaces become underscores). Override at the table without
+     editing anything:  /aim/?name=Marcus%20Hale
      When it's blank the drive mounts as UNTITLED and the beat still works —
      the players are the ones who read the name off the bag either way. */
-  kidName: "Marcus",
+  kidName: "Marcus Hale",
 
   /* The patron has no name in the doc — only a form (an all-black goat with
      an upside-down red cross). This is the prop's placeholder screen name and
@@ -659,7 +659,7 @@ try {
   if (qsName) CONFIG.kidName = qsName.trim().slice(0, 24);
 } catch (e) { /* no URLSearchParams, no problem */ }
 
-const driveLabel = () => (CONFIG.kidName ? CONFIG.kidName.toUpperCase() : "UNTITLED");
+const driveLabel = () => (CONFIG.kidName ? CONFIG.kidName.toUpperCase().replace(/\s+/g, "_") : "UNTITLED");
 
 /* =====================================================================
    DIALOGUE TREE — replace with your campaign script later.

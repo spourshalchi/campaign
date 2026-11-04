@@ -2,9 +2,10 @@
 Build the Staples print files from the props.
 
 Usage (from the project root):
-    python3 print/build.py --band "Total Party Kill" --venue "Venue" --city "City, NY" --date "SAT OCT 30 2004" --time "DOORS 7PM / SHOW 8PM"
+    python3 print/build.py
+    python3 print/build.py --venue "Venue" --date "SAT JUN 25 2005"   # override a ticket field
 
-Every ticket flag is optional; leave --band off and the tickets print the prop's default, Total Party Kill.
+Every ticket flag is optional; leave them off and the tickets print the prop's own show details.
 
 Output (in print/):
     1-cardstock.pdf     everything on cardstock, one upload, one copy
