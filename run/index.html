@@ -543,7 +543,8 @@ const SCENES = [
 { act:"town", no:2, title:"Letters in the lockers", where:"Smash cut",
   read:[{t:"It's barely noon. The card says <b>seven</b>. And not one of you has ever heard the name <b>Dood</b> before."}],
   beats:[
-    "Everyone finds a mysterious invitation to a haunted house at the abandoned Dutch mansion. 7PM sharp.",
+    "These are the five who <b>missed the senior-skip-day memo</b>, and they feel lame about it. <span class='ai'>🟡</span>",
+    "Everyone finds a mysterious invitation: a <b>haunted house</b> at the abandoned Dutch mansion, <b>7PM sharp</b> &mdash; and the <b>3AM after-party</b> for whoever lasts the night. It reads as a way to salvage the day. <span class='ai'>🟡</span>",
     "<b>Nobody else got a card.</b> Finding that out is the strongest push toward town there is.",
     "If they march up the hill early: the front is <b>still boarded at this hour</b> and bounces them back &mdash; which is the point. The boards come off during the day.",
     "<b>If they don't bite, hand a detour to a PC:</b> tell <b>Bix</b> the Records Keeper knows old names; tell <b>Gnomey</b> the old crew at the gazebo will already know.",
@@ -553,6 +554,7 @@ const SCENES = [
     {who:"Great Uncle Vinny · on Gnomey's flip phone", t:"Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch."}
   ],
   rev:[
+    {by:"scott", who:"Players", t:"learn there's a <b>party at 3AM</b> &mdash; the card promises it to whoever lasts the night."},
     {by:"scott", who:"Players", t:"learn nobody else in school got a card &mdash; just the five of them."},
     {by:"Great Uncle Vinny (phone)", who:"Gnomey", t:"hears his great-uncle talk about a card game &ldquo;up the hill&rdquo; and a &ldquo;Cornelis&rdquo; &mdash; no idea yet that it's the house, or 1931."}
   ],
@@ -560,23 +562,20 @@ const SCENES = [
     {nm:"Great Uncle Vinny (phone)", vc:"Ancient and mostly gone, and sure it's 1931. Doesn't explain who Cornelis is."}
   ],
   hand:["<b>The invite cards</b> (<code>/invite/</code>), one in each locker &mdash; the mass-flyer voice is deliberate camouflage."],
-  reminders:[
-    {t:"Open: is the card an invite to a <b>haunted house</b> or to Poe Boy's <b>concert</b>? Spencer is deciding with the invite.", k:""}
-  ],
   cues:[] },
 
 { act:"town", no:3, title:"The library &amp; hall of records", where:"Town · the clincher · Saturday's town fight", ipad:[1],
   stuck:"If the jigsaw stalls past ten minutes, the Records Keeper <b>remembers the page-2 lore</b> and tells it. The folklore is what matters, not the finished picture.",
-  talk:[{who:"Records Keeper · after the fight", t:"You can try to put it back together. But I'm guessing, by the magic on them &mdash; someone doesn't want you finding that information."}],
+  talk:[{who:"Records Keeper · after the fight", t:"You can try to put it back together. But that was your primary source, and it's gone. If you want one now, you'll have to go look at the house yourselves. &hellip;But be careful. <span class='ai'>🟡</span>"}],
   rev:[
     {by:"scott", who:"Players", t:"learn the vampire-slaying method from the folklore: dig up the coffins, stake the heart, rebury."},
     {by:"scott", who:"Players", t:"see the checkout card: <b>U.M. Livingsworth III</b>, <b>V. Soprano 1938</b>, <b>W. Ostrander</b>. Nobody knows Livingsworth is Poe Boy until the driveway."},
     {by:"scott", who:"Gnomey", t:"may clock his own family name, <b>Soprano</b>, on the card. Don't push it."},
     {by:"scott", who:"Ostrander (off-stage)", t:"learns someone has opened his records &mdash; the trap tells him. He drives out tonight. The party never learns this."},
-    {by:"Records Keeper", who:"Players", t:"learn someone with magic doesn't want this found &mdash; the only NPC who tells them to stay away."}
+    {by:"Records Keeper", who:"Players", t:"hear the primary source is gone &mdash; if they want one now, it's the house itself. She sends them up the hill with a &ldquo;be careful.&rdquo;"}
   ],
   beats:[
-    "The clincher lives here: <b>Frisian folklore</b>, the <b>vampire-slaying method</b> (dig up the coffins, stake the heart, rebury), and the <b>Records Keeper's warning</b> &mdash; the one NPC who tells them to stay away.",
+    "The clincher lives here: <b>Frisian folklore</b>, the <b>vampire-slaying method</b> (dig up the coffins, stake the heart, rebury), and the <b>Records Keeper's push</b> after the fight: the source is gone, so go look at the house yourselves &mdash; but be careful. <span class='ai'>🟡</span>",
     "The bound volume is <b>intact</b> when she hands it over. Opening it springs Ostrander's trap and the stationery comes to life and goes for the article.",
     "By the time it's dealt with the page is in pieces &mdash; <b>that's where the torn-page prop comes from.</b>",
     "In the back pocket of the volume: a checkout card, four names &mdash; <b>U.M. Livingsworth III</b> (Poe Boy's real name), <b>V. Soprano 1938</b>, <b>W. Ostrander</b>.",
@@ -584,7 +583,7 @@ const SCENES = [
   ],
   checks:[
     {skill:"Investigation / History", dc:"12", sug:true, note:"Assemble the slaying method from the folklore: coffins, stake, rebury."},
-    {skill:"Insight", dc:"13", sug:true, note:"Clock that the Records Keeper is genuinely <b>warning</b> them, not flavor."}
+    {skill:"Insight", dc:"13", sug:true, note:"Clock that her &ldquo;be careful&rdquo; is sincere, not flavor. <span class='ai'>🟡</span>"}
   ],
   fight:{name:"The trap in the binding", rule:"The shears go for the article, not the party. It <b>contains and erases; it does not kill.</b> Count the cuts &mdash; they set the puzzle.",
     foes:[
@@ -607,10 +606,10 @@ const SCENES = [
     ],
     note:"Nobody dies here: a PC at 0 HP is knocked out and stable."},
   npcs:[
-    {nm:"Records Keeper", vc:"The Harbinger with a modern spin. Hands over the volume intact, then warns them off. Beyond that, unwritten &mdash; play to taste."}
+    {nm:"Records Keeper", vc:"Helpful, not a harbinger. Hands over the volume intact; after the trap, points them at the house as the only primary source left, and means the &ldquo;be careful.&rdquo; Beyond that, unwritten &mdash; play to taste. <span class='ai'>🟡</span>"}
   ],
   reminders:[
-    {t:"The town is no longer combat-free, and Saturday's fight is here, not the mansion.", k:""}
+    {t:"Saturday's fight is here in town, not at the mansion.", k:""}
   ],
   cues:["riser","jump","dice"] },
 
@@ -674,6 +673,7 @@ const SCENES = [
     {who:"Dracula", t:"Five. He said five, and there are five. The boy's finally learning to count."},
     {who:"Edward", t:"One of them is a child."},
     {who:"Dracula", t:"They're all children. That's rather the point."},
+    {who:"Dracula · optional", t:"The boy says they come for the music and stay for us. <span class='ai'>🟡</span>"},
     {who:"Orlok", t:"Have our meals been fed?"},
     {who:"Dracula", t:"Not yet I don't think."},
     {who:"Orlok", t:"See to it before we begin. I won't have them distracted."},
@@ -682,12 +682,14 @@ const SCENES = [
   rev:[
     {by:"spencer", who:"Players", t:"learn from the overheard argument that <b>someone told the vampires exactly five were coming</b> &mdash; &ldquo;the boy.&rdquo; Not who."},
     {by:"spencer", who:"Players", t:"learn the vampires keep &ldquo;meals&rdquo; somewhere in the house. Let them assume the worst; the cellar answers it Sunday."},
+    {by:"spencer", who:"Players", t:"can catch, if Dracula's optional line is used, that the <b>concert and the haunting are one plan</b>. A free clue."},
     {by:"spencer", who:"Players", t:"hear the dismissal as a hunt. It's really a show schedule &mdash; nobody corrects them."},
     {by:"scott", who:"Bix", t:"catches Edward <b>glimmering</b> in the moonlight. Bix beat 1 of 3 &mdash; the silly one."},
     {by:"scott", who:"Players", t:"can notice the vampires never roll damage. That's the real clue; don't point at it."}
   ],
   beats:[
     "The vamps are <b>hosts doing a job they agreed to</b> &mdash; they think this is the big scare that saves their house, and they have no idea anyone ever died here.",
+    "<b>They'll likely assume the vampires are actors</b> in the haunted house &mdash; &ldquo;is this part of the show?&rdquo; The vampires <b>play along</b>. That's the joke and the dread at once: the answer is yes, and it doesn't help. <span class='ai'>🟡</span>",
     "<b>Bix beat 1 of 3:</b> they catch Edward <b>glimmering</b> in the moonlight. The Twilight joke, and the first frame of a reveal. Let it be the silly one.",
     "Sequence: <b>1</b> Hide (Stealth) &rarr; <b>2</b> the overheard argument (Spencer), every line true and damning &rarr; <b>3</b> explore under recurring stealth &rarr; <b>4</b> Dracula swoops, grapples &amp; shoves, <b>no damage</b> &rarr; <b>5</b> Orlok ends it with <b>one word</b> &rarr; <b>6</b> he dismisses them.",
     "Every word of the dismissal is both a threat and an accurate description of a haunted-house attraction. The party hears one thing and tears the house apart looking for an exit &mdash; exactly where you want them.",
@@ -708,7 +710,7 @@ const SCENES = [
        sp:"<b>No Bite. No damage. Nobody drops.</b> He has no HP to track &mdash; nobody's fighting him."}
     ]},
   npcs:[
-    {nm:"Dracula", vc:"Campy, theatrical, lays hands on them &mdash; and enjoys it far too much. Stops the instant Orlok speaks."},
+    {nm:"Dracula", vc:"Campy, theatrical, lays hands on them &mdash; and enjoys it far too much. Asked if this is part of the show, he's delighted to say yes. Stops the instant Orlok speaks. <span class='ai'>🟡</span>"},
     {nm:"Orlok", vc:"Patience, not menace. Impeccable courtesy while doing something appalling. One syllable is the whole hierarchy."},
     {nm:"Edward", vc:"Watches Bix. Does not approach. Knows exactly who he is."}
   ],
@@ -946,6 +948,7 @@ const SCENES = [
   beats:[
     "Venue: the <b>ballroom / great hall</b>, rigged as a stage. Poe Boy's decks are here; the speakers run through the house are what came on at 3AM.",
     "<b>The crowd arrives with the show.</b> The party's been alone eight hours; at three it fills up for the concert, and every beat from here has an audience. <b>Angelique is here too</b> &mdash; what she does is still open.",
+    "<b>Where the vampires' heads are:</b> the 3AM crowd is the <b>bait for their scare</b>, not a rival event &mdash; the audience they've waited all night for. The developer's breach cuts in before they scare anyone. <span class='ai'>🟡</span>",
     "Poe Boy names the five on the mic and tells the vamps they're the developer's people &mdash; <b>manipulation, not mind control</b>. It never gets to become a fight.",
     "Ostrander breaches and <b>seals the exits behind him &mdash; his own crew included.</b> Three sides, nobody sharing a goal. <b>The only lethal fight of the finale.</b>",
     "His arrival <b>breaks Poe Boy's lie on sight</b> &mdash; five teenagers are visibly not this man. The vampires stop, then start tearing into his men. That's the cue the room has changed.",
