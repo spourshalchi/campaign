@@ -211,9 +211,11 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
   paste's *"he does not know what's in the house"*. The memo says *squatters*, not vampires, so it holds, but
   cut the line if it says too much.
 
-- **Orlok's patient ledger in `/ledger/`** (iPad item 5, and printed on plain paper, `print/4-plain.pdf` p.2)
+- **Orlok's patient ledger in `/ledger/`** (printed on plain paper, `print/4-plain.pdf` p.2)
   **and the crate tags in `/ledger/tags/`** (cardstock, `print/1-cardstock.pdf` p.11) — built 3 Nov, awaiting
-  Scott's review. **The design is Scott's** (Scott, 3 Nov): crate tags matched against the ledger; one patient
+  Scott's review. **⚠ Redesigned by Scott, 3 Nov** (decisions table, finale section): no crates, no missing
+  patient, no hidden room, so the crate tags, the doe trail, the hinged pallet and the raid-room surgery below
+  are cut, and the ledger's margin notes should point to the seedlings by the grate. The prop needs that pass. **The design is Scott's** (Scott, 3 Nov): crate tags matched against the ledger; one patient
   unaccounted for; following it finds the hidden infirmary and badge requirement 2; Russ's Speak with Animals is
   the shortcut. Canon behind it: Orlok is a vet, the animals give a little blood freely, the fox in a splint and
   the owl with a wrapped wing, Vinny's crates at the back, Sun's-mercy (Sesh 8). Everything else is the prop's:
@@ -250,7 +252,8 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
     Poe Boy's old rig / the computer room**, so the summoning claws across the passage at the computer-room
     door; two shut chambers with nothing scripted; the ballroom is open to below;
   - the cellar is the ward (crates and ledger), a coal store and the wine cellar with Vinny's crates, and the
-    raid room beyond its east wall;
+    raid room beyond its east wall; **⚠ the cellar redesign (Scott, 3 Nov) cuts the crates and the hidden
+    room**, so this layout needs the same pass;
   - the routes (way in, to the infirmary, the USB's run in the finale) and the speaker positions;
   - **the player plan is the original architect's plan "for Mr. Cornelis Dood"**, naming rooms by what they were
     built for. The raid room isn't on it because Vinny dug it in the twenties. It's rolled in the hall-table
@@ -442,7 +445,7 @@ The draft spec stays parked in `PROPOSALS.md` as dead work.
   the cart broke down, which lands somewhere around '79–'80. **A codex session briefly wrote this as
   1985, which is too late by five years and is now corrected everywhere.** One string in the photograph's print source.
 - Vinny's first name beyond *Vinny*, and *V. Soprano* on the contract.
-- That the cellar still holds Vinny's crates.
+- ~~That the cellar still holds Vinny's crates.~~ — cut: the cellar has no crates (`Scott, 3 Nov`).
 
 ---
 
@@ -471,8 +474,8 @@ The cellar's job is to exonerate the vampires (they don't kill people). Because 
 Scott settled that **Orlok doesn't kill the animals either — he's a vet.** He takes in injured animals, mends
 them, and in return **they willingly give a little blood** — fair, freely offered, no one taken who doesn't
 heal and go home. So Speak-with-Animals becomes the *strongest* pro-vampire evidence in the game instead of a
-problem: the witnesses are grateful, not victims. The "food stash" reads for one breath as a slaughterhouse,
-then flips to **a clinic**.
+problem: the witnesses are grateful, not victims. ~~The "food stash" reads for one breath as a slaughterhouse,
+then flips to **a clinic**.~~ **Scott, 3 Nov:** no fake-out — the room is plainly a clinic from the start.
 
 ### 🟡 Still open inside this arc
 - ~~The medicinal herb's name~~ — **chosen: Sun's-mercy**, a marigold-gold, sun-loving wound-healer
@@ -499,7 +502,11 @@ then flips to **a clinic**.
 | **The vampires learn the truth from the recording over the PA** in the finale — they hear it with everyone else, and that is how they find out the kid never went out a window | Scott, 3 Nov |
 | **Left undefined on purpose:** the history teacher; the Records Keeper beyond her nudge (Spencer voices her); why these five got the card | Scott, 3 Nov |
 | **The other malevolent forces** are the Spirit, the botched summoning and the developer — nothing more is needed | Scott, 3 Nov |
-| **The cellar puzzle is Orlok's patient ledger.** Crate tags are matched to ledger entries; one patient is unaccounted for, and that leads to the hidden infirmary. Russ's Speak with Animals is the shortcut. Prop at `/ledger/` | Scott, 3 Nov |
+| ~~**The cellar puzzle is Orlok's patient ledger.** Crate tags are matched to ledger entries; one patient is unaccounted for, and that leads to the hidden infirmary~~ — **redesigned by Scott** (rows below) | Scott, 3 Nov |
+| 🟡 **The cellar is plainly Orlok's animal clinic from the start.** No larder fake-out, no crates, no missing-patient puzzle, no hidden room | Scott, 3 Nov |
+| 🟡 **The cellar has two goals:** the players realise Orlok is a vet, and Russ blooms the Sun's-mercy | Scott, 3 Nov |
+| 🟡 **The printed ledger is a real-feeling register**, and its margin notes point to the dead seedlings by the one grate of daylight | Scott, 3 Nov |
+| 🟡 **Sesh 6's "puzzle releases a key to a hidden room" is retired** | Scott, 3 Nov |
 | **The wishing willow is made entirely by hand** by Scott — nothing to print | Scott, 3 Nov |
 | **Not needed:** ambient playlists (the Run of Show soundboard covers it), background slides (no second screen), a safety-tools agreement (Scott and Spencer have it covered) | Scott, 3 Nov |
 | **Yobo wears a wig.** Scott and John are aligned. Why he wears it is not specified | Scott, 3 Nov |
@@ -660,7 +667,7 @@ Three things in the codex were not just unsourced, they were wrong:
 | ~~Fork: find an advantage to fight them **vs.** discover you never had to~~ — **cut in the 24 Aug doc paste.** Spencer's idea; Scott and Spencer are aligned on the cut (3 Nov) | Sesh 2, reversed the 24 Aug doc paste |
 | Doors bolt shut on pure curiosity; the assignment is motivation enough | Sesh 5 |
 | Ancient Dutch artifact recovered at the end, presented in the bookend class | Sesh 5 |
-| Final-room puzzle reveals the food stash (small animals), releases a key to a hidden room | Sesh 6 |
+| Final-room puzzle reveals the food stash (small animals), ~~releases a key to a hidden room~~ — **retired by Scott:** the cellar is plainly a clinic, with no hidden room | Sesh 6; retired: Scott, 3 Nov |
 | Combat set-piece guards the way to the computer | Sesh 6 |
 | Biggest clue: the kid was killed by a human | Sesh 6 ("maybe"), Sesh 7 |
 | Real-estate company wants to demolish it for a **mega mall**; scared off the land by the end | Sesh 5, 7 |
@@ -861,7 +868,7 @@ stay on this list until you two decide:
     plug it in (Sesh 8), labelled `MARCUS_HALE`. `Scott, 3 Nov`.
 14. ~~**New reasons for the cellar and the choke-point corridor**~~ — **answered in Sesh 8.** The corridor is
     cut entirely. The cellar is where Vinny kept the liquor from 1920 to 1933 and where the vampires keep
-    the animals now, so it carries both the food stash and forty-year-old crates nobody came back for.
+    the animals now. ~~It carries forty-year-old crates nobody came back for~~ — no crates (`Scott, 3 Nov`).
 15. ~~**Orlok's mortal name**~~ — **answered 31 Aug.** Cornelis Dood *is* Orlok. Dood is his mortal surname,
     the Dutch pun survives, and the Crier's obituary is accurate. `Scott, 31 Aug`.
 16. **The study door — deliberately undefined.** The room and its contents are Sesh 8; **how the party gets
