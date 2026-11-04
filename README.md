@@ -8,7 +8,7 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 
 ```
 .
-├── index.html        ← iPad home: numbered items 1–5 in story order
+├── index.html        ← iPad home: numbered items 1–4 in story order, digital props only
 ├── aim/              ← Haunted AOL Instant Messenger prop
 │   ├── index.html
 │   └── sounds/
@@ -45,17 +45,16 @@ The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
 
 ## The iPad home page
 
-The landing page is what the players' iPad shows all night: five big numbered items in the order the story reaches them, labelled by room so nothing on the page spoils a scene. The [Run of Show](run/) puts **📱 iPad → item N** at the top of every cue that needs one, so the DM just taps the number.
+The landing page is what the players' iPad shows all night: four big numbered items in the order the story reaches them, labelled by room so nothing on the page spoils a scene. The [Run of Show](run/) puts **📱 iPad → item N** at the top of every cue that needs one, so the DM just taps the number.
 
 | # | Tile | Prop | Cue |
 |---|------|------|-----|
 | 1 | The Library | `puzzle/` — the torn Crier page | 3 · the hall of records, after the fight |
 | 2 | The Study | `settlement/` | 10 · the study |
 | 3 | The Party | `party-room/` — spot the difference | 11 · the party room |
-| 4 | The Cellar | `ledger/` — Orlok's patient ledger | 12 · the cellar |
-| 5 | The Computer | `aim/` | 13 · the old rig upstairs, always last |
+| 4 | The Computer | `aim/` | 13 · the old rig upstairs, always last |
 
-Sunday's three rooms run in any order, so 2, 3 and 4 can swap at the table; the numbers stay put. Item 5 opens AIM with the dead kid already named Marcus Hale (the drive mounts as `MARCUS_HALE`); `aim/?name=` still overrides it. Printed props and the DM pages (codex, run, print) are deliberately not on it.
+Sunday's three rooms run in any order, so 2 and 3 can swap at the table (the cellar is all paper); the numbers stay put. Item 4 opens AIM with the dead kid already named Marcus Hale (the drive mounts as `MARCUS_HALE`); `aim/?name=` still overrides it. **Digital props only:** anything printed (the photograph, Orlok's ledger and crate tags, the house plan, the survey) is a hand-over, never an iPad item. The DM pages (codex, run, print) are deliberately not on it either.
 
 ## Current props
 
@@ -69,6 +68,7 @@ Sunday's three rooms run in any order, so 2, 3 and 4 can swap at the table; the 
 | Photograph | `print/photo-4x6.jpg` | **Print only.** A 1979 snapshot from the party room — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs — inside a white border, with the orange `10 31 '79` date stamp. A Staples 4×6 photo print; no back side. Bix's beat: hand Will the print and say nothing. It's also the key to the party room's spot-the-difference. |
 | Tickets | `tickets/` | Two 2004 Ticketmaster-style concert tickets to **Total Party Kill**, bought under **LIVINGSWORTH III / UPTON M** — what Poe Boy's mother hands Simone in the ending scene. Playing the Transyltown Armory, Sat Jun 25 2005 — every field is filled in and editable on the page. |
 | Backstory cards | `backstory/` | One 5×7 reminder card per PC — what each character remembers going in, and nothing they don't know yet — plus a shared Transyltown card. Hand them out before play. |
+| Ledger | `ledger/` | **Print only at the table.** Orlok's patient ledger, the cellar puzzle that clears the vampires: a printed folio plus six printed crate tags (`ledger/tags/`). The web page is the DM's copy, with the solution behind its DM tab (`?dm=1`). |
 | Party room | `party-room/` | The frozen ghost-party, almost exactly the photograph. The table holds the printed photo and taps the six things in the live room that don't match it; misses tick the Revel meter toward a curdle. When the room is whole, the host calls for Yobo's song, with DM buttons for a true or a borrowed voice. |
 | Codex | `codex/` | DM-facing campaign reference — to-do list, relationship web, backstory, story flow, cast, weekend plan, and **combat encounters with the XP budgets**. Not a player prop, and deliberately not tiled on the landing page so it can't be opened at the table by accident. |
 | Run of Show | `run/` | DM-facing **day-of view** — the codex's story flow turned into an arrow-key prompt book. Each cue is split into a **Scott · narrate** zone (✋ hand-overs, the iPad item, read-aloud, beats, checks) and a **Spencer · voice** zone (lines and NPC voicing), with 🔓 reveal markers and a **synthesized soundboard** (ambience + stings, no files). Combat is run at the table; the cue just names the fight and its story rule. Also DM-only and not tiled. See [run/README.md](run/README.md). |
@@ -80,16 +80,16 @@ Sunday's three rooms run in any order, so 2, 3 and 4 can swap at the table; the 
 | A real USB stick | Handed to the players when the Spirit uploads. **Set its volume label to `MARCUS_HALE`** — Sesh 8 makes the mount the moment the table learns who he is. The recording itself is narrated at the table; there is no audio file. |
 | The wishing willow | The second thing in the backpack — the love-spell token Simone sold the dead kid, with *I want Angelique to notice me* on the slip. Scott makes it by hand; nothing to print. |
 | DJ show flyer | 3AM, Dood Mansion, bills Poe Boy / Lil Stinky / Angelique. |
-| Cellar ledger puzzle | The mansion's own puzzle — Orlok's patient ledger, the one that clears the vampires. Being built at `ledger/`. |
 
 ## Print list
 
-Everything to print lives in the **print kit at [`print/`](print/)**: three Staples orders (two PDFs and one photo print), with the exact settings to pick and a cutting guide. The codex to-do **"Print list — everything to take to Staples"** tracks what's in hand.
+Everything to print lives in the **print kit at [`print/`](print/)**: three Staples orders (cardstock, plain paper and one photo print), with the exact settings to pick and a cutting guide. The codex to-do **"Print list — everything to take to Staples"** tracks what's in hand.
 
 | File | Paper | What's in it |
 |---|---|---|
-| `print/1-cardstock.pdf` | Letter cardstock, colour, 1-sided, 1 copy | Invitations ×6, the deed, Russ's card, the badge, the concert tickets, the backstory cards |
+| `print/1-cardstock.pdf` | Letter cardstock, colour, 1-sided, 1 copy | Invitations ×6, the deed, Russ's card, the badge, the concert tickets, the backstory cards, the crate tags |
 | `print/photo-4x6.jpg` | Staples photo print: 4×6, glossy or lustre, 1 print (same-day at most stores) | The photograph (Will's trait is painted in) |
+| `print/4-plain.pdf` | Letter plain, colour, 1-sided, 1 copy | The developer's site assessment, Orlok's ledger folio, the house plan |
 | `print/3-settlement.pdf` | Optional, plain or ivory | The Articles of Settlement |
 
 Rebuild after any prop change (needs Google Chrome, `pypdf` and ImageMagick); it remakes the PDFs and `photo-4x6.jpg`:

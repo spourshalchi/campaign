@@ -439,7 +439,8 @@ const CUE_LABEL = {
 /* ============================= iPAD ITEMS ============================= */
 /* The players' iPad sits on the landing page (/), which shows these as big
    numbered items in story order. A scene's ipad:[n] puts "iPad → item n" at the
-   top of its cue. Keep in step with the tiles in /index.html. */
+   top of its cue. Keep in step with the tiles in /index.html.
+   Digital props only: anything printed is a hand-over, never an iPad item. */
 const IPAD = {
   1:{room:"The Library",    prop:"the torn Crier page",                 path:"/puzzle/",
      when:"After the fight: tap the bracket on the setup screen and set the pieces from the cut count &mdash; 1&ndash;2 cuts &rarr; 9, 3&ndash;4 &rarr; 16, 5+ &rarr; 25. Then hand it over."},
@@ -447,9 +448,7 @@ const IPAD = {
      when:"Opens folded; they tap to unfold."},
   3:{room:"The Party",      prop:"the frozen party, spot the difference", path:"/party-room/",
      when:"The printed photo is the key. Stuck table: the DM tab's <code>nudge</code>."},
-  4:{room:"The Cellar",     prop:"Orlok's patient ledger",              path:"/ledger/",
-     when:"Match the crate tags to the entries. One patient has no crate &mdash; that's the way to the hidden room."},
-  5:{room:"The Computer",   prop:"AIM, the Spirit",                     path:"/aim/",
+  4:{room:"The Computer",   prop:"AIM, the Spirit",                     path:"/aim/",
      when:"Opens as <b>Marcus Hale</b>; the drive mounts as <code>MARCUS_HALE</code>. To force the name, open <code>/aim/?name=Marcus%20Hale</code>."}
 };
 
@@ -481,9 +480,9 @@ const SCENES = [
   checklist:[
     {g:"iPad", items:[
       {id:"ipad-charged", t:"<b>iPad charged</b>, charger in the bag."},
-      {id:"ipad-home", t:"<b>Props on its home page</b>, items 1&ndash;5. Add to Home Screen done and cache-busted (<code>?v=</code>)."}]},
+      {id:"ipad-home", t:"<b>Props on its home page</b>, items 1&ndash;4. Add to Home Screen done and cache-busted (<code>?v=</code>)."}]},
     {g:"Print &amp; props", items:[
-      {id:"print", t:"<b>Print run picked up and cut</b>: invites &times;6, backstory cards, Russ's card, the badge, the tickets, the deed, the survey, the crate tags, the player map (and the ledger folio, if you want paper as well as item 4)."},
+      {id:"print", t:"<b>Print run picked up and cut</b>: invites &times;6, backstory cards, Russ's card, the badge, the tickets, the deed, the survey, the crate tags, Orlok's ledger, the player map."},
       {id:"photo", t:"<b>The photograph</b>: a Staples 4&times;6 photo print of <code>print/photo-4x6.jpg</code>, glossy or lustre. Same-day at most stores."},
       {id:"usb", t:"<b>USB stick</b> labelled <code>MARCUS_HALE</code>."},
       {id:"piggy", t:"<b>The goat piggy bank</b> for Simone, if bought."}]},
@@ -514,7 +513,7 @@ const SCENES = [
     "<b>🔓 Reveal</b> markers flag the moment someone learns something they didn't know &mdash; the players, one PC, or an NPC. Each one sits in the zone of whoever delivers it or has to react. When one fires, <b>both of you play the reaction</b>. They're 🟡 AI staging until Scott signs off.",
     "<b>⚔ Rolls, initiative and turn order stay at the table.</b> A fight cue gives you the story rule and an <b>enemy turn card</b> per enemy type: what it does, in priority order, its attacks, AC and a tap-to-subtract HP tracker. Numbers are 🟡 drafts.",
     "<b>🪢 If stuck</b> lines are fail-forwards for puzzles; <b>↪ Backup</b> lines give each big reveal a second way in.",
-    "<b>📱 The iPad lives on its home page</b> (<code>/</code>) all night: five big numbered items, in story order. A cue that needs one opens with a blue <b>iPad &rarr; item N</b> bar. Tap N, hand it over, and go back to the home page when the scene's done. Sunday's rooms run in any order, so 2, 3 and 4 can swap &mdash; go by the number on the cue." +
+    "<b>📱 The iPad lives on its home page</b> (<code>/</code>) all night: four big numbered items, in story order. A cue that needs one opens with a blue <b>iPad &rarr; item N</b> bar. Tap N, hand it over, and go back to the home page when the scene's done. Sunday's rooms run in any order, so 2 and 3 can swap &mdash; go by the number on the cue." +
       `<div class="ipad-key">${Object.keys(IPAD).map(n=>`<span class="k">${n}</span><span><b>${IPAD[n].room}</b> &mdash; ${IPAD[n].prop} <code>${IPAD[n].path}</code></span>`).join("")}</div>`
   ],
   npcs:[],
@@ -852,13 +851,13 @@ const SCENES = [
   ],
   cues:["record","crowd","candle","braaam"] },
 
-{ act:"sunday", no:12, title:"The patient ledger &amp; the infirmary", where:"The cellar · Cody · badge req 2 of 3 · any-order room", ipad:[4],
-  hand:["<b>A crate tag</b> (<code>/ledger/tags/</code>) each time someone checks a crate &mdash; they match them against Orlok's ledger on iPad item 4."],
+{ act:"sunday", no:12, title:"The patient ledger &amp; the infirmary", where:"The cellar · Cody · badge req 2 of 3 · any-order room",
+  hand:["<b>Orlok's ledger + crate tags (printed)</b>: the ledger folio (<code>/ledger/</code>) when they find it, and a crate tag (<code>/ledger/tags/</code>) each time someone checks a crate &mdash; they match the tags against the ledger."],
   stuck:"<b>Russ's Speak with Animals is the shortcut</b>: the patients tell him the doe isn't in any crate, and which way she went. Full fail-forward in the ledger's DM notes (<code>/ledger/?dm=1</code>).",
   backup:"<b>The vampires are good</b> &mdash; if the cellar goes sideways, the finale clears them anyway: they hear the recording with everyone else and are as horrified as the crowd.",
   read:[{t:"Straw-lined crates, a fox in a splint, an owl with a wrapped wing. It isn't a slaughterhouse. It's a clinic."}],
   beats:[
-    "<b>The food stash is crates of small animals, not people.</b> Each crate has a tag. Hand over the tags; the table matches each one to an entry in <b>Orlok's patient ledger</b> (iPad item 4).",
+    "<b>The food stash is crates of small animals, not people.</b> Each crate has a tag. Hand over the tags; the table matches each one to an entry in <b>Orlok's patient ledger</b> (the printed folio).",
     "<b>One patient on the ledger has no crate.</b> Following that patient leads to the hidden room. <b>This is the proof that clears the vamps.</b>",
     "The hidden room is an <b>animal infirmary, and Orlok is a vet.</b> Straw-lined crates of healing patients &mdash; a fox in a splint, an owl with a wrapped wing &mdash; bandages, a mortar and pestle, a ledger. He mends them; they give a little blood in return.",
     "(Vinny's forty-year-old liquor crates are still stacked at the back &mdash; this is Gnomey's cellar too.)",
@@ -884,7 +883,7 @@ const SCENES = [
   ],
   cues:["heart","candle"] },
 
-{ act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room", ipad:[5],
+{ act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room", ipad:[4],
   stuck:"Password: the sticky note. If they never found it, it's tucked in the monitor bezel. Any capitalisation works, unlimited tries.",
   backup:"<b>Poe Boy killed Marcus</b> &mdash; if the chat stalls or Simone logs off early, the recording at the decks proves it to everyone. The USB can't be destroyed, so it always plays.",
   read:[
