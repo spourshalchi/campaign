@@ -51,7 +51,7 @@ The landing page is what the players' iPad shows all night: three big numbered i
 | 2 | The Study | `settlement/` | 10 · the study |
 | 3 | The Computer | `aim/` | 13 · the old rig upstairs, always last |
 
-Sunday's three rooms run in any order; only the study has an iPad item (the party room and the cellar are all paper). Item 3 opens AIM with the dead kid already named Marcus Hale (the drive mounts as `MARCUS_HALE`); `aim/?name=` still overrides it. **Digital props only:** anything printed (the photograph, Yobo's cards, Orlok's ledger, the house plan, the survey) is a hand-over, never an iPad item. The DM pages (codex, run, print) are deliberately not on it either.
+Sunday's three rooms run in any order; only the study has an iPad item (the party room and the cellar are all paper). Item 3 opens AIM with the dead kid already named Marcus Hale (the drive mounts as `MARCUS_HALE`); `aim/?name=` still overrides it. **Digital props only:** anything printed (the photograph, Yobo's cards, Orlok's ledger, the survey) is a hand-over, never an iPad item. The DM pages (codex, run, print) are deliberately not on it either.
 
 ## Current props
 
