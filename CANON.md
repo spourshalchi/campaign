@@ -496,6 +496,7 @@ then flips to **a clinic**.~~ **Scott, 3 Nov:** no fake-out — the room is plai
 | 🟡 **Outcomes:** if John performs as himself he gets *Your True Voice*, the echoes cheer and Dracula bows them out. If he refuses, Dracula sulks and lets them go, and the debuff stays | Scott, 3 Nov |
 | 🟡 The party room is **an early, soft hint that the vampires aren't monsters** | Scott, 3 Nov |
 | **Contingencies** (they kill the vampires early, they won't go in): none written; they'll improvise | Scott, 3 Nov |
+| **The set-dressing list is signed off** (codex to-do t5). **No physical piggy bank:** Simone's smash is narrated or mimed. The piggy bank itself stays in the story (Sesh 8) | Scott, 3 Nov |
 | **The mansion has enough puzzles:** the study door, the party room, the cellar ledger and the sticky note | Scott, 3 Nov |
 | **Simone's warlock has no in-world name** — none is needed. Her backstory card says *name TBD*, and no NPC calls her by name. DM-facing notes still say Simone, meaning the player | Scott, 3 Nov |
 | **Lil Stinky's race is deliberately undefined** — it doesn't matter | Scott, 3 Nov |
