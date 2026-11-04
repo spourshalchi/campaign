@@ -594,7 +594,7 @@ so the player is in on the mystery the rest of the table isn't.
 with a guaranteed payoff); keep it a secret only *in the fiction*. If a PC asks why he's off, that's John's
 cue to improv a cover — the debuff generating roleplay instead of killing it.
 
-## Beat 2 — the party room (the turn) · prop at `/party-room/`
+## Beat 2 — the party room (the turn)
 
 The party room replays a **frozen ghost-party** — the night Edward & Goblinenon's cart broke down and found
 Orlok & Dracula reveling (this is Bix's photograph scene; the room does double duty). A three-layer puzzle,
@@ -633,10 +633,8 @@ fraud who never dropped the mask; Yobo is the one who did.
 
 ## Artifacts
 
-- **The photograph** (`print/photo-4x6.jpg`, a 4×6 photo print) — Bix's photograph, already built. Now also the **solution key** to the party-room puzzle.
-- **`/party-room/`** — the live room: tap the six things that don't match the photograph, watch the
-  Revel meter, with DM buttons for the true-vs-borrowed-voice outcome. Audio is fully synthesised (no asset
-  files), splash-gated for iOS per CLAUDE.md.
+- **The photograph** (`print/photo-4x6.jpg`, a 4×6 photo print) — Bix's photograph, already built.
+- **Yobo's two secret cards** (`/yobo/`, printed) — *The Weight of Your Lies* and *Your True Voice*.
 
 ## Open forks
 

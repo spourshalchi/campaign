@@ -461,9 +461,7 @@ const IPAD = {
      when:"After the fight: tap the bracket on the setup screen and set the pieces from the cut count &mdash; 1&ndash;2 cuts &rarr; 9, 3&ndash;4 &rarr; 16, 5+ &rarr; 25. Then hand it over."},
   2:{room:"The Study",      prop:"the Articles of Settlement",          path:"/settlement/",
      when:"Opens folded; they tap to unfold."},
-  3:{room:"The Party",      prop:"the frozen party, spot the difference", path:"/party-room/",
-     when:"The printed photo is the key. Stuck table: the DM tab's <code>nudge</code>."},
-  4:{room:"The Computer",   prop:"AIM, the Spirit",                     path:"/aim/",
+  3:{room:"The Computer",   prop:"AIM, the Spirit",                     path:"/aim/",
      when:"Opens as <b>Marcus Hale</b>; the drive mounts as <code>MARCUS_HALE</code>. To force the name, open <code>/aim/?name=Marcus%20Hale</code>."}
 };
 
@@ -495,9 +493,9 @@ const SCENES = [
   checklist:[
     {g:"iPad", items:[
       {id:"ipad-charged", t:"<b>iPad charged</b>, charger in the bag."},
-      {id:"ipad-home", t:"<b>Props on its home page</b>, items 1&ndash;4. Add to Home Screen done and cache-busted (<code>?v=</code>)."}]},
+      {id:"ipad-home", t:"<b>Props on its home page</b>, items 1&ndash;3. Add to Home Screen done and cache-busted (<code>?v=</code>)."}]},
     {g:"Print &amp; props", items:[
-      {id:"print", t:"<b>Print run picked up and cut</b>: invites &times;6, backstory cards, Russ's card, the badge, the tickets, the deed, the survey, the crate tags, Orlok's ledger, the player map."},
+      {id:"print", t:"<b>Print run picked up and cut</b>: invites &times;6, backstory cards, Russ's card, the badge, the tickets, the deed, the survey, the crate tags, Orlok's ledger, the player map, Yobo's two secret cards."},
       {id:"photo", t:"<b>The photograph</b>: a Staples 4&times;6 photo print of <code>print/photo-4x6.jpg</code>, glossy or lustre. Same-day at most stores."},
       {id:"usb", t:"<b>USB stick</b> labelled <code>MARCUS_HALE</code>."},
       {id:"piggy", t:"<b>The goat piggy bank</b> for Simone, if bought."}]},
@@ -528,12 +526,12 @@ const SCENES = [
     "<b>🔓 Reveal</b> markers flag the moment someone learns something they didn't know &mdash; the players, one PC, or an NPC. Each one sits in the zone of whoever delivers it or has to react. When one fires, <b>both of you play the reaction</b>. They're 🟡 AI staging until Scott signs off.",
     "<b>⚔ Rolls, initiative and turn order stay at the table.</b> A fight cue gives you the story rule and an <b>enemy turn card</b> per enemy type: what it does, in priority order, its attacks, AC and a tap-to-subtract HP tracker. Numbers are 🟡 drafts.",
     "<b>🪢 If stuck</b> lines are fail-forwards for puzzles; <b>↪ Backup</b> lines give each big reveal a second way in.",
-    "<b>📱 The iPad lives on its home page</b> (<code>/</code>) all night: four big numbered items, in story order. A cue that needs one opens with a blue <b>iPad &rarr; item N</b> bar. Tap N, hand it over, and go back to the home page when the scene's done. Sunday's rooms run in any order, so 2 and 3 can swap &mdash; go by the number on the cue." +
+    "<b>📱 The iPad lives on its home page</b> (<code>/</code>) all night: three big numbered items, in story order. A cue that needs one opens with a blue <b>iPad &rarr; item N</b> bar. Tap N, hand it over, and go back to the home page when the scene's done. Sunday's rooms run in any order; only the study has an iPad item, so go by the number on the cue." +
       `<div class="ipad-key">${Object.keys(IPAD).map(n=>`<span class="k">${n}</span><span><b>${IPAD[n].room}</b> &mdash; ${IPAD[n].prop} <code>${IPAD[n].path}</code></span>`).join("")}</div>`
   ],
   npcs:[],
   reminders:[
-    {t:"<b>One physical prop per PC:</b> Bix &mdash; the printed photograph &middot; Gnomey &mdash; the printed deed (Vinny hands it over at the end) &middot; Simone &mdash; the wishing willow &middot; Russ &mdash; badge + card &middot; Yobo &mdash; <b>still undecided</b>.", k:""},
+    {t:"<b>One physical prop per PC:</b> Bix &mdash; the printed photograph &middot; Gnomey &mdash; the printed deed (Vinny hands it over at the end) &middot; Simone &mdash; the wishing willow &middot; Russ &mdash; badge + card &middot; Yobo &mdash; two secret printed cards, <i>The Weight of Your Lies</i> (gazebo) and <i>Your True Voice</i> (party room).", k:""},
     {t:"<b>Hand-over order</b>: invites (cue 2) &middot; the house plan (cue 5) &middot; sticky note and survey (floating, cues 5&ndash;13) &middot; the photograph (cue 11) &middot; crate tags (cue 12) &middot; willow and USB (cue 13) &middot; tickets, badge and deed (cue 15). Each cue says <b>✋ Hand over</b> when it's time.", k:""},
     {t:"Keep the <b>deed, tickets and badge</b> out of sight until the driveway.", k:"rule"},
     {t:"Everything printed is in the kit at <code>/print/</code>. Not printed: the DJ poster (Spencer), the sticky note and the willow (handmade).", k:""}
@@ -646,7 +644,7 @@ const SCENES = [
   pace:[
     "Meet <b>Poe Boy</b> and the crew. <b>Angelique tries to warn them and can't</b>: a side-eye, a swallowed half-sentence. &#128275;",
     "Asked about the house, Poe Boy says he's been up there <b>once</b>, with a shrug, and is cool about the cards. &#128275; Insight 14.",
-    "<b>Yobo's arc opens</b>: the crew clocks him &mdash; &ldquo;do a little riff.&rdquo; Secret Performance, at disadvantage."
+    "<b>Yobo's arc opens</b>: the crew clocks him &mdash; &ldquo;do a little riff.&rdquo; &#9995; Hand John the secret <b>The Weight of Your Lies</b> card (printed): disadvantage on Performance, advantage on Deception. Then his first Performance check."
   ],
   ends:"on the clock (read-aloud): ten to seven, the time on the card.",
   read:[{t:"Whoever's wearing a watch &mdash; it's <b>ten to seven</b>. That's the time on the card."}],
@@ -654,6 +652,7 @@ const SCENES = [
     "Poe Boy plays the house down: he's been up there <b>once</b>, with a shrug, and he's cool about the cards. <b>The &ldquo;once&rdquo; is a lie, and the lie is the clue</b> &mdash; it pays off when they find his stage and decks in the ballroom, and at 3AM when his voice comes over the speakers. <span class='ai'>🟡</span> Behind it, the whole night is his Halloween party; the samples are what he wants.",
     "<b>The tell is what he leaves out:</b> he never mentions the <b>other</b> room upstairs he keeps gear in &mdash; the one he hasn't been back into. Nobody notices now; they notice later."
   ],
+  hand:["<b>The Weight of Your Lies</b> (<code>/yobo/</code>, printed, face-down) to John (Yobo), the moment the crew asks for a Dolly riff &mdash; disadvantage on Performance, advantage on Deception. <span class='ai'>🟡</span>"],
   talk:[
     {who:"DJ Poe Boy · asked about the house, with a shrug", t:"Been up there once. <span class='ai'>🟡</span>"},
     {who:"The crew · to Yobo", t:"You're the Dolly Parton guy &mdash; do a little riff."}
@@ -663,7 +662,7 @@ const SCENES = [
     {by:"Angelique", who:"Players", t:"can learn she's holding something back &mdash; a side-eye, a swallowed half-sentence. Nothing more."}
   ],
   checks:[
-    {skill:"Performance", dc:"secret", sug:true, note:"<b>Yobo only, in secret, at disadvantage.</b> Juggling the lie is the debuff. Hand him a note that something inside makes it inauthentic; reveal a line as each beat comes up."},
+    {skill:"Performance", dc:"secret", sug:true, note:"<b>Yobo only, in secret, at disadvantage.</b> Juggling the lie is the debuff: hand him <i>The Weight of Your Lies</i> first. <span class='ai'>🟡</span>"},
     {skill:"Insight", dc:"14", sug:true, note:"Sense the &ldquo;once&rdquo; is a lie, or that Angelique is holding something back. <span class='ai'>🟡</span>"}
   ],
   npcs:[
@@ -891,33 +890,45 @@ const SCENES = [
   ],
   cues:[] },
 
-{ act:"sunday", no:11, title:"The party room", where:"Sunday · Bix &amp; Yobo · any-order room", ipad:[3],
-  stuck:"Tap <code>nudge</code> on the party-room DM tab &mdash; it rings one difference. Or Dracula, bored, puts one right himself.",
+{ act:"sunday", no:11, title:"The party room", where:"Sunday · Bix &amp; Yobo · any-order room",
+  setting:"The party room, preserved exactly as it was left: bottles on every surface, a record still on the turntable, forty years of dust on somebody's good night. The air smells of old wine and candle wax, and nothing in here has moved in decades.",
+  pace:[
+    "Prompt them to look around. <b>Bix finds the photograph.</b> &#9995; Hand Will the 4&times;6 print and say nothing. &#128275; Bix: his parents.",
+    "The frozen party <b>stirs</b>. The ghost host waits for a song, and nothing in the room moves until someone gives one &mdash; <b>only Yobo can</b>.",
+    "<b>Yobo's Performance check</b>, at disadvantage: he still carries the debuff (<i>The Weight of Your Lies</i>).",
+    "<b>Dracula appears</b> (Spencer). He sees exactly what's holding Yobo back and pushes him to stop hiding and live as himself.",
+    "<b>If John drops the Dolly Parton lie</b> &rarr; &#9995; hand John <b>Your True Voice</b>: advantage on Performance and a Bardic Inspiration boost. The party erupts and the way opens. <b>If he stays masked</b> &rarr; the ghosts curdle into menace (the scare), and the way opens the hard way."
+  ],
+  ends:"when the room settles (read-aloud).",
+  stuck:"If nobody steps up, the ghost host turns and waits on Yobo. If he stalls, bring Dracula in early.",
   backup:"<b>Edward is Bix's father</b> &mdash; if Will doesn't get there from the photograph, Edward's epilogue in the driveway says it outright.",
   read:[{t:"The photograph's in hand and the ghost-party has gone still again."}],
   beats:[
-    "The night Edward and Goblinenon's cart broke down and they found two vampires partying. Bottles, a record still on the turntable, forty years of dust on somebody's good night.",
-    "<b>Bix beat 3 of 3:</b> he finds the <b>photograph</b> &mdash; two vampires mugging, a pregnant goblin laughing, a fae with no fangs. <b>Hand Will the printed photo and say nothing.</b>",
-    "<b>Yobo's turn, three layers &mdash; 1 Blend in:</b> the frozen party wakes and treats the PCs as guests; match the revelers or the <b>Revel meter</b> ticks toward hostile. Masked Yobo's Deception edge actually helps here.",
-    "<b>2 Restore the moment &mdash; spot the difference:</b> the loop is glitching and the room is <i>almost</i> the photograph. Hand over iPad item 3 (<code>/party-room/</code>): <b>six things in the live room don't match the print.</b> Tap each one to put it right. A tap on something that was already right ticks the Revel meter, and the meter creeps on its own while the loop stays broken. <b>Bix's photo is the key.</b>",
-    "<b>3 The song:</b> the host calls for entertainment and only Yobo can give it. Reward a <b>true</b> performance, not a high roll &mdash; with Dracula pushing, he drops the Dolly-Parton lie, the party erupts, and his debuff flips to a buff for the rest of the campaign."
+    "Whose party this was: the night Edward and Goblinenon's cart broke down and they found two vampires partying.",
+    "<b>Reward the truth, not the number.</b> The roll is at disadvantage on purpose; what opens the room properly is John dropping the lie. <span class='ai'>🟡</span>"
   ],
   checks:[
-    {skill:"Deception", dc:"&mdash;", sug:false, note:"<b>Yobo &mdash; helps him blend in</b> while masked. The one place the lie is an asset."},
-    {skill:"Performance", dc:"true>high", sug:true, note:"The song. Reward <b>honesty over the number</b>. A masked turn curdles the ghosts (the scare); a true one opens the way."}
+    {skill:"Performance", dc:"true>high", sug:true, note:"<b>Yobo, at disadvantage</b> (The Weight of Your Lies). Reward <b>honesty over the number</b>: a true song opens the way and earns <i>Your True Voice</i>; a masked one curdles the ghosts. <span class='ai'>🟡</span>"}
   ],
-  hand:["<b>The printed photograph</b> to Will (Bix) &mdash; say nothing. It stays on the table as the key to the spot-the-difference."],
+  hand:[
+    "<b>The photograph</b> (<code>print/photo-4x6.jpg</code>, the 4&times;6 print) to Will (Bix) &mdash; say nothing.",
+    "<b>Your True Voice</b> (<code>/yobo/</code>, printed, face-down) to John (Yobo) &mdash; only if he drops the lie. It takes the place of the debuff card. <span class='ai'>🟡</span>"
+  ],
+  talk:[
+    {who:"Dracula · to Yobo, theatrical", t:"Oh, <i>stop</i>. I've watched you wear that story all night like a borrowed cape, and it doesn't fit. Nobody in this room is waiting for Dolly Parton's grandson. <span class='ai'>🟡</span>"},
+    {who:"Dracula", t:"Sing as yourself, darling. The dead can always tell &mdash; and so, frankly, can I. <span class='ai'>🟡</span>"}
+  ],
   rev:[
     {by:"scott", who:"Bix", t:"learns from the photograph: the pregnant goblin is his mother, and the fae with no fangs beside her is Edward, before he was turned. Hand Will the print and say nothing &mdash; he gets the goblin before the fae."},
     {by:"scott", who:"The rest of the party", t:"learn whatever Bix says out loud. Don't prompt him."},
     {by:"Dracula", who:"The party", t:"learn the truth about Yobo's origins <i>if</i> he drops the act for the song. What he says is John's call."}
   ],
   npcs:[
-    {nm:"Dracula", vc:"Pushes Yobo to drop the act. The catalyst for the buff flip."}
+    {nm:"The ghost host", vc:"Frozen mid-toast. Waits for a song; nothing in the room moves until it gets one. <span class='ai'>🟡</span>"},
+    {nm:"Dracula", vc:"Campy and theatrical &mdash; and for once completely sincere. Sees exactly what's holding Yobo back and won't let him hide behind it. The catalyst for the buff flip."}
   ],
   reminders:[
-    {t:"Bix's find and Yobo's turn are <b>one puzzle</b>: the printed photo is the key to iPad item 3. Stuck table: the DM tab's <code>nudge</code> rings one difference.", k:""},
-    {t:"Yobo's Performance / Inspiration buff is <b>permanent</b> after this.", k:"level"}
+    {t:"<i>Your True Voice</i> is <b>permanent</b> after this, through the finale.", k:"level"}
   ],
   cues:["record","crowd","candle","braaam"] },
 
@@ -959,7 +970,7 @@ const SCENES = [
   ],
   cues:["heart","candle"] },
 
-{ act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room", ipad:[4],
+{ act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room", ipad:[3],
   setting:"The last door, at the end of the upstairs hall. Inside: coats heaped by the desk, a mic on a stand, cables everywhere, and an old beige computer that is somehow still on, an AIM sign-on box glowing on the screen. The air is stale; nobody has been in here in years.",
   pace:[
     "When the table is ready: &#127925; the <b>AIM chime</b> down the hall, then the lock clicks open by itself (read-aloud).",
