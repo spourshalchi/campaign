@@ -445,13 +445,11 @@ const IPAD = {
      when:"After the fight: tap the bracket on the setup screen and set the pieces from the cut count &mdash; 1&ndash;2 cuts &rarr; 9, 3&ndash;4 &rarr; 16, 5+ &rarr; 25. Then hand it over."},
   2:{room:"The Study",      prop:"the Articles of Settlement",          path:"/settlement/",
      when:"Opens folded; they tap to unfold."},
-  3:{room:"The Photograph", prop:"the back of the photograph",          path:"/photo/",
-     when:"Only once Will has the printed photo. They tap to turn it over."},
-  4:{room:"The Party",      prop:"the frozen party, spot the difference", path:"/party-room/",
+  3:{room:"The Party",      prop:"the frozen party, spot the difference", path:"/party-room/",
      when:"The printed photo is the key. Stuck table: the DM tab's <code>nudge</code>."},
-  5:{room:"The Cellar",     prop:"Orlok's patient ledger",              path:"/ledger/",
+  4:{room:"The Cellar",     prop:"Orlok's patient ledger",              path:"/ledger/",
      when:"Match the crate tags to the entries. One patient has no crate &mdash; that's the way to the hidden room."},
-  6:{room:"The Computer",   prop:"AIM, the Spirit",                     path:"/aim/",
+  5:{room:"The Computer",   prop:"AIM, the Spirit",                     path:"/aim/",
      when:"Opens as <b>Marcus Hale</b>; the drive mounts as <code>MARCUS_HALE</code>. To force the name, open <code>/aim/?name=Marcus%20Hale</code>."}
 };
 
@@ -483,9 +481,10 @@ const SCENES = [
   checklist:[
     {g:"iPad", items:[
       {id:"ipad-charged", t:"<b>iPad charged</b>, charger in the bag."},
-      {id:"ipad-home", t:"<b>Props on its home page</b>, items 1&ndash;6. Add to Home Screen done and cache-busted (<code>?v=</code>)."}]},
+      {id:"ipad-home", t:"<b>Props on its home page</b>, items 1&ndash;5. Add to Home Screen done and cache-busted (<code>?v=</code>)."}]},
     {g:"Print &amp; props", items:[
-      {id:"print", t:"<b>Print run picked up and cut</b>: invites &times;6, backstory cards, Russ's card, the badge, the tickets, the deed, the photo, the survey, the crate tags, the player map (and the ledger folio, if you want paper as well as item 5)."},
+      {id:"print", t:"<b>Print run picked up and cut</b>: invites &times;6, backstory cards, Russ's card, the badge, the tickets, the deed, the survey, the crate tags, the player map (and the ledger folio, if you want paper as well as item 4)."},
+      {id:"photo", t:"<b>The photograph</b>: a Staples 4&times;6 photo print of <code>print/photo-4x6.jpg</code>, glossy or lustre. Same-day at most stores."},
       {id:"usb", t:"<b>USB stick</b> labelled <code>MARCUS_HALE</code>."},
       {id:"piggy", t:"<b>The goat piggy bank</b> for Simone, if bought."}]},
     {g:"DM bag", items:[
@@ -515,7 +514,7 @@ const SCENES = [
     "<b>🔓 Reveal</b> markers flag the moment someone learns something they didn't know &mdash; the players, one PC, or an NPC. Each one sits in the zone of whoever delivers it or has to react. When one fires, <b>both of you play the reaction</b>. They're 🟡 AI staging until Scott signs off.",
     "<b>⚔ Rolls, initiative and turn order stay at the table.</b> A fight cue gives you the story rule and an <b>enemy turn card</b> per enemy type: what it does, in priority order, its attacks, AC and a tap-to-subtract HP tracker. Numbers are 🟡 drafts.",
     "<b>🪢 If stuck</b> lines are fail-forwards for puzzles; <b>↪ Backup</b> lines give each big reveal a second way in.",
-    "<b>📱 The iPad lives on its home page</b> (<code>/</code>) all night: six big numbered items, in story order. A cue that needs one opens with a blue <b>iPad &rarr; item N</b> bar. Tap N, hand it over, and go back to the home page when the scene's done. Sunday's rooms run in any order, so 2, 3&ndash;4 and 5 can swap &mdash; go by the number on the cue." +
+    "<b>📱 The iPad lives on its home page</b> (<code>/</code>) all night: five big numbered items, in story order. A cue that needs one opens with a blue <b>iPad &rarr; item N</b> bar. Tap N, hand it over, and go back to the home page when the scene's done. Sunday's rooms run in any order, so 2, 3 and 4 can swap &mdash; go by the number on the cue." +
       `<div class="ipad-key">${Object.keys(IPAD).map(n=>`<span class="k">${n}</span><span><b>${IPAD[n].room}</b> &mdash; ${IPAD[n].prop} <code>${IPAD[n].path}</code></span>`).join("")}</div>`
   ],
   npcs:[],
@@ -823,15 +822,15 @@ const SCENES = [
   ],
   cues:[] },
 
-{ act:"sunday", no:11, title:"The party room", where:"Sunday · Bix &amp; Yobo · any-order room", ipad:[3,4],
+{ act:"sunday", no:11, title:"The party room", where:"Sunday · Bix &amp; Yobo · any-order room", ipad:[3],
   stuck:"Tap <code>nudge</code> on the party-room DM tab &mdash; it rings one difference. Or Dracula, bored, puts one right himself.",
   backup:"<b>Edward is Bix's father</b> &mdash; if Will doesn't get there from the photograph, Edward's epilogue in the driveway says it outright.",
   read:[{t:"The photograph's in hand and the ghost-party has gone still again."}],
   beats:[
     "The night Edward and Goblinenon's cart broke down and they found two vampires partying. Bottles, a record still on the turntable, forty years of dust on somebody's good night.",
-    "<b>Bix beat 3 of 3:</b> he finds the <b>photograph</b> &mdash; two vampires mugging, a pregnant goblin laughing, a fae with no fangs. <b>Hand Will the printed photo and say nothing.</b> There's writing on the back in her hand (iPad item 3, <code>/photo/</code>, tap to turn it over).",
+    "<b>Bix beat 3 of 3:</b> he finds the <b>photograph</b> &mdash; two vampires mugging, a pregnant goblin laughing, a fae with no fangs. <b>Hand Will the printed photo and say nothing.</b>",
     "<b>Yobo's turn, three layers &mdash; 1 Blend in:</b> the frozen party wakes and treats the PCs as guests; match the revelers or the <b>Revel meter</b> ticks toward hostile. Masked Yobo's Deception edge actually helps here.",
-    "<b>2 Restore the moment &mdash; spot the difference:</b> the loop is glitching and the room is <i>almost</i> the photograph. Hand over iPad item 4 (<code>/party-room/</code>): <b>six things in the live room don't match the print.</b> Tap each one to put it right. A tap on something that was already right ticks the Revel meter, and the meter creeps on its own while the loop stays broken. <b>Bix's photo is the key.</b>",
+    "<b>2 Restore the moment &mdash; spot the difference:</b> the loop is glitching and the room is <i>almost</i> the photograph. Hand over iPad item 3 (<code>/party-room/</code>): <b>six things in the live room don't match the print.</b> Tap each one to put it right. A tap on something that was already right ticks the Revel meter, and the meter creeps on its own while the loop stays broken. <b>Bix's photo is the key.</b>",
     "<b>3 The song:</b> the host calls for entertainment and only Yobo can give it. Reward a <b>true</b> performance, not a high roll &mdash; with Dracula pushing, he drops the Dolly-Parton lie, the party erupts, and his debuff flips to a buff for the rest of the campaign."
   ],
   checks:[
@@ -840,7 +839,7 @@ const SCENES = [
   ],
   hand:["<b>The printed photograph</b> to Will (Bix) &mdash; say nothing. It stays on the table as the key to the spot-the-difference."],
   rev:[
-    {by:"scott", who:"Bix", t:"learns from the photograph: the pregnant goblin is his mother, and the fae with no fangs beside her (&ldquo;Me + E.&rdquo; on the back) is Edward, before he was turned. Hand Will the print and say nothing &mdash; he gets the goblin before the fae."},
+    {by:"scott", who:"Bix", t:"learns from the photograph: the pregnant goblin is his mother, and the fae with no fangs beside her is Edward, before he was turned. Hand Will the print and say nothing &mdash; he gets the goblin before the fae."},
     {by:"scott", who:"The rest of the party", t:"learn whatever Bix says out loud. Don't prompt him."},
     {by:"Dracula", who:"The party", t:"learn the truth about Yobo's origins <i>if</i> he drops the act for the song. What he says is John's call."}
   ],
@@ -848,19 +847,18 @@ const SCENES = [
     {nm:"Dracula", vc:"Pushes Yobo to drop the act. The catalyst for the buff flip."}
   ],
   reminders:[
-    {t:"Bix's find and Yobo's turn are <b>one puzzle</b>: the printed photo is the key to iPad item 4. Stuck table: the DM tab's <code>nudge</code> rings one difference.", k:""},
-    {t:"Will's <b>distinctive trait for Bix's parents</b> goes into the photograph &mdash; still to come from Will.", k:""},
+    {t:"Bix's find and Yobo's turn are <b>one puzzle</b>: the printed photo is the key to iPad item 3. Stuck table: the DM tab's <code>nudge</code> rings one difference.", k:""},
     {t:"Yobo's Performance / Inspiration buff is <b>permanent</b> after this.", k:"level"}
   ],
   cues:["record","crowd","candle","braaam"] },
 
-{ act:"sunday", no:12, title:"The patient ledger &amp; the infirmary", where:"The cellar · Cody · badge req 2 of 3 · any-order room", ipad:[5],
-  hand:["<b>A crate tag</b> (<code>/ledger/tags/</code>) each time someone checks a crate &mdash; they match them against Orlok's ledger on iPad item 5."],
+{ act:"sunday", no:12, title:"The patient ledger &amp; the infirmary", where:"The cellar · Cody · badge req 2 of 3 · any-order room", ipad:[4],
+  hand:["<b>A crate tag</b> (<code>/ledger/tags/</code>) each time someone checks a crate &mdash; they match them against Orlok's ledger on iPad item 4."],
   stuck:"<b>Russ's Speak with Animals is the shortcut</b>: the patients tell him the doe isn't in any crate, and which way she went. Full fail-forward in the ledger's DM notes (<code>/ledger/?dm=1</code>).",
   backup:"<b>The vampires are good</b> &mdash; if the cellar goes sideways, the finale clears them anyway: they hear the recording with everyone else and are as horrified as the crowd.",
   read:[{t:"Straw-lined crates, a fox in a splint, an owl with a wrapped wing. It isn't a slaughterhouse. It's a clinic."}],
   beats:[
-    "<b>The food stash is crates of small animals, not people.</b> Each crate has a tag. Hand over the tags; the table matches each one to an entry in <b>Orlok's patient ledger</b> (iPad item 5).",
+    "<b>The food stash is crates of small animals, not people.</b> Each crate has a tag. Hand over the tags; the table matches each one to an entry in <b>Orlok's patient ledger</b> (iPad item 4).",
     "<b>One patient on the ledger has no crate.</b> Following that patient leads to the hidden room. <b>This is the proof that clears the vamps.</b>",
     "The hidden room is an <b>animal infirmary, and Orlok is a vet.</b> Straw-lined crates of healing patients &mdash; a fox in a splint, an owl with a wrapped wing &mdash; bandages, a mortar and pestle, a ledger. He mends them; they give a little blood in return.",
     "(Vinny's forty-year-old liquor crates are still stacked at the back &mdash; this is Gnomey's cellar too.)",
@@ -886,7 +884,7 @@ const SCENES = [
   ],
   cues:["heart","candle"] },
 
-{ act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room", ipad:[6],
+{ act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room", ipad:[5],
   stuck:"Password: the sticky note. If they never found it, it's tucked in the monitor bezel. Any capitalisation works, unlimited tries.",
   backup:"<b>Poe Boy killed Marcus</b> &mdash; if the chat stalls or Simone logs off early, the recording at the decks proves it to everyone. The USB can't be destroyed, so it always plays.",
   read:[

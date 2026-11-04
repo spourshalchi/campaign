@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Photograph — 4×6 print source</title>
+<style>
+  /* ============================================================
+     THE PHOTOGRAPH, 4×6 — the source for print/photo-4x6.jpg.
+     Not a prop page: print/build.py screenshots this at exactly
+     1200×1800 (4×6 in at 300dpi) and that JPG goes to a Staples
+     photo print. Bix's beat: hand Will the print in the party room.
+
+     Sesh 8: "Eventually they find a photograph: Four figures.
+     Two vampires mugging, a pregnant goblin laughing, and a fae
+     with no fangs."
+
+     The painting (assets/photograph.jpg, 4:5) is shown whole,
+     never cropped: the party-room spot-the-difference is built on
+     every inch of it (party-room/assets/photograph.jpg is a copy;
+     re-copy it if this one changes).
+
+     ⚠ THE YEAR IS A GUESS. Bix is an early-to-mid-20s super senior
+     in 2004, born ~9 months after the cart broke down, so the
+     stamp says '79. Search DATESTAMP to change it. The looks in the
+     painting are NOT CANON YET (see CANON.md).
+     ============================================================ */
+  html,body{margin:0;padding:0;width:1200px;height:1800px;overflow:hidden;background:#f5f2ea}
+  .print{
+    position:relative; width:1200px; height:1800px;
+    /* the white border of a 1979 drugstore print, a little warm with age */
+    background:linear-gradient(178deg,#f7f4ed 0%,#f2eee5 70%,#ebe5d9 100%);
+  }
+  .print:after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:
+      radial-gradient(circle at 6% 96%, rgba(150,116,58,.10) 0%, transparent 20%),
+      radial-gradient(circle at 95% 4%, rgba(150,116,58,.08) 0%, transparent 16%);
+  }
+  /* 1080×1350 = the painting's 4:5, centred: 60px (0.2in) sides, 225px top and bottom */
+  svg{position:absolute; left:60px; top:225px; width:1080px; height:1350px; display:block}
+</style>
+</head>
+<body>
+<div class="print">
+  <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <filter id="grain">
+        <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="3" seed="7"/>
+        <feColorMatrix type="saturate" values="0"/>
+        <feComponentTransfer><feFuncA type="linear" slope=".16"/></feComponentTransfer>
+      </filter>
+      <filter id="glow"><feGaussianBlur stdDeviation="7"/></filter>
+      <radialGradient id="vig" cx="50%" cy="50%" r="72%">
+        <stop offset="60%" stop-color="#000" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#000" stop-opacity=".45"/>
+      </radialGradient>
+    </defs>
+
+    <!-- L→R: ORLOK, GOBLINENON (pregnant, laughing, brown boots),
+         EDWARD (looking at her, notched ear, NO FANGS), DRACULA -->
+    <image href="assets/photograph.jpg" width="400" height="500" preserveAspectRatio="xMidYMid meet"/>
+
+    <!-- 1979 film grade, kept light so the painting survives it -->
+    <rect width="400" height="500" fill="#c47a2e" opacity=".06" style="mix-blend-mode:overlay"/>
+    <rect width="400" height="500" fill="url(#vig)"/>
+    <rect width="400" height="500" filter="url(#grain)" opacity=".30"/>
+
+    <!-- DATESTAMP — orange, burned into the corner by the camera -->
+    <text x="376" y="482" text-anchor="end"
+          font-family="'American Typewriter',Courier,monospace" font-size="17"
+          fill="#ff8a2b" opacity=".82" letter-spacing="1.5"
+          style="filter:url(#glow)">10 31 &rsquo;79</text>
+    <text x="376" y="482" text-anchor="end"
+          font-family="'American Typewriter',Courier,monospace" font-size="17"
+          fill="#ffc98a" opacity=".95" letter-spacing="1.5">10 31 &rsquo;79</text>
+  </svg>
+</div>
+</body>
+</html>

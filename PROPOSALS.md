@@ -633,7 +633,7 @@ fraud who never dropped the mask; Yobo is the one who did.
 
 ## Artifacts
 
-- **`/photo/`** — Bix's photograph, already built. Now also the **solution key** to the party-room puzzle.
+- **The photograph** (`print/photo-4x6.jpg`, a 4×6 photo print) — Bix's photograph, already built. Now also the **solution key** to the party-room puzzle.
 - **`/party-room/`** — the live room: tap the six things that don't match the photograph, watch the
   Revel meter, with DM buttons for the true-vs-borrowed-voice outcome. Audio is fully synthesised (no asset
   files), splash-gated for iOS per CLAUDE.md.

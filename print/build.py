@@ -4,17 +4,18 @@ Build the Staples print files from the props.
 Usage (from the project root):
     python3 print/build.py
     python3 print/build.py --venue "Venue" --date "SAT JUN 25 2005"   # override a ticket field
+    python3 print/build.py --photo-only                                # just remake photo-4x6.jpg
 
 Every ticket flag is optional; leave them off and the tickets print the prop's own show details.
 
 Output (in print/):
     1-cardstock.pdf     everything on cardstock (crate tags last), one upload, one copy
-    2-photo-gloss.pdf   the party-room photograph, for gloss/photo paper
     3-settlement.pdf    optional paper copy of the Articles of Settlement
     4-plain.pdf         plain paper: the site assessment, Orlok's ledger, the house plan
+    photo-4x6.jpg       the party-room photograph as a Staples 4x6 photo print (1200x1800, 300dpi)
     previews/           a JPEG (or PNG) of every page, shown on print/index.html
 
-Needs Google Chrome (headless, for print-to-PDF) and pypdf. Each prop's own
+Needs Google Chrome (headless, for print-to-PDF and the photo screenshot), pypdf and ImageMagick. Each prop's own
 @media print rules decide its layout, so fix a prop's print CSS, not this file.
 """
 import argparse, functools, glob, http.server, json, os, shutil, socket, subprocess, sys, tempfile, threading
@@ -27,6 +28,7 @@ CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 INVITES = 6          # five lockers + one spare; two per sheet
 LETTER = (612, 792)  # points
 PREVIEW_DPI = 110    # sharp on an iPad, still small
+PHOTO = (1200, 1800, 300)  # 4x6 in portrait at 300dpi
 # ---------------------------------------
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -52,6 +54,35 @@ def render(url, dest):
                     "--virtual-time-budget=4000", f"--print-to-pdf={dest}", url],
                    check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     return PdfReader(dest)
+
+
+def photo_print(base):
+    """Screenshot print/photo-4x6.html at exactly 4x6 in, 300dpi, into print/photo-4x6.jpg,
+    plus its gallery preview at previews/photo-1.jpg."""
+    w, h, dpi = PHOTO
+    magick = shutil.which("magick") or "/opt/homebrew/bin/magick"
+    if not os.path.exists(magick):
+        sys.exit("ERROR: ImageMagick not found (brew install imagemagick); it bakes the photo's JPG.")
+    png = os.path.join(tempfile.mkdtemp(), "photo.png")
+    subprocess.run([CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars",
+                    "--force-device-scale-factor=1", f"--window-size={w},{h}",
+                    "--virtual-time-budget=4000", f"--screenshot={png}", f"{base}/print/photo-4x6.html"],
+                   check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    jpg = os.path.join(OUT, "photo-4x6.jpg")
+    # crop/extent pins the size even if Chrome's viewport is off by a scrollbar
+    subprocess.run([magick, png, "-gravity", "northwest", "-crop", f"{w}x{h}+0+0", "+repage",
+                    "-background", "#f5f2ea", "-extent", f"{w}x{h}", "-strip",
+                    "-units", "PixelsPerInch", "-density", str(dpi), "-quality", "93", jpg], check=True)
+    os.makedirs(PREVIEWS, exist_ok=True)
+    subprocess.run([magick, jpg, "-resize", f"{4 * PREVIEW_DPI}x", "-quality", "82",
+                    os.path.join(PREVIEWS, "photo-1.jpg")], check=True)
+
+
+def write_manifest():
+    manifest = {stem: sorted(os.path.basename(f) for f in glob.glob(os.path.join(PREVIEWS, stem + "-*.*")))
+                for stem in ("cardstock", "photo", "settlement", "plain")}
+    with open(os.path.join(PREVIEWS, "manifest.json"), "w") as f:
+        json.dump(manifest, f, indent=1)
 
 
 def previews(pdf_name, stem):
@@ -92,13 +123,19 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     for k in ("band", "tour", "venue", "city", "date", "time"):
         ap.add_argument("--" + k, default="")
+    ap.add_argument("--photo-only", action="store_true", help="only remake photo-4x6.jpg and its preview")
     args = ap.parse_args()
 
     if not os.path.exists(CHROME):
         sys.exit(f"ERROR: Chrome not found at {CHROME}")
 
     base = serve()
-    tickets_q = urlencode({k: v for k, v in vars(args).items() if v})
+    if args.photo_only:
+        photo_print(base)
+        write_manifest()
+        print("photo-4x6.jpg     ", "%dx%d at %ddpi" % PHOTO)
+        return
+    tickets_q = urlencode({k: v for k, v in vars(args).items() if v and k != "photo_only"})
     tmp = tempfile.mkdtemp()
 
     def page(path, query=""):
@@ -111,7 +148,6 @@ def main():
     badge = page("badge/")
     tickets = page("tickets/", tickets_q)
     backstory = page("backstory/")
-    photo = page("photo/")
     settlement = page("settlement/")
     survey = page("survey/")
     ledger = page("ledger/")
@@ -127,9 +163,6 @@ def main():
             w.add_page(p)
     w.compress_identical_objects(remove_identicals=True, remove_orphans=True)  # six invites share one set of images
     w.write(os.path.join(OUT, "1-cardstock.pdf"))
-
-    # 2 — the photograph, front only, on gloss
-    w = PdfWriter(); w.add_page(photo.pages[0]); w.write(os.path.join(OUT, "2-photo-gloss.pdf"))
 
     # 3 — optional settlement on plain paper
     w = PdfWriter()
@@ -150,18 +183,15 @@ def main():
         if old.endswith((".png", ".jpg", ".json")):
             os.remove(old)
     previews("1-cardstock.pdf", "cardstock")
-    previews("2-photo-gloss.pdf", "photo")
+    photo_print(base)
     previews("3-settlement.pdf", "settlement")
     previews("4-plain.pdf", "plain")
-    manifest = {stem: sorted(os.path.basename(f) for f in glob.glob(os.path.join(PREVIEWS, stem + "-*.*")))
-                for stem in ("cardstock", "photo", "settlement", "plain")}
-    with open(os.path.join(PREVIEWS, "manifest.json"), "w") as f:
-        json.dump(manifest, f, indent=1)
+    write_manifest()
 
     counts = {"invite sheets": -(-INVITES // 2), "deed": len(deed.pages), "badge": len(badge.pages),
               "tickets": len(tickets.pages), "backstory": len(backstory.pages), "crate tags": len(tags.pages)}
     print("1-cardstock.pdf  ", sum(counts.values()), "pages", counts)
-    print("2-photo-gloss.pdf ", 1, "page")
+    print("photo-4x6.jpg     ", "%dx%d at %ddpi" % PHOTO)
     print("3-settlement.pdf  ", len(settlement.pages), "page(s)")
     print("4-plain.pdf       ", len(survey.pages) + len(ledger.pages) + len(plan.pages), "pages",
           {"survey": len(survey.pages), "ledger": len(ledger.pages), "plan": len(plan.pages)})
