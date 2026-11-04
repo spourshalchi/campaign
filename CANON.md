@@ -434,7 +434,7 @@ The draft spec stays parked in `PROPOSALS.md` as dead work.
   long pointed ears and the same small brown leather boots; Edward has healed cuts on the rim of one ear.
   Nothing in the doc describes either parent. `Scott, 3 Nov 2026` — Scott asked for the echo; the
   specific traits were picked in the image brief.
-- **The year on the photograph.** The prop stamps `10 31 '79`. The doc never fixes Bix's age, so it
+- **The year on the photograph.** The prop stamps `10 31 '79`, and Scott's party-room brief (3 Nov) uses '79 too. The doc never fixes Bix's age, so it
   never fixes this date — he's an early-to-mid-20s super senior in 2004 and was born ~9 months after
   the cart broke down, which lands somewhere around '79–'80. **A codex session briefly wrote this as
   1985, which is too late by five years and is now corrected everywhere.** One string in the photograph's print source.
@@ -502,7 +502,12 @@ then flips to **a clinic**.
 | **Yobo wears a wig.** Scott and John are aligned. Why he wears it is not specified | Scott, 3 Nov |
 | **Yobo's arc runs on two secret printed cards.** *The Weight of Your Lies* is handed to John at his first Performance check (the gazebo Dolly riff): disadvantage on Performance, advantage on Deception, until he tells the truth. *Your True Voice* is handed over after he tells the truth: advantage on Performance, plus a Bardic Inspiration boost. Sesh 8's arc stands; these mechanics are Scott's. 🟡 The card wording, being built at `/yobo/` | Scott, 3 Nov |
 | **No dedicated Deception beat.** He can deceive whenever he likes | Scott, 3 Nov |
-| **The party room, cut down:** Bix finds the photograph (the 4×6 print). The frozen party needs a performance before anything moves, and only Yobo can give it; his Performance check runs at disadvantage. **Dracula appears**, sees what's holding him back and pushes him to live as his true self. If John drops the lie he gets *Your True Voice* and the party erupts; if he stays masked, the ghosts curdle (the scare). ~~Blend in, the spot-the-difference and the Revel meter~~ are cut, and `/party-room/` is deleted | Scott, 3 Nov |
+| **The party room, cut down:** Bix finds the photograph (the 4×6 print). Dracula won't let anyone leave without a song, and only Yobo can give it; his Performance check runs at disadvantage. Dracula sees what's holding him back and pushes him to live as his true self. ~~Blend in, the spot-the-difference and the Revel meter~~ are cut, and `/party-room/` is deleted | Scott, 3 Nov |
+| 🟡 **The party room is Dracula's shrine**, kept untouched since the night in '79. It isn't haunted, but **the room remembers**: when the record plays, faint echoes of that night shimmer in (impressions, not interactive ghosts) and fade when the music stops. Bix may recognise them from the photo | Scott, 3 Nov |
+| 🟡 **Dracula blocks the exit:** *"Nobody leaves my party without giving me a song."* Only Yobo can give one | Scott, 3 Nov |
+| 🟡 **Dracula sees through Yobo because he's a fraud too** — a performer who has played "Dracula" for centuries. *"I know a costume when I see one, darling."* It ties to his finale mic-grab. **"Centuries" is not canon:** the doc never gives Dracula's age | Scott, 3 Nov; the age is the codex's |
+| 🟡 **Outcomes:** if John tells the truth he gets *Your True Voice*, the echoes cheer and Dracula bows them out. If he stays masked, Dracula sulks and lets them go, and the debuff stays | Scott, 3 Nov |
+| 🟡 The party room is **an early, soft hint that the vampires aren't monsters** | Scott, 3 Nov |
 | **Contingencies** (they kill the vampires early, they won't go in): none written; they'll improvise | Scott, 3 Nov |
 | **The mansion has enough puzzles:** the study door, the party room, the cellar ledger and the sticky note | Scott, 3 Nov |
 | **Simone's warlock has no in-world name** — none is needed. Her backstory card says *name TBD*, and no NPC calls her by name. DM-facing notes still say Simone, meaning the player | Scott, 3 Nov |
