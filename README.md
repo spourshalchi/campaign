@@ -79,10 +79,9 @@ Sunday's three rooms run in any order, so 2, 3–4 and 5 can swap at the table; 
 | Thing | Why it matters |
 |---|---|
 | A real USB stick | Handed to the players when the Spirit uploads. **Set its volume label to `MARCUS_HALE`** — Sesh 8 makes the mount the moment the table learns who he is. The recording itself is narrated at the table; there is no audio file. |
-| The wishing willow | The second thing in the backpack — the love-spell token Simone sold the dead kid, with *I want Angelique to notice me* on the slip. |
+| The wishing willow | The second thing in the backpack — the love-spell token Simone sold the dead kid, with *I want Angelique to notice me* on the slip. Scott makes it by hand; nothing to print. |
 | DJ show flyer | 3AM, Dood Mansion, bills Poe Boy / Lil Stinky / Angelique. |
 | Cellar ledger puzzle | The mansion's own puzzle — Orlok's patient ledger, the one that clears the vampires. Being built at `ledger/`. |
-| Yobo's physical prop | Every PC gets one physical prop — Bix the printed photo, Gnomey the deed, Simone the wishing willow, Russ the badge and card. Yobo's isn't picked yet. |
 
 ## Print list
 
@@ -100,7 +99,7 @@ Rebuild after any prop change (needs Google Chrome and `pypdf`):
 python3 print/build.py
 ```
 
-Not printed: the DJ poster (Spencer, not built), the AIM sticky note and the wishing willow slip (handwritten), the USB stick (bought).
+Not printed: the DJ poster (Spencer, not built), the AIM sticky note (handwritten), the wishing willow (Scott makes it by hand), the USB stick (bought).
 
 ## Adding a new prop
 

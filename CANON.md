@@ -462,6 +462,8 @@ then flips to **a clinic**.
 | **Left undefined on purpose:** the history teacher; the Records Keeper (Spencer voices her); why these five got the card | Scott, 3 Nov |
 | **The other malevolent forces** are the Spirit, the botched summoning and the developer — nothing more is needed | Scott, 3 Nov |
 | **The cellar puzzle is Orlok's patient ledger.** Crate tags are matched to ledger entries; one patient is unaccounted for, and that leads to the hidden infirmary. Russ's Speak with Animals is the shortcut. Prop at `/ledger/` | Scott, 3 Nov |
+| **The wishing willow is made entirely by hand** by Scott — nothing to print | Scott, 3 Nov |
+| **Not needed:** ambient playlists (the Run of Show soundboard covers it), background slides (no second screen), a safety-tools agreement (Scott and Spencer have it covered) | Scott, 3 Nov |
 | **The mansion has enough puzzles:** the study door, the party room, the cellar ledger and the sticky note | Scott, 3 Nov |
 | **The session break is deliberately undefined.** Saturday ends wherever time runs out; the botched summoning closes Night 1 if the clock allows but isn't required to. Everyone levels to 5 at the end of day one | Scott, 3 Nov |
 | ~~The finale runs in three phases: vampires hostile → developer breaches → vampires turn~~ — **phase 1 cut in the In Person Session.** Two phases: developer breaches → the booth (vampires turn) | the 24 Aug doc paste, replaced by In Person Session |
