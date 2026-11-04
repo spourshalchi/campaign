@@ -11,7 +11,7 @@ Every ticket flag is optional; leave them off and the tickets print the prop's o
 Output (in print/):
     1-cardstock.pdf     everything on cardstock (Yobo's two secret cards last), one upload, one copy
     3-settlement.pdf    optional paper copy of the Articles of Settlement
-    4-plain.pdf         plain paper: the site assessment, Orlok's ledger, the house plan
+    4-plain.pdf         plain paper: the site assessment, Orlok's ledger
     photo-4x6.jpg       the party-room photograph as a Staples 4x6 photo print (1200x1800, 300dpi)
     previews/           a JPEG (or PNG) of every page, shown on print/index.html
 
@@ -152,7 +152,6 @@ def main():
     survey = page("survey/")
     ledger = page("ledger/")
     yobo = page("yobo/")
-    plan = page("map/", "view=player")
 
     # 1 — cardstock: one upload, one copy, color, single-sided
     w = PdfWriter()
@@ -170,9 +169,9 @@ def main():
         w.add_page(p)
     w.write(os.path.join(OUT, "3-settlement.pdf"))
 
-    # 4 — plain paper: the developer's memo (a photocopy), Orlok's ledger folio, the architect's plan
+    # 4 — plain paper: the developer's memo (a photocopy), Orlok's ledger
     w = PdfWriter()
-    for doc in (survey, ledger, plan):
+    for doc in (survey, ledger):
         for p in doc.pages:
             w.add_page(p)
     w.write(os.path.join(OUT, "4-plain.pdf"))
@@ -193,8 +192,8 @@ def main():
     print("1-cardstock.pdf  ", sum(counts.values()), "pages", counts)
     print("photo-4x6.jpg     ", "%dx%d at %ddpi" % PHOTO)
     print("3-settlement.pdf  ", len(settlement.pages), "page(s)")
-    print("4-plain.pdf       ", len(survey.pages) + len(ledger.pages) + len(plan.pages), "pages",
-          {"survey": len(survey.pages), "ledger": len(ledger.pages), "plan": len(plan.pages)})
+    print("4-plain.pdf       ", len(survey.pages) + len(ledger.pages), "pages",
+          {"survey": len(survey.pages), "ledger": len(ledger.pages)})
 
 
 if __name__ == "__main__":

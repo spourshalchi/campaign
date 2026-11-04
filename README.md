@@ -85,7 +85,7 @@ Everything to print lives in the **print kit at [`print/`](print/)**: three Stap
 |---|---|---|
 | `print/1-cardstock.pdf` | Letter cardstock, colour, 1-sided, 1 copy | Invitations ×6, the deed, Russ's card, the badge, the concert tickets, the backstory cards, Yobo's two secret cards |
 | `print/photo-4x6.jpg` | Staples photo print: 4×6, glossy or lustre, 1 print (same-day at most stores) | The photograph (Will's trait is painted in) |
-| `print/4-plain.pdf` | Letter plain, colour, 1-sided, 1 copy | The developer's site assessment, Orlok's ledger folio, the house plan |
+| `print/4-plain.pdf` | Letter plain, colour, 1-sided, 1 copy | The developer's site assessment, Orlok's ledger |
 | `print/3-settlement.pdf` | Optional, plain or ivory | The Articles of Settlement |
 
 Rebuild after any prop change (needs Google Chrome, `pypdf` and ImageMagick); it remakes the PDFs and `photo-4x6.jpg`:

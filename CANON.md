@@ -229,27 +229,7 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
     Up. White. Leaning to the grate. Wants light."*;
   - the screen-only DM brief under the page (where it's found, the fox and owl in the room, the Sun's-mercy check
     as on the run sheet).
-- ~~**The house map in `/map/`**~~ — **cut: no map** (`Scott, 3 Nov`). The block below records what it held.
-  ~~A DM map and a player plan (`print/4-plain.pdf` p.3) — built 3 Nov, awaiting Scott's review.~~ The rooms and their beats are canon (Sesh 8, In Person Session, the 24 Aug doc paste,
-  Scott 1–3 Nov); **the layout is the map's**:
-  - two floors and a cellar, 100 × 50 ft, front door facing south; the ground floor is the **hall** (grand stair),
-    **dining room**, **drawing room = the party room**, **study** (sealed door off the hall), **kitchen** (the cellar
-    stair) and the **ballroom** across the whole east wing, with the stage on a dais;
-  - **first contact happens in the dining room**: they hide under the long table and overhear the vampires at the
-    hearth, and **Orlok's spectacles are on its west sill** (cue 7);
-  - upstairs, a **passage** runs between the **sealed chamber** (the botched summoning) and the **music room =
-    Poe Boy's old rig / the computer room**, so the summoning claws across the passage at the computer-room
-    door; two shut chambers with nothing scripted; the ballroom is open to below;
-  - the cellar is the ward (crates and ledger), a coal store and the wine cellar with Vinny's crates, and the
-    raid room beyond its east wall; **⚠ the cellar redesign (Scott, 3 Nov) cuts the crates and the hidden
-    room**, so this layout needs the same pass;
-  - the routes (way in, to the infirmary, the USB's run in the finale) and the speaker positions;
-  - **the player plan is the original architect's plan "for Mr. Cornelis Dood"**, naming rooms by what they were
-    built for. The raid room isn't on it because Vinny dug it in the twenties. It's rolled in the hall-table
-    drawer; the run sheet hands it over the first time they're inside.
-
-  **Seam:** `/survey/` calls the house *"a three-storey masonry house with a cellar"*; this map is two floors and
-  a cellar. Either add a top floor to the map or change the memo to *two-storey*.
+- **Map:** cut by Scott, 3 Nov.
 - **Yobo's two secret cards in `/yobo/`** (`print/1-cardstock.pdf` p.12, two 3.5 × 5 cards) — built 3 Nov,
   awaiting Scott's review. The arc is canon (Character Bios + Sesh 8: the lie is a debuff, the truth in the party
   room flips it to a buff; the secret note at the gazebo is Sesh 8). The cards are from Scott's brief (Scott, 3 Nov):
