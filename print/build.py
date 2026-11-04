@@ -10,8 +10,8 @@ Every ticket flag is optional; leave them off and the tickets print the prop's o
 
 Output (in print/):
     1-cardstock.pdf     everything on cardstock (Yobo's two secret cards last), one upload, one copy
-    3-settlement.pdf    optional paper copy of the Articles of Settlement
-    4-plain.pdf         plain paper: the site assessment, Orlok's ledger
+    3-deed.pdf          the deed, on its own: cream or parchment cardstock
+    4-plain.pdf         plain or ivory paper: the site assessment, the Articles of Settlement, Orlok's ledger
     photo-4x6.jpg       the party-room photograph as a Staples 4x6 photo print (1200x1800, 300dpi)
     previews/           a JPEG (or PNG) of every page, shown on print/index.html
 
@@ -80,7 +80,7 @@ def photo_print(base):
 
 def write_manifest():
     manifest = {stem: sorted(os.path.basename(f) for f in glob.glob(os.path.join(PREVIEWS, stem + "-*.*")))
-                for stem in ("cardstock", "photo", "settlement", "plain")}
+                for stem in ("cardstock", "photo", "deed", "plain")}
     with open(os.path.join(PREVIEWS, "manifest.json"), "w") as f:
         json.dump(manifest, f, indent=1)
 
@@ -144,11 +144,11 @@ def main():
 
     print("Rendering props...")
     invite = page("invite/")
-    deed = page("deed/")
+    deed = page("print/src/deed.html")
     badge = page("print/src/badge.html")
     tickets = page("print/src/tickets.html", tickets_q)
     backstory = page("backstory/")
-    settlement = page("settlement/")
+    settlement = page("print/src/settlement.html")
     survey = page("survey/")
     ledger = page("ledger/")
     yobo = page("yobo/")
@@ -157,21 +157,21 @@ def main():
     w = PdfWriter()
     for p in two_up_invites(invite.pages[0], INVITES):
         w.add_page(p)
-    for doc in (deed, badge, tickets, backstory, yobo):
+    for doc in (badge, tickets, backstory, yobo):
         for p in doc.pages:
             w.add_page(p)
     w.compress_identical_objects(remove_identicals=True, remove_orphans=True)  # six invites share one set of images
     w.write(os.path.join(OUT, "1-cardstock.pdf"))
 
-    # 3 — optional settlement on plain paper
+    # 3 — the deed on its own, for cream or parchment cardstock
     w = PdfWriter()
-    for p in settlement.pages:
+    for p in deed.pages:
         w.add_page(p)
-    w.write(os.path.join(OUT, "3-settlement.pdf"))
+    w.write(os.path.join(OUT, "3-deed.pdf"))
 
-    # 4 — plain paper: the developer's memo (a photocopy), Orlok's ledger
+    # 4 — plain or ivory paper: the developer's memo (a photocopy), the settlement, Orlok's ledger
     w = PdfWriter()
-    for doc in (survey, ledger):
+    for doc in (survey, settlement, ledger):
         for p in doc.pages:
             w.add_page(p)
     w.write(os.path.join(OUT, "4-plain.pdf"))
@@ -183,17 +183,17 @@ def main():
             os.remove(old)
     previews("1-cardstock.pdf", "cardstock")
     photo_print(base)
-    previews("3-settlement.pdf", "settlement")
+    previews("3-deed.pdf", "deed")
     previews("4-plain.pdf", "plain")
     write_manifest()
 
-    counts = {"invite sheets": -(-INVITES // 2), "deed": len(deed.pages), "badge": len(badge.pages),
+    counts = {"invite sheets": -(-INVITES // 2), "badge": len(badge.pages),
               "tickets": len(tickets.pages), "backstory": len(backstory.pages), "yobo cards": len(yobo.pages)}
     print("1-cardstock.pdf  ", sum(counts.values()), "pages", counts)
     print("photo-4x6.jpg     ", "%dx%d at %ddpi" % PHOTO)
-    print("3-settlement.pdf  ", len(settlement.pages), "page(s)")
-    print("4-plain.pdf       ", len(survey.pages) + len(ledger.pages), "pages",
-          {"survey": len(survey.pages), "ledger": len(ledger.pages)})
+    print("3-deed.pdf        ", len(deed.pages), "page(s)")
+    print("4-plain.pdf       ", len(survey.pages) + len(settlement.pages) + len(ledger.pages), "pages",
+          {"survey": len(survey.pages), "settlement": len(settlement.pages), "ledger": len(ledger.pages)})
 
 
 if __name__ == "__main__":

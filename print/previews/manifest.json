@@ -9,17 +9,17 @@
   "cardstock-07.jpg",
   "cardstock-08.jpg",
   "cardstock-09.jpg",
-  "cardstock-10.jpg",
-  "cardstock-11.jpg"
+  "cardstock-10.jpg"
  ],
  "photo": [
   "photo-1.jpg"
  ],
- "settlement": [
-  "settlement-1.jpg"
+ "deed": [
+  "deed-1.jpg"
  ],
  "plain": [
   "plain-1.jpg",
-  "plain-2.jpg"
+  "plain-2.jpg",
+  "plain-3.jpg"
  ]
 }

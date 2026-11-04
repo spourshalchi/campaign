@@ -16,13 +16,11 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 │   ├── index.html
 │   ├── README.md
 │   └── assets/
-├── settlement/       ← The 1931 Articles of Settlement (the drunken contract)
-│   └── index.html
-├── deed/             ← The deed to Dood Mansion — print it; Vinny hands it to Gnomey at the end
 ├── backstory/        ← One backstory reminder card per PC (print)
 ├── print/            ← DM print kit: Staples-ready PDFs, the 4×6 photograph + build.py (not tiled)
 │   ├── index.html
 │   ├── photo-4x6.html ← source for photo-4x6.jpg, the party-room photograph (Bix's beat)
+│   ├── src/          ← print-only sources: deed, settlement, badge, tickets (+ assets/: wax seal, badge art)
 │   └── assets/photograph.jpg  ← the painting itself
 ├── codex/            ← DM-facing campaign codex (not linked from the landing page)
 ├── run/              ← DM-facing "Run of Show" — the day-of prompt book (not linked either)
@@ -49,7 +47,7 @@ The landing page is what the players' iPad shows all night: two big numbered ite
 | 1 | The Library | `puzzle/` — the torn Crier page | 3 · the hall of records, after the fight |
 | 2 | The Computer | `aim/` | 13 · the old rig upstairs, always last |
 
-Sunday's three rooms run in any order and are all paper. Item 2 opens AIM with the dead kid already named Marcus Hale (the drive mounts as `MARCUS_HALE`); `aim/?name=` still overrides it. **Digital props only:** anything printed (the photograph, Yobo's cards, Orlok's ledger, the survey) is a hand-over, never an iPad item. The DM pages (codex, run, print) are deliberately not on it either.
+Sunday's three rooms run in any order and are all paper. Item 2 opens AIM with the dead kid already named Marcus Hale (the drive mounts as `MARCUS_HALE`); `aim/?name=` still overrides it. **Digital props only:** anything printed (the photograph, Yobo's cards, Orlok's ledger, the survey, the settlement, the deed) is a hand-over, never an iPad item. The DM pages (codex, run, print) are deliberately not on it either.
 
 ## Current props
 
@@ -58,8 +56,8 @@ Sunday's three rooms run in any order and are all paper. Item 2 opens AIM with t
 | AIM | `aim/` | Haunted 2000s AOL Instant Messenger. The buddy is the kid Poe Boy soul-caged into the machine — the branching tree pulls the whole confession out of him, and ends with him **sending the party a file**: the recording of his own death, over AIM's file-transfer window. That USB is what wins the finale. |
 | Torn Page | `puzzle/` | 1937 newspaper front page, cut up in front of them by a trap in the binding. Reassemble, flip for the page-2 lore, and check the pocket card for who borrowed it last — including **V. Soprano, 1938**, which is where Gnomey's tie to the house gets hinted. Springing the trap is what summons the developer to the house that night. See [puzzle/README.md](puzzle/README.md) |
 | Invite | `invite/` | Anonymous VIP early entry, 7PM sharp, at Dood Mansion — it never names the host; homemade and clip-arty. |
-| Settlement | `settlement/` | The 1931 contract from the strongbox in the study. Opens folded; tap to unfold. Two drunk men signed away a mansion over $11.40, and **the only paragraph on the page with no corrections in it is the one that vests title in the bearer of the deed.** |
-| Deed | `deed/` | The 1931 deed to Dood Mansion, print-ready on letter paper. Uncle Vinny has carried it since the night he won the house and hands it to Gnomey in the ending scene. **Print it at Staples** — it's Gnomey's physical prop. Deliberately not tiled on the landing page, so nobody finds it on the iPad before Vinny hands it over. |
+| Settlement | `print/src/settlement.html` (print only) | The 1931 contract from the strongbox in the study, with the Dood wax seal. Two drunk men signed away a mansion over $11.40, and **the only paragraph on the page with no corrections in it is the one that vests title in the bearer of the deed.** |
+| Deed | `print/src/deed.html` (print only) | The 1931 deed to Dood Mansion, with the Dood wax seal. Uncle Vinny has carried it since the night he won the house and hands it to Gnomey in the ending scene. **Print it at Staples** — it's Gnomey's physical prop. |
 | Photograph | `print/photo-4x6.jpg` | **Print only.** A 1979 snapshot from the party room — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs — inside a white border, with the orange `10 31 '79` date stamp. A Staples 4×6 photo print; no back side. Bix's beat: hand Will the print and say nothing. |
 | Tickets | `print/src/tickets.html` (print only) | Two 2004 Ticketmaster-style concert tickets to **Total Party Kill**, bought under **LIVINGSWORTH III / UPTON M** — what Poe Boy's mother hands Simone in the ending scene. Playing the Transyltown Armory, Sat Jun 25 2005 — every field is filled in and editable on the page. |
 | Backstory cards | `backstory/` | One 5×7 reminder card per PC — what each character remembers going in, and nothing they don't know yet — plus a shared Transyltown card. Hand them out before play. |
@@ -77,14 +75,14 @@ Sunday's three rooms run in any order and are all paper. Item 2 opens AIM with t
 
 ## Print list
 
-Everything to print lives in the **print kit at [`print/`](print/)**: three Staples orders (cardstock, plain paper and one photo print), with the exact settings to pick and a cutting guide. The codex to-do **"Print list — everything to take to Staples"** tracks what's in hand.
+Everything to print lives in the **print kit at [`print/`](print/)**: four Staples orders (cardstock, the deed on cream cardstock, plain paper and one photo print), with the exact settings to pick and a cutting guide. The codex to-do **"Print list — everything to take to Staples"** tracks what's in hand.
 
 | File | Paper | What's in it |
 |---|---|---|
-| `print/1-cardstock.pdf` | Letter cardstock, colour, 1-sided, 1 copy | Invitations ×6, the deed, Russ's card, the badge, the concert tickets, the backstory cards, Yobo's two secret cards |
+| `print/1-cardstock.pdf` | Letter cardstock, colour, 1-sided, 1 copy | Invitations ×6, Russ's card, the badge, the concert tickets, the backstory cards, Yobo's two secret cards |
 | `print/photo-4x6.jpg` | Staples photo print: 4×6, glossy or lustre, 1 print (same-day at most stores) | The photograph (Will's trait is painted in) |
-| `print/4-plain.pdf` | Letter plain, colour, 1-sided, 1 copy | The developer's site assessment, Orlok's ledger |
-| `print/3-settlement.pdf` | Optional, plain or ivory | The Articles of Settlement |
+| `print/3-deed.pdf` | Letter cardstock, cream or parchment, colour, 1-sided, 1 copy | The deed |
+| `print/4-plain.pdf` | Letter ivory or plain, colour, 1-sided, 1 copy | The developer's site assessment, the Articles of Settlement, Orlok's ledger |
 
 Rebuild after any prop change (needs Google Chrome, `pypdf` and ImageMagick); it remakes the PDFs and `photo-4x6.jpg`:
 

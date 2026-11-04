@@ -97,7 +97,7 @@ the bearer clause says whoever holds the deed owns the house, and Gnomey doesn't
 | **The study:** the card table with the last hand still on it, and a strongbox holding the signed settlement with **an empty slot where the deed should be** | Scott, 1 Nov |
 | **The deed is printed** — Scott takes it to Staples. Gnomey's physical prop. Prop at `/deed/` | Scott, 1 Nov |
 | Rule: **the deed arrives with Vinny** — nothing at the table puts it in Gnomey's hands early | Scott, 1 Nov |
-| **The deed and the settlement are print-only**, each with a Codex-generated wax seal (being built). `/deed/` and `/settlement/` are retired; in the study, hand over the printed settlement | Scott, 3 Nov |
+| **The deed and the settlement are print-only**, each with the same Codex-generated wax seal (`print/src/assets/seal.png`, 🟡 the seal's design: an oxblood wax seal with a stepped-gable Dutch house and a D). Both print from `print/src/`; in the study, hand over the printed settlement | Scott, 3 Nov |
 | **The deed's wording is signed off** — the indenture language, *forty rooms* and the blank *Recorded with the County Clerk* line in `/deed/` | Scott, 3 Nov (signed off) |
 | **Two documents, two jobs** — Sesh 8 already names both. The **settlement** (printed, with a wax seal — print-only, `Scott, 3 Nov`) is the clue in the study: it sets the bearer rule and tells Gnomey whoever holds the deed owns the house. The **deed** (`/deed/`, printed) is the object Vinny hands over. The deed stays formal and dry; the jokes live on the settlement | Scott, 1 Nov |
 
@@ -796,8 +796,8 @@ stay on this list until you two decide:
 
 ### 6. Prop texture
 - **Backstory cards (`/backstory/`):** every bullet is sourced (mostly Character Bios, paraphrased into second person) except the texture — the footer taglines, *"Class of '04 — finally"*, *"Everyone has AIM. Nobody has a smartphone"*, the Wilderness Scouts troop name (from `/badge/`), and *"years ago"* for Simone's willow sale. A sixth shared **Transyltown** card fills the last print page.
-- **Invite:** ✅ signed off (`Scott, 3 Nov`), once the "saved you a spot" line is removed. Was not canon — *"this pass admits one.
-  dont tell anyone"*, *"see if you make it that far"*, the badges, the RSVP line and `spookynite2k4@hotmail.com`.
+- **Invite:** ✅ signed off (`Scott, 3 Nov (signed off)`): *"this pass admits one. dont tell anyone"*, *"see if you
+  make it that far"*, the badges, the RSVP line and `spookynite2k4@hotmail.com`.
 - **AIM:** the screen name **`DJPoeBoy187`** (the `187` is a police homicide code — he'd have picked it
   at fourteen because it sounded hard, years before it meant anything), and **Poe Boy owning a cat**.
 - **AIM:** the Spirit's reaction to seeing that handle sign on — *"youre not typing like him"* — and the

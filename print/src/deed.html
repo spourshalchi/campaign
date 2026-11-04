@@ -2,13 +2,15 @@
 <!--
   PROP: The deed to Dood Mansion — the bearer deed Vinny walked out with on 14 November 1931.
   CANON: Sesh 8 puts two documents in the study's story — the deed and the settlement. They split the work
-  (Scott, 1 Nov · not in doc): /settlement/ is the clue on the iPad that sets the bearer rule; this deed is
+  (Scott, 1 Nov · not in doc): the settlement is the clue in the study that sets the bearer rule; this deed is
   the object that carries title. Vinny has held it since 1931 and hands it to Gnomey in the ending scene.
   It stays formal and dry on purpose — the jokes belong to the settlement. The date, the $11.40, Columbia
-  County, C. Dood and Dracula as witness all match /settlement/.
+  County, C. Dood and Dracula as witness all match the settlement (print/src/settlement.html).
   The wording of the deed itself (the indenture language, "forty rooms", the blank recording line)
   is signed off: Scott, 3 Nov (signed off).
-  PRINT: US Letter, portrait. Print at 100% / "actual size". Fold in thirds after printing.
+  The wax seal (assets/seal.png) is Codex-generated, the same seal as the settlement.
+  PRINT ONLY (Scott, 3 Nov): print/build.py renders it into print/3-deed.pdf. US Letter, portrait, 100%, on cream
+  or parchment cardstock. Fold in thirds after printing.
 -->
 <html lang="en">
 <head>
@@ -115,8 +117,8 @@
   }
   .recorded .blank{flex:1; border-bottom:1px solid var(--rule); height:1.2em}
 
-  /* pressed over the witness line, the way a real seal overlaps a signature */
-  .seal{position:absolute; right:5%; bottom:6.5%; width:14%; transform:rotate(-8deg); opacity:.8; pointer-events:none}
+  /* pressed at the foot, over the end of the recording line */
+  .seal{position:absolute; right:3.6%; bottom:3.4%; width:12.5%; transform:rotate(-8deg); pointer-events:none}
 
   @media print{
     @page{size:letter portrait; margin:0}
@@ -211,15 +213,8 @@
         <div class="recorded"><span>Recorded with the County Clerk</span><span class="blank"></span></div>
       </div>
 
-      <!-- the same seal as /settlement/ -->
-      <svg class="seal" viewBox="0 0 100 100" aria-hidden="true">
-        <circle cx="50" cy="50" r="46" fill="none" stroke="#6b2028" stroke-width="2.5" opacity=".78"/>
-        <circle cx="50" cy="50" r="39" fill="none" stroke="#6b2028" stroke-width="1"   opacity=".6"/>
-        <path d="M50 22 L64 42 L58 66 L42 66 L36 42 Z" fill="none" stroke="#6b2028" stroke-width="2.5" opacity=".78"/>
-        <path d="M50 32 L50 60 M40 47 L60 47" stroke="#6b2028" stroke-width="2" opacity=".66"/>
-        <text x="50" y="86" text-anchor="middle" font-family="Georgia,serif" font-size="8.5"
-              letter-spacing="2.4" fill="#6b2028" opacity=".7">D O O D</text>
-      </svg>
+      <!-- the same seal as the settlement -->
+      <img class="seal" src="assets/seal.png" alt="">
     </div>
   </div>
 
