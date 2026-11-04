@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <!--
-  PROP: The concert tickets — two GA tickets to the satanic metal band's show.
+  PROP: The concert tickets — two GA tickets to Total Party Kill, the satanic metal band.
   CANON: Poe Boy loves the same band Simone has been saving for and had tickets; in the ending
-  scene his mom grounds him and the tickets go to Simone (Sesh 8).
-  The BAND IS UNNAMED (codex to-do "Name the satanic metal band", Spencer's call) — fill it in
-  the editor before printing. Venue, city, date and times are blank for the same reason.
+  scene his mom grounds him and the tickets go to Simone (Sesh 8). The band's name is
+  Total Party Kill (3 Nov · not in doc — Scott's pick; worth confirming with Spencer). It is the
+  default; the editor and ?band= still override it. Venue, city, date and times are blank to fill in.
   🟡 Prop texture, not canon: the holder line (his real name, Upton M. Livingsworth III — the
   Sesh 3 joke), the $27.50 + fees price, the ticket/section codes and the small print.
   PRINT: US Letter, portrait, 100% / actual size, on cardstock. Both tickets fit one page,
@@ -51,10 +51,6 @@
     min-height:44px; padding:8px 10px; border-radius:8px;
     background:#0f0c12; color:#fff; border:1px solid #4a3c55;
     -webkit-user-select:text; user-select:text;
-  }
-  .warn{
-    margin:12px 0 0; padding:10px 12px; border-radius:8px;
-    background:#3a1420; border:1px solid #7a2a40; color:#ffc7d4; font-size:13.5px;
   }
   .row{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap}
   .row button{
@@ -139,16 +135,15 @@
 
   <div class="editor">
     <h1>Concert tickets — Simone's in the end</h1>
-    <p>Poe Boy's two tickets. His mom grounds him in the ending scene and they go to Simone. Fill in the show, then print at <b>100% / actual size on cardstock</b>; both tickets fit one US Letter page with cut lines.</p>
+    <p>Poe Boy's two tickets to <b>Total Party Kill</b>. His mom grounds him in the ending scene and they go to Simone. Fill in the venue and date, then print at <b>100% / actual size on cardstock</b>; both tickets fit one US Letter page with cut lines.</p>
     <div class="grid">
-      <label class="wide">Band name<input id="f-band" autocomplete="off" placeholder="The band (Spencer's call)"></label>
+      <label class="wide">Band name<input id="f-band" autocomplete="off" placeholder="Total Party Kill"></label>
       <label class="wide">Tour name (optional)<input id="f-tour" autocomplete="off" placeholder="e.g. a tour name"></label>
       <label>Venue<input id="f-venue" autocomplete="off" placeholder="Venue"></label>
       <label>City<input id="f-city" autocomplete="off" placeholder="City, ST"></label>
       <label>Date<input id="f-date" autocomplete="off" placeholder="SAT NOV 20 2004"></label>
       <label>Doors / show<input id="f-time" autocomplete="off" placeholder="DOORS 7PM / SHOW 8PM"></label>
     </div>
-    <p class="warn" id="warn">The band has no name yet. Fill it in before you print — the ticket shows a placeholder until you do.</p>
     <div class="row">
       <button id="printBtn" type="button">Print tickets</button>
       <button id="clearBtn" class="ghost" type="button">Clear fields</button>
@@ -191,6 +186,7 @@
   "use strict";
   var KEYS=["band","tour","venue","city","date","time"];
   var STORE="tickets.v1";
+  var DEFAULTS={band:"Total Party Kill"};
   var vals={};
 
   /* load: localStorage, then URL params override */
@@ -232,9 +228,10 @@
     else{ el.textContent=ph; el.classList.add("ph"); }
   }
   function up(s){ return (s||"").trim().toUpperCase(); }
+  function get(k){ return up(vals[k])||up(DEFAULTS[k]); }
 
   function render(){
-    var band=up(vals.band), venue=up(vals.venue), city=up(vals.city), date=up(vals.date), time=up(vals.time), tour=up(vals.tour);
+    var band=get("band"), venue=get("venue"), city=get("city"), date=get("date"), time=get("time"), tour=get("tour");
     tickets.forEach(function(t){
       show(t.querySelector('[data-f="band"]'), band, "BAND NAME");
       var tr=t.querySelector('[data-f="tour"]'); tr.textContent=tour; tr.hidden=!tour;
@@ -243,16 +240,15 @@
       show(t.querySelector('[data-f="bandshort"]'), band, "BAND NAME");
       show(t.querySelector('[data-f="date"]'), date, "DATE");
     });
-    document.getElementById("warn").hidden=!!band;
   }
 
   KEYS.forEach(function(k){
     var inp=document.getElementById("f-"+k);
-    inp.value=vals[k]||"";
+    inp.value=vals[k]||DEFAULTS[k]||"";
     inp.addEventListener("input",function(){ vals[k]=inp.value; save(); render(); });
   });
   document.getElementById("clearBtn").addEventListener("click",function(){
-    KEYS.forEach(function(k){ vals[k]=""; document.getElementById("f-"+k).value=""; });
+    KEYS.forEach(function(k){ vals[k]=""; document.getElementById("f-"+k).value=DEFAULTS[k]||""; });
     save(); render();
   });
   document.getElementById("printBtn").addEventListener("click",function(){ window.print(); });

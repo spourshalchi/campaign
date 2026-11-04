@@ -56,19 +56,36 @@
   .muted{color:var(--mut)}
   .small{font-size:14px}
   .src{font-size:13px; color:var(--dim)}
-  @media (max-width:520px){ td:first-child{white-space:normal} }
+  .prop{display:inline-flex; align-items:center; min-height:44px; margin:-8px 0; padding:0 4px; font-size:14px; white-space:nowrap}
+
+  /* page previews */
+  .gallery{display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:14px; margin:14px 0 6px}
+  .thumb{display:flex; flex-direction:column; align-items:center; gap:6px; padding:0; border:0; background:none;
+    color:var(--mut); font:inherit; font-size:13px; cursor:pointer; min-height:44px}
+  .thumb img{display:block; width:100%; height:auto; background:#fff; border-radius:2px;
+    box-shadow:0 6px 18px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06)}
+  .thumb:active img{transform:scale(.98)}
+  .gallery-empty{color:var(--dim); font-size:14px; margin:10px 0 0}
+  #lightbox{position:fixed; inset:0; z-index:50; background:rgba(8,6,4,.92); display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:12px;
+    padding:max(14px,env(safe-area-inset-top)) 14px max(14px,env(safe-area-inset-bottom))}
+  #lightbox[hidden]{display:none}
+  #lightbox img{max-width:100%; max-height:calc(100dvh - 120px); background:#fff; box-shadow:0 20px 50px rgba(0,0,0,.7)}
+  #lightbox .bar{display:flex; gap:10px; align-items:center; color:var(--mut); font-size:14px}
+  #lightbox button, #lightbox a{min-height:44px; min-width:44px; padding:0 16px; border-radius:9px; border:1px solid var(--line);
+    background:var(--panel); color:var(--ink); font:inherit; font-size:15px; display:inline-flex; align-items:center; text-decoration:none; cursor:pointer}
+  @media (max-width:520px){ td:first-child{white-space:normal} .gallery{grid-template-columns:repeat(2,1fr)} }
 </style>
 </head>
 <body>
 <main>
 
   <h1>Print Kit</h1>
-  <p class="lede">Everything that gets printed, sorted into <b>two Staples orders</b> by paper. Each PDF is one upload, one copy. Cut at home afterwards.</p>
+  <p class="lede">Everything that gets printed, sorted into <b>two Staples orders</b> by paper. Each PDF is one upload, one copy. Cut at home afterwards. Every page is previewed below — tap one to see it full size.</p>
 
   <h2>Before you print</h2>
   <div class="panel">
     <ul class="check" id="pre">
-      <li><input type="checkbox" id="c1"><label for="c1"><b>Band name.</b> The tickets print with a blank band line until it's set. Spencer's call (codex to-do “Name the satanic metal band”). Then rebuild with <code>--band</code>, below.</label></li>
       <li><input type="checkbox" id="c2"><label for="c2"><b>Will's trait for Bix's parents</b> goes into <code>/photo/</code> (and <code>/party-room/</code>) before the photograph is printed.</label></li>
       <li><input type="checkbox" id="c3"><label for="c3"><b>The invitation.</b> Spencer is deciding concert vs. haunted house. If the card changes, rebuild.</label></li>
       <li><input type="checkbox" id="c4"><label for="c4"><b>Rebuild the PDFs</b> after any of the above (one command, below), then check them on screen.</label></li>
@@ -85,7 +102,7 @@
 
   <h2><span class="n">1</span>Cardstock order</h2>
   <div class="panel">
-    <div class="file"><a class="btn" href="1-cardstock.pdf" download>1-cardstock.pdf</a><span class="tag warn">Band name needed</span></div>
+    <div class="file"><a class="btn" href="1-cardstock.pdf" download>1-cardstock.pdf</a></div>
     <dl class="settings">
       <dt>Size</dt><dd>8.5 × 11 (Letter)</dd>
       <dt>Paper</dt><dd>Cardstock, heaviest available, white</dd>
@@ -96,14 +113,15 @@
       <dt>Finishing</dt><dd>None, cut at home</dd>
     </dl>
     <table>
-      <tr><th>Page</th><th>What</th><th>Cut</th></tr>
-      <tr><td>1–3</td><td><b>Invitations</b> ×6: five lockers and a spare, two per sheet</td><td>Along the black edge of each card</td></tr>
-      <tr><td>4</td><td><b>The deed</b>: Gnomey's prop</td><td>No cut. Fold in thirds so it looks pocket-worn</td></tr>
-      <tr><td>5</td><td><b>Russ's requirements card</b></td><td>Trim to the card border</td></tr>
-      <tr><td>6</td><td><b>The badge</b>, 3″ plus a 2.25″ spare</td><td>Round, on the dashed circle</td></tr>
-      <tr><td>7</td><td><b>Concert tickets</b> ×2</td><td>On the dashed lines</td></tr>
-      <tr><td>8–10</td><td><b>Backstory cards</b>: five PCs and a shared Transyltown card, 5×7, two per sheet</td><td>On the dashed lines</td></tr>
+      <tr><th>Page</th><th>What</th><th>Cut</th><th>Live</th></tr>
+      <tr><td>1–3</td><td><b>Invitations</b> ×6: five lockers and a spare, two per sheet</td><td>Along the black edge of each card</td><td><a class="prop" href="../invite/">/invite/</a></td></tr>
+      <tr><td>4</td><td><b>The deed</b>: Gnomey's prop</td><td>No cut. Fold in thirds so it looks pocket-worn</td><td><a class="prop" href="../deed/">/deed/</a></td></tr>
+      <tr><td>5</td><td><b>Russ's requirements card</b></td><td>Trim to the card border</td><td><a class="prop" href="../badge/">/badge/</a></td></tr>
+      <tr><td>6</td><td><b>The badge</b>, 3″ plus a 2.25″ spare</td><td>Round, on the dashed circle</td><td><a class="prop" href="../badge/">/badge/</a></td></tr>
+      <tr><td>7</td><td><b>Concert tickets</b> ×2</td><td>On the dashed lines</td><td><a class="prop" href="../tickets/">/tickets/</a></td></tr>
+      <tr><td>8–10</td><td><b>Backstory cards</b>: five PCs and a shared Transyltown card, 5×7, two per sheet</td><td>On the dashed lines</td><td><a class="prop" href="../backstory/">/backstory/</a></td></tr>
     </table>
+    <div class="gallery" data-set="cardstock" data-label="Cardstock"></div>
     <p class="small muted">If you want the deed on ivory or parchment, print page 4 again as its own order on that paper. Everything else is fine on white.</p>
   </div>
 
@@ -117,13 +135,15 @@
       <dt>Sides / Copies</dt><dd>1-sided · 1</dd>
       <dt>Scaling</dt><dd>Actual size / 100%</dd>
     </dl>
-    <p class="small">One polaroid, 3.5 × 4.2″. Cut on the dashed line. The writing on the back stays on the iPad (<code>/photo/</code>, tap to turn it over). It's also the key for the party-room spot-the-difference.</p>
+    <p class="small">One polaroid, 3.5 × 4.2″. Cut on the dashed line. The writing on the back stays on the iPad (<a href="../photo/">/photo/</a>, tap to turn it over). It's also the key for the party-room spot-the-difference.</p>
+    <div class="gallery" data-set="photo" data-label="Photo"></div>
   </div>
 
   <h2>Optional</h2>
   <div class="panel">
     <div class="file"><a class="btn" href="3-settlement.pdf" download>3-settlement.pdf</a><span class="tag ok">Ready</span></div>
-    <p class="small">A paper copy of the Articles of Settlement for the study's strongbox. It reads fine on the iPad, so only print it if you want something to hand over. Regular or ivory paper, colour, 1-sided.</p>
+    <p class="small">A paper copy of the Articles of Settlement for the study's strongbox. It reads fine on the iPad (<a href="../settlement/">/settlement/</a>), so only print it if you want something to hand over. Regular or ivory paper, colour, 1-sided.</p>
+    <div class="gallery" data-set="settlement" data-label="Settlement"></div>
   </div>
 
   <h2>Not printed</h2>
@@ -153,11 +173,72 @@
   <h2>Rebuilding the PDFs</h2>
   <div class="panel small">
     <p>From the repo root, with Google Chrome installed:</p>
-    <pre>python3 print/build.py --band "BAND NAME" --venue "VENUE" --city "CITY, NY" --date "SAT NOV 6 2004" --time "DOORS 7PM / SHOW 8PM"</pre>
+    <pre>python3 print/build.py --band "Total Party Kill" --venue "VENUE" --city "CITY, NY" --date "SAT NOV 6 2004" --time "DOORS 7PM / SHOW 8PM"</pre>
     <p>Every flag is optional. Each prop's own print layout decides how it looks, so fix the prop, not the script. Re-run after any prop change, and commit the new PDFs.</p>
   </div>
 
 </main>
+
+<div id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Page preview">
+  <img alt="">
+  <div class="bar">
+    <button type="button" data-step="-1" aria-label="Previous page">&larr;</button>
+    <span id="lb-cap"></span>
+    <button type="button" data-step="1" aria-label="Next page">&rarr;</button>
+    <a id="lb-open" target="_blank" rel="noopener">Full size</a>
+    <button type="button" id="lb-close">Close</button>
+  </div>
+</div>
+
+<script>
+  // page previews, written by print/build.py into previews/manifest.json
+  (function(){
+    var lb = document.getElementById('lightbox'), lbImg = lb.querySelector('img'),
+        lbCap = document.getElementById('lb-cap'), lbOpen = document.getElementById('lb-open');
+    var cur = null, idx = 0;
+    function show(set, i){
+      cur = set; idx = (i + set.files.length) % set.files.length;
+      var src = 'previews/' + set.files[idx];
+      lbImg.src = src; lbImg.alt = set.label + ' page ' + (idx + 1);
+      lbOpen.href = src;
+      lbCap.textContent = set.label + ' · page ' + (idx + 1) + ' of ' + set.files.length;
+      lb.hidden = false;
+    }
+    function close(){ lb.hidden = true; lbImg.removeAttribute('src'); }
+    lb.addEventListener('click', function(e){
+      var step = e.target.closest('[data-step]');
+      if(step){ show(cur, idx + Number(step.dataset.step)); return; }
+      if(e.target === lb || e.target.id === 'lb-close') close();
+    });
+    document.addEventListener('keydown', function(e){
+      if(lb.hidden) return;
+      if(e.key === 'Escape') close();
+      if(e.key === 'ArrowRight') show(cur, idx + 1);
+      if(e.key === 'ArrowLeft') show(cur, idx - 1);
+    });
+
+    fetch('previews/manifest.json', {cache:'no-store'}).then(function(r){ return r.json(); }).then(function(m){
+      document.querySelectorAll('.gallery').forEach(function(g){
+        var set = {label:g.dataset.label, files:m[g.dataset.set] || []};
+        if(!set.files.length){ g.outerHTML = '<p class="gallery-empty">No previews yet — run <code>python3 print/build.py</code>.</p>'; return; }
+        set.files.forEach(function(f, i){
+          var b = document.createElement('button');
+          b.type = 'button'; b.className = 'thumb';
+          b.innerHTML = '<img decoding="async" alt=""><span></span>';
+          b.querySelector('img').src = 'previews/' + f;
+          b.querySelector('img').alt = set.label + ' page ' + (i + 1);
+          b.querySelector('span').textContent = 'Page ' + (i + 1);
+          b.addEventListener('click', function(){ show(set, i); });
+          g.appendChild(b);
+        });
+      });
+    }).catch(function(){
+      document.querySelectorAll('.gallery').forEach(function(g){
+        g.outerHTML = '<p class="gallery-empty">Previews load over http — open this page from the site, not the file.</p>';
+      });
+    });
+  })();
+</script>
 <script>
   // remember the checklist on this device only
   document.querySelectorAll('#pre input').forEach(function(cb){

@@ -152,7 +152,8 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
   Edward's fangs, Dracula's arms — are the prop's invention.
 - **The concert tickets in `/tickets/`** — the holder line *LIVINGSWORTH III / UPTON M* (his real name, so
   Simone reads whose tickets these were), the $27.50 + fees price, the ticket and event codes and the small
-  print are the prop's choices. The band, venue, city and date are left blank to fill in — the band is Spencer's.
+  print are the prop's choices. The band prints as **Total Party Kill** (see Simone, below); venue, city and date
+  are left blank to fill in.
 
 ### Still open from this session
 1. **The invitation:** is it to the concert or to the haunted house? Spencer's, with the poster.
@@ -209,6 +210,7 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 | The price is her money — **stored in a goat-shaped piggy bank**, saved for the concert. If she says yes she **smashes it** and gains the power to run a ritual that moves not just the file but his soul to the USB | Sesh 8 |
 | **The ritual visual:** like a file transfer, but the loading bar exceeds the boundaries, the screen goes weird and glitchy, and then the AIM sign-off sound / message appears | Sesh 8 |
 | **Poe Boy also loves the band** and had tickets. When his mom comes at the end she says he's grounded and not going to the satan concert — **Simone gets the tickets anyway** | Sesh 8 |
+| **The band is called Total Party Kill.** It goes on her shirt and on the tickets | 3 Nov · not in doc — Scott's pick; the band was Spencer's call, so worth confirming with him |
 | **Epilogue:** the kid's spirit is uploaded to the **library computers**, where he helps people find new books to read | Sesh 8 |
 
 ### Settled in conversation, not yet pasted into the doc
@@ -339,8 +341,9 @@ then flips to **a clinic**.
 ### 🟡 Still open inside this arc
 - ~~The medicinal herb's name~~ — **chosen: Sun's-mercy**, a marigold-gold, sun-loving wound-healer
   (Scott, 7 Sep · not in doc — worth pasting in).
-- **The badge artwork.** The physical badge Scott hands over in the epilogue — imagery undecided
-  (a paw-print with a drop of blood, a bat-and-rabbit-under-a-moon, etc.).
+- ~~The badge artwork~~ — **chosen: Codex option B**, an embroidered-patch scout carrying a huge
+  rune-stamped spellbook for a stooped, hooded old mage, ringed *"ASSISTING THE ELDERLY / TROOP 187"*
+  (Codex-generated art, `badge/art/option-b.png`; Scott, 3 Nov · not in doc). 🟡 Prop art, not canon.
 - **Russ's exact druid subclass and sheet.** The concept (Firbolg druid, Speak with Animals) is set; the
   full character sheet is Cody's to hand in, like everyone else's.
 - The prop wording — the printable **Requirements card** — is codex-side texture until it's used.
@@ -680,7 +683,7 @@ stay on this list until you two decide:
 4. ~~John's insecurity — his to name.~~ — **answered and now in the doc** (Character Bios: Yobo, the
    Dolly-Parton lie, anxiety about real talent; Sesh 8: the debuff→truth→buff arc). Only the **wig** is
    still John's call — the doc writes it in as a question.
-5. ~~Cody's PC.~~ — **answered Sesh 8:** a Firbolg druid (working name Russ) earning his Assisting the Elderly badge by helping Orlok. Still open inside it: the badge art and Cody's full sheet.
+5. ~~Cody's PC.~~ — **answered Sesh 8:** a Firbolg druid (working name Russ) earning his Assisting the Elderly badge by helping Orlok. Still open inside it: Cody's full sheet (the badge art is chosen: Codex option B, Scott, 3 Nov · not in doc).
 6. The 4th crew member.
 7. Lock or kill: Dood Mansion, Upton Maximillion Livingsworth III, and the DJ/kingpin names that are locked only by repetition.
 8. **Why these five?** The invite is a deliberate guest list, so it needs a reason the players can be told.
@@ -703,9 +706,10 @@ stay on this list until you two decide:
     Gnomey the study, Bix the party room, Simone the computer, **John (Yobo) shares the party room** (his
     performance turn), and **Cody the cellar infirmary** — where Russ tends Orlok's animals and grows
     Sun's-mercy (badge requirement 2).
-19. **The satanic metal band has no name.** Sesh 8 made it load-bearing three times over — Simone's
-    savings, the goat's price, and Poe Boy's grounding — and it needs to be printable, because it is on
-    a shirt and on the tickets his mother hands over.
+19. ~~**The satanic metal band has no name**~~ — **answered 3 Nov: Total Party Kill.** Sesh 8 made it
+    load-bearing three times over — Simone's savings, the goat's price, and Poe Boy's grounding — and the
+    name is printable, on a shirt and on the tickets his mother hands over. Scott's pick; the band was
+    Spencer's call, so confirm it with him. `3 Nov · not in doc`.
 20. **Where the sticky note is found.** The account is settled — it's Poe Boy's — but the note has no home
     yet. Stuck to the monitor is easiest; down in the ballroom rig is better, because it makes them carry
     it back up. 🟡 **The cat is invented**: `Fluffy123` is Scott's password, but nothing says Poe Boy has a

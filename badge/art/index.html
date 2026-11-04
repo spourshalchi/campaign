@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Badge Art">
+<meta name="theme-color" content="#14110d">
+<title>Badge Art — option B chosen</title>
+<style>
+  /* DM-facing picker for Russ's badge art. Generated with Codex image generation, 3 Nov 2026.
+     🟡 Prop art, not canon. Scott picked option B (3 Nov); option-b.png is the print file the badge
+     prop uses (1244px, corners masked to a circle). The others keep only their previews. */
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:#14110d; color:#efe6d2; overscroll-behavior:none;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    padding:max(18px,env(safe-area-inset-top)) 16px max(28px,env(safe-area-inset-bottom));
+  }
+  main{max-width:1100px; margin:0 auto}
+  h1{font-family:"Hoefler Text",Georgia,serif; font-size:28px; margin:4px 0 4px; font-weight:600}
+  .lede{color:#b5a88d; margin:0 0 22px; font-size:16px; line-height:1.5}
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px}
+  .opt{background:#1e1a14; border:1px solid #3a3226; border-radius:14px; padding:14px; text-align:center}
+  .opt img{width:100%; height:auto; border-radius:50%; background:#fff; display:block}
+  .letter{display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%;
+    background:#d9a640; color:#1a1306; font-weight:800; font-size:20px; margin:12px 0 6px}
+  .opt p{margin:0; font-size:16px; line-height:1.45; color:#e2d7bf}
+  .opt a{color:#d9a640; font-size:14px; display:inline-block; margin-top:8px; min-height:44px; line-height:44px}
+  h2{font-family:"Hoefler Text",Georgia,serif; font-size:20px; margin:34px 0 10px; font-weight:600; color:#b5a88d}
+  .grid.small{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+  .grid.small .opt{opacity:.8}
+  .grid.small .letter{width:32px; height:32px; font-size:16px; background:#6b5d43; color:#efe6d2}
+  .grid.small p{font-size:14px}
+  .opt.chosen{border:2px solid #d9a640; box-shadow:0 0 0 4px rgba(217,166,64,.18)}
+  .opt.passed{opacity:.6}
+  .tag{display:inline-block; margin-top:8px; font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:#1a1306; background:#d9a640; border-radius:999px; padding:3px 12px}
+</style>
+</head>
+<body>
+<main>
+  <h1>Russ's badge — option B</h1>
+  <p class="lede">A D&amp;D take on a normal “Assisting the Elderly” merit badge: a scout helping an elder, in embroidered-patch style. Scott picked <b>B</b>; it prints at 3″ (plus a 2.25″ spare) on the <a href="../" style="color:#d9a640">badge page</a>.</p>
+
+  <div class="grid">
+    <div class="opt passed">
+      <img src="preview-a.jpg" alt="Option A: a young scout helps an old bearded wizard with a staff across a cobbled road">
+      <div class="letter">A</div>
+      <p>The scout walks an old bearded wizard with a staff across a cobbled road. A d20 sits on each side of the ring.</p>
+    </div>
+    <div class="opt chosen">
+      <img src="preview-b.jpg" alt="Option B: a young scout carries a huge golden spellbook beside a stooped old mage">
+      <div class="letter">B</div>
+      <p>The scout carries a huge rune-stamped spellbook for a stooped, hooded old mage.</p>
+      <span class="tag">Chosen</span><br>
+      <a href="option-b.png">Print PNG</a>
+    </div>
+    <div class="opt passed">
+      <img src="preview-c.jpg" alt="Option C: a young scout offers his arm to a bald, pointy-eared, cloaked elder under a crescent moon">
+      <div class="letter">C</div>
+      <p>The scout offers an arm to a bald, pointy-eared elder in a cloak under a crescent moon. A kindly Orlok in everything but name.</p>
+    </div>
+  </div>
+
+  <h2>First batch (emblem-only, set aside)</h2>
+  <div class="grid small">
+    <div class="opt"><img src="first-batch-preview-a.jpg" alt="First batch A: a hand holding up round spectacles under a crescent moon"><div class="letter">1A</div><p>A hand holding up old spectacles under a moon</p></div>
+    <div class="opt"><img src="first-batch-preview-b.jpg" alt="First batch B: a caped bat and a rabbit under a moon with a gold flower"><div class="letter">1B</div><p>A caped bat and a rabbit, with a gold flower</p></div>
+    <div class="opt"><img src="first-batch-preview-c.jpg" alt="First batch C: a cane crossed with a gold lily, a red drop, three stars"><div class="letter">1C</div><p>A cane crossed with a gold flower and a red drop</p></div>
+  </div>
+</main>
+</body>
+</html>

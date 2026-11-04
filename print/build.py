@@ -2,19 +2,20 @@
 Build the Staples print files from the props.
 
 Usage (from the project root):
-    python3 print/build.py --band "Band Name" --venue "Venue" --city "City, NY" --date "SAT OCT 30 2004" --time "DOORS 7PM / SHOW 8PM"
+    python3 print/build.py --band "Total Party Kill" --venue "Venue" --city "City, NY" --date "SAT OCT 30 2004" --time "DOORS 7PM / SHOW 8PM"
 
-Every ticket flag is optional; leave --band off and the tickets print with a blank band line.
+Every ticket flag is optional; leave --band off and the tickets print the prop's default, Total Party Kill.
 
 Output (in print/):
     1-cardstock.pdf     everything on cardstock, one upload, one copy
     2-photo-gloss.pdf   the party-room photograph, for gloss/photo paper
     3-settlement.pdf    optional paper copy of the Articles of Settlement
+    previews/           a JPEG (or PNG) of every page, shown on print/index.html
 
 Needs Google Chrome (headless, for print-to-PDF) and pypdf. Each prop's own
 @media print rules decide its layout, so fix a prop's print CSS, not this file.
 """
-import argparse, functools, http.server, os, socket, subprocess, sys, tempfile, threading
+import argparse, functools, glob, http.server, json, os, shutil, socket, subprocess, sys, tempfile, threading
 from urllib.parse import urlencode
 
 from pypdf import PdfReader, PdfWriter, Transformation, PageObject
@@ -23,10 +24,12 @@ from pypdf import PdfReader, PdfWriter, Transformation, PageObject
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 INVITES = 6          # five lockers + one spare; two per sheet
 LETTER = (612, 792)  # points
+PREVIEW_DPI = 110    # sharp on an iPad, still small
 # ---------------------------------------
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "print")
+PREVIEWS = os.path.join(OUT, "previews")
 
 
 def serve():
@@ -47,6 +50,21 @@ def render(url, dest):
                     "--virtual-time-budget=4000", f"--print-to-pdf={dest}", url],
                    check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     return PdfReader(dest)
+
+
+def previews(pdf_name, stem):
+    """Render every page of a print PDF to previews/<stem>-NN.jpg (PNG if ImageMagick is missing)."""
+    pdftoppm = shutil.which("pdftoppm") or "/opt/homebrew/bin/pdftoppm"
+    if not os.path.exists(pdftoppm):
+        print("WARNING: pdftoppm not found (brew install poppler); skipping previews.")
+        return
+    prefix = os.path.join(PREVIEWS, stem)
+    subprocess.run([pdftoppm, "-r", str(PREVIEW_DPI), "-png", os.path.join(OUT, pdf_name), prefix], check=True)
+    magick = shutil.which("magick") or "/opt/homebrew/bin/magick"
+    if os.path.exists(magick):
+        for png in sorted(glob.glob(prefix + "-*.png")):
+            subprocess.run([magick, png, "-quality", "82", png[:-4] + ".jpg"], check=True)
+            os.remove(png)
 
 
 def two_up_invites(invite_page, count):
@@ -76,8 +94,6 @@ def main():
 
     if not os.path.exists(CHROME):
         sys.exit(f"ERROR: Chrome not found at {CHROME}")
-    if not args.band:
-        print("WARNING: no --band given; the tickets will print with a blank band line.")
 
     base = serve()
     tickets_q = urlencode({k: v for k, v in vars(args).items() if v})
@@ -114,6 +130,19 @@ def main():
     for p in settlement.pages:
         w.add_page(p)
     w.write(os.path.join(OUT, "3-settlement.pdf"))
+
+    # page previews for print/index.html — clear the old ones first
+    os.makedirs(PREVIEWS, exist_ok=True)
+    for old in glob.glob(os.path.join(PREVIEWS, "*")):
+        if old.endswith((".png", ".jpg", ".json")):
+            os.remove(old)
+    previews("1-cardstock.pdf", "cardstock")
+    previews("2-photo-gloss.pdf", "photo")
+    previews("3-settlement.pdf", "settlement")
+    manifest = {stem: sorted(os.path.basename(f) for f in glob.glob(os.path.join(PREVIEWS, stem + "-*.*")))
+                for stem in ("cardstock", "photo", "settlement")}
+    with open(os.path.join(PREVIEWS, "manifest.json"), "w") as f:
+        json.dump(manifest, f, indent=1)
 
     counts = {"invite sheets": -(-INVITES // 2), "deed": len(deed.pages), "badge": len(badge.pages),
               "tickets": len(tickets.pages), "backstory": len(backstory.pages)}

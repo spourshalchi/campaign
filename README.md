@@ -53,7 +53,7 @@ The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
 | Settlement | `settlement/` | The 1931 contract from the strongbox in the study. Opens folded; tap to unfold. Two drunk men signed away a mansion over $11.40, and **the only paragraph on the page with no corrections in it is the one that vests title in the bearer of the deed.** |
 | Deed | `deed/` | The 1931 deed to Dood Mansion, print-ready on letter paper. Uncle Vinny has carried it since the night he won the house and hands it to Gnomey in the ending scene. **Print it at Staples** — it's Gnomey's physical prop. Deliberately not tiled on the landing page, so nobody finds it on the iPad before Vinny hands it over. |
 | Photograph | `photo/` | A flash snapshot from the party room — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. Tap to turn it over for the writing on the back. Bix's beat: hand Will the iPad and say nothing. **Print it too** — the print is Bix's physical prop and the key to the party room. Still to add: the distinctive trait Will picks for Bix's parents. |
-| Tickets | `tickets/` | Two 2004 Ticketmaster-style concert tickets bought under **LIVINGSWORTH III / UPTON M** — what Poe Boy's mother hands Simone in the ending scene. Band, venue and date are fields on the page; fill them in before printing. |
+| Tickets | `tickets/` | Two 2004 Ticketmaster-style concert tickets to **Total Party Kill**, bought under **LIVINGSWORTH III / UPTON M** — what Poe Boy's mother hands Simone in the ending scene. Venue and date are fields on the page; fill them in before printing. |
 | Backstory cards | `backstory/` | One 5×7 reminder card per PC — what each character remembers going in, and nothing they don't know yet — plus a shared Transyltown card. Hand them out before play. |
 | Party room | `party-room/` | The frozen ghost-party, almost exactly the photograph. The table holds the printed photo and taps the six things in the live room that don't match it; misses tick the Revel meter toward a curdle. When the room is whole, the host calls for Yobo's song, with DM buttons for a true or a borrowed voice. |
 | Codex | `codex/` | DM-facing campaign reference — to-do list, relationship web, backstory, story flow, cast, weekend plan, and **combat encounters with the XP budgets**. Not a player prop, and deliberately not tiled on the landing page so it can't be opened at the table by accident. |
@@ -83,7 +83,7 @@ Everything to print lives in the **print kit at [`print/`](print/)**: two Staple
 Rebuild after any prop change (needs Google Chrome and `pypdf`):
 
 ```bash
-python3 print/build.py --band "BAND NAME" --venue "VENUE" --city "CITY, NY" --date "SAT NOV 6 2004"
+python3 print/build.py --band "Total Party Kill" --venue "VENUE" --city "CITY, NY" --date "SAT NOV 6 2004"
 ```
 
 Not printed: the DJ poster (Spencer, not built), the AIM sticky note and the wishing willow slip (handwritten), the USB stick (bought).

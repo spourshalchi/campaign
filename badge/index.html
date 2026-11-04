@@ -4,8 +4,11 @@
   CANON STATUS: 🟡 mostly. The ARC is 📗 in-doc (Sesh 8, pasted 7 Sep 2026): Cody's PC is a
   Firbolg druid (working name "Russ") who earns his Assisting the Elderly badge by helping the
   vampires and bonds with Orlok. The THREE REQUIREMENTS and their beats are Sesh 8 too.
-  The healing herb (Req 2) is Sun's-mercy. 🟡 The badge artwork and the scouting-troop name are this
-  prop's invention (Scott asked for a printable badge, 1 Nov); Cody's full sheet is still his to hand in.
+  The healing herb (Req 2) is Sun's-mercy. 🟡 The badge and the scouting-troop name are this prop's
+  invention (Scott asked for a printable badge, 1 Nov); Cody's full sheet is still his to hand in.
+  ART: art/option-b.png, Codex-generated (3 Nov): a scout carrying a huge rune spellbook for a hooded
+  old mage, "ASSISTING THE ELDERLY / TROOP 187". Scott picked option B from the art/ picker page.
+  The PNG is 1244px (3 in at ~400dpi) with its corners masked to transparent, so nothing white prints.
   PRINT: page 1 is the requirements card, page 2 is the badge at 3 in plus a 2.25 in spare, with cut lines.
 -->
 <html lang="en">
@@ -107,9 +110,9 @@
   .badge-cap{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; font-size:11px; color:#e9e2cd; letter-spacing:.06em; text-transform:uppercase; opacity:.8}
   .badges{display:flex; gap:28px; align-items:center; justify-content:center; flex-wrap:wrap}
   .cut{border-radius:50%; outline:1.5px dashed rgba(255,255,255,.45); outline-offset:6px; display:flex}
-  .cut.big svg.badge{width:220px; height:220px}
-  .cut.small svg.badge{width:165px; height:165px}
-  svg.badge{filter:drop-shadow(0 8px 16px rgba(0,0,0,.45))}
+  .cut.big .badge{width:220px; height:220px}
+  .cut.small .badge{width:165px; height:165px}
+  .badge{display:block; border-radius:50%; filter:drop-shadow(0 8px 16px rgba(0,0,0,.45))}
   .cut-note{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; font-size:12px; color:#d8cfb2; margin:4px 0 0; letter-spacing:.04em}
 
   @media print{
@@ -120,9 +123,9 @@
     .badge-wrap{page-break-before:always; padding-top:.6in; gap:.4in; max-width:none; width:100%; margin:0 auto}
     .badges{flex-direction:column; gap:.6in}
     .cut{outline:1px dashed #777; outline-offset:.06in}
-    .cut.big svg.badge{width:3in; height:3in}
-    .cut.small svg.badge{width:2.25in; height:2.25in}
-    svg.badge{filter:none; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+    .cut.big .badge{width:3in; height:3in}
+    .cut.small .badge{width:2.25in; height:2.25in}
+    .badge{filter:none; -webkit-print-color-adjust:exact; print-color-adjust:exact}
     .cut-note{color:#777; font-size:9pt}
     @page{size:letter portrait; margin:0.5in}
   }
@@ -136,6 +139,7 @@
     <h1>Russ's badge &mdash; how to use it</h1>
     <p><b>Print the card</b> and hand it to Cody early. Russ ticks a box each time he helps Orlok, but every box needs the <b>elder's signature</b> &mdash; and Orlok refuses to sign all weekend. In the <b>ending scene at the house</b>, Orlok finally signs, and Russ's <b>troop leader</b> comes in and <b>hands Cody a real badge</b> (the patch below).</p>
     <p><b>Printing:</b> US Letter, <b>100% / actual size</b>, colour. Page 1 is the card &mdash; card stock if they have it. Page 2 is the badge at 3&Prime; with a 2.25&Prime; spare; print it on <b>sticker paper</b> or card stock, cut on the dashed circle, and pin or stick it on Cody.</p>
+    <p><b>Art:</b> Codex-generated (3 Nov) &mdash; the scout hauling a rune spellbook for a hooded old mage. Scott picked option B; the other options are on the <a href="art/" style="color:#e6c268">art picker page</a>.</p>
     <button onclick="window.print()">Print card + badge</button>
   </div>
 
@@ -188,44 +192,11 @@
   </div>
 
   <!-- ============ THE BADGE ============ -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <symbol id="badge-art" viewBox="0 0 200 200">
-      <defs>
-        <radialGradient id="bfill" cx="50%" cy="42%" r="62%">
-          <stop offset="0%" stop-color="#4c6f47"/>
-          <stop offset="100%" stop-color="#2c4630"/>
-        </radialGradient>
-      </defs>
-      <!-- stitched rim -->
-      <circle cx="100" cy="100" r="94" fill="#b8862f"/>
-      <circle cx="100" cy="100" r="88" fill="url(#bfill)"/>
-      <circle cx="100" cy="100" r="88" fill="none" stroke="#e8cf8a" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.7"/>
-      <circle cx="100" cy="100" r="70" fill="none" stroke="#e8cf8a" stroke-width="1" opacity="0.55"/>
-      <!-- curved title text -->
-      <path id="btop" d="M 24 100 A 76 76 0 0 1 176 100" fill="none"/>
-      <path id="bbot" d="M 18 100 A 82 82 0 0 0 182 100" fill="none"/>
-      <text fill="#f0e6c8" font-family="Georgia, serif" font-weight="700" font-size="12.5" letter-spacing="1.2">
-        <textPath href="#btop" startOffset="50%" text-anchor="middle">ASSISTING THE ELDERLY</textPath>
-      </text>
-      <text fill="#cdbf95" font-family="Georgia, serif" font-size="9" letter-spacing="1.6">
-        <textPath href="#bbot" startOffset="50%" text-anchor="middle">WILDERNESS SCOUTS · TROOP 187</textPath>
-      </text>
-      <!-- center emblem: a cupped hand under a crescent moon, a rabbit's paw + a single drop -->
-      <g transform="translate(100 102)">
-        <path d="M 20 -30 A 26 26 0 1 0 30 -6 A 20 20 0 1 1 20 -30 Z" fill="#e8cf8a" opacity="0.9"/>
-        <!-- cupped hand -->
-        <path d="M -26 18 q 4 -16 12 -16 q 3 0 4 3 q 2 -6 7 -6 q 3 0 4 3 q 2 -5 7 -5 q 3 0 4 3 q 3 -3 7 -1 q 5 3 2 12 q -3 12 -14 16 q -18 6 -30 -1 q -5 -3 -6 -11 Z" fill="#f0e6c8"/>
-        <!-- a small drop resting in the palm -->
-        <path d="M 3 4 q 5 6 0 11 q -5 -5 0 -11 Z" fill="#9c2b2b"/>
-      </g>
-    </symbol>
-  </svg>
-
   <div class="badge-wrap">
     <span class="badge-cap">The badge &mdash; the troop leader hands it over in the ending scene</span>
     <div class="badges">
-      <div class="cut big"><svg class="badge" role="img" aria-label="Assisting the Elderly merit badge"><use href="#badge-art"/></svg></div>
-      <div class="cut small"><svg class="badge" aria-hidden="true"><use href="#badge-art"/></svg></div>
+      <div class="cut big"><img class="badge" src="art/option-b.png" alt="Assisting the Elderly merit badge: a scout carries a huge rune spellbook for a hooded old mage, Troop 187"></div>
+      <div class="cut small"><img class="badge" src="art/option-b.png" alt=""></div>
     </div>
     <p class="cut-note">Cut on the dashed line &middot; 3&Prime; badge + 2.25&Prime; spare</p>
   </div>
