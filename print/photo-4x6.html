@@ -14,9 +14,12 @@
      Two vampires mugging, a pregnant goblin laughing, and a fae
      with no fangs."
 
-     Full bleed, no border. assets/photograph-2x3.jpg is the painting
-     (assets/photograph.jpg, 4:5) outpainted to 2:3 with Codex: more
-     ceiling above, more floor below, the four figures untouched. The
+     Full bleed, no border. assets/photograph-2x3.jpg is already
+     1200×1800, so Chrome draws it 1:1 with no resampling: the painting's
+     1122×1402 Codex master (Lanczos to 1200×1500) feathered into a Codex
+     outpaint that adds ceiling above and floor below. The four figures
+     come only from the master. Grain is fine (≈1px) and light so it
+     doesn't soften the paint. The
      date stamp sits ~0.25in in from the corner so a print trim can't
      reach it.
 
@@ -33,7 +36,7 @@
   <svg viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <defs>
       <filter id="grain">
-        <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="3" seed="7"/>
+        <feTurbulence type="fractalNoise" baseFrequency="2.2" numOctaves="2" seed="7"/>
         <feColorMatrix type="saturate" values="0"/>
         <feComponentTransfer><feFuncA type="linear" slope=".16"/></feComponentTransfer>
       </filter>
@@ -51,7 +54,7 @@
     <!-- 1979 film grade, kept light so the painting survives it -->
     <rect width="400" height="600" fill="#c47a2e" opacity=".06" style="mix-blend-mode:overlay"/>
     <rect width="400" height="600" fill="url(#vig)"/>
-    <rect width="400" height="600" filter="url(#grain)" opacity=".30"/>
+    <rect width="400" height="600" filter="url(#grain)" opacity=".22"/>
 
     <!-- DATESTAMP — orange, burned into the corner by the camera -->
     <text x="372" y="572" text-anchor="end"
