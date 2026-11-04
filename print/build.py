@@ -9,7 +9,7 @@ Usage (from the project root):
 Every ticket flag is optional; leave them off and the tickets print the prop's own show details.
 
 Output (in print/):
-    1-cardstock.pdf     everything on cardstock (Spencer's invitations first, Yobo's two secret cards last), one upload, one copy
+    1-cardstock.pdf     everything on cardstock (Spencer's invitations first, Yobo's two secret cards, then the battle tokens, last), one upload, one copy
     3-deed.pdf          the deed, on its own: cream or parchment cardstock
     4-plain.pdf         plain or ivory paper: the site assessment, the Articles of Settlement, Orlok's ledger
     5-poster.pdf        Spencer's DJ poster, on plain white paper
@@ -134,10 +134,11 @@ def main():
     ledger = page("ledger/")
     yobo = page("yobo/")
     poster = page("print/src/poster.html")
+    tokens = page("print/src/tokens.html")
 
     # 1 — cardstock: one upload, one copy, color, single-sided
     w = PdfWriter()
-    for doc in (invite, badge, tickets, backstory, yobo):
+    for doc in (invite, badge, tickets, backstory, yobo, tokens):
         for p in doc.pages:
             w.add_page(p)
     w.compress_identical_objects(remove_identicals=True, remove_orphans=True)  # six invites share one image
@@ -175,7 +176,8 @@ def main():
     write_manifest()
 
     counts = {"invite sheets": len(invite.pages), "badge": len(badge.pages),
-              "tickets": len(tickets.pages), "backstory": len(backstory.pages), "yobo cards": len(yobo.pages)}
+              "tickets": len(tickets.pages), "backstory": len(backstory.pages), "yobo cards": len(yobo.pages),
+              "tokens": len(tokens.pages)}
     print("1-cardstock.pdf  ", sum(counts.values()), "pages", counts)
     print("photo-4x6.jpg     ", "%dx%d at %ddpi" % PHOTO)
     print("3-deed.pdf        ", len(deed.pages), "page(s)")

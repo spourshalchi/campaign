@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+  PROP: Battle tokens for a 1-inch grid: every enemy in the Run of Show's three fights, the vampire allies,
+  Angelique, and the five PCs. Round portrait tokens: medium creatures 1in, the botched summoning 2in.
+  Rims: red = enemies, gold = allies (the vampires flip to the party's side in the finale; Angelique can join),
+  blue = PCs. Names print in small type under each token, not on it.
+  Counts follow run/index.html's enemy turn cards: archival shears x2, swarm of index cards, the book cart
+  (the trap in the binding); the botched summoning + 4 ritual fragments; W. Ostrander + 6 thugs (three
+  looks, each twice); DJ Poe Boy and Lil Stinky.
+  🟡 NOT CANON YET: every portrait (Codex-generated, print/src/tokens/*.jpg), the summoning's look (canon
+  only says it is visibly incomplete), the thugs' looks, the token sizes. Logged in CANON.md.
+  PRINT ONLY: print/build.py renders it into print/1-cardstock.pdf. US Letter, portrait, 100%, cardstock.
+  Cut on the dashed circles.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tokens">
+<meta name="theme-color" content="#14121a">
+<title>Battle Tokens</title>
+<style>
+  :root{
+    --in:11.7647cqi;                 /* one inch of the 8.5in sheet */
+    --foe:#b3261e; --ally:#c9a227; --pc:#2457a6;
+    --f-ui:"Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{background:#14121a; min-height:100dvh; overscroll-behavior:none; font-family:var(--f-ui);
+    padding:max(16px,env(safe-area-inset-top)) 16px max(28px,env(safe-area-inset-bottom));
+    display:flex; flex-direction:column; align-items:center; gap:14px}
+  .bar{width:100%; max-width:760px; color:#cfc8dc; font-size:14px; line-height:1.5; -webkit-user-select:none; user-select:none}
+  .bar b{color:#fff}
+
+  .page{width:100%; max-width:760px; aspect-ratio:8.5/11; container-type:inline-size; background:#fff;
+    box-shadow:0 20px 44px rgba(0,0,0,.7); position:relative; overflow:hidden}
+  .grid{position:absolute; left:calc(.55 * var(--in)); right:calc(.55 * var(--in)); top:calc(.45 * var(--in))}
+  .row{display:grid; grid-template-columns:repeat(6, 1fr); grid-auto-rows:calc(1.22 * var(--in))}
+  .grp{height:calc(.28 * var(--in)); border-bottom:.12cqi solid #ccc;
+    font:600 calc(.11 * var(--in))/1 var(--f-ui); letter-spacing:.14em; text-transform:uppercase; color:#777;
+    display:flex; align-items:flex-end; padding-bottom:calc(.04 * var(--in))}
+  .t{display:flex; flex-direction:column; align-items:center; justify-content:center; gap:calc(.05 * var(--in))}
+  .t.big{grid-column:span 2; grid-row:span 2}
+  .cut{border-radius:50%; outline:.12cqi dashed #777; outline-offset:0; display:flex}
+  .tok{width:calc(1 * var(--in)); height:calc(1 * var(--in)); border-radius:50%; overflow:hidden; position:relative;
+    border:calc(.07 * var(--in)) solid var(--rim); background:#ddd;
+    box-shadow:inset 0 0 0 calc(.012 * var(--in)) rgba(0,0,0,.35);
+    -webkit-print-color-adjust:exact; print-color-adjust:exact}
+  .big .tok{width:calc(2 * var(--in)); height:calc(2 * var(--in)); border-width:calc(.1 * var(--in))}
+  .tok img{width:100%; height:100%; object-fit:cover; display:block}
+  .nm{font:600 calc(.085 * var(--in))/1.15 var(--f-ui); color:#333; text-align:center; max-width:calc(1.15 * var(--in))}
+  .big .nm{max-width:none; font-size:calc(.1 * var(--in))}
+  .foe{--rim:var(--foe)} .ally{--rim:var(--ally)} .pc{--rim:var(--pc)}
+
+  @media print{
+    @page{size:letter portrait; margin:0}
+    html,body{background:#fff !important}
+    body{padding:0; display:block; min-height:0}
+    .bar{display:none !important}
+    .page{width:8.5in; height:11in; max-width:none; aspect-ratio:auto; box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="bar">
+  <b>Battle tokens</b> &middot; 🟡 Not canon yet. Print on cardstock at 100%; cut on the dashed circles (each is exactly 1″, or 2″ for the summoning). Red: enemies (stay with the DM). Gold: allies. Blue: the PCs.
+</div>
+<div class="page"><div class="grid" id="grid"></div></div>
+<script>
+  // [file, name, kind, count, big]. Counts follow the Run of Show's enemy turn cards.
+  var GROUPS = [
+    ["The party", [
+      ["bix","Bix Grimlor","pc",1], ["gnomey","Gnomey Soprano","pc",1], ["simone","Simone","pc",1],
+      ["yobo","Yobo","pc",1], ["russ","Russ","pc",1]]],
+    ["Allies", [
+      ["orlok","Orlok","ally",1], ["dracula","Dracula","ally",1], ["edward","Edward","ally",1], ["angelique","Angelique","ally",1]]],
+    ["The trap in the binding", [
+      ["shears","Archival shears","foe",2], ["cards","Swarm of index cards","foe",1], ["cart","The book cart","foe",1]]],
+    ["The botched summoning", [
+      ["summoning","The botched summoning","foe",1,true], ["fragment","Ritual fragment","foe",4]]],
+    ["The finale", [
+      ["ostrander","W. Ostrander","foe",1], ["thug1","Thug","foe",2], ["thug2","Thug","foe",2], ["thug3","Thug","foe",2],
+      ["poeboy","DJ Poe Boy","foe",1], ["stinky","Lil Stinky","foe",1]]]
+  ];
+  // number every name that appears more than once (shears 1-2, fragments 1-4, thugs 1-6) so the DM can track HP
+  var total = {}, seen = {};
+  GROUPS.forEach(function(g){ g[1].forEach(function(t){ total[t[1]] = (total[t[1]] || 0) + t[3]; }); });
+  var html = '';
+  GROUPS.forEach(function(g){
+    html += '<div class="grp">' + g[0] + '</div><div class="row">';
+    g[1].forEach(function(t){
+      for(var i = 0; i < t[3]; i++){
+        html += '<div class="t ' + t[2] + (t[4] ? ' big' : '') + '"><div class="cut"><div class="tok"><img src="tokens/' + t[0] + '.jpg" alt=""></div></div>' +
+          '<div class="nm">' + t[1] + (total[t[1]] > 1 ? ' ' + (seen[t[1]] = (seen[t[1]] || 0) + 1) : '') + '</div></div>';
+      }
+    });
+    html += '</div>';
+  });
+  document.getElementById('grid').innerHTML = html;
+  document.addEventListener('touchmove', function(e){ if(e.scale && e.scale !== 1) e.preventDefault(); }, {passive:false});
+</script>
+</body>
+</html>
