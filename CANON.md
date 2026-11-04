@@ -236,25 +236,20 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
   - the screen-only DM brief under the page (where it's found, the fox and owl in the room, the Sun's-mercy check
     as on the run sheet).
 - **Map:** cut by Scott, 3 Nov.
-- **Yobo's two secret cards in `/yobo/`** (`print/1-cardstock.pdf` p.12, two 3.5 × 5 cards) — built 3 Nov,
-  awaiting Scott's review. The arc is canon (Character Bios + Sesh 8: the lie is a debuff, the truth in the party
-  room flips it to a buff; the secret note at the gazebo is Sesh 8). The cards are from Scott's brief (Scott, 3 Nov):
+- **Yobo's two secret cards in `/yobo/`** (`print/1-cardstock.pdf` p.8, two 3.5 × 5 cards) — **✅ signed off,
+  `Scott, 4 Nov (signed off)`**: the titles, the flavour lines, the rules wording and the cartoon theatre-mask art. The
+  arc is canon (Character Bios + Sesh 8: the lie is a debuff, the truth in the party room flips it to a buff; the
+  secret note at the gazebo is Sesh 8). The cards are from Scott's brief (Scott, 3 Nov):
   - **The Weight of Your Lies** (the debuff), handed to John face-down at the gazebo, at his first Performance
-    check. Rules: *disadvantage on Performance, advantage on Deception* (Scott, 3 Nov). The card never names the
-    cure: nothing on it hints that the truth fixes it, and the lie should feel like it gives him something, the
-    Deception edge (Scott, 3 Nov).
+    check. Rules: *disadvantage on Performance, advantage on Deception*, and nothing else: no Bardic Inspiration
+    penalty. The card never names the cure, and the lie feels like it gives him something, the Deception edge.
   - **Your True Voice** (the buff), handed over in the party room after he tells the truth. It says plainly that
-    it **replaces** the debuff: *advantage on Performance, the Bardic Inspiration boost, and the Deception
-    advantage is gone, for the rest of the campaign*, so coming clean is a real trade-off (Scott, 3 Nov).
-    **🟡 The boost as the die one size larger (d8 → d10)** is a proposal for Scott to tune.
-  - 🟡 the titles' wording, both flavour lines, and the art, generated with Codex as flat cartoon sticker graphics
-    with no people (`yobo/assets/mask2-lies.png`, `mask2-voice.png`): on the debuff, a cracked, tarnished comedy
-    mask chained to an iron weight and dripping, in muted gold and plum on black; on the buff, the same mask
-    cracked open and set down under a spotlight with stars and sparkles, in gold and hot pink on cream.
-
-  **Seam:** Sesh 8 makes the debuff *Performance + Bardic Inspiration* ("weakened, a die step down"), but the
-  debuff card from the brief has no Inspiration penalty. Either add *"Your Bardic Inspiration die is one size
-  smaller"* to the debuff card, or settle that the lie costs only Performance.
+    it **replaces** the debuff: *advantage on Performance, the Bardic Inspiration die one size larger (d8 → d10),
+    and the Deception advantage is gone, for the rest of the campaign*, so coming clean is a real trade-off.
+  - The art is Codex-generated flat cartoon stickers with no people (`yobo/assets/mask2-lies.png`,
+    `mask2-voice.png`): on the debuff, a cracked, tarnished comedy mask chained to an iron weight and dripping, in
+    muted gold and plum on black; on the buff, the same mask cracked open and set down under a spotlight with stars
+    and sparkles, in gold and hot pink on cream.
 
 ### Still open from this session
 1. ~~**The invitation:** is it to the concert or to the haunted house?~~ — **answered 3 Nov:** one event, Poe Boy's
@@ -483,10 +478,10 @@ then flips to **a clinic**.~~ **Scott, 3 Nov:** no fake-out — the room is plai
 | ✅ **The printed ledger is a real-feeling register**, with a short journal under it in his hand: Sun's-mercy is a seed he keeps sowing, it comes up white and dies without sun, the flower draws infection and mends wounds, and a patient in the register needs it now | Scott, 3 Nov (signed off) |
 | 🟡 **Sesh 6's "puzzle releases a key to a hidden room" is retired** | Scott, 3 Nov |
 | **The wishing willow is made by hand** by Scott; **its paper wish tag is printed**, on the badge sheet, and tied on | Scott, 3 Nov; the tag: Scott, 4 Nov |
-| 🟡 **The willow tag** (`print/src/assets/willow-tag.png`, Codex-generated): a worn manila tag with a twine loop, crumpled, a faint coffee ring, *"I want Angelique to notice me"* in a twelve-year-old's pencil. Unsigned: the name comes off the USB | Scott, 4 Nov |
+| 🟡 **The willow tag** (`print/src/assets/willow-tag.png`, Codex-generated): a worn manila tag with an empty punched hole (Scott ties real string through it), crumpled, a faint coffee ring, *"I want Angelique to notice me"* in a twelve-year-old's pencil. Unsigned: the name comes off the USB | Scott, 4 Nov |
 | **Not needed:** ambient playlists (the Run of Show soundboard covers it), background slides (no second screen), a safety-tools agreement (Scott and Spencer have it covered) | Scott, 3 Nov |
 | **Yobo wears a wig.** Scott and John are aligned. Why he wears it is not specified | Scott, 3 Nov |
-| **Yobo's arc runs on two secret printed cards.** *The Weight of Your Lies* is handed to John at his first Performance check (the gazebo Dolly riff): disadvantage on Performance, advantage on Deception. *Your True Voice* is handed over after a true performance on Dracula's stage: advantage on Performance, plus a Bardic Inspiration boost. Sesh 8's arc stands; these mechanics are Scott's. 🟡 The card wording, being built at `/yobo/` | Scott, 3 Nov |
+| **Yobo's arc runs on two secret printed cards.** *The Weight of Your Lies* is handed to John at his first Performance check (the gazebo Dolly riff): disadvantage on Performance, advantage on Deception. *Your True Voice* is handed over after a true performance on Dracula's stage: advantage on Performance, plus a Bardic Inspiration boost. Sesh 8's arc stands; these mechanics are Scott's. The cards are at `/yobo/`, signed off `Scott, 4 Nov (signed off)` | Scott, 3 Nov |
 | **No dedicated Deception beat.** He can deceive whenever he likes | Scott, 3 Nov |
 | **The party room, cut down:** Bix finds the photograph (the 4×6 print). Dracula won't let anyone leave without a song, and only Yobo can give it; his Performance check runs at disadvantage. Dracula sees what's holding him back and pushes him to live as his true self. ~~Blend in, the spot-the-difference and the Revel meter~~ are cut, and `/party-room/` is deleted | Scott, 3 Nov |
 | 🟡 **The party room is Dracula's shrine**, kept untouched since the night in '79. It isn't haunted, but **the room remembers**: when the record plays, faint echoes of that night shimmer in (impressions, not interactive ghosts) and fade when the music stops. Bix may recognise them from the photo | Scott, 3 Nov |
@@ -801,7 +796,7 @@ stay on this list until you two decide:
   Edward and Goblinenon arrived is the codex's placement for it
 
 ### 6. Prop texture
-- **Backstory cards (`/backstory/`):** 🟡 each card is a few short bullets that set up that PC's story this weekend, only what a beat uses, not a rehash of the player's own write-up (Scott, 3–4 Nov). All five print on one sheet; there is no shared Transyltown card (Scott, 4 Nov). Bix: his parents and the adventurers story, and 🟡 *"found in town as a baby"*, foster homes (canon has him carried into town as a baby; the card gives only what he'd have been told). Gnomey: Great Uncle Vinny, *"the family's old bootlegger... He always had a soft spot for you"* (🟡 the soft spot, Scott, 4 Nov, to set up his phone call; the visit at twelve stays DM-side), and Poe Boy's crew and the silly bandz. Simone: the wishing-willow sale (🟡 *"years ago"*), the Total Party Kill show and the goat piggy bank, the goat. Yobo: the Dolly Parton belief, the riffs, the old school, the doubt, the wig. Russ: one badge left, Assisting the Elderly.
+- **Backstory cards (`/backstory/`):** **✅ signed off, `Scott, 4 Nov (signed off)`.** Each card is a few short bullets that set up that PC's story this weekend, only what a beat uses, not a rehash of the player's own write-up (Scott, 3–4 Nov). All five print on one sheet; there is no shared Transyltown card (Scott, 4 Nov). Bix: his parents and the adventurers story, and *"found in town as a baby"*, foster homes (canon has him carried into town as a baby; the card gives only what he'd have been told). Gnomey: Great Uncle Vinny, *"the family's old bootlegger... He always had a soft spot for you"* (the soft spot sets up his phone call; the visit at twelve stays DM-side), and Poe Boy's crew and the silly bandz. Simone: the wishing-willow sale (*"years ago"*), the Total Party Kill show and the goat piggy bank, the goat. Yobo: the Dolly Parton belief, the riffs, the old school, the doubt, the wig. Russ: one badge left, Assisting the Elderly.
 - **Invite:** ✅ signed off (`Scott, 3 Nov (signed off)`): *"this pass admits one. dont tell anyone"*, *"see if you
   make it that far"*, the badges, the RSVP line and `spookynite2k4@hotmail.com`.
 - **AIM:** the screen name **`DJPoeBoy187`** (the `187` is a police homicide code — he'd have picked it
