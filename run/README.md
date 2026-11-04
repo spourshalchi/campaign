@@ -23,15 +23,25 @@ the night one moment at a time, with everything you need to run that moment on s
 
 ## What's on each slide
 
-Each of the 18 cues maps to a moment in the [codex Story Flow](../codex/), enriched for live play:
+Each of the 18 cues maps to a moment in the [codex Story Flow](../codex/), enriched for live play.
+Scott and Spencer share one laptop, so every cue is split into two colour-coded zones on one screen;
+on a wide enough screen each zone scrolls on its own, and below 700px they stack.
 
-- **Read aloud** — the boxed teleprompter line(s) or script to deliver / play.
-- **The beats** — bullet points of what to communicate and do.
-- **Potential skill checks** — the likely rolls, with suggested DCs (`*` = proposal).
-- **Combat** — stat-block summary, XP, the hard rule for the fight, and an **Add to initiative** button.
-- **In the scene** — the NPCs present, each with a one-line voicing reminder.
-- **Reminders** — hand-outs (✋), rules (⚠), and level-ups (⬆) tied to that moment.
-- **Suggested sound cues** — the soundboard buttons to reach for, highlighted on the board too.
+**SCOTT · narrate** (gold, left)
+- **📱 iPad → item N** — which numbered item to open on the players' iPad.
+- **🗂 Floating props** — on every mansion cue: the sticky note, with a handed-over checkbox.
+- **Read aloud** — the boxed teleprompter narration.
+- **🔓 Reveals** — what someone learns from Scott's narration or a prop.
+- **Hand-outs & reminders** — hand-outs (✋), rules (⚠), and level-ups (⬆) tied to that moment.
+- **The beats**, **skill checks** (`*` = proposed DC) and **combat** (stat blocks, XP, the hard rule, **Add to initiative**).
+- **Sound cues** — the soundboard buttons to reach for, highlighted on the board too.
+
+**SPENCER · voice** (pink, right)
+- **Lines** — the dialogue script: who says what.
+- **NPCs** — everyone in the scene with a one-line voicing, and the **🔓 Reveals** they deliver or react to.
+
+**🔓 Reveal** markers say who learns what: the players, one PC, or an NPC. When one fires,
+both of you play the reaction. Every reveal is 🟡 AI staging until Scott reviews it.
 
 ## Controls
 

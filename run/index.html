@@ -82,34 +82,37 @@
     border-radius:8px;padding:6px 10px;cursor:pointer;display:flex;align-items:center;gap:5px;white-space:nowrap}
   .tbtn:hover{color:var(--ink);border-color:var(--dim)}
   .tbtn .k{font-family:var(--f-mono);font-size:9.5px;color:var(--dim);border:1px solid var(--edge);border-radius:4px;padding:0 4px}
-  @media(max-width:760px){.tbtn .lbl{display:none}.brand{font-size:13px}}
+  @media(max-width:1100px){.tbtn .k,.brand .b2{display:none}}
+  @media(max-width:860px){.brand{display:none}}
+  @media(max-width:760px){.tbtn .lbl{display:none}}
 
   /* stage */
-  #stage{flex:1 1 auto;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:16px 18px 26px}
-  .slide-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;margin:2px 0 14px}
+  #stage{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:12px 52px 12px}
+  @media(max-width:940px){#stage{padding:10px 14px 12px}}
+  .slide-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin:0 0 10px;flex:0 0 auto}
   .slide-head .no{font-family:var(--f-mono);font-size:13px;color:var(--gold)}
   .slide-head h2{font-family:var(--f-disp);font-size:clamp(22px,3.4vw,30px);margin:0;line-height:1.1}
-  .slide-head .where{font-size:12.5px;color:var(--dim);letter-spacing:.02em;text-transform:uppercase;flex-basis:100%}
+  .slide-head .where{font-size:13px;color:var(--dim);letter-spacing:.02em;text-transform:uppercase;flex-basis:100%}
 
   /* iPad call-out: the number matches the landing page's numbered items */
-  .ipad{display:flex;flex-direction:column;gap:8px;margin:0 0 16px}
+  .ipad{display:flex;flex-direction:column;gap:8px;margin:0 0 12px}
   .ipad-row{display:flex;align-items:center;gap:14px;background:linear-gradient(180deg,#0a64bd,#0a246a);
-    border:2px solid #5b9bd5;border-radius:12px;padding:10px 16px 10px 10px;box-shadow:0 0 0 1px #0006,0 6px 22px rgba(91,155,213,.25)}
-  .ipad-row .n{flex:0 0 auto;min-width:64px;height:64px;padding:0 8px;border-radius:8px;
+    border:2px solid #5b9bd5;border-radius:12px;padding:8px 14px 8px 8px;box-shadow:0 0 0 1px #0006,0 6px 22px rgba(91,155,213,.25)}
+  .ipad-row .n{flex:0 0 auto;min-width:54px;height:54px;padding:0 8px;border-radius:8px;
     background:linear-gradient(180deg,#fffce0,#ffcc00);color:#3a2400;font-family:Tahoma,Geneva,sans-serif;
-    font-weight:700;font-size:44px;line-height:64px;text-align:center}
+    font-weight:700;font-size:38px;line-height:54px;text-align:center}
   .ipad-row .tx{flex:1;min-width:0}
-  .ipad-row .go{font-size:clamp(18px,2.4vw,22px);font-weight:700;color:#fff;line-height:1.25}
+  .ipad-row .go{font-size:clamp(17px,2vw,20px);font-weight:700;color:#fff;line-height:1.25}
   .ipad-row .go .rm{color:#ffe58a}
-  .ipad-row .pr{font-size:13.5px;color:#d8e6ff;margin-top:2px}
+  .ipad-row .pr{font-size:14px;color:#d8e6ff;margin-top:2px}
   .ipad-row .pr code{color:#ffe58a}
-  .ipad-row .wn{font-size:13.5px;color:#fff;margin-top:4px}
+  .ipad-row .wn{font-size:14px;color:#fff;margin-top:4px}
   .ipad-key{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:6px 0 2px;font-size:14px}
   .ipad-key .k{font-family:Tahoma,Geneva,sans-serif;font-weight:700;color:#1a1206;background:var(--gold);
     border-radius:5px;min-width:26px;text-align:center}
   .floating{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:0 0 16px;padding:8px 10px 8px 14px;
     background:#1e1a10;border:1px dashed var(--amber-dim);border-radius:12px}
-  .floating .fh{font-size:13px;font-weight:700;color:var(--amber);letter-spacing:.02em}
+  .floating .fh{font-size:14px;font-weight:700;color:var(--amber);letter-spacing:.02em}
   .floating .fp{display:flex;align-items:center;gap:10px;min-height:44px;padding:6px 14px 6px 8px;cursor:pointer;
     background:#0000004d;border:1px solid var(--amber-dim);border-radius:9px;color:var(--ink);font:inherit;font-size:14px}
   .floating .fp .box{width:24px;height:24px;border:2px solid var(--amber);border-radius:5px;display:flex;
@@ -120,24 +123,59 @@
   .floating .fp.done .fs{color:var(--green)}
   .idx-item .ip{font-size:11px;color:var(--blue);margin-left:6px;font-family:var(--f-mono)}
 
-  .grid2{display:grid;grid-template-columns:1fr 340px;gap:18px;align-items:start}
-  @media(max-width:940px){.grid2{grid-template-columns:1fr}}
+  /* Two zones on one screen: Scott narrates (gold), Spencer voices (pink).
+     Wide enough → the stage stops scrolling and each zone scrolls on its own. */
+  .zones{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:14px;align-items:stretch}
+  .zone{border-radius:14px;padding:0 14px 14px;border:1px solid var(--edge);border-top-width:4px;min-width:0}
+  .z-scott{border-color:#5a4520;border-top-color:var(--gold);background:linear-gradient(180deg,rgba(231,181,63,.05),transparent 220px)}
+  .z-spencer{border-color:#4f2846;border-top-color:var(--pink);background:linear-gradient(180deg,rgba(236,122,192,.06),transparent 220px)}
+  .zone .zh{position:sticky;top:0;z-index:2;margin:0 -14px 12px;padding:8px 14px;font-size:14px;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;background:var(--desk);border-bottom:1px solid var(--edge)}
+  .z-scott .zh{color:var(--gold)} .z-spencer .zh{color:var(--pink)}
+  .zone .zh span{color:var(--ink)}
+  .zempty{font-size:14px;color:var(--dim);margin:4px 0}
+  @media(min-width:700px){
+    #stage{display:flex;flex-direction:column;overflow:hidden}
+    .zones{flex:1 1 auto;min-height:0}
+    .zone{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+  }
+  @media(min-width:700px) and (max-width:1000px){.zones{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:10px}}
+  @media(max-width:699px){.zones{grid-template-columns:1fr}}
+
+  /* Spencer's dialogue script */
+  .talk{background:radial-gradient(120% 120% at 50% 0%,#1d0f1a,#0f080d);border:1px solid #4f2846;border-radius:12px;
+    padding:12px 14px;margin-bottom:14px}
+  .talk p{margin:0 0 9px;font-family:var(--f-disp);font-size:17px;line-height:1.45;color:#ffd6ee}
+  .talk p:last-child{margin-bottom:0}
+  .talk .who{display:block;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--pink);text-transform:uppercase}
+
+  /* 🔓 reveals */
+  .revs{margin:0 0 14px}
+  .revs .rh{margin:0 0 6px;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+  .revs .rh .ai{font-size:12px;letter-spacing:0;text-transform:none;color:var(--amber-dim);font-weight:400;margin-left:6px}
+  .rev{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;line-height:1.45;color:var(--ink);
+    background:rgba(84,200,148,.08);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:7px 10px;margin-bottom:6px}
+  .rev .rk{flex:0 0 auto}
+  .rev .rt{flex:1;min-width:0}
+  .rev .rt b{color:var(--green)}
+  .rev .ai{flex:0 0 auto;font-size:12px}
+  .npc-revs{margin-top:8px}
 
   /* teleprompter read box */
   .read{position:relative;background:
       repeating-linear-gradient(0deg, rgba(255,207,122,.05) 0 2px, transparent 2px 4px),
       radial-gradient(120% 120% at 50% 0%, #1a160c, #0d0b06);
     border:1px solid #3a2f16;border-radius:14px;padding:18px 20px;margin-bottom:18px;box-shadow:inset 0 0 40px rgba(0,0,0,.6)}
-  .read .rl{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber-dim);margin-bottom:8px;font-weight:700}
+  .read .rl{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber-dim);margin-bottom:8px;font-weight:700}
   .read p{margin:0 0 10px;font-family:var(--f-disp);font-size:clamp(17px,2.5vw,21px);line-height:1.5;color:var(--amber);
     text-shadow:0 0 14px rgba(255,180,80,.18)}
   .read p:last-child{margin-bottom:0}
   .read p b{color:#fff2d6}
-  .read .who{display:inline-block;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:var(--amber-dim);
+  .read .who{display:inline-block;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--amber-dim);
     margin-right:8px;text-transform:uppercase}
 
   .block{margin-bottom:18px}
-  .block > .h{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--mut);
+  .block > .h{font-size:13px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--mut);
     margin:0 0 10px;display:flex;align-items:center;gap:8px}
   .block > .h::after{content:"";flex:1;height:1px;background:var(--edge)}
 
@@ -153,10 +191,10 @@
   .check{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid var(--edge);
     border-radius:10px;padding:10px 12px}
   .check .cd{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:66px}
-  .check .skill{font-size:12px;font-weight:700;color:var(--blue);text-align:center;line-height:1.2}
+  .check .skill{font-size:13px;font-weight:700;color:var(--blue);text-align:center;line-height:1.2}
   .check .dc{font-family:var(--f-mono);font-size:15px;color:var(--gold);font-weight:700}
   .check .dc .sug{color:var(--amber-dim);font-size:11px}
-  .check .cn{font-size:13px;color:var(--mut);line-height:1.45}
+  .check .cn{font-size:14px;color:var(--mut);line-height:1.45}
   .check .cn b{color:var(--ink)}
 
   /* combat */
@@ -165,32 +203,26 @@
   .combat .ct h4{margin:0;font-family:var(--f-disp);font-size:17px;color:#ffb3bf}
   .combat .xp{font-family:var(--f-mono);font-size:12px;color:var(--blood);background:#0000004d;border:1px solid #4a2530;
     padding:2px 8px;border-radius:999px}
-  .combat .cp{font-size:13px;color:var(--mut);margin:6px 0 10px;line-height:1.5}
-  table.stat{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:10px}
-  table.stat th{text-align:left;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);
+  .combat .cp{font-size:14px;color:var(--mut);margin:6px 0 10px;line-height:1.5}
+  table.stat{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:10px}
+  table.stat th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);
     font-weight:600;padding:4px 8px;border-bottom:1px solid var(--edge)}
   table.stat td{padding:5px 8px;border-bottom:1px solid #ffffff08;color:var(--mut)}
   table.stat td:first-child{color:var(--ink);font-weight:600}
   table.stat .mono{font-family:var(--f-mono);color:var(--gold)}
-  .combat .crule{font-size:12.5px;color:#ffc9d0;background:rgba(224,69,93,.09);border-left:3px solid var(--blood);
+  .combat .crule{font-size:14px;color:#ffc9d0;background:rgba(224,69,93,.09);border-left:3px solid var(--blood);
     border-radius:0 8px 8px 0;padding:8px 12px;line-height:1.5;margin-bottom:10px}
   .combat .addinit{font-family:var(--f-body);font-size:12px;color:#1a0c10;background:linear-gradient(180deg,#f08595,#d0526a);
     border:none;border-radius:8px;padding:8px 14px;font-weight:700;cursor:pointer}
   .combat .addinit:active{transform:translateY(1px)}
 
-  /* right rail */
-  .rail{display:flex;flex-direction:column;gap:16px;position:sticky;top:0}
-  @media(max-width:940px){.rail{position:static}}
-  .card{background:var(--panel);border:1px solid var(--edge);border-radius:12px;padding:14px 15px}
-  .card .ch{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--mut);margin:0 0 11px}
-
-  .npc{padding:9px 0;border-top:1px solid var(--edge)}
-  .npc:first-of-type{border-top:none;padding-top:0}
-  .npc .nm{font-size:13.5px;font-weight:700;color:var(--ink)}
-  .npc .vc{font-size:12.5px;color:var(--mut);line-height:1.45;margin-top:2px}
+  .npc{padding:10px 0;border-top:1px solid var(--edge)}
+  .zone .npc:first-of-type{border-top:none}
+  .npc .nm{font-size:16px;font-weight:700;color:var(--pink)}
+  .npc .vc{font-size:14.5px;color:var(--ink);opacity:.86;line-height:1.45;margin-top:2px}
 
   ul.rem{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
-  ul.rem li{position:relative;padding-left:24px;font-size:13px;line-height:1.45;color:var(--mut)}
+  ul.rem li{position:relative;padding-left:24px;font-size:14px;line-height:1.45;color:var(--mut)}
   ul.rem li::before{content:"\25C6";position:absolute;left:2px;top:1px;color:var(--gold);font-size:11px}
   ul.rem li b{color:var(--ink)}
   ul.rem li.hand::before{content:"\270B";color:var(--green)}
@@ -198,7 +230,7 @@
   ul.rem li.level::before{content:"\2B06";color:var(--purple)}
 
   .cuepills{display:flex;flex-wrap:wrap;gap:7px}
-  .cuepill{font-size:12px;color:var(--ink);background:#0000004d;border:1px solid var(--edge);border-radius:999px;
+  .cuepill{font-size:13px;color:var(--ink);background:#0000004d;border:1px solid var(--edge);border-radius:999px;
     padding:6px 12px;cursor:pointer;display:flex;align-items:center;gap:6px}
   .cuepill:hover{border-color:var(--dim)}
   .cuepill .dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
@@ -482,7 +514,8 @@ const SCENES = [
     "<b>Party is level 4</b>, leveling to <b>5</b> at the end of night one. Everything Sunday is built for five level-5 PCs.",
     "<b>Sunday's three rooms run in any order</b> — Study (Gnomey), Party room (Bix &amp; Yobo), Cellar (Cody). <b>The old rig upstairs (Simone) is locked until the end</b> and is always the last room. The corridor set-piece is cut.",
     "Only <b>five people</b> are invited (7PM card). The <b>3AM flyer is public</b> — that's when the house fills up for the show. Poe Boy sells the whole night as a <b>concert</b>; what he's really after is his samples.",
-    "<b>Who runs what:</b> Spencer voices the NPCs &mdash; the <b>In the scene</b> panel on each cue is his. Scott narrates &mdash; read-aloud, beats, checks and combat.",
+    "<b>One laptop, two zones.</b> Every cue splits in two: <b style=\"color:var(--gold)\">SCOTT · narrate</b> on the left (read-aloud, beats, checks, combat, the iPad item) and <b style=\"color:var(--pink)\">SPENCER · voice</b> on the right (who's in the scene, how they sound, their lines). Each side scrolls on its own.",
+    "<b>🔓 Reveal</b> markers flag the moment someone learns something they didn't know &mdash; the players, one PC, or an NPC. Each one sits in the zone of whoever delivers it or has to react. When one fires, <b>both of you play the reaction</b>. They're 🟡 AI staging until Scott signs off.",
     "Open the <b>Rules</b> panel (<code>R</code>) for the four hard rules and the XP budgets before combat.",
     "<b>📱 The iPad lives on its home page</b> (<code>/</code>) all night: five big numbered items, in story order. A cue that needs one opens with a blue <b>iPad &rarr; item N</b> bar. Tap N, hand it over, and go back to the home page when the scene's done. Sunday's rooms run in any order, so 2 and 3&ndash;4 can swap &mdash; go by the number on the cue." +
       `<div class="ipad-key">${Object.keys(IPAD).map(n=>`<span class="k">${n}</span><span><b>${IPAD[n].room}</b> &mdash; ${IPAD[n].prop} <code>${IPAD[n].path}</code></span>`).join("")}</div>`
@@ -522,10 +555,17 @@ const SCENES = [
     "<b>Nobody else got a card.</b> Finding that out is the strongest push toward town there is.",
     "If they march up the hill early: the front is <b>still boarded at this hour</b> and bounces them back &mdash; which is the point. The boards come off during the day.",
     "<b>If they don't bite, hand a detour to a PC:</b> tell <b>Bix</b> the Records Keeper knows old names; tell <b>Gnomey</b> the old crew at the gazebo will already know.",
-    "<b>Gnomey's flip phone rings &mdash; the second he reads &ldquo;Dood&rdquo; on his card.</b> It's <b>Great Uncle Vinny</b>, confused, and convinced it's 1931: <i>&ldquo;Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch.&rdquo;</i> Let it sit there unexplained. It's how the table meets Vinny early, so he isn't a stranger when he walks in at the end."
+    "<b>Gnomey's flip phone rings &mdash; the second he reads &ldquo;Dood&rdquo; on his card.</b> It's <b>Great Uncle Vinny</b> (Spencer). Let it sit there unexplained. It's how the table meets Vinny early, so he isn't a stranger when he walks in at the end."
+  ],
+  talk:[
+    {who:"Great Uncle Vinny · on Gnomey's flip phone", t:"Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch."}
+  ],
+  rev:[
+    {by:"scott", who:"Players", t:"learn nobody else in school got a card &mdash; just the five of them."},
+    {by:"Great Uncle Vinny (phone)", who:"Gnomey", t:"hears his great-uncle talk about a card game &ldquo;up the hill&rdquo; and a &ldquo;Cornelis&rdquo; &mdash; no idea yet that it's the house, or 1931."}
   ],
   npcs:[
-    {nm:"Great Uncle Vinny (phone)", vc:"Ancient and mostly gone, and sure it's 1931: <i>&ldquo;Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch.&rdquo;</i> Doesn't explain who Cornelis is."}
+    {nm:"Great Uncle Vinny (phone)", vc:"Ancient and mostly gone, and sure it's 1931. Doesn't explain who Cornelis is."}
   ],
   reminders:[
     {t:"Hand out the printed <b>invite</b> (<code>/invite/</code>) &mdash; its mass-flyer voice is deliberate camouflage.", k:"hand"},
@@ -534,7 +574,14 @@ const SCENES = [
   cues:[] },
 
 { act:"town", no:3, title:"The library &amp; hall of records", where:"Town · the clincher · Saturday's town fight", ipad:[1],
-  read:[{who:"Records Keeper", t:"You can try to put it back together. But I'm guessing, by the magic on them &mdash; someone doesn't want you finding that information."}],
+  talk:[{who:"Records Keeper · after the fight", t:"You can try to put it back together. But I'm guessing, by the magic on them &mdash; someone doesn't want you finding that information."}],
+  rev:[
+    {by:"scott", who:"Players", t:"learn the vampire-slaying method from the folklore: dig up the coffins, stake the heart, rebury."},
+    {by:"scott", who:"Players", t:"see the checkout card: <b>U.M. Livingsworth III</b>, <b>V. Soprano 1938</b>, <b>W. Ostrander</b>. Nobody knows Livingsworth is Poe Boy until the driveway."},
+    {by:"scott", who:"Gnomey", t:"may clock his own family name, <b>Soprano</b>, on the card. Don't push it."},
+    {by:"scott", who:"Ostrander (off-stage)", t:"learns someone has opened his records &mdash; the trap tells him. He drives out tonight. The party never learns this."},
+    {by:"Records Keeper", who:"Players", t:"learn someone with magic doesn't want this found &mdash; the only NPC who tells them to stay away."}
+  ],
   beats:[
     "The clincher lives here: <b>Frisian folklore</b>, the <b>vampire-slaying method</b> (dig up the coffins, stake the heart, rebury), and the <b>Records Keeper's warning</b> &mdash; the one NPC who tells them to stay away.",
     "The bound volume is <b>intact</b> when she hands it over. Opening it springs Ostrander's trap and the stationery comes to life and goes for the article.",
@@ -568,9 +615,17 @@ const SCENES = [
   read:[{t:"Whoever's wearing a watch &mdash; it's <b>ten to seven</b>. That's the time on the card."}],
   beats:[
     "Meet <b>DJ Poe Boy</b> and his entourage. <b>Angelique tries to warn them and can't</b> &mdash; the crew is standing right there. Play it as a <b>side-eye</b>, a swallowed half-sentence.",
-    "Poe Boy can't help showing off, and every brag is a confession: <i>&ldquo;I spin up there sometimes&rdquo;</i> &middot; <i>&ldquo;wait till you see what I've done with the ballroom&rdquo;</i> &middot; he'll be playing <b>some new tunes</b> &middot; <i>&ldquo;stick around till three.&rdquo;</i> He's selling a concert; the samples are what he wants.",
+    "Poe Boy can't help showing off, and every brag is a confession (his lines are in Spencer's zone). He's selling a concert; the samples are what he wants.",
     "<b>The tell is what he leaves out:</b> he never mentions the <b>other</b> room upstairs he keeps gear in &mdash; the one he hasn't been back into. Nobody notices now; they notice later.",
-    "<b>Yobo's arc opens:</b> the crew clocks him &mdash; <i>&ldquo;you're the Dolly Parton guy, do a little riff.&rdquo;</i>"
+    "<b>Yobo's arc opens:</b> the crew clocks him and asks for a riff."
+  ],
+  talk:[
+    {who:"DJ Poe Boy · brags", t:"I spin up there sometimes. &middot; Wait till you see what I've done with the ballroom. &middot; Got some new tunes. &middot; Stick around till three."},
+    {who:"The crew · to Yobo", t:"You're the Dolly Parton guy &mdash; do a little riff."}
+  ],
+  rev:[
+    {by:"DJ Poe Boy", who:"Players", t:"can learn (Insight 14) that he plays at the mansion, has done something to the ballroom, and wants them there till three. He never mentions the <b>other</b> room upstairs."},
+    {by:"Angelique", who:"Players", t:"can learn she's holding something back &mdash; a side-eye, a swallowed half-sentence. Nothing more."}
   ],
   checks:[
     {skill:"Performance", dc:"secret", sug:true, note:"<b>Yobo only, in secret, at disadvantage.</b> Juggling the lie is the debuff. Hand him a note that something inside makes it inauthentic; reveal a line as each beat comes up."},
@@ -592,7 +647,14 @@ const SCENES = [
     "They go in on pure curiosity, <b>through a front door boarded for decades that isn't any more</b> &mdash; and the doors bolt shut behind them.",
     "Angelique reaches them first and tells them to hide. <b>Don't let her explain yet</b> &mdash; &ldquo;hiding from what&rdquo; is the investigation's first question. Make them earn it.",
     "7PM card vs the 3AM flyer = <b>eight hours of house</b> between them.",
-    "<b>If they try to walk out:</b> the door doesn't move (<i>no bolt on your side to throw</i>); Angelique &mdash; <i>&ldquo;Go on then. You'll just have to walk back past whatever I walked past.&rdquo;</i>"
+    "<b>If they try to walk out:</b> the door doesn't move (<i>no bolt on your side to throw</i>); Angelique answers them (Spencer)."
+  ],
+  talk:[
+    {who:"Angelique · if they try the door", t:"Go on then. You'll just have to walk back past whatever I walked past."}
+  ],
+  rev:[
+    {by:"scott", who:"Players", t:"learn they're locked in &mdash; the doors bolt behind them, no bolt on their side."},
+    {by:"Angelique", who:"Players", t:"learn Angelique is inside and hiding from something. Not what, and not why she came."}
   ],
   npcs:[
     {nm:"Angelique", vc:"A frightened stranger who won't say why she came. Worth far more than an exposition tap. She has her own reason for being here."}
@@ -603,7 +665,8 @@ const SCENES = [
   cues:["jump","drone"] },
 
 { act:"night", no:6, title:"First vampire encounter", where:"No fight &mdash; a performance · scripted end to end",
-  read:[
+  read:[{t:"From your hiding place, you can hear them talking."}],
+  talk:[
     {who:"Dracula", t:"Five. He said five, and there are five. The boy's finally learning to count."},
     {who:"Edward", t:"One of them is a child."},
     {who:"Dracula", t:"They're all children. That's rather the point."},
@@ -612,10 +675,17 @@ const SCENES = [
     {who:"Orlok", t:"See to it before we begin. I won't have them distracted."},
     {who:"Orlok · dismissal", t:"The night is young. It would be terribly rude to be finished with you already&hellip; Go on. Have a look around. We'll find you when we're ready."}
   ],
+  rev:[
+    {by:"spencer", who:"Players", t:"learn from the overheard argument that <b>someone told the vampires exactly five were coming</b> &mdash; &ldquo;the boy.&rdquo; Not who."},
+    {by:"spencer", who:"Players", t:"learn the vampires keep &ldquo;meals&rdquo; somewhere in the house. Let them assume the worst; the cellar answers it Sunday."},
+    {by:"spencer", who:"Players", t:"hear the dismissal as a hunt. It's really a show schedule &mdash; nobody corrects them."},
+    {by:"scott", who:"Bix", t:"catches Edward <b>glimmering</b> in the moonlight. Bix beat 1 of 3 &mdash; the silly one."},
+    {by:"scott", who:"Players", t:"can notice the vampires never roll damage. That's the real clue; don't point at it."}
+  ],
   beats:[
     "The vamps are <b>hosts doing a job they agreed to</b> &mdash; they think this is the big scare that saves their house, and they have no idea anyone ever died here.",
     "<b>Bix beat 1 of 3:</b> they catch Edward <b>glimmering</b> in the moonlight. The Twilight joke, and the first frame of a reveal. Let it be the silly one.",
-    "Sequence: <b>1</b> Hide (Stealth) &rarr; <b>2</b> the overheard argument, every line true and damning &rarr; <b>3</b> explore under recurring stealth &rarr; <b>4</b> Dracula swoops, grapples &amp; shoves, <b>no damage</b> &rarr; <b>5</b> Orlok ends it with <b>one word</b> &rarr; <b>6</b> he dismisses them.",
+    "Sequence: <b>1</b> Hide (Stealth) &rarr; <b>2</b> the overheard argument (Spencer), every line true and damning &rarr; <b>3</b> explore under recurring stealth &rarr; <b>4</b> Dracula swoops, grapples &amp; shoves, <b>no damage</b> &rarr; <b>5</b> Orlok ends it with <b>one word</b> &rarr; <b>6</b> he dismisses them.",
     "Every word of the dismissal is both a threat and an accurate description of a haunted-house attraction. The party hears one thing and tears the house apart looking for an exit &mdash; exactly where you want them."
   ],
   checks:[
@@ -645,6 +715,10 @@ const SCENES = [
   checks:[
     {skill:"Insight / Perception", dc:"10", sug:true, note:"Optional &mdash; lets a player clock <i>why</i> he's stuck at the light."}
   ],
+  rev:[
+    {by:"scott", who:"Russ", t:"learns Orlok can't cross the sunlight &mdash; he's been stuck at the edge of it for hours."},
+    {by:"Orlok", who:"Orlok", t:"learns a warm kid will walk into the light for him and want nothing back. Play the tiny crack; still no signature."}
+  ],
   npcs:[
     {nm:"Orlok", vc:"Cold. Takes the favour, gives nothing back. Won't sign the card."}
   ],
@@ -661,6 +735,9 @@ const SCENES = [
     "Let them be wrong about it for as long as possible. <b>Edward does not explain himself tonight</b> &mdash; that's the driveway at sunrise, and holding it is what makes it land.",
     "Route them to the sealed room upstairs. The fight is the button on Saturday night."
   ],
+  rev:[
+    {by:"Edward", who:"Players", t:"learn Edward is watching <b>Bix</b> specifically. They should read it as <i>the vampire has picked one of us</i>. He explains nothing."}
+  ],
   npcs:[
     {nm:"Edward", vc:"Has known who Bix is since they walked in. Watches, doesn't approach. Let him be caught at it twice."}
   ],
@@ -674,6 +751,10 @@ const SCENES = [
     "<b>It claws toward one sealed door the whole fight.</b> That pull is the clue: it proves the house will hurt them, and it plants hard that the dangerous things here are <b>human-made</b>.",
     "In the wreckage: a half-drawn ritual circle. <b>Leave who drew it open tonight</b> &mdash; the Spirit naming Poe Boy on Sunday is the payoff.",
     "<b>End the night the instant the screen dies.</b> Do not let them reach the room tonight. Two questions to drag them back: who's typing, and who's the person behind all this."
+  ],
+  rev:[
+    {by:"scott", who:"Players", t:"can learn (Arcana 14) the thing was a <b>human-made, incomplete</b> summoning. Who made it stays open tonight."},
+    {by:"scott", who:"Players", t:"learn something in the house is typing: <b>&ldquo;is someone there&rdquo;</b>. Then it goes dark."}
   ],
   checks:[
     {skill:"Arcana", dc:"14", sug:true, note:"Recognize it as an <b>incomplete, human-made</b> summoning &mdash; the planted clue."}
@@ -706,6 +787,10 @@ const SCENES = [
   checks:[
     {skill:"Investigation", dc:"12", sug:true, note:"Read the signatures and the bearer clause: <b>V. Soprano</b> won the house, and title goes with the deed. If nobody gets there: <b>point at the empty slot in the strongbox</b> and read the bearer paragraph aloud."}
   ],
+  rev:[
+    {by:"scott", who:"Gnomey (alone)", t:"learns his great-uncle <b>V. Soprano won this house</b> at cards in 1931, and the bearer clause: <b>whoever holds the deed owns it</b>. The deed isn't in the strongbox."},
+    {by:"scott", who:"The rest of the party", t:"learn only what Julia chooses to tell them."}
+  ],
   npcs:[],
   reminders:[
     {t:"Show iPad item 2 (<code>/settlement/</code>, tap to unfold). The bearer paragraph is the <b>only one on the page with no corrections</b>.", k:"hand"},
@@ -725,6 +810,11 @@ const SCENES = [
   checks:[
     {skill:"Deception", dc:"&mdash;", sug:false, note:"<b>Yobo &mdash; helps him blend in</b> while masked. The one place the lie is an asset."},
     {skill:"Performance", dc:"true>high", sug:true, note:"The song. Reward <b>honesty over the number</b>. A masked turn curdles the ghosts (the scare); a true one opens the way."}
+  ],
+  rev:[
+    {by:"scott", who:"Bix", t:"learns from the photograph: the pregnant goblin is his mother, and the fae with no fangs beside her (&ldquo;Me + E.&rdquo; on the back) is Edward, before he was turned. Hand Will the print and say nothing &mdash; he gets the goblin before the fae."},
+    {by:"scott", who:"The rest of the party", t:"learn whatever Bix says out loud. Don't prompt him."},
+    {by:"Dracula", who:"The party", t:"learn the truth about Yobo's origins <i>if</i> he drops the act for the song. What he says is John's call."}
   ],
   npcs:[
     {nm:"Dracula", vc:"Pushes Yobo to drop the act. The catalyst for the buff flip."}
@@ -750,8 +840,14 @@ const SCENES = [
     {skill:"Nature / Plant Growth", dc:"14", sug:true, note:"Bloom the Sun's-mercy in the blade of daylight (or a spell slot)."},
     {skill:"Speak with Animals", dc:"auto", sug:false, note:"The patients aren't prey &mdash; this is the beat that <b>exonerates the vampires</b>."}
   ],
+  rev:[
+    {by:"scott", who:"Players", t:"learn the &ldquo;meals&rdquo; are <b>small animals, not people</b>, and the hidden room is a clinic &mdash; Orlok is a vet."},
+    {by:"The patients", who:"Russ", t:"learns through Speak with Animals that they're <b>grateful, not afraid</b>. This is where the vampires are cleared."},
+    {by:"Orlok", who:"Orlok", t:"watches a child bloom the Sun's-mercy he's failed at for a century. Play it, then refuse to sign anyway."}
+  ],
   npcs:[
-    {nm:"Orlok", vc:"A vet, not a killer. Watches the kid succeed where he failed for a century. Cold. Refusal 2 of 3."}
+    {nm:"Orlok", vc:"A vet, not a killer. Watches the kid succeed where he failed for a century. Cold. Refusal 2 of 3."},
+    {nm:"The patients", vc:"A fox in a splint, an owl with a wrapped wing. Only Russ can hear them (Speak with Animals)."}
   ],
   reminders:[
     {t:"Refusal 2 of 3.", k:""}
@@ -761,7 +857,6 @@ const SCENES = [
 { act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room", ipad:[5],
   read:[
     {who:"The door opens · when the table is ready", t:"From down the hall, faint and tinny: the old AIM chime. Then the lock on the door with the poster clicks open &mdash; and nobody touched it."},
-    {who:"The Spirit", t:"my bag is still in this room. by the desk under the coats. can you get it"},
     {who:"Ending the room", t:"It's three in the morning &mdash; and every speaker in this house just came on at once."}
   ],
   beats:[
@@ -777,7 +872,20 @@ const SCENES = [
   checks:[
     {skill:"Roleplay, not a roll", dc:"&mdash;", sug:false, note:"<i>&ldquo;youre not typing like him&rdquo;</i> is character, not a check. When the drive mounts, Simone &amp; Angelique realize it's the same boy."}
   ],
+  talk:[
+    {who:"The Spirit · on screen, read it if they don't", t:"my bag is still in this room. by the desk under the coats. can you get it"}
+  ],
+  rev:[
+    {by:"The Spirit", who:"The Spirit", t:"learns the person typing as Poe Boy isn't him &mdash; <i>&ldquo;youre not typing like him&rdquo;</i>."},
+    {by:"The Spirit", who:"Players", t:"learn he was lured, chased and soul-caged when <b>Poe Boy</b> shut the door &mdash; killed by a human. He names Poe Boy, short of saying murder."},
+    {by:"scott", who:"Simone", t:"pulls the <b>wishing willow</b> from the bag &mdash; the one she sold at twelve: <i>I want Angelique to notice me</i>. This is the willow kid."},
+    {by:"scott", who:"Angelique", t:"learns why she knew him: the willow worked. Spencer plays her reaction."},
+    {by:"scott", who:"Players", t:"learn his name when the drive mounts: <b>MARCUS_HALE</b>. Simone and Angelique realise it's the same boy."},
+    {by:"scott", who:"Players", t:"get the recording, <code>scream_test_03_GOOD.wav</code>. Nobody else has heard it yet."},
+    {by:"The Devil (Goat)", who:"Simone", t:"learns the price of getting him out: her piggy bank. Asked what for, the goat says only <b>&ldquo;No.&rdquo;</b>"}
+  ],
   npcs:[
+    {nm:"Angelique", vc:"In the room with them. The willow and the drive land on her as hard as on Simone."},
     {nm:"The Spirit", vc:"Frightened, types lowercase. Comes apart at Poe Boy's handle. Offers his one wish rather than risk them logging off."},
     {nm:"The Devil (Goat)", vc:"Serif, capitals, full stops &mdash; never raised on a keyboard. Asked what it wants the money for: <b>&ldquo;No.&rdquo;</b> and nothing else."}
   ],
@@ -792,8 +900,15 @@ const SCENES = [
 
 { act:"finale", no:"14 · i", title:"Climax — Phase 1: the developer breaches", where:"The ballroom · 3AM · the crowd arrives with the show · the only lethal fight",
   read:[
-    {who:"Poe Boy, on the mic", t:"He names all five of them &mdash; and tells the vampires the party are the mall company's people. The same lie that killed the kid."},
     {who:"After he goes down", t:"Stop. Let the room be quiet for a moment."}
+  ],
+  talk:[
+    {who:"DJ Poe Boy · on the mic", t:"He names all five of them &mdash; and tells the vampires the party are the mall company's people. The same lie that killed the kid."}
+  ],
+  rev:[
+    {by:"DJ Poe Boy", who:"The vampires", t:"are told the party are the developer's people. It's a lie. Play them turning on the party, briefly."},
+    {by:"W. Ostrander", who:"The vampires", t:"learn on sight that Poe Boy lied &mdash; five teenagers are visibly not this man. They stop, then go for his thugs."},
+    {by:"scott", who:"Players", t:"meet the man behind the checkout card: <b>W. Ostrander</b>, the developer."}
   ],
   beats:[
     "Venue: the <b>ballroom / great hall</b>, rigged as a stage. Poe Boy's decks are here; the speakers run through the house are what came on at 3AM.",
@@ -849,6 +964,12 @@ const SCENES = [
     ],
     rule:"<b>USB is keep-away, not a fail state &mdash; it cannot be destroyed.</b> Stinky's oath breaks with <b>no saving throw</b>.",
     monsters:[{n:"DJ Poe Boy"},{n:"Lil Stinky"}] },
+  rev:[
+    {by:"scott", who:"The vampires", t:"learn from the recording that <b>a boy died in their house</b> and Poe Boy let it happen. They had no idea."},
+    {by:"scott", who:"The 3AM crowd", t:"hear the recording and Poe Boy's calm voice under it. Silence, one boo, then the whole room."},
+    {by:"Lil Stinky", who:"Lil Stinky", t:"hears his best friend stay calm while a kid dies. <b>His oath breaks, no save.</b> He sits down."},
+    {by:"Dracula", who:"The crowd", t:"hear Dracula seize the mic and denounce Poe Boy, magnificently."}
+  ],
   npcs:[
     {nm:"DJ Poe Boy", vc:"Not killed &mdash; <b>un-performed</b>. The glamour breaks, then his parents call him Upton."},
     {nm:"Lil Stinky", vc:"The only one not charmed &mdash; he just believes his friend. Oath breaks, he stops fighting and sits down. Diss track on Monday."},
@@ -862,7 +983,19 @@ const SCENES = [
   cues:["crowd","pa","scratch","braaam","levelup"] },
 
 { act:"finale", no:15, title:"The driveway", where:"Dood Mansion · sunrise · one scene, everyone arrives",
-  read:[{who:"Poe Boy's mother", t:"&ldquo;Upton, honey?&rdquo;"}],
+  read:[{t:"Sunrise. The crowd's still on the lawn when the first car pulls up the drive."}],
+  talk:[
+    {who:"Poe Boy's mother", t:"Upton, honey?"},
+    {who:"Gnomey, once he has the deed", t:"This is my house. &middot; You can stay."}
+  ],
+  rev:[
+    {by:"Poe Boy's parents", who:"Everyone", t:"learns DJ Poe Boy is <b>Upton</b> &mdash; U.M. Livingsworth III from the checkout card. Let the table connect it."},
+    {by:"Poe Boy's parents", who:"Simone", t:"gets the two concert tickets from his mother's hand."},
+    {by:"Russ's troop leader", who:"Russ", t:"gets the badge once Orlok signs the card. Hand Cody the real badge."},
+    {by:"Great Uncle Vinny", who:"Gnomey and everyone", t:"see Vinny hand Gnomey <b>the deed</b>. The house is Gnomey's from this moment."},
+    {by:"Orlok", who:"The vampires", t:"hear Orlok confirm Gnomey's claim in front of everyone, then Gnomey say they can stay."},
+    {by:"Edward", who:"Bix", t:"learns the whole timeline: the men the company sent to clear the house, Goblinenon killed, Edward badly hurt and turned by the vampires to save him, and why he carried the baby &mdash; Bix &mdash; down the hill and left him there on purpose. No jokes."}
+  ],
   beats:[
     "<b>Resolve it all right here, in one scene at the house.</b> Two cars, back to back, while the crowd is still on the lawn: the parents' Volvo, then the troop leader's car with <b>Vinny in the passenger seat</b>.",
     "<b>Poe Boy's mom</b> grounds him in front of everyone &mdash; and he is certainly not going to that satan concert. <b>The tickets go to Simone</b>, who spent every dollar she had hours earlier.",
@@ -1015,33 +1148,49 @@ function render(i){
       (c.rule?`<div class="crule">${c.rule}</div>`:``)+ addBtn +`</div></div>`;
   }
 
-  // ---- rail ----
-  let railHTML = "";
-  if(s.npcs && s.npcs.length){
-    railHTML += `<div class="card"><p class="ch">In the scene</p>` +
-      s.npcs.map(n=>`<div class="npc"><div class="nm">${n.nm}</div><div class="vc">${n.vc}</div></div>`).join("") +
-      `</div>`;
-  }
+  // reveals: rev[].by is "scott", "spencer", or an NPC name (renders under that NPC)
+  const revs = s.rev || [];
+  const revRow = r => `<div class="rev"><span class="rk">🔓</span><span class="rt"><b>${r.who}</b> ${r.t}</span><span class="ai" title="AI staging: review">🟡</span></div>`;
+  const revBlock = list => list.length ?
+    `<div class="revs"><p class="rh">🔓 Reveals <span class="ai">🟡 AI staging &mdash; review</span></p>${list.map(revRow).join("")}</div>` : "";
+
+  let remHTML = "";
   if(s.reminders && s.reminders.length){
-    railHTML += `<div class="card"><p class="ch">Reminders</p><ul class="rem">` +
+    remHTML = `<div class="block"><p class="h">Hand-outs &amp; reminders</p><ul class="rem">` +
       s.reminders.map(r=>`<li class="${r.k||''}">${r.t}</li>`).join("") + `</ul></div>`;
   }
+  let cuesHTML = "";
   if(s.cues && s.cues.length){
-    railHTML += `<div class="card"><p class="ch">Suggested sound cues</p><div class="cuepills">` +
+    cuesHTML = `<div class="block"><p class="h">Sound cues</p><div class="cuepills">` +
       s.cues.map(k=>`<button class="cuepill" data-cuefire="${k}"><span class="dot"></span>${CUE_LABEL[k]||k}</button>`).join("") +
       `</div></div>`;
   }
-  if(s.act==="set"){
-    railHTML += `<div class="card"><p class="ch">Canon</p><div class="canon-note">Read-aloud lines and cues are drawn from the <b>codex</b> (DM-side suggestions, not player-facing truth). Skill-check DCs marked <b>*</b> are proposals for this tool, not from the brainstorm doc &mdash; tune freely. Nothing here makes anything canon.</div></div>`;
+  const canonHTML = s.act==="set" ? `<div class="block"><p class="h">Canon</p><div class="canon-note">Read-aloud lines and cues are drawn from the <b>codex</b> (DM-side suggestions, not player-facing truth). Skill-check DCs marked <b>*</b> and every <b>🔓 Reveal</b> marked <b>🟡</b> are proposals for this tool, not from the brainstorm doc &mdash; tune freely. Nothing here makes anything canon.</div></div>` : "";
+
+  // ---- Spencer's zone: dialogue, then each NPC with voicing and what they reveal ----
+  const npcNames = (s.npcs||[]).map(n=>n.nm);
+  let spHTML = revBlock(revs.filter(r=>r.by!=="scott" && !npcNames.includes(r.by)));
+  if(s.talk && s.talk.length){
+    spHTML += `<div class="talk">` + s.talk.map(l=>`<p><span class="who">${l.who}</span>${l.t}</p>`).join("") + `</div>`;
   }
+  (s.npcs||[]).forEach(n=>{
+    const mine = revs.filter(r=>r.by===n.nm);
+    spHTML += `<div class="npc"><div class="nm">${n.nm}</div><div class="vc">${n.vc}</div>` +
+      (mine.length ? `<div class="npc-revs">${mine.map(revRow).join("")}</div>` : "") + `</div>`;
+  });
+  if(!spHTML) spHTML = `<p class="zempty">No NPCs this cue. Scott's scene.</p>`;
 
   stage.innerHTML =
     `<div class="slide-head"><span class="no">${typeof s.no==="number"?"Scene "+s.no:s.no}</span>`+
-    `<h2>${s.title}</h2><span class="where">${s.where}</span></div>`+ ipadHTML + floatHTML +
-    `<div class="grid2"><div class="col-main">${readHTML}${beatsHTML}${checksHTML}${combatHTML}</div>`+
-    `<div class="rail">${railHTML}</div></div>`;
+    `<h2>${s.title}</h2><span class="where">${s.where}</span></div>`+
+    `<div class="zones">`+
+      `<section class="zone z-scott"><p class="zh"><span>Scott</span> · narrate</p>`+
+        `${ipadHTML}${floatHTML}${readHTML}${revBlock(revs.filter(r=>r.by==="scott"))}${remHTML}${beatsHTML}${checksHTML}${combatHTML}${cuesHTML}${canonHTML}</section>`+
+      `<section class="zone z-spencer"><p class="zh"><span>Spencer</span> · voice</p>${spHTML}</section>`+
+    `</div>`;
 
   stage.scrollTop = 0;
+  stage.querySelectorAll(".zone").forEach(z=>z.scrollTop=0);
   highlightCues(s.cues||[]);
   markIndexCurrent();
 }
