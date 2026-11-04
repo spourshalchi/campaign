@@ -8,10 +8,10 @@ Usage (from the project root):
 Every ticket flag is optional; leave them off and the tickets print the prop's own show details.
 
 Output (in print/):
-    1-cardstock.pdf     everything on cardstock, one upload, one copy
+    1-cardstock.pdf     everything on cardstock (crate tags last), one upload, one copy
     2-photo-gloss.pdf   the party-room photograph, for gloss/photo paper
     3-settlement.pdf    optional paper copy of the Articles of Settlement
-    4-plain.pdf         the developer's site assessment, on plain paper
+    4-plain.pdf         plain paper: the site assessment, Orlok's ledger, the house plan
     previews/           a JPEG (or PNG) of every page, shown on print/index.html
 
 Needs Google Chrome (headless, for print-to-PDF) and pypdf. Each prop's own
@@ -114,12 +114,15 @@ def main():
     photo = page("photo/")
     settlement = page("settlement/")
     survey = page("survey/")
+    ledger = page("ledger/")
+    tags = page("ledger/tags/")
+    plan = page("map/", "view=player")
 
     # 1 — cardstock: one upload, one copy, color, single-sided
     w = PdfWriter()
     for p in two_up_invites(invite.pages[0], INVITES):
         w.add_page(p)
-    for doc in (deed, badge, tickets, backstory):
+    for doc in (deed, badge, tickets, backstory, tags):
         for p in doc.pages:
             w.add_page(p)
     w.compress_identical_objects(remove_identicals=True, remove_orphans=True)  # six invites share one set of images
@@ -134,10 +137,11 @@ def main():
         w.add_page(p)
     w.write(os.path.join(OUT, "3-settlement.pdf"))
 
-    # 4 — the developer's memo, a photocopy, so plain paper
+    # 4 — plain paper: the developer's memo (a photocopy), Orlok's ledger folio, the architect's plan
     w = PdfWriter()
-    for p in survey.pages:
-        w.add_page(p)
+    for doc in (survey, ledger, plan):
+        for p in doc.pages:
+            w.add_page(p)
     w.write(os.path.join(OUT, "4-plain.pdf"))
 
     # page previews for print/index.html — clear the old ones first
@@ -155,11 +159,12 @@ def main():
         json.dump(manifest, f, indent=1)
 
     counts = {"invite sheets": -(-INVITES // 2), "deed": len(deed.pages), "badge": len(badge.pages),
-              "tickets": len(tickets.pages), "backstory": len(backstory.pages)}
+              "tickets": len(tickets.pages), "backstory": len(backstory.pages), "crate tags": len(tags.pages)}
     print("1-cardstock.pdf  ", sum(counts.values()), "pages", counts)
     print("2-photo-gloss.pdf ", 1, "page")
     print("3-settlement.pdf  ", len(settlement.pages), "page(s)")
-    print("4-plain.pdf       ", len(survey.pages), "page(s)")
+    print("4-plain.pdf       ", len(survey.pages) + len(ledger.pages) + len(plan.pages), "pages",
+          {"survey": len(survey.pages), "ledger": len(ledger.pages), "plan": len(plan.pages)})
 
 
 if __name__ == "__main__":

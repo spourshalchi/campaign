@@ -194,6 +194,54 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
   paste's *"he does not know what's in the house"*. The memo says *squatters*, not vampires, so it holds, but
   cut the line if it says too much.
 
+- **Orlok's patient ledger in `/ledger/`** (iPad item 5, and printed on plain paper, `print/4-plain.pdf` p.2)
+  **and the crate tags in `/ledger/tags/`** (cardstock, `print/1-cardstock.pdf` p.11) — built 3 Nov, awaiting
+  Scott's review. **The design is Scott's** (Scott, 3 Nov): crate tags matched against the ledger; one patient
+  unaccounted for; following it finds the hidden infirmary and badge requirement 2; Russ's Speak with Animals is
+  the shortcut. Canon behind it: Orlok is a vet, the animals give a little blood freely, the fox in a splint and
+  the owl with a wrapped wing, Vinny's crates at the back, Sun's-mercy (Sesh 8). Everything else is the prop's:
+  - the register itself — *Folio sixty-one*, patient numbers **1183–1190**, dates written *ult.*/*inst.* so no
+    month or year is fixed, and the house rule at the top, *"Nothing is taken from a patient in danger. Nothing is
+    taken that is not offered. — C. D."*;
+  - the six patients past the fox and the owl: a grey squirrel and a little brown bat (released), a raccoon with
+    paws burnt on *"the new wire along the east wall"* (a nod to the hot-wired power), a crow (released, *"He will
+    be back"*), an opossum nursing six young, and **the missing patient: a whitetail doe**, torn by dogs, eleven
+    stitches, fevered, *"kept quiet in the old room"*, no blood taken *"She would not live"*;
+  - the tags: six crates tagged (two of them empty, released patients), no tag for the bat or the doe;
+  - the trail (hoof-scuffs and drag marks to Vinny's stack, DC 10 once they know it's a deer), a lamp hook with
+    fresh wax, and **a stack of Vinny's crates that swings on a hinged pallet**;
+  - **the hidden infirmary is Vinny's old raid room**, dug under the ballroom, where he hid the good stock from
+    the law; Orlok turned it into his surgery. It has a **light-well grate** under the terrace, and the doe is
+    the worst-off patient Russ dresses;
+  - the fail-forward ladder (a hoof knocking behind the bottles; point at the entry; Orlok on the stair: *"She's
+    through there. Mind the stitches."*) and the animals' lines to Russ;
+  - the *Mem.* at the foot of the page that plants the Sun's-mercy failing in the dark.
+
+  **Two seams.** In the fiction the house runs 7PM–3AM, so the grate holds moonlight, not *"the cellar's one
+  blade of daylight"* (Sesh 8); the channelled version (Plant Growth / a spell slot) is the one that works. And
+  the run sheet's cue 12 still puts the fox and the owl *in* the hidden room; this prop has the tagged crates in
+  the outer cellar and only the doe and the seedlings behind the door.
+- **The house map in `/map/`** — a DM map and a player plan (`print/4-plain.pdf` p.3) — built 3 Nov, awaiting
+  Scott's review. The rooms and their beats are canon (Sesh 8, In Person Session, the 24 Aug doc paste,
+  Scott 1–3 Nov); **the layout is the map's**:
+  - two floors and a cellar, 100 × 50 ft, front door facing south; the ground floor is the **hall** (grand stair),
+    **dining room**, **drawing room = the party room**, **study** (sealed door off the hall), **kitchen** (the cellar
+    stair) and the **ballroom** across the whole east wing, with the stage on a dais;
+  - **first contact happens in the dining room**: they hide under the long table and overhear the vampires at the
+    hearth, and **Orlok's spectacles are on its west sill** (cue 7);
+  - upstairs, a **passage** runs between the **sealed chamber** (the botched summoning) and the **music room =
+    Poe Boy's old rig / the computer room**, so the summoning claws across the passage at the computer-room
+    door; two shut chambers with nothing scripted; the ballroom is open to below;
+  - the cellar is the ward (crates and ledger), a coal store and the wine cellar with Vinny's crates, and the
+    raid room beyond its east wall;
+  - the routes (way in, to the infirmary, the USB's run in the finale) and the speaker positions;
+  - **the player plan is the original architect's plan "for Mr. Cornelis Dood"**, naming rooms by what they were
+    built for. The raid room isn't on it because Vinny dug it in the twenties. It's rolled in the hall-table
+    drawer; the run sheet hands it over the first time they're inside.
+
+  **Seam:** `/survey/` calls the house *"a three-storey masonry house with a cellar"*; this map is two floors and
+  a cellar. Either add a top floor to the map or change the memo to *two-storey*.
+
 ### Still open from this session
 1. **The invitation:** is it to the concert or to the haunted house? Spencer's, with the poster.
 2. **When the party gets the poster** — shown at the gazebo, or found in the first room.
