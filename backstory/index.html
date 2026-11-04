@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  PROP: Backstory reminder cards — one per PC, plus a shared "Transyltown" card.
+  PROP: Backstory reminder cards — one per PC.
   In Person Session: "Character background context reminder — what things should each character
   remember / know about their backstory."
 
@@ -8,11 +8,12 @@
   No mansion reveals: nothing about Edward / Goblinenon, the deed or the settlement, what happened
   to the willow kid, who the killer is, what the vampires really are, or the finale.
 
-  Each card is 3-5 bullets that set up that PC's arc this weekend, not a rehash of the player's own
-  character write-up. Every bullet has a source comment; anything not straight from canon is marked 🟡.
-  🟡 NOT CANON YET as a whole: the wording and the selection (Scott's brief, 3 Nov), logged in CANON.md.
+  Each card is a few bullets that set up that PC's story this weekend, nothing more: not a rehash of the
+  player's own character write-up, and nothing that isn't used in a beat. Every bullet has a source
+  comment; anything not straight from canon is marked 🟡.
+  🟡 NOT CANON YET as a whole: the wording and the selection (Scott's briefs, 3-4 Nov), logged in CANON.md.
 
-  PRINT: US Letter portrait, 100% / actual size. Two 7×5 in cards per page, three pages,
+  PRINT: US Letter portrait, 100% / actual size. All five 4 × 3.3 in cards on one page, two across,
   dashed cut lines. Card stock if Staples has it.
 -->
 <html lang="en">
@@ -23,7 +24,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Backstory">
 <meta name="theme-color" content="#1d2340">
-<title>Backstory Cards — Transyltown</title>
+<title>Backstory Cards</title>
 <style>
   :root{
     --paper:#fdfcf6; --rule:rgba(70,120,190,.16); --margin:rgba(214,74,74,.45);
@@ -59,10 +60,10 @@
 
   .stack{display:flex; flex-direction:column; align-items:center; gap:22px}
 
-  /* -------- the card: 7 × 5 in -------- */
+  /* -------- the card: 4 × 3.3 in -------- */
   .card{
     --accent:#444;
-    width:min(100%, 7in); aspect-ratio:7/5;
+    width:min(100%, 5.6in); aspect-ratio:40/33;
     container-type:inline-size;
     position:relative; overflow:hidden;
     background:
@@ -76,36 +77,32 @@
     position:absolute; inset:0;
     padding:3.4cqi 4.2cqi 3cqi 10cqi;
     display:flex; flex-direction:column;
-    font-size:2.95cqi;            /* 19.8px at 7in = 14.9pt */
+    font-size:4cqi;               /* 11.5pt at 4in */
   }
   /* faint ruled lines under the body */
   .card .in::before{
-    content:""; position:absolute; left:0; right:0; top:20cqi; bottom:0; pointer-events:none;
-    background:repeating-linear-gradient(180deg, transparent 0 calc(3.25cqi - 1px), var(--rule) calc(3.25cqi - 1px) 3.25cqi);
+    content:""; position:absolute; left:0; right:0; top:22cqi; bottom:0; pointer-events:none;
+    background:repeating-linear-gradient(180deg, transparent 0 calc(5.68cqi - 1px), var(--rule) calc(5.68cqi - 1px) 5.68cqi);
   }
   .tab{
     position:absolute; top:0; right:5cqi; padding:1.1cqi 2.2cqi 1.3cqi;
     background:var(--accent); color:#fff; border-radius:0 0 1.2cqi 1.2cqi;
-    font:700 1.6cqi var(--f-body); letter-spacing:.14em; text-transform:uppercase;
+    font:700 2.2cqi var(--f-body); letter-spacing:.14em; text-transform:uppercase;
   }
   .head{display:flex; align-items:baseline; gap:2.4cqi; flex-wrap:wrap; position:relative}
   .name{
     font-family:var(--f-hand); font-weight:400; color:var(--accent);
-    font-size:5.4cqi; line-height:1; margin:0;
+    font-size:7.4cqi; line-height:1; margin:0;
   }
-  .player{font-size:1.75cqi; letter-spacing:.12em; text-transform:uppercase; color:var(--mut); font-weight:600}
-  .what{
-    margin:1cqi 0 1.6cqi; font-size:1.8cqi; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-    color:var(--ink); position:relative;
-  }
+  .player{font-size:2.4cqi; letter-spacing:.12em; text-transform:uppercase; color:var(--mut); font-weight:600}
   .rem{
-    margin:2.2cqi 0 1.2cqi; font:700 1.6cqi var(--f-body); letter-spacing:.16em; text-transform:uppercase;
+    margin:3cqi 0 1.6cqi; font:700 2.2cqi var(--f-body); letter-spacing:.16em; text-transform:uppercase;
     color:var(--accent); position:relative;
   }
-  ul{margin:0; padding:0 0 0 2.6cqi; position:relative; list-style:none}
-  li{margin:0 0 1.7cqi; line-height:1.42; position:relative}
+  ul{margin:0; padding:0 0 0 3.4cqi; position:relative; list-style:none}
+  li{margin:0 0 2cqi; line-height:1.42; position:relative}
   li::before{
-    content:""; position:absolute; left:-2.3cqi; top:.55em; width:1cqi; height:1cqi;
+    content:""; position:absolute; left:-3cqi; top:.55em; width:1.3cqi; height:1.3cqi;
     border-radius:50%; background:var(--accent);
   }
   li b{font-weight:700}
@@ -117,25 +114,22 @@
   .c-simone{--accent:#7b1f45}
   .c-yobo  {--accent:#c2407e}
   .c-russ  {--accent:#2d6aa8}
-  .c-all   {--accent:#3b4372}
 
-  /* -------- print: two cards per Letter page -------- */
+  /* -------- print: all five cards on one Letter page, two across -------- */
   @media print{
-    @page{size:letter portrait; margin:.45in .5in}   /* 10.1in tall: room for two 5in cards */
+    @page{size:letter portrait; margin:.3in 0}   /* three rows of 3.3in + two .18in gaps = 10.26in */
     html,body{background:#fff !important}
     body{padding:0; min-height:0}
     .top{display:none !important}
-    .stack{display:block}
+    .stack{display:grid; grid-template-columns:4in 4in; gap:.18in; justify-content:center}
     .card{
-      width:7in; height:5in; aspect-ratio:auto; margin:0 auto;
+      width:4in; height:3.3in; aspect-ratio:auto; margin:0;
       box-shadow:none; border-radius:0;
       outline:1px dashed #8a8a8a; outline-offset:0;
       break-inside:avoid; page-break-inside:avoid;
       -webkit-print-color-adjust:exact; print-color-adjust:exact;
     }
     .card *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
-    .card:nth-of-type(2n){break-after:page; page-break-after:always}
-    .card:last-of-type{break-after:auto; page-break-after:auto}
   }
 </style>
 </head>
@@ -146,7 +140,7 @@
     <p>One card per player &mdash; what your character knows walking into the weekend. Nothing on these is a secret from you.</p>
     <nav class="nav">
       <a href="#bix">Bix</a><a href="#gnomey">Gnomey</a><a href="#simone">Simone</a>
-      <a href="#yobo">Yobo</a><a href="#russ">Russ</a><a href="#all">Everyone</a>
+      <a href="#yobo">Yobo</a><a href="#russ">Russ</a>
       <button type="button" onclick="window.print()">Print</button>
     </nav>
   </div>
@@ -164,10 +158,6 @@
           <li>Your parents died not long after you were born. The story you got is that &ldquo;good&rdquo; adventurers hunted them down. You don&rsquo;t remember any of it.</li>
           <!-- 🟡 "found in town as a baby": what Bix would have been told (codex: he was carried down into town as a baby); Character Bios: foster homes, ran from them -->
           <li>You were found in town as a baby and went into foster care. You&rsquo;ve run from most of the homes since.</li>
-          <!-- Sesh 5: broke into the mansion one rainy night after running from a foster home, encountered something -->
-          <li>One rainy night, running from a foster home, you broke into the old <b>Dood house</b> on the hill. Something was in there. You still can&rsquo;t explain what you saw.</li>
-          <!-- Sesh 5: loners together, a short friendship; he pushed her away as it got more serious, platonically -->
-          <li><b>Angelique</b> and you were loners together for a while. When it started to matter, you pushed her away.</li>
         </ul>
       </div>
     </section>
@@ -179,14 +169,10 @@
         <div class="head"><h2 class="name">Gnomey Soprano</h2><span class="player">Julia</span></div>
         <p class="rem">What you remember</p>
         <ul>
-          <!-- Sesh 8: Vinny, alive, ancient, in a home, mostly gone; ran cigarettes and liquor -->
-          <li><b>Great Uncle Vinny</b> ran liquor and cigarettes on the back roads, way back. He&rsquo;s ancient now, in a home, mostly gone.</li>
-          <!-- Sesh 8: the visit at twelve and its three lines. 🟡 The visit stands without anything changing hands (CANON.md); nothing here mentions the house. -->
-          <li>When you were twelve he came by. <q>Twelve years old and he&rsquo;s got a crew.</q> <q>I don&rsquo;t have a crew anymore.</q> <q>You&rsquo;ll get another one.</q></li>
+          <!-- Sesh 8: Vinny, alive, ancient, in a home, mostly gone; ran liquor (1920-33). 🟡 "a soft spot for you": Scott, 4 Nov, to set up his phone call -->
+          <li><b>Great Uncle Vinny</b>: the family&rsquo;s old bootlegger. Ancient now, in a home, mostly gone. He always had a soft spot for you.</li>
           <!-- Sesh 5: in Poe Boy's crew in middle school; fell out over Poe Boy skimming the silly bandz money -->
           <li>In middle school you ran with <b>Poe Boy&rsquo;s</b> crew. It ended over the silly bandz: he was skimming your cut, so you walked.</li>
-          <!-- Sesh 5: the crew threw rocks and dared each other to ring the doorbell; one Halloween something happened -->
-          <li>The crew used to throw rocks at the <b>Dood house</b> and dare each other to ring the bell. One Halloween, something happened up there.</li>
         </ul>
       </div>
     </section>
@@ -201,7 +187,7 @@
           <!-- Sesh 8: Simone sold the kid a love spell, a wishing willow. Deliberately does not name who he wanted or what became of him. 🟡 "years ago": the codex dates it five years back. -->
           <li>Years ago a kid paid you for a love spell: a <b>wishing willow</b>, with his wish written on the slip. He wanted a girl to notice him.</li>
           <!-- Character Bios (Simone): favourite satanic metal band playing in town at the end of the school year; love and revenge spells for money; Sesh 8: goat piggy bank. Band name: Scott, 3 Nov. -->
-          <li><b>Total Party Kill</b> play town at the end of the school year. Every dollar from your spell work goes in the <b>goat piggy bank</b> for it.</li>
+          <li><b>Total Party Kill</b>, your favourite satanic metal band, is playing a show in town at the end of the school year. You&rsquo;ve been saving every dollar from your spell work for a ticket, in the <b>goat piggy bank</b>.</li>
           <!-- Character Bios (Simone): the Devil, as an all-black goat with an upside-down red cross on its face -->
           <li>Your patron is the Devil. It comes to you as the <b>black goat</b>.</li>
         </ul>
@@ -238,33 +224,10 @@
         <ul>
           <!-- codex NODES (cody): one badge short of the next rank, Assisting the Elderly. Troop 187: the badge prop (print kit), signed off Scott, 3 Nov. -->
           <li>One badge left before your next rank: <b>Assisting the Elderly</b>, Wilderness Scouts of Transyltown, Troop 187.</li>
-          <!-- Sesh 8 + the badge card: help an elder three times, each act verified by that elder in their own hand -->
-          <li>An <b>elder</b> has to sign off on three good turns, each in their own hand. The card&rsquo;s in your pocket.</li>
-          <!-- Scott, 3 Nov: the troop leader is an over-earnest scout dad, unfazed by anything as long as the paperwork is in order -->
-          <li>Your <b>troop leader</b> is very serious about the paperwork.</li>
-          <!-- Sesh 8 / CANON vet reframe: Russ speaks with animals -->
-          <li>You can <b>talk to animals</b>.</li>
         </ul>
       </div>
     </section>
 
-    <!-- ===================== EVERYONE ===================== -->
-    <section class="card c-all" id="all">
-      <div class="in">
-        <span class="tab">Everyone</span>
-        <div class="head"><h2 class="name">Transyltown</h2><span class="player">All of you</span></div>
-        <p class="what">Halloween weekend &middot; 2004</p>
-        <p class="rem">What everybody knows</p>
-        <ul>
-          <!-- Sesh 0 / Sesh 6: abandoned Dutch mansion on the outskirts; codex: rumoured haunted, front door boarded for decades -->
-          <li><b>Dood Mansion</b> is the abandoned Dutch house on the hill at the edge of town. Boarded up as long as anyone remembers. Everyone says it&rsquo;s haunted.</li>
-          <!-- Sesh 5/7: a real-estate company wants to demolish it for a mega mall -->
-          <li>A real-estate company wants to knock it down for a <b>mega mall</b>.</li>
-          <!-- Sesh 3: the gazebo near the school where the bad kids smoke; Poe Boy runs the entourage -->
-          <li><b>DJ Poe Boy</b> runs the crowd at the gazebo by the school, with <b>Lil Stinky</b> and <b>Angelique</b>.</li>
-        </ul>
-      </div>
-    </section>
 
   </div>
 
