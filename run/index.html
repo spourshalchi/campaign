@@ -544,7 +544,7 @@ const SCENES = [
   read:[{t:"It's barely noon. The card says <b>seven</b>. And not one of you has ever heard the name <b>Dood</b> before."}],
   beats:[
     "These are the five who <b>missed the senior-skip-day memo</b>, and they feel lame about it. <span class='ai'>🟡</span>",
-    "Everyone finds a card in their locker: <b>VIP early entry</b> to <b>DJ Poe Boy's Halloween party</b> at the abandoned Dutch mansion. <b>7PM sharp &mdash; you're on the list.</b> The party itself is 3AM, the one the public poster advertises. A VIP list salvages the day. <span class='ai'>🟡</span>",
+    "Everyone finds the same <b>anonymous</b> card in their locker: <b>&ldquo;You're on the list &middot; VIP early entry &middot; Dood Mansion &middot; 7PM sharp.&rdquo;</b> No host named &mdash; at most a hint the party starts at three. Their question is <b>a list for what, and who put us on it?</b> A VIP list salvages the day. <span class='ai'>🟡</span>",
     "<b>Nobody else got a card.</b> Finding that out is the strongest push toward town there is.",
     "If they march up the hill early: the front is <b>still boarded at this hour</b> and bounces them back &mdash; which is the point. The boards come off during the day.",
     "<b>If they don't bite, hand a detour to a PC:</b> tell <b>Bix</b> the Records Keeper knows old names; tell <b>Gnomey</b> the old crew at the gazebo will already know.",
@@ -554,14 +554,14 @@ const SCENES = [
     {who:"Great Uncle Vinny · on Gnomey's flip phone", t:"Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch."}
   ],
   rev:[
-    {by:"scott", who:"Players", t:"learn about <b>DJ Poe Boy's Halloween party</b> at Dood Mansion, 3AM &mdash; and that <b>they're VIPs</b>, early entry at 7PM."},
+    {by:"scott", who:"Players", t:"learn there's a <b>party</b> at Dood Mansion and <b>they're VIPs</b> &mdash; early entry, 7PM. Not whose party, or who put them on the list."},
     {by:"scott", who:"Players", t:"learn nobody else in school got a card &mdash; just the five of them."},
     {by:"Great Uncle Vinny (phone)", who:"Gnomey", t:"hears his great-uncle talk about a card game &ldquo;up the hill&rdquo; and a &ldquo;Cornelis&rdquo; &mdash; no idea yet that it's the house, or 1931."}
   ],
   npcs:[
     {nm:"Great Uncle Vinny (phone)", vc:"Ancient and mostly gone, and sure it's 1931. Doesn't explain who Cornelis is."}
   ],
-  hand:["<b>The invite cards</b> (<code>/invite/</code>), one in each locker &mdash; VIP early entry, 7PM sharp."],
+  hand:["<b>The invite cards</b> (<code>/invite/</code>), one in each locker &mdash; anonymous VIP early entry, 7PM sharp, no host named."],
   cues:[] },
 
 { act:"town", no:3, title:"The library &amp; hall of records", where:"Town · the clincher · Saturday's town fight", ipad:[1],
@@ -617,7 +617,7 @@ const SCENES = [
   read:[{t:"Whoever's wearing a watch &mdash; it's <b>ten to seven</b>. That's the time on the card."}],
   beats:[
     "Meet <b>DJ Poe Boy</b> and his entourage. <b>Angelique tries to warn them and can't</b> &mdash; the crew is standing right there. Play it as a <b>side-eye</b>, a swallowed half-sentence.",
-    "Poe Boy can't help showing off, and every brag is a confession (his lines are in Spencer's zone). He's selling a Halloween party; the samples are what he wants.",
+    "Poe Boy can't help showing off, and every brag is a confession (his lines are in Spencer's zone). <b>The brags out him as the party's host</b> &mdash; &ldquo;stick around till three&rdquo; &mdash; and he plays it cool about the cards. <span class='ai'>🟡</span> He's selling a Halloween party; the samples are what he wants.",
     "<b>The tell is what he leaves out:</b> he never mentions the <b>other</b> room upstairs he keeps gear in &mdash; the one he hasn't been back into. Nobody notices now; they notice later.",
     "<b>Yobo's arc opens:</b> the crew clocks him and asks for a riff."
   ],
@@ -626,7 +626,8 @@ const SCENES = [
     {who:"The crew · to Yobo", t:"You're the Dolly Parton guy &mdash; do a little riff."}
   ],
   rev:[
-    {by:"DJ Poe Boy", who:"Players", t:"can learn (Insight 14) that he plays at the mansion, has done something to the ballroom, and wants them there till three. He never mentions the <b>other</b> room upstairs."},
+    {by:"DJ Poe Boy", who:"Players", t:"learn the party is <b>Poe Boy's</b> &mdash; his brags give it away. Asked about the cards, he plays it cool."},
+    {by:"DJ Poe Boy", who:"Players", t:"can learn (Insight 14) that he plays at the mansion and has done something to the ballroom. He never mentions the <b>other</b> room upstairs."},
     {by:"Angelique", who:"Players", t:"can learn she's holding something back &mdash; a side-eye, a swallowed half-sentence. Nothing more."}
   ],
   checks:[
@@ -634,7 +635,7 @@ const SCENES = [
     {skill:"Insight", dc:"14", sug:true, note:"Sense the brags are confessions, or that Angelique is holding something back."}
   ],
   npcs:[
-    {nm:"DJ Poe Boy", vc:"Kenku &mdash; <b>voice him only in borrowed / sampled lines.</b> Glamour-charming, subversive, real cred. Showing off is the crime leaking out."},
+    {nm:"DJ Poe Boy", vc:"Kenku &mdash; <b>voice him only in borrowed / sampled lines.</b> Glamour-charming, subversive, real cred. Showing off is the crime leaking out. Cool about the cards &mdash; never says he sent them. <span class='ai'>🟡</span>"},
     {nm:"Angelique", vc:"Wants them warned, can't say it out loud. A side-eye and a held breath, not exposition."}
   ],
   reminders:[
@@ -690,6 +691,7 @@ const SCENES = [
   beats:[
     "The vamps are <b>hosts doing a job they agreed to</b> &mdash; they think this is the big scare that saves their house, and they have no idea anyone ever died here.",
     "<b>They may take the vampires for costumed party entertainment</b> &mdash; &ldquo;is this part of the party?&rdquo; The vampires <b>play along</b>. That's the joke and the dread at once: the answer is yes, and it doesn't help. <span class='ai'>🟡</span>",
+    "<b>DM note:</b> the house points everything at the vampires. <b>&ldquo;He said five&rdquo;</b> is the line that pays off as <b>Poe Boy</b> later, at the recording. <span class='ai'>🟡</span>",
     "<b>Bix beat 1 of 3:</b> they catch Edward <b>glimmering</b> in the moonlight. The Twilight joke, and the first frame of a reveal. Let it be the silly one.",
     "Sequence: <b>1</b> Hide (Stealth) &rarr; <b>2</b> the overheard argument (Spencer), every line true and damning &rarr; <b>3</b> explore under recurring stealth &rarr; <b>4</b> Dracula swoops, grapples &amp; shoves, <b>no damage</b> &rarr; <b>5</b> Orlok ends it with <b>one word</b> &rarr; <b>6</b> he dismisses them.",
     "Every word of the dismissal is both a threat and an accurate description of a haunted-house attraction. The party hears one thing and tears the house apart looking for an exit &mdash; exactly where you want them.",
@@ -1029,6 +1031,7 @@ const SCENES = [
     ]},
   rev:[
     {by:"scott", who:"The vampires", t:"learn from the recording Scott narrates that <b>a boy died in their house</b> and Poe Boy let it happen. He never went out a window. They had no idea."},
+    {by:"scott", who:"Players", t:"realise <b>&ldquo;he said five&rdquo;</b> was about <b>Poe Boy</b> &mdash; he's the boy who told the vampires exactly five were coming."},
     {by:"scott", who:"The 3AM crowd", t:"learn the truth from the same recording: Poe Boy's calm voice under a scared kid. Silence, one boo, then the whole room."},
     {by:"spencer", who:"Poe Boy and the vampires", t:"hear it from Marcus himself &mdash; <b>only if Simone paid the goat</b>."},
     {by:"Lil Stinky", who:"Lil Stinky", t:"hears his best friend stay calm while a kid dies. <b>His oath breaks, no save.</b> He sits down."},
