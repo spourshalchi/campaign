@@ -117,11 +117,11 @@
 
   /* -------- print: all five cards on one Letter page, two across -------- */
   @media print{
-    @page{size:letter portrait; margin:.3in 0}   /* three rows of 3.3in + two .18in gaps = 10.26in */
+    @page{size:letter portrait; margin:.3in 0}   /* three rows of 3.3in + two .18in gaps = 10.26in; two 4in columns share a cut line, .25in from each side */
     html,body{background:#fff !important}
     body{padding:0; min-height:0}
     .top{display:none !important}
-    .stack{display:grid; grid-template-columns:4in 4in; gap:.18in; justify-content:center}
+    .stack{display:grid; grid-template-columns:4in 4in; gap:.18in 0; justify-content:center}
     .card{
       width:4in; height:3.3in; aspect-ratio:auto; margin:0;
       box-shadow:none; border-radius:0;
