@@ -535,10 +535,10 @@ const NODES = [
     finale:"<b>She gets the concert anyway.</b> Poe Boy loves Total Party Kill too and had tickets. When his mother arrives in the driveway she grounds him — <i>and he is certainly not going to that satan concert</i> — and the tickets end up with Simone, who spent every dollar she had a few hours earlier." },
   {id:"john", name:"Yobo", sub:"John · Musical-theatre Bard", g:"player", x:120, y:490,
     role:"Player Character", s:"doc",
-    fields:{Name:"Yobo",Race:"TBD",Class:"Bard (leaning)",Vibe:"Musical-theatre bully / popular kid living a lie"},
-    desc:"A <b>musical-theatre bully / popular kid</b> named <b>Yobo</b> who transferred in from a school where he was tormented for weak singing and acting. To get in with the cool theatre kids he told everyone <b>his grandmother is Dolly Parton</b> — a lie — so his whole social standing rests on people believing he's descended from musical royalty. He wants to be a star, but mostly just wants to be accepted, and he's deeply insecure about whether he has any real talent.",
+    fields:{Name:"Yobo",Race:"TBD",Class:"Bard (leaning)",Vibe:"Musical-theatre bully / popular kid living a lie",Wig:"Yes"},
+    desc:"A <b>musical-theatre bully / popular kid</b> named <b>Yobo</b> who transferred in from a school where he was tormented for weak singing and acting. To get in with the cool theatre kids he told everyone <b>his grandmother is Dolly Parton</b> — a lie — so his whole social standing rests on people believing he's descended from musical royalty. He wants to be a star, but mostly just wants to be accepted, and he's deeply insecure about whether he has any real talent. He wears a <b>wig</b>.",
     hook:"TLDR: <b>Yobo stops lying to the group about his origins and is stronger for it.</b> The lie is a <b>debuff</b> — juggling an internal performance gives <b>disadvantage on Performance and weakened Bardic Inspiration</b>, but <b>advantage on Deception</b>. The turn is in the <b>party room</b>: the frozen ghost-party accepts only a <i>true</i> performance, Dracula pushes him to drop the act, and it flips to <b>advantage on Performance and enhanced Bardic Inspiration</b> for the rest of the campaign. Prop at <code>/party-room/</code>; full build in <code>/PROPOSALS.md</code>.",
-    ai:"<b>Still open:</b> whether it's canon that Yobo wears a <b>wig</b> (written as a question for John, so it is NOT yet settled), plus his race, a Bard subclass (Glamour rhymes with Poe Boy), and the exact debuff/buff dice, which are Scott's to tune. The old 1938 blood tie (E. Hoeck on the puzzle checkout card) stays dropped and is now unclaimed." },
+    ai:"<b>Still open:</b> his race, a Bard subclass (Glamour rhymes with Poe Boy), and the exact debuff/buff dice, which are Scott's to tune. The old 1938 blood tie (E. Hoeck on the puzzle checkout card) stays dropped and is now unclaimed." },
   {id:"cody", name:"Russ", sub:"Cody · Firbolg Druid", g:"player", x:120, y:610,
     role:"Player Character", s:"doc",
     fields:{Race:"Firbolg",Class:"Druid",Vibe:"Earnest wilderness scout — basically Russell from Up"},
@@ -942,7 +942,7 @@ const TODO = [
   ["Why these five? — <b>deliberately unexplained</b>","The invite is exclusive — five cards, five lockers, nobody else — and nobody ever says why these five. The players will ask it out loud the moment they realise no one else got a card; let the question hang. Scott, 3 Nov.","doc"],
   ["Who was the 3AM flyer for?","There is a public-looking DJ show flyer for 3AM at Dood Mansion. With nobody else invited, either it went out wide as the <b>cover story</b> — the thing Poe Boy showed the vampires as proof he was staging the big scare they asked for — or it never left his hands and the whole show is for five people. Affects whether the flyer prop gets built as a real handout.","ai"],
   ["How the vamps learn the truth — <b>settled</b>","They believe he went out a window. <b>They learn the truth from the recording over the PA in the finale</b>, hearing it with everyone else. Scott, 3 Nov.","doc"],
-  ["John / Yobo — arc <b>settled</b>","Yobo (the Dolly-Parton lie, anxious about real talent) and his arc are settled — the lie is a Performance/Inspiration debuff (Deception upside) that flips to a buff when he tells the truth in the party room. <b>Still open:</b> the <b>wig</b> — written in as a question for John, so not yet settled — plus his race, a subclass, and the dice.","doc"],
+  ["John / Yobo — arc <b>settled</b>","Yobo (the Dolly-Parton lie, anxious about real talent) and his arc are settled — the lie is a Performance/Inspiration debuff (Deception upside) that flips to a buff when he tells the truth in the party room. He wears a <b>wig</b> (Scott, 3 Nov, with John). <b>Still open:</b> his race, a subclass, and the dice.","doc"],
   ["Cody's PC — <b>answered</b>","Cody's PC is a <b>Firbolg druid</b> (working name <b>Russ</b>, <i>basically Russell from Up</i>) who earns his <b>Assisting the Elderly</b> badge by helping the vampires and bonds with <b>Orlok</b>. Three requirements — the sunbeam spectacles, the cellar garden, and healing a vampire in the finale — then Orlok signs the card and his troop leader hands over the badge in the ending scene. The herb is <b>Sun's-mercy</b>; still open inside it: Cody's full sheet.","doc"],
   ["4th crew member","<b>The crew is three</b> — Poe Boy, Lil Stinky, Angelique, which is what the DJ flyer bills. A fourth was wanted <i>probably also female</i> and never written. Spencer has not agreed to lose her, so it needs raising with him.","doc","open"],
   ["Party level","<b>Level 4</b>, leveling to 5 at the end of day one — so anything on Sunday is built for five level-5 PCs (was level 3 → 4).","doc"],
@@ -1496,7 +1496,7 @@ const TODO_LIST = [
   "msg": "Campaign is this weekend!\n\nIf you can, pre-make your character before you show up. No worries if not, we'll build it together in person.\n\n• Level 4\n• 2024 Player's Handbook rules\n• Point buy or rolled stats, your pick\n• Your class's starting gear\n\nDigital character builder: https://www.dndbeyond.com/characters/builder\n\nNo need to send me anything. Day of, just bring your character, and dice if you have them.",
   "steps": [
    "<b>Simone</b> (warlock, Devil patron): still needs a <b>race</b> and a <b>character name</b>.",
-   "<b>John</b> (Yobo, bard): still needs a <b>race</b> and a <b>Bard subclass</b>, and an answer to whether Yobo wears a <b>wig</b>.",
+   "<b>John</b> (Yobo, bard): still needs a <b>race</b> and a <b>Bard subclass</b>.",
    "<b>Cody</b> (Russ, Firbolg druid): still needs a <b>druid subclass</b>, and to confirm <b>Russ</b> is the final name.",
    "<b>Don't tell anyone</b> about their own hooks. Julia's chip, Bix's parents, and what Simone's goat wants from her are all things they find out at the table."
   ]
@@ -1759,6 +1759,8 @@ const TODO_LIST = [
   "t": "Contingencies",
   "o": "both",
   "c": "Story",
+  "done": 1,
+  "ans": "They'll improvise",
   "note": "What happens if they kill the vampires in act one, or refuse to enter the house at all. Two sentences each is enough."
  },
  {
@@ -1801,8 +1803,9 @@ const TODO_LIST = [
   "t": "Ask John about the wig",
   "o": "scott",
   "c": "Outbox",
-  "needs": 1,
-  "note": "The arc is settled. The one thing left genuinely open is the <b>wig</b>: it's written in as a question, so it is NOT yet canon — is it OK to make it canon that Yobo wears one? That's John's call. Still to pin down too: his race, a Bard subclass, and the debuff/buff dice (Scott's to tune)."
+  "done": 1,
+  "ans": "Yes \u2014 Yobo wears a wig",
+  "note": "Scott and John are aligned: <b>Yobo wears a wig</b>, and it's canon. Still to pin down: his race, a Bard subclass, and the debuff/buff dice (Scott's to tune)."
  },
  {
   "id": "o5",
@@ -2069,7 +2072,10 @@ const TODO_LIST = [
   "t": "Write the general pre-session prep checklist",
   "o": "both",
   "c": "Weekend",
-  "note": "Not campaign-specific — the reusable list of what any DM needs in hand before running a weekend: rules and pre-set DCs, safety tools, table kit, pacing and break points, contingencies, and where the prep-versus-improvise line sits."
+  "review": 1,
+  "url": "../run/",
+  "ans": "Card zero of the Run of Show (in progress)",
+  "note": "Not campaign-specific \u2014 the reusable list of what any DM needs in hand before running a weekend: rules and pre-set DCs, safety tools, table kit, pacing and break points, contingencies, and where the prep-versus-improvise line sits."
  },
  {
   "id": "t6",
@@ -2110,9 +2116,22 @@ const TODO_LIST = [
  {
   "id": "t5",
   "t": "Lighting and set dressing",
-  "o": "none",
+  "o": "scott",
   "c": "Weekend",
-  "note": "Candles, lamps off, whatever sells a 3 AM haunted house in a living room."
+  "review": 1,
+  "note": "Candles, lamps off, whatever sells a 3 AM haunted house in a living room. \ud83d\udfe1 <b>Draft shopping list</b> with rough 2026 prices, about $165 all in \u2014 needs Scott's review.",
+  "steps": [
+   "<b>LED flicker candles</b>, a 12-pack \u2014 ~$15. Real flame and paper props don't mix.",
+   "<b>Warm string lights</b>, ~30 ft \u2014 ~$12.",
+   "<b>Fog machine</b>, a cheap 400W with fluid \u2014 ~$50. Or skip it: indoors it can set off a smoke alarm.",
+   "<b>Red bulbs</b>, two LED \u2014 ~$10. Swap one in for the 3AM show and the finale.",
+   "<b>Fake cobwebs</b> with plastic spiders \u2014 ~$6.",
+   "<b>Door sign</b>: <i>HAUNTED HOUSE \u2014 7PM SHARP</i>, reusing the invite art, printed on cardstock \u2014 ~$2.",
+   "<b>Bluetooth speaker</b> for the Run of Show soundboard \u2014 ~$30, or one you already own. A record player is a nice extra, not a need.",
+   "<b>A dusty sheet over a chair</b> \u2014 an old flat sheet from a thrift store, ~$8.",
+   "<b>A goat-shaped piggy bank</b> for Simone to smash \u2014 ~$20. <b>Worth flagging:</b> the smash is a real table moment from Sesh 8. Get a cheap ceramic one and smash it inside a towel.",
+   "<b>A merit-badge sash</b> for Russ \u2014 ~$10, for the troop leader to pin the badge on."
+  ]
  },
  {
   "id": "o1",

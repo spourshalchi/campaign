@@ -464,6 +464,8 @@ then flips to **a clinic**.
 | **The cellar puzzle is Orlok's patient ledger.** Crate tags are matched to ledger entries; one patient is unaccounted for, and that leads to the hidden infirmary. Russ's Speak with Animals is the shortcut. Prop at `/ledger/` | Scott, 3 Nov |
 | **The wishing willow is made entirely by hand** by Scott — nothing to print | Scott, 3 Nov |
 | **Not needed:** ambient playlists (the Run of Show soundboard covers it), background slides (no second screen), a safety-tools agreement (Scott and Spencer have it covered) | Scott, 3 Nov |
+| **Yobo wears a wig.** Scott and John are aligned. Why he wears it is not specified | Scott, 3 Nov |
+| **Contingencies** (they kill the vampires early, they won't go in): none written; they'll improvise | Scott, 3 Nov |
 | **The mansion has enough puzzles:** the study door, the party room, the cellar ledger and the sticky note | Scott, 3 Nov |
 | **The session break is deliberately undefined.** Saturday ends wherever time runs out; the botched summoning closes Night 1 if the clock allows but isn't required to. Everyone levels to 5 at the end of day one | Scott, 3 Nov |
 | ~~The finale runs in three phases: vampires hostile → developer breaches → vampires turn~~ — **phase 1 cut in the In Person Session.** Two phases: developer breaches → the booth (vampires turn) | the 24 Aug doc paste, replaced by In Person Session |
@@ -558,7 +560,7 @@ Not yet pasted into the Google Doc — **do that to make them official.** Until 
 | ✅ **The boards come off the front door; there is no side-entrance tip.** Poe Boy pries the boards away for the party and stacks them against the porch rail — the only visible change to the house in decades, and the invitation. The party walks in the front, and *then* the doors bolt. What he hands them at the gazebo instead: *"I spin up there sometimes"* (Sesh 3, verbatim), *"wait till you see what I've done with the ballroom"*, and *"stick around till three"* — and, from the In Person Session, that **he'll be playing some new tunes**. The tell is what he leaves out — he never mentions the other room he keeps gear in. | 📗 Sesh 3's tip, **superseded by Sesh 7**. Sesh 3 wrote him as a helpful stranger; Sesh 7 made him the host, and a host who wants five specific people inside opens the door rather than sending them round the back. The old tip also created a contradiction — sneak past a boarded door that then bolts shut behind you |
 | ✅ **The climax happens in the ballroom / great hall**, rigged as a stage, with Poe Boy's decks there and the speakers run through the rest of the house. Keeps the climax clear of the cellar, which Path A needs for the coffins. Also settles that Poe Boy has **two** setups, not one: the old room upstairs with the original recording rig and the occupied computer, and the ballroom he built for tonight. | 🟡 room design — **decided by Scott, 24 Aug 2026.** The doc names no rooms in the mansion at all |
 | ✅ **The house's power is hot-wired off the neighbouring property.** Explains the working computer, the one lit room, and the speakers run through the house. Also the one thread anyone outside could pull on. | 🟡 the doc explains the computer but never the electricity — **decided by Scott** |
-| ✅ **John's PC is Yobo, and his arc is "stop lying, get stronger."** The grandmother-is-Dolly-Parton lie is a **Performance + Bardic-Inspiration debuff** (with a Deception upside) that flips to a buff when he tells the truth in the **party room**, where the frozen ghost-party accepts only a true performance and **Dracula coaches him** through it. Two artifacts: `/photo/` (now also the puzzle key) and a new `/party-room/` prop. Full build in `PROPOSALS.md`. | 📗 **Now in the doc** — Character Bios (Yobo) + Sesh 8 (the arc), pasted 5 Sep 2026. Only the wig is still open (written in as a question for John); race/subclass/dice unspecified |
+| ✅ **John's PC is Yobo, and his arc is "stop lying, get stronger."** The grandmother-is-Dolly-Parton lie is a **Performance + Bardic-Inspiration debuff** (with a Deception upside) that flips to a buff when he tells the truth in the **party room**, where the frozen ghost-party accepts only a true performance and **Dracula coaches him** through it. Two artifacts: `/photo/` (now also the puzzle key) and a new `/party-room/` prop. Full build in `PROPOSALS.md`. | 📗 **Now in the doc** — Character Bios (Yobo) + Sesh 8 (the arc), pasted 5 Sep 2026. Yobo wears a wig: Scott, 3 Nov, aligned with John. Race/subclass/dice unspecified |
 | ⏸ **The 1937 Crier stays 🟡** pending Scott's read of the article text. | unchanged |
 | ⏸ **The Gjenganger / Cornelis Dood stays 🟡** — parked entirely. A draft spec is in `PROPOSALS.md`; none of it is agreed. | unchanged |
 
@@ -744,7 +746,7 @@ stay on this list until you two decide:
   debuff (with a Deception upside) that flips to a buff when he tells the truth in the party room, with
   Dracula pushing him. So this is no longer AI-uncanon — see the decisions table and the Cast list. The old
   College-of-Whispers / "cruelty is the armor" framing was a separate codex invention and is superseded.
-  **Only the wig is still open** — the doc writes it in as a question for John — along with his race, a Bard
+  **Yobo wears a wig** (`Scott, 3 Nov`, aligned with John). Still open: his race, a Bard
   subclass, and the dice values. (The 1938 blood tie, E. Hoeck on the checkout card, stays dropped and unclaimed.)
 - **Orlok** does most of the actual frightening on Poe Boy's say-so
 - **Dracula** would happily brag the whole scheme to the heroes by accident
@@ -789,8 +791,8 @@ stay on this list until you two decide:
    a life that the table feels it. `Scott, 3 Nov`.
 3. Does the 1937 Crier become canon, get rewritten to the doc's 1973 Frisian version, or stay a prop that nobody has to believe?
 4. ~~John's insecurity — his to name.~~ — **answered and now in the doc** (Character Bios: Yobo, the
-   Dolly-Parton lie, anxiety about real talent; Sesh 8: the debuff→truth→buff arc). Only the **wig** is
-   still John's call — the doc writes it in as a question.
+   Dolly-Parton lie, anxiety about real talent; Sesh 8: the debuff→truth→buff arc). The **wig** is settled:
+   Yobo wears one. `Scott, 3 Nov`, aligned with John.
 5. ~~Cody's PC.~~ — **answered Sesh 8:** a Firbolg druid (working name Russ) earning his Assisting the Elderly badge by helping Orlok. Still open inside it: Cody's full sheet (the badge art is chosen: Codex option B, Scott, 3 Nov).
 6. The 4th crew member.
 7. Lock or kill: Dood Mansion, Upton Maximillion Livingsworth III, and the DJ/kingpin names that are locked only by repetition.
