@@ -97,6 +97,7 @@ the bearer clause says whoever holds the deed owns the house, and Gnomey doesn't
 | **The study:** the card table with the last hand still on it, and a strongbox holding the signed settlement with **an empty slot where the deed should be** | Scott, 1 Nov |
 | **The deed is printed** — Scott takes it to Staples. Gnomey's physical prop. Prop at `/deed/` | Scott, 1 Nov |
 | Rule: **the deed arrives with Vinny** — nothing at the table puts it in Gnomey's hands early | Scott, 1 Nov |
+| **The deed's wording is signed off** — the indenture language, *forty rooms* and the blank *Recorded with the County Clerk* line in `/deed/` | Scott, 3 Nov (signed off) |
 | **Two documents, two jobs** — Sesh 8 already names both. The **settlement** (`/settlement/`, iPad) is the clue in the study: it sets the bearer rule and tells Gnomey whoever holds the deed owns the house. The **deed** (`/deed/`, printed) is the object Vinny hands over. The deed stays formal and dry; the jokes live on the settlement | Scott, 1 Nov |
 
 This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the blue one"* line, the chip set
@@ -228,8 +229,8 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
     Up. White. Leaning to the grate. Wants light."*;
   - the screen-only DM brief under the page (where it's found, the fox and owl in the room, the Sun's-mercy check
     as on the run sheet).
-- **The house map in `/map/`** — a DM map and a player plan (`print/4-plain.pdf` p.3) — built 3 Nov, awaiting
-  Scott's review. The rooms and their beats are canon (Sesh 8, In Person Session, the 24 Aug doc paste,
+- ~~**The house map in `/map/`**~~ — **cut: no map** (`Scott, 3 Nov`). The block below records what it held.
+  ~~A DM map and a player plan (`print/4-plain.pdf` p.3) — built 3 Nov, awaiting Scott's review.~~ The rooms and their beats are canon (Sesh 8, In Person Session, the 24 Aug doc paste,
   Scott 1–3 Nov); **the layout is the map's**:
   - two floors and a cellar, 100 × 50 ft, front door facing south; the ground floor is the **hall** (grand stair),
     **dining room**, **drawing room = the party room**, **study** (sealed door off the hall), **kitchen** (the cellar
