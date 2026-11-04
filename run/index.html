@@ -510,7 +510,7 @@ const SCENES = [
   beats:[
     "<b>Party is level 4</b>, leveling to <b>5</b> at the end of night one. Everything Sunday is built for five level-5 PCs.",
     "<b>Sunday's three rooms run in any order</b> — Study (Gnomey), Party room (Bix &amp; Yobo), Cellar (Cody). <b>The old rig upstairs (Simone) is locked until the end</b> and is always the last room. The corridor set-piece is cut.",
-    "Only <b>five people</b> are invited (7PM card). The <b>3AM flyer is public</b> — that's when the house fills up for the show. Poe Boy sells the whole night as a <b>concert</b>; what he's really after is his samples.",
+    "Only <b>five people</b> are on the VIP list (the 7PM card). The <b>3AM poster is public</b> &mdash; that's when the house fills up for the party. Poe Boy sells the whole night as his <b>Halloween party</b>; what he's really after is his samples.",
     "<b>One laptop, two zones.</b> Every cue splits in two: <b style=\"color:var(--gold)\">SCOTT · narrate</b> on the left (hand-overs, the iPad item, read-aloud, beats, checks) and <b style=\"color:var(--pink)\">SPENCER · voice</b> on the right (who's in the scene, how they sound, their lines). Each side scrolls on its own.",
     "<b>🔓 Reveal</b> markers flag the moment someone learns something they didn't know &mdash; the players, one PC, or an NPC. Each one sits in the zone of whoever delivers it or has to react. When one fires, <b>both of you play the reaction</b>. They're 🟡 AI staging until Scott signs off.",
     "<b>⚔ Rolls, initiative and turn order stay at the table.</b> A fight cue gives you the story rule and an <b>enemy turn card</b> per enemy type: what it does, in priority order, its attacks, AC and a tap-to-subtract HP tracker. Numbers are 🟡 drafts.",
@@ -544,7 +544,7 @@ const SCENES = [
   read:[{t:"It's barely noon. The card says <b>seven</b>. And not one of you has ever heard the name <b>Dood</b> before."}],
   beats:[
     "These are the five who <b>missed the senior-skip-day memo</b>, and they feel lame about it. <span class='ai'>🟡</span>",
-    "Everyone finds a mysterious invitation: a <b>haunted house</b> at the abandoned Dutch mansion, <b>7PM sharp</b> &mdash; and the <b>3AM after-party</b> for whoever lasts the night. It reads as a way to salvage the day. <span class='ai'>🟡</span>",
+    "Everyone finds a card in their locker: <b>VIP early entry</b> to <b>DJ Poe Boy's Halloween party</b> at the abandoned Dutch mansion. <b>7PM sharp &mdash; you're on the list.</b> The party itself is 3AM, the one the public poster advertises. A VIP list salvages the day. <span class='ai'>🟡</span>",
     "<b>Nobody else got a card.</b> Finding that out is the strongest push toward town there is.",
     "If they march up the hill early: the front is <b>still boarded at this hour</b> and bounces them back &mdash; which is the point. The boards come off during the day.",
     "<b>If they don't bite, hand a detour to a PC:</b> tell <b>Bix</b> the Records Keeper knows old names; tell <b>Gnomey</b> the old crew at the gazebo will already know.",
@@ -554,14 +554,14 @@ const SCENES = [
     {who:"Great Uncle Vinny · on Gnomey's flip phone", t:"Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch."}
   ],
   rev:[
-    {by:"scott", who:"Players", t:"learn there's a <b>party at 3AM</b> &mdash; the card promises it to whoever lasts the night."},
+    {by:"scott", who:"Players", t:"learn about <b>DJ Poe Boy's Halloween party</b> at Dood Mansion, 3AM &mdash; and that <b>they're VIPs</b>, early entry at 7PM."},
     {by:"scott", who:"Players", t:"learn nobody else in school got a card &mdash; just the five of them."},
     {by:"Great Uncle Vinny (phone)", who:"Gnomey", t:"hears his great-uncle talk about a card game &ldquo;up the hill&rdquo; and a &ldquo;Cornelis&rdquo; &mdash; no idea yet that it's the house, or 1931."}
   ],
   npcs:[
     {nm:"Great Uncle Vinny (phone)", vc:"Ancient and mostly gone, and sure it's 1931. Doesn't explain who Cornelis is."}
   ],
-  hand:["<b>The invite cards</b> (<code>/invite/</code>), one in each locker &mdash; the mass-flyer voice is deliberate camouflage."],
+  hand:["<b>The invite cards</b> (<code>/invite/</code>), one in each locker &mdash; VIP early entry, 7PM sharp."],
   cues:[] },
 
 { act:"town", no:3, title:"The library &amp; hall of records", where:"Town · the clincher · Saturday's town fight", ipad:[1],
@@ -617,7 +617,7 @@ const SCENES = [
   read:[{t:"Whoever's wearing a watch &mdash; it's <b>ten to seven</b>. That's the time on the card."}],
   beats:[
     "Meet <b>DJ Poe Boy</b> and his entourage. <b>Angelique tries to warn them and can't</b> &mdash; the crew is standing right there. Play it as a <b>side-eye</b>, a swallowed half-sentence.",
-    "Poe Boy can't help showing off, and every brag is a confession (his lines are in Spencer's zone). He's selling a concert; the samples are what he wants.",
+    "Poe Boy can't help showing off, and every brag is a confession (his lines are in Spencer's zone). He's selling a Halloween party; the samples are what he wants.",
     "<b>The tell is what he leaves out:</b> he never mentions the <b>other</b> room upstairs he keeps gear in &mdash; the one he hasn't been back into. Nobody notices now; they notice later.",
     "<b>Yobo's arc opens:</b> the crew clocks him and asks for a riff."
   ],
@@ -682,14 +682,14 @@ const SCENES = [
   rev:[
     {by:"spencer", who:"Players", t:"learn from the overheard argument that <b>someone told the vampires exactly five were coming</b> &mdash; &ldquo;the boy.&rdquo; Not who."},
     {by:"spencer", who:"Players", t:"learn the vampires keep &ldquo;meals&rdquo; somewhere in the house. Let them assume the worst; the cellar answers it Sunday."},
-    {by:"spencer", who:"Players", t:"can catch, if Dracula's optional line is used, that the <b>concert and the haunting are one plan</b>. A free clue."},
+    {by:"spencer", who:"Players", t:"can catch, if Dracula's optional line is used, that the <b>party and the haunting are one plan</b>. A free clue."},
     {by:"spencer", who:"Players", t:"hear the dismissal as a hunt. It's really a show schedule &mdash; nobody corrects them."},
     {by:"scott", who:"Bix", t:"catches Edward <b>glimmering</b> in the moonlight. Bix beat 1 of 3 &mdash; the silly one."},
     {by:"scott", who:"Players", t:"can notice the vampires never roll damage. That's the real clue; don't point at it."}
   ],
   beats:[
     "The vamps are <b>hosts doing a job they agreed to</b> &mdash; they think this is the big scare that saves their house, and they have no idea anyone ever died here.",
-    "<b>They'll likely assume the vampires are actors</b> in the haunted house &mdash; &ldquo;is this part of the show?&rdquo; The vampires <b>play along</b>. That's the joke and the dread at once: the answer is yes, and it doesn't help. <span class='ai'>🟡</span>",
+    "<b>They may take the vampires for costumed party entertainment</b> &mdash; &ldquo;is this part of the party?&rdquo; The vampires <b>play along</b>. That's the joke and the dread at once: the answer is yes, and it doesn't help. <span class='ai'>🟡</span>",
     "<b>Bix beat 1 of 3:</b> they catch Edward <b>glimmering</b> in the moonlight. The Twilight joke, and the first frame of a reveal. Let it be the silly one.",
     "Sequence: <b>1</b> Hide (Stealth) &rarr; <b>2</b> the overheard argument (Spencer), every line true and damning &rarr; <b>3</b> explore under recurring stealth &rarr; <b>4</b> Dracula swoops, grapples &amp; shoves, <b>no damage</b> &rarr; <b>5</b> Orlok ends it with <b>one word</b> &rarr; <b>6</b> he dismisses them.",
     "Every word of the dismissal is both a threat and an accurate description of a haunted-house attraction. The party hears one thing and tears the house apart looking for an exit &mdash; exactly where you want them.",
@@ -710,7 +710,7 @@ const SCENES = [
        sp:"<b>No Bite. No damage. Nobody drops.</b> He has no HP to track &mdash; nobody's fighting him."}
     ]},
   npcs:[
-    {nm:"Dracula", vc:"Campy, theatrical, lays hands on them &mdash; and enjoys it far too much. Asked if this is part of the show, he's delighted to say yes. Stops the instant Orlok speaks. <span class='ai'>🟡</span>"},
+    {nm:"Dracula", vc:"Campy, theatrical, lays hands on them &mdash; and enjoys it far too much. Asked if this is part of the party, he's delighted to say yes. Stops the instant Orlok speaks. <span class='ai'>🟡</span>"},
     {nm:"Orlok", vc:"Patience, not menace. Impeccable courtesy while doing something appalling. One syllable is the whole hierarchy."},
     {nm:"Edward", vc:"Watches Bix. Does not approach. Knows exactly who he is."}
   ],
@@ -947,7 +947,7 @@ const SCENES = [
   ],
   beats:[
     "Venue: the <b>ballroom / great hall</b>, rigged as a stage. Poe Boy's decks are here; the speakers run through the house are what came on at 3AM.",
-    "<b>The crowd arrives with the show.</b> The party's been alone eight hours; at three it fills up for the concert, and every beat from here has an audience. <b>Angelique is here too</b> &mdash; what she does is still open.",
+    "<b>The crowd arrives with the show.</b> The five have been alone eight hours; at three the house fills up for Poe Boy's party, and every beat from here has an audience. <b>Angelique is here too</b> &mdash; what she does is still open.",
     "<b>Where the vampires' heads are:</b> the 3AM crowd is the <b>bait for their scare</b>, not a rival event &mdash; the audience they've waited all night for. The developer's breach cuts in before they scare anyone. <span class='ai'>🟡</span>",
     "Poe Boy names the five on the mic and tells the vamps they're the developer's people &mdash; <b>manipulation, not mind control</b>. It never gets to become a fight.",
     "Ostrander breaches and <b>seals the exits behind him &mdash; his own crew included.</b> Three sides, nobody sharing a goal. <b>The only lethal fight of the finale.</b>",
