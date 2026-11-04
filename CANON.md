@@ -246,9 +246,10 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
     it **replaces** the debuff: *advantage on Performance, the Bardic Inspiration boost, and the Deception
     advantage is gone, for the rest of the campaign*, so coming clean is a real trade-off (Scott, 3 Nov).
     **🟡 The boost as the die one size larger (d8 → d10)** is a proposal for Scott to tune.
-  - 🟡 the titles' wording, both flavour lines, and the art, generated with Codex (`yobo/assets/lies.png`,
-    `voice.png`): a tarnished, chipped rhinestone butterfly brooch under a dim spotlight on the debuff, the same
-    brooch whole and bright in a warm spotlight on the buff (a Dolly nod that doesn't name her).
+  - 🟡 the titles' wording, both flavour lines, and the art, generated with Codex (`yobo/assets/mask-lies.png`,
+    `mask-voice.png`): on the debuff, a cracked, tarnished gilded comedy mask held up in front of a face in shadow;
+    on the buff, the mask set aside and his own face lifted into a warm spotlight, singing. The person is kept
+    generic, since Yobo's race is still open.
 
   **Seam:** Sesh 8 makes the debuff *Performance + Bardic Inspiration* ("weakened, a die step down"), but the
   debuff card from the brief has no Inspiration penalty. Either add *"Your Bardic Inspiration die is one size
