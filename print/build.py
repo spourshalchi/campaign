@@ -9,9 +9,10 @@ Usage (from the project root):
 Every ticket flag is optional; leave them off and the tickets print the prop's own show details.
 
 Output (in print/):
-    1-cardstock.pdf     everything on cardstock (Yobo's two secret cards, then the battle tokens, last), one upload, one copy
+    1-cardstock.pdf     everything on cardstock (Spencer's invitations first, Yobo's two secret cards, then the battle tokens, last), one upload, one copy
     3-deed.pdf          the deed, on its own: cream or parchment cardstock
     4-plain.pdf         plain or ivory paper: the site assessment, the Articles of Settlement, Orlok's ledger
+    5-poster.pdf        Spencer's DJ poster, on plain white paper
     photo-4x6.jpg       the party-room photograph, full bleed, as a Staples 4x6 photo print (1200x1800, 300dpi)
     previews/           a JPEG (or PNG) of every page, shown on print/index.html
 
@@ -21,12 +22,11 @@ Needs Google Chrome (headless, for print-to-PDF and the photo screenshot), pypdf
 import argparse, functools, glob, http.server, json, os, shutil, socket, subprocess, sys, tempfile, threading
 from urllib.parse import urlencode
 
-from pypdf import PdfReader, PdfWriter, Transformation, PageObject
+from pypdf import PdfReader, PdfWriter
 
 # ---------------- knobs ----------------
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 INVITES = 6          # five lockers + one spare; two per sheet
-LETTER = (612, 792)  # points
 PREVIEW_DPI = 110    # sharp on an iPad, still small
 PHOTO = (1200, 1800, 300)  # 4x6 in portrait at 300dpi
 # ---------------------------------------
@@ -80,7 +80,7 @@ def photo_print(base):
 
 def write_manifest():
     manifest = {stem: sorted(os.path.basename(f) for f in glob.glob(os.path.join(PREVIEWS, stem + "-*.*")))
-                for stem in ("cardstock", "photo", "deed", "plain")}
+                for stem in ("cardstock", "photo", "deed", "plain", "poster")}
     with open(os.path.join(PREVIEWS, "manifest.json"), "w") as f:
         json.dump(manifest, f, indent=1)
 
@@ -98,25 +98,6 @@ def previews(pdf_name, stem):
         for png in sorted(glob.glob(prefix + "-*.png")):
             subprocess.run([magick, png, "-quality", "82", png[:-4] + ".jpg"], check=True)
             os.remove(png)
-
-
-def two_up_invites(invite_page, count):
-    """The invite is a 5x7 page. Turn it sideways and stack two per letter sheet;
-    the card is black to the edge, so its own border is the cut line."""
-    w = float(invite_page.mediabox.width)    # 360
-    h = float(invite_page.mediabox.height)   # 504
-    x = (LETTER[0] - h) / 2
-    gap = 18
-    y0 = (LETTER[1] - 2 * w - gap) / 2
-    sheets = []
-    for i in range(0, count, 2):
-        sheet = PageObject.create_blank_page(width=LETTER[0], height=LETTER[1])
-        for slot in range(min(2, count - i)):
-            y = y0 + slot * (w + gap)
-            # rotate 90deg CCW about the origin, then move into the slot
-            sheet.merge_transformed_page(invite_page, Transformation().rotate(90).translate(x + h, y))
-        sheets.append(sheet)
-    return sheets
 
 
 def main():
@@ -143,7 +124,7 @@ def main():
         return render(f"{base}/{path}{'?' + query if query else ''}", os.path.join(tmp, name + ".pdf"))
 
     print("Rendering props...")
-    invite = page("invite/")
+    invite = page("print/src/invite.html", urlencode({"n": INVITES}))
     deed = page("print/src/deed.html")
     badge = page("print/src/badge.html")
     tickets = page("print/src/tickets.html", tickets_q)
@@ -152,16 +133,15 @@ def main():
     survey = page("survey/")
     ledger = page("ledger/")
     yobo = page("yobo/")
+    poster = page("print/src/poster.html")
     tokens = page("print/src/tokens.html")
 
     # 1 — cardstock: one upload, one copy, color, single-sided
     w = PdfWriter()
-    for p in two_up_invites(invite.pages[0], INVITES):
-        w.add_page(p)
-    for doc in (badge, tickets, backstory, yobo, tokens):
+    for doc in (invite, badge, tickets, backstory, yobo, tokens):
         for p in doc.pages:
             w.add_page(p)
-    w.compress_identical_objects(remove_identicals=True, remove_orphans=True)  # six invites share one set of images
+    w.compress_identical_objects(remove_identicals=True, remove_orphans=True)  # six invites share one image
     w.write(os.path.join(OUT, "1-cardstock.pdf"))
 
     # 3 — the deed on its own, for cream or parchment cardstock
@@ -177,6 +157,12 @@ def main():
             w.add_page(p)
     w.write(os.path.join(OUT, "4-plain.pdf"))
 
+    # 5 — Spencer's DJ poster, plain white paper
+    w = PdfWriter()
+    for p in poster.pages:
+        w.add_page(p)
+    w.write(os.path.join(OUT, "5-poster.pdf"))
+
     # page previews for print/index.html — clear the old ones first
     os.makedirs(PREVIEWS, exist_ok=True)
     for old in glob.glob(os.path.join(PREVIEWS, "*")):
@@ -186,9 +172,10 @@ def main():
     photo_print(base)
     previews("3-deed.pdf", "deed")
     previews("4-plain.pdf", "plain")
+    previews("5-poster.pdf", "poster")
     write_manifest()
 
-    counts = {"invite sheets": -(-INVITES // 2), "badge": len(badge.pages),
+    counts = {"invite sheets": len(invite.pages), "badge": len(badge.pages),
               "tickets": len(tickets.pages), "backstory": len(backstory.pages), "yobo cards": len(yobo.pages),
               "tokens": len(tokens.pages)}
     print("1-cardstock.pdf  ", sum(counts.values()), "pages", counts)
@@ -196,6 +183,7 @@ def main():
     print("3-deed.pdf        ", len(deed.pages), "page(s)")
     print("4-plain.pdf       ", len(survey.pages) + len(settlement.pages) + len(ledger.pages), "pages",
           {"survey": len(survey.pages), "settlement": len(settlement.pages), "ledger": len(ledger.pages)})
+    print("5-poster.pdf      ", len(poster.pages), "page(s)")
 
 
 if __name__ == "__main__":

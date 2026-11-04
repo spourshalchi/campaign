@@ -55,7 +55,8 @@ Sunday's three rooms run in any order and are all paper. Item 2 opens AIM with t
 |------|------|------|
 | AIM | `aim/` | Haunted 2000s AOL Instant Messenger. The buddy is the kid Poe Boy soul-caged into the machine — the branching tree pulls the whole confession out of him, and ends with him **sending the party a file**: the recording of his own death, over AIM's file-transfer window. That USB is what wins the finale. |
 | Torn Page | `puzzle/` | 1937 newspaper front page, cut up in front of them by a trap in the binding. Reassemble, flip for the page-2 lore, and check the pocket card for who borrowed it last — including **V. Soprano, 1938**, which is where Gnomey's tie to the house gets hinted. Springing the trap is what summons the developer to the house that night. See [puzzle/README.md](puzzle/README.md) |
-| Invite | `invite/` | Anonymous VIP early entry, 7PM sharp, at Dood Mansion — it never names the host; homemade and clip-arty. |
+| Invite | `print/src/invite.html` (print only) | Spencer's card, as he made it: a haunted house under an orange moon, *Haunted House · Dood Mansion · 8 PM*. It never names the host. Six copies, one per locker and a spare. |
+| DJ poster | `print/src/poster.html` (print only) | Spencer's purple collage, as he made it: *Haunted Bash · 3 AM · Dood Mansion · DJ Poe Boy · Lil Stinky · Angelique*. Taped on the locked AIM-room door. |
 | Settlement | `print/src/settlement.html` (print only) | The 1931 contract from the strongbox in the study, with the Dood wax seal. Two drunk men signed away a mansion over $11.40, and **the only paragraph on the page with no corrections in it is the one that vests title in the bearer of the deed.** |
 | Deed | `print/src/deed.html` (print only) | The 1931 deed to Dood Mansion, with the Dood wax seal. Uncle Vinny has carried it since the night he won the house and hands it to Gnomey in the ending scene. **Print it at Staples** — it's Gnomey's physical prop. |
 | Photograph | `print/photo-4x6.jpg` | **Print only.** A 1979 snapshot from the party room — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs — full bleed, with the orange `10 31 '79` date stamp. A Staples 4×6 photo print; no back side. Bix's beat: hand Will the print and say nothing. |
@@ -71,11 +72,10 @@ Sunday's three rooms run in any order and are all paper. Item 2 opens AIM with t
 |---|---|
 | A real USB stick | Handed to the players when the Spirit uploads. **Set its volume label to `MARCUS_HALE`** — Sesh 8 makes the mount the moment the table learns who he is. The recording itself is narrated at the table; there is no audio file. |
 | The wishing willow | The second thing in the backpack — the love-spell token Simone sold the dead kid, with *I want Angelique to notice me* on its tag. Scott makes the token by hand; the tag prints on the badge sheet (`print/src/badge.html`). |
-| DJ show flyer | 3AM, Dood Mansion, bills Poe Boy / Lil Stinky / Angelique. |
 
 ## Print list
 
-Everything to print lives in the **print kit at [`print/`](print/)**: four Staples orders (cardstock, the deed on cream cardstock, plain paper and one photo print), with the exact settings to pick and a cutting guide. The codex to-do **"Print list — everything to take to Staples"** tracks what's in hand.
+Everything to print lives in the **print kit at [`print/`](print/)**: five Staples orders (cardstock, the deed on cream cardstock, plain paper, the poster and one photo print), with the exact settings to pick and a cutting guide. The codex to-do **"Print list — everything to take to Staples"** tracks what's in hand.
 
 | File | Paper | What's in it |
 |---|---|---|
@@ -83,6 +83,7 @@ Everything to print lives in the **print kit at [`print/`](print/)**: four Stapl
 | `print/photo-4x6.jpg` | Staples photo print: 4×6, glossy or lustre, 1 print (same-day at most stores) | The photograph (Will's trait is painted in) |
 | `print/3-deed.pdf` | Letter cardstock, cream or parchment, colour, 1-sided, 1 copy | The deed |
 | `print/4-plain.pdf` | Letter ivory or plain, colour, 1-sided, 1 copy | The developer's site assessment, the Articles of Settlement, Orlok's ledger |
+| `print/5-poster.pdf` | Letter plain white, colour, 1-sided, 1 copy | Spencer's DJ poster |
 
 Rebuild after any prop change (needs Google Chrome, `pypdf` and ImageMagick); it remakes the PDFs and `photo-4x6.jpg`:
 
@@ -90,7 +91,7 @@ Rebuild after any prop change (needs Google Chrome, `pypdf` and ImageMagick); it
 python3 print/build.py
 ```
 
-Not printed: the DJ poster (optional, Spencer's; it goes on the AIM-room door), the AIM sticky note (handwritten), the wishing willow (Scott makes it by hand), the USB stick (bought).
+Not printed: the AIM sticky note (handwritten), the wishing willow (Scott makes it by hand), the USB stick (bought).
 
 ## Adding a new prop
 

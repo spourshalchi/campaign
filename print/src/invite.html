@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+  PROP: The invitation — the card each of the five finds in their locker (scene 2).
+  ART: Spencer's, used exactly as he made it (assets/spencer-invite.jpg): a haunted house under an orange moon,
+  "Haunted House · Dood Mansion · 8 PM". It names no host.
+  ✅ Signed off as-is (Scott, 2026-11-04 · not in doc). See CANON.md.
+  PRINT ONLY: print/build.py renders it into print/1-cardstock.pdf. US Letter, 100% / actual size, cardstock.
+  Each card is 5 x 6.26 in (the art's own shape), turned sideways, two per sheet, with crop marks.
+  ?n= sets how many cards (default 6: five lockers and a spare).
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Invite">
+<meta name="theme-color" content="#2a1a3a">
+<title>The Invitation</title>
+<style>
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0}
+  body{
+    background:#150e1d; color:#e9e2ef;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    min-height:100dvh; overscroll-behavior:none;
+    padding:max(16px,env(safe-area-inset-top)) 16px max(24px,env(safe-area-inset-bottom));
+    display:flex; flex-direction:column; align-items:center; gap:20px;
+  }
+
+  /* -------- screen-only brief -------- */
+  .brief{
+    width:100%; max-width:640px; background:#22172d; border:1px solid #45325a; border-radius:10px;
+    padding:14px 16px; font-size:14px; line-height:1.5;
+    -webkit-user-select:none; user-select:none;
+  }
+  .brief h1{font-size:19px; margin:0 0 6px; color:#fff; font-weight:600}
+  .brief p{margin:0 0 8px; color:#cfc3db}
+  .brief b{color:#fff}
+  .brief button{
+    font:inherit; font-weight:600; cursor:pointer; min-height:44px;
+    background:#e07a2a; color:#1c0f05; border:none; border-radius:8px; padding:10px 18px;
+  }
+  .card{display:block; width:100%; max-width:420px; height:auto; box-shadow:0 14px 40px rgba(0,0,0,.6)}
+
+  /* -------- print: two cards per letter sheet, sideways -------- */
+  .sheets{display:none}
+  .sheet{width:8.5in; height:11in; overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.3in}
+  .slot{position:relative; width:6.26in; height:5in}
+  .slot img{position:absolute; left:50%; top:50%; width:5in; height:6.26in;
+    transform:translate(-50%,-50%) rotate(-90deg)}
+  .slot svg{position:absolute; left:-.3in; top:-.3in; width:6.86in; height:5.6in; overflow:visible}
+
+  @media print{
+    @page{size:letter portrait; margin:0}
+    html,body{background:#fff !important}
+    body{padding:0; display:block; min-height:0}
+    .brief,.card{display:none !important}
+    .sheets{display:block}
+    .sheet{break-after:page; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+    .sheet:last-child{break-after:auto}
+  }
+</style>
+</head>
+<body>
+
+  <div class="brief">
+    <h1>The invitation — print at Staples</h1>
+    <p><b>One in each of the five lockers</b>, scene 2. Spencer's card, printed as he made it.</p>
+    <p>US Letter, <b>100% / actual size</b>, colour, cardstock. Two cards per sheet, turned sideways; cut on the crop marks at the corners.</p>
+    <button onclick="window.print()">Print the invitations</button>
+  </div>
+
+  <img class="card" src="assets/spencer-invite.jpg" alt="Haunted House · Dood Mansion · 8 PM">
+
+  <div class="sheets" id="sheets"></div>
+
+<script>
+  // crop marks sit just outside each corner of the card
+  var MARKS = '<svg viewBox="0 0 686 560" aria-hidden="true"><g stroke="#888" stroke-width="1" fill="none">' +
+    [[30,30,-1,-1],[656,30,1,-1],[30,530,-1,1],[656,530,1,1]].map(function(c){
+      var x=c[0], y=c[1], dx=c[2], dy=c[3];
+      return '<path d="M'+(x+dx*6)+' '+y+' H'+(x+dx*26)+' M'+x+' '+(y+dy*6)+' V'+(y+dy*26)+'"/>';
+    }).join('') + '</g></svg>';
+  var n = parseInt(new URLSearchParams(location.search).get('n'), 10) || 6;
+  var out = '';
+  for (var i = 0; i < n; i += 2) {
+    out += '<div class="sheet">';
+    for (var j = i; j < Math.min(i + 2, n); j++)
+      out += '<div class="slot"><img src="assets/spencer-invite.jpg" alt="">' + MARKS + '</div>';
+    out += '</div>';
+  }
+  document.getElementById('sheets').innerHTML = out;
+</script>
+</body>
+</html>

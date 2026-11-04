@@ -81,13 +81,13 @@
 <main>
 
   <h1>Print Kit</h1>
-  <p class="lede">Everything that gets printed, sorted into <b>four Staples orders</b>: three document orders by paper, and one photo print. Each file is one upload, one copy. Cut at home afterwards. Every page is previewed below — tap one to see it full size.</p>
+  <p class="lede">Everything that gets printed, sorted into <b>five Staples orders</b>: four document orders by paper, and one photo print. Each file is one upload, one copy. Cut at home afterwards. Every page is previewed below — tap one to see it full size.</p>
 
   <h2>Before you print</h2>
   <div class="panel">
     <ul class="check" id="pre">
       <li><input type="checkbox" id="c5" checked><label for="c5"><b>Will's trait for Bix's parents</b> — done, in the painted photograph (<code>photo-4x6.jpg</code>). Scott to review.</label></li>
-      <li><input type="checkbox" id="c6" checked><label for="c6"><b>The invitation</b> — done: anonymous VIP early entry, 7PM sharp, at Dood Mansion; it names no host. Scott to review the card's wording.</label></li>
+      <li><input type="checkbox" id="c6" checked><label for="c6"><b>The invitation and the DJ poster</b> — done: Spencer's finished art, printed as he made it. Signed off.</label></li>
       <li><input type="checkbox" id="c4"><label for="c4"><b>Rebuild the PDFs and the photo</b> after any of the above (one command, below), then check them on screen.</label></li>
     </ul>
   </div>
@@ -114,7 +114,7 @@
     </dl>
     <table>
       <tr><th>Page</th><th>What</th><th>Cut</th><th>Live</th></tr>
-      <tr><td>1–3</td><td><b>Invitations</b> ×6: five lockers and a spare, two per sheet</td><td>Along the black edge of each card</td><td><a class="prop" href="../invite/">/invite/</a></td></tr>
+      <tr><td>1–3</td><td><b>Invitations</b> ×6: Spencer's card, 5×6.26, five lockers and a spare, two per sheet (turned sideways)</td><td>On the crop marks at each card's corners</td><td>Print only</td></tr>
       <tr><td>4</td><td><b>Russ's requirements card</b></td><td>Trim to the card border</td><td>Print only</td></tr>
       <tr><td>5</td><td><b>The badge</b>, 3″ plus a 2.25″ spare, and <b>the wishing willow's tag</b> beside them</td><td>Badges round, on the dashed circles. The tag: cut around its edge; tie real string through the hole</td><td>Print only</td></tr>
       <tr><td>6</td><td><b>Concert tickets</b> ×2</td><td>On the dashed lines</td><td>Print only</td></tr>
@@ -179,11 +179,29 @@
     <div class="gallery" data-set="plain" data-label="Plain"></div>
   </div>
 
+  <h2><span class="n">5</span>Poster order</h2>
+  <div class="panel">
+    <div class="file"><a class="btn" href="5-poster.pdf" download>5-poster.pdf</a><span class="tag ok">Signed off</span></div>
+    <dl class="settings">
+      <dt>Size</dt><dd>8.5 × 11 (Letter)</dd>
+      <dt>Paper</dt><dd>Plain white, regular weight (not ivory: it muddies the purple)</dd>
+      <dt>Colour</dt><dd>Full colour</dd>
+      <dt>Sides / Copies</dt><dd>1-sided · 1</dd>
+      <dt>Scaling</dt><dd>Actual size / 100%</dd>
+      <dt>Finishing</dt><dd>None</dd>
+    </dl>
+    <table>
+      <tr><th>Page</th><th>What</th><th>Cut</th><th>Live</th></tr>
+      <tr><td>1</td><td><b>The DJ poster</b>: Spencer's <i>Haunted Bash</i>, DJ Poe Boy at 3 AM, 6.56×10.5 on the sheet</td><td>No cut. Tape it on the AIM-room door before play</td><td>Print only</td></tr>
+    </table>
+    <p class="small muted">Its own order only because of the paper. Can go in with the plain order if that one is on white.</p>
+    <div class="gallery" data-set="poster" data-label="Poster"></div>
+  </div>
+
   <h2>Not printed</h2>
   <div class="panel small">
     <table>
-      <tr><td>DJ show poster</td><td>Optional — Spencer's, if he can. Taped on the locked AIM-room door. If it exists, it joins the cardstock order (11×17 if it's a real poster).</td></tr>
-      <tr><td>AIM sticky note</td><td>Handwritten: <code>Fluffy123</code>.</td></tr>
+            <tr><td>AIM sticky note</td><td>Handwritten: <code>Fluffy123</code>.</td></tr>
       <tr><td>Wishing willow</td><td>Handmade token. Its paper tag is printed (cardstock page 5); tie it on.</td></tr>
       <tr><td>USB stick</td><td>Buy one; volume label = the kid's name, with <code>scream_test_03_GOOD.wav</code> on it.</td></tr>
     </table>
@@ -193,6 +211,7 @@
   <div class="panel small">
     <table>
       <tr><td>Invitations</td><td>Lockers, scene 2. One per PC.</td></tr>
+      <tr><td>DJ poster</td><td>Nobody: it's taped on the locked AIM-room door before play.</td></tr>
       <tr><td>Backstory cards</td><td>Before play: each player gets their own.</td></tr>
       <tr><td>Requirements card</td><td>Cody, early. Orlok won't sign until the end.</td></tr>
       <tr><td>Photograph</td><td>Bix, in the party room.</td></tr>
@@ -213,7 +232,7 @@
   <div class="panel small">
     <p>From the repo root, with Google Chrome installed:</p>
     <pre>python3 print/build.py</pre>
-    <p>That also remakes <code>photo-4x6.jpg</code> from <code>photo-4x6.html</code> (needs ImageMagick); <code>--photo-only</code> remakes just the photo.</p>
+    <p>The invitations and the poster are Spencer's art (<code>src/assets/spencer-*.jpg</code>), laid out by <code>src/invite.html</code> and <code>src/poster.html</code>. That also remakes <code>photo-4x6.jpg</code> from <code>photo-4x6.html</code> (needs ImageMagick); <code>--photo-only</code> remakes just the photo.</p>
     <p>The tickets print their own show details; <code>--band</code>, <code>--venue</code>, <code>--city</code>, <code>--date</code> and <code>--time</code> override them. Each prop's own print layout decides how it looks, so fix the prop, not the script. Re-run after any prop change, and commit the new PDFs and JPG.</p>
   </div>
 
