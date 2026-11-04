@@ -413,6 +413,8 @@ then flips to **a clinic**.
 | **The vampires learn the truth from the recording over the PA** in the finale — they hear it with everyone else, and that is how they find out the kid never went out a window | Scott, 3 Nov |
 | **Left undefined on purpose:** the history teacher; the Records Keeper (Spencer voices her); why these five got the card | Scott, 3 Nov |
 | **The other malevolent forces** are the Spirit, the botched summoning and the developer — nothing more is needed | Scott, 3 Nov |
+| **The cellar puzzle is Orlok's patient ledger.** Crate tags are matched to ledger entries; one patient is unaccounted for, and that leads to the hidden infirmary. Russ's Speak with Animals is the shortcut. Prop at `/ledger/` | Scott, 3 Nov |
+| **The mansion has enough puzzles:** the study door, the party room, the cellar ledger and the sticky note | Scott, 3 Nov |
 | **The session break is deliberately undefined.** Saturday ends wherever time runs out; the botched summoning closes Night 1 if the clock allows but isn't required to. Everyone levels to 5 at the end of day one | Scott, 3 Nov |
 | ~~The finale runs in three phases: vampires hostile → developer breaches → vampires turn~~ — **phase 1 cut in the In Person Session.** Two phases: developer breaches → the booth (vampires turn) | the 24 Aug doc paste, replaced by In Person Session |
 | The developer's breach (now the first phase) is the only lethal fight of the finale | the 24 Aug doc paste |
@@ -457,7 +459,8 @@ downstairs in the **ballroom**, and the USB is the thing that bridges them.
 | Lil Stinky's Aura of Protection buffs Poe Boy's saves — he is a puzzle, not a wall | the 24 Aug doc paste |
 | **Stinky is not charmed.** He just believes his friend | the 24 Aug doc paste |
 | Poe Boy spends his turns on *Command* — "Drop." A delay, not a fail state; the drive can't be destroyed | the 24 Aug doc paste |
-| The recording plays in full | the 24 Aug doc paste |
+| ~~The recording plays in full~~ — **narrated, no audio file.** When the USB hits the decks the DMs narrate it: typing, a door, the kid's fear, and Poe Boy's calm voice adjusting a level. That is what turns the room. `scream_test_03_GOOD.wav` stays as the story file he uploads | the 24 Aug doc paste; narrated: Scott, 3 Nov |
+| **Only if Simone paid the goat**, Marcus's own voice then comes through the speakers and he says his piece to Poe Boy and the vampires. A no costs the ending nothing, so the load-bearing rule holds | Scott, 3 Nov |
 | Stinky's oath breaks. **No saving throw.** Devotion's first tenet is *don't lie or cheat* | the 24 Aug doc paste · builds on Sesh 8's oathbreak |
 
 ### The collapse
