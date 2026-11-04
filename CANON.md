@@ -798,7 +798,7 @@ stay on this list until you two decide:
   Edward and Goblinenon arrived is the codex's placement for it
 
 ### 6. Prop texture
-- **Backstory cards (`/backstory/`):** every bullet is sourced (mostly Character Bios, paraphrased into second person) except the texture — the footer taglines, *"Class of '04 — finally"*, *"Everyone has AIM. Nobody has a smartphone"*, the Wilderness Scouts troop name (from `/badge/`), and *"years ago"* for Simone's willow sale. A sixth shared **Transyltown** card fills the last print page.
+- **Backstory cards (`/backstory/`):** 🟡 each card is 3–5 short bullets that set up that PC's arc this weekend, not a rehash of the player's own write-up (Scott, 3 Nov). The facts are sourced (Character Bios, Sesh 5, Sesh 8, Scott 3 Nov); the wording and the selection are the prop's. Also the prop's: Bix *"found in town as a baby"* (canon has him carried into town as a baby; the card gives only what he'd have been told), Simone's *"years ago"*, and the shared **Transyltown** card's three town facts. The skip day and the history project stay off the cards: both happen at the table in cue 1.
 - **Invite:** ✅ signed off (`Scott, 3 Nov (signed off)`): *"this pass admits one. dont tell anyone"*, *"see if you
   make it that far"*, the badges, the RSVP line and `spookynite2k4@hotmail.com`.
 - **AIM:** the screen name **`DJPoeBoy187`** (the `187` is a police homicide code — he'd have picked it

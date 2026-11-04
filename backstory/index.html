@@ -8,8 +8,9 @@
   No mansion reveals: nothing about Edward / Goblinenon, the deed or the settlement, what happened
   to the willow kid, who the killer is, what the vampires really are, or the finale.
 
-  Every bullet has a source comment. Most are Character Bios (each player's own write-up),
-  paraphrased into second person. Anything not straight from the doc is marked 🟡.
+  Each card is 3-5 bullets that set up that PC's arc this weekend, not a rehash of the player's own
+  character write-up. Every bullet has a source comment; anything not straight from canon is marked 🟡.
+  🟡 NOT CANON YET as a whole: the wording and the selection (Scott's brief, 3 Nov), logged in CANON.md.
 
   PRINT: US Letter portrait, 100% / actual size. Two 7×5 in cards per page, three pages,
   dashed cut lines. Card stock if Staples has it.
@@ -75,7 +76,7 @@
     position:absolute; inset:0;
     padding:3.4cqi 4.2cqi 3cqi 10cqi;
     display:flex; flex-direction:column;
-    font-size:2.03cqi;            /* 13.65px at 7in = 10.2pt */
+    font-size:2.95cqi;            /* 19.8px at 7in = 14.9pt */
   }
   /* faint ruled lines under the body */
   .card .in::before{
@@ -94,32 +95,21 @@
   }
   .player{font-size:1.75cqi; letter-spacing:.12em; text-transform:uppercase; color:var(--mut); font-weight:600}
   .what{
-    margin:1cqi 0 0; font-size:1.8cqi; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+    margin:1cqi 0 1.6cqi; font-size:1.8cqi; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
     color:var(--ink); position:relative;
   }
-  .who{
-    margin:1.5cqi 0 1.4cqi; padding:1.1cqi 1.8cqi; position:relative;
-    background:color-mix(in srgb, var(--accent) 11%, #fff);
-    border-left:.7cqi solid var(--accent); border-radius:.6cqi;
-    font-size:1em; line-height:1.4; font-style:italic;
-  }
   .rem{
-    margin:0 0 .5cqi; font:700 1.6cqi var(--f-body); letter-spacing:.16em; text-transform:uppercase;
+    margin:2.2cqi 0 1.2cqi; font:700 1.6cqi var(--f-body); letter-spacing:.16em; text-transform:uppercase;
     color:var(--accent); position:relative;
   }
   ul{margin:0; padding:0 0 0 2.6cqi; position:relative; list-style:none}
-  li{margin:0 0 .75cqi; line-height:1.4; position:relative}
+  li{margin:0 0 1.7cqi; line-height:1.42; position:relative}
   li::before{
     content:""; position:absolute; left:-2.3cqi; top:.55em; width:1cqi; height:1cqi;
     border-radius:50%; background:var(--accent);
   }
   li b{font-weight:700}
   q{font-style:italic; quotes:"\201C" "\201D"}
-  .foot{
-    margin-top:auto; padding-top:.6cqi; position:relative;
-    font-size:1.45cqi; letter-spacing:.12em; text-transform:uppercase; color:var(--mut);
-    display:flex; justify-content:space-between;
-  }
 
   /* accents */
   .c-bix   {--accent:#c8471f}
@@ -168,26 +158,17 @@
       <div class="in">
         <span class="tab">Backstory</span>
         <div class="head"><h2 class="name">Bix Grimlor</h2><span class="player">Will</span></div>
-        <p class="what">Goblin &middot; Circle of Wildfire Druid</p>
-        <!-- Character Bios (Will): philosophy + "removed/destroyed for better things" -->
-        <p class="who">Not everyone comes out on top, so you'll do whatever it takes not to get left behind. Some things have to burn so something better can grow.</p>
         <p class="rem">What you remember</p>
         <ul>
-          <!-- Character Bios (Will): "Parents death — only heard rumors, too young to remember… shady characters hunted by 'good' adventurers" -->
-          <li>Your parents died shortly after you were born. You were too young to remember. All you've got are <b>rumours</b>: they were shady types, hunted down by &ldquo;good&rdquo; adventurers.</li>
-          <!-- Character Bios (Will): ran from foster homes, school is the one thing he's relatively good at; super senior for behaviour, not grades -->
-          <li>You ran from your foster homes, but you still go to school &mdash; it's the one thing you're relatively good at. You're a super senior because of your behaviour, not your grades.</li>
-          <!-- Character Bios (Will): dealing, "slingin weed", gets high on own supply, in too deep, pay is good -->
-          <li>You sling weed at school to get by (and sample the supply). You're probably in too deep with bad people. The pay is good.</li>
-          <!-- Character Bios (Will): insecure about size & status, easy to agitate, violence/pyromancy, lashes out -->
-          <li>You're touchy about your size and your social standing. Push you and you push back &mdash; usually with fire.</li>
-          <!-- Sesh 5: broke in one rainy night after running from a foster home, encountered something -->
-          <li>One rainy night, running from a foster home, you broke into the old <b>Dood mansion</b> on the hill. Something was in there. You still can't explain what you saw.</li>
-          <!-- Sesh 5: both loners, short friendship, he pushed her away as it got more serious platonically -->
-          <li><b>Angelique</b> and you were loners together for a while. It started getting more serious &mdash; as friends &mdash; and you pushed her away.</li>
+          <!-- Character Bios (Will): parents died shortly after birth; too young to remember; rumours they were shady, hunted by "good" adventurers -->
+          <li>Your parents died not long after you were born. The story you got is that &ldquo;good&rdquo; adventurers hunted them down. You don&rsquo;t remember any of it.</li>
+          <!-- 🟡 "found in town as a baby": what Bix would have been told (codex: he was carried down into town as a baby); Character Bios: foster homes, ran from them -->
+          <li>You were found in town as a baby and went into foster care. You&rsquo;ve run from most of the homes since.</li>
+          <!-- Sesh 5: broke into the mansion one rainy night after running from a foster home, encountered something -->
+          <li>One rainy night, running from a foster home, you broke into the old <b>Dood house</b> on the hill. Something was in there. You still can&rsquo;t explain what you saw.</li>
+          <!-- Sesh 5: loners together, a short friendship; he pushed her away as it got more serious, platonically -->
+          <li><b>Angelique</b> and you were loners together for a while. When it started to matter, you pushed her away.</li>
         </ul>
-        <!-- Character Bios (Will): strengths/weaknesses -->
-        <div class="foot"><span>Strong: street smarts &middot; nature</span><span>Weak: people &middot; persuasion</span></div>
       </div>
     </section>
 
@@ -196,26 +177,17 @@
       <div class="in">
         <span class="tab">Backstory</span>
         <div class="head"><h2 class="name">Gnomey Soprano</h2><span class="player">Julia</span></div>
-        <p class="what">Gnome &middot; Rogue</p>
-        <!-- Character Bios (Julia): puss n boots; looks easy to bully; petty, revenge as coping, always underestimated -->
-        <p class="who">You look small, cute and easy to bully. People who know better don't cross you &mdash; you're petty, and you'll go to extravagant lengths to get even.</p>
         <p class="rem">What you remember</p>
         <ul>
-          <!-- Character Bios (Julia): hustler, loves money, smart not bookish, a teacher believes in him, wavers between street life and college -->
-          <li>You're a hustler who loves money &mdash; smart, just not into books. <b>One teacher</b> really believes in you, and you keep going back and forth between this life and getting out through college.</li>
-          <!-- Character Bios (Julia): sells cigarettes in the bathroom; Sesh 3: Lil Stinky is tied to Julia's cigarette trade; knows back roads / pumpkin patch -->
-          <li>You sell cigarettes in the school bathroom, which ties you to <b>Lil Stinky</b>, the school kingpin. You know every back road and pumpkin patch in the county.</li>
-          <!-- Character Bios (Julia): family very wholesome, he sticks out, grew up idolizing mob bosses -->
-          <li>Your family is very wholesome. You stick out. You grew up idolizing mob bosses.</li>
-          <!-- Sesh 5: in Poe Boy's crew in middle school, fell out over Poe Boy skimming the silly bandz money -->
-          <li>In middle school you ran with <b>Poe Boy's</b> crew. It ended over the silly bandz racket &mdash; he was skimming your cut, and you walked.</li>
-          <!-- Sesh 5: the crew threw rocks / dared each other to ring the doorbell; one Halloween something happened -->
-          <li>The crew used to throw rocks at the <b>Dood mansion</b> and dare each other to ring the doorbell. One Halloween, something happened up there.</li>
-          <!-- Sesh 8: Vinny — alive, ancient, in a home, mostly gone; ran cigarettes & liquor; the visit at twelve and its three lines.
-               🟡 The visit stands without anything changing hands (see CANON.md In Person Session); nothing here mentions the house. -->
-          <li><b>Great Uncle Vinny</b> ran cigarettes and liquor on the back roads, way back. He's ancient now, in a home, mostly gone. When you were twelve he drove over: <q>Twelve years old and he's got a crew.</q> <q>I don't have a crew anymore.</q> <q>You'll get another one.</q></li>
+          <!-- Sesh 8: Vinny, alive, ancient, in a home, mostly gone; ran cigarettes and liquor -->
+          <li><b>Great Uncle Vinny</b> ran liquor and cigarettes on the back roads, way back. He&rsquo;s ancient now, in a home, mostly gone.</li>
+          <!-- Sesh 8: the visit at twelve and its three lines. 🟡 The visit stands without anything changing hands (CANON.md); nothing here mentions the house. -->
+          <li>When you were twelve he came by. <q>Twelve years old and he&rsquo;s got a crew.</q> <q>I don&rsquo;t have a crew anymore.</q> <q>You&rsquo;ll get another one.</q></li>
+          <!-- Sesh 5: in Poe Boy's crew in middle school; fell out over Poe Boy skimming the silly bandz money -->
+          <li>In middle school you ran with <b>Poe Boy&rsquo;s</b> crew. It ended over the silly bandz: he was skimming your cut, so you walked.</li>
+          <!-- Sesh 5: the crew threw rocks and dared each other to ring the doorbell; one Halloween something happened -->
+          <li>The crew used to throw rocks at the <b>Dood house</b> and dare each other to ring the bell. One Halloween, something happened up there.</li>
         </ul>
-        <div class="foot"><span>Puss in Boots energy</span><span>Always underestimated</span></div>
       </div>
     </section>
 
@@ -223,27 +195,16 @@
     <section class="card c-simone" id="simone">
       <div class="in">
         <span class="tab">Backstory</span>
-        <div class="head"><h2 class="name">Simone's Warlock</h2><span class="player">Simone &middot; name TBD</span></div>
-        <p class="what">Warlock &middot; the Devil, as a goat</p>
-        <!-- Character Bios (Simone): angsty goth warlock; devil as an all-black goat with an upside-down red cross on its face -->
-        <p class="who">An angsty goth who worships the Devil and draws power from it. It comes to you as an all-black goat with an upside-down red cross on its face.</p>
+        <div class="head"><h2 class="name">Simone&rsquo;s Warlock</h2><span class="player">Simone &middot; name TBD</span></div>
         <p class="rem">What you remember</p>
         <ul>
-          <!-- Character Bios (Simone): regular degular suburban family, two human atheist parents, only child, they think it's a phase -->
-          <li>Regular-degular suburban family: two atheist parents, and you're an only child. They think the devil thing is <b>a phase</b>.</li>
-          <!-- Character Bios (Simone): favourite satanic metal band touring, playing in town at end of school year; restated Sesh 8. Band name Total Party Kill: Scott, 3 Nov. -->
-          <li>Your favourite satanic metal band, <b>Total Party Kill</b>, is on tour and playing a show in town at the end of the school year. You are saving every cent.</li>
-          <!-- Character Bios (Simone): charges students for love spells on crushes and revenge spells; Sesh 8: money in a goat-shaped piggy bank -->
-          <li>You fund it by selling <b>love spells</b> and <b>revenge spells</b> to classmates. The money goes in a <b>goat-shaped piggy bank</b>.</li>
-          <!-- Character Bios (Simone): detention often, principal finds out about spells on school grounds -->
-          <li>You're in detention a lot &mdash; the principal keeps catching you doing spells on school grounds.</li>
-          <!-- Character Bios (Simone): loner, seen as weird and shy, only engaged for spell work, some scared of her -->
-          <li>A loner. People think you're weird and shy, some are scared of you, and most only talk to you when they need spell work done.</li>
-          <!-- Sesh 8: Simone sold the kid a love spell / wishing willow. Deliberately does NOT name who he wanted, or what became of him.
-               🟡 "years ago" — the codex backstory dates it five years back. -->
-          <li>Years ago, a kid paid you for a love spell: a <b>wishing willow</b>, with his wish written on the slip. He wanted a girl to notice him.</li>
+          <!-- Sesh 8: Simone sold the kid a love spell, a wishing willow. Deliberately does not name who he wanted or what became of him. 🟡 "years ago": the codex dates it five years back. -->
+          <li>Years ago a kid paid you for a love spell: a <b>wishing willow</b>, with his wish written on the slip. He wanted a girl to notice him.</li>
+          <!-- Character Bios (Simone): favourite satanic metal band playing in town at the end of the school year; love and revenge spells for money; Sesh 8: goat piggy bank. Band name: Scott, 3 Nov. -->
+          <li><b>Total Party Kill</b> play town at the end of the school year. Every dollar from your spell work goes in the <b>goat piggy bank</b> for it.</li>
+          <!-- Character Bios (Simone): the Devil, as an all-black goat with an upside-down red cross on its face -->
+          <li>Your patron is the Devil. It comes to you as the <b>black goat</b>.</li>
         </ul>
-        <div class="foot"><span>Saving for the show</span><span>Feared &amp; misunderstood</span></div>
       </div>
     </section>
 
@@ -252,25 +213,19 @@
       <div class="in">
         <span class="tab">Backstory</span>
         <div class="head"><h2 class="name">Yobo</h2><span class="player">John</span></div>
-        <p class="what">Bard &middot; musical-theatre kid</p>
-        <!-- Character Bios (John): musical theatre bully / popular kid; words as the weapon -->
-        <p class="who">Musical-theatre royalty, popular, and a bit of a bully. Your words are your weapon.</p>
         <p class="rem">What you remember</p>
         <ul>
-          <!-- Character Bios (John): just moved here from another school, tormented for subpar singing/acting -->
-          <li>You moved here from another school, where you got tormented for your singing and acting.</li>
-          <!-- Character Bios (John): told everyone his grandma is Dolly Parton (a lie) to get in with the cool kids -->
-          <li>To get in with the cool theatre kids, you told everyone <b>your grandma is Dolly Parton</b>. She isn't.</li>
-          <!-- Character Bios (John): now accepted; social status hinges on people thinking he's descended from musical royalty -->
-          <li>It worked. You're in &mdash; and your whole social standing now rests on people believing you're descended from musical royalty.</li>
-          <!-- In Person Session: "Dolly Parton riff" among the reveal items; Sesh 8 / codex gazebo: "you're the Dolly Parton guy — do a little riff" -->
-          <li>Around school you're <b>&ldquo;the Dolly Parton guy.&rdquo;</b> People ask you for a riff. You give them one.</li>
-          <!-- Scott, 3 Nov (aligned with John): Yobo wears a wig. Canon doesn't say why, so neither does the card. -->
+          <!-- Character Bios (John): told everyone his grandma is Dolly Parton, a lie, to get in with the cool kids -->
+          <li>Everyone at school believes your grandmother is <b>Dolly Parton</b>. You&rsquo;ve never corrected them.</li>
+          <!-- In Person Session: "Dolly Parton riff"; Sesh 8 / codex gazebo: "you're the Dolly Parton guy, do a little riff" -->
+          <li>So wherever you show up, somebody wants a riff.</li>
+          <!-- Character Bios (John): moved from another school, tormented there for his singing and acting -->
+          <li>At your old school they laughed at your singing. Nobody here knows that.</li>
+          <!-- Character Bios (John): very insecure about whether he has real talent -->
+          <li>You&rsquo;re not sure you&rsquo;re actually any good.</li>
+          <!-- Scott, 3 Nov (aligned with John): Yobo wears a wig. Canon does not say why, so neither does the card. -->
           <li>You wear a <b>wig</b>.</li>
-          <!-- Character Bios (John): wants to be a star, but really wants to be accepted; very insecure about artistic abilities -->
-          <li>You want to be a star. Mostly you want to be accepted. Deep down, you're not sure you have any real talent.</li>
         </ul>
-        <div class="foot"><span>Five, six, seven, eight</span><span>Nobody knows</span></div>
       </div>
     </section>
 
@@ -279,22 +234,17 @@
       <div class="in">
         <span class="tab">Backstory</span>
         <div class="head"><h2 class="name">Russ</h2><span class="player">Cody</span></div>
-        <p class="what">Firbolg &middot; Druid &middot; Wilderness Scout</p>
-        <!-- Sesh 8: Firbolg druid, "basically Russell from Up"; codex: sweet, over-literal, takes badges deadly seriously -->
-        <p class="who">A sweet, earnest, slightly over-literal scout who talks to animals. Merit badges are serious business.</p>
         <p class="rem">What you remember</p>
         <ul>
-          <!-- codex NODES (cody): one badge short of the next rank, and it's Assisting the Elderly.
-               🟡 "Wilderness Scouts of Transyltown, Troop 187" is badge prop flavour (print kit). -->
-          <li>You're one badge short of your next rank with the <b>Wilderness Scouts of Transyltown, Troop 187</b>. The badge is <b>Assisting the Elderly</b>.</li>
-          <!-- Sesh 8 + the badge card intro (print kit): help an elder of the community, each act verified by that elder in their own hand, three acts -->
-          <li>To earn it you have to help an <b>elder</b> of the community three times &mdash; and get each one signed by that elder, in their own hand.</li>
-          <!-- Sesh 8: the three requirement titles (they're printed on the card Cody holds) -->
-          <li>Your requirements card has three boxes: <b>lend a hand with something out of reach</b>, <b>tend your elder's garden</b>, and <b>give care when someone is hurting</b>.</li>
-          <!-- CANON (vet reframe): "Because Russ speaks with animals" -->
-          <li>You can <b>speak with animals</b>, and you listen to what they tell you.</li>
+          <!-- codex NODES (cody): one badge short of the next rank, Assisting the Elderly. Troop 187: the badge prop (print kit), signed off Scott, 3 Nov. -->
+          <li>One badge left before your next rank: <b>Assisting the Elderly</b>, Wilderness Scouts of Transyltown, Troop 187.</li>
+          <!-- Sesh 8 + the badge card: help an elder three times, each act verified by that elder in their own hand -->
+          <li>An <b>elder</b> has to sign off on three good turns, each in their own hand. The card&rsquo;s in your pocket.</li>
+          <!-- Scott, 3 Nov: the troop leader is an over-earnest scout dad, unfazed by anything as long as the paperwork is in order -->
+          <li>Your <b>troop leader</b> is very serious about the paperwork.</li>
+          <!-- Sesh 8 / CANON vet reframe: Russ speaks with animals -->
+          <li>You can <b>talk to animals</b>.</li>
         </ul>
-        <div class="foot"><span>Basically Russell from <i>Up</i></span><span>Badge card in your pocket</span></div>
       </div>
     </section>
 
@@ -304,23 +254,15 @@
         <span class="tab">Everyone</span>
         <div class="head"><h2 class="name">Transyltown</h2><span class="player">All of you</span></div>
         <p class="what">Halloween weekend &middot; 2004</p>
-        <!-- Sesh 0: early-to-mid 20s super seniors, final year of fantasy high school, Transyltown NY, Hudson Valley suburb -->
-        <p class="who">You're super seniors &mdash; early-to-mid twenties and still finishing your final year of high school in Transyltown, NY, a charming Hudson Valley suburb.</p>
         <p class="rem">What everybody knows</p>
         <ul>
-          <!-- Sesh 0 / Sesh 6: abandoned Dutch mansion on the outskirts; codex mansion node: rumoured haunted -->
-          <li><b>Dood Mansion</b> is the abandoned Dutch house on the hill at the edge of town. Boarded up for as long as anyone remembers. Everyone says it's haunted.</li>
+          <!-- Sesh 0 / Sesh 6: abandoned Dutch mansion on the outskirts; codex: rumoured haunted, front door boarded for decades -->
+          <li><b>Dood Mansion</b> is the abandoned Dutch house on the hill at the edge of town. Boarded up as long as anyone remembers. Everyone says it&rsquo;s haunted.</li>
           <!-- Sesh 5/7: a real-estate company wants to demolish it for a mega mall -->
-          <li>A real-estate company wants to knock it down and put up a <b>mega mall</b>.</li>
-          <!-- Sesh 3: the gazebo near the school where the bad kids smoke; Poe Boy the ringleader of an entourage -->
-          <li>The <b>gazebo</b> near the school is where the bad kids smoke. <b>DJ Poe Boy</b> runs that crowd, with <b>Lil Stinky</b> and <b>Angelique</b>.</li>
-          <!-- Sesh 6: working date Halloween. 🟡 the year: CANON puts the super seniors in 2004 (checkout card, AIM era);
-               the AIM / no-smartphone line is period texture, not lore. -->
-          <!-- codex mansion node: front door boarded for decades -->
-
-          <li>It's <b>Halloween weekend</b>. Everyone has AIM. Nobody has a smartphone.</li>
+          <li>A real-estate company wants to knock it down for a <b>mega mall</b>.</li>
+          <!-- Sesh 3: the gazebo near the school where the bad kids smoke; Poe Boy runs the entourage -->
+          <li><b>DJ Poe Boy</b> runs the crowd at the gazebo by the school, with <b>Lil Stinky</b> and <b>Angelique</b>.</li>
         </ul>
-        <div class="foot"><span>Transyltown, NY</span><span>Class of '04 &mdash; finally</span></div>
       </div>
     </section>
 
