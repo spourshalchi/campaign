@@ -258,6 +258,20 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 
   **Seam:** `/survey/` calls the house *"a three-storey masonry house with a cellar"*; this map is two floors and
   a cellar. Either add a top floor to the map or change the memo to *two-storey*.
+- **Yobo's two secret cards in `/yobo/`** (`print/1-cardstock.pdf` p.12, two 3.5 × 5 cards) — built 3 Nov,
+  awaiting Scott's review. The arc is canon (Character Bios + Sesh 8: the lie is a debuff, the truth in the party
+  room flips it to a buff; the secret note at the gazebo is Sesh 8). The cards are from Scott's brief (Scott, 3 Nov):
+  - **The Weight of Your Lies** (the debuff), handed to John face-down at the gazebo, at his first Performance
+    check. Rules: *disadvantage on Performance, advantage on Deception, until you tell the truth* (Scott, 3 Nov).
+  - **Your True Voice** (the buff), handed over in the party room after he tells the truth. Rules: *advantage on
+    Performance, for the rest of the campaign* (Scott, 3 Nov), and **🟡 the Bardic Inspiration die one size
+    larger (a d8 becomes a d10)**, which is a proposal for Scott to tune.
+  - 🟡 the titles' wording, both flavour lines, and the art: a tarnished rhinestone butterfly weighed down by a
+    "LIE" on the debuff, the same butterfly whole and spotlit on the buff (a Dolly nod that doesn't name her).
+
+  **Seam:** Sesh 8 makes the debuff *Performance + Bardic Inspiration* ("weakened, a die step down"), but the
+  debuff card from the brief has no Inspiration penalty. Either add *"Your Bardic Inspiration die is one size
+  smaller"* to the debuff card, or settle that the lie costs only Performance.
 
 ### Still open from this session
 1. ~~**The invitation:** is it to the concert or to the haunted house?~~ — **answered 3 Nov:** one event, Poe Boy's

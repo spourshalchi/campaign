@@ -9,7 +9,7 @@ Usage (from the project root):
 Every ticket flag is optional; leave them off and the tickets print the prop's own show details.
 
 Output (in print/):
-    1-cardstock.pdf     everything on cardstock (crate tags last), one upload, one copy
+    1-cardstock.pdf     everything on cardstock (crate tags, then Yobo's two secret cards, last), one upload, one copy
     3-settlement.pdf    optional paper copy of the Articles of Settlement
     4-plain.pdf         plain paper: the site assessment, Orlok's ledger, the house plan
     photo-4x6.jpg       the party-room photograph as a Staples 4x6 photo print (1200x1800, 300dpi)
@@ -152,13 +152,14 @@ def main():
     survey = page("survey/")
     ledger = page("ledger/")
     tags = page("ledger/tags/")
+    yobo = page("yobo/")
     plan = page("map/", "view=player")
 
     # 1 — cardstock: one upload, one copy, color, single-sided
     w = PdfWriter()
     for p in two_up_invites(invite.pages[0], INVITES):
         w.add_page(p)
-    for doc in (deed, badge, tickets, backstory, tags):
+    for doc in (deed, badge, tickets, backstory, tags, yobo):
         for p in doc.pages:
             w.add_page(p)
     w.compress_identical_objects(remove_identicals=True, remove_orphans=True)  # six invites share one set of images
@@ -189,7 +190,8 @@ def main():
     write_manifest()
 
     counts = {"invite sheets": -(-INVITES // 2), "deed": len(deed.pages), "badge": len(badge.pages),
-              "tickets": len(tickets.pages), "backstory": len(backstory.pages), "crate tags": len(tags.pages)}
+              "tickets": len(tickets.pages), "backstory": len(backstory.pages), "crate tags": len(tags.pages),
+              "yobo cards": len(yobo.pages)}
     print("1-cardstock.pdf  ", sum(counts.values()), "pages", counts)
     print("photo-4x6.jpg     ", "%dx%d at %ddpi" % PHOTO)
     print("3-settlement.pdf  ", len(settlement.pages), "page(s)")
