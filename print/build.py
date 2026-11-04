@@ -12,7 +12,7 @@ Output (in print/):
     1-cardstock.pdf     everything on cardstock (Yobo's two secret cards last), one upload, one copy
     3-deed.pdf          the deed, on its own: cream or parchment cardstock
     4-plain.pdf         plain or ivory paper: the site assessment, the Articles of Settlement, Orlok's ledger
-    photo-4x6.jpg       the party-room photograph as a Staples 4x6 photo print (1200x1800, 300dpi)
+    photo-4x6.jpg       the party-room photograph, full bleed, as a Staples 4x6 photo print (1200x1800, 300dpi)
     previews/           a JPEG (or PNG) of every page, shown on print/index.html
 
 Needs Google Chrome (headless, for print-to-PDF and the photo screenshot), pypdf and ImageMagick. Each prop's own
