@@ -6,7 +6,7 @@
   light Orlok can't bring them; Russ blooms them (Sesh 8). Cornelis Dood is Orlok (Scott, 31 Aug). The cellar
   is simply the clinic, and the ledger is a handout that points at the Sun's-mercy (Scott, 3 Nov).
   🟡 NOT CANON YET, logged in CANON.md: every patient past the fox and the owl, the dates, the places, the
-  "bled" entries, and the margin notes.
+  "bled" entries, and the memoranda under the register.
   Printed, not on the iPad. This page is the DM's copy; the brief under the page never prints.
   PRINT: US Letter, portrait, 100%. Built into print/4-plain.pdf.
 -->
@@ -84,17 +84,16 @@
   td.died{color:#5a1f18}
   tr.blank td{height:5.6cqi}
 
-  /* the margin: written in more than once, in more than one ink */
-  .margin{margin-top:auto; padding-top:1.6cqi; display:flex; flex-direction:column; gap:.5cqi;
-    font-family:var(--f-hand); color:var(--ink2); transform:rotate(-1.2deg); transform-origin:left top; width:62%}
-  .margin p{margin:0; font-size:2.15cqi; line-height:1.25}
-  .margin p.old{color:#6d5f4b}
-  .margin p.new{color:#2b1c12}
-  .margin .fig{font-family:var(--f-fig); font-style:italic; font-size:.9em}
+  /* memoranda: his own notes under the register */
+  .memo{margin-top:auto; padding-top:1cqi; border-top:.25cqi solid var(--red)}
+  .memo .lbl{font-family:var(--f-print); font-size:1.3cqi; letter-spacing:.08em; color:#3d2a1c; margin:0 0 .6cqi}
+  .memo p{margin:0; display:flex; gap:1.4cqi; font-family:var(--f-hand); font-size:2.15cqi; line-height:1.28; color:var(--ink);
+    border-bottom:.12cqi solid var(--rule); padding:.35cqi 0 .25cqi}
+  .memo p b{font-weight:400; flex:0 0 7.5%; color:var(--ink2); font-size:.92em}
   .blot{position:absolute; border-radius:50%; background:radial-gradient(circle, rgba(30,15,8,.75) 0 40%, rgba(30,15,8,.25) 62%, transparent 70%)}
 
   /* plain-text reading aid (screen only) */
-  body.legible tbody td, body.legible .margin p, body.legible .head .fol .h{
+  body.legible tbody td, body.legible .memo p, body.legible .head .fol .h{
     font-family:var(--f-plain); font-style:normal; font-size:1.8cqi; line-height:1.28; letter-spacing:0}
 
   /* -------- DM brief (screen only) -------- */
@@ -137,10 +136,14 @@
       <tbody id="rows"></tbody>
     </table>
 
-    <div class="margin">
-      <p class="old" style="opacity:.88">Sun&rsquo;s-mercy, 2<sup>nd</sup> sowing. Damped off.</p>
-      <p class="old">Sun&rsquo;s-mercy, 3<sup>rd</sup> sowing. Damped off.</p>
-      <p class="new">Sun&rsquo;s-mercy, 4<sup>th</sup> sowing. Up. White. Leaning to the grate. Wants light.</p>
+    <div class="memo">
+      <div class="lbl">Memoranda</div>
+      <p><b>Apr. 2.</b><span>Sowed the last of the Sun&rsquo;s-mercy seed. Fourth sowing since the frost. Tray under the grate.</span></p>
+      <p><b>Apr. 6.</b><span>Up. White.</span></p>
+      <p><b>Apr. 8.</b><span>They lean to the grate. Nothing I can do about that.</span></p>
+      <p><b>Apr. 11.</b><span>Dead by the sixth day, as before.</span></p>
+      <p><b>Apr. 18.</b><span>Vixen&rsquo;s leg hot again under the splint. Smells of it.</span></p>
+      <p><b>Apr. 21.</b><span>Worse. A poultice of the flower would draw it and close it. Want a flower, not a seedling.</span></p>
     </div>
   </div>
   <i class="blot" style="left:61%;top:38%;width:1.3%;aspect-ratio:1"></i>
@@ -149,12 +152,12 @@
 
 <section id="dm">
   <h2>DM brief</h2>
-  <p class="canon">🟡 Not canon yet. Every patient past the fox and the owl, the dates, the places, the bleeding and the margin notes are this prop's, logged in <code>CANON.md</code>.</p>
+  <p class="canon">🟡 Not canon yet. Every patient past the fox and the owl, the dates, the places, the bleeding and the memoranda are this prop's, logged in <code>CANON.md</code>.</p>
   <ul>
     <li>Printed page. It's open on the lectern in the cellar, by the stair. Hand it over when someone picks it up.</li>
     <li>The fox and the owl are in the room, still in care: the fox on a blanket in her splint, the owl on a perch with the wing bound.</li>
     <li>&ldquo;Bled&rdquo; in the treatment column is where his blood comes from. Don't explain it. If they ask, it's old medicine.</li>
-    <li>The margin notes point at the tray of white seedlings by the grate. Russ blooms them: Nature or Plant Growth DC 14, or a spell slot. Badge requirement 2. Orlok still won't sign (2 of 3).</li>
+    <li>The memoranda: Sun's-mercy won't grow down here, and a flower would heal the vixen's leg, which is going bad. They point at the tray of dead white seedlings by the grate. Russ blooms them: Nature or Plant Growth DC 14, or a spell slot. Badge requirement 2. Orlok still won't sign (2 of 3).</li>
     <li>Speak with Animals: the patients say he feeds them, mends them and lets them go.</li>
   </ul>
 </section>
@@ -180,7 +183,7 @@
       '<td>' + r.fd + '</td><td>' + r.in + '</td><td>' + r.tr + '</td>' +
       '<td' + (r.died ? ' class="died"' : '') + '>' + (r.died || r.pr) + (r.later ? '<span class="later">' + r.later + '</span>' : '') + '</td>' +
       '<td>' + figs(r.rl) + '</td></tr>';
-  }).join('') + '<tr class="blank"><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>'.repeat(2);
+  }).join('') + '<tr class="blank"><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>'.repeat(1);
 
   var leg = document.getElementById('legible');
   leg.addEventListener('click', function(){

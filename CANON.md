@@ -227,8 +227,10 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
     window, and a cottontail kit that died;
   - the feeding, shown only as **"Bled 1 dr." / "Bled ½ oz."** in the treatment column for the crow, the fox, the
     raccoon and the owl;
-  - the margin, in three inks: *"Sun's-mercy, 2nd sowing. Damped off."*, *"3rd sowing. Damped off."*, *"4th sowing.
-    Up. White. Leaning to the grate. Wants light."*;
+  - the **memoranda** under the register, six dated notes in his hand (Apr. 2–21): the last of the Sun's-mercy seed
+    sown, *"Up. White."*, *"They lean to the grate. Nothing I can do about that."*, *"Dead by the sixth day, as before."*,
+    then the vixen's leg going bad under the splint and *"A poultice of the flower would draw it and close it. Want
+    a flower, not a seedling."* So the patient who needs the Sun's-mercy is the fox;
   - the screen-only DM brief under the page (where it's found, the fox and owl in the room, the Sun's-mercy check
     as on the run sheet).
 - **Map:** cut by Scott, 3 Nov.
@@ -477,7 +479,7 @@ then flips to **a clinic**.~~ **Scott, 3 Nov:** no fake-out — the room is plai
 | ~~**The cellar puzzle is Orlok's patient ledger.** Crate tags are matched to ledger entries; one patient is unaccounted for, and that leads to the hidden infirmary~~ — **redesigned by Scott** (rows below) | Scott, 3 Nov |
 | 🟡 **The cellar is plainly Orlok's animal clinic from the start.** No larder fake-out, no crates, no missing-patient puzzle, no hidden room | Scott, 3 Nov |
 | 🟡 **The cellar has two goals:** the players realise Orlok is a vet, and Russ blooms the Sun's-mercy | Scott, 3 Nov |
-| 🟡 **The printed ledger is a real-feeling register**, and its margin notes point to the dead seedlings by the one grate of daylight | Scott, 3 Nov |
+| 🟡 **The printed ledger is a real-feeling register**, with a short journal under it in his hand: Sun's-mercy is a seed he keeps sowing, it comes up white and dies without sun, the flower draws infection and mends wounds, and a patient in the register needs it now | Scott, 3 Nov |
 | 🟡 **Sesh 6's "puzzle releases a key to a hidden room" is retired** | Scott, 3 Nov |
 | **The wishing willow is made entirely by hand** by Scott — nothing to print | Scott, 3 Nov |
 | **Not needed:** ambient playlists (the Run of Show soundboard covers it), background slides (no second screen), a safety-tools agreement (Scott and Spencer have it covered) | Scott, 3 Nov |
