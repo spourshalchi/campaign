@@ -607,8 +607,8 @@ capstoned by Yobo's turn:
   room is *almost* the photograph. **Bix's photograph is the solution key** — the table holds the printed
   print and finds what in the live room doesn't match it. Each find snaps that detail back; a tap on something
   that was already right ticks the Revel meter, which also creeps while the loop stays broken. 🟡 The six
-  differences in the prop (a wall clock, the empty turntable, Orlok's claws down, Goblinenon's hand off her
-  belly, fangs on Edward, Dracula's arms down) are the prop's invention — swap freely.
+  differences painted into the prop's copy of the photograph (a wall clock, fangs on Edward, Dracula's
+  waistcoat blue, Edward's sash mustard, a fourth bottle, the armchair green) are the prop's invention.
 - **Layer 3 — The song** (the turn): the host calls for entertainment; only Yobo can answer. The room
   rewards a **true** performance, not a high roll — a masked turn makes the ghosts **curdle to menace**
   (the scare). **Dracula pushes him** to drop the act; he tells the truth → the room erupts and embraces

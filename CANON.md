@@ -156,8 +156,10 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
   *"You can stay"* all follow Vinny's handover rather than happening in the ballroom.
 - **Orlok still signs the requirements card**; the troop leader hands over the badge. The notes only give the
   troop leader the hand-over.
-- **The six differences in `/party-room/`** — the clock, the empty turntable, Orlok's claws, Goblinenon's hand,
-  Edward's fangs, Dracula's arms — are the prop's invention.
+- **The six differences in `/party-room/`** (Scott, 3 Nov) — the live room is `/photo/`'s painting with six
+  things changed: **a brass wall clock** on the wall beside Orlok's head, **fangs on Edward**, **Dracula's waistcoat blue**
+  instead of red, **Edward's sash mustard-gold** instead of dark wine, **a fourth bottle** on the left-hand table,
+  and **the armchair green** instead of red. All six are the prop's invention.
 - **The concert tickets in `/tickets/`** — the holder line *LIVINGSWORTH III / UPTON M* (his real name, so
   Simone reads whose tickets these were), the $27.50 + fees price, the ticket and event codes and the small
   print are the prop's choices. So are the venue (**Transyltown Armory**), the date (**Sat Jun 25 2005**, read off
