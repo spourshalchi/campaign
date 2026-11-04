@@ -90,7 +90,7 @@ Everything to print lives in the **print kit at [`print/`](print/)**: two Staple
 | File | Paper | What's in it |
 |---|---|---|
 | `print/1-cardstock.pdf` | Letter cardstock, colour, 1-sided, 1 copy | Invitations ×6, the deed, Russ's card, the badge, the concert tickets, the backstory cards |
-| `print/2-photo-gloss.pdf` | Letter gloss, colour, 1 copy | The photograph — after Will's trait goes in |
+| `print/2-photo-gloss.pdf` | Letter gloss, colour, 1 copy | The photograph (Will's trait is painted in) |
 | `print/3-settlement.pdf` | Optional, plain or ivory | The Articles of Settlement |
 
 Rebuild after any prop change (needs Google Chrome and `pypdf`):
@@ -99,7 +99,7 @@ Rebuild after any prop change (needs Google Chrome and `pypdf`):
 python3 print/build.py
 ```
 
-Not printed: the DJ poster (Spencer, not built), the AIM sticky note (handwritten), the wishing willow (Scott makes it by hand), the USB stick (bought).
+Not printed: the DJ poster (optional, Spencer's; it goes on the AIM-room door), the AIM sticky note (handwritten), the wishing willow (Scott makes it by hand), the USB stick (bought).
 
 ## Adding a new prop
 

@@ -244,14 +244,16 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 
 ### Still open from this session
 1. **The invitation:** is it to the concert or to the haunted house? Spencer's, with the poster.
-2. **When the party gets the poster** — shown at the gazebo, or found in the first room.
+2. ~~**When the party gets the poster**~~ — **answered 3 Nov:** it's optional; if Spencer makes it, it's taped on the
+   locked AIM-room door, not handed out at the gazebo (table above). `Scott, 3 Nov`.
 3. ~~**What Vinny says on the early call.**~~ — **answered 3 Nov:** he thinks it's 1931 and asks about tonight's card game with Cornelis (table above). `Scott, 3 Nov`.
-4. **Will's trait** for Bix's parents.
+4. ~~**Will's trait** for Bix's parents.~~ — **done:** painted into `/photo/` (table above); the painting is in Scott's
+   review queue. `Scott, 3 Nov`.
 5. ~~**Yobo's physical prop.**~~ — **answered: he doesn't get one.** `Scott, 3 Nov`.
 6. ~~**Making it clear the botched summoning is Poe Boy's.**~~ — **answered 3 Nov:** it isn't signposted on Saturday;
    the Spirit names him on Sunday. `Scott, 3 Nov`.
 7. ~~**What unlocks the AIM room**~~ — **answered 3 Nov:** the Spirit does, on the DM's cue (table above).
-   `Scott, 3 Nov`. Still open: what the poster on its door says.
+   `Scott, 3 Nov`. The poster on its door is the optional DJ poster (table above).
 8. **How much backstory is written out vs. revealed in dialogue.** Items to place: the silly bandz, 3am, the
    Dolly Parton riff, Angelique's side-eye.
 9. **What Angelique does at the finale.**
@@ -470,6 +472,8 @@ then flips to **a clinic**.
 | **Simone's warlock has no in-world name** — none is needed. Her backstory card says *name TBD*, and no NPC calls her by name. DM-facing notes still say Simone, meaning the player | Scott, 3 Nov |
 | **Lil Stinky's race is deliberately undefined** — it doesn't matter | Scott, 3 Nov |
 | **The crew is three:** Poe Boy, Lil Stinky and Angelique. The fourth crew member is cut | Scott, 3 Nov |
+| **The DJ poster is optional.** Spencer makes it if he can. If it exists, it is **taped on the locked AIM-room door** (the "poster on the door"); it is not a gazebo handout. Same spec — Poe Boy / Lil Stinky / Angelique, a 3AM set — and it reads **doors open 2:30AM** | Scott, 3 Nov |
+| **Will's trait is done** in the painted `/photo/`: Goblinenon's short dark-green skin, long ears and small brown leather boots, and Edward's notched ear, echo Will's Bix. `/party-room/` uses the same painting. The looks stay 🟡 until Scott reviews the photo | Scott, 3 Nov |
 | **The session break is deliberately undefined.** Saturday ends wherever time runs out; the botched summoning closes Night 1 if the clock allows but isn't required to. Everyone levels to 5 at the end of day one | Scott, 3 Nov |
 | ~~The finale runs in three phases: vampires hostile → developer breaches → vampires turn~~ — **phase 1 cut in the In Person Session.** Two phases: developer breaches → the booth (vampires turn) | the 24 Aug doc paste, replaced by In Person Session |
 | The developer's breach (now the first phase) is the only lethal fight of the finale | the 24 Aug doc paste |
