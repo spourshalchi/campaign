@@ -30,6 +30,8 @@ Scott and Spencer share one laptop, so every cue is split into two colour-coded 
 on a wide enough screen each zone scrolls on its own, and below 700px they stack.
 
 **SCOTT · narrate** (gold, left)
+- **Setting** — read this first: two to four sentences of what they see, hear and smell walking in.
+- **Pacing** — how the scene unfolds, step by numbered step, with its ✋ / 📱 / 🔓 markers, and the line it **ends** on. Anything that isn't sequence sits under **Notes**.
 - **✋ Hand over** — every physical hand-out, on the cue where it goes to the table.
 - **📱 iPad → item N** — which numbered item to open on the players' iPad.
 - **🗂 Floating** — on every mansion cue: the sticky note and the site survey, each with a handed-over checkbox (saved on the device).
@@ -38,7 +40,7 @@ on a wide enough screen each zone scrolls on its own, and below 700px they stack
 - **🪢 If stuck / ↪ Backup path** — a fail-forward on every puzzle, and a second route to each big reveal.
 - **🔓 Reveals** — what someone learns from Scott's narration or a prop.
 - **Reminders** — rules (⚠) and level-ups (⬆) tied to that moment.
-- **The beats**, **skill checks** (`*` = proposed DC) and **sound cues** (highlighted on the board too).
+- **Notes** (the beats, on cues without pacing), **skill checks** (`*` = proposed DC) and **sound cues** (highlighted on the board too).
 
 **SPENCER · voice** (pink, right)
 - **Lines** — the dialogue script: who says what.

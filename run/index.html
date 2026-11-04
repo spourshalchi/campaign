@@ -254,6 +254,21 @@
   .read .who{display:inline-block;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--amber-dim);
     margin-right:8px;text-transform:uppercase}
 
+  /* setting: the first thing Scott reads on a cue */
+  .read.set{border-color:#5a4520}
+  .read.set .rl{color:var(--gold)}
+
+  /* pacing: how the scene unfolds, and when it's over */
+  ol.pace{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;counter-reset:pace}
+  ol.pace li{counter-increment:pace;position:relative;padding:8px 12px 8px 46px;font-size:15px;line-height:1.5;color:var(--ink);
+    background:var(--panel);border:1px solid var(--edge);border-radius:10px;max-width:78ch}
+  ol.pace li::before{content:counter(pace);position:absolute;left:10px;top:8px;width:26px;height:26px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:13px;font-weight:700;
+    color:#1a1306;background:var(--gold)}
+  ol.pace li.end{counter-increment:none;background:transparent;border-style:dashed;color:var(--mut)}
+  ol.pace li.end::before{content:"■";background:transparent;color:var(--gold);font-size:14px}
+  ol.pace li b{color:#fff}
+
   .block{margin-bottom:18px}
   .block > .h{font-size:13px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:var(--mut);
     margin:0 0 10px;display:flex;align-items:center;gap:8px}
@@ -526,11 +541,16 @@ const SCENES = [
   cues:[] },
 
 { act:"town", no:1, title:"History class", where:"Fantasy high school · the bookend opens",
+  setting:"Fourth period, history. The radiators clank, the room smells of dry-erase marker, and most of the desks are empty &mdash; the rest of the senior class is out on skip day. Nobody told the five of you.",
+  pace:[
+    "The teacher looks at who's left and groups the five of them for a <b>local-history / folklore project</b>.",
+    "Let them clock why they're the only ones here: <b>senior skip day, and nobody told them.</b>",
+    "On the way out the teacher sets the rule: <b>a primary source, not the internet.</b> That puts the hall of records on the board."
+  ],
+  ends:"on the bell (read-aloud): four minutes to their lockers. Cut straight to cue 2.",
   read:[{who:"Bell", t:"That's the bell. You've got about four minutes to hit your locker and get to next period."}],
   beats:[
-    "The teacher groups the super-seniors for a <b>local-history / folklore project</b> &mdash; the motivation to investigate, and the bookend they return to at the end.",
-    "Why these five are together: <b>senior skip day, and nobody told them.</b> Breakfast Club. Being singled out as a group has already happened to them once.",
-    "Land the constraint on the way out &mdash; <b>a primary source, not the internet</b> &mdash; so the Hall of Records is on the board before any card shows up."
+    "Why these five are together: <b>senior skip day, and nobody told them.</b> Breakfast Club. Being singled out as a group has already happened to them once."
   ],
   npcs:[
     {nm:"History Teacher", vc:"Assigns the project. <b>Not</b> the teacher who believes in Gnomey &mdash; those are two different people."}
@@ -539,14 +559,19 @@ const SCENES = [
   cues:[] },
 
 { act:"town", no:2, title:"Letters in the lockers", where:"Smash cut",
+  setting:"The hallway between periods: slamming metal, sneakers squeaking on linoleum, somebody's Discman leaking through the headphones. Wedged in the vent of each of your lockers is the same small card.",
+  pace:[
+    "&#9995; <b>Each of them finds the card</b> (invites). Read it to them: <i>&ldquo;You're on the list &middot; VIP early entry &middot; Dood Mansion &middot; 7PM sharp.&rdquo;</i> &#128275; there's a party, and they're VIPs.",
+    "They compare notes: &#128275; <b>nobody else in school got one.</b>",
+    "<b>Gnomey reads &ldquo;Dood&rdquo; and his flip phone rings</b> &mdash; Great Uncle Vinny (Spencer). &#128275; Let it sit there unexplained.",
+    "They pick where to dig: the <b>hall of records</b> (cue 3) or the <b>gazebo</b> (cue 4), in either order. If they don't bite, hand a detour to a PC."
+  ],
+  ends:"on the read-aloud: barely noon, the card says seven, and nobody's heard of Dood.",
   read:[{t:"It's barely noon. The card says <b>seven</b>. And not one of you has ever heard the name <b>Dood</b> before."}],
   beats:[
     "These are the five who <b>missed the senior-skip-day memo</b>, and they feel lame about it. <span class='ai'>🟡</span>",
-    "Everyone finds the same <b>anonymous</b> card in their locker: <b>&ldquo;You're on the list &middot; VIP early entry &middot; Dood Mansion &middot; 7PM sharp.&rdquo;</b> No host named &mdash; at most a hint the party starts at three. Their question is <b>a list for what, and who put us on it?</b> A VIP list salvages the day. <span class='ai'>🟡</span>",
-    "<b>Nobody else got a card.</b> Finding that out is the strongest push toward town there is.",
     "If they march up the hill early: the front is <b>still boarded at this hour</b> and bounces them back &mdash; which is the point. The boards come off during the day.",
-    "<b>If they don't bite, hand a detour to a PC:</b> tell <b>Bix</b> the Records Keeper knows old names; tell <b>Gnomey</b> the old crew at the gazebo will already know.",
-    "<b>Gnomey's flip phone rings &mdash; the second he reads &ldquo;Dood&rdquo; on his card.</b> It's <b>Great Uncle Vinny</b> (Spencer). Let it sit there unexplained. It's how the table meets Vinny early, so he isn't a stranger when he walks in at the end."
+    "<b>If they don't bite, hand a detour to a PC:</b> tell <b>Bix</b> the Records Keeper knows old names; tell <b>Gnomey</b> the old crew at the gazebo will already know."
   ],
   talk:[
     {who:"Great Uncle Vinny · on Gnomey's flip phone", t:"Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch."}
@@ -563,6 +588,15 @@ const SCENES = [
   cues:[] },
 
 { act:"town", no:3, title:"The library &amp; hall of records", where:"Town · the clincher · Saturday's town fight", ipad:[1],
+  setting:"The hall of records is cold and very quiet: long tables, green-shaded lamps, the smell of old paper and floor polish. The Records Keeper looks up from her desk as you come in.",
+  pace:[
+    "They ask about Dood. The Records Keeper fetches the bound 1937 volume and hands it over <b>intact</b>.",
+    "<b>Opening it springs the trap</b>: the reading room's stationery comes alive and goes for the article. &#9876; Fight &mdash; <b>count the cuts</b>.",
+    "&#128241; <b>Item 1</b> after the fight: set the pieces from the cut count and hand over the torn page.",
+    "They work the folklore: &#128275; the slaying method (dig up the coffins, stake the heart, rebury). In the back pocket, &#128275; the checkout card.",
+    "The Records Keeper's nudge: the source is gone, so go look at the house yourselves &mdash; <i>&ldquo;But be careful.&rdquo;</i> &#128275;"
+  ],
+  ends:"when the lore's in the bag and her &ldquo;be careful&rdquo; has landed. Next: the gazebo, or the hill if they've been already.",
   stuck:"If the jigsaw stalls past ten minutes, the Records Keeper <b>remembers the page-2 lore</b> and tells it. The folklore is what matters, not the finished picture.",
   talk:[{who:"Records Keeper · after the fight", t:"You can try to put it back together. But that was your primary source, and it's gone. If you want one now, you'll have to go look at the house yourselves. &hellip;But be careful. <span class='ai'>🟡</span>"}],
   rev:[
@@ -573,10 +607,6 @@ const SCENES = [
     {by:"Records Keeper", who:"Players", t:"hear the primary source is gone &mdash; if they want one now, it's the house itself. She sends them up the hill with a &ldquo;be careful.&rdquo;"}
   ],
   beats:[
-    "The clincher lives here: <b>Frisian folklore</b>, the <b>vampire-slaying method</b> (dig up the coffins, stake the heart, rebury), and the <b>Records Keeper's push</b> after the fight: the source is gone, so go look at the house yourselves &mdash; but be careful. <span class='ai'>🟡</span>",
-    "The bound volume is <b>intact</b> when she hands it over. Opening it springs Ostrander's trap and the stationery comes to life and goes for the article.",
-    "By the time it's dealt with the page is in pieces &mdash; <b>that's where the torn-page prop comes from.</b>",
-    "In the back pocket of the volume: a checkout card, four names &mdash; <b>U.M. Livingsworth III</b> (Poe Boy's real name), <b>V. Soprano 1938</b>, <b>W. Ostrander</b>.",
     "<b>Springing the trap also summons Ostrander</b> &mdash; it tells him someone's been in his records, and he drives out to the house that night. The party never learns this."
   ],
   checks:[
@@ -612,12 +642,17 @@ const SCENES = [
   cues:["riser","jump","dice"] },
 
 { act:"town", no:4, title:"The gazebo", where:"Town · the bad kids",
+  setting:"The gazebo by the school, where the bad kids smoke. A haze of cigarette smoke, a boombox on the rail, and DJ Poe Boy holding court with his crew &mdash; Angelique among them, not quite looking at you.",
+  pace:[
+    "Meet <b>Poe Boy</b> and the crew. <b>Angelique tries to warn them and can't</b>: a side-eye, a swallowed half-sentence. &#128275;",
+    "Asked about the house, Poe Boy says he's been up there <b>once</b>, with a shrug, and is cool about the cards. &#128275; Insight 14.",
+    "<b>Yobo's arc opens</b>: the crew clocks him &mdash; &ldquo;do a little riff.&rdquo; Secret Performance, at disadvantage."
+  ],
+  ends:"on the clock (read-aloud): ten to seven, the time on the card.",
   read:[{t:"Whoever's wearing a watch &mdash; it's <b>ten to seven</b>. That's the time on the card."}],
   beats:[
-    "Meet <b>DJ Poe Boy</b> and his entourage. <b>Angelique tries to warn them and can't</b> &mdash; the crew is standing right there. Play it as a <b>side-eye</b>, a swallowed half-sentence.",
     "Poe Boy plays the house down: he's been up there <b>once</b>, with a shrug, and he's cool about the cards. <b>The &ldquo;once&rdquo; is a lie, and the lie is the clue</b> &mdash; it pays off when they find his stage and decks in the ballroom, and at 3AM when his voice comes over the speakers. <span class='ai'>🟡</span> Behind it, the whole night is his Halloween party; the samples are what he wants.",
-    "<b>The tell is what he leaves out:</b> he never mentions the <b>other</b> room upstairs he keeps gear in &mdash; the one he hasn't been back into. Nobody notices now; they notice later.",
-    "<b>Yobo's arc opens:</b> the crew clocks him and asks for a riff."
+    "<b>The tell is what he leaves out:</b> he never mentions the <b>other</b> room upstairs he keeps gear in &mdash; the one he hasn't been back into. Nobody notices now; they notice later."
   ],
   talk:[
     {who:"DJ Poe Boy · asked about the house, with a shrug", t:"Been up there once. <span class='ai'>🟡</span>"},
@@ -642,13 +677,19 @@ const SCENES = [
   cues:["crowd"] },
 
 { act:"night", no:5, title:"Enter Dood Mansion", where:"The trap springs · everything from here is inside",
+  setting:"The top of the hill: an empty road, no cars, no light in any window. The boards are off the front door, pried away and stacked neat against the porch rail &mdash; the only thing about this house that's changed in decades. Inside, the hall breathes out cold, dusty air.",
+  pace:[
+    "They walk in on curiosity and a VIP pass, and <b>the doors bolt behind them</b>. &#128275; locked in.",
+    "Footsteps overhead &mdash; <b>Angelique grabs a sleeve and pulls them down into hiding</b> (read-aloud). &#128275; She won't say from what.",
+    "<b>If they try the door</b>: it doesn't move, there's no bolt on their side, and Angelique answers them (Spencer).",
+    "&#9995; <b>The house plan</b>, rolled in the hall-table drawer, the first time they can look around &mdash; that may be after first contact."
+  ],
+  ends:"hidden in the dark with Angelique &mdash; straight into first contact.",
   hand:["<b>The house plan</b> (<code>/map/?view=player</code>), rolled in the hall-table drawer &mdash; the first time they're inside and can look around. Your DM map is <code>/map/</code>."],
   read:[{t:"That's a bolt throwing behind you. Footsteps overhead &mdash; and a hand comes out of the dark, grabs your sleeve, and pulls you down. It's <b>Angelique</b>."}],
   beats:[
-    "They go in on pure curiosity, <b>through a front door boarded for decades that isn't any more</b> &mdash; and the doors bolt shut behind them.",
     "Angelique reaches them first and tells them to hide. <b>Don't let her explain yet</b> &mdash; &ldquo;hiding from what&rdquo; is the investigation's first question. Make them earn it.",
-    "7PM card vs the 3AM flyer = <b>eight hours of house</b> between them.",
-    "<b>If they try to walk out:</b> the door doesn't move (<i>no bolt on your side to throw</i>); Angelique answers them (Spencer)."
+    "7PM card vs the 3AM flyer = <b>eight hours of house</b> between them."
   ],
   talk:[
     {who:"Angelique · if they try the door", t:"Go on then. You'll just have to walk back past whatever I walked past."}
@@ -666,6 +707,16 @@ const SCENES = [
   cues:["jump","drone"] },
 
 { act:"night", no:6, title:"First vampire encounter", where:"No fight &mdash; a performance · scripted end to end",
+  setting:"Pressed into the dark with Angelique, you hear them before you see them: three voices coming down the hall, in no hurry at all. One theatrical, one younger, and one very quiet.",
+  pace:[
+    "<b>Hide</b>: Stealth DC 13.",
+    "<b>The overheard argument</b> (Spencer), every line true and damning. &#128275; &ldquo;the boy&rdquo; told them five; &#128275; there are &ldquo;meals.&rdquo;",
+    "They may take the vampires for <b>costumed party entertainment</b> &mdash; &ldquo;is this part of the party?&rdquo; The vampires play along.",
+    "<b>Explore under recurring Stealth</b> until someone rolls badly. Somewhere in there Bix catches <b>Edward glimmering</b> in the moonlight &#128275; (Bix beat 1 of 3).",
+    "<b>Dracula swoops</b>, grapples and shoves &mdash; <b>no damage</b>. &#9876; pressure scene.",
+    "<b>Orlok ends it with one word</b>, then the dismissal. &#128275; They hear a hunt."
+  ],
+  ends:"on Orlok's &ldquo;We'll find you when we're ready&rdquo; &mdash; and the party scattering to look for a way out.",
   read:[{t:"From your hiding place, you can hear them talking."}],
   talk:[
     {who:"Dracula", t:"Five. He said five, and there are five. The boy's finally learning to count."},
@@ -688,10 +739,7 @@ const SCENES = [
   ],
   beats:[
     "The vamps are <b>hosts doing a job they agreed to</b> &mdash; they think this is the big scare that saves their house, and they have no idea anyone ever died here.",
-    "<b>They may take the vampires for costumed party entertainment</b> &mdash; &ldquo;is this part of the party?&rdquo; The vampires <b>play along</b>. That's the joke and the dread at once: the answer is yes, and it doesn't help. <span class='ai'>🟡</span>",
     "<b>DM note:</b> the house points everything at the vampires. <b>&ldquo;He said five&rdquo;</b> is the line that pays off as <b>Poe Boy</b> later, at the recording. <span class='ai'>🟡</span>",
-    "<b>Bix beat 1 of 3:</b> they catch Edward <b>glimmering</b> in the moonlight. The Twilight joke, and the first frame of a reveal. Let it be the silly one.",
-    "Sequence: <b>1</b> Hide (Stealth) &rarr; <b>2</b> the overheard argument (Spencer), every line true and damning &rarr; <b>3</b> explore under recurring stealth &rarr; <b>4</b> Dracula swoops, grapples &amp; shoves, <b>no damage</b> &rarr; <b>5</b> Orlok ends it with <b>one word</b> &rarr; <b>6</b> he dismisses them.",
     "Every word of the dismissal is both a threat and an accurate description of a haunted-house attraction. The party hears one thing and tears the house apart looking for an exit &mdash; exactly where you want them.",
     "Do <b>not</b> let Orlok discover the locked doors or explain anything &mdash; he decided the doors and owns the building."
   ],
@@ -720,10 +768,15 @@ const SCENES = [
   cues:["drone","heart","jump","braaam"] },
 
 { act:"night", no:7, title:"Russ and the spectacles", where:"Saturday night · Cody · badge req 1 of 3",
+  setting:"Off the main hall, a boarded window lets one sunbeam through. It lies across the sill and a pair of wire spectacles &mdash; and at its very edge, perfectly still, stands Orlok.",
+  pace:[
+    "Right after the dismissal, Russ finds Orlok frozen at the edge of the light. Optional Insight / Perception to clock why. &#128275;",
+    "Russ walks into the light and hands the spectacles over &mdash; <b>no roll, that's the point.</b>",
+    "Russ points at &ldquo;verified by your elder&rdquo;: Orlok <b>flatly refuses to sign</b>. Refusal 1 of 3. &#128275;"
+  ],
+  ends:"on the read-aloud: no thanks, and the house dark in every direction. Turn them loose to explore.",
   read:[{t:"Spectacles handed over, not a word of thanks. Behind him the house goes dark in every direction."}],
   beats:[
-    "<b>Badge req 1: &ldquo;lend a hand with something out of reach.&rdquo;</b> Orlok stands frozen at the edge of a sunbeam that's crept onto his <b>spectacles</b> on the sill. A vampire can't cross the light &mdash; he's been waiting hours.",
-    "Russ walks into the light and hands them over &mdash; <b>no roll, that's the point.</b> A two-second favour for a warm kid, impossible for Orlok.",
     "Orlok takes them without thanks. When Russ points at the &ldquo;verified by your elder&rdquo; line he <b>flatly refuses to sign</b> &mdash; refusal 1 of 3. Keep him cold; the only crack is that the kid didn't flinch and wanted nothing."
   ],
   checks:[
@@ -743,11 +796,16 @@ const SCENES = [
   cues:[] },
 
 { act:"night", no:8, title:"Edward spies on them", where:"Saturday night · Bix · beat 2 of 3",
+  setting:"The upper floors in the dark: long corridors, doors that won't open, floorboards that answer every step. Every so often, at the end of a hall or in a doorway you've just passed, the same pale figure is standing very still.",
+  pace:[
+    "Let them explore. They <b>catch Edward watching them</b> &mdash; watching <b>Bix</b>. &#128275;",
+    "They catch him at it <b>a second time</b>. Play it as horror: <i>the vampire has picked one of us.</i>",
+    "He never approaches and never explains. Route them upstairs to the <b>warm door</b> (read-aloud)."
+  ],
+  ends:"at the warm, breathing door &mdash; straight into the summoning.",
   read:[{t:"A door on the top floor you haven't tried is warm to the touch &mdash; and something on the other side of it is breathing."}],
   beats:[
-    "<b>Bix beat 2 of 3:</b> they catch Edward spying, specifically watching <b>Bix</b>. Play it as a horror beat first &mdash; the read should be <i>the vampire has picked one of us</i>.",
-    "Let them be wrong about it for as long as possible. <b>Edward does not explain himself tonight</b> &mdash; that's the driveway at sunrise, and holding it is what makes it land.",
-    "Route them to the sealed room upstairs. The fight is the button on Saturday night."
+    "Let them be wrong about it for as long as possible. <b>Edward does not explain himself tonight</b> &mdash; that's the driveway at sunrise, and holding it is what makes it land."
   ],
   rev:[
     {by:"Edward", who:"Players", t:"learn Edward is watching <b>Bix</b> specifically. They should read it as <i>the vampire has picked one of us</i>. He explains nothing."}
@@ -759,12 +817,18 @@ const SCENES = [
   cues:["drone","heart","riser"] },
 
 { act:"night", no:9, title:"The botched summoning", where:"Saturday, late · combat · the Night 1 closer",
+  setting:"The door gives, and the air in the sealed room is hot and close. Chalk lines across the floorboards, candle stubs burned down to nothing &mdash; and in the middle of it, something half-made drags itself upright.",
+  pace:[
+    "They open the warm door: <b>the summoning</b>, visibly incomplete. &#9876; Fight.",
+    "Every round, narrate it <b>clawing toward one sealed door down the hall</b>. That pull is the clue.",
+    "Arcana 14: &#128275; <b>human-made, incomplete</b>. Who drew it stays open.",
+    "On the kill: the monitor, the chime, <b>&ldquo;is someone there&rdquo;</b> (read-aloud). &#128275;"
+  ],
+  ends:"the instant the screen dies. Do not let them reach the room tonight. Everyone levels to 5.",
   read:[{who:"On the kill", t:"A monitor deep in the house flickers on by itself. The old AIM chime carries down the hall. One line types itself across a screen nobody is sitting at &mdash; <b>&ldquo;is someone there&rdquo;</b> &mdash; then it goes dark."}],
   beats:[
     "Saturday's one mansion fight and the button on Night 1. <b>Poe Boy's second botched ritual</b> &mdash; visibly <b>incomplete</b>, wrong in a way that reads as <i>made</i> rather than born.",
-    "<b>It claws toward one sealed door the whole fight.</b> That pull is the clue: it proves the house will hurt them, and it plants hard that the dangerous things here are <b>human-made</b>.",
-    "In the wreckage: a half-drawn ritual circle. <b>Leave who drew it open tonight</b> &mdash; the Spirit naming Poe Boy on Sunday is the payoff.",
-    "<b>End the night the instant the screen dies.</b> Do not let them reach the room tonight. Two questions to drag them back: who's typing, and who's the person behind all this."
+    "In the wreckage: a half-drawn ritual circle. <b>Leave who drew it open tonight</b> &mdash; the Spirit naming Poe Boy on Sunday is the payoff."
   ],
   rev:[
     {by:"scott", who:"Players", t:"can learn (Arcana 14) the thing was a <b>human-made, incomplete</b> summoning. Who made it stays open tonight."},
@@ -796,16 +860,22 @@ const SCENES = [
   cues:["heart","jump","aim","levelup"] },
 
 { act:"sunday", no:10, title:"The study", where:"Sunday morning · Gnomey · any-order room", ipad:[2],
+  setting:"A door sealed since the thirties. Behind it, a card table with the last hand still dealt: cards face-down under a skin of dust, an ashtray, a chair pushed back as if someone just stood up. In the corner, a strongbox.",
+  pace:[
+    "Get the door open &mdash; <b>deliberately undefined</b>; when you design it, make it a whole-party problem.",
+    "The strongbox: &#128241; <b>item 2</b>, the Articles of Settlement. Get <b>Gnomey alone</b> with it.",
+    "Investigation 12: &#128275; <b>V. Soprano won the house</b>, the bearer clause, and <b>the empty slot</b> where the deed should be.",
+    "Julia decides who Gnomey tells. &#128275;"
+  ],
+  ends:"on the read-aloud: he's read it three times, and the deed isn't here.",
   stuck:"Point at the <b>empty slot in the strongbox</b> and read the bearer paragraph aloud.",
   backup:"<b>Gnomey owns the house</b> &mdash; if he misses the bearer clause here, Vinny says it as he hands over the deed: <i>&ldquo;Whoever's holding this owns the place. Now that's you.&rdquo;</i>",
   read:[{t:"He's read it three times. The man who won this house is his great-uncle &mdash; and whoever holds the deed owns it. The deed isn't here."}],
   beats:[
     "Sunday opens on <b>three per-PC rooms in any order.</b> This one is Gnomey's.",
-    "The study, sealed since the thirties: the card table with the last hand still on it, and a strongbox holding the signed <b>Articles of Settlement</b> with the bearer clause spelled out &mdash; and <b>an empty slot where the deed should be</b>.",
     "<b>Gnomey doesn't have the deed.</b> What he learns here is that his great-uncle won the house, and that title rests with whoever holds the deed missing from this strongbox. Where it is stays a question until Vinny walks in at the end.",
     "<b>Run it before anything exonerates the vampires</b>, so Gnomey learns his family has a claim on a house full of things he still believes are killers &mdash; and has all of Sunday to sit on it.",
-    "<b>Make sure Gnomey is alone.</b> The payoff isn't the discovery &mdash; it's the ending, when Vinny hands him the deed and he says it out loud. Give Julia the secret; let her choose who to tell.",
-    "The door is <b>deliberately undefined.</b> When you design it, it must be a <b>whole-party</b> problem."
+    "<b>Make sure Gnomey is alone.</b> The payoff isn't the discovery &mdash; it's the ending, when Vinny hands him the deed and he says it out loud. Give Julia the secret; let her choose who to tell."
   ],
   checks:[
     {skill:"Investigation", dc:"12", sug:true, note:"Read the signatures and the bearer clause: <b>V. Soprano</b> won the house, and title goes with the deed. If nobody gets there: <b>point at the empty slot in the strongbox</b> and read the bearer paragraph aloud."}
@@ -852,15 +922,21 @@ const SCENES = [
   cues:["record","crowd","candle","braaam"] },
 
 { act:"sunday", no:12, title:"The patient ledger &amp; the infirmary", where:"The cellar · Cody · badge req 2 of 3 · any-order room",
+  setting:"Stone steps down into the cellar: cold, damp, and the smell of straw and animals. Crates stacked in rows, each with a paper tag, Vinny's forty-year-old liquor crates at the very back &mdash; and one blade of daylight falling from somewhere high up.",
+  pace:[
+    "The crates hold <b>small animals, not people</b>. &#9995; A crate tag each time someone checks one.",
+    "&#9995; <b>Orlok's ledger</b> when they find it. The table matches tags to entries.",
+    "<b>One patient has no crate.</b> Following it leads to the hidden room.",
+    "The infirmary: <b>Orlok is a vet</b> (read-aloud). &#128275;",
+    "<b>Badge req 2</b>: Russ kneels to a patient, Speak with Animals &#128275;; blooms the Sun's-mercy in the blade of daylight; Orlok still won't sign (2 of 3)."
+  ],
+  ends:"when the patients settle &mdash; and there's one door in this house they still haven't been through.",
   hand:["<b>Orlok's ledger + crate tags (printed)</b>: the ledger folio (<code>/ledger/</code>) when they find it, and a crate tag (<code>/ledger/tags/</code>) each time someone checks a crate &mdash; they match the tags against the ledger."],
   stuck:"<b>Russ's Speak with Animals is the shortcut</b>: the patients tell him the doe isn't in any crate, and which way she went. Full fail-forward in the ledger's DM notes (<code>/ledger/?dm=1</code>).",
   backup:"<b>The vampires are good</b> &mdash; if the cellar goes sideways, the finale clears them anyway: they hear the recording with everyone else and are as horrified as the crowd.",
   read:[{t:"Straw-lined crates, a fox in a splint, an owl with a wrapped wing. It isn't a slaughterhouse. It's a clinic."}],
   beats:[
-    "<b>The food stash is crates of small animals, not people.</b> Each crate has a tag. Hand over the tags; the table matches each one to an entry in <b>Orlok's patient ledger</b> (the printed folio).",
-    "<b>One patient on the ledger has no crate.</b> Following that patient leads to the hidden room. <b>This is the proof that clears the vamps.</b>",
     "The hidden room is an <b>animal infirmary, and Orlok is a vet.</b> Straw-lined crates of healing patients &mdash; a fox in a splint, an owl with a wrapped wing &mdash; bandages, a mortar and pestle, a ledger. He mends them; they give a little blood in return.",
-    "(Vinny's forty-year-old liquor crates are still stacked at the back &mdash; this is Gnomey's cellar too.)",
     "<b>Badge req 2: &ldquo;tend your elder's garden.&rdquo;</b> Russ kneels to a patient and <b>Speak with Animals is where the exoneration lands</b> &mdash; they're grateful, not afraid, and no vampire is required to vouch.",
     "Dead ghost-white <b>Sun's-mercy</b> seedlings strain toward light that isn't there. Russ moves them into the cellar's one blade of daylight; they open gold and he dresses a wound. Orlok watches a child do in an afternoon what beat him for a century &mdash; and <b>still won't sign</b> (refusal 2 of 3)."
   ],
@@ -884,6 +960,16 @@ const SCENES = [
   cues:["heart","candle"] },
 
 { act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room", ipad:[4],
+  setting:"The last door, at the end of the upstairs hall. Inside: coats heaped by the desk, a mic on a stand, cables everywhere, and an old beige computer that is somehow still on, an AIM sign-on box glowing on the screen. The air is stale; nobody has been in here in years.",
+  pace:[
+    "When the table is ready: &#127925; the <b>AIM chime</b> down the hall, then the lock clicks open by itself (read-aloud).",
+    "<b>Log in</b>: <code>DJPoeBoy187</code>, password from the sticky note (&#9995; now, if they don't have it). &#128241; <b>item 4</b>.",
+    "They type as the killer, and he comes apart &mdash; until <i>&ldquo;youre not typing like him.&rdquo;</i> &#128275;",
+    "His story: lured, chased, soul-caged when <b>Poe Boy</b> shut the door. &#128275; He names him, short of murder.",
+    "The bag: &#9995; <b>the willow</b> to Simone &#128275;, then &#9995; <b>the USB</b> &mdash; it mounts as <code>MARCUS_HALE</code> &#128275; and he sends the recording.",
+    "Second ask: <i>can you get me out of here.</i> The goat joins the chat; the price is the piggy bank. &#128275; Play the price at the table."
+  ],
+  ends:"on 3AM: every speaker in the house comes on at once.",
   stuck:"Password: the sticky note. If they never found it, it's tucked in the monitor bezel. Any capitalisation works, unlimited tries.",
   backup:"<b>Poe Boy killed Marcus</b> &mdash; if the chat stalls or Simone logs off early, the recording at the decks proves it to everyone. The USB can't be destroyed, so it always plays.",
   read:[
@@ -892,13 +978,7 @@ const SCENES = [
   ],
   beats:[
     "<b>The door stays locked until the end</b>, with a <b>poster</b> on it. Try it early and it doesn't open; this is the last room every time.",
-    "<b>It opens by itself.</b> Once the party has done the other rooms and the table is ready, fire the <b>AIM chime</b> and read the bridge: the chime drifts down the hall and the lock clicks. <b>That's the Spirit, finally reaching them.</b> No key, no check &mdash; you choose the moment.",
-    "<b>0 &mdash; log in first.</b> Sign-on screen, account saved as <code>DJPoeBoy187</code>, empty password. The password is on the sticky note, <code>Fluffy123</code> (his cat) &mdash; <b>if they don't have it yet, hand it over now.</b> Any capitalisation works; wrong answers get the real AIM error, unlimited tries.",
-    "<b>They type as the killer the whole conversation.</b> The boy sees that handle come online and comes apart before he works out it isn't him. <i>&ldquo;youre not typing like him&rdquo;</i> is what saves it.",
-    "He was lured by a fake screen name, chased, and <b>soul-caged when Poe Boy shut the door</b>. He was <b>killed by a human</b> &mdash; the thread that clears the vampires. He can name his killer but stops short of the murder accusation (that lands later).",
-    "<b>The bag has two things, order matters. 1 &mdash; the wishing willow:</b> Simone sold it to him at twelve; <i>I want Angelique to notice me</i>; it worked &mdash; that's why Angelique knew him.",
-    "<b>2 &mdash; the thumb drive:</b> plug it in and it <b>mounts under his name</b> &mdash; how the table learns who he is: <code>MARCUS_HALE</code>. He uploads <code>scream_test_03_GOOD.wav</code> over AIM's file-transfer window. First ask: <b>expose him. Hand the players a real USB stick.</b>",
-    "<b>Second ask &mdash; <i>can you get me out of here.</i></b> The goat appears (he sees it, Simone can't); the price is the piggy bank. <b>The goat joins the chat</b> &mdash; theme flips dark, sounds distort &mdash; then parks on the hold node so you play the price at the table."
+    "He was lured by a fake screen name, chased, and <b>soul-caged when Poe Boy shut the door</b>. He was <b>killed by a human</b> &mdash; the thread that clears the vampires. He can name his killer but stops short of the murder accusation (that lands later)."
   ],
   checks:[
     {skill:"Roleplay, not a roll", dc:"&mdash;", sug:false, note:"<i>&ldquo;youre not typing like him&rdquo;</i> is character, not a check. When the drive mounts, Simone &amp; Angelique realize it's the same boy."}
@@ -933,6 +1013,14 @@ const SCENES = [
   cues:["aim","drone","heart","braaam","bell","pa"] },
 
 { act:"finale", no:"14 · i", title:"Climax — Phase 1: the developer breaches", where:"The ballroom · 3AM · the crowd arrives with the show · the only lethal fight",
+  setting:"3AM, and the house is suddenly full of people. The ballroom is rigged as a stage: decks on the dais, cables run off into the walls, lights swinging over a crowd still pouring in. And Poe Boy's voice is in every speaker at once.",
+  pace:[
+    "The crowd arrives with the show. Poe Boy on the mic <b>names all five</b> &#128275; and tells the vampires they're the developer's people &#128275;. The vamps turn on the party, briefly.",
+    "<b>Ostrander breaches</b> and seals the exits behind him, his own crew included. &#128275; &#9876; The only lethal fight.",
+    "His arrival <b>breaks the lie on sight</b>: the vampires go for his thugs. &#128275;",
+    "The party kills him."
+  ],
+  ends:"when he goes down. Stop, and let the room be quiet.",
   read:[
     {who:"After he goes down", t:"Stop. Let the room be quiet for a moment."}
   ],
@@ -946,12 +1034,8 @@ const SCENES = [
     {by:"scott", who:"Players", t:"meet the man behind the checkout card: <b>W. Ostrander</b>, the developer."}
   ],
   beats:[
-    "Venue: the <b>ballroom / great hall</b>, rigged as a stage. Poe Boy's decks are here; the speakers run through the house are what came on at 3AM.",
     "<b>The crowd arrives with the show.</b> The five have been alone eight hours; at three the house fills up for Poe Boy's party, and every beat from here has an audience. <b>Angelique is here too</b> &mdash; what she does is still open.",
     "<b>Where the vampires' heads are:</b> the 3AM crowd is the <b>bait for their scare</b>, not a rival event &mdash; the audience they've waited all night for. The developer's breach cuts in before they scare anyone. <span class='ai'>🟡</span>",
-    "Poe Boy names the five on the mic and tells the vamps they're the developer's people &mdash; <b>manipulation, not mind control</b>. It never gets to become a fight.",
-    "Ostrander breaches and <b>seals the exits behind him &mdash; his own crew included.</b> Three sides, nobody sharing a goal. <b>The only lethal fight of the finale.</b>",
-    "His arrival <b>breaks Poe Boy's lie on sight</b> &mdash; five teenagers are visibly not this man. The vampires stop, then start tearing into his men. That's the cue the room has changed.",
     "Then the party kills him &mdash; converting &ldquo;not our enemy&rdquo; into &ldquo;the people who solved our actual problem, in front of us.&rdquo; <b>Two moments, not one.</b>",
     "He's the <b>only death in the story</b> and the only one who isn't a monster. Self-defence &mdash; he sealed them in and attacked first &mdash; but these are teenagers. <b>Let it have its silence before the comedy starts.</b>"
   ],
@@ -985,6 +1069,16 @@ const SCENES = [
   cues:["crowd","jump","braaam","pa"] },
 
 { act:"finale", no:"14 · ii", title:"Climax — Phase 2: the booth", where:"The ballroom decks · badge req 3 of 3",
+  setting:"The developer is down and the exits are still sealed. The crowd is pressed to the walls, the vampires are on your side now, and up on the decks Poe Boy and Lil Stinky aren't letting anyone near the aux.",
+  pace:[
+    "<b>The vampires turn</b> &mdash; no persuasion check. &#9876; Party plus three vampires against Poe Boy and Stinky.",
+    "<b>Get the USB to the decks.</b> Command (&ldquo;Drop.&rdquo;) only costs time; Stinky's aura is the puzzle.",
+    "<b>Badge req 3</b>, any round: Russ heals a vampire under fire.",
+    "The USB hits the decks: <b>narrate the recording</b> (read-aloud). &#128275; Stinky's oath breaks, no save.",
+    "<b>IF Simone paid the goat</b> &rarr; Spencer voices Marcus (his zone).",
+    "Silence, one boo, then the whole room. <b>Dracula seizes the mic.</b> Poe Boy's Command stops landing."
+  ],
+  ends:"on headlights in the drive: &ldquo;Upton, honey?&rdquo;",
   read:[
     {who:"The objective", t:"Get the USB to the decks and get on aux."},
     {who:"When the USB hits the decks · narrate the recording 🟡", t:"Typing. A door shuts. Then a kid &mdash; twelve, maybe &mdash; scared, asking someone to open it. Asking again, quieter. And under all of it, perfectly calm, Poe Boy: nudging a level up, leaning in close to listen, pleased with how clean it sounds."},
@@ -1000,12 +1094,8 @@ const SCENES = [
     ],
     otherwise:"If she said no, skip it. The room has already turned; the ending loses nothing."},
   beats:[
-    "The developer's dead and <b>the vampires turn &mdash; no persuasion check</b>. Party plus three vampires against Poe Boy and Lil Stinky.",
     "<b>Objective:</b> the USB starts <b>upstairs in the old rig</b> and has to reach the ballroom. <b>The map is the encounter.</b>",
-    "Stinky's <b>Aura of Protection</b> buffs Poe Boy's saves &mdash; a puzzle, not a wall. <b>He isn't charmed; he just believes his friend.</b>",
-    "Poe Boy spends his turns on <i>Command</i> &mdash; &ldquo;Drop.&rdquo; &mdash; to keep the drive off the decks. A delay, not a fail state, and <b>the USB can't be destroyed.</b>",
-    "<b>There's no audio file &mdash; you narrate it.</b> Read the recording slowly, then stop. <b>Stinky's oath breaks with no save.</b> Silence, one boo, then the whole room. Dracula seizes the mic. Poe Boy's Command stops landing.",
-    "<b>Badge req 3: &ldquo;give care when someone is hurting.&rdquo;</b> With the vampires taking hits, Russ heals one under fire &mdash; the box that proves the bond, the one Orlok finally signs."
+    "Stinky's <b>Aura of Protection</b> buffs Poe Boy's saves &mdash; a puzzle, not a wall. <b>He isn't charmed; he just believes his friend.</b>"
   ],
   checks:[
     {skill:"Get to / hold the decks", dc:"objective", sug:false, note:"The keep-away is the fight. Deal with Stinky to drop the aura, then plug in."}
@@ -1048,6 +1138,14 @@ const SCENES = [
   cues:["crowd","scratch","braaam","levelup"] },
 
 { act:"finale", no:15, title:"The driveway", where:"Dood Mansion · sunrise · one scene, everyone arrives",
+  setting:"Sunrise on the lawn. The crowd is still milling about in last night's costumes, the vampires keep to the shade of the porch, and in daylight the house looks almost like a house again.",
+  pace:[
+    "The Volvo: Poe Boy's parents. <i>&ldquo;Upton, honey?&rdquo;</i> &#128275; He's grounded; &#9995; <b>the tickets</b> to Simone.",
+    "The troop leader's car, Vinny in the passenger seat. Orlok signs, through his teeth; &#9995; <b>the badge</b> to Cody.",
+    "Vinny &#9995; <b>the deed</b> to Gnomey. &ldquo;This is my house.&rdquo; Orlok confirms it; &ldquo;You can stay.&rdquo; &#128275;",
+    "The quiet one: <b>Edward explains himself to Bix.</b> No jokes. &#128275;"
+  ],
+  ends:"after Edward. Let it sit, then cut to class.",
   read:[{t:"Sunrise. The crowd's still on the lawn when the first car pulls up the drive."}],
   talk:[
     {who:"Poe Boy's mother", t:"Upton, honey?"},
@@ -1062,11 +1160,7 @@ const SCENES = [
     {by:"Edward", who:"Bix", t:"learns the whole timeline: the men the company sent to clear the house, Goblinenon killed, Edward badly hurt and turned by the vampires to save him, and why he carried the baby &mdash; Bix &mdash; down the hill and left him there on purpose. No jokes."}
   ],
   beats:[
-    "<b>Resolve it all right here, in one scene at the house.</b> Two cars, back to back, while the crowd is still on the lawn: the parents' Volvo, then the troop leader's car with <b>Vinny in the passenger seat</b>.",
-    "<b>Poe Boy's mom</b> grounds him in front of everyone &mdash; and he is certainly not going to that satan concert. <b>The tickets go to Simone</b>, who spent every dollar she had hours earlier.",
-    "<b>Russ's troop leader</b> comes in &mdash; an over-earnest scout dad who runs Troop 187's nursing-home visits, which is how he came to drive Vinny up the hill. Vampires don't faze him as long as the paperwork's in order. <b>Orlok signs the card</b>, through his teeth, and the troop leader <b>hands Russ the badge</b>.",
-    "<b>Great Uncle Vinny</b> walks in &mdash; the voice from Saturday's phone call &mdash; and <b>hands Gnomey the deed</b>, because he's earned it. From this moment the house is his. Then Gnomey says it out loud: <i>&ldquo;This is my house.&rdquo;</i> Orlok has to confirm it in front of everyone, and Gnomey's renewal at the threshold is plain: <i>&ldquo;You can stay.&rdquo;</i>",
-    "Then the quiet one: <b>Edward explains himself to Bix</b> &mdash; the cart, the party, Goblinenon, the men the company sent, why he carried a baby down the hill. Its own beat, no jokes in it."
+    "<b>Resolve it all right here, in one scene at the house.</b> Two cars, back to back, while the crowd is still on the lawn: the parents' Volvo, then the troop leader's car with <b>Vinny in the passenger seat</b>."
   ],
   npcs:[
     {nm:"Poe Boy's parents", vc:"A Volvo, matching fleece, sweet and oblivious. She calls him Upton."},
@@ -1084,11 +1178,16 @@ const SCENES = [
   cues:["crowd","levelup"] },
 
 { act:"finale", no:16, title:"Back to class", where:"The bookend",
+  setting:"The same history classroom, the same clanking radiators. The five of you at the front, scraped and bruised, a black eye or two between you, holding a tape.",
+  pace:[
+    "They present the artifact: <b>the tape</b>, because the assignment wanted a primary source.",
+    "Let a player deliver it: <i>&ldquo;&hellip;and yeah that was our class project.&rdquo;</i> Nobody reacts.",
+    "<b>The closers</b>: Stinky's diss track, the mall breaking ground in Amityville, Marcus helping people find books on the library computers."
+  ],
+  ends:"on the room not reacting. This is the end. Breathe.",
   read:[{who:"Let a player say it", t:"&ldquo;&hellip;and yeah that was our class project.&rdquo;"}],
   beats:[
     "They recover an ancient Dutch <b>artifact</b> (after the boss fight or with the vamps' help), the real-estate company is <b>scared off the land</b>, and they present in class &mdash; closing scene one's loop. <b>Play them battered;</b> nobody reacts, which is the joke.",
-    "<b>The three closers:</b> Lil Stinky records a sincere, terrible, devastating diss track. The mega mall breaks ground elsewhere &mdash; the brochure says <b>Amityville</b>. And what they actually present is <b>the tape</b>, because the assignment wanted a primary source.",
-    "The kid gets <b>uploaded to the library computers</b>, helping people find new books &mdash; the boy who died in a room nobody visited spends his afterlife in the busiest building in town.",
     "Gnomey leads the gang and fronts for the vampires as the one who can stand in daylight. He takes no rent and asks nothing &mdash; same as Vinny."
   ],
   npcs:[],
@@ -1146,10 +1245,15 @@ function render(i){
       `</div>`;
   }
 
+  // setting + pacing: the top of Scott's zone
+  const setHTML = s.setting ? `<div class="read set"><div class="rl">Setting &middot; read this first <span class="ai">🟡</span></div><p>${s.setting}</p></div>` : "";
+  const paceHTML = s.pace ? `<div class="block"><p class="h">Pacing <span class="ai">🟡</span></p><ol class="pace">` +
+    s.pace.map(t=>`<li>${t}</li>`).join("") + (s.ends?`<li class="end"><b>Ends</b> ${s.ends}</li>`:"") + `</ol></div>` : "";
+
   // beats
   let beatsHTML = "";
   if(s.beats && s.beats.length){
-    beatsHTML = `<div class="block"><p class="h">The beats</p><ul class="beats">` +
+    beatsHTML = `<div class="block"><p class="h">${s.pace?"Notes":"The beats"}</p><ul class="beats">` +
       s.beats.map(b=>`<li>${b}</li>`).join("") + `</ul></div>`;
   }
 
@@ -1248,7 +1352,7 @@ function render(i){
     `<h2>${s.title}</h2><span class="where">${s.where}</span></div>`+
     `<div class="zones">`+
       `<section class="zone z-scott"><p class="zh"><span>Scott</span> · narrate</p>`+
-        `${checkHTML}${handHTML}${ipadHTML}${floatHTML}${readHTML}${fightHTML}${netHTML}${revBlock(revs.filter(r=>r.by==="scott"))}${remHTML}${beatsHTML}${checksHTML}${cuesHTML}${canonHTML}</section>`+
+        `${setHTML}${paceHTML}${checkHTML}${handHTML}${ipadHTML}${floatHTML}${readHTML}${fightHTML}${netHTML}${revBlock(revs.filter(r=>r.by==="scott"))}${remHTML}${beatsHTML}${checksHTML}${cuesHTML}${canonHTML}</section>`+
       `<section class="zone z-spencer"><p class="zh"><span>Spencer</span> · voice</p>${spHTML}</section>`+
     `</div>`;
 
