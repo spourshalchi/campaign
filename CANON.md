@@ -467,6 +467,9 @@ then flips to **a clinic**.
 | **Yobo wears a wig.** Scott and John are aligned. Why he wears it is not specified | Scott, 3 Nov |
 | **Contingencies** (they kill the vampires early, they won't go in): none written; they'll improvise | Scott, 3 Nov |
 | **The mansion has enough puzzles:** the study door, the party room, the cellar ledger and the sticky note | Scott, 3 Nov |
+| **Simone's warlock has no in-world name** — none is needed. Her backstory card says *name TBD*, and no NPC calls her by name. DM-facing notes still say Simone, meaning the player | Scott, 3 Nov |
+| **Lil Stinky's race is deliberately undefined** — it doesn't matter | Scott, 3 Nov |
+| **The crew is three:** Poe Boy, Lil Stinky and Angelique. The fourth crew member is cut | Scott, 3 Nov |
 | **The session break is deliberately undefined.** Saturday ends wherever time runs out; the botched summoning closes Night 1 if the clock allows but isn't required to. Everyone levels to 5 at the end of day one | Scott, 3 Nov |
 | ~~The finale runs in three phases: vampires hostile → developer breaches → vampires turn~~ — **phase 1 cut in the In Person Session.** Two phases: developer breaches → the booth (vampires turn) | the 24 Aug doc paste, replaced by In Person Session |
 | The developer's breach (now the first phase) is the only lethal fight of the finale | the 24 Aug doc paste |
@@ -561,7 +564,7 @@ Not yet pasted into the Google Doc — **do that to make them official.** Until 
 | ✅ **The climax happens in the ballroom / great hall**, rigged as a stage, with Poe Boy's decks there and the speakers run through the rest of the house. Keeps the climax clear of the cellar, which Path A needs for the coffins. Also settles that Poe Boy has **two** setups, not one: the old room upstairs with the original recording rig and the occupied computer, and the ballroom he built for tonight. | 🟡 room design — **decided by Scott, 24 Aug 2026.** The doc names no rooms in the mansion at all |
 | ✅ **The house's power is hot-wired off the neighbouring property.** Explains the working computer, the one lit room, and the speakers run through the house. Also the one thread anyone outside could pull on. | 🟡 the doc explains the computer but never the electricity — **decided by Scott** |
 | ✅ **John's PC is Yobo, and his arc is "stop lying, get stronger."** The grandmother-is-Dolly-Parton lie is a **Performance + Bardic-Inspiration debuff** (with a Deception upside) that flips to a buff when he tells the truth in the **party room**, where the frozen ghost-party accepts only a true performance and **Dracula coaches him** through it. Two artifacts: `/photo/` (now also the puzzle key) and a new `/party-room/` prop. Full build in `PROPOSALS.md`. | 📗 **Now in the doc** — Character Bios (Yobo) + Sesh 8 (the arc), pasted 5 Sep 2026. Yobo wears a wig: Scott, 3 Nov, aligned with John. Race/subclass/dice unspecified |
-| ⏸ **The 1937 Crier stays 🟡** pending Scott's read of the article text. | unchanged |
+| ⏸ **The 1937 Crier stays 🟡 pending Scott's review** of the live prop, https://spourshalchi.github.io/campaign/puzzle/ (`Scott, 3 Nov`) | unchanged |
 | ⏸ **The Gjenganger / Cornelis Dood stays 🟡** — parked entirely. A draft spec is in `PROPOSALS.md`; none of it is agreed. | unchanged |
 
 ---
@@ -668,16 +671,16 @@ the story now** — so this counts as in-doc like anything else, not as one pers
 | Name candidates; the joke that his real name is **Upton Maximillion Livingsworth III** | Sesh 3 — floated as *"it'd be funny if"*, never locked |
 | ~~Poe Boy tips the party on the real way in, since the front door is boarded~~ — **superseded, 24 Aug 2026.** See the decisions table | Sesh 3, overtaken by Sesh 7 |
 | The **gazebo** where the bad kids smoke; Poe Boy is clearly the ringleader of an entourage | Sesh 3 |
-| **Lil Stinky** — school kingpin tied to Julia's cigarette trade, stoner, bad rapper, dumb but honest, needs no manipulation, makes music with Poe Boy; Orc or Goliath TBD, tanky TBD | Sesh 3 |
+| **Lil Stinky** — school kingpin tied to Julia's cigarette trade, stoner, bad rapper, dumb but honest, needs no manipulation, makes music with Poe Boy; ~~Orc or Goliath TBD~~ (race deliberately undefined: Scott, 3 Nov), tanky TBD | Sesh 3 |
 | **Angelique** — trad goth, nihilist hedonist with empathy, smart but unsure, Poe Boy exploits her low self-worth, the one who can be pulled out of his orbit; Changeling or Genasi TBD | Sesh 3 |
 | **Angelique is the locked name** (Coressa/Angellica/Scarlett are out) | Sesh 7 |
 | **Angelique tries to warn them at the gazebo and can't** — the rest of the crew is standing there. **It's a side-eye** | Sesh 5 + In Person Session |
-| **NPC races & classes**: Poe Boy = Kenku Bard (Glamour); Lil Stinky = Paladin, Oath of Devotion; Angelique = Changeling Rogue. Still open by the doc's own admission: Lil Stinky's race, Simone's race | **Sesh 8** |
+| **NPC races & classes**: Poe Boy = Kenku Bard (Glamour); Lil Stinky = Paladin, Oath of Devotion; Angelique = Changeling Rogue. Still open by the doc's own admission: ~~Lil Stinky's race~~ (deliberately undefined), Simone's race | **Sesh 8**; Lil Stinky's race: Scott, 3 Nov |
 | **Lil Stinky's arc**: *"Sworn to a liar without knowing it. His oath breaks when he believes us about the kid."* | **Sesh 8** |
 | Angelique is the first to run into them in the mansion and tells them to hide | Sesh 5 |
 | **Angelique still notices the dead kid and feels a magical pull to the house — that is why she came** | **Sesh 8** |
 | **Goblinenon** — Bix's mother, a goblin, killed when the developer's men cleared the house | **Sesh 8** |
-| **4th crew member** — an open slot, probably female | Sesh 3 |
+| ~~**4th crew member** — an open slot, probably female~~ — **cut; the crew is three** | Sesh 3; cut: Scott, 3 Nov |
 | **History teacher** — assigns the project | Sesh 1 |
 | The vampires may turn on Poe Boy because they're fed up with him too | Sesh 5 |
 
@@ -686,8 +689,8 @@ the story now** — so this counts as in-doc like anything else, not as one pers
 ## 🟡 NOT CANON — AI-generated, never discussed
 
 ### 1. The 1937 *Transyltown Crier* — shipped in `/puzzle/`
-Status per Scott: **prop-only, unratified.** The prop stays as built; none of it is binding lore until
-Spencer signs off. The doc's actual source is a **1973** legend told by a Frisian skipper — everything
+Status: **prop-only, pending Scott's review** at https://spourshalchi.github.io/campaign/puzzle/ (`Scott, 3 Nov`). The prop stays as built; none of it
+is binding lore until he signs off. The doc's actual source is a **1973** legend told by a Frisian skipper — everything
 below is a transposition invented to make it a local 1937 newspaper.
 
 - The newspaper itself, the 1937 date, and the local-incident framing
@@ -789,12 +792,13 @@ stay on this list until you two decide:
 2. ~~Who is the dead kid? Name, year~~ — **answered 3 Nov: Marcus Hale, died 1999 at about twelve.** The name
    lands as the USB's volume label, `MARCUS_HALE` (Sesh 8 put it on the USB). Still worth a note: enough of
    a life that the table feels it. `Scott, 3 Nov`.
-3. Does the 1937 Crier become canon, get rewritten to the doc's 1973 Frisian version, or stay a prop that nobody has to believe?
+3. ~~Does the 1937 Crier become canon, get rewritten to the doc's 1973 Frisian version, or stay a prop that nobody has to believe?~~
+   — **pending Scott's review** of the live prop, https://spourshalchi.github.io/campaign/puzzle/. `Scott, 3 Nov`.
 4. ~~John's insecurity — his to name.~~ — **answered and now in the doc** (Character Bios: Yobo, the
    Dolly-Parton lie, anxiety about real talent; Sesh 8: the debuff→truth→buff arc). The **wig** is settled:
    Yobo wears one. `Scott, 3 Nov`, aligned with John.
 5. ~~Cody's PC.~~ — **answered Sesh 8:** a Firbolg druid (working name Russ) earning his Assisting the Elderly badge by helping Orlok. Still open inside it: Cody's full sheet (the badge art is chosen: Codex option B, Scott, 3 Nov).
-6. The 4th crew member.
+6. ~~The 4th crew member.~~ — **cut: the crew is three** (Poe Boy, Lil Stinky, Angelique). `Scott, 3 Nov`.
 7. Lock or kill: Dood Mansion, Upton Maximillion Livingsworth III, and the DJ/kingpin names that are locked only by repetition.
 8. ~~**Why these five?**~~ — **answered: deliberately unexplained.** The invite is a deliberate guest list and
    nobody ever says why. `Scott, 3 Nov`.
