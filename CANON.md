@@ -100,6 +100,7 @@ the bearer clause says whoever holds the deed owns the house, and Gnomey doesn't
 | **The deed and the settlement are print-only**, each with the same Codex-generated wax seal (`print/src/assets/seal.png`: an oxblood wax seal with a stepped-gable Dutch house and a D; ✅ signed off with the deed, `Scott, 3 Nov (signed off)`). Both print from `print/src/`; in the study, hand over the printed settlement | Scott, 3 Nov |
 | **The deed is signed off, seal and all** — the indenture language, *forty rooms*, the blank *Recorded with the County Clerk* line and the wax seal, in `print/src/deed.html` | Scott, 3 Nov (signed off) |
 | **Two documents, two jobs** — Sesh 8 already names both. The **settlement** (printed, with a wax seal — print-only, `Scott, 3 Nov`) is the clue in the study: it sets the bearer rule and tells Gnomey whoever holds the deed owns the house. The **deed** (`/deed/`, printed) is the object Vinny hands over. The deed stays formal and dry; the jokes live on the settlement | Scott, 1 Nov |
+| **The Articles of Settlement are signed off** — the full text, the full-bleed print with the wax seal, in `print/src/settlement.html` | Scott, 4 Nov (signed off) |
 
 This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the blue one"* line, the chip set
 "one short", and every chip row below.
@@ -246,10 +247,10 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
     it **replaces** the debuff: *advantage on Performance, the Bardic Inspiration boost, and the Deception
     advantage is gone, for the rest of the campaign*, so coming clean is a real trade-off (Scott, 3 Nov).
     **🟡 The boost as the die one size larger (d8 → d10)** is a proposal for Scott to tune.
-  - 🟡 the titles' wording, both flavour lines, and the art, generated with Codex (`yobo/assets/mask-lies.png`,
-    `mask-voice.png`): on the debuff, a cracked, tarnished gilded comedy mask held up in front of a face in shadow;
-    on the buff, the mask set aside and his own face lifted into a warm spotlight, singing. The person is kept
-    generic, since Yobo's race is still open.
+  - 🟡 the titles' wording, both flavour lines, and the art, generated with Codex as flat cartoon sticker graphics
+    with no people (`yobo/assets/mask2-lies.png`, `mask2-voice.png`): on the debuff, a cracked, tarnished comedy
+    mask chained to an iron weight and dripping, in muted gold and plum on black; on the buff, the same mask
+    cracked open and set down under a spotlight with stars and sparkles, in gold and hot pink on cream.
 
   **Seam:** Sesh 8 makes the debuff *Performance + Bardic Inspiration* ("weakened, a die step down"), but the
   debuff card from the brief has no Inspiration penalty. Either add *"Your Bardic Inspiration die is one size
@@ -411,12 +412,10 @@ The draft spec stays parked in `PROPOSALS.md` as dead work.
 - **The study door puzzle** — left deliberately open. No proposal on the table.
 - **The botched summoning** — that it's Poe Boy's, and every stat behind it.
 - **The party room** as a built location, and the photograph's placement in it.
-- **The parents' looks in the photograph.** Built to echo Will's description of Bix (short, dark green
-  skin, cuts on his long pointed ears, small brown leather boots): Goblinenon is short and dark green with
-  long pointed ears and the same small brown leather boots; Edward has healed cuts on the rim of one ear.
-  Nothing in the doc describes either parent. `Scott, 3 Nov 2026` — Scott asked for the echo; the
-  specific traits were picked in the image brief.
-- **The year on the photograph.** The prop stamps `10 31 '79`, and Scott's party-room brief (3 Nov) uses '79 too. The doc never fixes Bix's age, so it
+- ~~**The parents' looks in the photograph.**~~ — **✅ signed off with the photo print, `Scott, 4 Nov (signed off)`:**
+  Goblinenon is short and dark green with long pointed ears and small brown leather boots; Edward has healed cuts
+  on the rim of one ear, echoing Will's description of Bix.
+- ~~**The year on the photograph.**~~ — **✅ signed off with the photo print, `Scott, 4 Nov (signed off)`.** The prop stamps `10 31 '79`, and Scott's party-room brief (3 Nov) uses '79 too. The doc never fixes Bix's age, so it
   never fixes this date — he's an early-to-mid-20s super senior in 2004 and was born ~9 months after
   the cart broke down, which lands somewhere around '79–'80. **A codex session briefly wrote this as
   1985, which is too late by five years and is now corrected everywhere.** One string in the photograph's print source.
@@ -504,7 +503,8 @@ then flips to **a clinic**.~~ **Scott, 3 Nov:** no fake-out — the room is plai
 | **Lil Stinky's race is deliberately undefined** — it doesn't matter | Scott, 3 Nov |
 | **The crew is three:** Poe Boy, Lil Stinky and Angelique. The fourth crew member is cut | Scott, 3 Nov |
 | **The DJ poster is optional.** Spencer makes it if he can. If it exists, it is **taped on the locked AIM-room door** (the "poster on the door"); it is not a gazebo handout. Same spec — Poe Boy / Lil Stinky / Angelique, a 3AM set — and it reads **doors open 2:30AM** | Scott, 3 Nov |
-| **Will's trait is done** in the painted photograph: Goblinenon's short dark-green skin, long ears and small brown leather boots, and Edward's notched ear, echo Will's Bix. The looks stay 🟡 until Scott reviews the photo | Scott, 3 Nov |
+| **Will's trait is done** in the painted photograph: Goblinenon's short dark-green skin, long ears and small brown leather boots, and Edward's notched ear, echo Will's Bix | Scott, 3 Nov |
+| **The 4×6 photo print is signed off** — the painting, the parents' looks and the `10 31 '79` date stamp, as printed from `print/photo-4x6.html` | Scott, 4 Nov (signed off) |
 | **The session break is deliberately undefined.** Saturday ends wherever time runs out; the botched summoning closes Night 1 if the clock allows but isn't required to. Everyone levels to 5 at the end of day one | Scott, 3 Nov |
 | ~~The finale runs in three phases: vampires hostile → developer breaches → vampires turn~~ — **phase 1 cut in the In Person Session.** Two phases: developer breaches → the booth (vampires turn) | the 24 Aug doc paste, replaced by In Person Session |
 | The developer's breach (now the first phase) is the only lethal fight of the finale | the 24 Aug doc paste |
