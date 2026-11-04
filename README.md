@@ -20,7 +20,7 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 ├── print/            ← DM print kit: Staples-ready PDFs, the 4×6 photograph + build.py (not tiled)
 │   ├── index.html
 │   ├── photo-4x6.html ← source for photo-4x6.jpg, the party-room photograph (Bix's beat)
-│   ├── src/          ← print-only sources: deed, settlement, badge, tickets (+ assets/: wax seal, badge art)
+│   ├── src/          ← print-only sources: deed, settlement, badge, tickets, battle tokens (+ tokens/: the portraits; assets/: wax seal, badge art)
 │   └── assets/photograph.jpg  ← the painting itself
 ├── codex/            ← DM-facing campaign codex (not linked from the landing page)
 ├── run/              ← DM-facing "Run of Show" — the day-of prompt book (not linked either)
@@ -79,7 +79,7 @@ Everything to print lives in the **print kit at [`print/`](print/)**: four Stapl
 
 | File | Paper | What's in it |
 |---|---|---|
-| `print/1-cardstock.pdf` | Letter cardstock, colour, 1-sided, 1 copy | Invitations ×6, Russ's card, the badge, the concert tickets, the backstory cards, Yobo's two secret cards |
+| `print/1-cardstock.pdf` | Letter cardstock, colour, 1-sided, 1 copy | Invitations ×6, Russ's card, the badge, the concert tickets, the backstory cards, Yobo's two secret cards, the battle tokens |
 | `print/photo-4x6.jpg` | Staples photo print: 4×6, glossy or lustre, 1 print (same-day at most stores) | The photograph (Will's trait is painted in) |
 | `print/3-deed.pdf` | Letter cardstock, cream or parchment, colour, 1-sided, 1 copy | The deed |
 | `print/4-plain.pdf` | Letter ivory or plain, colour, 1-sided, 1 copy | The developer's site assessment, the Articles of Settlement, Orlok's ledger |
