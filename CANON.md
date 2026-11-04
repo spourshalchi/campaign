@@ -190,6 +190,11 @@ The draft spec stays parked in `PROPOSALS.md` as dead work.
 - **The study door puzzle** — left deliberately open. No proposal on the table.
 - **The botched summoning** — that it's Poe Boy's, and every stat behind it.
 - **The party room** as a built location, and the photograph's placement in it.
+- **The parents' looks in the photograph.** Built to echo Will's description of Bix (short, dark green
+  skin, cuts on his long pointed ears, small brown leather boots): Goblinenon is short and dark green with
+  long pointed ears and the same small brown leather boots; Edward has healed cuts on the rim of one ear.
+  Nothing in the doc describes either parent. `3 Nov 2026 · not in doc` — Scott asked for the echo; the
+  specific traits were picked in the image brief.
 - **The year on the photograph.** The prop stamps `10 31 '79`. The doc never fixes Bix's age, so it
   never fixes this date — he's an early-to-mid-20s super senior in 2004 and was born ~9 months after
   the cart broke down, which lands somewhere around '79–'80. **A codex session briefly wrote this as
