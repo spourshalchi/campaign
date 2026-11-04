@@ -183,11 +183,12 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
   print are the prop's choices. So are the venue (**Transyltown Armory**), the date (**Sat Jun 25 2005**, read off
   Character Bios' "in town at the end of the school year") and the doors/show times. The band prints as
   **Total Party Kill** (see Simone, below).
-- **The developer's site assessment in `/survey/`** (printed, `print/4-plain.pdf`) — built 3 Nov, awaiting Scott's review. A
+- **The developer's site assessment in `/survey/`** (printed, `print/4-plain.pdf`) — **✅ signed off, `Scott, 3 Nov`**:
+  Hudson Crossing Development Corp., the Galleria, the dates and the site notes are canon. A
   faxed, photocopied internal memo the party finds in the house. Like the sticky note it is a **floating find**:
-  the DM hands it over during one of the times they look around a room. Canon behind it: the mega mall
+  the DM hands it over during one of the times they look around a room. Canon behind it before the sign-off: the mega mall
   (Sesh 5, 7), W. Ostrander (🟡, 26 Aug), the same company ~20 years ago (30 Aug), and that he doesn't know
-  what's in the house (the 24 Aug doc paste). Everything else is the prop's invention:
+  what's in the house (the 24 Aug doc paste). Signed off with it:
   - the company, **Hudson Crossing Development Corp.** (Albany), and the mall, **Hudson Crossing Galleria**.
     This picks *company* over *family trust* for the open question below; one string each to swap;
   - the memo itself: dated **Sept 14, 2004**, faxed the same day, from Site Planning to the Acquisitions
@@ -451,10 +452,10 @@ then flips to **a clinic**.~~ **Scott, 3 Nov:** no fake-out — the room is plai
   (Scott, 7 Sep).
 - ~~The badge artwork~~ — **chosen: Codex option B**, an embroidered-patch scout carrying a huge
   rune-stamped spellbook for a stooped, hooded old mage, ringed *"ASSISTING THE ELDERLY / TROOP 187"*
-  (Codex-generated art, `badge/art/option-b.png`; Scott, 3 Nov). 🟡 Prop art, not canon.
+  (Codex-generated art, `print/src/assets/badge-art.png`). **✅ Signed off, `Scott, 3 Nov (signed off)`.**
 - **Russ's exact druid subclass and sheet.** The concept (Firbolg druid, Speak with Animals) is set; the
   full character sheet is Cody's to hand in, like everyone else's.
-- The prop wording — the printable **Requirements card** — is codex-side texture until it's used.
+- ~~The prop wording~~ — the printable **Requirements card** (`print/src/badge.html`, print kit only) — **✅ signed off, `Scott, 3 Nov (signed off)`.**
 
 ---
 
@@ -832,7 +833,8 @@ stay on this list until you two decide:
 9. ~~Who was the 3AM DJ flyer for?~~ — **answered 25 Aug: public.** The flyer prop is unblocked.
 10. ~~What did Poe Boy tell the vampires?~~ — **answered 25 Aug: he staggered the houseful rather than lying about it.**
 11. ~~The crowd~~ — **resolved 25 Aug.** See the two-tier guest list at the top. Remaining: how the crowd gets through a bolted door at 3AM.
-12. **The developer's name.** He is now the third faction and the only death in the story, and he has no name. Company, or family trust?
+12. **The developer's name.** He is now the third faction and the only death in the story. ~~Company, or family trust?~~ —
+    **company: Hudson Crossing Development Corp.** (the survey, signed off `Scott, 3 Nov`). *W. Ostrander* is still a proposal.
 13. ~~**The dead kid's name.**~~ — **answered 3 Nov: Marcus Hale, 1999.** It comes off the **USB** when they
     plug it in (Sesh 8), labelled `MARCUS_HALE`. `Scott, 3 Nov`.
 14. ~~**New reasons for the cellar and the choke-point corridor**~~ — **answered in Sesh 8.** The corridor is
