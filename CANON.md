@@ -97,8 +97,8 @@ the bearer clause says whoever holds the deed owns the house, and Gnomey doesn't
 | **The study:** the card table with the last hand still on it, and a strongbox holding the signed settlement with **an empty slot where the deed should be** | Scott, 1 Nov |
 | **The deed is printed** — Scott takes it to Staples. Gnomey's physical prop. Prop at `/deed/` | Scott, 1 Nov |
 | Rule: **the deed arrives with Vinny** — nothing at the table puts it in Gnomey's hands early | Scott, 1 Nov |
-| **The deed and the settlement are print-only**, each with the same Codex-generated wax seal (`print/src/assets/seal.png`, 🟡 the seal's design: an oxblood wax seal with a stepped-gable Dutch house and a D). Both print from `print/src/`; in the study, hand over the printed settlement | Scott, 3 Nov |
-| **The deed's wording is signed off** — the indenture language, *forty rooms* and the blank *Recorded with the County Clerk* line in `/deed/` | Scott, 3 Nov (signed off) |
+| **The deed and the settlement are print-only**, each with the same Codex-generated wax seal (`print/src/assets/seal.png`: an oxblood wax seal with a stepped-gable Dutch house and a D; ✅ signed off with the deed, `Scott, 3 Nov (signed off)`). Both print from `print/src/`; in the study, hand over the printed settlement | Scott, 3 Nov |
+| **The deed is signed off, seal and all** — the indenture language, *forty rooms*, the blank *Recorded with the County Clerk* line and the wax seal, in `print/src/deed.html` | Scott, 3 Nov (signed off) |
 | **Two documents, two jobs** — Sesh 8 already names both. The **settlement** (printed, with a wax seal — print-only, `Scott, 3 Nov`) is the clue in the study: it sets the bearer rule and tells Gnomey whoever holds the deed owns the house. The **deed** (`/deed/`, printed) is the object Vinny hands over. The deed stays formal and dry; the jokes live on the settlement | Scott, 1 Nov |
 
 This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the blue one"* line, the chip set
@@ -214,12 +214,13 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
   paste's *"he does not know what's in the house"*. The memo says *squatters*, not vampires, so it holds, but
   cut the line if it says too much.
 
-- **Orlok's register of patients in `/ledger/`** (one printed page on plain paper, `print/4-plain.pdf` p.2) —
-  built 3 Nov, awaiting Scott's review. **The design is Scott's** (Scott, 3 Nov): the cellar is plainly Orlok's
+- **Orlok's register of patients in `/ledger/`** (one printed page on plain paper, `print/4-plain.pdf` p.3) —
+  **✅ signed off, `Scott, 3 Nov (signed off)`**: every line below, set in a legible italic (Baskerville).
+  **The design is Scott's** (Scott, 3 Nov): the cellar is plainly Orlok's
   clinic, and the ledger is a handout found on the lectern whose job is to point at the Sun's-mercy. It reads as a
   real register, written by the author with nothing explained. Canon behind it: Orlok is a vet, the animals give a
   little blood, the fox in a splint and the owl with a wrapped wing, Sun's-mercy (Sesh 8); Cornelis Dood is Orlok
-  (Scott, 31 Aug). Everything else is the prop's:
+  (Scott, 31 Aug). Also signed off with it:
   - the page itself: *Folio 212*, *Year 2005*, dated entries from Mar. 11 to Apr. 21, and the columns date, animal,
     where found, injury, treatment, progress, released;
   - the seven patients past the fox and the owl: a grey squirrel, a little brown bat, a crow (*"Abusive"*, *"Will be
@@ -479,7 +480,7 @@ then flips to **a clinic**.~~ **Scott, 3 Nov:** no fake-out — the room is plai
 | ~~**The cellar puzzle is Orlok's patient ledger.** Crate tags are matched to ledger entries; one patient is unaccounted for, and that leads to the hidden infirmary~~ — **redesigned by Scott** (rows below) | Scott, 3 Nov |
 | 🟡 **The cellar is plainly Orlok's animal clinic from the start.** No larder fake-out, no crates, no missing-patient puzzle, no hidden room | Scott, 3 Nov |
 | 🟡 **The cellar has two goals:** the players realise Orlok is a vet, and Russ blooms the Sun's-mercy | Scott, 3 Nov |
-| 🟡 **The printed ledger is a real-feeling register**, with a short journal under it in his hand: Sun's-mercy is a seed he keeps sowing, it comes up white and dies without sun, the flower draws infection and mends wounds, and a patient in the register needs it now | Scott, 3 Nov |
+| ✅ **The printed ledger is a real-feeling register**, with a short journal under it in his hand: Sun's-mercy is a seed he keeps sowing, it comes up white and dies without sun, the flower draws infection and mends wounds, and a patient in the register needs it now | Scott, 3 Nov (signed off) |
 | 🟡 **Sesh 6's "puzzle releases a key to a hidden room" is retired** | Scott, 3 Nov |
 | **The wishing willow is made entirely by hand** by Scott — nothing to print | Scott, 3 Nov |
 | **Not needed:** ambient playlists (the Run of Show soundboard covers it), background slides (no second screen), a safety-tools agreement (Scott and Spencer have it covered) | Scott, 3 Nov |
