@@ -495,7 +495,7 @@ const SCENES = [
       {id:"ipad-charged", t:"<b>iPad charged</b>, charger in the bag."},
       {id:"ipad-home", t:"<b>Props on its home page</b>, items 1&ndash;3. Add to Home Screen done and cache-busted (<code>?v=</code>)."}]},
     {g:"Print &amp; props", items:[
-      {id:"print", t:"<b>Print run picked up and cut</b>: invites &times;6, backstory cards, Russ's card, the badge, the tickets, the deed, the survey, the crate tags, Orlok's ledger, the player map, Yobo's two secret cards."},
+      {id:"print", t:"<b>Print run picked up and cut</b>: invites &times;6, backstory cards, Russ's card, the badge, the tickets, the deed, the survey, Orlok's ledger, the player map, Yobo's two secret cards."},
       {id:"photo", t:"<b>The photograph</b>: a Staples 4&times;6 photo print of <code>print/photo-4x6.jpg</code>, glossy or lustre. Same-day at most stores."},
       {id:"usb", t:"<b>USB stick</b> labelled <code>MARCUS_HALE</code>."},
       {id:"piggy", t:"<b>The goat piggy bank</b> for Simone, if bought."}]},
@@ -533,7 +533,7 @@ const SCENES = [
   reminders:[
     {t:"<b>Yobo's debuff card doesn't say how to lose it. Don't hint.</b> The buff flips only when he performs as himself for Dracula in the party room; an earlier confession doesn't flip it. <span class='ai'>🟡</span>", k:"rule"},
     {t:"<b>One physical prop per PC:</b> Bix &mdash; the printed photograph &middot; Gnomey &mdash; the printed deed (Vinny hands it over at the end) &middot; Simone &mdash; the wishing willow &middot; Russ &mdash; badge + card &middot; Yobo &mdash; two secret printed cards, <i>The Weight of Your Lies</i> (gazebo) and <i>Your True Voice</i> (party room).", k:""},
-    {t:"<b>Hand-over order</b>: invites (cue 2) &middot; the house plan (cue 5) &middot; sticky note and survey (floating, cues 5&ndash;13) &middot; the photograph (cue 11) &middot; crate tags (cue 12) &middot; willow and USB (cue 13) &middot; tickets, badge and deed (cue 15). Each cue says <b>✋ Hand over</b> when it's time.", k:""},
+    {t:"<b>Hand-over order</b>: invites (cue 2) &middot; the house plan (cue 5) &middot; sticky note and survey (floating, cues 5&ndash;13) &middot; the photograph (cue 11) &middot; Orlok's ledger (cue 12) &middot; willow and USB (cue 13) &middot; tickets, badge and deed (cue 15). Each cue says <b>✋ Hand over</b> when it's time.", k:""},
     {t:"Keep the <b>deed, tickets and badge</b> out of sight until the driveway.", k:"rule"},
     {t:"Everything printed is in the kit at <code>/print/</code>. Not printed: the DJ poster (Spencer), the sticky note and the willow (handmade).", k:""}
   ],
@@ -569,7 +569,7 @@ const SCENES = [
   read:[{t:"It's barely noon. The card says <b>seven</b>. And not one of you has ever heard the name <b>Dood</b> before."}],
   beats:[
     "These are the five who <b>missed the senior-skip-day memo</b>, and they feel lame about it. <span class='ai'>🟡</span>",
-    "If they march up the hill early: the front is <b>still boarded at this hour</b> and bounces them back &mdash; which is the point. The boards come off during the day.",
+    "If they march up the hill early: the front is <b>still boarded at this hour</b> and turns them back. The boards come off during the day.",
     "<b>If they don't bite, hand a detour to a PC:</b> tell <b>Bix</b> the Records Keeper knows old names; tell <b>Gnomey</b> the old crew at the gazebo will already know."
   ],
   talk:[
@@ -610,7 +610,7 @@ const SCENES = [
   ],
   checks:[
     {skill:"Investigation / History", dc:"12", sug:true, note:"Assemble the slaying method from the folklore: coffins, stake, rebury."},
-    {skill:"Insight", dc:"13", sug:true, note:"Clock that her &ldquo;be careful&rdquo; is sincere, not flavor. <span class='ai'>🟡</span>"}
+    {skill:"Insight", dc:"13", sug:true, note:"Tell that her &ldquo;be careful&rdquo; is sincere. <span class='ai'>🟡</span>"}
   ],
   fight:{name:"The trap in the binding", rule:"The shears go for the article, not the party. It <b>contains and erases; it does not kill.</b> Count the cuts &mdash; they set the puzzle.",
     foes:[
@@ -650,7 +650,7 @@ const SCENES = [
   ends:"on the clock (read-aloud): ten to seven, the time on the card.",
   read:[{t:"Whoever's wearing a watch &mdash; it's <b>ten to seven</b>. That's the time on the card."}],
   beats:[
-    "Poe Boy plays the house down: he's been up there <b>once</b>, with a shrug, and he's cool about the cards. <b>The &ldquo;once&rdquo; is a lie, and the lie is the clue</b> &mdash; it pays off when they find his stage and decks in the ballroom, and at 3AM when his voice comes over the speakers. <span class='ai'>🟡</span> Behind it, the whole night is his Halloween party; the samples are what he wants.",
+    "Poe Boy plays the house down: he's been up there <b>once</b>, with a shrug, and he's cool about the cards. <b>The &ldquo;once&rdquo; is a lie.</b> It pays off when they find his stage and decks in the ballroom, and at 3AM when his voice comes over the speakers. <span class='ai'>🟡</span> Behind it, the whole night is his Halloween party; the samples are what he wants.",
     "<b>The debuff card doesn't say how to lose it. Don't hint.</b> John learns honesty matters only from Dracula, in the party room. <span class='ai'>🟡</span>",
     "<b>The tell is what he leaves out:</b> he never mentions the <b>other</b> room upstairs he keeps gear in &mdash; the one he hasn't been back into. Nobody notices now; they notice later."
   ],
@@ -736,19 +736,19 @@ const SCENES = [
     {by:"spencer", who:"Players", t:"hear the dismissal as a hunt. It's really a show schedule &mdash; nobody corrects them."},
     {by:"scott", who:"Players", t:"learn, the first time they walk into the ballroom and find his <b>stage, decks and rig</b> (any time they explore, tonight or Sunday), that the party is <b>Poe Boy's</b> &mdash; and he lied about being up there once."},
     {by:"scott", who:"Bix", t:"catches Edward <b>glimmering</b> in the moonlight. Bix beat 1 of 3 &mdash; the silly one."},
-    {by:"scott", who:"Players", t:"can notice the vampires never roll damage. That's the real clue; don't point at it."}
+    {by:"scott", who:"Players", t:"may notice the vampires never roll damage. Don't point it out."}
   ],
   beats:[
     "The vamps are <b>hosts doing a job they agreed to</b> &mdash; they think this is the big scare that saves their house, and they have no idea anyone ever died here.",
     "<b>DM note:</b> the house points everything at the vampires. <b>&ldquo;He said five&rdquo;</b> is the line that pays off as <b>Poe Boy</b> later, at the recording. <span class='ai'>🟡</span>",
-    "Every word of the dismissal is both a threat and an accurate description of a haunted-house attraction. The party hears one thing and tears the house apart looking for an exit &mdash; exactly where you want them.",
+    "The dismissal sounds like a threat but describes the show: the vampires will be back to scare them again. Expect the party to search the house for a way out.",
     "Do <b>not</b> let Orlok discover the locked doors or explain anything &mdash; he decided the doors and owns the building."
   ],
   checks:[
     {skill:"Stealth", dc:"13", sug:true, note:"Hide when Angelique pulls them down; then recurring &mdash; eventually someone rolls badly."},
-    {skill:"Insight", dc:"&mdash;", sug:false, note:"They'll <b>misread</b> this as being hunted. Good. Let them. The mechanics are the real clue: the monsters never roll damage."}
+    {skill:"Insight", dc:"&mdash;", sug:false, note:"They'll read this as being hunted. Let them. The vampires never roll damage."}
   ],
-  fight:{name:"First contact &mdash; a pressure scene, not a fight", rule:"<b>The vampires can't kill a PC.</b> Grapple, shove, frighten: no Bite, no damage, nobody below 1 HP. The rule is the clue.",
+  fight:{name:"First contact &mdash; a pressure scene, not a fight", rule:"<b>The vampires can't kill a PC.</b> Grapple, shove, frighten: no Bite, no damage, nobody below 1 HP.",
     foes:[
       {id:"dracula", nm:"Dracula &mdash; grapple / shove", n:1, ac:16, hp:0,
        turn:["<b>If Orlok speaks</b> &rarr; stop instantly, let go, step back.",
@@ -760,11 +760,11 @@ const SCENES = [
     ]},
   npcs:[
     {nm:"Dracula", vc:"Campy, theatrical, lays hands on them &mdash; and enjoys it far too much. Asked if this is part of the party, he's delighted to say yes. Stops the instant Orlok speaks. <span class='ai'>🟡</span>"},
-    {nm:"Orlok", vc:"Patience, not menace. Impeccable courtesy while doing something appalling. One syllable is the whole hierarchy."},
+    {nm:"Orlok", vc:"Patient and very polite, even while doing something awful. One word from him stops Dracula."},
     {nm:"Edward", vc:"Watches Bix. Does not approach. Knows exactly who he is."}
   ],
   reminders:[
-    {t:"Vampires <b>cannot kill a PC</b> here. The rule is the clue.", k:"rule"}
+    {t:"Vampires <b>cannot kill a PC</b> here.", k:"rule"}
   ],
   cues:["drone","heart","jump","braaam"] },
 
@@ -772,13 +772,13 @@ const SCENES = [
   setting:"Off the main hall, a boarded window lets one sunbeam through. It lies across the sill and a pair of wire spectacles &mdash; and at its very edge, perfectly still, stands Orlok.",
   pace:[
     "Right after the dismissal, Russ finds Orlok frozen at the edge of the light. Optional Insight / Perception to clock why. &#128275;",
-    "Russ walks into the light and hands the spectacles over &mdash; <b>no roll, that's the point.</b>",
+    "Russ walks into the light and hands the spectacles over. <b>No roll.</b>",
     "Russ points at &ldquo;verified by your elder&rdquo;: Orlok <b>flatly refuses to sign</b>. Refusal 1 of 3. &#128275;"
   ],
   ends:"on the read-aloud: no thanks, and the house dark in every direction. Turn them loose to explore.",
   read:[{t:"Spectacles handed over, not a word of thanks. Behind him the house goes dark in every direction."}],
   beats:[
-    "Orlok takes them without thanks. When Russ points at the &ldquo;verified by your elder&rdquo; line he <b>flatly refuses to sign</b> &mdash; refusal 1 of 3. Keep him cold; the only crack is that the kid didn't flinch and wanted nothing."
+    "Orlok takes them without thanks. When Russ points at the &ldquo;verified by your elder&rdquo; line he <b>flatly refuses to sign</b> &mdash; refusal 1 of 3. Keep him cold. He notices the kid didn't flinch and didn't ask for anything."
   ],
   checks:[
     {skill:"Insight / Perception", dc:"10", sug:true, note:"Optional &mdash; lets a player clock <i>why</i> he's stuck at the light."}
@@ -806,7 +806,7 @@ const SCENES = [
   ends:"at the warm, breathing door &mdash; straight into the summoning.",
   read:[{t:"A door on the top floor you haven't tried is warm to the touch &mdash; and something on the other side of it is breathing."}],
   beats:[
-    "Let them be wrong about it for as long as possible. <b>Edward does not explain himself tonight</b> &mdash; that's the driveway at sunrise, and holding it is what makes it land."
+    "Let them be wrong about it for as long as possible. <b>Edward does not explain himself tonight</b> ; that happens in the driveway at sunrise."
   ],
   rev:[
     {by:"Edward", who:"Players", t:"learn Edward is watching <b>Bix</b> specifically. They should read it as <i>the vampire has picked one of us</i>. He explains nothing."}
@@ -821,7 +821,7 @@ const SCENES = [
   setting:"The door gives, and the air in the sealed room is hot and close. Chalk lines across the floorboards, candle stubs burned down to nothing &mdash; and in the middle of it, something half-made drags itself upright.",
   pace:[
     "They open the warm door: <b>the summoning</b>, visibly incomplete. &#9876; Fight.",
-    "Every round, narrate it <b>clawing toward one sealed door down the hall</b>. That pull is the clue.",
+    "Every round, narrate it <b>clawing toward one sealed door down the hall</b>.",
     "Arcana 14: &#128275; <b>human-made, incomplete</b>. Who drew it stays open.",
     "On the kill: the monitor, the chime, <b>&ldquo;is someone there&rdquo;</b> (read-aloud). &#128275;"
   ],
@@ -838,7 +838,7 @@ const SCENES = [
   checks:[
     {skill:"Arcana", dc:"14", sug:true, note:"Recognize it as an <b>incomplete, human-made</b> summoning &mdash; the planted clue."}
   ],
-  fight:{name:"The botched summoning", rule:"It's bound to its room and <b>claws toward the sealed door</b> the whole fight. That pull is the clue.",
+  fight:{name:"The botched summoning", rule:"It's bound to its room and <b>claws toward the sealed door</b> the whole fight.",
     foes:[
       {id:"summon", nm:"The botched summoning", n:1, ac:13, hp:85,
        turn:["<b>Every turn</b> &rarr; first, strain toward the sealed door. It can't leave the room.",
@@ -902,7 +902,7 @@ const SCENES = [
     "<b>If John drops the Dolly Parton lie and performs as himself</b> &rarr; &#9995; hand John <b>Your True Voice</b>. The echoes cheer, the song ends, and Dracula bows them out. <b>If he stays masked</b> &rarr; Dracula sulks theatrically, steps aside and lets them go; the debuff stays."
   ],
   ends:"when the needle lifts and the echoes fade (read-aloud) &mdash; with Dracula bowing them out, or sulking aside.",
-  stuck:"If nobody steps up to sing, Dracula looks straight at Yobo and waits. He has all the time in the world. <span class='ai'>🟡</span>",
+  stuck:"If nobody steps up to sing, Dracula looks at Yobo and waits. <span class='ai'>🟡</span>",
   backup:"<b>Edward is Bix's father</b> &mdash; if Will doesn't get there from the photograph, Edward's epilogue in the driveway says it outright.",
   read:[{t:"The needle lifts. The echoes thin to nothing, and the room is dust and bottles again. <span class='ai'>🟡</span>"}],
   beats:[
@@ -932,7 +932,7 @@ const SCENES = [
     {by:"Dracula", who:"The party", t:"learn the truth about Yobo's origins <i>if</i> he drops the act for the song. What he says is John's call."}
   ],
   npcs:[
-    {nm:"Dracula", vc:"This room is his shrine: untouched since '79, the best night of his unlife. Campy and theatrical &mdash; and here, kind. Blocks the door for a song, sees through Yobo, and coaches him to drop the act. Sulks magnificently if refused. <span class='ai'>🟡</span>"},
+    {nm:"Dracula", vc:"This room is his shrine: untouched since '79, the best night of his unlife. Campy and theatrical &mdash; and here, kind. Blocks the door for a song, sees through Yobo, and coaches him to drop the act. Sulks if refused. <span class='ai'>🟡</span>"},
     {nm:"The echoes", vc:"Impressions of that night, not ghosts. They can't be spoken to; they laugh, dance and cheer, and fade when the music stops. <span class='ai'>🟡</span>"}
   ],
   reminders:[
@@ -940,43 +940,31 @@ const SCENES = [
   ],
   cues:["record","crowd","candle"] },
 
-{ act:"sunday", no:12, title:"The patient ledger &amp; the infirmary", where:"The cellar · Cody · badge req 2 of 3 · any-order room",
-  setting:"Stone steps down into the cellar: cold, damp, and the smell of straw and animals. Crates stacked in rows, each with a paper tag, Vinny's forty-year-old liquor crates at the very back &mdash; and one blade of daylight falling from somewhere high up.",
+{ act:"sunday", no:12, title:"The infirmary", where:"The cellar · Cody · badge req 2 of 3 · any-order room",
+  setting:"Stone steps down. A lamp is already lit. It smells of straw and something clean and sharp, like a doctor's office. There's an exam table, a fox in a splint asleep on a blanket, and an owl on a perch with one wing bound. Jars, bandages, a mortar. A ledger lies open on a lectern.",
   pace:[
-    "The crates hold <b>small animals, not people</b>. &#9995; A crate tag each time someone checks one.",
-    "&#9995; <b>Orlok's ledger</b> when they find it. The table matches tags to entries.",
-    "<b>One patient has no crate.</b> Following it leads to the hidden room.",
-    "The infirmary: <b>Orlok is a vet</b> (read-aloud). &#128275;",
-    "<b>Badge req 2</b>: Russ kneels to a patient, Speak with Animals &#128275;; blooms the Sun's-mercy in the blade of daylight; Orlok still won't sign (2 of 3)."
+    "Let them look around. It's plainly a clinic.",
+    "&#9995; <b>Orlok's ledger</b>, the printed page: a register of patients, with notes on the Sun's-mercy in the margin. &#128275; Orlok is a vet.",
+    "Russ can use <b>Speak with Animals</b>. The fox and the owl say the old one mends them, and they aren't afraid of him. &#128275; The vampires don't kill. This is the backup if nobody reads the ledger.",
+    "A tray of dead white seedlings leans toward a grate with one blade of daylight; the margin notes point to it. Russ moves them into the light (no roll, or Nature / Plant Growth for flair). They open gold, and he can treat a patient with one. <b>Badge req 2.</b>",
+    "Orlok stands at the foot of the stairs, at the edge of the light, watching. He still won't sign. <b>Refusal 2 of 3.</b>"
   ],
-  ends:"when the patients settle &mdash; and there's one door in this house they still haven't been through.",
-  hand:["<b>Orlok's ledger + crate tags (printed)</b>: the ledger folio (<code>/ledger/</code>) when they find it, and a crate tag (<code>/ledger/tags/</code>) each time someone checks a crate &mdash; they match the tags against the ledger."],
-  stuck:"<b>Russ's Speak with Animals is the shortcut</b>: the patients tell him the doe isn't in any crate, and which way she went. Full fail-forward in the ledger's DM notes (<code>/ledger/?dm=1</code>).",
-  backup:"<b>The vampires are good</b> &mdash; if the cellar goes sideways, the finale clears them anyway: they hear the recording with everyone else and are as horrified as the crowd.",
-  read:[{t:"Straw-lined crates, a fox in a splint, an owl with a wrapped wing. It isn't a slaughterhouse. It's a clinic."}],
-  beats:[
-    "The hidden room is an <b>animal infirmary, and Orlok is a vet.</b> Straw-lined crates of healing patients &mdash; a fox in a splint, an owl with a wrapped wing &mdash; bandages, a mortar and pestle, a ledger. He mends them; they give a little blood in return.",
-    "<b>Badge req 2: &ldquo;tend your elder's garden.&rdquo;</b> Russ kneels to a patient and <b>Speak with Animals is where the exoneration lands</b> &mdash; they're grateful, not afraid, and no vampire is required to vouch.",
-    "Dead ghost-white <b>Sun's-mercy</b> seedlings strain toward light that isn't there. Russ moves them into the cellar's one blade of daylight; they open gold and he dresses a wound. Orlok watches a child do in an afternoon what beat him for a century &mdash; and <b>still won't sign</b> (refusal 2 of 3)."
-  ],
+  ends:"when the flowers open and Orlok turns away.",
+  hand:["<b>Orlok's ledger</b> (<code>/ledger/</code>, the printed page) when they reach the lectern. <span class='ai'>🟡</span>"],
   checks:[
-    {skill:"The ledger", dc:"DM-run", sug:false, note:"Match the crate tags to the ledger. The patient with no crate leads to the hidden infirmary."},
-    {skill:"Nature / Plant Growth", dc:"14", sug:true, note:"Bloom the Sun's-mercy in the blade of daylight (or a spell slot)."},
-    {skill:"Speak with Animals", dc:"auto", sug:false, note:"The patients aren't prey &mdash; this is the beat that <b>exonerates the vampires</b>."}
+    {skill:"Speak with Animals", dc:"auto", sug:false, note:"The fox and the owl: the old one mends them, and they aren't afraid of him. <span class='ai'>🟡</span>"},
+    {skill:"Nature / Plant Growth", dc:"14", sug:true, note:"Optional, for flair. Moving the seedlings into the light is enough on its own. <span class='ai'>🟡</span>"}
   ],
   rev:[
-    {by:"scott", who:"Players", t:"learn the &ldquo;meals&rdquo; are <b>small animals, not people</b>, and the hidden room is a clinic &mdash; Orlok is a vet."},
-    {by:"The patients", who:"Russ", t:"learns through Speak with Animals that they're <b>grateful, not afraid</b>. This is where the vampires are cleared."},
-    {by:"Orlok", who:"Orlok", t:"watches a child bloom the Sun's-mercy he's failed at for a century. Play it, then refuse to sign anyway."}
+    {by:"scott", who:"Players", t:"learn from the ledger that <b>Orlok is a vet</b>: the animals down here are his patients."},
+    {by:"The patients", who:"Russ", t:"learns through Speak with Animals that the old one mends them and they aren't afraid of him. <b>The vampires don't kill.</b>"},
+    {by:"Orlok", who:"Orlok", t:"watches Russ bring the Sun's-mercy into flower. He still won't sign."}
   ],
   npcs:[
-    {nm:"Orlok", vc:"A vet, not a killer. Watches the kid succeed where he failed for a century. Cold. Refusal 2 of 3."},
-    {nm:"The patients", vc:"A fox in a splint, an owl with a wrapped wing. Only Russ can hear them (Speak with Animals)."}
+    {nm:"Orlok", vc:"At the foot of the stairs, at the edge of the light. Says little. Won't sign. <span class='ai'>🟡</span>"},
+    {nm:"The patients", vc:"A fox in a splint and an owl with a bound wing. Only Russ can understand them."}
   ],
-  reminders:[
-    {t:"Refusal 2 of 3.", k:""}
-  ],
-  cues:["heart","candle"] },
+  cues:["candle"] },
 
 { act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room", ipad:[3],
   setting:"The last door, at the end of the upstairs hall. Inside: coats heaped by the desk, a mic on a stand, cables everywhere, and an old beige computer that is somehow still on, an AIM sign-on box glowing on the screen. The air is stale; nobody has been in here in years.",
@@ -1206,7 +1194,7 @@ const SCENES = [
   ends:"on the room not reacting. This is the end. Breathe.",
   read:[{who:"Let a player say it", t:"&ldquo;&hellip;and yeah that was our class project.&rdquo;"}],
   beats:[
-    "They recover an ancient Dutch <b>artifact</b> (after the boss fight or with the vamps' help), the real-estate company is <b>scared off the land</b>, and they present in class &mdash; closing scene one's loop. <b>Play them battered;</b> nobody reacts, which is the joke.",
+    "They recover an ancient Dutch <b>artifact</b> (after the boss fight or with the vamps' help), the real-estate company is <b>scared off the land</b>, and they present in class &mdash; closing scene one's loop. <b>Play them battered.</b> Nobody in class reacts.",
     "Gnomey leads the gang and fronts for the vampires as the one who can stand in daylight. He takes no rent and asks nothing &mdash; same as Vinny."
   ],
   npcs:[],
