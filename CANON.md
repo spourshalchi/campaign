@@ -178,7 +178,7 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 - **Orlok still signs the requirements card**; the troop leader hands over the badge. The notes only give the
   troop leader the hand-over.
 - ~~**The six differences in `/party-room/`**~~ — cut with the spot-the-difference; the prop is deleted (`Scott, 3 Nov`).
-- **The concert tickets in `/tickets/`** — the holder line *LIVINGSWORTH III / UPTON M* (his real name, so
+- **The concert tickets** (print kit only; `/tickets/` is retired) — **✅ signed off, `Scott, 3 Nov`.** Was: the holder line *LIVINGSWORTH III / UPTON M* (his real name, so
   Simone reads whose tickets these were), the $27.50 + fees price, the ticket and event codes and the small
   print are the prop's choices. So are the venue (**Transyltown Armory**), the date (**Sat Jun 25 2005**, read off
   Character Bios' "in town at the end of the school year") and the doors/show times. The band prints as
