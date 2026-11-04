@@ -100,7 +100,7 @@
      The DM's Run of Show says "iPad → item N"; the number is the whole interface. */
   .list {
     display: flex; flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     margin: 0; padding: 0; list-style: none;
   }
   .tile {
@@ -112,7 +112,7 @@
     border: 2px outset #d4d0c8;
     text-decoration: none;
     color: #111;
-    min-height: clamp(84px, 13dvh, 120px);
+    min-height: clamp(72px, 11dvh, 110px);
     cursor: pointer;
   }
   .tile:active {
@@ -121,15 +121,15 @@
   }
   .tile .num {
     flex: 0 0 auto;
-    width: clamp(68px, 11dvh, 100px);
+    width: clamp(60px, 9.5dvh, 92px);
     align-self: stretch;
-    min-height: 64px;
+    min-height: 56px;
     background: linear-gradient(180deg, #fffce0 0%, #ffcc00 100%);
     border: 2px outset #fff5b0;
     display: flex; align-items: center; justify-content: center;
     font-family: Tahoma, Geneva, sans-serif;
     font-weight: bold;
-    font-size: clamp(48px, 9dvh, 80px);
+    font-size: clamp(42px, 7.5dvh, 72px);
     line-height: 1;
     color: #3a2400;
     text-shadow: 2px 2px 0 rgba(255,255,255,0.6);
@@ -183,7 +183,7 @@
     </div>
     <div class="body">
       <p class="greeting">
-        Welcome back. <b>5 programs installed.</b> Open the one you&rsquo;re told to.
+        Welcome back. <b>6 programs installed.</b> Open the one you&rsquo;re told to.
       </p>
       <!-- Story order. Only props the table touches on the iPad; printed props and
            DM pages stay off. Names are rooms, never plot. Renumber run/index.html's
@@ -201,13 +201,16 @@
         <li><a class="tile" href="party-room/" aria-label="Item 4: The Party">
           <span class="num">4</span><span class="name">The Party</span><span class="open">Open</span>
         </a></li>
-        <li><a class="tile" href="aim/" aria-label="Item 5: The Computer">
-          <span class="num">5</span><span class="name">The Computer</span><span class="open">Open</span>
+        <li><a class="tile" href="ledger/" aria-label="Item 5: The Cellar">
+          <span class="num">5</span><span class="name">The Cellar</span><span class="open">Open</span>
+        </a></li>
+        <li><a class="tile" href="aim/" aria-label="Item 6: The Computer">
+          <span class="num">6</span><span class="name">The Computer</span><span class="open">Open</span>
         </a></li>
       </ol>
     </div>
     <div class="statusbar">
-      <span>5 programs · 0 errors</span>
+      <span>6 programs · 0 errors</span>
       <span>online</span>
     </div>
   </div>

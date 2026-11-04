@@ -32,13 +32,15 @@ on a wide enough screen each zone scrolls on its own, and below 700px they stack
 - **📱 iPad → item N** — which numbered item to open on the players' iPad.
 - **🗂 Floating** — on every mansion cue: the sticky note and the site survey, each with a handed-over checkbox (saved on the device).
 - **Read aloud** — the boxed teleprompter narration.
-- **⚔ Combat: run it at the table** — fights are run off-screen; the cue keeps only the fight's name and its one story rule.
+- **⚔ Combat** — rolls, initiative and turn order stay at the table. The cue gives the fight's story rule and an **enemy turn card** per enemy type: what it does in priority order, its attacks (to-hit, damage), AC, special rules, and a tap-to-subtract HP tracker per enemy (kept while you flip cues). Numbers are 🟡 drafts from the codex encounters.
+- **🪢 If stuck / ↪ Backup path** — a fail-forward on every puzzle, and a second route to each big reveal.
 - **🔓 Reveals** — what someone learns from Scott's narration or a prop.
 - **Reminders** — rules (⚠) and level-ups (⬆) tied to that moment.
 - **The beats**, **skill checks** (`*` = proposed DC) and **sound cues** (highlighted on the board too).
 
 **SPENCER · voice** (pink, right)
 - **Lines** — the dialogue script: who says what.
+- **IF blocks** — lines that only play on a condition (Marcus over the speakers, if Simone paid the goat).
 - **NPCs** — everyone in the scene with a one-line voicing, and the **🔓 Reveals** they deliver or react to.
 
 **🔓 Reveal** markers say who learns what: the players, one PC, or an NPC. When one fires,

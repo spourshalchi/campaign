@@ -8,7 +8,7 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 
 ```
 .
-├── index.html        ← iPad home: numbered items 1–5 in story order
+├── index.html        ← iPad home: numbered items 1–6 in story order
 ├── aim/              ← Haunted AOL Instant Messenger prop
 │   ├── index.html
 │   └── sounds/
@@ -45,7 +45,7 @@ The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
 
 ## The iPad home page
 
-The landing page is what the players' iPad shows all night: five big numbered items in the order the story reaches them, labelled by room so nothing on the page spoils a scene. The [Run of Show](run/) puts **📱 iPad → item N** at the top of every cue that needs one, so the DM just taps the number.
+The landing page is what the players' iPad shows all night: six big numbered items in the order the story reaches them, labelled by room so nothing on the page spoils a scene. The [Run of Show](run/) puts **📱 iPad → item N** at the top of every cue that needs one, so the DM just taps the number.
 
 | # | Tile | Prop | Cue |
 |---|------|------|-----|
@@ -53,9 +53,10 @@ The landing page is what the players' iPad shows all night: five big numbered it
 | 2 | The Study | `settlement/` | 10 · the study |
 | 3 | The Photograph | `photo/` — the back of the photo | 11 · the party room |
 | 4 | The Party | `party-room/` — spot the difference | 11 · the party room |
-| 5 | The Computer | `aim/` | 13 · the old rig upstairs, always last |
+| 5 | The Cellar | `ledger/` — Orlok's patient ledger | 12 · the cellar |
+| 6 | The Computer | `aim/` | 13 · the old rig upstairs, always last |
 
-Sunday's three rooms run in any order, so 2 and 3–4 can swap at the table; the numbers stay put. Item 5 opens AIM with the dead kid already named Marcus Hale (the drive mounts as `MARCUS_HALE`); `aim/?name=` still overrides it. Printed props and the DM pages (codex, run, print) are deliberately not on it.
+Sunday's three rooms run in any order, so 2, 3–4 and 5 can swap at the table; the numbers stay put. Item 6 opens AIM with the dead kid already named Marcus Hale (the drive mounts as `MARCUS_HALE`); `aim/?name=` still overrides it. Printed props and the DM pages (codex, run, print) are deliberately not on it.
 
 ## Current props
 

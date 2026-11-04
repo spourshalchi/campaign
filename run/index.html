@@ -167,6 +167,49 @@
   .fight .fn{font-family:var(--f-disp);font-size:17px;color:var(--ink)}
   .fight .fr{flex-basis:100%;font-size:14.5px;color:#ffd9de;line-height:1.45}
 
+  .fight .fr .ai{font-size:12px}
+  /* enemy turn cards */
+  .foes{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin:0 0 14px}
+  .foe{background:#1a0f14;border:1px solid #4a2530;border-radius:12px;padding:10px 12px}
+  .foe-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+  .foe-n{font-family:var(--f-disp);font-size:18px;color:#ffd9de;flex:1;min-width:0}
+  .foe-x{font-family:var(--f-mono);font-size:14px;color:var(--blood)}
+  .foe-s{font-family:var(--f-mono);font-size:14px;color:var(--mut)}
+  .foe-s b{color:var(--gold)}
+  .foe .ai{font-size:12px}
+  .foe-l{margin:4px 0 2px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:700}
+  ol.foe-turn{margin:0 0 8px;padding-left:20px;font-size:14px;line-height:1.45;color:var(--ink)}
+  ol.foe-turn li{margin-bottom:3px}
+  ol.foe-turn b{color:#ffb3bf}
+  .foe-atk{display:flex;flex-direction:column;gap:3px;font-size:14px;margin-bottom:6px}
+  .foe-atk div{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;padding:4px 8px;background:#0000004d;border-radius:6px}
+  .foe-atk .hit{font-family:var(--f-mono);color:var(--gold)}
+  .foe-sp{margin:0 0 8px;font-size:14px;line-height:1.45;color:var(--mut)}
+  .foe-sp b{color:var(--ink)}
+  .hps{display:flex;flex-direction:column;gap:5px}
+  .hpt{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .hpt .hpl{font-family:var(--f-mono);font-size:13px;color:var(--dim);min-width:22px}
+  .hpt .hpv{font-family:var(--f-mono);font-size:20px;font-weight:700;color:var(--green);min-width:38px;text-align:right}
+  .hpt .hpm{font-family:var(--f-mono);font-size:13px;color:var(--dim);margin-right:auto}
+  .hpt button{min-width:44px;height:36px;border-radius:8px;border:1px solid #4a2530;background:#2a141b;color:#ffd9de;
+    font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+  .hpt button:active{transform:translateY(1px)}
+  .hpt.down .hpv{color:var(--blood);text-decoration:line-through}
+  /* 🪢 / ↪ safety nets */
+  .net{display:flex;gap:10px;align-items:baseline;font-size:14.5px;line-height:1.45;padding:8px 12px;margin:0 0 8px;
+    border-radius:10px;background:rgba(91,155,213,.08);border:1px dashed var(--blue);color:var(--ink)}
+  .net .nk{flex:0 0 auto;font-weight:800;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--blue);white-space:nowrap}
+  .net.bk{background:rgba(162,121,245,.08);border-color:var(--purple)}
+  .net.bk .nk{color:var(--purple)}
+  .net .ai{font-size:12px}
+  .net + .revs, .net + .foes, .net + .fight{margin-top:6px}
+  /* Spencer's IF block */
+  .ifb{border:2px dashed var(--pink);border-radius:12px;padding:10px 12px;margin:0 0 14px;background:rgba(236,122,192,.05)}
+  .ifb .ifw{margin:0 0 4px;font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--pink)}
+  .ifb .ifs{margin:0 0 8px;font-size:14.5px;color:var(--ink)}
+  .ifb .talk{margin-bottom:8px}
+  .ifb .ifo{margin:0;font-size:14px;color:var(--mut)}
+
   /* 🔓 reveals */
   .revs{margin:0 0 14px}
   .revs .rh{margin:0 0 6px;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
@@ -387,7 +430,9 @@ const IPAD = {
      when:"Only once Will has the printed photo. They tap to turn it over."},
   4:{room:"The Party",      prop:"the frozen party, spot the difference", path:"/party-room/",
      when:"The printed photo is the key. Stuck table: the DM tab's <code>nudge</code>."},
-  5:{room:"The Computer",   prop:"AIM, the Spirit",                     path:"/aim/",
+  5:{room:"The Cellar",     prop:"Orlok's patient ledger",              path:"/ledger/",
+     when:"Match the crate tags to the entries. One patient has no crate &mdash; that's the way to the hidden room."},
+  6:{room:"The Computer",   prop:"AIM, the Spirit",                     path:"/aim/",
      when:"Opens as <b>Marcus Hale</b>; the drive mounts as <code>MARCUS_HALE</code>. To force the name, open <code>/aim/?name=Marcus%20Hale</code>."}
 };
 
@@ -421,8 +466,9 @@ const SCENES = [
     "Only <b>five people</b> are invited (7PM card). The <b>3AM flyer is public</b> — that's when the house fills up for the show. Poe Boy sells the whole night as a <b>concert</b>; what he's really after is his samples.",
     "<b>One laptop, two zones.</b> Every cue splits in two: <b style=\"color:var(--gold)\">SCOTT · narrate</b> on the left (hand-overs, the iPad item, read-aloud, beats, checks) and <b style=\"color:var(--pink)\">SPENCER · voice</b> on the right (who's in the scene, how they sound, their lines). Each side scrolls on its own.",
     "<b>🔓 Reveal</b> markers flag the moment someone learns something they didn't know &mdash; the players, one PC, or an NPC. Each one sits in the zone of whoever delivers it or has to react. When one fires, <b>both of you play the reaction</b>. They're 🟡 AI staging until Scott signs off.",
-    "<b>⚔ Combat runs at the table</b>, off this screen. A fight cue just names the fight and its one story rule.",
-    "<b>📱 The iPad lives on its home page</b> (<code>/</code>) all night: five big numbered items, in story order. A cue that needs one opens with a blue <b>iPad &rarr; item N</b> bar. Tap N, hand it over, and go back to the home page when the scene's done. Sunday's rooms run in any order, so 2 and 3&ndash;4 can swap &mdash; go by the number on the cue." +
+    "<b>⚔ Rolls, initiative and turn order stay at the table.</b> A fight cue gives you the story rule and an <b>enemy turn card</b> per enemy type: what it does, in priority order, its attacks, AC and a tap-to-subtract HP tracker. Numbers are 🟡 drafts.",
+    "<b>🪢 If stuck</b> lines are fail-forwards for puzzles; <b>↪ Backup</b> lines give each big reveal a second way in.",
+    "<b>📱 The iPad lives on its home page</b> (<code>/</code>) all night: six big numbered items, in story order. A cue that needs one opens with a blue <b>iPad &rarr; item N</b> bar. Tap N, hand it over, and go back to the home page when the scene's done. Sunday's rooms run in any order, so 2, 3&ndash;4 and 5 can swap &mdash; go by the number on the cue." +
       `<div class="ipad-key">${Object.keys(IPAD).map(n=>`<span class="k">${n}</span><span><b>${IPAD[n].room}</b> &mdash; ${IPAD[n].prop} <code>${IPAD[n].path}</code></span>`).join("")}</div>`
   ],
   hand:[
@@ -432,10 +478,10 @@ const SCENES = [
   npcs:[],
   reminders:[
     {t:"<b>One physical prop per PC:</b> Bix &mdash; the printed photograph &middot; Gnomey &mdash; the printed deed (Vinny hands it over at the end) &middot; Simone &mdash; the wishing willow &middot; Russ &mdash; badge + card &middot; Yobo &mdash; <b>still undecided</b>.", k:"hand"},
-    {t:"<b>Pack list</b>, in hand-over order: invite cards (cue 2) &middot; the sticky note and the site survey (floating, cues 5&ndash;13) &middot; the printed photograph (cue 11) &middot; the wishing willow and the USB stick labelled <code>MARCUS_HALE</code> (cue 13) &middot; the deed, the concert tickets and a real merit badge (cue 15). Each cue says <b>✋ Hand over</b> when it's time.", k:""},
+    {t:"<b>Pack list</b>, in hand-over order: invite cards (cue 2) &middot; the mansion map (cue 5) &middot; the sticky note and the site survey (floating, cues 5&ndash;13) &middot; the printed photograph (cue 11) &middot; the crate tags (cue 12) &middot; the wishing willow and the USB stick labelled <code>MARCUS_HALE</code> (cue 13) &middot; the deed, the concert tickets and a real merit badge (cue 15). Each cue says <b>✋ Hand over</b> when it's time.", k:""},
     {t:"Keep the <b>printed deed</b> out of sight until Vinny hands it to Gnomey in the ending scene.", k:"rule"},
     {t:"<b>Print run:</b> everything is in the print kit at <code>/print/</code> — <code>1-cardstock.pdf</code> (invites, deed, badge card + badge, tickets, backstory cards) and <code>2-photo-gloss.pdf</code> (the photograph). Not printed: DJ poster (Spencer), sticky note and wishing willow (handmade).", k:"hand"},
-    {t:"<b>iPad on the home page</b>, numbered items 1&ndash;5 showing. Item 5 already names the kid Marcus Hale.", k:""}
+    {t:"<b>iPad on the home page</b>, numbered items 1&ndash;6 showing. Item 6 already names the kid Marcus Hale.", k:""}
   ],
   cues:[] },
 
@@ -478,6 +524,7 @@ const SCENES = [
   cues:[] },
 
 { act:"town", no:3, title:"The library &amp; hall of records", where:"Town · the clincher · Saturday's town fight", ipad:[1],
+  stuck:"If the jigsaw stalls past ten minutes, the Records Keeper <b>remembers the page-2 lore</b> and tells it. The folklore is what matters, not the finished picture.",
   talk:[{who:"Records Keeper · after the fight", t:"You can try to put it back together. But I'm guessing, by the magic on them &mdash; someone doesn't want you finding that information."}],
   rev:[
     {by:"scott", who:"Players", t:"learn the vampire-slaying method from the folklore: dig up the coffins, stake the heart, rebury."},
@@ -497,7 +544,26 @@ const SCENES = [
     {skill:"Investigation / History", dc:"12", sug:true, note:"Assemble the slaying method from the folklore: coffins, stake, rebury."},
     {skill:"Insight", dc:"13", sug:true, note:"Clock that the Records Keeper is genuinely <b>warning</b> them, not flavor."}
   ],
-  fight:{name:"The trap in the binding", rule:"The shears go for the article, not the party. It <b>contains and erases; it does not kill.</b> Count the cuts &mdash; they set the puzzle."},
+  fight:{name:"The trap in the binding", rule:"The shears go for the article, not the party. It <b>contains and erases; it does not kill.</b> Count the cuts &mdash; they set the puzzle.",
+    foes:[
+      {id:"shears", nm:"Archival shears", n:2, ac:14, hp:19,
+       turn:["<b>If a PC is physically in its lane</b> &rarr; Snip that PC (it can't reach the article this turn).",
+             "<b>Otherwise</b> &rarr; fly 30 ft to the article and <b>cut it</b>. No roll. <b>Tally +1 cut.</b>",
+             "Never goes after anyone who isn't in the way."],
+       atk:[["Snip","+4","1d6+2 slashing"]],
+       sp:"Flies 30 ft. The first cut happened before initiative &mdash; it's already on the tally."},
+      {id:"cards", nm:"Swarm of index cards", n:1, ac:12, hp:22,
+       turn:["<b>If a PC is blocking a shears lane</b> &rarr; engulf them: Paper cuts.",
+             "<b>Otherwise</b> &rarr; whirl around the nearest PC: Blizzard."],
+       atk:[["Paper cuts","+4","2d4 slashing (1d4 under half HP)"],["Blizzard","&mdash;","one PC in its space: disadvantage on attacks until its next turn"]],
+       sp:"It's paper: <b>fire does double</b>. Resists bludgeoning, piercing and slashing."},
+      {id:"cart", nm:"The book cart", n:1, ac:13, hp:30,
+       turn:["<b>If a PC is blocking a shears lane</b> &rarr; Ram them out of it.",
+             "<b>Otherwise</b> &rarr; roll into the nearest PC: Ram."],
+       atk:[["Ram","+4","2d6+2 bludgeoning, push 10 ft"]],
+       sp:"The bruiser. Its job is clearing lanes for the shears."}
+    ],
+    note:"Nobody dies here: a PC at 0 HP is knocked out and stable."},
   npcs:[
     {nm:"Records Keeper", vc:"The Harbinger with a modern spin. Hands over the volume intact, then warns them off. Beyond that, unwritten &mdash; play to taste."}
   ],
@@ -537,6 +603,7 @@ const SCENES = [
   cues:["crowd"] },
 
 { act:"night", no:5, title:"Enter Dood Mansion", where:"The trap springs · everything from here is inside",
+  hand:["<b>The mansion map</b> (<code>/map/</code>) &mdash; the first time they're inside and can look around."],
   read:[{t:"That's a bolt throwing behind you. Footsteps overhead &mdash; and a hand comes out of the dark, grabs your sleeve, and pulls you down. It's <b>Angelique</b>."}],
   beats:[
     "They go in on pure curiosity, <b>through a front door boarded for decades that isn't any more</b> &mdash; and the doors bolt shut behind them.",
@@ -588,7 +655,16 @@ const SCENES = [
     {skill:"Stealth", dc:"13", sug:true, note:"Hide when Angelique pulls them down; then recurring &mdash; eventually someone rolls badly."},
     {skill:"Insight", dc:"&mdash;", sug:false, note:"They'll <b>misread</b> this as being hunted. Good. Let them. The mechanics are the real clue: the monsters never roll damage."}
   ],
-  fight:{name:"First contact &mdash; a pressure scene, not a fight", rule:"<b>The vampires can't kill a PC.</b> Grapple, shove, frighten: no Bite, no damage, nobody below 1 HP. The rule is the clue."},
+  fight:{name:"First contact &mdash; a pressure scene, not a fight", rule:"<b>The vampires can't kill a PC.</b> Grapple, shove, frighten: no Bite, no damage, nobody below 1 HP. The rule is the clue.",
+    foes:[
+      {id:"dracula", nm:"Dracula &mdash; grapple / shove", n:1, ac:16, hp:0,
+       turn:["<b>If Orlok speaks</b> &rarr; stop instantly, let go, step back.",
+             "<b>If he's holding a PC</b> &rarr; Shove them 10 ft toward the others, or pin them and loom.",
+             "<b>If a PC fails a Stealth check</b> &rarr; swoop 40 ft and Grapple them.",
+             "<b>Otherwise</b> &rarr; circle, sniff the air, enjoy himself."],
+       atk:[["Grapple","Athletics +7","grappled (escape DC 15) &mdash; no damage"],["Shove","Athletics +7","10 ft or prone &mdash; no damage"]],
+       sp:"<b>No Bite. No damage. Nobody drops.</b> He has no HP to track &mdash; nobody's fighting him."}
+    ]},
   npcs:[
     {nm:"Dracula", vc:"Campy, theatrical, lays hands on them &mdash; and enjoys it far too much. Stops the instant Orlok speaks."},
     {nm:"Orlok", vc:"Patience, not menace. Impeccable courtesy while doing something appalling. One syllable is the whole hierarchy."},
@@ -653,7 +729,21 @@ const SCENES = [
   checks:[
     {skill:"Arcana", dc:"14", sug:true, note:"Recognize it as an <b>incomplete, human-made</b> summoning &mdash; the planted clue."}
   ],
-  fight:{name:"The botched summoning", rule:"It's bound to its room and <b>claws toward the sealed door</b> the whole fight. That pull is the clue."},
+  fight:{name:"The botched summoning", rule:"It's bound to its room and <b>claws toward the sealed door</b> the whole fight. That pull is the clue.",
+    foes:[
+      {id:"summon", nm:"The botched summoning", n:1, ac:13, hp:85,
+       turn:["<b>Every turn</b> &rarr; first, strain toward the sealed door. It can't leave the room.",
+             "<b>If its recharge comes up (5&ndash;6)</b> &rarr; Unfinished Word at the most PCs it can catch.",
+             "<b>If a PC is within reach</b> &rarr; Claw twice, the closest PC first.",
+             "<b>Otherwise</b> &rarr; drag itself toward the door and claw at it."],
+       atk:[["Claw (&times;2)","+6","2d6+4 slashing"],["Unfinished Word (recharge 5&ndash;6)","DC 13 Wis","15-ft cone, 3d8 psychic and frightened to its next turn; half and no fear on a save"]],
+       sp:"Visibly incomplete &mdash; a gap in it where something was never drawn. <b>When it dies</b>, read the monitor line and end the night."},
+      {id:"frag", nm:"Ritual fragments", n:4, ac:12, hp:13,
+       turn:["<b>If a PC is hitting the summoning</b> &rarr; grab at that PC.",
+             "<b>Otherwise</b> &rarr; drift to the nearest PC and grab."],
+       atk:[["Grab","+4","1d8+2 necrotic"]],
+       sp:"Chalk-scrawl things. They crumble at 0 HP."}
+    ]},
   npcs:[],
   reminders:[
     {t:"<b>End of session one &mdash; everyone levels to 5.</b>", k:"level"},
@@ -662,6 +752,8 @@ const SCENES = [
   cues:["heart","jump","aim","levelup"] },
 
 { act:"sunday", no:10, title:"The study", where:"Sunday morning · Gnomey · any-order room", ipad:[2],
+  stuck:"Point at the <b>empty slot in the strongbox</b> and read the bearer paragraph aloud.",
+  backup:"<b>Gnomey owns the house</b> &mdash; if he misses the bearer clause here, Vinny says it as he hands over the deed: <i>&ldquo;Whoever's holding this owns the place. Now that's you.&rdquo;</i>",
   read:[{t:"He's read it three times. The man who won this house is his great-uncle &mdash; and whoever holds the deed owns it. The deed isn't here."}],
   beats:[
     "Sunday opens on <b>three per-PC rooms in any order.</b> This one is Gnomey's.",
@@ -686,6 +778,8 @@ const SCENES = [
   cues:[] },
 
 { act:"sunday", no:11, title:"The party room", where:"Sunday · Bix &amp; Yobo · any-order room", ipad:[3,4],
+  stuck:"Tap <code>nudge</code> on the party-room DM tab &mdash; it rings one difference. Or Dracula, bored, puts one right himself.",
+  backup:"<b>Edward is Bix's father</b> &mdash; if Will doesn't get there from the photograph, Edward's epilogue in the driveway says it outright.",
   read:[{t:"The photograph's in hand and the ghost-party has gone still again."}],
   beats:[
     "The night Edward and Goblinenon's cart broke down and they found two vampires partying. Bottles, a record still on the turntable, forty years of dust on somebody's good night.",
@@ -714,17 +808,21 @@ const SCENES = [
   ],
   cues:["record","crowd","candle","braaam"] },
 
-{ act:"sunday", no:12, title:"Food-stash puzzle &amp; the infirmary", where:"The cellar · Cody · badge req 2 of 3 · any-order room",
+{ act:"sunday", no:12, title:"The patient ledger &amp; the infirmary", where:"The cellar · Cody · badge req 2 of 3 · any-order room", ipad:[5],
+  hand:["<b>The crate tags</b> &mdash; one per crate, to match against Orlok's ledger on iPad item 5."],
+  stuck:"<b>Russ's Speak with Animals is the shortcut</b>: a patient tells him which crate is missing its neighbour, and where they took him.",
+  backup:"<b>The vampires are good</b> &mdash; if the cellar goes sideways, the finale clears them anyway: they hear the recording with everyone else and are as horrified as the crowd.",
   read:[{t:"Straw-lined crates, a fox in a splint, an owl with a wrapped wing. It isn't a slaughterhouse. It's a clinic."}],
   beats:[
-    "A puzzle reveals the vampires' food stash &mdash; the surprise being it's <b>small animals, not people</b>. Solving it releases a key to a hidden room. <b>This is the proof that clears the vamps.</b>",
+    "<b>The food stash is crates of small animals, not people.</b> Each crate has a tag. Hand over the tags; the table matches each one to an entry in <b>Orlok's patient ledger</b> (iPad item 5).",
+    "<b>One patient on the ledger has no crate.</b> Following that patient leads to the hidden room. <b>This is the proof that clears the vamps.</b>",
     "The hidden room is an <b>animal infirmary, and Orlok is a vet.</b> Straw-lined crates of healing patients &mdash; a fox in a splint, an owl with a wrapped wing &mdash; bandages, a mortar and pestle, a ledger. He mends them; they give a little blood in return.",
     "(Vinny's forty-year-old liquor crates are still stacked at the back &mdash; this is Gnomey's cellar too.)",
     "<b>Badge req 2: &ldquo;tend your elder's garden.&rdquo;</b> Russ kneels to a patient and <b>Speak with Animals is where the exoneration lands</b> &mdash; they're grateful, not afraid, and no vampire is required to vouch.",
     "Dead ghost-white <b>Sun's-mercy</b> seedlings strain toward light that isn't there. Russ moves them into the cellar's one blade of daylight; they open gold and he dresses a wound. Orlok watches a child do in an afternoon what beat him for a century &mdash; and <b>still won't sign</b> (refusal 2 of 3)."
   ],
   checks:[
-    {skill:"The puzzle", dc:"DM-run", sug:false, note:"Solve it to release the key to the hidden room."},
+    {skill:"The ledger", dc:"DM-run", sug:false, note:"Match the crate tags to the ledger. The patient with no crate leads to the hidden infirmary."},
     {skill:"Nature / Plant Growth", dc:"14", sug:true, note:"Bloom the Sun's-mercy in the blade of daylight (or a spell slot)."},
     {skill:"Speak with Animals", dc:"auto", sug:false, note:"The patients aren't prey &mdash; this is the beat that <b>exonerates the vampires</b>."}
   ],
@@ -742,7 +840,9 @@ const SCENES = [
   ],
   cues:["heart","candle"] },
 
-{ act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room", ipad:[5],
+{ act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room", ipad:[6],
+  stuck:"Password: the sticky note. If they never found it, it's tucked in the monitor bezel. Any capitalisation works, unlimited tries.",
+  backup:"<b>Poe Boy killed Marcus</b> &mdash; if the chat stalls or Simone logs off early, the recording at the decks proves it to everyone. The USB can't be destroyed, so it always plays.",
   read:[
     {who:"The door opens · when the table is ready", t:"From down the hall, faint and tinny: the old AIM chime. Then the lock on the door with the poster clicks open &mdash; and nobody touched it."},
     {who:"Ending the room", t:"It's three in the morning &mdash; and every speaker in this house just came on at once."}
@@ -810,7 +910,23 @@ const SCENES = [
     "Then the party kills him &mdash; converting &ldquo;not our enemy&rdquo; into &ldquo;the people who solved our actual problem, in front of us.&rdquo; <b>Two moments, not one.</b>",
     "He's the <b>only death in the story</b> and the only one who isn't a monster. Self-defence &mdash; he sealed them in and attacked first &mdash; but these are teenagers. <b>Let it have its silence before the comedy starts.</b>"
   ],
-  fight:{name:"The developer breaches", rule:"<b>The only lethal fight.</b> Ostrander seals the exits behind him, his own crew included. His death flips the vampires &mdash; no persuasion check."},
+  fight:{name:"The developer breaches", rule:"<b>The only lethal fight.</b> Ostrander seals the exits behind him, his own crew included. His death flips the vampires &mdash; no persuasion check.",
+    foes:[
+      {id:"ostrander", nm:"W. Ostrander, abjurer", n:1, ac:15, hp:78,
+       turn:["<b>If an exit is still open</b> &rarr; Seal it (action). One door or window, barred for good.",
+             "<b>If a PC casts a spell</b> &rarr; Counterspell (reaction, 3/day).",
+             "<b>If an attack would hit him</b> &rarr; Shield (reaction, +5 AC).",
+             "<b>If a PC is hurting him</b> &rarr; Hold Person on them (DC 15 Wis, concentration).",
+             "<b>Otherwise</b> &rarr; step back behind the thugs; Dagger if cornered."],
+       atk:[["Dagger","+5","1d4+2 piercing"],["Hold Person","DC 15 Wis","paralysed, save each turn"]],
+       sp:"<b>Arcane Ward 30</b>: soaks damage before his HP; regains 2 &times; spell level whenever he casts Shield, Counterspell or Seal. <b>No damage spells, ever.</b> Spell save DC 15."},
+      {id:"thug", nm:"Thugs", n:6, ac:11, hp:32,
+       turn:["<b>If a vampire is on them</b> &rarr; fight the vampire. Two of them get eaten &mdash; narrate it.",
+             "<b>If Ostrander is in melee</b> &rarr; move to body-block for him.",
+             "<b>Otherwise</b> &rarr; two Mace attacks on the nearest PC."],
+       atk:[["Mace (&times;2)","+4","1d6+2 bludgeoning"]],
+       sp:"<b>Pack tactics</b>: advantage if an ally is next to the target. Sealed in with everyone else."}
+    ]},
   npcs:[
     {nm:"DJ Poe Boy", vc:"On the mic in borrowed lines. An Enthralling Performance holds the 3AM crowd &mdash; he needs them frightened and he needs them to stay."},
     {nm:"W. Ostrander", vc:"An adult with a clipboard. Within four seconds it stops being folklore and becomes a contamination problem on a site he's paid for. Brushes off Poe Boy's recruit pitch."}
@@ -826,23 +942,50 @@ const SCENES = [
 { act:"finale", no:"14 · ii", title:"Climax — Phase 2: the booth", where:"The ballroom decks · badge req 3 of 3",
   read:[
     {who:"The objective", t:"Get the USB to the decks and get on aux."},
+    {who:"When the USB hits the decks · narrate the recording 🟡", t:"Typing. A door shuts. Then a kid &mdash; twelve, maybe &mdash; scared, asking someone to open it. Asking again, quieter. And under all of it, perfectly calm, Poe Boy: nudging a level up, leaning in close to listen, pleased with how clean it sounds."},
+    {who:"Then let it sit", t:"The speakers hiss. Nobody in the ballroom moves."},
     {who:"On the last turn", t:"Headlights swing across the ballroom windows. Someone has pulled into the drive. &mdash; &ldquo;Upton, honey?&rdquo;"}
   ],
+  ifblock:{when:"IF Simone paid the goat", say:"Spencer voices <b>Marcus</b> through every speaker in the house. Lowercase, the way he typed.",
+    lines:[
+      {who:"Marcus · to Poe Boy", t:"you said you'd open it."},
+      {who:"Marcus · to Poe Boy", t:"i kept asking. you kept recording. you wrote GOOD on it."},
+      {who:"Marcus · to the vampires", t:"i didn't go out a window. i was upstairs. the whole time."},
+      {who:"Marcus · last", t:"ok. you can turn it off now."}
+    ],
+    otherwise:"If she said no, skip it. The room has already turned; the ending loses nothing."},
   beats:[
     "The developer's dead and <b>the vampires turn &mdash; no persuasion check</b>. Party plus three vampires against Poe Boy and Lil Stinky.",
     "<b>Objective:</b> the USB starts <b>upstairs in the old rig</b> and has to reach the ballroom. <b>The map is the encounter.</b>",
     "Stinky's <b>Aura of Protection</b> buffs Poe Boy's saves &mdash; a puzzle, not a wall. <b>He isn't charmed; he just believes his friend.</b>",
     "Poe Boy spends his turns on <i>Command</i> &mdash; &ldquo;Drop.&rdquo; &mdash; to keep the drive off the decks. A delay, not a fail state, and <b>the USB can't be destroyed.</b>",
-    "Then it plays in full: typing, a door, screaming &mdash; and under it Poe Boy's own voice staying calm and adjusting a level. <b>Stinky's oath breaks with no save.</b> Silence, one boo, then the whole room. Dracula seizes the mic. Poe Boy's Command stops landing.",
+    "<b>There's no audio file &mdash; you narrate it.</b> Read the recording slowly, then stop. <b>Stinky's oath breaks with no save.</b> Silence, one boo, then the whole room. Dracula seizes the mic. Poe Boy's Command stops landing.",
     "<b>Badge req 3: &ldquo;give care when someone is hurting.&rdquo;</b> With the vampires taking hits, Russ heals one under fire &mdash; the box that proves the bond, the one Orlok finally signs."
   ],
   checks:[
     {skill:"Get to / hold the decks", dc:"objective", sug:false, note:"The keep-away is the fight. Deal with Stinky to drop the aura, then plug in."}
   ],
-  fight:{name:"The ballroom decks", rule:"<b>The USB can't be destroyed</b> &mdash; Command (&ldquo;Drop.&rdquo;) only costs time. When it plays, <b>Stinky's oath breaks with no save.</b>"},
+  fight:{name:"The ballroom decks", rule:"<b>The USB can't be destroyed</b> &mdash; Command (&ldquo;Drop.&rdquo;) only costs time. When it plays, <b>Stinky's oath breaks with no save.</b>",
+    foes:[
+      {id:"poeboy", nm:"DJ Poe Boy", n:1, ac:16, hp:130,
+       turn:["<b>If a PC is holding the USB</b> &rarr; Command: &ldquo;Drop.&rdquo; (DC 16 Wis). It lands at their feet.",
+             "<b>If two or more PCs are at the decks</b> &rarr; Command one of them: &ldquo;Flee.&rdquo;",
+             "<b>Otherwise</b> &rarr; Mic stand at the nearest PC. It's pathetic, on purpose.",
+             "<b>Legendary (4/round, after another creature's turn):</b> Spin, move 30 ft without provoking (1) &middot; Drop, Command the USB holder (2)."],
+       atk:[["Mic stand","+5","1d6+1 bludgeoning"],["Command","DC 16 Wis","one word; Drop / Flee / Grovel"]],
+       sp:"Kenku: <b>borrowed lines only</b>. Once the recording plays, <b>his Command stops landing</b>."},
+      {id:"stinky", nm:"Lil Stinky", n:1, ac:18, hp:80,
+       turn:["<b>If the recording plays</b> &rarr; his oath breaks, no save. He stops and sits down. Remove him.",
+             "<b>If Poe Boy is attacked</b> &rarr; Protect (reaction): disadvantage on that attack.",
+             "<b>If he's more than 10 ft from Poe Boy</b> &rarr; move back next to him.",
+             "<b>Otherwise</b> &rarr; Longsword at whoever is nearest Poe Boy."],
+       atk:[["Longsword","+6","1d8+3 slashing"]],
+       sp:"<b>Aura of Protection</b>: Poe Boy gets +3 on saves while Stinky is within 10 ft. Deal with Stinky first."}
+    ]},
   rev:[
-    {by:"scott", who:"The vampires", t:"learn from the recording that <b>a boy died in their house</b> and Poe Boy let it happen. They had no idea."},
-    {by:"scott", who:"The 3AM crowd", t:"hear the recording and Poe Boy's calm voice under it. Silence, one boo, then the whole room."},
+    {by:"scott", who:"The vampires", t:"learn from the recording Scott narrates that <b>a boy died in their house</b> and Poe Boy let it happen. He never went out a window. They had no idea."},
+    {by:"scott", who:"The 3AM crowd", t:"learn the truth from the same recording: Poe Boy's calm voice under a scared kid. Silence, one boo, then the whole room."},
+    {by:"spencer", who:"Poe Boy and the vampires", t:"hear it from Marcus himself &mdash; <b>only if Simone paid the goat</b>."},
     {by:"Lil Stinky", who:"Lil Stinky", t:"hears his best friend stay calm while a kid dies. <b>His oath breaks, no save.</b> He sits down."},
     {by:"Dracula", who:"The crowd", t:"hear Dracula seize the mic and denounce Poe Boy, magnificently."}
   ],
@@ -852,11 +995,11 @@ const SCENES = [
     {nm:"Dracula", vc:"Seizes the mic and denounces Poe Boy magnificently. Waited all night for a real audience."}
   ],
   reminders:[
-    {t:"<b>Play the recording</b> &mdash; the single biggest table moment, a file you hit play on.", k:""},
+    {t:"<b>Narrate the recording</b> &mdash; the single biggest table moment. There's no file to play; it's your voice.", k:""},
     {t:"USB can't be destroyed; one bad save never ends the campaign.", k:"rule"},
     {t:"Stinky's oath breaks with <b>no save</b> &mdash; don't put the best beat on a d20.", k:"rule"}
   ],
-  cues:["crowd","pa","scratch","braaam","levelup"] },
+  cues:["crowd","scratch","braaam","levelup"] },
 
 { act:"finale", no:15, title:"The driveway", where:"Dood Mansion · sunrise · one scene, everyone arrives",
   read:[{t:"Sunrise. The crowd's still on the lawn when the first car pulls up the drive."}],
@@ -979,9 +1122,31 @@ function render(i){
   const handHTML = (s.hand && s.hand.length) ?
     `<div class="hands">${s.hand.map(h=>`<div class="handover"><span class="hk">✋ Hand over</span><span class="ht">${h}</span></div>`).join("")}</div>` : "";
 
-  // ⚔ fights are run at the table; the cue keeps only the name and the story rule
-  const fightHTML = s.fight ?
-    `<div class="fight"><span class="fk">⚔ Combat: run it at the table</span><span class="fn">${s.fight.name}</span><span class="fr">${s.fight.rule}</span></div>` : "";
+  // ⚔ rolls and initiative stay at the table; the cue gives the story rule and enemy turn cards
+  let fightHTML = "";
+  if(s.fight){
+    const f = s.fight;
+    const cards = (f.foes||[]).map(e=>{
+      const trackers = e.hp ? Array.from({length:e.n},(_,k)=>{
+        const key = `${cur}:${e.id}:${k}`; const v = hpOf(key, e.hp);
+        return `<div class="hpt${v<=0?" down":""}" data-hpkey="${key}" data-max="${e.hp}">`+
+          `<span class="hpl">${e.n>1?String.fromCharCode(65+k):"HP"}</span><span class="hpv">${v}</span><span class="hpm">/ ${e.hp}</span>`+
+          `<button data-hpd="-1">&minus;1</button><button data-hpd="-5">&minus;5</button><button data-hpd="-10">&minus;10</button><button data-hpd="reset" title="Reset">&#8634;</button></div>`;
+      }).join("") : "";
+      return `<div class="foe"><div class="foe-h"><span class="foe-n">${e.nm}${e.n>1?` <span class="foe-x">&times;${e.n}</span>`:""}</span>`+
+        `<span class="foe-s">AC <b>${e.ac}</b>${e.hp?` · HP <b>${e.hp}</b>`:""}</span><span class="ai" title="Draft numbers: review">🟡</span></div>`+
+        `<p class="foe-l">On its turn</p><ol class="foe-turn">${e.turn.map(t=>`<li>${t}</li>`).join("")}</ol>`+
+        `<div class="foe-atk">${e.atk.map(a=>`<div><b>${a[0]}</b><span class="hit">${a[1]}</span><span>${a[2]}</span></div>`).join("")}</div>`+
+        (e.sp?`<p class="foe-sp">${e.sp}</p>`:"") + (trackers?`<div class="hps">${trackers}</div>`:"") + `</div>`;
+    }).join("");
+    fightHTML = `<div class="fight"><span class="fk">⚔ Combat · rolls &amp; initiative at the table</span><span class="fn">${f.name}</span><span class="fr">${f.rule}</span>`+
+      (f.note?`<span class="fr">${f.note} <span class="ai">🟡</span></span>`:"")+`</div>`+
+      (cards?`<div class="foes">${cards}</div>`:"");
+  }
+
+  // 🪢 fail-forward and ↪ backup path
+  const netHTML = (s.stuck?`<div class="net"><span class="nk">🪢 If stuck</span><span>${s.stuck} <span class="ai">🟡</span></span></div>`:"")+
+    (s.backup?`<div class="net bk"><span class="nk">↪ Backup path</span><span>${s.backup} <span class="ai">🟡</span></span></div>`:"");
 
   // reveals: rev[].by is "scott", "spencer", or an NPC name (renders under that NPC)
   const revs = s.rev || [];
@@ -1008,6 +1173,11 @@ function render(i){
   if(s.talk && s.talk.length){
     spHTML += `<div class="talk">` + s.talk.map(l=>`<p><span class="who">${l.who}</span>${l.t}</p>`).join("") + `</div>`;
   }
+  if(s.ifblock){ const b = s.ifblock;
+    spHTML += `<div class="ifb"><p class="ifw">${b.when} <span class="ai">🟡</span></p><p class="ifs">${b.say}</p>` +
+      `<div class="talk">${b.lines.map(l=>`<p><span class="who">${l.who}</span>${l.t}</p>`).join("")}</div>` +
+      (b.otherwise?`<p class="ifo">${b.otherwise}</p>`:"") + `</div>`;
+  }
   (s.npcs||[]).forEach(n=>{
     const mine = revs.filter(r=>r.by===n.nm);
     spHTML += `<div class="npc"><div class="nm">${n.nm}</div><div class="vc">${n.vc}</div>` +
@@ -1020,7 +1190,7 @@ function render(i){
     `<h2>${s.title}</h2><span class="where">${s.where}</span></div>`+
     `<div class="zones">`+
       `<section class="zone z-scott"><p class="zh"><span>Scott</span> · narrate</p>`+
-        `${handHTML}${ipadHTML}${floatHTML}${readHTML}${fightHTML}${revBlock(revs.filter(r=>r.by==="scott"))}${remHTML}${beatsHTML}${checksHTML}${cuesHTML}${canonHTML}</section>`+
+        `${handHTML}${ipadHTML}${floatHTML}${readHTML}${fightHTML}${netHTML}${revBlock(revs.filter(r=>r.by==="scott"))}${remHTML}${beatsHTML}${checksHTML}${cuesHTML}${canonHTML}</section>`+
       `<section class="zone z-spencer"><p class="zh"><span>Spencer</span> · voice</p>${spHTML}</section>`+
     `</div>`;
 
@@ -1315,8 +1485,15 @@ document.querySelectorAll(".tbtn[data-ov]").forEach(b=>b.addEventListener("click
 document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",closeOv));
 document.querySelectorAll(".overlay").forEach(o=>o.addEventListener("click",e=>{ if(e.target===o) closeOv(); }));
 
-// stage delegated clicks (cue pills, floating props)
+// enemy HP: kept for the session, per cue and per enemy, so flipping cues doesn't lose it
+const HP = {};
+function hpOf(key,max){ return key in HP ? HP[key] : max; }
+
+// stage delegated clicks (cue pills, floating props, HP trackers)
 stage.addEventListener("click",e=>{
+  const hb=e.target.closest("[data-hpd]"); if(hb){ const row=hb.closest("[data-hpkey]"), key=row.dataset.hpkey, max=+row.dataset.max;
+    const d=hb.dataset.hpd; HP[key] = d==="reset" ? max : Math.max(0, hpOf(key,max) + (+d));
+    row.querySelector(".hpv").textContent=HP[key]; row.classList.toggle("down",HP[key]<=0); return; }
   const cue=e.target.closest("[data-cuefire]"); if(cue){ firePad(cue.dataset.cuefire); return; }
   const fp=e.target.closest("[data-float]"); if(fp){ const id=fp.dataset.float, st=loadFloat(); st[id]=!st[id]; saveFloat(st);
     fp.classList.toggle("done",!!st[id]); return; }
