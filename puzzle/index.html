@@ -561,6 +561,26 @@
     float: left; padding: 5px 7px 0 0;
   }
 
+  .page2 p.sig {
+    text-indent: 0; text-align: right; font-style: italic; margin: 6px 0 0;
+  }
+  .page2 .ads {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin-top: 22px; padding-top: 14px;
+    border-top: 3px double var(--ink);
+  }
+  .page2 .ad {
+    border: 1px solid var(--ink);
+    padding: 9px 10px 10px;
+    font-size: 15px; line-height: 1.35; text-align: center;
+  }
+  .page2 .ad b {
+    display: block; margin-bottom: 4px;
+    font-family: Didot, "Bodoni 72", Georgia, serif;
+    font-size: 17px; font-weight: normal; letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
   /* ---------- halftone cut ---------- */
   .page2 .cut {
     margin: 20px 0 4px;
@@ -768,10 +788,9 @@
 <!-- ===== Checkout card =====
      The pocket card from the back of the bound volume. Three names matter:
 
-       E. Hoeck (1938)          - texture. Same name as "the Hoeck boy" in the
-                                  article. Was the blood-tie hook pointed at John;
-                                  that idea was DROPPED 31 Aug. John is getting a
-                                  different mansion connection built from scratch.
+       E. Hoeck (1938)          - texture. Same family as Mr. Pieter Hoeck, whose
+                                  beagle came home splinted (page 2). Not a
+                                  blood tie to any PC.
        V. Soprano (1938)        - Gnomey's great-uncle, who has owned this house
                                   since he won it off Orlok at cards in 1931 and is
                                   reading up on what he took. Spencer's note was
@@ -786,7 +805,7 @@
                                   decision - swap freely.
 
      Two invisible parties, neither of whom the party has met. R. Ackerman is
-     texture, borrowed from the article's reverend.
+     texture.
      ============================================================ -->
 <div id="cardveil">
   <div id="ccard">
@@ -829,24 +848,28 @@
   </div>
   <div class="folio-rule"></div>
 
-  <h2>CHILDREN</h2>
+  <h2>THE DOOD HOUSE</h2>
   <div class="contd">Continued from Page One</div>
 
-  <p>&hellip;insensible since Tuesday. Dr. Emmerich Vance, who has attended all three, reports the same findings in each: the skin cold to the touch, the breath shallow, the pulse slow past counting, and upon the left side of the throat two punctures no wider than a pin, ringed in white.</p>
+  <p>&hellip;and this is what is said of it on the hill road.</p>
 
-  <p class="q">&ldquo;They are not asleep,&rdquo; Dr. Vance said Wednesday. &ldquo;Sleep has a bottom to it. This does not.&rdquo;</p>
+  <p>No shutter on the house has been opened by day in living memory. A light burns most nights in one window on the ground floor.</p>
 
-  <p>At the request of the Dood trustees, the village sent to Kinderhook for Mr. Joost Wiegman, called in the Dutch fashion a <i>duivelbanner</i> &mdash; a banisher of devils &mdash; whose family has kept the old offices since before the patents.</p>
+  <p>On still nights in summer there is music to be heard from it, dance music, as from a gramophone, and once or twice what sounded like a party.</p>
 
-  <div class="sub">Upon the Heath</div>
+  <p>In the dry years, trucks went up the hill road after midnight with their lamps out, once a month, and came down lighter.</p>
 
-  <p>Mr. Wiegman walked the heath at first light Wednesday and stopped some forty rods below the Dood house, where the ground had settled. Men were set to digging.</p>
+  <p>Mr. Pieter Hoeck&rsquo;s beagle, lost on the hill in August with a broken foreleg, came home three weeks after with the leg set in a splint and bound in clean linen. Mr. Hoeck will show the splint to anyone who asks.</p>
 
-  <p>At a depth of three feet they uncovered a coffin of no great age, and within it a body neither swollen nor spoiled, the cheeks full and the mouth wet.</p>
+  <p>Mrs. Dekker&rsquo;s hens are found some mornings with two small marks at the neck. They go on laying.</p>
 
-  <p class="big">&ldquo;This is the evil that has been found upon the heath.&rdquo;</p>
+  <p class="q">&ldquo;I don&rsquo;t say it&rsquo;s bad,&rdquo; said one man of the hill road. &ldquo;I say it&rsquo;s up there and I&rsquo;m down here, and I&rsquo;d like to keep it that way.&rdquo;</p>
 
-  <p>He directed that the body be lifted into the new coffin, and that a splinter of whitethorn be set into the underside of the lid, positioned so that its point stood directly above the heart. The lid was then nailed down. Six men held it.</p>
+  <div class="box">
+    <div class="bt">From a Reader</div>
+    <p>To the Editor: &mdash; Your reporter asks what the old people say. My grandmother, who came from Friesland, told of children found asleep on the heath there who could not be woken, with the marks of teeth at the throat. The village sent for a banisher of devils. He dug where the ground had sunk and found a coffin, and in it a body that had not spoiled. He set a splinter of wood into the lid so that its point stood over the heart, nailed the lid down, and had the box put back in the ground. There was a howling from inside it for a quarter of an hour. Then it stopped, and the children woke.</p>
+    <p class="sig">Mrs. H. de Bruin, Mill Street</p>
+  </div>
 
   <div class="cut">
     <div class="plate">
@@ -910,29 +933,16 @@
       </svg>
       <div class="screen"></div>
     </div>
-    <p class="cap"><b>The manner of the burial</b>, from a sketch made at the graveside.
-      (A) the splinter of whitethorn, set into the lid; (B) the heart, upon which its
+    <p class="cap"><b>The old manner</b>, drawn for the Crier from Mrs. de Bruin&rsquo;s
+      description. (A) the splinter, set into the lid; (B) the heart, upon which its
       point is brought to bear.</p>
   </div>
 
-  <p>Those present report a howling and a wailing from inside the box that continued a quarter of an hour and was heard as far as the Vlietberg turn. When it stopped, the coffin was returned to the ground and covered over.</p>
-
-  <div class="sub">The Children Woke</div>
-
-  <p>All three opened their eyes before supper. Dr. Vance, who examined them within the hour, reports the marks upon their throats already closing, and expects a full recovery in each case.</p>
-
-  <p>Mr. Wiegman declined the village&rsquo;s payment. He would say only that the work was not finished.</p>
-
-  <p>Asked to explain himself, he said that the ground below the Dood house holds more than one such box; that he had found three and opened one; and that he would not go up to the house itself, not for any money the trustees cared to raise.</p>
-
-  <p class="q">&ldquo;The rest are not on the heath,&rdquo; he said. &ldquo;They are under the chapel floor. And they are not asleep either.&rdquo;</p>
-
-  <p>Mr. Wiegman left the village before dark and is not expected to return. The Dood house has stood shuttered since 1904. The trustees have declined to comment upon his statement.</p>
-
-  <div class="box">
-    <div class="bt">The Builder&rsquo;s Stone</div>
-    <p>Readers who walk the Vlietberg heath will know the single marker standing apart from the family plot, some yards inside the treeline. It bears no name and no date, only a line of characters cut in a foreign hand, which the late Rev. Ackerman took for Norse and not Dutch, and which he declined to translate for this paper.</p>
-    <p>It is said in the village that Cornelis Dood, who built the house and lived in it forty years without wife or child or company, was laid in the ground by men who took great care with <i>how</i> it was done &mdash; and that the care was not taken for his sake, but for theirs.</p>
+  <div class="ads">
+    <div class="ad"><b>Hallowe&rsquo;en Social</b>Reformed Church Hall, Saturday, half past seven. Cider, doughnuts, apples for bobbing. Children 10&cent;.</div>
+    <div class="ad"><b>Lost</b>Boy&rsquo;s brown felt hat, Saturday night, on the hill road. Will finder kindly leave it at the Haan farm. No questions.</div>
+    <div class="ad"><b>For Sale</b>Pullets, good layers, 60&cent; each. Dekker farm, hill road.</div>
+    <div class="ad"><b>Van Wyck&rsquo;s Hardware</b>Storm sash, stovepipe, lamp chimneys, padlocks and chain. Main Street.</div>
   </div>
 </template>
 

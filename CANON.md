@@ -774,29 +774,57 @@ the story now** — so this counts as in-doc like anything else, not as one pers
 ## 🟡 NOT CANON — AI-generated, never discussed
 
 ### 1. The 1937 *Transyltown Crier* — shipped in `/puzzle/`
-Status: **prop-only, pending Scott's review** at https://spourshalchi.github.io/campaign/puzzle/ (`Scott, 3 Nov`). The prop stays as built; none of it
-is binding lore until he signs off. The doc's actual source is a **1973** legend told by a Frisian skipper — everything
-below is a transposition invented to make it a local 1937 newspaper.
+Status: **prop-only, pending Scott's review** at https://spourshalchi.github.io/campaign/puzzle/ (`Scott, 3 Nov`; codex
+to-do h14). Scott's brief for it (relayed 2026-11-04): the paper only adds colour about the mansion. So it is a small-town
+Halloween-week issue that gives the house a reputation and a few rumours, each one true or harmlessly wrong, echoing
+things the party finds later. It asserts nothing canon leaves blank: no vampires named, nothing about Cornelis Dood
+past *the late* and *built it, alone, forty rooms*, no owner named, and no year for the house.
 
-- The newspaper itself, the 1937 date, and the local-incident framing
-- **Joost Wiegman**, the devil-banisher from Kinderhook
-- **Dr. Emmerich Vance**
-- **Aletta Bruin**, the named child, and **the Hoeck boy**
-- **Rev. Ackerman** and the untranslated Norse marker
-- **Vlietberg** heath, the family plot, the treeline
-- **Cornelis Dood**, who built the house and lived in it forty years — this quietly converts the mansion
-  name from Spencer's Dutch pun into a family surname. Two different origin stories for one name.
-- The house shuttered since **1904**; the **absentee trusts**; the **Dood trustees**
-- **Three coffins, one opened on the heath, two under the chapel floor** — the codex was treating this as
-  a canon contradiction with the three living vampires. It isn't a contradiction, it's an invented count.
-- Whitethorn specifically; the six men; the quarter hour of howling; the children waking
+Canon it leans on: Orlok is Cornelis Dood, who built the house, never married, alone in forty rooms, and the town
+buried him (Sesh 8; Scott, 31 Aug); Columbia County (the deed and settlement); Vinny's liquor in the cellar until
+repeal (Sesh 8); the vampires live off small animals and Orlok mends them (Sesh 5, 6, 8); locals won't discuss the
+house and lights are seen after dark (the survey); Gnomey's crew daring each other to ring the bell (Sesh 5); the
+fampier tale and its method (Sesh 2) and the library's coffin lore as misdirection (Scott, 3 Nov).
+
+🟡 Invented by the prop, all of it:
+- **The issue:** Thursday 28 October 1937, Vol. LXVII No. 43, *Sixty-Seventh Year*, *Serving Columbia County Since 1871*.
+- **The lead, "The Dood House Answers Its Bell":** on the Saturday before, three boys — **Willem Haan** (13) and
+  **Dirk and Teddy Ruys** (12 and 10) — ring the bell on the old dare. The door opens with no lamp lit; a polite voice
+  says they must be frozen and asks them in. Willem says a tall man in evening clothes, Dirk says only a voice from deep
+  in the house, Teddy didn't look. None goes in; Willem leaves his hat on the porch. A ground-floor light that wasn't on
+  is burning as they run down.
+- **Sheriff Corwin Stade** knocks Monday forenoon and gets no answer, the answer every daylight caller has had in his
+  time and his father's; he asks that the hill be let alone on Hallowe'en, and says the house is private but he can't
+  say whose. He took the dare as a boy and nobody came to the door.
+- **The house:** built by the late Cornelis Dood, who lived alone with forty rooms; reckoned the oldest house in the
+  town; a mile above the last farm; garden gone to grass, the porch path worn smooth; the clerk, the town board and the
+  old residents each give a different answer as to who keeps it; yet the roof, chimneys and fence are kept and nobody
+  is paid for it. The children have a name for it the paper won't print.
+- **Page 2, the hill road's talk:** no shutter opened by day in living memory; a light most nights in one ground-floor
+  window; dance music as from a gramophone on still summer nights, once or twice a party; trucks up the hill road after
+  midnight with lamps out in the dry years, once a month, coming down lighter; **Pieter Hoeck's beagle**, lost on the
+  hill in August with a broken foreleg, home three weeks later splinted in clean linen; **Mrs. Dekker's hens** found
+  some mornings with two small marks at the neck, and they go on laying; an unnamed man: *"I don't say it's bad… I'd
+  like to keep it that way."*
+- **"From a Reader":** **Mrs. H. de Bruin**, Mill Street (the surname nods to Sesh 2's skipper), retells her Frisian
+  grandmother's tale: sleeping children with teeth marks, a banisher of devils, the sunken ground, the unspoiled body,
+  the splinter in the lid over the heart, nailed shut, reburied, a quarter hour of howling, the children wake. The
+  diagram (A the splinter, B the heart) is *drawn for the Crier from Mrs. de Bruin's description*.
+- **Ads:** a Reformed Church Hall Hallowe'en social; *LOST, boy's brown felt hat, the Haan farm*; Dekker farm pullets;
+  Van Wyck's Hardware.
+- **E. Hoeck** on the checkout card now reads as kin of Pieter Hoeck. R. Ackerman stays texture.
+
+**Echoes, for the DM:** the polite voice and the dinner-jacket man → the vampires' hospitality and Dracula; the
+daylight silence → the developer's unanswered knocks; music and a party → the party room; the trucks → Vinny and the
+cellar; the splint and the hens → Orlok's clinic; *could not say whose* → the settlement and the deed; the dare →
+Gnomey's crew. None of it is explained on the page.
 
 ### 2. The trap on the library volume
 - That anyone cast a spell on the page at all (this is the puzzle's whole timer mechanic)
 - That the **real-estate company's leader** did it, that he's a man, that he's scrubbing a stigmatized
   property, that he doesn't believe a word of it
-- The "accidental irony" beat — that he destroyed the one page carrying both the staking method and
-  the coffin location, so the company trying to take the house has been protecting its tenants
+- The "accidental irony" beat — that he destroyed the one page carrying the staking method, so the company
+  trying to take the house has been protecting its tenants
 - That he can't touch word of mouth
 - The trap's contents — the shears, the swarms, the book cart — and the rule that the shears' death
   round sets the puzzle's piece count

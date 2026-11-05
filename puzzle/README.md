@@ -1,12 +1,9 @@
 # Torn Page — The Transyltown Crier
 
-> **⚠ Canon status: NOT CANON — prop-only, unratified.** Everything in this prop's 1937 article is
-> invented. The brainstorm doc's actual source is a **1973** legend told by a Frisian skipper
-> (Sesh 2); the local-newspaper framing, Joost Wiegman, Dr. Vance, Aletta Bruin, the Hoeck boy,
-> Rev. Ackerman, Cornelis Dood, the 1904 date, the trusts, the trap, the checkout card, and the
-> **three-coffin count**
-> were all written here, not agreed by Scott and Spencer. Scott's call: the prop stays as built, but
-> none of it binds the campaign until Spencer signs off. See `/CANON.md`.
+> **🟡 Canon status: NOT CANON YET — waiting on Scott's review** (codex to-do h14). Every name, date and
+> rumour in the 1937 paper is this prop's invention, logged in `/CANON.md` under *The 1937 Transyltown Crier*.
+> Canon it leans on: Cornelis Dood (= Orlok) built the house and lived alone in forty rooms; Columbia County;
+> the Frisian slaying-method folklore (Sesh 2).
 
 The party's in-town research stop. A torn front page from the library's bound
 volumes: assemble it against the clock, then flip it to read page 2.
@@ -56,9 +53,9 @@ unrecoverable rather than argue with it. He can walk into a records hall in
 daylight, which the vampires cannot, and he almost certainly doesn't believe a word
 of what he destroyed.
 
-The irony is worth playing: he cut up the one page carrying both the method for
-destroying the vampires *and* the location of their coffins, so the company trying
-to take the house has been protecting its tenants the entire time.
+The irony is worth playing: he cut up the one page carrying the method for
+destroying the vampires, so the company trying to take the house has been
+protecting its tenants the entire time.
 
 None of that is in the prop. The players just watch a book try to eat itself.
 
@@ -118,10 +115,8 @@ outcome is in their hands.
 In the pocket at the back of the volume, viewable from the splash screen. It shows
 the book sat untouched for decades, and then three borrowers:
 
-- **E. Hoeck**, 1938 — texture, and the same name as "the Hoeck boy" in the article.
-  **This was the blood-tie hook pointed at John; that was dropped 31 Aug.** John is
-  getting a different mansion connection, built from scratch, so this is now just a
-  name proving somebody else was reading about this house in 1938.
+- **E. Hoeck**, 1938 — texture: kin of Pieter Hoeck, whose beagle came home splinted
+  (page 2). Somebody else reading about this house in 1938. Not a blood tie to any PC.
 - **V. Soprano**, Sep 1938 — **Gnomey's great-uncle Vinny**, who has owned the
   mansion since he won it off Orlok at cards in 1931 and is reading up on what he
   took. This is the library hint Spencer asked for, and the only place the name
@@ -135,84 +130,48 @@ the book sat untouched for decades, and then three borrowers:
 It also does structural work: it proves **two other people got here first**, and the
 party has met neither of them.
 
-Edit the names in the `#ccard` table in `index.html`. R. Ackerman is texture,
-borrowed from the article's reverend.
+Edit the names in the `#ccard` table in `index.html`. R. Ackerman is texture.
 
 Front page is a rendered image (it gets torn into pieces). Page 2 is live HTML
 (it has to stay legible at table distance) — so the lore copy is editable here
 without regenerating any art.
 
-## What it delivers
+## What the paper says
 
-| Job | Where |
-|---|---|
-| The vampire-slaying method — whitethorn splinter in the lid, point over the heart, nail shut, rebury. **the 24 Aug doc paste cut the fork, so this is no longer a branch payoff — it is the thing that makes the party think they need to fight** | Page 2, "Upon the Heath", plus a labelled diagram (A = splinter, B = heart) so it can't be missed |
-| Proof the method works — the children woke | Page 2, "The Children Woke" |
-| **The clincher** — three coffins, one opened, two still under the chapel floor | Page 2, Wiegman's closing quote |
-| ~~The Gjenganger~~ — **retired in Sesh 8.** The "Builder's Stone" sidebar still reads well as texture about the man who built the house; it just no longer points at a creature | Page 2, "The Builder's Stone" sidebar |
-| Real-estate thread — the property held by absentee trusts since 1904 | Front page, column 2 |
-| **Proof a person with real power is involved**, long before they can name him | The trap itself |
-| **Gnomey's tie to the house**, quietly — `V. Soprano`, 1938 — and **Poe Boy's real name** | The checkout card |
+A Halloween-week local issue, Thursday 28 October 1937. It gives the house a reputation
+and a few rumours. Each one is true or harmlessly wrong and echoes something later in
+the house; none is explained on the page.
 
-The three coffins match the crypt on the mansion floor plan
-(`assets/retired/dood-mansion-floorplan.png`) — chapel, trapdoor beneath the altar.
+| Where | What | Echoes |
+|---|---|---|
+| Front, lead | **"The Dood House Answers Its Bell."** Three boys ring the bell on the old dare; the door opens with no lamp lit and a polite voice asks them in. A tall man in evening clothes, or only a voice from deep in the house, depending on the boy. None goes in | the vampires' hospitality, Dracula; Gnomey's crew and the doorbell (Sesh 5) |
+| Front | The Sheriff gets no answer by daylight, as every caller has; the house is private but he can't say whose | the developer's daylight knocks; the settlement and the deed |
+| Front | The late Cornelis Dood built it and lived alone with forty rooms; it is kept up and nobody is paid to keep it | Orlok |
+| Page 2 | The hill road's talk: no shutter opened by day, one lit window, gramophone music and a party on summer nights, trucks up the hill after midnight in the dry years | the sun; the party room; Vinny and the cellar |
+| Page 2 | A beagle home with its broken leg splinted in clean linen; hens with two small marks that go on laying | Orlok's clinic |
+| Page 2 | **"From a Reader":** a grandmother's Frisian tale with the slaying method (splinter in the lid over the heart, nail it, rebury), plus the A/B diagram | the misdirection: the house points at the vampires (Scott, 3 Nov) |
+| Page 2 | Four small ads, one of them the lost hat | texture |
+| Pocket | The checkout card — `V. Soprano` 1938, Poe Boy's real name, W. Ostrander | Gnomey's tie; the driveway |
+
+Read aloud, page 2 runs about a minute and a half. The front's body text is too small to read
+once assembled; the headline, deks and photo caption carry it.
 
 ## Swap slots
 
-Things deliberately left loose. All are one-line edits.
+All one-line edits. Names on the front are in `assets/front-heath.source.html` (re-render after);
+names on page 2 are in the `<template>` in `index.html`.
 
-- **"Aletta Bruin"** — the named child. Texture only; rename at will. She was
-  once going to grow up into the harbinger, but the records keeper is
-  deliberately *not* in this story any more — see below.
-- **"the Hoeck boy"** — was an open slot for a PC's great-grandparent and the
-  blood-tie hook. **The blood-tie idea was dropped 31 Aug**, so this is now free
-  texture. **The same name is on the checkout card** as E. Hoeck, so changing it
-  means editing both. Gnomey's tie is a deed, not a bloodline; John's connection is
-  unwritten and is not this.
-- **"Cornelis Dood"** — **ratified 31 Aug: Cornelis Dood *is* Orlok.** Sesh 8 makes
-  Orlok the man who built this house, and Scott confirmed they are the same person —
-  **Dood is Orlok's mortal surname.** The pun survives, this prop survives, and the
-  Crier's obituary is technically accurate: the town really did bury him.
-  `31 Aug · not in doc`.
-- **"Dood"** — mansion name, now used everywhere. The floor-plan art
-  originally read *Van Doren*; its title block has been repainted to match.
-  Changing it again means editing `assets/front-heath.source.html`, re-running
-  `render-front.sh`, and editing the `<template>` in `index.html`.
+- **Willem Haan, Dirk and Teddy Ruys** — the three boys. The Haan farm is in the LOST ad too.
+- **Sheriff Corwin Stade.**
+- **Pieter Hoeck** — shares a surname with `E. Hoeck` on the checkout card.
+- **Mrs. Dekker** — her hens on page 2, her pullets in the FOR SALE ad.
+- **Mrs. H. de Bruin** — the letter writer; nods to Sesh 2's skipper, Steven de Bruin.
 
-Invented canon that needs sign-off, since players read this closely: Cornelis
-Dood built the house, it's been shuttered since **1904**, the incident was
-**October 1937**.
+## The Records Keeper
 
-## The harbinger
-
-The records keeper is the harbinger — the one NPC who tells them not to go up
-to the house. She has no personal stake in the 1937 story and does not appear
-in it. Her warning rests on two things:
-
-1. **What she's heard.** Decades of town talk about the Dood house. Nothing she
-   witnessed and nothing she can prove — which is exactly why the players are
-   free to shrug it off.
-2. **What the book does thirty seconds later.**
-
-Her warning is about the **house**, not the volume. She hands over an intact book,
-tells them not to go up there, and goes back to her desk. Nothing she says has any
-authority behind it and she doesn't pretend otherwise — that's the modern spin, the
-archetype without the raving. There's nothing to push against, so there's no
-argument for the players to win.
-
-**Then the book comes apart.**
-
-Her line is afterwards, and it's better than a prophecy because it's a fact:
-
-> "That volume has been on that shelf since before I worked here."
-
-Which tells them two things she doesn't spell out: somebody did this **recently**,
-and they did it **on purpose**, waiting for whoever came looking. She isn't in on
-it — her surprise is the proof — and she has now been demonstrated right about the
-house without ever having argued for it.
-
-A harbinger who says "beware" gets ignored. One whose library attacks you thirty
-seconds later has won the argument. They go anyway, because they're teenagers.
+She hands over the volume intact. After the trap, she tells them the primary source is gone,
+so if they want one they will have to go and see the house themselves: *"But be careful."*
+(`Scott, 3 Nov`; only those three words are his.) She is not in the 1937 story.
 
 ## Editing the copy
 
@@ -250,9 +209,7 @@ Two rules when editing the front page:
 3. Add an entry to `CLIPPINGS` in `index.html`
 4. Point `ACTIVE` at it
 
-Candidates already floated: the real-estate firm scouting the mansion, and the
-diary showing Bix's account of his night there is incomplete. (Sesh 8 gives that diary an
-obvious subject: Edward is his father.)
+Candidate already floated: the real-estate firm scouting the mansion.
 
 ## Tuning
 

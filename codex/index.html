@@ -952,7 +952,7 @@ const TODO = [
   ["The blood connection — <b>answered for Gnomey only</b>","The original idea was a PC connected by blood. <b>Gnomey gets a *debt* instead of a bloodline</b> — his great-uncle won the house at cards, hinted on the library checkout card as <code>V. Soprano</code>. <b>The blood-tie idea is no longer pointed at John.</b> <b>His connection is now the party-room performance turn</b>, not a bloodline.","doc"],
   ["Lock the mansion name","<b>Dood Mansion, and 'Dood' is both</b>: the builder's family surname <i>and</i> the Dutch pun. That answers the old <i>'lmk if thats too dumb lol'</i> and makes Cornelis Dood a real person in the fiction.","doc"],
   ["Does the 1937 Crier become canon? — <b>pending Scott's review</b>","The whole newspaper is invented. Scott is reviewing it at <code>/puzzle/</code>; until he signs off it stays not canon.","ai"],
-  ["Coffin count","The codex was treating this as a canon contradiction: the Crier's three boxes vs. three living vampires. It isn't a contradiction — the count is invented. Only worth solving if the Crier gets ratified.","ai"],
+  ["Coffin count","Nothing to reconcile. The Crier's only coffin is in a reader's Frisian folk tale; it never counts the house's vampires or says where they sleep.","ai"],
   ["Who destroyed the library page?","<b>Ostrander.</b> He set a trap in the binding himself, so there's no contractor to trace, and springing it is what summons him to the house. The prop stays silent on who did it, which is still correct.","doc"]
 ];
 
@@ -960,7 +960,7 @@ const DOCS = [
   ["Party Invite","BUILT — Spencer's card, in the print kit (<code>/print/</code>) · a haunted house under an orange moon · <b>Haunted House · Dood Mansion · 8 PM</b> — early entry to the 3AM party at Dood Mansion, Poe Boy's Halloween party, the same one the public poster advertises, though <b>the card never names him</b>. Exclusive — 5 cards, 5 lockers. Signed off as-is (Scott, 2026-11-04).","doc",""],
   ["DJ Poster","BUILT — Spencer's poster, in the print kit (<code>/print/</code>) · a purple collage · <b>Haunted Bash · 3 AM · Dood Mansion · DJ Poe Boy · Lil Stinky · Angelique</b> · one letter page on plain white paper, taped on the locked AIM-room door. The only printed thing that names Poe Boy. Signed off as-is (Scott, 2026-11-04).","doc",""],
   ["DJ Show Flyer","NOT BUILT — <b>and now unblocked.</b> Leaned-out Memphis/Houston rap art, spooky · 3AM at Dood Mansion · bills Poe Boy / Lil Stinky / Angelique. Settled: this one <b>is public</b>, which is where the finale's crowd comes from. Doors open half an hour before the set. <b>Spencer's to make.</b> Open: whether they see it at the gazebo or in the mansion's first room.","doc",""],
-  ["Library History Clippings","BUILT — /puzzle/ · the volume is intact until they open it and the trap cuts it up. Now carries the <b>checkout card</b>: E. Hoeck (a blood tie — was pointed at John, now unclaimed since Yobo's connection is the party-room arc), U. M. Livingsworth III (Poe Boy's real name, four years ago) and W. Ostrander (the developer — proposal). Still an invented 1937 newspaper; the actual source is a 1973 Frisian legend.","ai"],
+  ["Library History Clippings","BUILT — /puzzle/ · the volume is intact until they open it and the trap cuts it up. Carries the <b>checkout card</b>: E. Hoeck (texture, kin of the farmer in the article), V. Soprano (1938), U. M. Livingsworth III (Poe Boy's real name, four years ago) and W. Ostrander (the developer — proposal). The page is an invented 1937 Crier: the town's talk about the Dood house, plus a reader's letter retelling the Frisian legend (the doc's source is a 1973 telling).","ai"],
   ["AIM chat with the Spirit","BUILT — /aim/ · the backpack + USB branch, and <b>the soul transfer</b>: the willow, the drive mounting under his name, the second ask, a hold point for playing the price at the table, a real no-path, and the ritual itself — which reads as an ordinary file transfer until the progress bar exceeds its own boundaries. Set the kid's name with <code>/aim/?name=Marcus</code>.","doc",""],
   ["The Articles of Settlement","<b>BUILT — print only, in the print kit (/print/)</b> · the drunken 1931 contract from the strongbox in the study, with a wax seal. Hand over the printed settlement. Crossed-out hours, eleven dollars and forty cents, the bearer-of-the-deed clause, the struck-through snoring clause, Dracula witnessing as a non-notary, and Vinny's margin note. <b>The bearer paragraph is the only one on the page with no corrections in it</b> — that's the joke and the plot in one paragraph, and it is set apart visually. Signed <b>C. Dood</b>, in a second hand. Printed full bleed. Signed off (Scott, 3 Nov).","doc",""],
   ["The photograph","<b>BUILT — print only</b> · a <b>4×6 full-bleed print</b> of the painted snapshot, from Staples; there is no digital page and nothing on the back. Four figures — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs. <b>Hand Will the print and say nothing</b> — he gets the goblin before he gets the fae. The art is a storybook-gouache painting styled as a 1979 flash snapshot. The parents are drawn to echo Will's description of Bix — Goblinenon is short and dark green with long ears and small brown leather boots, and Edward has notches in one ear . The date stamp reads <code>10 31 '79</code>. Signed off (Scott, 3 Nov).","doc",""],
@@ -1276,12 +1276,11 @@ function renderReview(){
   push("Props", DOCS.filter(d=>d[2]==="ai").map(d=>[d[0],d[1],propUrl(d[1])]));
   const link=(items,href)=>items.map(i=>[...i,href]);
   groups.push(["Invented wholesale — the 1937 Transyltown Crier (shipped in /puzzle/)",link([
-    ["The newspaper itself","The actual source is a <b>1973</b> legend from a Frisian skipper. The 1937 local-newspaper framing is a transposition invented for the prop."],
-    ["Every name in it","Joost Wiegman, Dr. Emmerich Vance, Aletta Bruin, the Hoeck boy, Rev. Ackerman, the Dood trustees, the Vlietberg heath."],
-    ["Cornelis Dood, the builder","Turns Spencer's Dutch pun (<i>dood</i> = dead) into a family surname. Two origin stories for one name."],
-    ["1904, the absentee trusts","Invented property history."],
-    ["Three coffins, two under the chapel floor","Invented. The codex was treating this as a canon contradiction with the three living vampires — there's nothing to contradict."],
-    ["The trap on the volume","That anyone touched it at all, that the developer did it, his motive, his disbelief, and the 'accidental irony' that he destroyed the one page carrying both the staking method and the coffin location. Also the trap's whole contents — the shears, the swarms, the book cart — and the rule that the shears' death round sets the puzzle's piece count."],
+    ["The newspaper itself","A Halloween-week issue, Thu 28 Oct 1937, Vol. LXVII, Columbia County. The doc's folklore source is a <b>1973</b> Frisian legend; the paper retells it as a reader's grandmother's tale."],
+    ["The lead story","Three boys ring the Dood house bell on a dare; the door opens and a polite voice asks them in; nobody agrees on what they saw. The Sheriff gets no answer by daylight and can't say whose house it is."],
+    ["The hill road's rumours","Shutters never opened by day, one lit window, gramophone music on summer nights, trucks up the hill in the dry years, a beagle that came home splinted, hens with two marks that go on laying."],
+    ["Every name in it","Willem Haan, Dirk and Teddy Ruys, Sheriff Corwin Stade, Pieter Hoeck, Mrs. Dekker, Mrs. H. de Bruin, Van Wyck's Hardware."],
+    ["The trap on the volume","That anyone touched it at all, that the developer did it, his motive and his disbelief. Also the trap's whole contents — the shears, the swarms, the book cart — and the rule that the shears' death round sets the puzzle's piece count."],
     ["Every name on the checkout card","E. Hoeck, U. M. Livingsworth III and W. Ostrander. Livingsworth is a joke made load-bearing; the other two are invented here, and <b>Ostrander is a proposal</b>."]
   ],"../puzzle/")]);
   groups.push(["Encounter numbers \u2014 the Combat section",link([
@@ -1587,7 +1586,7 @@ const TODO_LIST = [
   "built": 1,
   "review": 1,
   "url": "../puzzle/",
-  "note": "Live at <code>/puzzle/</code>. \ud83d\udfe1 The whole newspaper is the prop's own: the 1937 date, every name in it and the coffin count. Until Scott signs off it stays not canon."
+  "note": "Live at <code>/puzzle/</code>. A Halloween-week local paper, Thu 28 Oct 1937. <b>Front:</b> three village boys ring the Dood house bell on a dare, the door opens and a polite voice asks them in; the Sheriff gets no answer by daylight and can't say who owns it; the late Cornelis Dood built it, forty rooms, kept up by nobody anyone pays. <b>Page 2:</b> the hill road's talk (shutters never open by day, one lit window, gramophone music, trucks up the hill after midnight in the dry years, a beagle that came home splinted, hens with two marks that go on laying), then a reader's letter retelling the Frisian tale with the slaying method and its diagram, then four small ads. \ud83d\udfe1 Every name, date and rumour is the prop's own, logged in CANON.md. Until Scott signs off it stays not canon."
  },
  {
   "id": "h15",
@@ -1636,7 +1635,7 @@ const TODO_LIST = [
   "c": "Handout",
   "built": 1,
   "done": 1,
-  "note": "Live in /puzzle/, viewable from the splash. Three names: <b>E. Hoeck</b> (1938 \u2014 the blood tie, currently John), <b>U. M. Livingsworth III</b> (Oct 2000 \u2014 Poe Boy's real name; pays off in the driveway at sunrise, and meanwhile says he has been interested in this house for four years) and <b>W. Ostrander</b> (Jul 2004 \u2014 the developer, a proposal). It proves two other people got here first and the party has met neither."
+  "note": "Live in /puzzle/, viewable from the splash. Three names: <b>E. Hoeck</b> (1938 \u2014 texture, kin of the farmer whose beagle came home splinted), <b>U. M. Livingsworth III</b> (Oct 2000 \u2014 Poe Boy's real name; pays off in the driveway at sunrise, and meanwhile says he has been interested in this house for four years) and <b>W. Ostrander</b> (Jul 2004 \u2014 the developer, a proposal). It proves two other people got here first and the party has met neither."
  },
  {
   "id": "x1",
@@ -1830,8 +1829,8 @@ const TODO_LIST = [
   "o": "both",
   "c": "Story",
   "done": 1,
-  "ans": "Moot \u2014 the 1937 Crier isn't canon",
-  "note": "The Crier leaves two coffins under the chapel floor. There are three vampires. Either the prop is wrong, or one of them is not buried where the others are \u2014 and that second option is a better story than a typo."
+  "ans": "Nothing to reconcile",
+  "note": "The Crier's only coffin is in a reader's Frisian folk tale. It never counts the vampires or says where they sleep."
  },
  {
   "id": "s1",
