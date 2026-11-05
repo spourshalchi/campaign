@@ -75,7 +75,7 @@ Sunday's three rooms run in any order and are all paper. Item 2 opens AIM with t
 
 ## Print list
 
-Everything to print lives in the **print kit at [`print/`](print/)**: five Staples orders (cardstock, the deed on cream cardstock, plain paper, the poster and one photo print), with the exact settings to pick and a cutting guide. The codex to-do **"Print list — everything to take to Staples"** tracks what's in hand.
+Everything to print lives in the **print kit at [`print/`](print/)**: six Staples orders (cardstock, the deed on cream cardstock, plain paper, the poster, blank character sheets and one photo print), with the exact settings to pick and a cutting guide. The codex to-do **"Print list — everything to take to Staples"** tracks what's in hand.
 
 | File | Paper | What's in it |
 |---|---|---|
@@ -84,6 +84,7 @@ Everything to print lives in the **print kit at [`print/`](print/)**: five Stapl
 | `print/3-deed.pdf` | Letter cardstock, cream or parchment, colour, 1-sided, 1 copy | The deed |
 | `print/4-plain.pdf` | Letter ivory or plain, colour, 1-sided, 1 copy | The developer's site assessment, the Articles of Settlement, Orlok's ledger |
 | `print/5-poster.pdf` | Letter plain white, colour, 1-sided, 1 copy | Spencer's DJ poster |
+| [Official 2024 character sheet](https://media.dndbeyond.com/compendium-images/free-rules/downloads/2024-character-sheet.pdf) (linked, not in the repo) | Letter plain white, B&W, 2-sided, 8 copies | Blank character sheets: 5 players + 3 spares |
 
 Rebuild after any prop change (needs Google Chrome, `pypdf` and ImageMagick); it remakes the PDFs and `photo-4x6.jpg`:
 
