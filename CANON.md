@@ -909,6 +909,13 @@ transitions above it binds nobody, but it's listed so the review queue can see i
 - **Break suggestions**: before the walk up the hill (Saturday), and after the three Sunday rooms, before the AIM door.
 - **Sunday's recap prompt**: ask a player where they left off; the last thing they saw was the screen typing
   *"is someone there"* (cue 9's read-aloud).
+- **Sunday's "previously" read-aloud**: a recap of Saturday's cues 2–9, describing the vampires rather than naming them.
+- **⏱ Behind / Ahead** lines per cue. One goes past existing text: when behind in 14 · i, Ostrander's remaining
+  thugs die in the scramble once he drops.
+- **Opening the table** (card zero): each player introduces their character before cue 1.
+- **The Kit**: the Cast sheet (voice / wants / knows, summarised from the codex), the Party sheet's "if a player is
+  absent" lines (Yobo absent: the party-room door opens on Dracula's sulk), the Scott–Spencer handoff signal, and
+  the Improv rooms and spare names (generic, no plot). The 2024 rules summary and level-up steps are rules, not lore.
 
 ---
 

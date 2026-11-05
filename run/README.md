@@ -60,10 +60,25 @@ ahead or behind the rough plan (`EXEC.mins`) you are. Tap it to pause. A clock m
 starts again, so a read-through the night before doesn't count. The thin bar under the top bar is the
 day's cues: done, here, to come.
 
+### The Kit
+**Kit** in the top bar (`K`; `N` jumps straight to notes) holds what you reach for mid-scene:
+- **Party** — each PC's player, class, arc and beats (with cue buttons), boxes for AC / HP / passive
+  Perception filled in from the sheets, a spotlight tick per day, and what to do if a player is absent.
+  Cues with a PC's beat show a ★ chip with their name in the slide head.
+- **Cast** — every NPC on one screen: voice, what they want, what they know or keep back.
+- **Rules** — a DC table, every check this weekend (pulled from the cues), the level 4 → 5 steps, and
+  the 2024 rulings most likely to come up.
+- **Notes** — a quick line for what players did, promised or named, stamped with the cue. Saturday's
+  notes show on Sunday's start card as callbacks.
+- **Improv** — spare rooms and names for when the party goes off the map.
+
+Each cue's Rescues also carry **⏱ Behind** (what to compress) and **⏱ Ahead** (what to stretch); the
+clock lights up whichever applies.
+
 ### Spencer's view
 `/run/?spencer` (or the link on the splash) opens a phone view with no audio: every cue's lines, IF
-blocks, NPCs and reveals in one scroll with jump chips, or a **By NPC** tab that regroups everything
-each NPC says and reveals across the weekend.
+blocks, NPCs and reveals in one scroll with jump chips, a **By NPC** tab that regroups everything
+each NPC says and reveals across the weekend, and the **Cast** sheet.
 
 ## Controls
 
@@ -101,3 +116,4 @@ It's a single self-contained `index.html` plus `fights.js`. In the `<script>`:
 - `PROPS` — every physical prop, who gets it and on which cue. Add a prop here, not on a scene.
 - `EXEC` — the table layer, keyed by scene no.: `mins`, `do`, `land`, `next` / `go`, `save`.
 - `IPAD` — the players' iPad items.
+- `PARTY`, `CAST`, `RULES` / `DCS` / `LEVEL5`, `IMPROV` — the Kit.
