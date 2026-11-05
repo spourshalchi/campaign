@@ -451,7 +451,7 @@
 
     <div class="subsec" id="sub-combat">
       <h2 class="sec">Combat encounters</h2>
-      <p class="sub">Three fights for the weekend, one held in reserve. The <b>beats</b> are settled; every <b>number</b> below &mdash; XP budgets, CR picks, HP, stat-block chassis, and the contents of Saturday's fight &mdash; is a proposal built against them and agreed to by nobody. Combat and rules are Scott's lane.</p>
+      <p class="sub">Three fights for the weekend, one held in reserve. The <b>beats</b> are settled; every <b>number</b> below &mdash; XP budgets, CR picks, HP, stat-block chassis, and the contents of Saturday's fight &mdash; is a proposal built against them, waiting on Scott. The stat lines themselves are on the <a href="../run/">Run of Show</a>'s fight cards (one source, <code>run/fights.js</code>), and on paper in the print kit's <code>6-combat.pdf</code>. Combat and rules are Scott's lane.</p>
       <div class="settled"><span class="ch">✓ Settled &mdash; the two-tier guest list</span>
         <b>The 8PM card is exclusive. The 3AM poster is public.</b> Five kids walk into an empty house at eight and have it to themselves for seven hours &mdash; that is the whole investigation. At three the show's audience arrives, the speakers come on, and the finale runs in front of a crowd. Both earlier decisions survive, and the flyer prop is unblocked.</div>
       <div class="panel" id="cbudget"></div>
@@ -989,37 +989,42 @@ const CBUDGET = {
     ["Sunday · 5 PCs at level 5","2,500","3,750","5,500","6.25 CR total · solo cap CR 5"],
     ["Sunday · 6 bodies (Angelique flips)","3,000","4,500","6,600","7.5 CR total · solo cap CR 5"]
   ],
-  warn:"Below 5th level the two systems disagreed where it mattered — a solo was <b>swingy</b>, deadly on a crit and trivial otherwise, and the fix was minions not hit points. At level 5 that tension mostly resolves: a solo CR 5 is 1,800 XP, far <b>under</b> Sunday's 5,500 high line and right <b>at</b> the benchmark's solo cap, and the party's new HP means it can't spike someone dead in a round. The upshot cuts the other way now — every finale fight below is <b>under-budget</b> for level 5 as written, and needs more bodies and higher CR, not a fatter single stat block."
+  warn:"Below 5th level the two systems disagreed where it mattered — a solo was <b>swingy</b>, deadly on a crit and trivial otherwise, and the fix was minions not hit points. At level 5 that tension mostly resolves: a solo CR 5 is 1,800 XP, far <b>under</b> Sunday's 5,500 high line and right <b>at</b> the benchmark's solo cap, and the party's new HP means it can't spike someone dead in a round. The finale's two phases run back to back with no rest, so read them together: 4,700 XP, between moderate and high, with three vampire allies on the party's side for all of it.<br><br><b>Built to run easy</b> (Scott, 2026-11-04): every fight sits at or under the moderate line and ends in about three or four rounds. Each stat line is a stock SRD 5.2 creature, renamed and pared down to AC, HP, speed, one or two attacks with <b>fixed damage</b>, at most one gimmick, no legendary actions and no spell lists. Every card has a too-hard / too-easy dial and an exit that isn't a TPK."
 };
 const CENC = [
-  {act:"Saturday · town",title:"The trap in the binding",st:"built",stl:"Designed",c:"#9a6ff0",s:"doc",
+  {act:"Saturday · town",title:"The trap in the binding",st:"built",stl:"Statted",c:"#9a6ff0",s:"doc",
    p:"The volume is <b>intact</b> when the records keeper hands it over. Opening it springs the developer's trap: the reading room's stationery gets up, and a pair of <b>archival shears</b> ignore the party entirely and go for the article. By the time the shears are down, the page is in pieces — <b>which is where the torn-page prop comes from.</b>",
-   math:[["Budget · 5 PCs at level 4","1,250 low / 2,500 high"],["Archival shears ×2 (CR ½)","200 XP"],["Swarm of index cards (CR ½)","100 XP"],["The book cart (CR 1)","200 XP"],["Total","500 XP · 2.5 CR"]],
-   verdict:"Well below the low line on purpose — and further below it at level 4 than it was at level 3. The party spends most of its actions body-blocking rather than attacking, so it still plays harder than it reads; it's a <b>puzzle-fight, not a budget fight</b>, and it needs no bump to do its job. If you want real pressure now, a second swarm takes it to 600 and a third shears lane adds a whole approach to cover.",
-   note:"<b>The shears don't attack people.</b> Every turn they move for the article and cut; they only hurt someone who physically interposes. They're also the only cutting things in the room, so it is never ambiguous which enemies matter.<br><br><b>Two shears means two approach lanes</b>, and the party has to cover both with bodies. Killing one halves the pressure immediately, which hands them a target priority without you naming it.<br><br><b>The first cut is the trigger, not an action</b> — they come out of the spine as the trap fires, before initiative. The page always gets cut at least once, with no fudging.<br><br><b>Count the cuts; that's the puzzle.</b> The prop opens on a <b>setup screen</b> — tap the bracket and hand the iPad over. One or two cuts → 9 pieces, three or four → 16, five or more → 25. <b>The timer is gone</b>: nothing is resisting them any more, so it's a jigsaw, and the difficulty they earned in the fight is the whole tension.<br><br>It <b>contains and erases; it does not kill</b>. He's a businessman scrubbing a stigmatised property, not a murderer, and he wouldn't leave something lethal in a public library. That's what makes him frightening eight hours later, when he is willing."},
+   math:[["Budget · 5 PCs at level 4","1,250 low / 2,500 high"],["Archival shears ×2 · AC 14, HP 12 (CR ½)","200 XP"],["Swarm of index cards · AC 12, HP 22 (CR ½)","100 XP"],["The book cart · AC 14, HP 33 (CR 1)","200 XP"],["Total","500 XP · 2.5 CR"]],
+   verdict:"Well below the low line on purpose. The shears never attack anyone who isn't in their way, so only the swarm and the cart (300 XP) are aimed at the party, and the party spends most of its actions body-blocking rather than attacking. It's a <b>puzzle-fight, not a budget fight</b>: the pressure is the cut count. 79 HP across four bodies drops in two or three rounds. If you want real pressure, a second swarm takes it to 600 and a third shears lane adds a whole approach to cover.",
+   ai:"The stat lines (chassis: Flying Sword, Swarm of Insects, Animated Armor) and the rule that the rest of the stationery drops when the second shears does.",
+   note:"<b>The shears don't attack people.</b> Every turn they move for the article and cut; they only hurt someone who physically interposes. They're also the only cutting things in the room, so it is never ambiguous which enemies matter.<br><br><b>Two shears means two approach lanes</b>, and the party has to cover both with bodies. Killing one halves the pressure immediately, which hands them a target priority without you naming it.<br><br><b>The first cut is the trigger, not an action</b> — they come out of the spine as the trap fires, before initiative. The page always gets cut at least once, with no fudging.<br><br><b>Count the cuts; that's the puzzle.</b> The fight card has a cut counter that shows the piece count. The prop opens on a <b>setup screen</b> — tap the bracket and hand the iPad over. One or two cuts → 9 pieces, three or four → 16, five or more → 25. There's no timer: it's a jigsaw, and the difficulty they earned in the fight is the whole tension.<br><br>It <b>contains and erases; it does not kill</b>. He's a businessman scrubbing a stigmatised property, not a murderer, and he wouldn't leave something lethal in a public library. That's what makes him frightening eight hours later, when he is willing."},
 
-  {act:"Saturday · late",title:"The botched summoning",st:"todo",stl:"Named, not statted",c:"#d23a52",s:"doc",
+  {act:"Saturday · late",title:"The botched summoning",st:"built",stl:"Statted",c:"#d23a52",s:"doc",
    p:"Saturday's one mansion fight, and the close of Night 1 if the clock allows. <b>Poe Boy's second botched ritual</b> — the same hand that soul-caged the dead kid — sealed in a room upstairs and visibly <b>incomplete</b>. It claws toward the computer room the whole fight; killing it wakes the Spirit (an AIM line types itself) and leaves a half-drawn ritual circle, planting that the dangerous things here are <b>human-made</b> without saying whose.",
-   math:[["Budget · 5 PCs at level 4","1,250 low / 2,500 high"],["A solo CR 4","1,100 XP — swingy, not hard"],["Solo CR 4 + 4× CR ½","1,500 XP"],["Lazy benchmark","5 CR total · solo cap CR 4"]],
-   verdict:"Add minions rather than hit points. At level 4 a solo CR 4 plus four CR ½ minions lands at ~1,500 — between the low and moderate lines, under both the total-CR and solo caps. A lone solo at this tier reads as undertuned on the budget and plays as a coin flip. This is the last fight before the level-4 → 5 jump.",
-   note:"<b>The fight's slot is doc; the shape here is Scott's direction — and every number is still a proposal.</b><br><br>Design notes that follow from it: keep it <b>bound to its room</b> rather than roaming, so it reads as something left behind, not something hunting; make it <b>visibly incomplete</b>, the tell that a person made it; and have it strain toward the sealed computer room, so its death can wake the Spirit as the Night 1 cliffhanger. The party has no way to know whose it is until Sunday.<br><br><b>It replaces the Gjenganger</b>, retired by displacement. See the Not Canon tab."},
+   math:[["Budget · 5 PCs at level 4","1,250 low / 1,875 moderate"],["The summoning · AC 13, HP 85 (CR 4)","1,100 XP"],["Ritual fragments ×4 · AC 12, HP 7 (CR ¼)","200 XP"],["Lazy benchmark","5 CR total, at the cap · solo at the CR 4 cap"],["Total","1,300 XP"]],
+   verdict:"Just over the low line, well under moderate. Minions rather than hit points: four 7-HP fragments spread the party's attacks without adding a second boss. Its one gimmick, the Unfinished Word, fires once (the first time it's under half), and it <b>never attacks a PC at 0 HP</b> — it wants the door — so it hurts without killing. 113 HP in all: about three rounds. This is the last fight before the level-4 → 5 jump.",
+   ai:"The stat lines (chassis: a scaled-down Flesh Golem, and Shadows without the Strength drain), the Unfinished Word, the never-hits-the-downed rule, and the exit where it tears through toward the sealed door and comes apart.",
+   note:"<b>The fight's slot is doc; the shape here is Scott's direction.</b><br><br>Design notes that follow from it: keep it <b>bound to its room</b> rather than roaming, so it reads as something left behind, not something hunting; make it <b>visibly incomplete</b>, the tell that a person made it; and have it strain toward the sealed computer room, so its death can wake the Spirit as the Night 1 cliffhanger. The party has no way to know whose it is until Sunday.<br><br><b>If they're losing:</b> it tears through the wall toward the sealed door and comes apart on the threshold, and the kill line reads anyway. The cliffhanger never depends on the party winning.<br><br><b>It replaces the Gjenganger</b>, retired by displacement. See the Not Canon tab."},
 
-  {act:"Finale · phase 1",title:"The developer breaches",st:"todo",stl:"Not statted",c:"#d23a52",s:"doc",
+  {act:"Finale · phase 1",title:"The developer breaches",st:"built",stl:"Statted",c:"#d23a52",s:"doc",
    p:"An abjurer who seals the exits behind him — his own crew included — and a crew who came to clear a site. Three sides, nobody sharing a goal. <b>The only lethal fight of the finale</b>, and the only enemy in the story with a mundane, entirely legal motive.",
-   math:[["The developer (~CR 7)","2,900 XP"],["6× Thug (CR ½)","600 XP"],["Total","3,500 XP"],["Sunday high line","5,500 XP"]],
-   verdict:"At level 4 the old ~CR 5 build sat right under the 2,500 ceiling. At level 5 that ceiling is 5,500 <i>and</i> the party picks up Counterspell, Fireball and Extra Attack — so the ~CR 5 developer stops being lethal. Bump him to <b>~CR 7</b> to keep him <b>the only lethal fight of the finale</b>; that lands ~3,500, around moderate. The vampires still start eating thugs, so field six knowing you lose two.",
-   note:"<b>His arrival is what breaks Poe Boy's lie</b>, on sight: Poe Boy has just told the vampires on the mic that the party are the mall company's people, and five teenagers are visibly not this man. The vampires stop. Then the party kills him, and that converts “not our enemy” into “the people who solved our actual problem, in front of us.” Two moments, not one.<br><br>Suggested kit: an Arcane Ward that regenerates, a Seal action that permanently bars one door or window, Counterspell, Shield, Hold Person. <b>No damage spells</b> — he has never once solved a problem by making noise.<br><br><b>At level 5 the party has its own Counterspell</b>, so his Counterspell/Shield are now a real spell-duel rather than flavor — which is exactly the fight an abjurer wants, and the reason he's the one enemy who can stand up to a level-5 party without a horde behind him."},
+   math:[["Budget · 5 PCs at level 5","2,500 low / 3,750 moderate"],["W. Ostrander · AC 15, HP 100 (CR 6)","2,300 XP"],["6× Thug · AC 12, HP 16 (CR ½)","600 XP"],["Lazy benchmark","9 CR total vs 6.25 · solo CR 6 vs cap 5"],["Total","2,900 XP"]],
+   verdict:"Between low and moderate. The vampires take two thugs off the board at the end of rounds 1 and 2, so it plays nearer 2,700. He's over the benchmark's solo cap on paper, but his damage is a 10-point rod and a one-turn Hold — the crew does the hitting, and the crew drops in one or two hits each. <b>Nobody on his side swings at a PC who's down.</b> It's lethal for him, not for them. About three or four rounds.",
+   ai:"The stat lines (chassis: the SRD Mage with its damage spells removed, and the 2024 Tough), the ward folded into his HP, Hold as a one-turn freeze, the vampires feeding on two thugs without killing them, and the exit where Orlok and Dracula pin him for the party.",
+   note:"<b>His arrival is what breaks Poe Boy's lie</b>, on sight: Poe Boy has just told the vampires on the mic that the party are the mall company's people, and five teenagers are visibly not this man. The vampires stop. Then the party kills him, and that converts “not our enemy” into “the people who solved our actual problem, in front of us.” Two moments, not one.<br><br><b>Kit:</b> the seal (narrated as he walks in, before initiative), a ward that is the first 25 of his HP, <b>Hold</b> on whoever hit him last (DC 15 Wis or they lose their next turn), and a surveyor's rod. <b>No damage spells</b> — he has never once solved a problem by making noise. One gimmick per creature, so no Counterspell or Shield.<br><br><b>The vampires act at the end of each round, after everyone, with no rolls.</b> Turning costs them nothing in initiative: they never roll it.<br><br><b>If they're losing:</b> Orlok and Dracula pin him to the wall; he loses his turns, and the next hit from a PC kills him. The party still does it."},
 
-  {act:"Finale · phase 2",title:"The ballroom decks",st:"todo",stl:"Not statted",c:"#e0aa3e",s:"doc",
+  {act:"Finale · phase 2",title:"The ballroom decks",st:"built",stl:"Statted",c:"#e0aa3e",s:"doc",
    p:"The developer is dead and the vampires have turned. Party plus three vampires against Poe Boy and Lil Stinky. <b>The objective is one sentence: get the USB to the decks and get on aux.</b>",
-   math:[["Poe Boy (~CR 5, ~130 HP)","1,800 XP"],["Lil Stinky (~CR 3)","700 XP"],["Total","2,500 XP"],["Party side","5 level-5 PCs + 3 vampire allies"]],
-   verdict:"Well <b>under</b> the level-5 high line, and easier still with three vampire allies who are now the party's <b>peers</b> rather than a level above them. That is correct — phase two is a catharsis, not a grind. The only real tuning is Poe Boy's <b>staying power</b>: at level 5 a 90-HP boss evaporates before the keep-away can breathe, so give him the hit points to last the objective, not the damage to threaten it.",
-   note:"<b>Poe Boy</b> ~130 HP, AC 16, save DC 16, and <b>4 legendary actions</b> rather than 3 — the default assumes a four-player table, so use party size minus one. Weapon damage should be pathetic; <i>Command</i> is the threat. <b>Lil Stinky</b> ~80 HP, AC 18, low damage, Aura of Protection buffing Poe Boy's saves so control spells bounce until the party deals with him. The USB starts <b>upstairs in the old rig</b> and has to reach the ballroom, so the map is the encounter. HP is up from the level-4 numbers so the boss survives a level-5 party's opening nova."},
+   math:[["Budget · 5 PCs at level 5","2,500 low / 3,750 moderate"],["DJ Poe Boy · AC 15, HP 120, floor 1 (CR 4)","1,100 XP"],["Lil Stinky · AC 18, HP 60 (CR 3)","700 XP"],["Party side","5 level-5 PCs + 3 vampire allies"],["Total","1,800 XP"]],
+   verdict:"Well <b>under</b> the low line, and easier still with three vampire allies. That is correct — phase two is a catharsis, not a grind, and it comes straight after phase one with no rest. Damage can't end it: Poe Boy <b>can't drop below 1 HP</b> until the recording plays, so his hit points are there to last the objective, not to threaten anyone. About three or four rounds.",
+   ai:"The stat lines (chassis: a Cultist Fanatic with more HP, and the SRD Knight), Command as Drop / Flee at DC 15, the 1-HP floor, the rule that nobody plugs in while Stinky stands at the decks, his radiant longsword as the source of Russ's heal-a-vampire moment, the one-vampire-a-round ally actions, and Angelique's one-line ally card (her finale part is still open).",
+   note:"<b>Poe Boy</b> AC 15, HP 120, Command DC 15. His turn is one word — <i>“Drop.”</i> at whoever holds the USB, <i>“Flee.”</i> at whoever's nearest the decks if nobody does — then a mic stand for 4. No legendary actions. +3 on his saves while Stinky is within 10 ft (Aura of Protection). <b>Lil Stinky</b> AC 18, HP 60, two longsword swings for 8 radiant; <b>nobody can plug in while he's standing at the decks</b>, so moving or dropping him is the puzzle. At 0 HP he's out of the fight but awake, and his oath still breaks when the recording plays. The USB starts <b>upstairs in the old rig</b> if the party left it there, and has to reach the ballroom, so the map is the encounter.<br><br><b>Allies:</b> at the end of each round, one vampire acts, in turn — Orlok grips Stinky for 10, Dracula carries the USB holder 30 ft toward the decks, Edward pulls a PC 30 ft clear. No rolls, no HP. If it drags past round 4, Dracula lands the drive in a PC's hand at the decks."},
 
-  {act:"Held in reserve",title:"The fourth encounter",st:"hold",stl:"Do not plan to use",c:"#5b9bd5",s:"doc",
-   p:"Stat one, keep it in your back pocket, and only spend it if a puzzle solves in five minutes and you're running ahead of the clock. Planning to use it is how Sunday overruns.",
-   math:[["Sunday's committed runtime","~4 hours — and with the corridor cut, only the finale's fights in it"]],
-   verdict:"A third Sunday combat costs an hour and pushes the bookend off the table — you'd be cutting the ending to add a fight.",
+  {act:"Held in reserve",title:"The circle stirs",st:"hold",stl:"Statted · do not plan to use",c:"#5b9bd5",s:"doc",
+   p:"Stat one, keep it in your back pocket, and only spend it if a puzzle solves in five minutes and you're running ahead of the clock. Planning to use it is how Sunday overruns. It reuses Saturday's leftovers: on the way up to the computer room, what's left of the summoning pulls itself out of the half-drawn circle, with four fragments.",
+   math:[["Budget · 5 PCs at level 5","2,500 low / 3,750 moderate"],["The remnant · AC 14, HP 100 (CR 6)","2,300 XP"],["Ritual fragments ×4 · AC 12, HP 10 (CR ¼)","200 XP"],["Sunday's committed runtime","~4 hours — and with the corridor cut, only the finale's fights in it"],["Total","2,500 XP · the low line"]],
+   verdict:"A third Sunday combat costs time and pushes the bookend off the table — you'd be cutting the ending to add a fight. Statted at the low line as a 20-minute, two-or-three-round speed bump that teaches nothing new, so skipping it costs the story nothing.",
+   ai:"The whole encounter: the circle stirring on Sunday, the remnant, and its stat lines. It uses only the botched summoning, so it adds no new malevolent force.",
    note:"<b>Attrition doesn't need initiative order.</b> An encounter costs resources; a combat costs an hour. A hazard room, a chase and a frightened-save scene cost about 40 minutes between them and soften the party more than one extra fight would — and they're genre-correct, because the source material has almost no fights in it. The bolted doors also enforce no long rest from 7PM to sunrise, so short rests are the only pacing lever; decide up front how many the house allows."}
 ];
 
@@ -1281,8 +1286,10 @@ function renderReview(){
   ],"../puzzle/")]);
   groups.push(["Encounter numbers \u2014 the Combat section",link([
     ["Every number on the Combat section","The <b>beats</b> are settled. The XP budgets, CR picks, HP figures, stat-block chassis and the contents of Saturday's fight are all proposals built against them. Nothing there has been agreed."],
-    ["Saturday's fight has no contents","The plan says there is one, where it sits, and roughly how long it runs. What is actually in the room is unwritten."],
+    ["Every stat line on the Run of Show's fight cards","Six cards: the library trap, first contact, the botched summoning, the reserve, and the finale's two phases. AI-made from SRD 5.2 creatures, with fixed damage and one gimmick each. <a href=\"../run/\">Run of Show</a>."],
+    ["Saturday's town fight contents","Two archival shears, a swarm of index cards and a book cart, and the rule that the rest drops when the second shears does."],
     ["The botched summoning","Now given a shape: <b>Poe Boy's second botched ritual</b>, clawing toward the computer room, that can end Night 1 by waking the Spirit. Scott's direction; the stats stay a proposal."],
+    ["The reserve fight","The half-drawn circle stirs on Sunday. Invented wholesale; use it only if you're ahead of the clock."],
     ["~~Orlok's mortal name~~ — settled","Cornelis Dood <b>is</b> Orlok; Dood is his mortal surname. Ratified."],
     ["The study door","Deliberately left undefined. The room and its contents are settled; the door is not."],
     ["The party room","Bix finds the photograph. The room as Dracula's shrine, kept since '79, is Scott's (3 Nov); Dracula's “centuries” as a performer is the codex's."],
@@ -1333,6 +1340,7 @@ document.getElementById("cenc").innerHTML = CENC.map(e=>`
       ${e.verdict?`<div class="verdict">${e.verdict}</div>`:""}
     </div>
     <p class="ep">${e.note}</p>
+    ${aiNote(e)}
   </div>`).join("");
 
 document.getElementById("crules").innerHTML = CRULES.map(([h,d])=>
@@ -1945,18 +1953,18 @@ const TODO_LIST = [
   "o": "scott",
   "c": "Combat",
   "gate": 1,
+  "built": 1,
   "review": 1,
   "url": "../run/",
-  "ans": "The Run of Show's enemy turn cards (in progress). Rolls and initiative stay at the real table",
-  "note": "Three fights plus one held in reserve, and the <b>Combat section</b> now carries the budget for every one of them. What is left is the stat lines \u2014 nothing below is statted yet. Each needs a stat line, a terrain, and an exit that is not a TPK.",
+  "ans": "Statted: six fight cards on the Run of Show (cues 3, 6, 9, R, 14 i and 14 ii)",
+  "note": "Every fight has a stat line now, on the Run of Show's fight cards and on paper in <code>6-combat.pdf</code>. Each card is a script: AC · HP · speed, what it does on its turn, a tap-to-subtract HP counter, what happens when it drops, and a too-hard / too-easy dial. Each fight opens with setup, win condition, roughly when it ends, and an exit that isn't a TPK. The <b>Combat section</b> carries the budget math against the final numbers. 🟡 Every number is AI-made and waiting on Scott.",
   "steps": [
-   "Saturday's one fight \u2014 ~600 XP of fragile bodies at level 4. Telegraph anything with a save-or-suck.",
-   "The corridor set-piece is cut. Saturday's mansion fight is a botched summoning at level 4 \u2014 a solo CR 4 plus four CR \u00bd minions lands at ~1,500 against a 2,500 ceiling.",
-   "Phase 1: the developer (bumped to ~CR 7 for level 5) plus six thugs, ~3,500 XP. Arcane Ward, Seal, Counterspell, Shield, Hold Person. No damage spells.",
-   "Phase 2: Poe Boy ~CR 5 with 4 legendary actions, Lil Stinky ~CR 3 with Aura of Protection. Plus three vampires as allies.",
-   "The reserve encounter \u2014 stat it, expect not to use it.",
-   "The two contingencies \u2014 they kill the vampires early, or they refuse to go in at all.",
-   "Then run all of it against five PCs, including one down or absent, and the case where Angelique flips early and makes it six."
+   "Saturday's town fight \u2014 shears ×2, the swarm and the cart, 500 XP at level 4. The cut counter on the card shows the piece count.",
+   "Saturday's mansion fight \u2014 the botched summoning plus four fragments, 1,300 XP at level 4. It never attacks a downed PC.",
+   "Phase 1: Ostrander plus six thugs, 2,900 XP at level 5. Seal (narrated), a ward folded into his HP, Hold, a rod. No damage spells.",
+   "Phase 2: Poe Boy (Command, can't drop below 1 until the recording plays) and Lil Stinky (guards the decks, Aura of Protection), 1,800 XP, with three vampire allies acting one a round.",
+   "The reserve: the circle stirs on Sunday, 2,500 XP. Use it only if you're ahead of the clock.",
+   "Still open: the two contingencies \u2014 they kill the vampires early, or they refuse to go in at all."
   ]
  },
  {
@@ -1990,30 +1998,33 @@ const TODO_LIST = [
   "o": "scott",
   "c": "Combat",
   "top": 1,
+  "built": 1,
   "review": 1,
   "url": "../run/",
-  "ans": "The Run of Show's enemy turn cards (in progress). Rolls and initiative stay at the real table",
-  "note": "<b>Fully designed, not yet statted.</b> Two phases: the developer breaches and dies, then the ballroom decks. The win condition is never damage \u2014 the developer is beaten by violence, Lil Stinky by the recording, Poe Boy by losing his audience. The control is manipulation, not mind control: on the mic at 3AM he tells the vampires the party are the mall company's people, the same lie that got the kid killed, and the developer's arrival breaks it on sight before it becomes a fight. Needs the developer and thug stat lines, Poe Boy and Lil Stinky, an allied vampire stat line, and a rule for what turning costs in initiative."
+  "ans": "Statted on the Run of Show, cues 14 i and 14 ii",
+  "note": "Two phases: the developer breaches and dies, then the ballroom decks. The win condition is never damage \u2014 the developer is beaten by violence, Lil Stinky by the recording, Poe Boy by losing his audience. The control is manipulation, not mind control: on the mic at 3AM he tells the vampires the party are the mall company's people, the same lie that got the kid killed, and the developer's arrival breaks it on sight before it becomes a fight. <b>Stat lines:</b> Ostrander AC 15, HP 100; six thugs AC 12, HP 16; Poe Boy AC 15, HP 120 (can't drop below 1 until the recording plays); Lil Stinky AC 18, HP 60. <b>The allied vampires</b> have no stat line: they act at the end of each round with no rolls, so turning costs nothing in initiative. 🟡 Not canon yet."
  },
  {
   "id": "m5",
   "t": "First vampire contact \u2014 write the no-kill kit",
   "o": "scott",
   "c": "Combat",
+  "built": 1,
   "review": 1,
   "url": "../run/",
-  "ans": "The Run of Show's enemy turn cards (in progress). Rolls and initiative stay at the real table",
-  "note": "The escapable encounter becomes a <b>hard rule</b>: no Bite on a conscious creature, ever, and they cannot take a PC below 1 HP. Grapple, shove, frighten, throw. That needs writing as an actual action list so it holds up under pressure at the table \u2014 the reveal depends on it being literally true rather than a near miss."
+  "ans": "Built: Dracula's card on the Run of Show, cue 6",
+  "note": "The escapable encounter is a <b>hard rule</b>: no Bite on a conscious creature, ever, and they cannot take a PC below 1 HP. Dracula's card is the action list: swoop and grab (DC 15 Str or Dex save; escape DC 15), shove 10 ft or pin and loom, and let go the instant Orlok speaks. No damage and no HP to track. Orlok and Edward don't act; Orlok's one word ends it. 🟡 Not canon yet."
  },
  {
   "id": "m6",
   "t": "Check every encounter against a five-person party",
   "o": "scott",
   "c": "Combat",
+  "built": 1,
   "review": 1,
   "url": "../run/",
-  "ans": "Folded into the Run of Show enemy-card review",
-  "note": "Five PCs is a materially bigger action economy than four \u2014 every encounter budget shifts. <b>Budgets are now on the Combat section.</b> Include the case where one player is down or absent, and the case where Angelique flips early and makes it six: that pushes the level-5 high line from 5,500 to 6,600 and the benchmark from 6.25 to 7.5 total CR. Build her on the Tasha's sidekick rules rather than a full rogue so she doesn't cost table time on Sunday."
+  "ans": "Every fight card is built for five PCs",
+  "note": "Every budget on the <b>Combat section</b> is for five PCs, and every fight sits at or under the moderate line. <b>One player down or absent:</b> use the card's <i>too hard</i> dial on the biggest enemy. <b>Angelique:</b> what she does at the finale is still open; if she sides with the party she is a one-line ally (8 damage a round, no roll) rather than a sidekick build, so she costs no table time. 🟡 Not canon yet."
  },
  {
   "id": "m7",

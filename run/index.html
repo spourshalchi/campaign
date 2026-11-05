@@ -188,7 +188,7 @@
 
   .fight .fr .ai{font-size:12px}
   /* enemy turn cards */
-  .foes{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin:0 0 14px}
+  .foes{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px;margin:0 0 14px}
   .foe{background:#1a0f14;border:1px solid #4a2530;border-radius:12px;padding:10px 12px}
   .foe-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:6px}
   .foe-n{font-family:var(--f-disp);font-size:18px;color:#ffd9de;flex:1;min-width:0}
@@ -209,9 +209,39 @@
   .hpt{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
   .hpt .hpl{font-family:var(--f-mono);font-size:13px;color:var(--dim);min-width:22px}
   .hpt .hpv{font-family:var(--f-mono);font-size:20px;font-weight:700;color:var(--green);min-width:38px;text-align:right}
-  .hpt .hpm{font-family:var(--f-mono);font-size:13px;color:var(--dim);margin-right:auto}
-  .hpt button{min-width:44px;height:36px;border-radius:8px;border:1px solid #4a2530;background:#2a141b;color:#ffd9de;
-    font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+  .hpt .hpv{margin-right:auto}
+  .hpt button{min-width:44px;height:44px;border-radius:8px;border:1px solid #4a2530;background:#2a141b;color:#ffd9de;
+    font:inherit;font-size:15px;font-weight:700;cursor:pointer;padding:0 6px}
+  .hpt button.up{color:var(--green);background:#122019;border-color:#24503c}
+  .foe-st{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:6px;margin:2px 0 8px}
+  .foe-st div{background:#0000004d;border:1px solid #4a2530;border-radius:8px;padding:3px 12px 5px;display:flex;flex-direction:column;min-width:64px}
+  .foe-st span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:700}
+  .foe-st b{font-family:var(--f-mono);font-size:26px;line-height:1.1;color:var(--gold)}
+  .foe-st .spd b{font-size:17px;line-height:1.5;color:var(--ink)}
+  .foe-say{margin:0 0 6px;font-size:14px;font-style:italic;color:var(--mut)}
+  .foe-drop{margin:8px 0 0;font-size:14px;line-height:1.45;color:var(--ink)}
+  .foe-drop b{color:#ffb3bf;text-transform:uppercase;font-size:12px;letter-spacing:.08em;margin-right:4px}
+  .dials{display:flex;flex-direction:column;gap:3px;margin-top:8px;padding-top:7px;border-top:1px dashed #4a2530;font-size:14px;line-height:1.4;color:var(--mut)}
+  .dials b{color:var(--ink)}
+  .runf{background:#1a0f14;border:1px solid #4a2530;border-radius:10px;padding:8px 12px;margin:0 0 10px}
+  .runf-h{margin:0 0 4px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:700}
+  .runf-h .ai{letter-spacing:0}
+  .runf-r{display:grid;grid-template-columns:76px minmax(0,1fr);gap:10px;font-size:14.5px;line-height:1.45;padding:3px 0}
+  .runf-k{font-weight:800;color:#ffb3bf;font-size:13px;letter-spacing:.04em;text-transform:uppercase;padding-top:1px}
+  .runf-r.lose .runf-k{color:var(--blue)}
+  .tally{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 12px;margin:0 0 10px;border:2px solid var(--gold);
+    border-radius:10px;background:rgba(231,181,63,.08)}
+  .tally .tl{font-weight:800;font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--gold)}
+  .tally .tv{font-family:var(--f-mono);font-size:30px;font-weight:700;color:var(--ink);min-width:36px;text-align:center}
+  .tally button{min-width:56px;height:48px;border-radius:9px;border:1px solid #6b5420;background:#2a2210;color:var(--gold);
+    font:inherit;font-size:17px;font-weight:800;cursor:pointer}
+  .tally .tp{font-size:15px;color:var(--mut)}
+  .tally .tp b{font-family:var(--f-mono);font-size:20px;color:var(--gold)}
+  .allies{border:1px solid #3b3320;border-left:4px solid var(--gold);border-radius:10px;padding:8px 12px;margin:0 0 14px;
+    background:rgba(231,181,63,.06)}
+  .ally{display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px;font-size:14.5px;line-height:1.45;padding:3px 0}
+  .ally b{color:var(--gold)}
+  .ally-n{margin:4px 0 0;font-size:13.5px;color:var(--mut)}
   .hpt button:active{transform:translateY(1px)}
   .hpt.down .hpv{color:var(--blood);text-decoration:line-through}
   /* 🪢 / ↪ safety nets */
@@ -435,6 +465,7 @@
   </div>
 </div>
 
+<script src="fights.js?v=1"></script>
 <script>
 "use strict";
 /* =====================================================================
@@ -522,7 +553,7 @@ const SCENES = [
     "Only <b>five people</b> are on the VIP list (the 8PM card). The <b>3AM poster is public</b> &mdash; that's when the house fills up for the party. Poe Boy sells the whole night as his <b>Halloween party</b>; what he's really after is his samples.",
     "<b>One laptop, two zones.</b> Every cue splits in two: <b style=\"color:var(--gold)\">SCOTT · narrate</b> on the left (hand-overs, the iPad item, read-aloud, beats, checks) and <b style=\"color:var(--pink)\">SPENCER · voice</b> on the right (who's in the scene, how they sound, their lines). Each side scrolls on its own.",
     "<b>🔓 Reveal</b> markers flag the moment someone learns something they didn't know &mdash; the players, one PC, or an NPC. Each one sits in the zone of whoever delivers it or has to react. When one fires, <b>both of you play the reaction</b>. They're 🟡 AI staging until Scott signs off.",
-    "<b>⚔ Rolls, initiative and turn order stay at the table.</b> A fight cue gives you the story rule and an <b>enemy turn card</b> per enemy type: what it does, in priority order, its attacks, AC and a tap-to-subtract HP tracker. Numbers are 🟡 drafts.",
+    "<b>⚔ Rolls, initiative and turn order stay at the table.</b> Each fight cue opens with <b>Running this fight</b> (setup, win, when it ends, what to do if they&rsquo;re losing), then one card per enemy: AC · HP · speed, what it does on its turn, a tap-to-subtract HP counter, what happens when it drops, and a dial for too hard / too easy. Damage is fixed: no damage dice. Allies get one line each. HP resets on reload. Numbers are 🟡 drafts. Paper backup: <code>6-combat.pdf</code> in the print kit.",
     "<b>🪢 If stuck</b> lines are fail-forwards for puzzles; <b>↪ Backup</b> lines give each big reveal a second way in.",
     "<b>📱 The iPad lives on its home page</b> (<code>/</code>) all night: two big numbered items, in story order. A cue that needs one opens with a blue <b>iPad &rarr; item N</b> bar. Tap N, hand it over, and go back to the home page when the scene's done. Sunday's rooms run in any order and none of them uses the iPad." +
       `<div class="ipad-key">${Object.keys(IPAD).map(n=>`<span class="k">${n}</span><span><b>${IPAD[n].room}</b> &mdash; ${IPAD[n].prop} <code>${IPAD[n].path}</code></span>`).join("")}</div>`
@@ -610,26 +641,7 @@ const SCENES = [
     {skill:"Investigation / History", dc:"12", sug:true, note:"Assemble the slaying method from the folklore: coffins, stake, rebury."},
     {skill:"Insight", dc:"13", sug:true, note:"Tell that her &ldquo;be careful&rdquo; is sincere. <span class='ai'>🟡</span>"}
   ],
-  fight:{name:"The trap in the binding", rule:"The shears go for the article, not the party. It <b>contains and erases; it does not kill.</b> Count the cuts &mdash; they set the puzzle.",
-    foes:[
-      {id:"shears", nm:"Archival shears", n:2, ac:14, hp:19,
-       turn:["<b>If a PC is physically in its lane</b> &rarr; Snip that PC (it can't reach the article this turn).",
-             "<b>Otherwise</b> &rarr; fly 30 ft to the article and <b>cut it</b>. No roll. <b>Tally +1 cut.</b>",
-             "Never goes after anyone who isn't in the way."],
-       atk:[["Snip","+4","1d6+2 slashing"]],
-       sp:"Flies 30 ft. The first cut happened before initiative &mdash; it's already on the tally."},
-      {id:"cards", nm:"Swarm of index cards", n:1, ac:12, hp:22,
-       turn:["<b>If a PC is blocking a shears lane</b> &rarr; engulf them: Paper cuts.",
-             "<b>Otherwise</b> &rarr; whirl around the nearest PC: Blizzard."],
-       atk:[["Paper cuts","+4","2d4 slashing (1d4 under half HP)"],["Blizzard","&mdash;","one PC in its space: disadvantage on attacks until its next turn"]],
-       sp:"It's paper: <b>fire does double</b>. Resists bludgeoning, piercing and slashing."},
-      {id:"cart", nm:"The book cart", n:1, ac:13, hp:30,
-       turn:["<b>If a PC is blocking a shears lane</b> &rarr; Ram them out of it.",
-             "<b>Otherwise</b> &rarr; roll into the nearest PC: Ram."],
-       atk:[["Ram","+4","2d6+2 bludgeoning, push 10 ft"]],
-       sp:"The bruiser. Its job is clearing lanes for the shears."}
-    ],
-    note:"Nobody dies here: a PC at 0 HP is knocked out and stable."},
+  fight:FIGHTS.library,
   npcs:[
     {nm:"Records Keeper", vc:"Helpful, not a harbinger. Hands over the volume intact; after the trap, points them at the house as the only primary source left, and means the &ldquo;be careful.&rdquo; Beyond that, unwritten &mdash; play to taste. <span class='ai'>🟡</span>"}
   ],
@@ -744,16 +756,7 @@ const SCENES = [
     {skill:"Stealth", dc:"13", sug:true, note:"Hide when Angelique pulls them down; then recurring &mdash; eventually someone rolls badly."},
     {skill:"Insight", dc:"&mdash;", sug:false, note:"They'll read this as being hunted. Let them. The vampires never roll damage."}
   ],
-  fight:{name:"First contact &mdash; a pressure scene, not a fight", rule:"<b>The vampires can't kill a PC.</b> Grapple, shove, frighten: no Bite, no damage, nobody below 1 HP.",
-    foes:[
-      {id:"dracula", nm:"Dracula &mdash; grapple / shove", n:1, ac:16, hp:0,
-       turn:["<b>If Orlok speaks</b> &rarr; stop instantly, let go, step back.",
-             "<b>If he's holding a PC</b> &rarr; Shove them 10 ft toward the others, or pin them and loom.",
-             "<b>If a PC fails a Stealth check</b> &rarr; swoop 40 ft and Grapple them.",
-             "<b>Otherwise</b> &rarr; circle, sniff the air, enjoy himself."],
-       atk:[["Grapple","Athletics +7","grappled (escape DC 15) &mdash; no damage"],["Shove","Athletics +7","10 ft or prone &mdash; no damage"]],
-       sp:"<b>No Bite. No damage. Nobody drops.</b> He has no HP to track &mdash; nobody's fighting him."}
-    ]},
+  fight:FIGHTS.contact,
   npcs:[
     {nm:"Dracula", vc:"Campy, theatrical, lays hands on them &mdash; and enjoys it far too much. Asked if this is part of the party, he's delighted to say yes. Stops the instant Orlok speaks. <span class='ai'>🟡</span>"},
     {nm:"Orlok", vc:"Patient and very polite, even while doing something awful. One word from him stops Dracula."},
@@ -834,21 +837,7 @@ const SCENES = [
   checks:[
     {skill:"Arcana", dc:"14", sug:true, note:"Recognize it as an <b>incomplete, human-made</b> summoning &mdash; the planted clue."}
   ],
-  fight:{name:"The botched summoning", rule:"It's bound to its room and <b>claws toward the sealed door</b> the whole fight.",
-    foes:[
-      {id:"summon", nm:"The botched summoning", n:1, ac:13, hp:85,
-       turn:["<b>Every turn</b> &rarr; first, strain toward the sealed door. It can't leave the room.",
-             "<b>If its recharge comes up (5&ndash;6)</b> &rarr; Unfinished Word at the most PCs it can catch.",
-             "<b>If a PC is within reach</b> &rarr; Claw twice, the closest PC first.",
-             "<b>Otherwise</b> &rarr; drag itself toward the door and claw at it."],
-       atk:[["Claw (&times;2)","+6","2d6+4 slashing"],["Unfinished Word (recharge 5&ndash;6)","DC 13 Wis","15-ft cone, 3d8 psychic and frightened to its next turn; half and no fear on a save"]],
-       sp:"Visibly incomplete &mdash; a gap in it where something was never drawn. <b>When it dies</b>, read the monitor line and end the night."},
-      {id:"frag", nm:"Ritual fragments", n:4, ac:12, hp:13,
-       turn:["<b>If a PC is hitting the summoning</b> &rarr; grab at that PC.",
-             "<b>Otherwise</b> &rarr; drift to the nearest PC and grab."],
-       atk:[["Grab","+4","1d8+2 necrotic"]],
-       sp:"Chalk-scrawl things. They crumble at 0 HP."}
-    ]},
+  fight:FIGHTS.summoning,
   npcs:[],
   reminders:[
     {t:"<b>End of session one &mdash; everyone levels to 5.</b>", k:"level"},
@@ -963,6 +952,22 @@ const SCENES = [
   ],
   cues:["candle"] },
 
+{ act:"sunday", no:"R", title:"Reserve fight &mdash; the circle stirs", where:"Sunday · only if you're ahead of the clock · skip it otherwise",
+  setting:"Last night's room is cold now. The half-drawn circle is still on the floorboards &mdash; and one of the chalk lines is moving.",
+  pace:[
+    "<b>Only if</b> a room solved in five minutes and you're ahead of the clock. Otherwise skip this cue.",
+    "On the way up to the computer room, the circle stirs. &#9876; Fight, about 20 minutes.",
+    "When the remnant drops, move straight on to the computer room."
+  ],
+  ends:"when the remnant drops. Nothing new is learned here.",
+  beats:[
+    "Use the 2&Prime; summoning token for the remnant and the four fragment tokens."
+  ],
+  fight:FIGHTS.reserve,
+  npcs:[],
+  reminders:[],
+  cues:["heart","jump"] },
+
 { act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room", ipad:[2],
   setting:"The last door, at the end of the upstairs hall. Inside: coats heaped by the desk, a mic on a stand, cables everywhere, and an old beige computer that is somehow still on, an AIM sign-on box glowing on the screen. The air is stale; nobody has been in here in years.",
   pace:[
@@ -1043,23 +1048,7 @@ const SCENES = [
     "Then the party kills him &mdash; converting &ldquo;not our enemy&rdquo; into &ldquo;the people who solved our actual problem, in front of us.&rdquo; <b>Two moments, not one.</b>",
     "He's the <b>only death in the story</b> and the only one who isn't a monster. Self-defence &mdash; he sealed them in and attacked first &mdash; but these are teenagers. <b>Let it have its silence before the comedy starts.</b>"
   ],
-  fight:{name:"The developer breaches", rule:"<b>The only lethal fight.</b> Ostrander seals the exits behind him, his own crew included. His death flips the vampires &mdash; no persuasion check.",
-    foes:[
-      {id:"ostrander", nm:"W. Ostrander, abjurer", n:1, ac:15, hp:78,
-       turn:["<b>If an exit is still open</b> &rarr; Seal it (action). One door or window, barred for good.",
-             "<b>If a PC casts a spell</b> &rarr; Counterspell (reaction, 3/day).",
-             "<b>If an attack would hit him</b> &rarr; Shield (reaction, +5 AC).",
-             "<b>If a PC is hurting him</b> &rarr; Hold Person on them (DC 15 Wis, concentration).",
-             "<b>Otherwise</b> &rarr; step back behind the thugs; Dagger if cornered."],
-       atk:[["Dagger","+5","1d4+2 piercing"],["Hold Person","DC 15 Wis","paralysed, save each turn"]],
-       sp:"<b>Arcane Ward 30</b>: soaks damage before his HP; regains 2 &times; spell level whenever he casts Shield, Counterspell or Seal. <b>No damage spells, ever.</b> Spell save DC 15."},
-      {id:"thug", nm:"Thugs", n:6, ac:11, hp:32,
-       turn:["<b>If a vampire is on them</b> &rarr; fight the vampire. Two of them get eaten &mdash; narrate it.",
-             "<b>If Ostrander is in melee</b> &rarr; move to body-block for him.",
-             "<b>Otherwise</b> &rarr; two Mace attacks on the nearest PC."],
-       atk:[["Mace (&times;2)","+4","1d6+2 bludgeoning"]],
-       sp:"<b>Pack tactics</b>: advantage if an ally is next to the target. Sealed in with everyone else."}
-    ]},
+  fight:FIGHTS.developer,
   npcs:[
     {nm:"DJ Poe Boy", vc:"On the mic in borrowed lines. An Enthralling Performance holds the 3AM crowd &mdash; he needs them frightened and he needs them to stay."},
     {nm:"W. Ostrander", vc:"An adult with a clipboard. Within four seconds it stops being folklore and becomes a contamination problem on a site he's paid for. Brushes off Poe Boy's recruit pitch."}
@@ -1076,7 +1065,7 @@ const SCENES = [
   setting:"The developer is down and the exits are still sealed. The crowd is pressed to the walls, the vampires are on your side now, and up on the decks Poe Boy and Lil Stinky aren't letting anyone near the aux.",
   pace:[
     "<b>The vampires turn</b> &mdash; no persuasion check. &#9876; Party plus three vampires against Poe Boy and Stinky.",
-    "<b>Get the USB to the decks.</b> Command (&ldquo;Drop.&rdquo;) only costs time; Stinky's aura is the puzzle.",
+    "<b>Get the USB to the decks.</b> Command (&ldquo;Drop.&rdquo;) only costs time; Stinky standing guard at the decks is the puzzle.",
     "<b>Badge req 3</b>, any round: Russ heals a vampire under fire.",
     "The USB hits the decks: <b>narrate the recording</b> (read-aloud). &#128275; Stinky's oath breaks, no save.",
     "<b>IF Simone paid the goat</b> &rarr; Spencer voices Marcus (his zone).",
@@ -1104,23 +1093,7 @@ const SCENES = [
   checks:[
     {skill:"Get to / hold the decks", dc:"objective", sug:false, note:"The keep-away is the fight. Deal with Stinky to drop the aura, then plug in."}
   ],
-  fight:{name:"The ballroom decks", rule:"<b>The USB can't be destroyed</b> &mdash; Command (&ldquo;Drop.&rdquo;) only costs time. When it plays, <b>Stinky's oath breaks with no save.</b>",
-    foes:[
-      {id:"poeboy", nm:"DJ Poe Boy", n:1, ac:16, hp:130,
-       turn:["<b>If a PC is holding the USB</b> &rarr; Command: &ldquo;Drop.&rdquo; (DC 16 Wis). It lands at their feet.",
-             "<b>If two or more PCs are at the decks</b> &rarr; Command one of them: &ldquo;Flee.&rdquo;",
-             "<b>Otherwise</b> &rarr; Mic stand at the nearest PC. It's pathetic, on purpose.",
-             "<b>Legendary (4/round, after another creature's turn):</b> Spin, move 30 ft without provoking (1) &middot; Drop, Command the USB holder (2)."],
-       atk:[["Mic stand","+5","1d6+1 bludgeoning"],["Command","DC 16 Wis","one word; Drop / Flee / Grovel"]],
-       sp:"Kenku: <b>borrowed lines only</b>. Once the recording plays, <b>his Command stops landing</b>."},
-      {id:"stinky", nm:"Lil Stinky", n:1, ac:18, hp:80,
-       turn:["<b>If the recording plays</b> &rarr; his oath breaks, no save. He stops and sits down. Remove him.",
-             "<b>If Poe Boy is attacked</b> &rarr; Protect (reaction): disadvantage on that attack.",
-             "<b>If he's more than 10 ft from Poe Boy</b> &rarr; move back next to him.",
-             "<b>Otherwise</b> &rarr; Longsword at whoever is nearest Poe Boy."],
-       atk:[["Longsword","+6","1d8+3 slashing"]],
-       sp:"<b>Aura of Protection</b>: Poe Boy gets +3 on saves while Stinky is within 10 ft. Deal with Stinky first."}
-    ]},
+  fight:FIGHTS.booth,
   rev:[
     {by:"scott", who:"The vampires", t:"learn from the recording Scott narrates that <b>a boy died in their house</b> and Poe Boy let it happen. He never went out a window. They had no idea."},
     {by:"scott", who:"Players", t:"realise <b>&ldquo;he said five&rdquo;</b> was about <b>Poe Boy</b> &mdash; he's the boy who told the vampires exactly five were coming."},
@@ -1287,26 +1260,41 @@ function render(i){
   const handHTML = (s.hand && s.hand.length) ?
     `<div class="hands">${s.hand.map(h=>`<div class="handover"><span class="hk">✋ Hand over</span><span class="ht">${h}</span></div>`).join("")}</div>` : "";
 
-  // ⚔ rolls and initiative stay at the table; the cue gives the story rule and enemy turn cards
+  // ⚔ rolls and initiative stay at the table; every stat line lives in fights.js
   let fightHTML = "";
   if(s.fight){
     const f = s.fight;
-    const cards = (f.foes||[]).map(e=>{
+    const runBox = f.run ? `<div class="runf"><p class="runf-h">Running this fight <span class="ai">🟡</span></p>`+
+      [["Setup",f.run.setup],["Win",f.run.win],["Ends",f.run.ends],["Losing?",f.run.losing]]
+        .map(([k,v])=>`<div class="runf-r${k==="Losing?"?" lose":""}"><span class="runf-k">${k}</span><span>${v}</span></div>`).join("")+`</div>` : "";
+    let tallyHTML = "";
+    if(f.tally){ const key = `${cur}:tally`, v = hpOf(key, f.tally.start);
+      tallyHTML = `<div class="tally" data-tally="${key}" data-start="${f.tally.start}"><span class="tl">${f.tally.label}</span>`+
+        `<button data-tad="-1" aria-label="One fewer">&minus;1</button><span class="tv">${v}</span><button data-tad="1" aria-label="One more">+1</button>`+
+        `<span class="tp">&rarr; <b>${tallyOut(f.tally,v)}</b> pieces</span></div>`; }
+    const cards = f.foes.map(e=>{
       const trackers = e.hp ? Array.from({length:e.n},(_,k)=>{
         const key = `${cur}:${e.id}:${k}`; const v = hpOf(key, e.hp);
-        return `<div class="hpt${v<=0?" down":""}" data-hpkey="${key}" data-max="${e.hp}">`+
-          `<span class="hpl">${e.n>1?String.fromCharCode(65+k):"HP"}</span><span class="hpv">${v}</span><span class="hpm">/ ${e.hp}</span>`+
-          `<button data-hpd="-1">&minus;1</button><button data-hpd="-5">&minus;5</button><button data-hpd="-10">&minus;10</button><button data-hpd="reset" title="Reset">&#8634;</button></div>`;
+        return `<div class="hpt${v<=0?" down":""}" data-hpkey="${key}" data-max="${e.hp}" data-min="${e.floor||0}">`+
+          `<span class="hpl">${e.n>1?k+1:"HP"}</span><span class="hpv">${v}</span>`+
+          `<button data-hpd="-1">&minus;1</button><button data-hpd="-5">&minus;5</button><button data-hpd="-10">&minus;10</button>`+
+          `<button data-hpd="1" class="up">+1</button><button data-hpd="reset" title="Reset">&#8634;</button></div>`;
       }).join("") : "";
       return `<div class="foe"><div class="foe-h"><span class="foe-n">${e.nm}${e.n>1?` <span class="foe-x">&times;${e.n}</span>`:""}</span>`+
-        `<span class="foe-s">AC <b>${e.ac}</b>${e.hp?` · HP <b>${e.hp}</b>`:""}</span><span class="ai" title="Draft numbers: review">🟡</span></div>`+
+        `<span class="ai" title="Draft numbers: review">🟡</span></div>`+
+        `<div class="foe-st"><div><span>AC</span><b>${e.ac}</b></div><div><span>HP</span><b>${e.hp||"&mdash;"}</b></div>`+
+        `<div class="spd"><span>Speed</span><b>${e.spd}</b></div></div>`+
+        (e.say?`<p class="foe-say">${e.say}</p>`:"")+
         `<p class="foe-l">On its turn</p><ol class="foe-turn">${e.turn.map(t=>`<li>${t}</li>`).join("")}</ol>`+
-        `<div class="foe-atk">${e.atk.map(a=>`<div><b>${a[0]}</b><span class="hit">${a[1]}</span><span>${a[2]}</span></div>`).join("")}</div>`+
-        (e.sp?`<p class="foe-sp">${e.sp}</p>`:"") + (trackers?`<div class="hps">${trackers}</div>`:"") + `</div>`;
+        (e.note?`<p class="foe-sp">${e.note}</p>`:"") + (trackers?`<div class="hps">${trackers}</div>`:"") +
+        `<p class="foe-drop"><b>When it drops</b> ${e.drop}</p>`+
+        `<div class="dials"><div><b>Too hard?</b> ${e.hard}</div><div><b>Too easy?</b> ${e.easy}</div></div></div>`;
     }).join("");
-    fightHTML = `<div class="fight"><span class="fk">⚔ Combat · rolls &amp; initiative at the table</span><span class="fn">${f.name}</span><span class="fr">${f.rule}</span>`+
-      (f.note?`<span class="fr">${f.note} <span class="ai">🟡</span></span>`:"")+`</div>`+
-      (cards?`<div class="foes">${cards}</div>`:"");
+    const allyHTML = f.allies ? `<div class="allies"><p class="foe-l">${f.alliesLabel||"Allies"}</p>`+
+      f.allies.map(a=>`<div class="ally"><b>${a.nm}</b><span>${a.act}</span></div>`).join("")+
+      (f.allyNote?`<p class="ally-n">${f.allyNote}</p>`:"")+`</div>` : "";
+    fightHTML = `<div class="fight"><span class="fk">⚔ Combat · rolls &amp; initiative at the table</span><span class="fn">${f.name}</span><span class="fr">${f.rule}</span></div>`+
+      runBox + tallyHTML + `<div class="foes">${cards}</div>` + allyHTML;
   }
 
   // 🪢 fail-forward and ↪ backup path
@@ -1654,6 +1642,8 @@ document.querySelectorAll(".overlay").forEach(o=>o.addEventListener("click",e=>{
 // enemy HP: kept for the session, per cue and per enemy, so flipping cues doesn't lose it
 const HP = {};
 function hpOf(key,max){ return key in HP ? HP[key] : max; }
+// a tally (the library's cut count) and what it sets: tiers are [[upTo, result], ...]
+function tallyOut(t,v){ return (t.tiers.find(([m])=>v<=m)||t.tiers[t.tiers.length-1])[1]; }
 
 // stage delegated clicks (cue pills, floating props, HP trackers)
 stage.addEventListener("click",e=>{
@@ -1663,8 +1653,11 @@ stage.addEventListener("click",e=>{
   if(e.target.closest("[data-prepreset]")){ if(confirm("Clear every tick on the checklist and the floating props?")){
     try{ localStorage.removeItem(PKEY); localStorage.removeItem(FKEY); }catch(err){} render(cur); } return; }
   const hb=e.target.closest("[data-hpd]"); if(hb){ const row=hb.closest("[data-hpkey]"), key=row.dataset.hpkey, max=+row.dataset.max;
-    const d=hb.dataset.hpd; HP[key] = d==="reset" ? max : Math.max(0, hpOf(key,max) + (+d));
+    const d=hb.dataset.hpd; HP[key] = d==="reset" ? max : Math.min(max, Math.max(+row.dataset.min, hpOf(key,max) + (+d)));
     row.querySelector(".hpv").textContent=HP[key]; row.classList.toggle("down",HP[key]<=0); return; }
+  const tb=e.target.closest("[data-tad]"); if(tb){ const row=tb.closest("[data-tally]"), key=row.dataset.tally;
+    HP[key] = Math.max(0, hpOf(key,+row.dataset.start) + (+tb.dataset.tad));
+    row.querySelector(".tv").textContent=HP[key]; row.querySelector(".tp b").textContent=tallyOut(SCENES[cur].fight.tally,HP[key]); return; }
   const cue=e.target.closest("[data-cuefire]"); if(cue){ firePad(cue.dataset.cuefire); return; }
   const fp=e.target.closest("[data-float]"); if(fp){ const id=fp.dataset.float, st=loadFloat(); st[id]=!st[id]; saveFloat(st);
     fp.classList.toggle("done",!!st[id]); return; }

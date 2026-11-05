@@ -582,6 +582,49 @@ is now load-bearing. It is what his mother calls him in the driveway.
 Everything on the codex's **Combat** tab that isn't a beat above — XP budgets, CR picks, HP figures,
 stat-block chassis, and the contents of Saturday's fight. The beats are doc; the numbers are a proposal.
 
+**The stat lines (🟡 AI-made, 2026-11-04, waiting on Scott).** Scott's instruction: stat every fight, scale it,
+don't make it too hard, and make it really easy to run (`Scott, 2026-11-04`). Everything below is built against
+that instruction and is canon to nobody. One source, `run/fights.js`, read by the Run of Show's fight cards and by
+the print kit's `6-combat.pdf`. Each creature is a stock SRD 5.2 (CC-BY) creature, renamed and pared down: fixed
+damage, at most one gimmick, no legendary actions, no spell lists. Budgets are the 2024 DMG lines for five PCs.
+
+| Fight | Creatures (AC / HP) | XP vs budget |
+|---|---|---|
+| The trap in the binding (Sat, level 4) | Archival shears ×2 (14 / 12, Flying Sword) · swarm of index cards (12 / 22, Swarm of Insects) · book cart (14 / 33, Animated Armor) | 500 · under low (1,250), a puzzle-fight |
+| First contact (Sat) | Dracula (16 / no HP, Vampire): grab DC 15, shove, let go when Orlok speaks | no XP · can't be lost |
+| The botched summoning (Sat, level 4) | The summoning (13 / 85, scaled-down Flesh Golem) · ritual fragments ×4 (12 / 7, Shadow without the Strength drain) | 1,300 · just over low, under moderate (1,875) |
+| The circle stirs, reserve (Sun, level 5) | The remnant (14 / 100, Flesh Golem) · ritual fragments ×4 (12 / 10) | 2,500 · the low line |
+| The developer breaches (Sun, level 5) | W. Ostrander (15 / 100, Mage with no damage spells) · thugs ×6 (12 / 16, Tough) | 2,900 · between low (2,500) and moderate (3,750) |
+| The ballroom decks (Sun, level 5) | DJ Poe Boy (15 / 120, can't drop below 1; Cultist Fanatic) · Lil Stinky (18 / 60, Knight) · three vampire allies | 1,800 · under low; 4,700 back to back with phase 1 |
+
+Invented with them, all 🟡:
+- **The rest of the library's stationery drops when the second shears does.**
+- **The botched summoning's Unfinished Word** (once, under half HP), and **it never attacks a PC at 0 HP** — it wants
+  the door. If two PCs are down, it tears through the wall toward the sealed door and comes apart; the kill line reads
+  anyway. **The fragments crumble when it drops.**
+- **Ostrander's kit**: the seal is narrated as he walks in (before initiative); his ward is the first 25 of his HP;
+  **Hold** freezes the last PC who hit him for one turn (DC 15 Wis); a surveyor's rod. No Counterspell or Shield.
+  Nobody on his side swings at a downed PC. If two PCs are down, Orlok and Dracula pin him and the next PC hit kills him.
+- **The vampires never roll initiative.** They act at the end of each round with no rolls. Phase 1: at the end of
+  rounds 1 and 2 one of them drags a thug out of the light to feed (the thug is out of the fight). Phase 2: one acts
+  each round, in turn — Orlok grips Stinky for 10, Dracula carries the USB holder 30 ft, Edward pulls a PC 30 ft clear.
+- **Poe Boy's Command** is *"Drop."* at the USB holder or *"Flee."* at whoever's nearest the decks, DC 15. **He can't
+  drop below 1 HP until the recording plays.** +3 on his saves while Stinky is within 10 ft (the doc's Aura of
+  Protection). No legendary actions.
+- **Nobody can plug in while Lil Stinky stands at the decks** — moving or dropping him is the puzzle. His longsword
+  does radiant, so a vampire he hits smokes and staggers: that is Russ's heal-a-vampire moment (badge req 3). At 0 HP
+  he is out of the fight but awake, and his oath still breaks on the recording.
+- **If phase 2 drags past round 4**, Dracula lands the drive in a PC's hand at the decks.
+- **The reserve fight is the half-drawn circle stirring on Sunday**, on the way up to the computer room. It uses only
+  the botched summoning, so it adds no new malevolent force (`Scott, 3 Nov`: the Spirit, the summoning and the
+  developer are the only ones). Use it only if a room solved fast.
+- **Angelique as a one-line ally** (8 damage a round, no roll), offered only *if* she sides with the party. What she
+  does at the finale is still open question 9; the card says so.
+
+**Seam to check:** the vampires "eat" two thugs in phase 1 (the codex's earlier verdict), but the Run of Show says
+Ostrander is **the only death in the story**. The cards now say a vampire drags a thug off to feed and he's out of the
+fight, without saying he dies. If the thugs are meant to die, the "only death" line needs changing instead.
+
 ---
 
 ## Decisions made since the audit
