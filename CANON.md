@@ -585,7 +585,7 @@ stat-block chassis, and the contents of Saturday's fight. The beats are doc; the
 **The stat lines (🟡 AI-made, 2026-11-04, waiting on Scott).** Scott's instruction: stat every fight, scale it,
 don't make it too hard, and make it really easy to run (`Scott, 2026-11-04`). Everything below is built against
 that instruction and is canon to nobody. One source, `run/fights.js`, read by the Run of Show's fight cards and by
-the print kit's `6-combat.pdf`. Each creature is a stock SRD 5.2 (CC-BY) creature, renamed and pared down: fixed
+the print kit's `7-combat.pdf`. Each creature is a stock SRD 5.2 (CC-BY) creature, renamed and pared down: fixed
 damage, at most one gimmick, no legendary actions, no spell lists. Budgets are the 2024 DMG lines for five PCs.
 
 | Fight | Creatures (AC / HP) | XP vs budget |

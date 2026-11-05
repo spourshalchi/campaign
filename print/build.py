@@ -5,7 +5,7 @@ Usage (from the project root):
     python3 print/build.py
     python3 print/build.py --venue "Venue" --date "SAT JUN 25 2005"   # override a ticket field
     python3 print/build.py --photo-only                                # just remake photo-4x6.jpg
-    python3 print/build.py --combat-only                               # just remake 6-combat.pdf
+    python3 print/build.py --combat-only                               # just remake 7-combat.pdf
 
 Every ticket flag is optional; leave them off and the tickets print the prop's own show details.
 
@@ -14,7 +14,7 @@ Output (in print/):
     3-deed.pdf          the deed, on its own: cream or parchment cardstock
     4-plain.pdf         plain or ivory paper: the site assessment, the Articles of Settlement, Orlok's ledger
     5-poster.pdf        Spencer's DJ poster, on plain white paper
-    6-combat.pdf        the combat cheat sheet, one page per day, on plain paper (the Run of Show's fight cards on paper)
+    7-combat.pdf        the combat cheat sheet, one page per day, on plain paper (the Run of Show's fight cards on paper)
     photo-4x6.jpg       the party-room photograph, full bleed, as a Staples 4x6 photo print (1200x1800, 300dpi)
     previews/           a JPEG (or PNG) of every page, shown on print/index.html
 
@@ -107,7 +107,7 @@ def main():
     for k in ("band", "tour", "venue", "city", "date", "time"):
         ap.add_argument("--" + k, default="")
     ap.add_argument("--photo-only", action="store_true", help="only remake photo-4x6.jpg and its preview")
-    ap.add_argument("--combat-only", action="store_true", help="only remake 6-combat.pdf and its previews")
+    ap.add_argument("--combat-only", action="store_true", help="only remake 7-combat.pdf and its previews")
     args = ap.parse_args()
 
     if not os.path.exists(CHROME):
@@ -127,12 +127,12 @@ def main():
         return render(f"{base}/{path}{'?' + query if query else ''}", os.path.join(tmp, name + ".pdf"))
 
     def combat_sheet():
-        # 6 — the combat cheat sheet, plain paper: reads run/fights.js, the Run of Show's own fight data
+        # 7 — the combat cheat sheet, plain paper: reads run/fights.js, the Run of Show's own fight data
         sheet = page("print/src/combat.html")
         w = PdfWriter()
         for p in sheet.pages:
             w.add_page(p)
-        w.write(os.path.join(OUT, "6-combat.pdf"))
+        w.write(os.path.join(OUT, "7-combat.pdf"))
         return sheet
 
     if args.combat_only:
@@ -140,9 +140,9 @@ def main():
         os.makedirs(PREVIEWS, exist_ok=True)
         for old in glob.glob(os.path.join(PREVIEWS, "combat-*")):
             os.remove(old)
-        previews("6-combat.pdf", "combat")
+        previews("7-combat.pdf", "combat")
         write_manifest()
-        print("6-combat.pdf      ", len(sheet.pages), "page(s)")
+        print("7-combat.pdf      ", len(sheet.pages), "page(s)")
         return
 
     print("Rendering props...")
@@ -197,7 +197,7 @@ def main():
     previews("3-deed.pdf", "deed")
     previews("4-plain.pdf", "plain")
     previews("5-poster.pdf", "poster")
-    previews("6-combat.pdf", "combat")
+    previews("7-combat.pdf", "combat")
     write_manifest()
 
     counts = {"invite sheets": len(invite.pages), "badge": len(badge.pages),
@@ -209,7 +209,7 @@ def main():
     print("4-plain.pdf       ", len(survey.pages) + len(settlement.pages) + len(ledger.pages), "pages",
           {"survey": len(survey.pages), "settlement": len(settlement.pages), "ledger": len(ledger.pages)})
     print("5-poster.pdf      ", len(poster.pages), "page(s)")
-    print("6-combat.pdf      ", len(sheet.pages), "page(s)")
+    print("7-combat.pdf      ", len(sheet.pages), "page(s)")
 
 
 if __name__ == "__main__":
