@@ -553,7 +553,7 @@ const SCENES = [
   beats:[
     "<b>Party is level 4</b>, leveling to <b>5</b> at the end of night one. Everything Sunday is built for five level-5 PCs.",
     "<b>Sunday's three rooms run in any order</b> — Study (Gnomey), Party room (Bix &amp; Yobo), Cellar (Cody). <b>The old rig upstairs (Simone) is locked until the end</b> and is always the last room. The corridor set-piece is cut.",
-    "Only <b>five people</b> are on the VIP list (the 8PM card). The <b>3AM poster is public</b> &mdash; that's when the house fills up for the party. Poe Boy sells the whole night as his <b>Halloween party</b>; what he's really after is his samples.",
+    "Only <b>five people</b> got the 8PM card. The <b>3AM poster is public</b> &mdash; that's when the house fills up for the party. Poe Boy sells the whole night as his <b>Halloween party</b>; what he's really after is his samples.",
     "<b>One laptop, two zones.</b> Every cue splits in two: <b style=\"color:var(--gold)\">SCOTT · narrate</b> on the left (hand-overs, the iPad item, read-aloud, beats, checks) and <b style=\"color:var(--pink)\">SPENCER · voice</b> on the right (who's in the scene, how they sound, their lines). Each side scrolls on its own.",
     "<b>🔓 Reveal</b> markers flag the moment someone learns something they didn't know &mdash; the players, one PC, or an NPC. Each one sits in the zone of whoever delivers it or has to react. When one fires, <b>both of you play the reaction</b>. They're 🟡 AI staging until Scott signs off.",
     "<b>⚔ Rolls, initiative and turn order stay at the table.</b> Each fight cue opens with <b>Running this fight</b> (setup, who takes whom, what each round looks like, the allies&rsquo; job, win, when it ends, what to do if they&rsquo;re losing), then one card per enemy: AC · HP · speed, what it does on its turn, a tap-to-subtract HP counter, what happens when it drops, and a dial for too hard / too easy. Damage is fixed: no damage dice. Allies get one line each. HP resets on reload. Numbers are 🟡 drafts. Paper backup: <code>7-combat.pdf</code> in the print kit.",
@@ -565,7 +565,7 @@ const SCENES = [
   reminders:[
     {t:"<b>Yobo's debuff card doesn't say how to lose it. Don't hint.</b> The buff flips only when he performs as himself for Dracula in the party room; an earlier confession doesn't flip it. <span class='ai'>🟡</span>", k:"rule"},
     {t:"<b>One physical prop per PC:</b> Bix &mdash; the printed photograph &middot; Gnomey &mdash; the printed deed (Vinny hands it over at the end) &middot; Simone &mdash; the wishing willow &middot; Russ &mdash; badge + card &middot; Yobo &mdash; two secret printed cards, <i>The Weight of Your Lies</i> (gazebo) and <i>Your True Voice</i> (party room).", k:""},
-    {t:"<b>Hand-over order</b>: invites (cue 2) &middot; sticky note and survey (floating, cues 5&ndash;13) &middot; the photograph (cue 11) &middot; Orlok's ledger (cue 12) &middot; willow and USB (cue 13) &middot; tickets, badge and deed (cue 15). Each cue says <b>✋ Hand over</b> when it's time.", k:""},
+    {t:"<b>Hand-over order</b>: invites (cue 2) &middot; <i>The Weight of Your Lies</i> (cue 4) &middot; sticky note and survey (floating, cues 5&ndash;13) &middot; the settlement (cue 10) &middot; the photograph and <i>Your True Voice</i> (cue 11) &middot; Orlok's ledger (cue 12) &middot; willow and USB (cue 13) &middot; tickets, badge and deed (cue 15). Each cue says <b>✋ Hand over</b> when it's time.", k:""},
     {t:"Keep the <b>deed, tickets and badge</b> out of sight until the driveway.", k:"rule"},
     {t:"Everything printed is in the kit at <code>/print/</code>. That includes Spencer's invite and his DJ poster (taped on the AIM-room door before play). Not printed: the sticky note and the willow (handmade).", k:""}
   ],
@@ -664,8 +664,7 @@ const SCENES = [
   read:[{t:"Whoever's wearing a watch &mdash; it's <b>ten to eight</b>. That's the time on the card."}],
   beats:[
     "Poe Boy plays the house down: he's been up there <b>once</b>, with a shrug, and he's cool about the cards. <b>The &ldquo;once&rdquo; is a lie.</b> It pays off when they find his stage and decks in the ballroom, and at 3AM when his voice comes over the speakers. <span class='ai'>🟡</span> Behind it, the whole night is his Halloween party; the samples are what he wants.",
-    "<b>The debuff card doesn't say how to lose it. Don't hint.</b> John learns honesty matters only from Dracula, in the party room. <span class='ai'>🟡</span>",
-    "<b>The tell is what he leaves out:</b> he never mentions the <b>other</b> room upstairs he keeps gear in &mdash; the one he hasn't been back into. Nobody notices now; they notice later."
+    "<b>The debuff card doesn't say how to lose it. Don't hint.</b> John learns honesty matters only from Dracula, in the party room. <span class='ai'>🟡</span>"
   ],
   hand:["<b>The Weight of Your Lies</b> (<code>/yobo/</code>, printed, face-down) to John (Yobo), the moment the crew asks for a Dolly riff &mdash; disadvantage on Performance, advantage on Deception. <span class='ai'>🟡</span>"],
   talk:[
@@ -673,7 +672,7 @@ const SCENES = [
     {who:"The crew · to Yobo", t:"You're the Dolly Parton guy &mdash; do a little riff."}
   ],
   rev:[
-    {by:"DJ Poe Boy", who:"Players", t:"can sense (Insight 14) the shrug is too easy &mdash; he's been up there more than once. Not why, and not whose party it is. He never mentions the <b>other</b> room upstairs."},
+    {by:"DJ Poe Boy", who:"Players", t:"can sense (Insight 14) the shrug is too easy &mdash; he's been up there more than once. Not why, and not whose party it is."},
     {by:"Angelique", who:"Players", t:"can learn she's holding something back &mdash; a side-eye, a swallowed half-sentence. Nothing more."}
   ],
   checks:[
@@ -711,7 +710,7 @@ const SCENES = [
     {by:"Angelique", who:"Players", t:"learn Angelique is inside and hiding from something. Not what, and not why she came."}
   ],
   npcs:[
-    {nm:"Angelique", vc:"A frightened stranger who won't say why she came. Worth far more than an exposition tap. She has her own reason for being here."}
+    {nm:"Angelique", vc:"A frightened stranger who won't say why she came. Worth far more than an exposition tap. Her reason (don't say it yet): five years ago she typed some of Poe Boy's AIM messages to a kid, thinking it was a prank; the kid stopped coming to school; and she feels a pull to this house. She came to find out."}
   ],
   reminders:[
     {t:"The doors bolting is canon &mdash; state it flatly, once. It doesn't need justifying.", k:"rule"}
@@ -972,11 +971,11 @@ const SCENES = [
   cues:["heart","jump"] },
 
 { act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room", ipad:[2],
-  setting:"The last door, at the end of the upstairs hall. Inside: coats heaped by the desk, a mic on a stand, cables everywhere, and an old beige computer that is somehow still on, an AIM sign-on box glowing on the screen. The air is stale; nobody has been in here in years.",
+  setting:"The last door, at the end of the upstairs hall. Inside: coats heaped by the desk, a mic on a stand, cables everywhere, and an old beige computer that is somehow still on, an AIM sign-on box glowing on the screen. The air is stale.",
   pace:[
     "When the table is ready: &#127925; the <b>AIM chime</b> down the hall, then the lock clicks open by itself (read-aloud).",
-    "<b>Log in</b>: <code>DJPoeBoy187</code>, password from the sticky note (&#9995; now, if they don't have it). &#128241; <b>item 4</b>.",
-    "They type as the killer, and he comes apart &mdash; until <i>&ldquo;youre not typing like him.&rdquo;</i> &#128275;",
+    "<b>Log in</b>: <code>DJPoeBoy187</code>, password from the sticky note (&#9995; now, if they don't have it). &#128241; <b>item 2</b>.",
+    "They're signed on as the killer. He's frantic for a line, then works out it isn't him: <i>&ldquo;hes the only one who ever touches this machine.&rdquo;</i> &#128275;",
     "His story: lured, chased, soul-caged when <b>Poe Boy</b> shut the door. &#128275; He names him, short of murder.",
     "The bag: &#9995; <b>the willow</b> to Simone &#128275;, then &#9995; <b>the USB</b> &mdash; it mounts as <code>MARCUS_HALE</code> &#128275; and he sends the recording.",
     "Second ask: <i>can you get me out of here.</i> The goat joins the chat; the price is her piggy bank. &#128275; Narrate the smash; there's no physical bank."
@@ -993,7 +992,7 @@ const SCENES = [
     "He was lured by a fake screen name, chased, and <b>soul-caged when Poe Boy shut the door</b>. He was <b>killed by a human</b> &mdash; the thread that clears the vampires. He can name his killer but stops short of the murder accusation (that lands later)."
   ],
   checks:[
-    {skill:"Roleplay, not a roll", dc:"&mdash;", sug:false, note:"<i>&ldquo;youre not typing like him&rdquo;</i> is character, not a check. When the drive mounts, Simone &amp; Angelique realize it's the same boy."}
+    {skill:"Roleplay, not a roll", dc:"&mdash;", sug:false, note:"Working out it isn't Poe Boy is character, not a check. When the drive mounts, Simone &amp; Angelique realize it's the same boy."}
   ],
   hand:[
     "<b>The wishing willow</b> to Simone, from the bag &mdash; <i>I want Angelique to notice me</i>.",
@@ -1003,16 +1002,17 @@ const SCENES = [
     {who:"The Spirit · on screen, read it if they don't", t:"my bag is still in this room. by the desk under the coats. can you get it"}
   ],
   rev:[
-    {by:"The Spirit", who:"The Spirit", t:"learns the person typing as Poe Boy isn't him &mdash; <i>&ldquo;youre not typing like him&rdquo;</i>."},
+    {by:"The Spirit", who:"The Spirit", t:"learns the person on Poe Boy's handle isn't him &mdash; <i>&ldquo;hes the only one who ever touches this machine.&rdquo;</i>"},
     {by:"The Spirit", who:"Players", t:"learn he was lured, chased and soul-caged when <b>Poe Boy</b> shut the door &mdash; killed by a human. He names Poe Boy, short of saying murder."},
     {by:"scott", who:"Simone", t:"pulls the <b>wishing willow</b> from the bag &mdash; the one she sold at twelve: <i>I want Angelique to notice me</i>. This is the willow kid."},
     {by:"scott", who:"Angelique", t:"learns why she knew him: the willow worked. Spencer plays her reaction."},
+    {by:"The Spirit", who:"Players", t:"hear him name <b>Angelique</b> as the girl messaging him, if they ask who she was. True: she typed some of those messages for Poe Boy and thought it was a prank (Sesh 7). She's suspected what they were for since he stopped coming to school. Spencer plays it."},
     {by:"scott", who:"Players", t:"learn his name when the drive mounts: <b>MARCUS_HALE</b>. Simone and Angelique realise it's the same boy."},
     {by:"scott", who:"Players", t:"get the recording, <code>scream_test_03_GOOD.wav</code>. Nobody else has heard it yet."},
     {by:"The Devil (Goat)", who:"Simone", t:"learns the price of getting him out: her piggy bank. Asked what for, the goat says only <b>&ldquo;No.&rdquo;</b>"}
   ],
   npcs:[
-    {nm:"Angelique", vc:"In the room with them. The willow and the drive land on her as hard as on Simone."},
+    {nm:"Angelique", vc:"In the room with them. The willow and the drive land on her as hard as on Simone. When he names her: she typed some of the messages, thought it was a prank, and never knew he died."},
     {nm:"The Spirit", vc:"Frightened, types lowercase. Comes apart at Poe Boy's handle. Offers his one wish rather than risk them logging off."},
     {nm:"The Devil (Goat)", vc:"Serif, capitals, full stops &mdash; never raised on a keyboard. Asked what it wants the money for: <b>&ldquo;No.&rdquo;</b> and nothing else."}
   ],
@@ -1090,7 +1090,7 @@ const SCENES = [
     ],
     otherwise:"If she said no, skip it. The room has already turned; the ending loses nothing."},
   beats:[
-    "<b>Objective:</b> the USB starts <b>upstairs in the old rig</b> and has to reach the ballroom. <b>The route through the house is the encounter.</b>",
+    "<b>Objective:</b> the USB is wherever the party left it. If it's still <b>upstairs in the old rig</b>, someone runs it down (about 2 rounds).",
     "Stinky's <b>Aura of Protection</b> buffs Poe Boy's saves &mdash; a puzzle, not a wall. <b>He isn't charmed; he just believes his friend.</b>"
   ],
   checks:[
@@ -1162,7 +1162,7 @@ const SCENES = [
   pace:[
     "They present the artifact: <b>the tape</b>, because the assignment wanted a primary source.",
     "Let a player deliver it: <i>&ldquo;&hellip;and yeah that was our class project.&rdquo;</i> Nobody reacts.",
-    "<b>The closers</b>: Stinky's diss track, the mall breaking ground in Amityville, Marcus helping people find books on the library computers."
+    "<b>The closers</b>: Stinky's diss track, the mall breaking ground in Amityville, and, if Simone paid the goat, Marcus helping people find books on the library computers."
   ],
   ends:"on the room not reacting. This is the end. Breathe.",
   read:[{who:"Let a player say it", t:"&ldquo;&hellip;and yeah that was our class project.&rdquo;"}],
