@@ -226,9 +226,12 @@
   .runf{background:#1a0f14;border:1px solid #4a2530;border-radius:10px;padding:8px 12px;margin:0 0 10px}
   .runf-h{margin:0 0 4px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:700}
   .runf-h .ai{letter-spacing:0}
-  .runf-r{display:grid;grid-template-columns:76px minmax(0,1fr);gap:10px;font-size:14.5px;line-height:1.45;padding:3px 0}
+  .runf-r{display:grid;grid-template-columns:86px minmax(0,1fr);gap:10px;font-size:14.5px;line-height:1.45;padding:3px 0}
   .runf-k{font-weight:800;color:#ffb3bf;font-size:13px;letter-spacing:.04em;text-transform:uppercase;padding-top:1px}
   .runf-r.lose .runf-k{color:var(--blue)}
+  .runf-r.job .runf-k{color:var(--gold)}
+  ol.runf-b{list-style:none;margin:0;padding:0}
+  ol.runf-b li{margin:0 0 2px}
   .tally{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 12px;margin:0 0 10px;border:2px solid var(--gold);
     border-radius:10px;background:rgba(231,181,63,.08)}
   .tally .tl{font-weight:800;font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--gold)}
@@ -465,7 +468,7 @@
   </div>
 </div>
 
-<script src="fights.js?v=1"></script>
+<script src="fights.js?v=2"></script>
 <script>
 "use strict";
 /* =====================================================================
@@ -553,7 +556,7 @@ const SCENES = [
     "Only <b>five people</b> are on the VIP list (the 8PM card). The <b>3AM poster is public</b> &mdash; that's when the house fills up for the party. Poe Boy sells the whole night as his <b>Halloween party</b>; what he's really after is his samples.",
     "<b>One laptop, two zones.</b> Every cue splits in two: <b style=\"color:var(--gold)\">SCOTT · narrate</b> on the left (hand-overs, the iPad item, read-aloud, beats, checks) and <b style=\"color:var(--pink)\">SPENCER · voice</b> on the right (who's in the scene, how they sound, their lines). Each side scrolls on its own.",
     "<b>🔓 Reveal</b> markers flag the moment someone learns something they didn't know &mdash; the players, one PC, or an NPC. Each one sits in the zone of whoever delivers it or has to react. When one fires, <b>both of you play the reaction</b>. They're 🟡 AI staging until Scott signs off.",
-    "<b>⚔ Rolls, initiative and turn order stay at the table.</b> Each fight cue opens with <b>Running this fight</b> (setup, win, when it ends, what to do if they&rsquo;re losing), then one card per enemy: AC · HP · speed, what it does on its turn, a tap-to-subtract HP counter, what happens when it drops, and a dial for too hard / too easy. Damage is fixed: no damage dice. Allies get one line each. HP resets on reload. Numbers are 🟡 drafts. Paper backup: <code>7-combat.pdf</code> in the print kit.",
+    "<b>⚔ Rolls, initiative and turn order stay at the table.</b> Each fight cue opens with <b>Running this fight</b> (setup, who takes whom, what each round looks like, the allies&rsquo; job, win, when it ends, what to do if they&rsquo;re losing), then one card per enemy: AC · HP · speed, what it does on its turn, a tap-to-subtract HP counter, what happens when it drops, and a dial for too hard / too easy. Damage is fixed: no damage dice. Allies get one line each. HP resets on reload. Numbers are 🟡 drafts. Paper backup: <code>7-combat.pdf</code> in the print kit.",
     "<b>🪢 If stuck</b> lines are fail-forwards for puzzles; <b>↪ Backup</b> lines give each big reveal a second way in.",
     "<b>📱 The iPad lives on its home page</b> (<code>/</code>) all night: two big numbered items, in story order. A cue that needs one opens with a blue <b>iPad &rarr; item N</b> bar. Tap N, hand it over, and go back to the home page when the scene's done. Sunday's rooms run in any order and none of them uses the iPad." +
       `<div class="ipad-key">${Object.keys(IPAD).map(n=>`<span class="k">${n}</span><span><b>${IPAD[n].room}</b> &mdash; ${IPAD[n].prop} <code>${IPAD[n].path}</code></span>`).join("")}</div>`
@@ -1046,7 +1049,7 @@ const SCENES = [
     "<b>The crowd arrives with the show.</b> The five have been alone seven hours; at three the house fills up for Poe Boy's party, and every beat from here has an audience. <b>Angelique is here too</b> &mdash; what she does is still open.",
     "<b>Where the vampires' heads are:</b> the 3AM crowd is the <b>bait for their scare</b>, not a rival event &mdash; the audience they've waited all night for. The developer's breach cuts in before they scare anyone. <span class='ai'>🟡</span>",
     "Then the party kills him &mdash; converting &ldquo;not our enemy&rdquo; into &ldquo;the people who solved our actual problem, in front of us.&rdquo; <b>Two moments, not one.</b>",
-    "He's the <b>only death in the story</b> and the only one who isn't a monster. Self-defence &mdash; he sealed them in and attacked first &mdash; but these are teenagers. <b>Let it have its silence before the comedy starts.</b>"
+    "His crew dies in the scramble; <b>he's the death the room stops for</b> &mdash; the one with a name and a face, killed by the party. Self-defence &mdash; he sealed them in and attacked first &mdash; but these are teenagers. <b>Let it have its silence before the comedy starts.</b>"
   ],
   fight:FIGHTS.developer,
   npcs:[
@@ -1265,8 +1268,11 @@ function render(i){
   if(s.fight){
     const f = s.fight;
     const runBox = f.run ? `<div class="runf"><p class="runf-h">Running this fight <span class="ai">🟡</span></p>`+
-      [["Setup",f.run.setup],["Win",f.run.win],["Ends",f.run.ends],["Losing?",f.run.losing]]
-        .map(([k,v])=>`<div class="runf-r${k==="Losing?"?" lose":""}"><span class="runf-k">${k}</span><span>${v}</span></div>`).join("")+`</div>` : "";
+      [["Setup",f.run.setup],["Matchups",f.run.matchups],
+       ["Beats",f.run.beats&&`<ol class="runf-b">${f.run.beats.map(b=>`<li>${b}</li>`).join("")}</ol>`],
+       ["Allies",f.run.allyJob],["Win",f.run.win],["Ends",f.run.ends],["Losing?",f.run.losing]]
+        .filter(([,v])=>v)
+        .map(([k,v])=>`<div class="runf-r${k==="Losing?"?" lose":""}${k==="Allies"?" job":""}"><span class="runf-k">${k}</span><span>${v}</span></div>`).join("")+`</div>` : "";
     let tallyHTML = "";
     if(f.tally){ const key = `${cur}:tally`, v = hpOf(key, f.tally.start);
       tallyHTML = `<div class="tally" data-tally="${key}" data-start="${f.tally.start}"><span class="tl">${f.tally.label}</span>`+

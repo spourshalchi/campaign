@@ -11,6 +11,8 @@
    foe:  id, nm, n (how many), ac, hp, floor (lowest HP, if not 0), spd, chassis, cr, xp,
          say (one line of flavour), turn (1–3 steps), note (the one gimmick),
          drop (when it drops), hard / easy (the dials)
+   run:  setup, matchups (who takes whom at the start), beats (one line per round),
+         allyJob (the allies' job each round, narrated), win, ends, losing
    ally: nm, act (one thing, no roll)
    ===================================================================== */
 const FIGHTS = {
@@ -20,6 +22,10 @@ const FIGHTS = {
     rule:"The shears go for the article, not the party. It <b>contains and erases; it does not kill.</b> Count the cuts &mdash; they set the puzzle.",
     run:{
       setup:"They open the volume. The shears come out of the spine and make the first cut before anyone moves (the tally starts at 1). Roll initiative.",
+      matchups:"Shears 1 and 2 each take a lane to the article, one from each side. The cart and the swarm go for whoever blocks a lane. Ask the table who's guarding the book.",
+      beats:["R1 · Both shears dive for the page. The cart rolls at the first blocker.",
+             "R2 · The swarm engulfs a blocker. One pair of shears goes down.",
+             "R3 · The second pair drops, and everything else drops with it."],
       win:"Drop both shears. When the second pair goes down, the rest of the stationery drops where it is.",
       ends:"Round 2 or 3.",
       losing:"Nobody dies here: a PC at 0 HP is out cold and stable. If it's going badly, the shears finish the page (5 cuts) and everything drops."
@@ -84,6 +90,11 @@ const FIGHTS = {
     rule:"It's bound to its room and <b>claws toward the sealed door</b> the whole fight.",
     run:{
       setup:"They open the warm door. It drags itself up out of the chalk circle, and four fragments peel up off the floor lines. Roll initiative.",
+      matchups:"The summoning takes whoever stands between it and the sealed door. Fragments 1 and 2 go for the PCs hitting it; fragments 3 and 4 go for the back line.",
+      beats:["R1 · The fragments swarm. It lurches for the door.",
+             "R2 · It claws whoever is in its way. The fragments start crumbling.",
+             "R3 · Under half: the Unfinished Word.",
+             "R4 · It drops. The monitor line."],
       win:"Drop the summoning. The fragments crumble with it.",
       ends:"Round 3 or 4. On the kill: the monitor line, the AIM chime, and the night ends.",
       losing:"It never attacks a PC at 0 HP: it wants the door. If two PCs are down, it tears through the wall toward the sealed door and comes apart on the threshold. Read the kill line anyway."
@@ -113,6 +124,10 @@ const FIGHTS = {
     rule:"Only if a room solved in five minutes and you're ahead of the clock. It costs about 20 minutes.",
     run:{
       setup:"On the way up to the computer room, the half-drawn circle in last night's room is moving. What's left of the summoning pulls itself out, with four fragments. Roll initiative.",
+      matchups:"The remnant takes the nearest PC. Fragments 1–4 split across the rest.",
+      beats:["R1 · The fragments swarm. The remnant claws the nearest PC.",
+             "R2 · The fragments crumble. Under half: the Unfinished Word.",
+             "R3 · It drops."],
       win:"Drop the remnant. The fragments crumble with it.",
       ends:"Round 2 or 3. Nothing new is learned; move on to the computer room.",
       losing:"Same as last night: it never attacks a PC at 0 HP. If two PCs are down, it smears apart on its own."
@@ -142,6 +157,12 @@ const FIGHTS = {
     rule:"<b>The only lethal fight.</b> Ostrander seals the exits behind him, his own crew included. His death flips the vampires &mdash; no persuasion check.",
     run:{
       setup:"Ostrander walks in with six thugs and seals the exits behind him (narrate it; it costs him nothing). The vampires see five teenagers and one of him, and go for his thugs. Roll initiative.",
+      matchups:"The vampires take thugs 4–6 on the far side of the ballroom. The party faces Ostrander and thugs 1–3 at the breach. Poe Boy stays up on the decks, on the mic; he isn't in this fight.",
+      beats:["R1 · Thugs 1–3 rush the party. Ostrander hangs back by the door, barking orders, and Holds whoever hits him. End of round: a vampire kills thug 4.",
+             "R2 · Thugs 1–3 start dropping. End of round: the vampires kill thugs 5 and 6.",
+             "R3 · Ostrander is exposed: nobody left between him and the party.",
+             "R4 · He goes down. Stop. Silence."],
+      allyJob:"The vampires kill thug 4 at the end of round 1, and thugs 5 and 6 at the end of round 2. Narrate it, no rolls. Then they hold the room and leave Ostrander to the party.",
       win:"Drop Ostrander. The party has to do it, not the vampires.",
       ends:"Round 3 or 4, when he goes down. Stop. Let the room be quiet.",
       losing:"If two PCs are down: Orlok and Dracula pin him to the wall. He loses his turns, and the next hit from a PC kills him."
@@ -153,7 +174,7 @@ const FIGHTS = {
              "Surveyor's rod at the nearest PC: <b>+6 to hit, 10 bludgeoning</b>.",
              "Steps back behind his crew."],
        note:"The first 25 damage is his ward cracking: narrate it, it's in the 100. No damage spells. Doesn't swing at a PC who's down.",
-       drop:"He's dead. Stop. Silence. Then the vampires turn, no check. Thugs still standing drop their tools and back against the wall.",
+       drop:"He's dead. Stop. Silence. Then the vampires turn, no check. Any thug still standing drops his crowbar and backs against the wall.",
        hard:"Orlok pins him for a round: he loses his turn.",
        easy:"Add 25 HP (another layer of ward)."},
       {id:"thug", nm:"Thugs", n:6, ac:12, hp:16, spd:"30", chassis:"Tough", cr:"½", xp:100,
@@ -161,13 +182,13 @@ const FIGHTS = {
        turn:["<b>A PC on Ostrander?</b> Gets between them. Otherwise moves to the nearest PC.",
              "Crowbar: <b>+4 to hit, 8 bludgeoning</b>."],
        note:"Doesn't swing at a PC who's down.",
-       drop:"Down and groaning, out of the fight.",
-       hard:"The vampires take a thug every round, not just rounds 1 and 2.",
+       drop:"Dead. A hard hat rolls across the floor.",
+       hard:"The vampires kill one of thugs 1–3 as well.",
        easy:"Give each 8 more HP (24)."}
     ],
     alliesLabel:"Allies · end of each round, after everyone, no rolls",
     allies:[
-      {nm:"The vampires", act:"<b>End of rounds 1 and 2:</b> one of them drags a thug out of the light to feed. Mark that thug down. From round 3 they hold the room and leave Ostrander to the party."},
+      {nm:"Orlok, Dracula, Edward", act:"Kill thugs 4–6 on the far side: thug 4 at the end of round 1, thugs 5 and 6 at the end of round 2. Dracula plays to the crowd; Orlok is quick and tidy; Edward is efficient and doesn't look at anyone. Mark each one down."},
       {nm:"Angelique", act:"What she does at the finale is still open. <b>If she's with the party:</b> 8 piercing on a thug, no roll."}
     ]
   },
@@ -177,6 +198,12 @@ const FIGHTS = {
     rule:"<b>The USB can't be destroyed</b> &mdash; Command (&ldquo;Drop.&rdquo;) only costs time. When it plays, <b>Stinky's oath breaks with no save.</b>",
     run:{
       setup:"Ostrander is dead, the exits are still sealed and the vampires are with the party. Poe Boy and Lil Stinky hold the decks. The USB is wherever the party left it: if it's still in the old rig upstairs, someone runs it down (about 2 rounds).",
+      matchups:"Lil Stinky holds the decks; Poe Boy stays behind them, on the mic. Orlok goes for Stinky, Dracula shadows whoever holds the USB, Edward hangs back to pull PCs clear. The party's job: get the USB to the decks and get Stinky off them.",
+      beats:["R1 · The USB is on the move. Poe Boy Commands its holder: &ldquo;Drop.&rdquo;",
+             "R2 · The party reaches the decks. Stinky swings at the holder and smokes a vampire (Russ's heal).",
+             "R3 · Stinky gets moved or drops. Someone plugs in.",
+             "R4 · The recording plays. Stinky sits down. The room turns."],
+      allyJob:"One vampire a round, in turn, after everyone: Orlok grips Stinky, Dracula carries the USB holder toward the decks, Edward pulls a PC clear. Narrate it, no rolls.",
       win:"A PC at the decks plugs the USB in (their action). Then narrate the recording.",
       ends:"Round 3 or 4: the recording plays, Stinky sits down, the room turns, Dracula takes the mic.",
       losing:"It can't be lost. If it drags past round 4, Dracula snatches the drive and lands it in a PC's hand at the decks."

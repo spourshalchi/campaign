@@ -500,7 +500,7 @@ then flips to **a clinic**.~~ **Scott, 3 Nov:** no fake-out — the room is plai
 | 🟡 **An early confession elsewhere doesn't flip it.** Only performing as himself on Dracula's stage does | Scott, 3 Nov |
 | 🟡 **Outcomes:** if John performs as himself he gets *Your True Voice*, the echoes cheer and Dracula bows them out. If he refuses, Dracula sulks and lets them go, and the debuff stays | Scott, 3 Nov |
 | 🟡 The party room is **an early, soft hint that the vampires aren't monsters** | Scott, 3 Nov |
-| **Contingencies** (they kill the vampires early, they won't go in): none written; they'll improvise | Scott, 3 Nov |
+| **Contingencies:** if they won't go in, none written; they'll improvise. ~~They kill the vampires early~~ — **off the table: the party never kills the vampires** | Scott, 3 Nov; the vampires: Scott, 2026-11-04 |
 | **The set-dressing list is signed off** (codex to-do t5). **No physical piggy bank:** Simone's smash is narrated or mimed. The piggy bank itself stays in the story (Sesh 8) | Scott, 3 Nov |
 | **The mansion has enough puzzles:** the study door, the party room, the cellar ledger and the sticky note | Scott, 3 Nov |
 | **Simone's warlock has no in-world name** — none is needed. Her backstory card says *name TBD*, and no NPC calls her by name. DM-facing notes still say Simone, meaning the player | Scott, 3 Nov |
@@ -526,7 +526,7 @@ survives. The cellar and the corridor are both still fine — they just need new
 | **Springing the trap summons him.** The party's cleverest move in town puts him in his car | the 24 Aug doc paste, reflavoured by Scott, 26 Aug |
 | He does not know what's in the house. He finds out, updates in four seconds, starts giving orders | the 24 Aug doc paste |
 | He breaches at 3AM and seals the exits behind him — his own crew included | the 24 Aug doc paste |
-| **He is the only death in the story**, and the only one who isn't a monster. Self-defence | the 24 Aug doc paste |
+| ~~**He is the only death in the story**~~ — **his thugs die too**: the party and the vampires kill them in the fight, played PG-13 comic-horror. He is still **the death the room stops for**, and the only one who isn't a monster. Self-defence | the 24 Aug doc paste; the thugs: Scott, 2026-11-04 |
 | His death flips the vampires. **No persuasion check** | the 24 Aug doc paste |
 | Poe Boy tries to recruit him mid-fight and gets brushed off | the 24 Aug doc paste |
 
@@ -605,9 +605,12 @@ Invented with them, all 🟡:
 - **Ostrander's kit**: the seal is narrated as he walks in (before initiative); his ward is the first 25 of his HP;
   **Hold** freezes the last PC who hit him for one turn (DC 15 Wis); a surveyor's rod. No Counterspell or Shield.
   Nobody on his side swings at a downed PC. If two PCs are down, Orlok and Dracula pin him and the next PC hit kills him.
-- **The vampires never roll initiative.** They act at the end of each round with no rolls. Phase 1: at the end of
-  rounds 1 and 2 one of them drags a thug out of the light to feed (the thug is out of the fight). Phase 2: one acts
-  each round, in turn — Orlok grips Stinky for 10, Dracula carries the USB holder 30 ft, Edward pulls a PC 30 ft clear.
+- **The vampires never roll initiative.** They act at the end of each round with no rolls. Phase 2: one acts each
+  round, in turn — Orlok grips Stinky for 10, Dracula carries the USB holder 30 ft, Edward pulls a PC 30 ft clear.
+- ✅ **The thugs die** (`Scott, 2026-11-04`): the party and the vampires kill them. 🟡 The split is invented: the
+  vampires kill thugs 4–6 (one at the end of round 1, two at the end of round 2); the party faces Ostrander and thugs 1–3.
+- **Matchups and beats by round** for every multi-enemy fight (who takes whom at the start, one line per round, the
+  allies' job as one narrated line), at Scott's request (`Scott, 2026-11-04`). The splits and beats are invented.
 - **Poe Boy's Command** is *"Drop."* at the USB holder or *"Flee."* at whoever's nearest the decks, DC 15. **He can't
   drop below 1 HP until the recording plays.** +3 on his saves while Stinky is within 10 ft (the doc's Aura of
   Protection). No legendary actions.
@@ -621,9 +624,8 @@ Invented with them, all 🟡:
 - **Angelique as a one-line ally** (8 damage a round, no roll), offered only *if* she sides with the party. What she
   does at the finale is still open question 9; the card says so.
 
-**Seam to check:** the vampires "eat" two thugs in phase 1 (the codex's earlier verdict), but the Run of Show says
-Ostrander is **the only death in the story**. The cards now say a vampire drags a thug off to feed and he's out of the
-fight, without saying he dies. If the thugs are meant to die, the "only death" line needs changing instead.
+**Seam closed** (`Scott, 2026-11-04`): the thugs die. The "only death in the story" line is struck above; Ostrander is
+the death the room stops for.
 
 ---
 
@@ -889,7 +891,7 @@ stay on this list until you two decide:
 9. ~~Who was the 3AM DJ flyer for?~~ — **answered 25 Aug: public.** The flyer prop is unblocked.
 10. ~~What did Poe Boy tell the vampires?~~ — **answered 25 Aug: he staggered the houseful rather than lying about it.**
 11. ~~The crowd~~ — **resolved 25 Aug.** See the two-tier guest list at the top. Remaining: how the crowd gets through a bolted door at 3AM.
-12. **The developer's name.** He is now the third faction and the only death in the story. ~~Company, or family trust?~~ —
+12. **The developer's name.** He is now the third faction and the death the room stops for. ~~Company, or family trust?~~ —
     **company: Hudson Crossing Development Corp.** (the survey, signed off `Scott, 3 Nov`). *W. Ostrander* is still a proposal.
 13. ~~**The dead kid's name.**~~ — **answered 3 Nov: Marcus Hale, 1999.** It comes off the **USB** when they
     plug it in (Sesh 8), labelled `MARCUS_HALE`. `Scott, 3 Nov`.
