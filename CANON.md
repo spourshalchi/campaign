@@ -896,6 +896,20 @@ stay on this list until you two decide:
 - The dead kid still has **no name, no year, and no life** — that one is a real open question, not an
   invention, and it's the highest-value blank left.
 
+### 7. The Run of Show's table layer — `run/index.html`, 🟡 AI-made 2026-11-04
+DM patter and staging on top of each cue, built so Scott doesn't drop anything at the table. Like the
+transitions above it binds nobody, but it's listed so the review queue can see it. Each item is marked 🟡 on the page:
+- **🎯 Leave knowing** per cue: a summary of reveals already on the cue, no new facts.
+- **➜ Next** per cue: how to get out, built from each cue's existing *Ends* line and read-aloud.
+- **🛟 Rescues** (stall / split / skip / off-script) per cue. Staging that goes past existing text:
+  nobody opens the volume → the Records Keeper opens it to show them the page (cue 3); Poe Boy turns back to his
+  crew when grilled (cue 4); after three Stealth checks with nobody failing, Dracula finds them anyway (cue 6);
+  they won't go in → ask the table out of character (cue 5).
+- **The clock plan**: target minutes per cue (Saturday about 3½ h, Sunday about 4 h, the reserve unplanned).
+- **Break suggestions**: before the walk up the hill (Saturday), and after the three Sunday rooms, before the AIM door.
+- **Sunday's recap prompt**: ask a player where they left off; the last thing they saw was the screen typing
+  *"is someone there"* (cue 9's read-aloud).
+
 ---
 
 ## Open questions worth settling
