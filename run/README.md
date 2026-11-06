@@ -24,7 +24,8 @@ the night one moment at a time, with everything you need to run that moment on s
 ## What's on each slide
 
 **Card zero is the pre-session checklist**: iPads and laptop, the print run, the room, the props bag
-(every prop, packed in hand-over order), and what to hand out before play. **Cue 9's Next button leads
+(every prop, packed in hand-over order) and Spencer's briefing. **Scene 0** is what Scott reads from to open
+the game: his intro, the hand-outs, character introductions, then into History class. **Cue 9's Next button leads
 to the level-up card**: the level 4 to 5 steps by class, and the nudge to Cody about Daylight and Plant
 Growth. **Sunday** gets its own before-you-start card (level 5, rests, the recap). Card zero has **Reset
 everything for the next run**.
@@ -37,8 +38,6 @@ zone scrolls on its own, and below 700px they stack.
 - **Do now** — a tickable card: every **✋ hand-over** for this cue (from the `PROPS` registry), the
   **📱 iPad → item N** bar, **⚔ tokens out** on fight cues, set-up (`EXEC.do`), and the cue's sound
   buttons.
-- **🗂 Floating** — on every mansion cue: the sticky note and the site survey. The AIM-room cue's Do now
-  has a last call for both.
 - **Setting**, **Pacing** (numbered, ending on the line the scene ends on), **Read aloud**.
 - **Skill checks** — when to call it, the DC, what they learn, the fallback. **➜ Next** — how to get out, with jump
   buttons. On Sunday the buttons are a room picker: the rooms not yet done, then the AIM room.
@@ -53,7 +52,7 @@ zone scrolls on its own, and below 700px they stack.
 
 ### Ticks and moving between cues
 Ticks are saved on the device (`localStorage`; the page still works if storage is blocked). ‹ › step through
-the cues in order, and each cue's Next buttons jump to where the story goes, including Sunday's room picker.
+the cues in order and stop at the first and last cards, and each cue's Next buttons jump to where the story goes, including Sunday's room picker.
 Moving forward with › or a Next button marks the cue done. The page reopens on the card you were last on; Reset goes back to card zero.
 
 ## Controls
@@ -103,5 +102,5 @@ It's a single self-contained `index.html` plus `fights.js`. In the `<script>`:
 - `SCENES` — the cues: setting, pace, read, rev, talk, npcs and so on. The level-up card is the scene `L5`.
 - `PROPS` — every physical prop, who gets it and on which cue. Add a prop here, not on a scene; it feeds
   the cue's Do now and the props bag on card zero.
-- `EXEC` — the table layer, keyed by scene no.: `mins`, `do`, `at`, `land`, `next` / `go`.
+- `EXEC` — the table layer, keyed by scene no.: `do`, `at`, `land`, `next` / `go`.
 - `IPAD` — the players' iPad items.

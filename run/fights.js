@@ -106,7 +106,7 @@ const FIGHTS = {
              "Claws twice at the nearest PC: <b>+6 to hit, 9 slashing</b> each.",
              "<b>Once, the first time it's under 43 HP:</b> Unfinished Word. Every PC within 15 ft makes a <b>DC 13 Wis save</b>: 13 psychic, half on a save."],
        note:"Never attacks a PC at 0 HP.",
-       drop:"Read the monitor line, fire the AIM chime, then kill all sound.",
+       drop:"Run the wreckage search first. Then read the monitor line, fire the AIM chime, and kill all sound.",
        hard:"It spends a turn clawing at the door instead of a PC.",
        easy:"Add 20 HP (105)."},
       {id:"frag", nm:"Ritual fragments", n:4, ac:12, hp:7, spd:"30", chassis:"Shadow, no Strength drain", cr:"¼", xp:50,
@@ -121,7 +121,7 @@ const FIGHTS = {
 
   reserve: {
     day:"Sunday", name:"The circle stirs &mdash; reserve, don't plan on it",
-    rule:"Only if a room solved in five minutes and you're ahead of the clock. It costs about 20 minutes.",
+    rule:"Only if a room solved in five minutes and there's time to spare.",
     run:{
       setup:"On the way up to the computer room, the half-drawn circle in last night's room is moving. What's left of the summoning pulls itself out, with four fragments. Roll initiative.",
       matchups:"The remnant takes the nearest PC. Fragments 1–4 split across the rest.",
