@@ -566,15 +566,16 @@ const SCENES = [
   steps:[
     {slot:["Phones away, snacks out, sheets and dice in front of everyone.","Two days: today and tomorrow. Level 4 now, level 5 at the end of today.","You narrate and run the rolls. Spencer voices everyone they meet."], t:"Your intro, in your own words. Cover:"},
     {hand:"backstory"},
+    {say:"Anything on a private sticky note stays private. Everything else on your card, share however you like.", who:"Say as you hand them out"},
     {hand:"reqcard"},
-    {say:"Who are you? Your name, one thing we'd see across the room, and one thing everyone at school knows about you.", who:"Say to each player in turn"},
+    {say:"Who's your character? Their name, one thing you'd notice about them from across the room, and one thing everyone at school knows about them.", who:"Say to each player in turn"},
     {tick:"<b>Bix Grimlor</b> &middot; Will"},
     {tick:"<b>Gnomey Soprano</b> &middot; Julia"},
     {tick:"<b>Simone's warlock</b> &middot; Simone<span class=\"how\">no in-world name needed</span>"},
     {tick:"<b>Yobo</b> &middot; John"},
     {tick:"<b>Russ</b> &middot; Cody"},
     {say:"You all go to the same school. Who here do you already know, and from where?", who:"Then say"},
-    {note:"They share what's public, not what's on their backstory cards. Keep it to who knows of whom: they band together in History class.", k:"rule"}
+    {note:"Keep it to who knows of whom: they band together in History class.", k:"rule"}
   ],
   npcs:[],
   cues:[] },
@@ -1055,7 +1056,7 @@ const SCENES = [
     {by:"The Devil (Goat)", who:"Simone", t:"learns the price of getting him out: her piggy bank. Asked what for, the goat says only <b>&ldquo;No.&rdquo;</b>"}
   ],
   npcs:[
-    {nm:"Angelique", vc:"In the room with them, whether she travelled with the party or was at the door when the chime played. She stays through the final battle. The willow and the drive land on her as hard as on Simone. When he names her: she typed some of the messages, thought it was a prank, and never knew he died."},
+    {nm:"Angelique", vc:"In the room with them, whether she travelled with the party or was at the door when the chime played. She stays through the final battle, on the party's side. The willow and the drive land on her as hard as on Simone. When he names her: she typed some of the messages, thought it was a prank, and never knew he died."},
     {nm:"DJ Poe Boy", vc:"Only his voice, on every speaker, at the end of the room. Borrowed lines."},
     {nm:"The Spirit", vc:"Frightened, types lowercase. Comes apart at Poe Boy's handle. Offers his one wish rather than risk them logging off."},
     {nm:"The Devil (Goat)", vc:"Serif, capitals, full stops &mdash; never raised on a keyboard. Asked what it wants the money for: <b>&ldquo;No.&rdquo;</b> and nothing else."}
@@ -1073,7 +1074,7 @@ const SCENES = [
     {do:"Dracula, waiting for his cue: <b>&ldquo;Not you. Them.&rdquo;</b> &#128275;"},
     {do:"As the crowd pours in: <b>Perception DC 14</b>."},
     {check:{skill:"Perception", dc:"14", note:"<b>Call it</b> as the crowd pours in. <b>Success:</b> among the charmed crowd, one man with a clipboard isn't charmed: a warning before he acts. His name is already on the library card and the survey (<i>coordinate through W.O.</i>), so a player can place him. <b>Miss:</b> it plays on schedule."}},
-    {note:"<b>Angelique stays through the final battle</b> &mdash; what she does is still open."},
+    {note:"<b>Angelique is on the party's side</b> through the final battle."},
     {snd:["jump","braaam"], t:"The hard hats"},
     {say:"Hard hats push through the crowd. They walk right past you. They're going for the vampires. A man with a clipboard says one word, and Orlok, Dracula and Edward stop dead, pinned where they stand. His men take out stakes.", who:"The hard hats"},
     {rev:{who:"Players", t:"meet the man behind the checkout card and the survey: <b>W. Ostrander</b>, the developer."}},
@@ -1120,7 +1121,7 @@ const SCENES = [
     {fight:1},
     {snd:["scratch"], t:"The USB hits the decks"},
     {snd:["hiss"], t:"Under the recording"},
-    {do:"The USB hits the decks: <b>narrate the recording</b>. &#128275; Stinky's oath breaks, no save."},
+    {do:"The USB hits the decks: <b>narrate the recording</b>. &#128275; Stinky's oath breaks, no save, and he turns on Poe Boy."},
     {say:"His set cuts out mid-scream. Then typing. A door shuts. Then a scared kid, asking someone to open it. Asking again, quieter. And under all of it, perfectly calm, Poe Boy: nudging a level up, leaning in close to listen, pleased with how clean it sounds.", who:"When the USB hits the decks · narrate the recording"},
     {note:"<b>Narrate the recording</b> &mdash; the single biggest table moment. There's no file to play; it's your voice."},
     {say:"The speakers hiss. Nobody in the ballroom moves.", who:"Then let it sit"},
@@ -1140,7 +1141,8 @@ const SCENES = [
     {who:"Orlok · to Poe Boy", t:"Let them play it."},
     {who:"DJ Poe Boy · refusing, on whoever holds the USB", t:"Drop."},
     {who:"Orlok · if nobody raises the drive", t:"You came down those stairs running. What did you find up there?"},
-    {who:"DJ Poe Boy · panicking, borrowed voices", t:"Don't touch that dial!"}
+    {who:"DJ Poe Boy · panicking, borrowed voices", t:"Don't touch that dial!"},
+    {who:"Angelique · to the crowd, when the recording plays", t:"I typed those messages."}
   ],
   ifblock:{when:"IF Simone paid the goat", say:"Spencer voices <b>Marcus</b> through every speaker in the house. Lowercase, the way he typed.",
     lines:[
@@ -1154,13 +1156,13 @@ const SCENES = [
   rev:[
     {by:"Orlok", who:"The vampires", t:"turn on Poe Boy when he refuses to let the drive play. Until then they don't fight him."},
     {by:"spencer", who:"Poe Boy and the vampires", t:"hear it from Marcus himself &mdash; <b>only if Simone paid the goat</b>."},
-    {by:"Lil Stinky", who:"Lil Stinky", t:"hears his best friend stay calm while a kid dies. <b>His oath breaks, no save.</b> He sits down."},
+    {by:"Lil Stinky", who:"Lil Stinky", t:"hears his best friend stay calm while a kid dies. <b>His oath breaks, no save.</b> He turns on Poe Boy."},
     {by:"Dracula", who:"The crowd", t:"hear Dracula seize the mic and denounce Poe Boy, magnificently."}
   ],
   npcs:[
     {nm:"Orlok", vc:"Owes the party, and pays by asking one question. Doesn't fight Poe Boy until he refuses."},
     {nm:"DJ Poe Boy", vc:"Not killed &mdash; <b>un-performed</b>. The glamour breaks. His parents call him Upton in the driveway."},
-    {nm:"Lil Stinky", vc:"Stoner, bad rapper, honest to a fault. The only one not charmed &mdash; he just believes his friend. Oath breaks, he stops fighting and sits down. Diss track on Monday."},
+    {nm:"Lil Stinky", vc:"Stoner, bad rapper, honest to a fault. The only one not charmed &mdash; he just believes his friend. Oath breaks, and he turns on Poe Boy. Diss track on Monday."},
     {nm:"Dracula", vc:"Seizes the mic and denounces Poe Boy magnificently. Waited all night for a real audience."}
   ],
   cues:["set","crowd","scratch","hiss","boo","braaam"] },
