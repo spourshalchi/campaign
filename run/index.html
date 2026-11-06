@@ -964,10 +964,10 @@ const SCENES = [
   cues:["drone","heart","jump","braaam"] },
 
 { act:"night", no:7, title:"Russ and the spectacles", where:"Saturday night · Cody · badge req 1 of 3",
-  setting:"Off the main hall, a boarded window lets one sunbeam through. It lies across the sill and a pair of wire spectacles &mdash; and at its very edge, perfectly still, stands Orlok.",
+  setting:"Off the main hall, a tall cabinet stands against the wall. On top of it, a pair of wire spectacles. Below them Orlok is patting slowly along the wrong shelf.",
   pace:[
-    "Right after the dismissal, Russ finds Orlok frozen at the edge of the light. Optional Insight / Perception to clock why. &#128275;",
-    "Russ walks into the light and hands the spectacles over. <b>No roll.</b>",
+    "Right after the dismissal, Russ finds Orlok at the cabinet. <b>Dracula has put his spectacles on top of it</b> and he can't see without them, so he's patting along the wrong shelf. Still cold and dignified. He won't ask for help. &#128275;",
+    "Russ reaches up and hands the spectacles over. <b>No roll.</b>",
     "Russ points at &ldquo;verified by your elder&rdquo;: Orlok <b>flatly refuses to sign</b>. Refusal 1 of 3. &#128275;"
   ],
   ends:"on the read-aloud: no thanks, and the house dark in every direction. Turn them loose to explore.",
@@ -975,15 +975,12 @@ const SCENES = [
   beats:[
     "Orlok takes them without thanks. When Russ points at the &ldquo;verified by your elder&rdquo; line he <b>flatly refuses to sign</b> &mdash; refusal 1 of 3. Keep him cold. He notices the kid didn't flinch and didn't ask for anything."
   ],
-  checks:[
-    {skill:"Insight / Perception", dc:"10", sug:true, note:"Optional &mdash; lets a player clock <i>why</i> he's stuck at the light."}
-  ],
   rev:[
-    {by:"scott", who:"Russ", t:"learns Orlok can't cross the sunlight &mdash; he's been stuck at the edge of it for hours."},
-    {by:"Orlok", who:"Orlok", t:"learns a warm kid will walk into the light for him and want nothing back. Play the tiny crack; still no signature."}
+    {by:"scott", who:"Russ", t:"sees Orlok can't see without his spectacles, and won't ask for help."},
+    {by:"Orlok", who:"Orlok", t:"learns a warm kid will reach up for him and want nothing back. Play the tiny crack; still no signature."}
   ],
   npcs:[
-    {nm:"Orlok", vc:"Cold. Takes the favour, gives nothing back. Won't sign the card."}
+    {nm:"Orlok", vc:"Cold and dignified. Won't ask for help. Takes the favour, gives nothing back. Won't sign the card."}
   ],
   reminders:[
     {t:"Russ's requirements card (printed) comes out here; he's had it since before play. This also plants the infirmary &mdash; he'll want the specs for fine vet work downstairs.", k:""},
@@ -1036,7 +1033,7 @@ const SCENES = [
   fight:FIGHTS.summoning,
   npcs:[],
   reminders:[
-    {t:"<b>End of session one &mdash; everyone levels to 5.</b>", k:"level"},
+    {t:"<b>End of session one &mdash; everyone levels to 5.</b> Mention that 3rd-level spells are open, and name <b>Daylight</b> and <b>Plant Growth</b>.", k:"level"},
     {t:"Fire the <b>AIM chime</b> as the screen wakes, then kill all sound.", k:""}
   ],
   cues:["heart","jump","aim","levelup"] },
@@ -1044,7 +1041,7 @@ const SCENES = [
 { act:"sunday", no:"SUN", title:"Sunday &mdash; before you start", where:"Day two · level 5 · tick as you go",
   checklist:[
     {g:"Table", items:[
-      {id:"sun-level", t:"<b>Every sheet at level 5.</b>"},
+      {id:"sun-level", t:"<b>Every sheet at level 5.</b> Mentioned that 3rd-level spells are open, Daylight and Plant Growth?"},
       {id:"sun-rest", t:"<b>Full HP and spell slots</b> for everyone at the start of Sunday."},
       {id:"sun-props", t:"<b>Props sheet checked</b> (top bar): what's already out, what's still in the bag. Sticky note and survey not out yet? They go to the first rooms they search today."},
       {id:"sun-poster", t:"<b>DJ poster</b> still on the AIM-room door."},
@@ -1055,7 +1052,7 @@ const SCENES = [
       {id:"sun-recap", t:"<b>Recap</b>: ask a player where they left off. Last thing they saw: a screen in the house typed <i>&ldquo;is someone there&rdquo;</i> and went dark."}]}
   ],
   clock:"sun",
-  read:[{who:"Previously &middot; or let a player tell it 🟡", t:"Last night. A card in your locker: <b>Dood Mansion, 8 PM</b>. A trap in the hall of records, and a page cut to ribbons. The house on the hill, the boards off the door &mdash; and the door bolting behind you. Angelique in the dark. Three voices in the hall: <i>&ldquo;He said five, and there are five.&rdquo;</i> Something about meals. <i>&ldquo;We'll find you when we're ready.&rdquo;</i> The old one, frozen at the edge of a sunbeam. The pale one, watching Bix. And behind a warm door upstairs, something half-made that you put down &mdash; and somewhere in the house a screen typed <b>&ldquo;is someone there&rdquo;</b>, and went dark."}],
+  read:[{who:"Previously &middot; or let a player tell it 🟡", t:"Last night. A card in your locker: <b>Dood Mansion, 8 PM</b>. A trap in the hall of records, and a page cut to ribbons. The house on the hill, the boards off the door &mdash; and the door bolting behind you. Angelique in the dark. Three voices in the hall: <i>&ldquo;He said five, and there are five.&rdquo;</i> Something about meals. <i>&ldquo;We'll find you when we're ready.&rdquo;</i> The old one, patting along the wrong shelf. The pale one, watching Bix. And behind a warm door upstairs, something half-made that you put down &mdash; and somewhere in the house a screen typed <b>&ldquo;is someone there&rdquo;</b>, and went dark."}],
   pace:[
     "<b>Study first</b> (cue 10) &mdash; it has to land before anything clears the vampires. Then the party room (11) and the cellar (12), either order.",
     "<b>The AIM room (13) is always last.</b> Fire the chime once all three rooms are done.",
@@ -1144,26 +1141,27 @@ const SCENES = [
   cues:["record","crowd","candle"] },
 
 { act:"sunday", no:12, title:"The infirmary", where:"The cellar · Cody · badge req 2 of 3 · any-order room",
-  setting:"Stone steps down. A lamp is already lit. It smells of straw and something clean and sharp, like a doctor's office. There's an exam table, a fox in a splint asleep on a blanket, and an owl on a perch with one wing bound. Jars, bandages, a mortar. A ledger lies open on a lectern.",
+  setting:"Stone steps down. A lamp is already lit. It smells of straw and something clean and sharp, like a doctor's office. There's an exam table, a fox in a splint asleep on a blanket, and an owl on a perch with one wing bound. Jars, bandages, a mortar. A ledger lies open on a lectern. In the corner, under a dark grate, a tray of dead white seedlings.",
   pace:[
     "Let them look around. It's plainly a clinic.",
     "&#9995; <b>Orlok's ledger</b>, the printed page: a register of patients, with notes on the Sun's-mercy in the margin. &#128275; Orlok is a vet.",
-    "Russ can use <b>Speak with Animals</b>. The fox and the owl say the old one mends them, and they aren't afraid of him. &#128275; The vampires don't kill. This is the backup if nobody reads the ledger.",
-    "A tray of dead white seedlings leans toward a grate with one blade of daylight; the margin notes point to it. Russ moves them into the light (no roll, or Nature / Plant Growth for flair). They open gold, and he can treat a patient with one. <b>Badge req 2.</b>",
-    "Orlok stands at the foot of the stairs, at the edge of the light, watching. He still won't sign. <b>Refusal 2 of 3.</b>"
+    "Russ can use <b>Speak with Animals</b>. The fox and the owl say the old one mends them, and they aren't afraid of him. &#128275; The vampires don't kill. This is the backup if nobody reads the ledger. The fox also says the seedlings want the sun, and the old one can't give it to them.",
+    "The seedlings lean to the grate; the margin notes point to them. It's night, so no daylight comes through. Russ makes the sun himself with <b>Daylight</b> (3rd-level druid spell).",
+    "Didn't prepare it? <b>Plant Growth</b>, or the Nature check, DC 14.",
+    "They open gold, and he dresses the fox's leg with one. <b>Badge req 2.</b>"
   ],
-  ends:"when the flowers open and Orlok turns away.",
+  ends:"when the flowers open and Russ dresses the fox's leg.",
   checks:[
-    {skill:"Speak with Animals", dc:"auto", sug:false, note:"The fox and the owl: the old one mends them, and they aren't afraid of him. <span class='ai'>🟡</span>"},
-    {skill:"Nature / Plant Growth", dc:"14", sug:true, note:"Optional, for flair. Moving the seedlings into the light is enough on its own. <span class='ai'>🟡</span>"}
+    {skill:"Speak with Animals", dc:"auto", sug:false, note:"The fox and the owl: the old one mends them, and they aren't afraid of him. The fox: the seedlings want the sun, and the old one can't give it to them."},
+    {skill:"Daylight", dc:"auto", sug:false, note:"3rd-level druid spell. Russ makes the sun himself and the seedlings open."},
+    {skill:"Nature / Plant Growth", dc:"14", sug:true, note:"The fallback if he didn't prepare Daylight."}
   ],
   rev:[
     {by:"scott", who:"Players", t:"learn from the ledger that <b>Orlok is a vet</b>: the animals down here are his patients."},
     {by:"The patients", who:"Russ", t:"learns through Speak with Animals that the old one mends them and they aren't afraid of him. <b>The vampires don't kill.</b>"},
-    {by:"Orlok", who:"Orlok", t:"watches Russ bring the Sun's-mercy into flower. He still won't sign."}
+    {by:"The fox", who:"Russ", t:"learns through Speak with Animals that the seedlings want the sun, and the old one can't give it to them."}
   ],
   npcs:[
-    {nm:"Orlok", vc:"At the foot of the stairs, at the edge of the light. Says little. Won't sign. <span class='ai'>🟡</span>"},
     {nm:"The patients", vc:"A fox in a splint and an owl with a bound wing. Only Russ can understand them."}
   ],
   cues:["candle"] },
@@ -1238,6 +1236,7 @@ const SCENES = [
 { act:"finale", no:"14 · i", title:"Climax — Phase 1: the developer breaches", where:"The ballroom · 3AM · the crowd arrives with the show · the only lethal fight",
   setting:"3AM, and the house is suddenly full of people. The ballroom is rigged as a stage: decks on the dais, cables run off into the walls, lights swinging over a crowd still pouring in. And Poe Boy's voice is in every speaker at once.",
   pace:[
+    "At the start, before the lie: Russ shows Orlok the card. He still won't sign. <b>Refusal 2 of 3.</b> <span class='ai'>🟡</span>",
     "The crowd arrives with the show. Poe Boy on the mic <b>names all five</b> &#128275; and tells the vampires they're the developer's people &#128275;. The vamps turn on the party, briefly.",
     "<b>Ostrander breaches</b> and seals the exits behind him, his own crew included. &#128275; &#9876; The only lethal fight.",
     "His arrival <b>breaks the lie on sight</b>: the vampires go for his thugs. &#128275;",
@@ -1265,6 +1264,7 @@ const SCENES = [
   fight:FIGHTS.developer,
   npcs:[
     {nm:"DJ Poe Boy", vc:"On the mic in borrowed lines. An Enthralling Performance holds the 3AM crowd &mdash; he needs them frightened and he needs them to stay."},
+    {nm:"Orlok", vc:"Russ shows him the card at the start of the scene. He still won't sign. <span class='ai'>🟡</span>"},
     {nm:"W. Ostrander", vc:"An adult with a clipboard. Within four seconds it stops being folklore and becomes a contamination problem on a site he's paid for. Brushes off Poe Boy's recruit pitch."}
   ],
   reminders:[
@@ -1430,14 +1430,14 @@ const EXEC = {
     late:"One Stealth check, the argument, then Dracula.", early:"More exploring under recurring Stealth before Dracula.",
     do:["Spencer: the overheard argument is his. Cue him."],
     land:["Someone told the vampires <b>exactly five</b> were coming: &ldquo;the boy.&rdquo;","The vampires keep <b>&ldquo;meals&rdquo;</b> somewhere.","They think they're being <b>hunted</b>."],
-    next:"On Orlok's dismissal, Russ finds Orlok at the sunbeam: cue 7.", go:["7"],
+    next:"On Orlok's dismissal, Russ finds Orlok at the cabinet: cue 7.", go:["7"],
     save:[["Stall","Nobody rolls badly after three Stealth checks: Dracula finds them anyway."],
           ["Off-script","They attack: the vampires never roll damage. Dracula grapples and shoves; Orlok ends it with one word."],
           ["Off-script","&ldquo;Is this part of the party?&rdquo; The vampires play along."]]},
   "7":{mins:10,
-    land:["Orlok <b>can't cross sunlight</b>.","He <b>won't sign</b>: refusal 1 of 3."],
+    land:["Orlok <b>won't ask for help</b>.","He <b>won't sign</b>: refusal 1 of 3."],
     next:"No thanks, the house dark in every direction (read-aloud). Turn them loose: cue 8.", go:["8"],
-    save:[["Stall","Cody doesn't bite: let anyone see Orlok stuck at the light, and point Cody at his card's &ldquo;something out of reach&rdquo; box."]]},
+    save:[["Stall","Cody doesn't bite: let anyone see Orlok patting the wrong shelf, and point Cody at his card's &ldquo;something out of reach&rdquo; box."]]},
   "8":{mins:20,
     late:"One Edward sighting, then the warm door.", early:"Let them search a room or two: a floating prop goes out.",
     do:["First room they search: &#9995; the sticky note."],
@@ -1467,10 +1467,10 @@ const EXEC = {
     save:[["Skip","John stays masked: Dracula sulks aside and lets them go; the debuff stays."]]},
   "12":{mins:25,
     late:"If the ledger lands, skip Speak with Animals.", early:"Speak with Animals as well: the fox and the owl.",
-    land:["<b>Orlok is a vet</b>; the animals are his patients.","<b>The vampires don't kill.</b>","Badge req 2 done; refusal 2 of 3."],
-    next:"The flowers open; Orlok turns away. Next room.", go:"rooms",
+    land:["<b>Orlok is a vet</b>; the animals are his patients.","<b>The vampires don't kill.</b>","Badge req 2 done."],
+    next:"The flowers open and Russ dresses the fox's leg. Next room.", go:"rooms",
     save:[["Stall","Nobody reads the ledger: Speak with Animals says it."],
-          ["Stall","Nobody moves the seedlings: point at the ledger's margin notes."]]},
+          ["Stall","Nobody helps the seedlings: point at the ledger's margin notes, or let the fox say it."]]},
   "R":{mins:0, next:"The remnant drops: on to the AIM door.", go:["13"]},
   "13":{mins:40,
     late:"Paraphrase the chat. Never cut the bag, the drive or the goat.",
@@ -1481,7 +1481,7 @@ const EXEC = {
   "14 · i":{mins:45,
     late:"When Ostrander drops, his remaining thugs die in the scramble.",
     do:["Crowd (5) as the house fills; PA (p) when Poe Boy takes the mic."],
-    land:["Poe Boy's lie on the mic, and <b>Ostrander's arrival breaks it</b> on sight.","Ostrander dies. <b>Let it be quiet.</b>"],
+    land:["Refusal 2 of 3: Orlok still won't sign. <span class='ai'>🟡</span>","Poe Boy's lie on the mic, and <b>Ostrander's arrival breaks it</b> on sight.","Ostrander dies. <b>Let it be quiet.</b>"],
     next:"Silence, then the booth: cue 14 · ii.", go:["14 · ii"],
     save:[["Losing","See Losing? on the fight card."]]},
   "14 · ii":{mins:40,
@@ -1524,7 +1524,7 @@ const PARTY = [
    gone:"Keep the debuff card in your folder; the party room plays without him and the door opens on Dracula's sulk."},
   {id:"russ", nm:"Russ", pl:"Cody", cls:"Firbolg · Druid", vibe:"Earnest scout, basically Russell from <i>Up</i>. Talks to animals.",
    arc:"Earns Assisting the Elderly from Orlok, three signatures he refuses until the end.",
-   beats:[[7,"req 1: the spectacles"],[12,"req 2: the Sun's-mercy"],["14 · ii","req 3: heal a vampire under fire"],[15,"the badge"]],
+   beats:[[7,"req 1: the spectacles"],[12,"req 2: the Sun's-mercy"],["14 · i","refusal 2"],["14 · ii","req 3: heal a vampire under fire"],[15,"the badge"]],
    gone:"He gets the badge no matter what, even if he missed a requirement."}
 ];
 
@@ -1537,7 +1537,7 @@ const CAST = [
   {nm:"DJ Poe Boy", cues:[4,"14 · i","14 · ii",15], voice:"Kenku: speaks only in borrowed, sampled lines. Glamour charm, too cool.", wants:"Real screams for his horror score.", knows:"Keeps back: he sent the cards, it's his party, he shut the door on Marcus, his name is Upton."},
   {nm:"Angelique", cues:[4,5,13,"14 · i","14 · ii"], voice:"Changeling, trad goth. A side-eye and a held breath, not exposition.", wants:"To warn them; to find out what happened to the kid.", knows:"She typed some of Poe Boy's messages to him, thinking it was a prank. Says so only when he names her. Party's choice whether she travels with them; if not, she's at the AIM door when the chime plays. Stays through the final battle. What she does at 3AM is open."},
   {nm:"The crew", cues:[4], voice:"Poe Boy's hangers-on at the gazebo.", wants:"A Dolly riff out of Yobo.", knows:"Nothing."},
-  {nm:"Orlok", cues:[6,7,12,15], voice:"Patient, very polite, cold. One word stops Dracula.", wants:"To be left alone in his house; the scare to save it.", knows:"The house isn't his: he lost it to Vinny in 1931. Won't sign Russ's card until the driveway. Won't explain the doors."},
+  {nm:"Orlok", cues:[6,7,"14 · i",15], voice:"Patient, very polite, cold. One word stops Dracula.", wants:"To be left alone in his house; the scare to save it.", knows:"The house isn't his: he lost it to Vinny in 1931. Won't sign Russ's card until the driveway. Won't explain the doors."},
   {nm:"Dracula", cues:[6,11,"14 · ii"], voice:"Campy, theatrical, hands-on, delighted. Kind in the party room.", wants:"A real audience.", knows:"Witnessed the 1931 settlement (not a notary). Sees through Yobo."},
   {nm:"Edward", cues:[6,8,15], voice:"Watches Bix. Never approaches. No jokes when he finally talks.", wants:"To be left alone.", knows:"Bix is his son, and the whole timeline. Tells it only in the driveway."},
   {nm:"The Spirit (Marcus Hale)", cues:[13,"14 · ii",16], voice:"Frightened, types lowercase, comes apart at Poe Boy's handle.", wants:"His bag; then out.", knows:"Poe Boy shut the door. Angelique was the girl messaging him."},
@@ -1574,7 +1574,7 @@ const LEVEL5 = [
   "<b>Proficiency bonus +2 &rarr; +3.</b> Update every attack bonus, save DC, proficient skill and save.",
   "<b>Hit points:</b> all five classes use a d8. Add 5 (or roll a d8) + Con modifier.",
   "<b>Cantrips get stronger</b> (a second damage die; Eldritch Blast fires two beams).",
-  "<b>Druid</b> (Bix, Russ): 3rd-level spell slots; Wild Resurgence.",
+  "<b>Druid</b> (Bix, Russ): 3rd-level spell slots; Wild Resurgence. Say 3rd-level spells are open, and name Daylight and Plant Growth.",
   "<b>Rogue</b> (Gnomey): Sneak Attack 3d6; Cunning Strike; Uncanny Dodge.",
   "<b>Warlock</b> (Simone): Pact slots become 3rd level; more invocations.",
   "<b>Bard</b> (Yobo): 3rd-level slots; Bardic Inspiration becomes a d8; Font of Inspiration (regain on a short rest).",
