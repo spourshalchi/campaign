@@ -51,7 +51,7 @@ SCENES.push(
   next:"He's read it three times (read-aloud). Next room.", go:"rooms",
   npcs:[
     {nm:"Nobody to voice here", vc:"The room is empty. Gnomey reads alone."},
-    {nm:"Great Uncle Vinny · later, in the driveway", pts:["Only if Scott says Gnomey missed the bearer clause: say it as you hand over the deed"], vc:"<i>&ldquo;Whoever's holding this owns the place. Now that's you.&rdquo;</i>"}
+    {nm:"Great Uncle Vinny · later, in the driveway", pts:["Tell Gnomey that whoever holds the deed owns the place, as you hand it over.<ul><li>Only if Scott says he missed the bearer clause here.</li><li>The line: <i>&ldquo;Whoever's holding this owns the place. Now that's you.&rdquo;</i></li></ul>"], vc:"Not in this room. A heads-up for the driveway."}
   ],
   cues:["study","lockclick"] },
 
@@ -97,7 +97,7 @@ SCENES.push(
     {by:"Dracula", who:"The party", t:"learn the truth about Yobo's origins <i>if</i> he drops the act for the song. What he says is John's call."}
   ],
   npcs:[
-    {nm:"Dracula", pts:["Block the door: nobody leaves without giving you a song","Look at Yobo and wait until he sings","Answer the roll Scott calls: the high line or the low line. Neither opens the door","Quietly, to Yobo: you know that mask, you've worn it for four hundred years","Push him to take it off and sing as himself","He does: bow them out. He won't: sulk theatrically, step aside and let them go"], vc:"This room is his shrine: untouched since '79, the best night of his unlife. Campy and theatrical, then drop it for one line when he says he knows the mask. He isn't only mocking Yobo; play that under the camp. Hurt when refused, never angry."},
+    {nm:"Dracula", pts:["Block the door and tell them nobody leaves without giving you a song.","Look at Yobo and wait until he sings.<ul><li>Only Yobo can give you the song.</li></ul>","Answer the roll when Scott calls it, with the high line or the low line.<ul><li>Neither one opens the door.</li></ul>","Tell Yobo quietly that you know that mask, and you've worn it for four hundred years.<ul><li>You're a performer who has played &ldquo;Dracula&rdquo; all this time, so you know a fake.</li></ul>","Push him to stop hiding and sing as himself.","Bow them out if he does.","Sulk theatrically, step aside and let them go if he won't."], vc:"This room is his shrine: untouched since '79, the best night of his unlife. Campy and theatrical, then drop it for one line when he says he knows the mask. He isn't only mocking Yobo; play that under the camp. Hurt when refused, never angry."},
     {nm:"The echoes", vc:"Impressions of that night, not ghosts. They can't be spoken to; they laugh, dance and cheer, and fade when the music stops."}
   ],
   cues:["candle","needle","record","cheer","levelup"] },
@@ -121,7 +121,7 @@ SCENES.push(
     {who:"Dracula · if someone's kind about it", t:"Oh. Well. That's very nice of you. You weren't supposed to be nice."}
   ],
   npcs:[
-    {nm:"Dracula", pts:["Swoop in and pay off Orlok's line: you said you'd find them when you were ready, and you're ready","Demand a scream, big and theatrical. Touch nobody, no damage","The moment someone is kind or unimpressed, stop dead","It's all gone out of you: you had a whole thing planned","Go"], vc:"Full theatrics, then none. Hurt, not angry."}
+    {nm:"Dracula", pts:["Swoop in and tell them you're ready.<ul><li>On Saturday Orlok said <i>&ldquo;We'll find you when we're ready.&rdquo;</i></li></ul>","Demand a scream, big and theatrical.<ul><li>Touch nobody. No damage.</li></ul>","Stop dead the moment someone is kind or unimpressed.","Say you had a whole thing planned.","Leave."], vc:"Full theatrics, then none. Hurt, not angry."}
   ],
   cues:["drone","swoop","jump"] },
 
@@ -152,19 +152,18 @@ SCENES.push(
     {by:"The fox", who:"Russ", t:"learns through Speak with Animals that the seedlings want the sun, and the old one can't give it to them."}
   ],
   npcs:[
-    {nm:"The fox", pts:["The old one mends you","You aren't afraid of him","The seedlings want the sun, and the old one can't give it to them"], vc:"A fox in a splint. Only Russ can understand it, so talk to Cody."},
-    {nm:"The owl", pts:["The old one mends you too","You aren't afraid of him"], vc:"An owl with a bound wing. Few words."}
+    {nm:"The fox", pts:["Tell Russ the old one mends you.","Tell him you aren't afraid of the old one.","Tell him the seedlings want the sun, and the old one can't give it to them."], vc:"A fox in a splint. Only Russ can understand it, so talk to Cody."},
+    {nm:"The owl", pts:["Tell Russ the old one mends you too.","Tell him you aren't afraid of the old one."], vc:"An owl with a bound wing. Few words."}
   ],
   cues:["cellar","bloom"] },
 
 { act:"sunday", no:"R", title:"Reserve fight &mdash; the circle stirs", where:"Sunday · only if there's time to spare · skip it otherwise",
   steps:[
-    {do:"<b>Only if</b> a room solved in five minutes and there's time to spare. Otherwise skip this cue."},
+    {do:"<b>Only if</b> there's time to spare. Otherwise skip this cue. It happens on the way up to the computer room."},
     {snd:["summon","heart"]},
     {say:"Last night's room is cold now. The half-drawn circle is still on the floorboards &mdash; and one of the chalk lines is moving.", who:"Setting"},
-    {do:"On the way up to the computer room, the circle stirs. &#9876; Fight."},
     {tok:1},
-    {snd:["jump"]},
+    {snd:["jump"], t:"The circle stirs: &#9876; fight"},
     {note:"Use the 2&Prime; summoning token for the remnant and two fragment tokens."},
     {fight:1},
     {do:"When the remnant drops, move straight on to the computer room."},
@@ -172,7 +171,9 @@ SCENES.push(
   ],
   next:"The remnant drops: on to the AIM door.", go:["13"],
   fight:FIGHTS.reserve,
-  npcs:[],
+  npcs:[
+    {nm:"Nobody to voice here", vc:"The remnant has no lines. Scott runs this one."}
+  ],
   cues:["summon","heart","jump"] },
 
 { act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room",
