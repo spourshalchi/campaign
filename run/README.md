@@ -74,10 +74,21 @@ Home Screen from Safari for a fullscreen booth.
 
 ## Editing the content
 
-It's a self-contained `index.html` plus `fights.js` and the combat page, `combat/index.html`, which reads the same `fights.js`. In the `<script>`:
-- `SCENES` — the cues. `steps` is Scott's list (the step kinds are listed above `SCENES`); `talk`, `ifblock`, `rev`,
-  `npcs` and `spBrief` are Spencer's panel; `cues` fills the soundboard's This cue row. The level-up card is the scene `L5`.
-- `PROPS` — every physical prop, who gets it and on which cue. Add a prop here, and a `{hand:id}` step on
-  its scene; it also feeds the props bag on card zero.
-- `EXEC` — the table layer, keyed by scene no.: `next` / `go`.
-- `IPAD` — the players' iPad items.
+`index.html` is the engine, layout, CSS and soundboard. The content is in plain script files, with no build step,
+loaded in this order:
+
+| File | Holds |
+|---|---|
+| `fights.js` | Every fight's stat lines (also read by `combat/`) |
+| `scenes/pre.js` | `IPAD` (the players' iPad items), `PROPS` (every physical prop, who gets it and on which cue) and the pre-session card. The step kinds are listed at the top of `const SCENES` here |
+| `scenes/town.js` | Scene 0 and cues 1 to 4 |
+| `scenes/night.js` | Cues 5 to 9 and the level-up card |
+| `scenes/sunday.js` | Sunday's start card, cues 10 to 13, Dracula's scare and the reserve fight |
+| `scenes/finale.js` | Cues 14 to 16 |
+
+Each scene is one object: `steps` is Scott's list; `next` and `go` are the Next text and its jump buttons (`go:"rooms"` is
+Sunday's room picker); `talk`, `ifblock`, `rev`, `npcs` (with `pts`, the points in order) and `spBrief` are Spencer's panel;
+`cues` fills the soundboard's This cue row. To add a prop, add it to `PROPS` and a `{hand:id}` step on its scene.
+
+**After editing a content file, bump that file's `?v=` on its script tag in `index.html`**, or an iPad that already has
+it will keep the old copy.
