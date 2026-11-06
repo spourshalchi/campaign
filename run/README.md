@@ -33,13 +33,14 @@ Every other cue is split into two colour-coded zones on one screen; on a wide en
 zone scrolls on its own, and below 700px they stack.
 
 **SCOTT · narrate** (gold, left), top to bottom:
+- **🎯 Leave knowing** — first on every cue: where they are in the story, the must-land points, and who delivers each.
 - **Do now** — a tickable card: every **✋ hand-over** for this cue (from the `PROPS` registry), the
   **📱 iPad → item N** bar, **⚔ tokens out** on fight cues, set-up (`EXEC.do`), and the cue's sound
   buttons.
 - **🗂 Floating** — on every mansion cue: the sticky note and the site survey. The AIM-room cue's Do now
   has a last call for both.
 - **Setting**, **Pacing** (numbered, ending on the line the scene ends on), **Read aloud**.
-- **🎯 Leave knowing** — the must-land reveals, nothing else. **➜ Next** — how to get out, with jump
+- **Skill checks** — when to call it, the DC, what they learn, the fallback. **➜ Next** — how to get out, with jump
   buttons. On Sunday the buttons are a room picker: the rooms not yet done, then the AIM room.
 - **🛟 Rescues** — 🪢 if stuck, ↪ backup path, and stall / split / skip / off-script lines.
 - **⚔ Combat** — Running this fight, then a turn card per enemy with a tap HP tracker (kept while you

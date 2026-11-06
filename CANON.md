@@ -71,6 +71,29 @@ rather than assuming, because it touches what the bolt actually means for the pa
 
 ---
 
+## 📗 The reworked ending — approved by Scott, 2026-11-06
+
+> Scott approved this ending and asked for the Run of Show to execute it, not retell it: each scene leads with what the players should understand and who delivers it. Backstory stays in the codex.
+
+| Decision | Source |
+|---|---|
+| **The vampires:** Poe Boy promised a haunted-house party. The five are a rehearsal and the 3AM crowd is the real scare that kills the mall. They don't know about his plan for the mics, or that anyone died | Scott, 2026-11-06 |
+| **Poe Boy:** mics record the party's real screams all night. At 3AM he debuts a set built from them, live on the decks, to a charmed crowd. No soul-cage plan for the party. He killed Marcus to get better audio, so the threat is that he doesn't stop | Scott, 2026-11-06 |
+| **The vampires mean to scare the party all along but get heart-warmed:** Edward has the family connection to Bix, Russ keeps helping Orlok, Dracula sees himself in Yobo. They stay on the job until 3AM, when the crowd is their target | Scott, 2026-11-06 |
+| **Cut: the 3AM lie** that the party are the mall company's people, and the "vampires turn on the party" beat. The scout and window lies to the vampires stay, in September 2004 | Scott, 2026-11-06 |
+| **The ballroom is locked until 2:30**, when Poe Boy arrives and opens up for the crowd; they can't enter it until after AIM. The mics record on their own until then. The "once" reveal moves to the DJ poster on the AIM door and his voice on the speakers | Scott, 2026-11-06 |
+| **Poe Boy opens the front door at 2:30 for the crowd. Ostrander walks in with it**, because the survey says every door is secured from the inside and this is the first time he can get in. That is why he waits | Scott, 2026-11-06 |
+| **The end of AIM:** every speaker comes on, playing the party's own screams from the night, then Poe Boy's voice. That sends them to the ballroom | Scott, 2026-11-06 |
+| **The final battle has three stages, one enemy at a time:** The developer (Ostrander and his thugs; Poe Boy is on the decks, not in this fight), The booth (Poe Boy and Lil Stinky; the goal is the USB, not killing him; remaining thugs drop their crowbars), The recording (no enemy). The scenes drop "Phase 1" and "Phase 2" | Scott, 2026-11-06 |
+| **The vampires turn on Poe Boy only when he refuses to let the drive play.** They owe the party; the party tells them about Marcus and the drive; Orlok asks; Poe Boy refuses and casts Command | Scott, 2026-11-06 |
+
+🟡 **Not canon yet, drafted to run this:**
+- Every new DC, prompt and fallback: Perception 12 for the mic on the stairs and for Dracula's aside, Insight 12 for Russ and Orlok, Investigation 12 for the mic in the wreckage, Insight 12 in the party room, Insight 10 and the whole optional scare before the cellar, Perception 14 for the man with the clipboard.
+- New lines: *"It's only the rehearsal, and you missed your entrance."*, *"I know that mask. I've worn it for centuries."*, *"Not you. Them."*, *"Twenty-four years."*, *"What's on the drive?"*, *"Let them play it."*, the scare's lines, Poe Boy's *"Live and direct from the Dood house! Stay tuned!"* and *"Don't touch that dial!"*, Stinky's *"You said he ran off, man."*, Orlok's fallback, and every stage-change read-aloud and token note. Marcus's AIM lines *"he has mics all over this house"* and *"they think i ran off"*.
+- Refusal 2 of 3 at the start of the developer's stage.
+- **Two lines corrected against canon.** The brief's *"four hundred years"* became *"centuries"*: the doc never gives Dracula's age, and *centuries* is the existing wording. The brief's *"Twenty-five years"* became *"Twenty-four years"*: the photo is `10 31 '79`, Bix was born about nine months later, and Goblinenon died around then, so about 1980.
+- No roll or spell opens the ballroom before 2:30.
+
 ## 📗 Story walk — Scott's decisions, 2026-11-06
 
 > Scott's calls on the plot holes from the invite-to-final-scene story walk (codex to-do p7).
@@ -99,8 +122,6 @@ rather than assuming, because it touches what the bolt actually means for the pa
 | **The name on the backpack stays.** His name isn't a big reveal, so the USB isn't to be treated as a name reveal | Scott, 2026-11-06 |
 
 🟡 **Not canon yet, wording added to apply these:** the booth's last read-aloud (*"It runs on into the early morning. By the end, the ballroom windows have gone grey."*) the AIM cue's prompt to offer the short rest before the chime, refusal 2's placement at the start of cue 14 · i (before Poe Boy's lie), and the rewritten cue 7 and cue 12 settings and the Sunday recap line (*"The old one, patting along the wrong shelf"*). The study staying shut sits beside the monthly card game running until '33 (codex backstory), so those last games would have been played in another room; nothing says so yet. Also not canon yet: the months in the timeline (Poe Boy's March 2004 checkout, spring 2004, late September 2004); the optional fresh missing poster by the gym in cue 2, which is narration only, with no new printed prop; why nobody searched the mansion (he told no one where he was going, and the dare was only on AIM); and Angelique seeing him gone within days. "Old rig" and "original setup" stay: the machine is old hardware, and it was his first setup in the house, before the ballroom. The driveway names only Poe Boy's parents, so the Run and codex say *their kid*.
-
-**Still under discussion with Scott, unchanged here:** Poe Boy's lie, where Poe Boy is before 2:30 (with final-room access and what sends them there after AIM), and why Ostrander waits until 3AM.
 
 ## 📗 In Person Session
 
@@ -157,19 +178,19 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 | ✅ **The invite is Spencer's finished card, used as-is** (`print/src/assets/spencer-invite.jpg`): a haunted house under an orange moon, *HAUNTED HOUSE · DOOD MANSION · 8 PM*. No host named. Printed 4×5 in so it fits a 6.25×4.25 in envelope (Scott, 2026-11-04), six copies on cardstock. The old `/invite/` card is retired | Scott, 2026-11-04 · not in doc (signed off) |
 | ✅ **The DJ poster is Spencer's finished poster, used as-is** (`print/src/assets/spencer-poster.jpg`): a purple collage, *HAUNTED BASH · 3 AM · DOOD MANSION · DJ POE BOY · LIL STINKY · ANGELIQUE*. One letter page on plain paper, taped on the AIM-room door | Scott, 2026-11-04 · not in doc (signed off) |
 | **The early-entry time is 8PM** — the time on Spencer's card. Five kids have the house for **seven hours** before the 3AM show | Scott, 2026-11-04 · not in doc |
-| **At the gazebo Poe Boy says he's been up there once**, with a shrug, and nothing else. He plays it cool about the cards. **The "once" is a lie, and the lie is the clue:** later they find his gear, the ballroom stage and his old rig upstairs, and realise he's been here plenty | Scott, 3 Nov |
+| **At the gazebo Poe Boy says he's been up there once**, with a shrug, and nothing else. He plays it cool about the cards. **The "once" is a lie, and the lie is the clue:** ~~later they find his gear, the ballroom stage and his old rig upstairs, and realise he's been here plenty~~ the DJ poster on the AIM door and his voice on the speakers give it away | Scott, 3 Nov; moved: Scott, 2026-11-06 |
 | **Poe Boy is revealed as the host** when they find the ballroom setup and when his voice comes over the speakers at 3AM — plus the DJ poster on the AIM door | Scott, 3 Nov |
 | **Design intent: a mystery that points the wrong way.** The players may half-suspect Poe Boy, and that's fine. The house then points everything at the vampires — the bolted doors, Angelique pulling them into hiding, the overheard *"Five. He said five…"*, Dracula's grab, Orlok's *"We'll find you when we're ready"*, Edward watching Bix, the library's coffin lore, the "food stash". The reveal — the clinic, Marcus saying a person did it, the recording — recasts *"he said five"* as Poe Boy | Scott, 3 Nov |
 | **Why the VIP card works:** the five missed the senior-skip-day memo and feel lame, and being on a VIP list salvages the day. It's also Poe Boy's lure — who turns down VIP? He wants them alone for seven hours (8PM card; Scott, 2026-11-04) to record real screams | Scott, 3 Nov |
 | At first contact the party may take the vampires for **costumed party entertainment** — *"is this part of the party?"* | Scott, 3 Nov |
-| **The vampires think the concert is part of their plan.** The five VIPs are the **warm-up scare**; Poe Boy sold them the 3AM crowd as the bait for the big one: they come for the music, they leave screaming, the legend spreads and the mall dies. The vampires don't care about the music; **Dracula secretly wants an audience**. Their own scare plan stands | Scott, 3 Nov |
+| **The vampires think the concert is part of their plan.** The five VIPs are ~~the **warm-up scare**~~ a **rehearsal** (`Scott, 2026-11-06`); the 3AM crowd is the real scare: they come for the music, they leave screaming, the legend spreads and the mall dies. The vampires don't care about the music; **Dracula secretly wants an audience**. Their own scare plan stands | Scott, 3 Nov |
 | 🟡 Optional line for Dracula in the overheard argument: *"The boy says they come for the music and stay for us."* | Scott, 3 Nov — offered as optional |
 
 ### What everyone thinks tonight is
 | Who | What they think tonight is | Source |
 |---|---|---|
 | **Poe Boy** | A recording session sold as his Halloween party. The five get anonymous VIP cards so he has them alone for seven hours; their screams are his samples; the 3AM crowd is the bait he promised the vampires. At the gazebo he plays it cool — *been up there once* | In Person Session; Scott, 3 Nov |
-| **The vampires** | The scare that saves their house. The five VIPs are the warm-up scare; the 3AM crowd comes for the music and leaves screaming, the legend spreads and the mall dies. They don't care about the music (Dracula secretly wants the audience), and they believe the kid ran off out a window | Sesh 7, Sesh 8; Scott, 3 Nov |
+| **The vampires** | The scare that saves their house. The five VIPs are ~~the warm-up scare~~ a rehearsal (`Scott, 2026-11-06`); the 3AM crowd comes for the music and leaves screaming, the legend spreads and the mall dies. They don't care about the music (Dracula secretly wants the audience), and they believe the kid ran off out a window | Sesh 7, Sesh 8; Scott, 3 Nov |
 | **Angelique** | Poe Boy's show, which she's part of. She feels a magical pull to the house — that's why she came — and tries to warn the five at the gazebo and can't | Sesh 8; Sesh 5 + In Person Session |
 | **The Records Keeper** | A records request gone wrong. The volume was trapped and the page is in pieces, so she points them at the one primary source left, the house: *"But be careful"* | Scott, 3 Nov |
 | **Ostrander** | A trespass on his records. Springing the trap tells him someone opened the volume, and he drives out to the house that night | the 24 Aug doc paste, reflavoured by Scott, 26 Aug |
@@ -205,9 +226,9 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 | **Meet the day before** | In Person Session |
 
 ### 🟡 Not canon — connective tissue added while applying this
-- **The finale's lie still happens.** Poe Boy still tells the vampires on the mic at 3AM that the party are the
+- ~~**The finale's lie still happens.** Poe Boy still tells the vampires on the mic at 3AM that the party are the
   mall company's people; with phase 1 cut, it never becomes a fight because the developer's breach breaks it on
-  sight. Staging that keeps Sesh 7's manipulation beat alive — not in the notes.
+  sight. Staging that keeps Sesh 7's manipulation beat alive — not in the notes.~~ — **cut, `Scott, 2026-11-06`.**
 - **The age-12 visit still happens, with nothing handed over.** *"Twelve years old and he's got a crew." / "I don't have
   a crew anymore." / "You'll get another one."* — and *"You'll get another one"* pays off at the end, when he
   hands the deed to a kid who now has one. The notes only say he gives it because Gnomey has earned it.
@@ -306,8 +327,7 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 9. **What Angelique does at the finale.** She is at the AIM scene and stays through the final battle (`Scott, 2026-11-06`); what she does there is still open.
 10. ~~**The troop leader**~~ — **answered 3 Nov:** an over-earnest scout dad who runs Troop 187's nursing-home
     visits and drives Vinny up at dawn (table above). His name is still open. `Scott, 3 Nov`.
-11. **Where the vampires stand at 3AM before the developer breaches.** Sesh 7's *"Poe Boy takes control of some
-    vampires in the final fight"* is now carried only by the lie.
+11. ~~**Where the vampires stand at 3AM before the developer breaches.**~~ — **answered:** they stay on the job until 3AM, when the crowd is their target, then fight the developer's men. They turn on Poe Boy when he refuses to let the drive play. Sesh 7's *"takes control of some vampires"* no longer happens. `Scott, 2026-11-06`.
 12. **The card doesn't say VIP.** Spencer's card reads *Haunted House · Dood Mansion · 8 PM*: no *VIP*, no *you're
     on the list*, no 3AM hint. The run and codex now play the skip-day beat as *being invited salvages the day*.
     Open: does anyone tell the five they're VIPs, and how do they learn the night runs to 3AM?
@@ -525,7 +545,7 @@ then flips to **a clinic**.~~ **Scott, 3 Nov:** no fake-out — the room is plai
 | **The party room, cut down:** Bix finds the photograph (the 4×6 print). Dracula won't let anyone leave without a song, and only Yobo can give it; his Performance check runs at disadvantage. Dracula sees what's holding him back and pushes him to live as his true self. ~~Blend in, the spot-the-difference and the Revel meter~~ are cut, and `/party-room/` is deleted | Scott, 3 Nov |
 | 🟡 **The party room is Dracula's shrine**, kept untouched since the night in '79. It isn't haunted, but **the room remembers**: when the record plays, faint echoes of that night shimmer in (impressions, not interactive ghosts) and fade when the music stops. Bix may recognise them from the photo | Scott, 3 Nov |
 | 🟡 **Dracula blocks the exit:** *"Nobody leaves my party without giving me a song."* Only Yobo can give one | Scott, 3 Nov |
-| 🟡 **Dracula sees through Yobo because he's a fraud too** — a performer who has played "Dracula" for centuries. *"I know a costume when I see one, darling."* It ties to his finale mic-grab. **"Centuries" is not canon:** the doc never gives Dracula's age | Scott, 3 Nov; the age is the codex's |
+| 🟡 **Dracula sees through Yobo because he's a fraud too** — a performer who has played "Dracula" for centuries. ~~*"I know a costume when I see one, darling."*~~ *"I know that mask. I've worn it for centuries."* (🟡 draft, `Scott, 2026-11-06`). It ties to his finale mic-grab. **"Centuries" is not canon:** the doc never gives Dracula's age | Scott, 3 Nov; the age is the codex's |
 | 🟡 **The debuff card never says how to lose it.** The buff **replaces** the debuff, so he trades the Deception edge for the Performance buff and the Bardic boost | Scott, 3 Nov |
 | 🟡 **In the party room the Performance roll only measures how good the fake is.** Dracula sees through any result: *"Technically flawless. Completely empty."* Only a **true performance** flips it — or a **refusal**, in which case Dracula sulks and lets them go and the debuff stays | Scott, 3 Nov |
 | 🟡 **An early confession elsewhere doesn't flip it.** Only performing as himself on Dracula's stage does | Scott, 3 Nov |
@@ -556,7 +576,7 @@ survives. The cellar and the corridor are both still fine — they just need new
 | He destroyed the 1937 page **himself**, which is why there's no contractor to trace | the 24 Aug doc paste |
 | **Springing the trap summons him.** The party's cleverest move in town puts him in his car | the 24 Aug doc paste, reflavoured by Scott, 26 Aug |
 | He does not know what's in the house. He finds out, updates in four seconds, starts giving orders | the 24 Aug doc paste |
-| He breaches at 3AM and seals the exits behind him — his own crew included | the 24 Aug doc paste |
+| He breaches at 3AM and seals the exits behind him — his own crew included. He walks in with the crowd (`Scott, 2026-11-06`) | the 24 Aug doc paste |
 | ~~**He is the only death in the story**~~ — **his thugs die too**: the party and the vampires kill them in the fight, played PG-13 comic-horror. He is still **the death the room stops for**, and the only one who isn't a monster. Self-defence | the 24 Aug doc paste; the thugs: Scott, 2026-11-04 |
 | His death flips the vampires. **No persuasion check** | the 24 Aug doc paste |
 | Poe Boy tries to recruit him mid-fight and gets brushed off | the 24 Aug doc paste |
@@ -607,7 +627,7 @@ is now load-bearing. It is what his mother calls him in the driveway.
 |---|---|
 | In first contact they are **mechanically incapable of killing a PC** — grapple, shove, frighten, never Bite. ~~And in phase 1~~ — cut by In Person Session | the 24 Aug doc paste |
 | ~~Phase 1 is a pressure scene, not a balanced encounter~~ — phase 1 cut | the 24 Aug doc paste, replaced by In Person Session |
-| Poe Boy tells them the party are the mall company's people — the same lie that killed the kid. 🟡 With phase 1 cut it never becomes a fight; the developer's breach breaks it on sight | Sesh 7 + the 24 Aug doc paste; 🟡 staging after In Person Session |
+| ~~Poe Boy tells them the party are the mall company's people — the same lie that killed the kid. 🟡 With phase 1 cut it never becomes a fight; the developer's breach breaks it on sight~~ — **cut** | Sesh 7 + the 24 Aug doc paste; cut: Scott, 2026-11-06 |
 
 ### 🟡 Not canon: the encounter numbers
 Everything on the codex's **Combat** tab that isn't a beat above — XP budgets, CR picks, HP figures,
@@ -728,7 +748,7 @@ Three things in the codex were not just unsourced, they were wrong:
 | Combat set-piece guards the way to the computer | Sesh 6 |
 | Biggest clue: the kid was killed by a human | Sesh 6 ("maybe"), Sesh 7 |
 | Real-estate company wants to demolish it for a **mega mall**; scared off the land by the end | Sesh 5, 7 |
-| Poe Boy takes control of some vampires in the final fight — settled in the 24 Aug doc paste as **manipulation, not mind control**. ⚠️ With phase 1 cut (In Person Session) the manipulation is the lie alone — see open question 11 there | Sesh 7, resolved the 24 Aug doc paste |
+| Poe Boy takes control of some vampires in the final fight — settled in the 24 Aug doc paste as **manipulation, not mind control**. ⚠️ With phase 1 cut (In Person Session) and the 3AM lie cut (`Scott, 2026-11-06`), this no longer happens: see open question 11 there | Sesh 7, resolved the 24 Aug doc paste |
 | Three named handouts: ~~Haunted House Invite~~ **VIP Party Invite** (changed by Scott), DJ Show Flyer, Library History Clippings | Sesh 5, 6; invite changed: Scott, 3 Nov |
 | Invite ~~about 7PM~~ **8PM**; DJ show 3:00AM; working date Halloween. The time on the invitation is ~~7pm~~ **8 PM** (Spencer's card) | Sesh 6 + In Person Session; 8PM: Scott, 2026-11-04 · not in doc |
 | Dood Mansion (*dood* = dead in Dutch) — Spencer flagged *"lmk if thats too dumb"* | Sesh 6 |
@@ -995,7 +1015,7 @@ script; what a sound implies about a scene is 🟡 until Scott has heard it:
    nobody ever says why. `Scott, 3 Nov`.
 9. ~~Who was the 3AM DJ flyer for?~~ — **answered 25 Aug: public.** The flyer prop is unblocked.
 10. ~~What did Poe Boy tell the vampires?~~ — **answered 25 Aug: he staggered the houseful rather than lying about it.**
-11. ~~The crowd~~ — **resolved 25 Aug.** See the two-tier guest list at the top. Remaining: how the crowd gets through a bolted door at 3AM.
+11. ~~The crowd~~ — **resolved 25 Aug.** See the two-tier guest list at the top. ~~Remaining: how the crowd gets through a bolted door at 3AM.~~ **Closed:** Poe Boy opens the front door at 2:30. `Scott, 2026-11-06`.
 12. **The developer's name.** He is now the third faction and the death the room stops for. ~~Company, or family trust?~~ —
     **company: Hudson Crossing Development Corp.** (the survey, signed off `Scott, 3 Nov`). *W. Ostrander* is still a proposal.
 13. ~~**The dead kid's name.**~~ — **answered 3 Nov: Marcus Hale, ~~1999; October 2003~~ late September 2004 (🟡 month; `Scott, 2026-11-06`).** It comes off the **USB** when they
