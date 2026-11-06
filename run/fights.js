@@ -9,7 +9,7 @@
 
    cue:   the Run of Show scene this fight belongs to.
    start: read [{who, t, sp}], announce, record, map [lines]: opening the fight.
-   rounds: [{k, say, do, sp:[{who, t}]}]: what to narrate each round. ifs: [[if, then]].
+   rounds: [{k, say, do, sp:[{who, t}]}]: what to narrate each round.
    end:   when, read [{who, t, sp} or {note}], next: closing the fight.
    Read-aloud lines: sp means Spencer voices it; {note} is a plain line for Scott.
    lines: Spencer's in-fight lines [{who, t}], for his cards on the Run of Show.
@@ -32,13 +32,7 @@ const FIGHTS = {
     rounds:[
       {k:"Round 1", say:"They aren't coming for you. They're going for the page. Behind you, one squeaky wheel starts to roll.", do:"On my turn: the shears and the cart. The swarm waits."},
       {k:"Round 2", say:"The card catalogue drawers slide open all at once, and then it's snowing.", do:"On my turn: the swarm joins in."},
-      {k:"Round 3 and after", do:"Keep going until the second pair of shears drops, or the cuts tally is full. Then step 5."}
-    ],
-    ifs:[
-      ["Someone picks up the volume","The shears follow it. Whoever holds it is in the way: snip them."],
-      ["Someone uses fire on the article","One more cut."],
-      ["A PC hits 0 HP","Out cold and stable."],
-      ["It's going badly","The shears finish the page. Tap the cuts up to full and go to step 5."]
+      {k:"Round 3 and after", do:"Keep going until the second pair of shears drops, or the cuts tally is full. Then step 5. <b>Going badly?</b> The shears finish the page: tap the cuts up to full."}
     ],
     end:{
       when:"The second pair of shears drops, or the cuts tally is full.",
@@ -48,16 +42,18 @@ const FIGHTS = {
         {who:"Records Keeper · after the fight", sp:1, t:"Well. Don't just stand there. Get every scrap and put it back together."},
         {note:"<b>Item 1 on the iPad:</b> tap <b data-tier-now></b>, the difficulty shown by the cuts. Then hand over the torn page."}
       ],
-      next:"The jigsaw, then they read the page."
+      next:"They put the whole page back together, then read it."
     },
+    turnIntro:"All the enemies go together, in this order. Skip any that are down. A PC at 0 HP is out cold and stable.",
     tally:{label:"Cuts on the article", foe:"shears", start:1, tiers:[[2,"Easy"],[4,"Medium"],[99,"Hard"]],
-      use:"The highlighted one is the difficulty to tap on Item 1 after the fight.",
+      use:"The highlighted one is the difficulty to tap on Item 1 after the fight. Fire on the article is one more cut.",
       full:"The page is done. Everything drops."},
     foes:[
       {id:"shears", nm:"Archival shears", n:2, ac:14, hp:20, spd:"fly 30", chassis:"Flying Sword", cr:"½", xp:100,
        say:"A dry snick-snick, like someone trimming coupons.",
        turn:["<b>A PC between it and the article?</b> Snip that PC: <b>+5 to hit, 6 slashing</b>. No cut this turn.",
              "<b>Nobody in the way?</b> It flies to the article and cuts. No roll. <b>Tap +1 cut.</b>"],
+       note:"Whoever holds the volume is in the way.",
        drop:"It snaps shut and clatters to the floor. When the second pair drops, the rest of the stationery drops too.",
        endsFight:1,
        hard:"One pair jams in the binding for a round: no cut that turn.",
@@ -90,13 +86,8 @@ const FIGHTS = {
       map:["No tokens unless they fight back.","If they do: Dracula on whoever failed Stealth, Orlok and Edward farther down the hall."]
     },
     rounds:[
-      {k:"Round 1", say:"He isn't hurting you. He's enjoying himself.", do:"Dracula goes in step 3. Edward watches Bix.", sp:[{who:"Dracula · holding someone", t:"Oh, very good. Again."}]},
+      {k:"Round 1", say:"He isn't hurting you. He's enjoying himself.", do:"Dracula goes in step 3. Edward watches Bix.", sp:[{who:"Dracula · holding someone", t:"Oh, very good. Again."},{who:"Dracula · asked if this is part of the party", t:"Part of the party? Yes. Oh, absolutely yes."}]},
       {k:"Round 2, or when it stops being fun", do:"Go to step 5."}
-    ],
-    ifs:[
-      ["They ask if this is part of the party","Yes, absolutely. He's delighted."],
-      ["Someone runs","He doesn't chase."],
-      ["They go for Orlok or Edward","Neither acts. Edward explains nothing."]
     ],
     end:{
       when:"After a round or two, or the moment it stops being fun.",
@@ -113,7 +104,7 @@ const FIGHTS = {
        turn:["Swoops 40 ft at whoever failed Stealth and grabs them: <b>DC 15 Str or Dex save</b> or grappled. Escaping takes their action and a <b>DC 15</b> Athletics or Acrobatics check.",
              "<b>Already holding someone?</b> Shoves them 10 ft toward the others, or pins them and looms.",
              "<b>Orlok speaks?</b> Lets go and steps back. Done."],
-       note:"<b>No Bite. No damage. Nobody drops.</b>",
+       note:"<b>No Bite. No damage. Nobody drops.</b> If someone runs, he doesn't chase.",
        hpnote:"If they hit him, he laughs.",
        drop:"He doesn't. Orlok's one word ends it.",
        endsFight:1,
@@ -134,15 +125,8 @@ const FIGHTS = {
       map:["The 2&Prime; summoning in the middle of the chalk circle.","Fragments 1 and 2 on the floor lines around it."]
     },
     rounds:[
-      {k:"Round 1", say:"It isn't looking at you. It's dragging itself toward the door, toward something down the hall, and the chalk on the floor has started to crawl."},
-      {k:"Round 2 and after", say:"It goes through whoever's in the way like they're furniture."}
-    ],
-    ifs:[
-      ["They leave the room","It can't follow. It keeps clawing toward the sealed door."],
-      ["They run for the sealed door","It doesn't open tonight. Nobody reaches that room."],
-      ["Someone tries to work out what it is","Arcana DC 14: human-made, incomplete. Don't say who drew it."],
-      ["Someone searches the wreckage mid-fight","Not yet. Everyone rolls after the kill."],
-      ["Two PCs are down","It tears through the wall toward the sealed door and comes apart on the threshold. Go to step 5."]
+      {k:"Round 1", say:"It isn't looking at you. It's dragging itself toward the door, toward something down the hall, and the chalk on the floor has started to crawl.", do:"The sealed door doesn't open tonight. If they study the thing: Arcana DC 14, human-made and incomplete."},
+      {k:"Round 2 and after", say:"It goes through whoever's in the way like they're furniture.", do:"<b>Two PCs down?</b> It tears through the wall toward the sealed door and comes apart on the threshold. Go to step 5."}
     ],
     end:{
       when:"It drops.",
@@ -187,12 +171,7 @@ const FIGHTS = {
     },
     rounds:[
       {k:"Round 1", say:"What's left of last night's thing pulls itself up out of the floorboards. Half of what it was, and still wrong."},
-      {k:"Round 2", do:"The fragments crumble. Take them off."}
-    ],
-    ifs:[
-      ["They leave the room","It can't follow. Move on."],
-      ["Someone studies the circle","Nothing new here. Move them on."],
-      ["It's eating the clock, or two PCs are down","It smears apart on its own. Go to step 5."]
+      {k:"Round 2", do:"The fragments crumble. Take them off. <b>Eating the clock, or two PCs down?</b> It smears apart on its own. Go to step 5."}
     ],
     end:{
       when:"It drops.",
@@ -237,19 +216,12 @@ const FIGHTS = {
     },
     rounds:[
       {k:"Round 1", say:"Three of them step into your way. Behind them, a stake comes down to rest on Orlok's chest.",
+       do:"The seal holds until Ostrander drops. <b>They go for Poe Boy?</b> He can't drop below 1 HP and Stinky blocks.",
        sp:[{who:"Orlok · pinned, to Russ", t:"Boy. Help me."},{who:"Edward · on seeing Ostrander's men", t:"Twenty-five years."}]},
       {k:"Round 2", say:"Dracula is frozen mid-flourish, cape out, an arm's length from Yobo. Somebody is measuring. They've got to the quiet one. A mallet goes up over a stake on Edward's chest. He isn't looking at it. He's looking at Bix.",
        sp:[{who:"DJ Poe Boy · on the mic", t:"Oh, this is great. Keep going."}]},
       {k:"Round 3", say:"The mallet is still up. It's shaking.",
        do:"<b>Ostrander still up at the end of this round, or two PCs down?</b> The seal slips and Orlok gets a hand free. Ostrander loses his turns, and the next hit from a PC kills him."}
-    ],
-    ifs:[
-      ["They go for Poe Boy first","He can't drop below 1 HP and Stinky blocks. Spencer: the vampires keep calling for help."],
-      ["Nobody moves, or they try to talk","Ostrander doesn't stop. Spencer: Orlok asks again."],
-      ["They try to break the seal","It holds until he drops. Point them at the man with the clipboard."],
-      ["They go for thugs 4&ndash;6","Ostrander turns on whoever gets close."],
-      ["They leave","The doors are open and nobody stops them. Spencer: Orlok calls after them."],
-      ["Russ heals a pinned vampire","That's <b>badge req 3</b>. If it doesn't happen here, it's still open at the booth."]
     ],
     end:{
       when:"Ostrander drops.",
@@ -260,6 +232,11 @@ const FIGHTS = {
       ],
       next:"Straight to the booth: cue 14 &middot; ii."
     },
+    lines:[
+      {who:"Orlok · pinned, to Russ", t:"Boy. Help me."},
+      {who:"Edward · on seeing Ostrander's men", t:"Twenty-five years."},
+      {who:"DJ Poe Boy · on the mic, during the fight", t:"Oh, this is great. Keep going."}
+    ],
     foes:[
       {id:"ostrander", nm:"W. Ostrander", n:1, ac:15, hp:60, spd:"30", chassis:"Mage, no damage spells", cr:"6", xp:2300,
        sayIf:[{who:"W. Ostrander · when a PC reaches him", sp:1, t:"This site's paid for. Step back."}],
@@ -283,7 +260,7 @@ const FIGHTS = {
     ],
     alliesLabel:"Allies · no rolls",
     allies:[
-      {nm:"Orlok, Dracula, Edward", act:"Pinned until the seal breaks, so they don't act. When the seal breaks they finish thugs 4–6: Dracula plays to the crowd; Orlok is quick and tidy; Edward is efficient and doesn't look at anyone. Mark each one down."},
+      {nm:"Orlok, Dracula, Edward", act:"Pinned until the seal breaks, so they don't act. When the seal breaks they finish thugs 4–6: Dracula plays to the crowd; Orlok is quick and tidy; Edward is efficient and doesn't look at anyone. Mark each one down. <b>Russ heals one:</b> badge req 3. If it doesn't happen here, it's still open at the booth."},
       {nm:"Angelique", act:"Each round, after everyone: takes a hard hat's face and taps the thug on the most-hurt PC on the shoulder. He loses his next attack.",
        tok:"Next to that thug.",
        say:"A man in a hard hat taps him on the shoulder. He turns, and the face under the hat slides into Angelique's."}
@@ -307,16 +284,11 @@ const FIGHTS = {
     },
     rounds:[
       {k:"Round 1", say:"One word, in somebody else's voice, and your hand opens. The drive hits the floor. Stinky's sword catches a vampire. It smokes. It staggers.",
-       do:"Stinky's first swing goes through a vampire, no roll: Russ's heal, if it hasn't landed. Allies this round: Orlok, Angelique.",
+       do:"Stinky's first swing goes through a vampire, no roll. <b>Russ heals it:</b> badge req 3, if it hasn't landed. Allies this round: Orlok, Angelique.",
        sp:[{who:"Angelique · to the party", t:"Aux is round the back of the mixer, left side. I'm on the poster. I know this stage."}]},
       {k:"Round 2", say:"He's off the decks. There's the aux.", do:"Allies this round: Dracula, Angelique."},
       {k:"Round 3", do:"Allies this round: Edward, Angelique. <b>Not played by the end of this round?</b> Dracula lands the drive in a PC's hand at the decks, and it plays."},
       {k:"A PC at the decks plugs in the USB", do:"Their action. Go to step 5."}
-    ],
-    ifs:[
-      ["Russ heals a vampire under fire","That's <b>badge req 3</b>, if it hasn't landed."],
-      ["They try to kill Poe Boy","He stops at 1 HP: on his knees, still on the mic. Point at the decks."],
-      ["They go after Stinky once he's turned","He takes it and doesn't swing back. He's looking at Poe Boy."]
     ],
     end:{
       when:"The USB hits the decks.",
@@ -342,12 +314,18 @@ const FIGHTS = {
       ],
       next:"Cut to the driveway at sunrise: cue 15."
     },
+    lines:[
+      {who:"DJ Poe Boy · each turn, on whoever holds the USB", t:"Drop."},
+      {who:"DJ Poe Boy · each turn, if nobody holds it, on the PC nearest the decks", t:"Flee."},
+      {who:"Angelique · round 1, to the party", t:"Aux is round the back of the mixer, left side. I'm on the poster. I know this stage."},
+      {who:"Lil Stinky · after the recording, to Poe Boy", t:"I believed you, man."}
+    ],
     foes:[
       {id:"poeboy", nm:"DJ Poe Boy", n:1, ac:15, hp:60, floor:1, spd:"30", chassis:"Cultist Fanatic, more HP", cr:"4", xp:1100,
        sayIf:[{who:"DJ Poe Boy · on whoever holds the USB", sp:1, t:"Drop."},{who:"DJ Poe Boy · nobody holding it, on the PC nearest the decks", sp:1, t:"Flee."}],
        turn:["Command, one word, <b>DC 15 Wis save</b>. The PC holding the USB: &ldquo;Drop.&rdquo; (it lands at their feet). Nobody holding it: the PC nearest the decks, &ldquo;Flee.&rdquo; (they spend their next move running from him).",
              "Mic stand at anyone next to him: <b>+4 to hit, 4 bludgeoning</b>. Pathetic on purpose."],
-       hpnote:"<b>Stops at 1 HP.</b> At 1 he's on his knees behind the decks, still on the mic. +3 on his saves while Stinky is within 10 ft, until Stinky turns.",
+       hpnote:"<b>Stops at 1 HP.</b> At 1 he's on his knees behind the decks, still on the mic. Point at the decks. +3 on his saves while Stinky is within 10 ft, until Stinky turns.",
        drop:"After the recording, the next PC hit knocks him out, not killed. That ends the fight.",
        endsFight:1,
        hard:"He only Commands the PC holding the USB. No &ldquo;Flee.&rdquo;",

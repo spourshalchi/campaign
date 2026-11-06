@@ -73,9 +73,6 @@
   .rnd{margin:0 0 12px;padding:9px 12px;border-left:4px solid var(--blood);background:var(--panel);border-radius:0 10px 10px 0}
   .rnd-k{margin:0 0 6px;font-weight:800;font-size:17px;color:#fff}
   .rnd .line:last-child,.rnd .say:last-child{margin-bottom:0}
-  .ifs{margin:0;padding:0;list-style:none}
-  .ifs li{padding:6px 0;border-top:1px solid var(--edge)}
-  .ifs b{color:var(--rose)}
 
   /* 3: on my turn */
   .foe{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:0 0 10px}
@@ -145,7 +142,7 @@
 </head>
 <body>
 <div id="page"></div>
-<script src="../fights.js?v=17"></script>
+<script src="../fights.js?v=18"></script>
 <script>
 "use strict";
 const $ = s => document.querySelector(s);
@@ -184,8 +181,7 @@ function stepRounds(f){
     (r.say?said({t:r.say}):"")+(r.do?`<p class="line">${r.do}</p>`:"")+
     (r.sp||[]).map(l=>said({...l,sp:1})).join("")+`</div>`;
   return step("s-rounds",2,"Round by round",
-    f.rounds.map(round).join("")+
-    (f.ifs&&f.ifs.length?`<p class="sub-h">If they do something else</p><ul class="ifs">${f.ifs.map(([k,v])=>`<li><b>${k}:</b> ${v}</li>`).join("")}</ul>`:""));
+    f.rounds.map(round).join(""));
 }
 
 /* ---- 3. on my turn: every enemy, then the allies ---- */
