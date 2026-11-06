@@ -106,21 +106,22 @@ SCENES.push(
   steps:[
     {do:"<b>Optional.</b> Run it between rooms, before the cellar. Skip it if you're short on time."},
     {snd:["drone"]},
-    {say:"The hall between rooms. A draught from nowhere, and the candles start going out.", who:"Setting"},
-    {say:"The candles in the hall go out one at a time, coming toward you. Something large unfolds from the ceiling.", who:"Set it up"},
+    {say:"The hall between rooms. A draught from nowhere. The candles start going out, one at a time, coming toward you. Something large unfolds from the ceiling.", who:"Setting"},
     {snd:["swoop","jump"], t:"The swoop"},
-    {do:"Scott sets it up. <b>Dracula swoops</b> with full theatrics (Spencer). No damage."},
+    {do:"<b>Spencer's turn:</b> Dracula swoops with full theatrics. No damage."},
     {check:{skill:"Insight", dc:"10", note:"<b>Call it</b> when he swoops. <b>Success:</b> his heart isn't in it. <b>Miss or nobody rolls:</b> the collapse still plays."}},
-    {do:"<b>It collapses</b> as soon as someone is kind to him or unimpressed."},
+    {do:"<b>Someone is kind to him or unimpressed: tell Spencer.</b> It collapses on the spot, and he leaves."},
     {end:"when it collapses and he leaves."}
   ],
   next:"He leaves. Next room.", go:"rooms",
   talk:[
     {who:"Dracula · swooping", t:"We said we'd find you when we were ready. We are ready. Scream!"},
-    {who:"Dracula · when it collapses", t:"No? Nothing? Fine. I had a whole thing planned."}
+    {who:"Dracula · nobody's screaming", t:"Scream, I said! Louder! I can do this all night!"},
+    {who:"Dracula · when it collapses", t:"No? Nothing? Fine. I had a whole thing planned."},
+    {who:"Dracula · if someone's kind about it", t:"Oh. Well. That's very nice of you. You weren't supposed to be nice."}
   ],
   npcs:[
-    {nm:"Dracula", vc:"Full theatrics, no damage. Pays off Orlok's &ldquo;We'll find you when we're ready.&rdquo; Stops dead the moment someone is kind or unimpressed: hurt, not angry."}
+    {nm:"Dracula", pts:["Swoop in and pay off Orlok's line: you said you'd find them when you were ready, and you're ready","Demand a scream, big and theatrical. Touch nobody, no damage","The moment someone is kind or unimpressed, stop dead","It's all gone out of you: you had a whole thing planned","Go"], vc:"Full theatrics, then none. Hurt, not angry."}
   ],
   cues:["drone","swoop","jump"] },
 
