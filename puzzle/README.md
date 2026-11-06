@@ -1,8 +1,6 @@
 # Torn Page — The Transyltown Crier
 
-> **🟡 Canon status: NOT CANON YET — waiting on Scott's review** (codex to-do h14). Every name, date and
-> rumour in the 1937 paper is this prop's invention, logged in `/CANON.md` under *The 1937 Transyltown Crier*.
-> Canon it leans on: Cornelis Dood (= Orlok) built the house and lived alone in forty rooms; Columbia County;
+> Every name, date and rumour in the 1937 paper is this prop's invention. It leans on: Cornelis Dood (= Orlok) built the house and lived alone in forty rooms; Columbia County;
 > the Frisian slaying-method folklore (Sesh 2).
 
 The party's in-town research stop. A torn front page from the library's bound
@@ -121,11 +119,11 @@ the book sat untouched for decades, and then three borrowers:
   mansion since he won it off Orlok at cards in 1931 and is reading up on what he
   took. This is the library hint Spencer asked for, and the only place the name
   appears before the study.
-- **U. M. Livingsworth III**, Mar 2004 (🟡 month) — **Poe Boy's real name.** Nobody at the table
+- **U. M. Livingsworth III**, Mar 2004 — **Poe Boy's real name.** Nobody at the table
   knows that. It pays off at sunrise when a woman in a fleece gets out of a Volvo and
   says *"Upton, honey?"* — and in the meantime it quietly says he was interested
   in this house before the party.
-- **W. Ostrander**, Jul 2004 — the developer. 🟡 A proposal, not a decision.
+- **W. Ostrander**, Jul 2004 — the developer.
 
 It also does structural work: it proves **two other people got here first**, and the
 party has met neither of them.
