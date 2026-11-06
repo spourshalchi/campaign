@@ -16,7 +16,7 @@ SCENES.push(
     ]}
   ],
   steps:[
-    {say:"Last night. A card in your locker: <b>Dood Mansion, 8 PM</b>. A trap in the hall of records, and a page cut to ribbons. The house on the hill, the boards off the door &mdash; and the door bolting behind you. Angelique in the dark. Three voices in the hall: <i>&ldquo;He said five, and there are five.&rdquo;</i> Something about meals. <i>&ldquo;We'll find you when we're ready.&rdquo;</i> The old one, patting along the wrong shelf. The pale one, watching Bix. And behind a warm door upstairs, something half-made that you put down &mdash; and somewhere in the house a screen typed <b>&ldquo;is someone there&rdquo;</b>, and went dark.", who:"Previously &middot; or let a player tell it"},
+    {say:"Last night. A card in your locker: <b>Dood Mansion, 8 PM</b>. A trap in the hall of records, and a page cut to ribbons. The house on the hill, the boards off the door &mdash; and the door bolting behind you. Three voices in the hall: <i>&ldquo;He said five, and there are five.&rdquo;</i> Something about meals. <i>&ldquo;We'll find you when we're ready.&rdquo;</i> The old one, patting along the wrong shelf. The pale one, watching Bix. And behind a warm door upstairs, something half-made that you put down &mdash; and somewhere in the house a screen typed <b>&ldquo;is someone there&rdquo;</b>, and went dark.", who:"Previously &middot; or let a player tell it"},
     {do:"<b>Study first</b> (cue 10). Then the party room (11) and the cellar (12), either order."},
     {do:"<b>The AIM room (13) is always last.</b> Fire the chime once all three rooms are done."},
     {do:"Time to spare after the rooms? The reserve fight (R) on the way up. Otherwise skip it."},
@@ -165,10 +165,11 @@ SCENES.push(
 
 { act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs",
   steps:[
+    {say:"A hand comes out of the dark, grabs your sleeve, and pulls you down. It's <b>Angelique</b>.", who:"Once the other rooms are done"},
+    {do:"<b>Spencer's turn:</b> Angelique."},
     {note:"<b>The door stays locked until the chime.</b> Try it early and it doesn't open. There's no physical poster: narrate it."},
     {say:"A purple poster on the door: <b>Haunted Bash</b>. 3 AM. Dood Mansion. <b>DJ Poe Boy</b>, huge, with Lil Stinky and Angelique.", who:"The poster · narrate it whenever they read that door"},
     {tick:"Short rest not taken yet? Offer it before the chime."},
-    {tick:"Angelique not with them? She's at the AIM door when the chime plays."},
     {snd:["aim","lockclick"], t:"When the table is ready"},
     {say:"From down the hall, faint and tinny: the old AIM chime. Then the lock on the door with the poster clicks open, and nobody touched it.", who:"The door opens · when the table is ready"},
     {snd:["rig","heart"]},
@@ -194,6 +195,22 @@ SCENES.push(
   ],
   next:"Every speaker comes on: 3AM. No break from here to the driveway.", go:["14 · i"],
   npcs:[
+    {nm:"Angelique", pts:[
+      {at:"When you grab them"},
+      {t:"Pull them down into hiding and tell them to stay quiet.", say:"Get down. Get <i>down</i>. Stay quiet."},
+      {t:"Refuse to say what you're hiding from, and tell them to listen.", say:"Just listen."},
+      {t:"Refuse to say why you came.<ul><li>You typed some of Poe Boy's AIM messages to a kid who then stopped coming to school. You came to find out. Don't say so yet.</li></ul>", say:"Not now."},
+      {at:"The chime and the lock", gap:"Scott plays them, nothing for you."},
+      {at:"When the chat starts"},
+      "Go into the room with them and stay.",
+      {at:"If he names you and they ask"},
+      {t:"Admit your part.<ul><li>You typed some of those messages for Poe Boy and thought it was a prank.</li><li>You've suspected what they were for since he stopped coming to school.</li><li>You never knew he died.</li></ul>", say:"I typed some of those. He said it was a prank. Then the kid stopped coming to school."},
+      {at:"When Simone pulls the willow"},
+      "Go quiet.<ul><li>He wished for you to notice him, and you did.</li></ul>",
+      {at:"When the drive mounts"},
+      {t:"Say out loud that the name on the drive is the same boy.<ul><li>Marcus Hale, the missing kid from the posters.</li></ul>", say:"That's Marcus. That's the same boy."},
+      "Stay with the party from here, through the final battle."
+    ], vc:"A frightened stranger, whispering, who won't say why she came. They last saw her at the gazebo, trying to warn them. The willow and the drive land on her as hard as on Simone."},
     {nm:"The Spirit", pts:[
       {at:"The door and the log-in", gap:"Scott runs it, nothing for you."},
       {at:"When they sign on"},
@@ -218,17 +235,6 @@ SCENES.push(
       "Take him if she pays.<ul><li>On screen: <i>Hold still, little one. This will only hurt a little bit.</i></li></ul>",
       {t:"Leave if she refuses.", say:"Very well."}
     ], vc:"Serif, capitals, full stops: never raised on a keyboard."},
-    {nm:"Angelique", pts:[
-      {at:"When the chat starts"},
-      "Stay in the room with them.",
-      {at:"If he names you and they ask"},
-      {t:"Admit your part.<ul><li>You typed some of those messages for Poe Boy and thought it was a prank.</li><li>You've suspected what they were for since he stopped coming to school.</li><li>You never knew he died.</li></ul>", say:"I typed some of those. He said it was a prank. Then the kid stopped coming to school."},
-      {at:"When Simone pulls the willow"},
-      "Go quiet.<ul><li>He wished for you to notice him, and you did.</li></ul>",
-      {at:"When the drive mounts"},
-      {t:"Say out loud that the name on the drive is the same boy.<ul><li>Marcus Hale, the missing kid from the posters.</li></ul>", say:"That's Marcus. That's the same boy."},
-      "Side with the party from here on."
-    ], vc:"The willow and the drive land on her as hard as on Simone."},
     {nm:"DJ Poe Boy", pts:[
       "Wait for Scott to narrate every speaker coming on and their screams.",
       {t:"Speak over the top of the screams, in borrowed voices.<ul><li>You know exactly who's listening: these five.</li></ul>", say:["Live and direct from the Dood house! Stay tuned!","Five kids. One house. This Halloween."]},
