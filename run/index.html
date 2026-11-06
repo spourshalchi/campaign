@@ -448,13 +448,13 @@
   </div>
 </div>
 
-<script src="fights.js?v=16"></script>
-<script src="scenes/pre.js?v=1"></script>
-<script src="scenes/town.js?v=10"></script>
+<script src="fights.js?v=18"></script>
+<script src="scenes/pre.js?v=2"></script>
+<script src="scenes/town.js?v=12"></script>
 <script src="scenes/night.js?v=10"></script>
 <script src="scenes/sunday.js?v=11"></script>
 <script src="scenes/finale.js?v=10"></script>
-<script src="sounds/manifest.js?v=2"></script>
+<script src="sounds/manifest.js?v=3"></script>
 <script>
 "use strict";
 /* =====================================================================
@@ -464,7 +464,7 @@
 /* -------- soundboard cue map: key -> board button index (set later) -------- */
 const CUE_LABEL = {
   drone:"House", wind:"Night wind", record:"The '79 record", heart:"Heartbeat", crowd:"Crowd", candle:"Candles",
-  class:"Classroom", hall:"Hallway", records:"Records room", gazebo:"Gazebo", creak:"Floorboards", summon:"Summoning",
+  class:"Classroom", hall:"Hallway", records:"Records room", library:"Library fight", gazebo:"Gazebo", creak:"Floorboards", summon:"Summoning",
   study:"Sealed study", cellar:"Cellar", rig:"Old rig", set:"Poe Boy's set", hiss:"Speaker hiss", dawn:"Dawn",
   aim:"AIM chime", jump:"Jump scare", braaam:"Braaam", bell:"3AM bell", riser:"Tension riser", pa:"Speakers on",
   scratch:"Record scratch", levelup:"Level-up", dice:"Dice clatter",
@@ -919,6 +919,7 @@ const BOARD = [
     {key:"class", amb:true, ic:"🏫", label:"Class"},
     {key:"hall", amb:true, ic:"🚪", label:"Hallway"},
     {key:"records", amb:true, ic:"📚", label:"Records"},
+    {key:"library", amb:true, ic:"✂️", label:"Library fight"},
     {key:"gazebo", amb:true, ic:"📻", label:"Gazebo"},
     {key:"creak", amb:true, ic:"🪵", label:"Boards"},
     {key:"summon", amb:true, ic:"🔥", label:"Summoning"},

@@ -78,19 +78,20 @@ SCENES.push(
     {say:"The hall of records is cold and very quiet: long tables, green-shaded lamps, the smell of old paper and floor polish. The Records Keeper looks up from her desk as you come in.", who:"Setting"},
     {do:"They ask about Dood. <b>Spencer's turn:</b> the Records Keeper."},
     {do:"She sets the bound volume on the table, intact. They open it."},
-    {snd:["riser","paper","jump"], t:"The trap"},
+    {snd:["library","riser","paper","jump"], t:"The trap"},
     {do:"<b>Opening it springs the trap</b>: the reading room's stationery comes alive and goes for the article. &#9876; Fight &mdash; <b>count the cuts</b>."},
     {tok:1},
     {fight:1},
+    {snd:["library"], t:"Fight over: tap off"},
     {do:"<b>Spencer's turn:</b> the Records Keeper, right after the fight."},
     {ipad:1, do:"&#128241; <b>Item 1:</b> tap the difficulty the combat page shows (Easy, Medium or Hard), then hand over the torn page."},
     {stuck:"If the jigsaw stalls past ten minutes: <b>Spencer's turn</b>, the Records Keeper tells them what the page says."},
-    {do:"They solve it and read it: the town's talk about the Dood house (a polite voice at the door, no answer by day, music, a splinted dog, marked hens, and the hardware store's oldest account, paid from a tin on the gatepost). In the back pocket, the checkout card: <b>U.M. Livingsworth III</b>, <b>V. Soprano 1938</b>, <b>W. Ostrander</b>."},
+    {do:"They solve it and read what the town says about the Dood house: no shutter opened by day, a light most nights, music, a lost beagle home with its leg in a splint, hens with two small marks at the neck, the hardware store's oldest account paid from a tin on the gatepost. In the back pocket, the checkout card: <b>U.M. Livingsworth III</b>, <b>V. Soprano 1938</b>, <b>W. Ostrander</b>."},
     {rev:{who:"Gnomey", t:"may clock his own family name, <b>Soprano</b>, on the card. Don't push it."}},
     {tick:"Players' iPad back to its home page."},
     {do:"<b>Spencer's turn:</b> the Records Keeper, now it's reassembled."},
     {check:{skill:"Insight", dc:"13", note:"Tell that her &ldquo;be careful&rdquo; is sincere."}},
-    {end:"when they've read the page and her &ldquo;be careful&rdquo; has landed."}
+    {end:"when her &ldquo;be careful&rdquo; has landed."}
   ],
   next:"Her &ldquo;be careful&rdquo; lands. Gazebo next, or up the hill if they've been. If this is the second stop, end on the &ldquo;ten to eight&rdquo; line from cue 4.", go:["4","5"],
   fight:FIGHTS.library,
@@ -102,14 +103,14 @@ SCENES.push(
       {at:"After the fight"},
       {t:"Tell them to put the page back together, every piece.", say:"Well. Don't just stand there. Get every scrap and put it back together."},
       {at:"Only if Scott says the jigsaw has stalled"},
-      {t:"Tell them what the page says.<ul><li>It's about the Dood house.</li><li>Nobody answers the door by day. After dark, a polite voice asks you in.</li></ul>", say:"I remember that page. The Dood house. Knock by day and nobody comes. Ring after dark and a very polite voice asks you in."},
+      {t:"Tell them what the page says about the Dood house.<ul><li>No shutter is opened by day, and a light burns most nights.</li><li>There's music on still nights.</li><li>A lost beagle came home with its leg set in a splint.</li></ul>", say:"I remember that page. No shutter opened by day, a light most nights, music on still nights. And a lost beagle that came home with its leg in a splint."},
       {at:"Once they've reassembled it"},
       {t:"Explain that even pieced together, a cut-up page won't count as a primary source.", say:"That won't pass for a primary source now."},
       {t:"Tell them that if they want one now, it's the house itself.", say:"If you want one, it's the house itself."},
       {t:"Warn them to be careful, and mean it.", say:"&hellip;But be careful."}
     ], vc:"Helpful. Beyond these points, play her to taste."}
   ],
-  cues:["records","riser","paper","jump"] },
+  cues:["records","library","riser","paper","jump"] },
 
 { act:"town", no:4, title:"The gazebo", where:"Town · the bad kids",
   steps:[

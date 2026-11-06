@@ -9,7 +9,7 @@
    Digital props only: anything printed is a hand-over, never an iPad item. */
 const IPAD = {
   1:{room:"The Library",    prop:"the torn Crier page",                 path:"/puzzle/",
-     when:"After the fight: tap the bracket on the setup screen and set the pieces from the cut count &mdash; 1&ndash;2 cuts &rarr; 9, 3&ndash;4 &rarr; 16, 5+ &rarr; 25. Then hand it over."},
+     when:"After the fight: on the setup screen, tap the difficulty the combat page shows. Then hand it over."},
   2:{room:"The Computer",   prop:"AIM, the Spirit",                     path:"/aim/",
      when:"Opens as <b>Marcus Hale</b>; the drive mounts as <code>MARCUS_HALE</code>. To force the name, open <code>/aim/?name=Marcus%20Hale</code>."}
 };

@@ -49,14 +49,14 @@ The top bar has ‹ › cue buttons beside the counter, and Full screen, all 44p
 The sounds are short MP3s in [`sounds/`](sounds/), about 5 MB in all, played with the Web Audio API
 (`fetch` + `decodeAudioData`, one `BufferSource` per play, so the iOS HTMLAudio bug in
 [AGENTS.md](../AGENTS.md) can't bite them). They load in the background after you tap in, stings first; the
-board shows `Sounds n/42` until they're in. They stay in the browser's Cache Storage on `https` and `localhost`, so the next open
+board shows `Sounds n/43` until they're in. They stay in the browser's Cache Storage on `https` and `localhost`, so the next open
 needs no connection. If a file hasn't loaded, the original pads fall back to a live synth; the rest stay dimmed until they arrive.
 
 The board opens with **This cue**: that cue's sounds, always in reach however far the steps have scrolled, split into **Background** (leave running) and **Effects** (fire on the moment) and numbered across both for `Shift`+`1`–`9`. Room pads latch on and off, fade in and out, and layer; stings are one-shots that overlap anything. **Silence** (or `Esc`) stops
 all of it, stings included. A limiter on the master catches heavy layering.
 
 The sounds were generated in ElevenLabs Sound Effects from the prompts in
-[`sounds/src/make_sounds.py`](sounds/src/make_sounds.py); the AIM chime is the AIM prop's own `imrcv.wav`, heard from down a hall. The raw
+[`sounds/src/make_sounds.py`](sounds/src/make_sounds.py); the AIM chime is the AIM prop's own `imrcv.wav`, heard from down a hall. Library fight is ElevenLabs Music with generated room sounds laid on its beat by the script. The raw
 generations are in `sounds/src/eleven/`. The script masters each one to its own loudness target, rolls off sub rumble a Bluetooth speaker
 can't play, wraps each loop so the seam is sample-accurate and rewrites `sounds/manifest.js`, so anything changed there means bumping the `?v=` on
 that script tag. It isn't part of the page and nothing at the table needs it. It needs `numpy` and `ffmpeg`.
