@@ -121,10 +121,10 @@ the book sat untouched for decades, and then three borrowers:
   mansion since he won it off Orlok at cards in 1931 and is reading up on what he
   took. This is the library hint Spencer asked for, and the only place the name
   appears before the study.
-- **U. M. Livingsworth III**, Oct 2000 — **Poe Boy's real name.** Nobody at the table
+- **U. M. Livingsworth III**, Mar 2004 (🟡 month) — **Poe Boy's real name.** Nobody at the table
   knows that. It pays off at sunrise when a woman in a fleece gets out of a Volvo and
-  says *"Upton, honey?"* — and in the meantime it quietly says he has been interested
-  in this house for **four years**.
+  says *"Upton, honey?"* — and in the meantime it quietly says he was interested
+  in this house before the party.
 - **W. Ostrander**, Jul 2004 — the developer. 🟡 A proposal, not a decision.
 
 It also does structural work: it proves **two other people got here first**, and the
