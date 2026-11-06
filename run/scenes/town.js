@@ -82,34 +82,32 @@ SCENES.push(
     {do:"<b>Opening it springs the trap</b>: the reading room's stationery comes alive and goes for the article. &#9876; Fight &mdash; <b>count the cuts</b>."},
     {tok:1},
     {fight:1},
+    {do:"<b>Spencer's turn:</b> the Records Keeper, right after the fight."},
     {ipad:1, do:"&#128241; <b>Item 1:</b> tap the difficulty the combat page shows (Easy, Medium or Hard), then hand over the torn page."},
     {stuck:"If the jigsaw stalls past ten minutes: <b>Spencer's turn</b>, the Records Keeper tells them the page-2 lore."},
-    {tick:"After the jigsaw: players' iPad back to its home page."},
-    {do:"They read it: the town's talk about the Dood house (a polite voice at the door, no answer by day, music, a splinted dog), and on page 2 a reader's old-country tale with the slaying method (dig up the coffin, stake the heart, rebury). Piecing the method together: Investigation or History DC 12. In the back pocket, the checkout card: <b>U.M. Livingsworth III</b>, <b>V. Soprano 1938</b>, <b>W. Ostrander</b>."},
+    {do:"They solve it and read it: the town's talk about the Dood house (a polite voice at the door, no answer by day, music, a splinted dog), and on page 2 a reader's old-country tale with the slaying method (dig up the coffin, stake the heart, rebury). Piecing the method together: Investigation or History DC 12. In the back pocket, the checkout card: <b>U.M. Livingsworth III</b>, <b>V. Soprano 1938</b>, <b>W. Ostrander</b>."},
     {check:{skill:"Investigation / History", dc:"12", note:"Assemble the slaying method from the folklore: coffins, stake, rebury."}},
     {rev:{who:"Gnomey", t:"may clock his own family name, <b>Soprano</b>, on the card. Don't push it."}},
-    {do:"<b>Spencer's turn:</b> the Records Keeper's nudge."},
+    {tick:"Players' iPad back to its home page."},
+    {do:"<b>Spencer's turn:</b> the Records Keeper, now it's reassembled."},
     {check:{skill:"Insight", dc:"13", note:"Tell that her &ldquo;be careful&rdquo; is sincere."}},
     {end:"when the lore's in the bag and her &ldquo;be careful&rdquo; has landed."}
   ],
   next:"Her &ldquo;be careful&rdquo; lands. Gazebo next, or up the hill if they've been. If this is the second stop, end on the &ldquo;ten to eight&rdquo; line from cue 4.", go:["4","5"],
-  talk:[
-    {who:"Records Keeper · asked about Dood", t:"That's an old name. Try the Crier, 1937. I'll get you the bound volume."},
-    {who:"Records Keeper · only if the jigsaw stalls", t:"I remember that page. A reader wrote in with a tale from the old country. You dig up the coffin, stake the heart, and bury it again."},
-    {who:"Records Keeper · after the fight", t:"You can try to put it back together. But that was your primary source, and it's gone. If you want one now, you'll have to go look at the house yourselves. &hellip;But be careful."}
-  ],
   fight:FIGHTS.library,
   npcs:[
     {nm:"Records Keeper", pts:[
       {at:"When they arrive"},
-      "Answer their question about Dood by fetching the bound 1937 volume of the Crier and handing it over intact.",
+      {t:"Answer their question about Dood by fetching the bound 1937 volume of the Crier and handing it over intact.", say:"That's an old name. Try the Crier, 1937. I'll get you the bound volume."},
       {at:"The fight", gap:"Scott runs it, nothing for you."},
       {at:"After the fight"},
-      "Tell them the volume was their primary source and it's gone.",
-      "Tell them that if they still want a primary source, they'll have to go look at the house themselves.",
-      "Warn them to be careful, and mean it.",
-      {at:"Only if the jigsaw stalls"},
-      "Tell them the lore from page 2, only if Scott says the jigsaw has stalled.<ul><li>It's a reader's tale from the old country.</li><li>The method: dig up the coffin, stake the heart, bury it again.</li></ul>"
+      {t:"Tell them to put the page back together, every piece.", say:"Well. Don't just stand there. Get every scrap and put it back together."},
+      {at:"Only if Scott says the jigsaw has stalled"},
+      {t:"Tell them the lore from page 2.<ul><li>It's a reader's tale from the old country.</li><li>The method: dig up the coffin, stake the heart, bury it again.</li></ul>", say:"I remember that page. A reader wrote in with a tale from the old country. You dig up the coffin, stake the heart, and bury it again."},
+      {at:"Once they've reassembled it"},
+      {t:"Explain that even pieced together, a cut-up page won't count as a primary source.", say:"That won't pass for a primary source now."},
+      {t:"Tell them that if they want one now, it's the house itself.", say:"If you want one, it's the house itself."},
+      {t:"Warn them to be careful, and mean it.", say:"&hellip;But be careful."}
     ], vc:"Helpful. Beyond these points, play her to taste."}
   ],
   cues:["records","riser","paper","jump"] },
@@ -134,15 +132,25 @@ SCENES.push(
     {who:"DJ Poe Boy · shown the card", t:"Cool card."},
     {who:"DJ Poe Boy · if they ask whose party it is", t:"Who knows."},
     {who:"DJ Poe Boy · to Gnomey", t:"Still mad about the silly bandz?"},
-    {who:"Angelique · when the crew looks away", t:"You shouldn't&hellip; never mind. Forget it."},
-    {who:"The crew · to Yobo", t:"You're the Dolly Parton guy &mdash; do a little riff."},
-    {who:"The crew · if he makes the roll", t:"Okay. That's Dolly's grandkid, all right."},
-    {who:"The crew · if he misses", t:"That's it? That's Dolly Parton's grandkid?"}
+    {who:"Angelique · when the crew looks away", t:"You shouldn't&hellip; never mind. Forget it."}
   ],
   npcs:[
-    {nm:"DJ Poe Boy", pts:["Say you've been up there once, with a shrug, when they ask about the house.", "Play the house down as nothing to see.", "Stay cool about the cards.<ul><li>Don't say you sent them.</li><li>Don't say it's your party.</li></ul>", "Needle Gnomey about the silly bandz if he's in front of you.<ul><li>He ran with your crew in middle school.</li><li>He walked out when he caught you skimming his cut.</li></ul>"], vc:"Kenku &mdash; <b>voice him only in borrowed / sampled lines.</b> Glamour-charming, subversive, real cred."},
+    {nm:"DJ Poe Boy", pts:[
+      {at:"When they walk up"},
+      "Needle Gnomey about the silly bandz if he's in front of you.<ul><li>He ran with your crew in middle school.</li><li>He walked out when he caught you skimming his cut.</li></ul>",
+      {at:"When they ask about the house or the cards"},
+      "Say you've been up there once, with a shrug.",
+      "Play the house down as nothing to see.",
+      "Stay cool about the cards.<ul><li>Don't say you sent them.</li><li>Don't say it's your party.</li></ul>"
+    ], vc:"Kenku &mdash; <b>voice him only in borrowed / sampled lines.</b> Glamour-charming, subversive, real cred."},
     {nm:"Angelique", pts:["Try to warn them, then stop yourself because the crew is standing right there.<ul><li>All that gets out is a side-eye and a swallowed half-sentence.</li></ul>", "Say nothing more than that."], vc:"Changeling, trad goth. Wants them warned, can't say it out loud. A side-eye and a held breath, not exposition."},
-    {nm:"The crew", pts:["Recognize Yobo as the Dolly Parton guy.<ul><li>Everyone at school believes his grandmother is Dolly Parton.</li></ul>", "Ask him to do a little riff.", "React to his Performance roll when Scott tells you the result.<ul><li>If he made it, buy it.</li><li>If he missed, needle him.</li></ul>"], vc:"Poe Boy's bad kids, smoking at the gazebo."}
+    {nm:"The crew", pts:[
+      {at:"When they notice Yobo"},
+      "Recognize Yobo as the Dolly Parton guy.<ul><li>Everyone at school believes his grandmother is Dolly Parton.</li></ul>",
+      {t:"Ask him to do a little riff.", say:"You're the Dolly Parton guy &mdash; do a little riff."},
+      {at:"After his Performance roll"},
+      {t:"React when Scott tells you the result.<ul><li>If he made it, buy it.</li><li>If he missed, needle him.</li></ul>", say:["<i>If he makes the roll</i>Okay. That's Dolly's grandkid, all right.","<i>If he misses</i>That's it? That's Dolly Parton's grandkid?"]}
+    ], vc:"Poe Boy's bad kids, smoking at the gazebo."}
   ],
   cues:["gazebo"] }
 

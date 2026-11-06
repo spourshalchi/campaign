@@ -16,14 +16,15 @@ SCENES.push(
     {end:"hidden in the dark with Angelique &mdash; straight into first contact."}
   ],
   next:"Hidden in the dark, they hear voices: straight into cue 6.", go:["6"],
-  talk:[
-    {who:"Angelique · pulling them down", t:"Get down. Get <i>down</i>. Stay quiet."},
-    {who:"Angelique · asked what from", t:"Just listen."},
-    {who:"Angelique · asked why she's here", t:"Not now."},
-    {who:"Angelique · if they try the door", t:"Go on then. You'll just have to walk back past whatever I walked past."}
-  ],
   npcs:[
-    {nm:"Angelique", pts:["Pull them down into hiding and tell them to stay quiet.","Refuse to say what you're hiding from.<ul><li>If they ask, just tell them to listen.</li></ul>","Refuse to say why you came.","Warn them off the front door if they try it.<ul><li>It won't open. Going that way means walking back past whatever you walked past.</li></ul>"], vc:"Frightened, whispering."}
+    {nm:"Angelique", pts:[
+      {at:"When you grab them"},
+      {t:"Pull them down into hiding and tell them to stay quiet.", say:"Get down. Get <i>down</i>. Stay quiet."},
+      {t:"Refuse to say what you're hiding from, and tell them to listen.", say:"Just listen."},
+      {t:"Refuse to say why you came.", say:"Not now."},
+      {at:"Only if they try the door"},
+      {t:"Warn them off it.<ul><li>It won't open. Going that way means walking back past whatever you walked past.</li></ul>", say:"Go on then. You'll just have to walk back past whatever I walked past."}
+    ], vc:"Frightened, whispering."}
   ],
   cues:["wind","drone","bolt","steps","jump"] },
 
@@ -49,25 +50,40 @@ SCENES.push(
     {end:"on Orlok's dismissal, with the party scattering to look for a way out."}
   ],
   next:"On Orlok's dismissal, Russ finds Orlok at the cabinet: cue 7.", go:["7"],
-  talk:[
-    {who:"Dracula", t:"Five. He said five, and there are five. The boy's finally learning to count."},
-    {who:"Edward", t:"One of them is a child."},
-    {who:"Dracula", t:"They're all children. That's rather the point."},
-    {who:"Dracula · optional", t:"The boy says they come for the music and stay for us."},
-    {who:"Dracula · only on their Perception DC 12", t:"It's only the rehearsal, and you missed your entrance."},
-    {who:"Orlok", t:"Have our meals been fed?"},
-    {who:"Dracula", t:"Not yet I don't think."},
-    {who:"Orlok", t:"See to it before we begin. I won't have them distracted."},
-    {who:"Dracula · asked if this is part of the party", t:"Part of the party? Yes. Oh, absolutely yes."},
-    {who:"Dracula · holding someone", t:"Oh, very good. Again."},
-    {who:"Orlok · to Dracula, quietly", t:"Enough."},
-    {who:"Orlok · the dismissal", t:"The night is young. It would be terribly rude to be finished with you already&hellip; Go on. Have a look around. We'll find you when we're ready."}
-  ],
   fight:FIGHTS.contact,
   npcs:[
-    {nm:"Dracula", pts:["Tell the others that five came, just as the boy said.<ul><li>The boy told you five, and there are five. Never say who the boy is.</li></ul>","Answer Edward that they're all children, and that's the point.","Mention, if you like, that the boy says they come for the music and stay for you.","Tell Orlok the meals haven't been fed yet, as far as you know.","Say the rehearsal line if they make their Perception.<ul><li>Scott tells you when. The line is below: it's only the rehearsal, and you missed your entrance.</li></ul>","Grab whoever fails Stealth, and enjoy it.<ul><li>Scott narrates the swoop and calls the save. No bite and no damage. If they hit you, laugh.</li></ul>","Say yes, delighted, if they ask whether this is part of the party.","Let go the instant Orlok speaks."], vc:"Campy, theatrical, lays hands on them and enjoys it far too much. Play it like a rehearsal."},
-    {nm:"Orlok", pts:["Ask whether the meals have been fed.<ul><li>Tell Dracula to see to it before you begin. You won't have them distracted.</li></ul>","Stay out of the grab until Scott cues you to end it.<ul><li>That's after a round or two, or the moment it stops being fun.</li></ul>","Stop Dracula with one quiet word.","Deliver the dismissal below as a threat, very politely.","Refuse to explain anything.<ul><li>Say nothing about the doors, the meals or the boy.</li></ul>"], vc:"Patient and very polite, even while doing something awful."},
-    {nm:"Edward", pts:["Point out that one of them is a child.","Watch Bix and stay out of the grab.","Refuse to approach anyone or answer them."], vc:"The younger voice."},
+    {nm:"Dracula", pts:[
+      {at:"Overheard, while they hide"},
+      {t:"Tell the others that five came, just as the boy said.<ul><li>Never say who the boy is.</li></ul>", say:"Five. He said five, and there are five. The boy's finally learning to count."},
+      {t:"Answer Edward that they're all children, and that's the point.", say:"They're all children. That's rather the point."},
+      {t:"Mention, if you like, that the boy says they come for the music and stay for you.", say:"The boy says they come for the music and stay for us."},
+      {t:"Tell Orlok the meals haven't been fed yet, as far as you know.", say:"Not yet I don't think."},
+      {t:"Say the rehearsal line, only if Scott says they made their Perception.", say:"It's only the rehearsal, and you missed your entrance."},
+      {at:"While they explore", gap:"Scott runs it, nothing for you."},
+      {at:"The swoop"},
+      {t:"Grab whoever fails Stealth, and enjoy it.<ul><li>Scott narrates the swoop and calls the save. No bite and no damage. If they hit you, laugh.</li></ul>", say:"Oh, very good. Again."},
+      {t:"Say yes, delighted, if they ask whether this is part of the party.", say:"Part of the party? Yes. Oh, absolutely yes."},
+      "Let go the instant Orlok speaks."
+    ], vc:"Campy, theatrical, lays hands on them and enjoys it far too much. Play it like a rehearsal."},
+    {nm:"Orlok", pts:[
+      {at:"Overheard, while they hide"},
+      {t:"Ask whether the meals have been fed, after Dracula's &ldquo;That's rather the point.&rdquo;", say:"Have our meals been fed?"},
+      {t:"Tell Dracula to see to it before you begin.", say:"See to it before we begin. I won't have them distracted."},
+      {at:"While they explore", gap:"Scott runs it, nothing for you."},
+      {at:"The swoop", gap:"Stay out of the grab. Scott cues you to end it after a round or two."},
+      {at:"When Scott cues you"},
+      {t:"Stop Dracula with one quiet word.", say:"Enough."},
+      {t:"Deliver the dismissal as a threat, very politely.", say:"The night is young. It would be terribly rude to be finished with you already&hellip; Go on. Have a look around. We'll find you when we're ready."},
+      "Refuse to explain anything.<ul><li>Say nothing about the doors, the meals or the boy.</li></ul>"
+    ], vc:"Patient and very polite, even while doing something awful."},
+    {nm:"Edward", pts:[
+      {at:"Overheard, while they hide"},
+      {t:"Point out that one of them is a child, after Dracula's &ldquo;learning to count.&rdquo;", say:"One of them is a child."},
+      {at:"While they explore", gap:"Scott narrates Bix catching you in the moonlight, nothing for you."},
+      {at:"The swoop"},
+      "Watch Bix and stay out of the grab.",
+      "Refuse to approach anyone or answer them."
+    ], vc:"The younger voice."},
     {nm:"Angelique", pts:["Keep them quiet while the voices pass.","Refuse to say what you're hiding from or why you came."], vc:"Whispering, frightened."}
   ],
   cues:["drone","heart","steps","swoop","jump","braaam"] },
@@ -84,14 +100,14 @@ SCENES.push(
     {end:"on the read-aloud: no thanks, and the house dark in every direction. Turn them loose to explore."}
   ],
   next:"No thanks, the house dark in every direction (read-aloud). Turn them loose: cue 8.", go:["8"],
-  talk:[
-    {who:"Orlok · asked what he's looking for", t:"Nothing that concerns you."},
-    {who:"Orlok · handed the spectacles", t:"(Silence. He puts them on.)"},
-    {who:"Orlok · shown the card", t:"No."},
-    {who:"Orlok · if Russ pushes", t:"I said no."}
-  ],
   npcs:[
-    {nm:"Orlok", pts:["Keep patting along the wrong shelf until Russ acts.<ul><li>Dracula put your spectacles on top of the cabinet, and you can't see without them.</li></ul>","Refuse to ask for help, even when he offers it.","Take the spectacles without a word of thanks.","Refuse to sign when Russ shows you the card.<ul><li>He'll point at &ldquo;verified by your elder&rdquo;. Give him a flat no.</li></ul>","Stay cold and give him nothing back."], vc:"Cold and dignified, and very polite about it."}
+    {nm:"Orlok", pts:[
+      "Keep patting along the wrong shelf until Russ acts.<ul><li>Dracula put your spectacles on top of the cabinet, and you can't see without them.</li></ul>",
+      {t:"Refuse to ask for help, even when he offers it.", say:"Nothing that concerns you."},
+      "Take the spectacles without a word of thanks.",
+      {t:"Refuse to sign when Russ shows you the card.<ul><li>He'll point at &ldquo;verified by your elder&rdquo;. Give him a flat no.</li></ul>", say:["No.","I said no."]},
+      "Stay cold and give him nothing back."
+    ], vc:"Cold and dignified, and very polite about it."}
   ],
   cues:["drone"] },
 
