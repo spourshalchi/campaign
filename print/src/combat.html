@@ -82,9 +82,9 @@ const foe = e => `<div class="foe">
   ${e.note?`<p class="note">${e.note}</p>`:""}
   <p><span class="k">Drops</span> ${e.drop}</p>
   ${boxes(e)}</div>`;
-// with an allyJob line up top, the paper copy keeps only the ally lines it doesn't already say (Angelique's)
+// with an allyJob line up top, the paper copy keeps only the ally lines it doesn't already say (Angelique's, Stinky's)
 const allyBox = f => { if(!f.allies) return "";
-  const list = f.run.allyJob ? f.allies.filter(a=>a.nm==="Angelique") : f.allies;
+  const list = f.run.allyJob ? f.allies.filter(a=>/Angelique|Stinky/.test(a.nm)) : f.allies;
   if(!list.length) return "";
   return `<div class="allies"><span class="k">${f.run.allyJob?"Also":f.alliesLabel||"Allies"}</span>${list.map(a=>`<p><b>${a.nm}</b> · ${a.act}</p>`).join("")}${f.allyNote?`<p>${f.allyNote}</p>`:""}</div>`; };
 const fight = f => `<div class="fight"><div class="top"><h2>${f.name}</h2>

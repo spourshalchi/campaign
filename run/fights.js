@@ -19,7 +19,7 @@
          drop (when it drops), hard / easy (the dials)
    run:  setup, matchups (who takes whom at the start), beats (one line per round),
          allyJob (the allies' job each round, narrated), win, ends, losing
-   ally: nm, act (one thing, no roll)
+   ally: nm, act (one thing, no roll), tok (where the token goes), say (one line of narration)
    ===================================================================== */
 const FIGHTS = {
 
@@ -237,9 +237,9 @@ const FIGHTS = {
         {who:"Then the seal breaks", t:"The seal goes. Three vampires get up, and it's over fast for the men nearest them. Anyone else in a hard hat lets go of his crowbar."}
       ]},
     guide:{
-      tokens:"Thugs 1&ndash;3 between the party and the vampires. Ostrander and thugs 4&ndash;6 on the vampires. Lay Orlok, Dracula and Edward on their sides: pinned. Dracula next to Yobo, Edward where Bix can see him. Poe Boy and Stinky up on the decks: not in this fight.",
+      tokens:"Thugs 1&ndash;3 between the party and the vampires. Ostrander and thugs 4&ndash;6 on the vampires. Lay Orlok, Dracula and Edward on their sides: pinned. Dracula next to Yobo, Edward where Bix can see him. Poe Boy and Stinky up on the decks: not in this fight. Angelique with the party.",
       rounds:[
-        {k:"Round 1", who:"Thugs 1&ndash;3 block the party and swing at the nearest PC. Thugs 4&ndash;6 hold the vampires down, no rolls. Ostrander works on Orlok and ignores the party until someone hits him or reaches him.", say:"Three of them step into your way. Behind them, a stake comes down to rest on Orlok's chest.", sp:"Orlok: &ldquo;Boy. Help me.&rdquo; Edward: &ldquo;Twenty-four years.&rdquo;"},
+        {k:"Round 1", who:"Thugs 1&ndash;3 block the party and swing at the nearest PC. Thugs 4&ndash;6 hold the vampires down, no rolls. Ostrander works on Orlok and ignores the party until someone hits him or reaches him. Angelique calls off the thug on the most-hurt PC.", say:"Three of them step into your way. Behind them, a stake comes down to rest on Orlok's chest.", sp:"Orlok: &ldquo;Boy. Help me.&rdquo; Edward: &ldquo;Twenty-four years.&rdquo;"},
         {k:"Round 2", who:"Thugs 1&ndash;3 are on the party and starting to drop. Ostrander: Hold on whoever hit him, rod at anyone next to him.", say:"Dracula is frozen mid-flourish, cape out, an arm's length from Yobo. They've reached him. Somebody is measuring.", sp:"Poe Boy, on the mic: &ldquo;Oh, this is great. Keep going.&rdquo;"},
         {k:"Round 3", who:"Thugs 1&ndash;3 mostly down. Ostrander is exposed.", say:"They've got to the quiet one. A mallet goes up over a stake on Edward's chest. He isn't looking at it. He's looking at Bix."},
         {k:"Round 4 on", who:"Hold here. No vampire is ever actually killed. Ostrander goes down round 3 or 4.", say:"The mallet is still up. It's shaking."}
@@ -267,7 +267,7 @@ const FIGHTS = {
              "R2 · Thugs 1–3 start dropping. Dracula is pinned mid-flourish near Yobo.",
              "R3 · Ostrander is exposed. A stake over Edward's chest, with Bix watching.",
              "R4 · He goes down. Stop. Silence. The seal breaks."],
-      allyJob:"Pinned: the vampires don't act, and are never actually killed. When the seal breaks they finish thugs 4–6. Narrate it, no rolls.",
+      allyJob:"Pinned: the vampires don't act, and are never actually killed. When the seal breaks they finish thugs 4–6. Angelique calls off one of thugs 1–3 each round. Narrate it, no rolls.",
       win:"Drop Ostrander. The party has to do it, not the vampires.",
       ends:"Round 3 or 4, when he goes down. Stop. Let the room be quiet.",
       losing:"If two PCs are down: the seal slips and Orlok gets a hand free. Ostrander loses his turns, and the next hit from a PC kills him."
@@ -291,10 +291,12 @@ const FIGHTS = {
        hard:"One of thugs 1–3 breaks and runs.",
        easy:"Give each 8 more HP (24)."}
     ],
-    alliesLabel:"Allies · pinned until the seal breaks, no rolls",
+    alliesLabel:"Allies · no rolls",
     allies:[
-      {nm:"Orlok, Dracula, Edward", act:"Pinned, so they don't act. When the seal breaks they finish thugs 4–6: Dracula plays to the crowd; Orlok is quick and tidy; Edward is efficient and doesn't look at anyone. Mark each one down."},
-      {nm:"Angelique", act:"What she does at the finale is still open. <b>If she's with the party:</b> 8 piercing on a thug, no roll."}
+      {nm:"Orlok, Dracula, Edward", act:"Pinned until the seal breaks, so they don't act. When the seal breaks they finish thugs 4–6: Dracula plays to the crowd; Orlok is quick and tidy; Edward is efficient and doesn't look at anyone. Mark each one down."},
+      {nm:"Angelique", act:"Each round, after everyone: takes a hard hat's face and taps the thug on the most-hurt PC on the shoulder. He loses his next attack.",
+       tok:"Next to that thug.",
+       say:"A man in a hard hat taps him on the shoulder. He turns, and the face under the hat slides into Angelique's."}
     ]
   },
 
@@ -313,6 +315,8 @@ const FIGHTS = {
       close:[
         {who:"When the USB hits the decks · narrate the recording", t:"His set cuts out mid-scream. Then typing. A door shuts. Then a scared kid, asking someone to open it. Asking again, quieter. And under all of it, perfectly calm, Poe Boy: nudging a level up, leaning in close to listen, pleased with how clean it sounds."},
         {who:"Then let it sit", t:"The speakers hiss. Nobody in the ballroom moves."},
+        {who:"Lil Stinky turns · oath breaks, no save", t:"The light goes out of the sword. He turns around and looks at his best friend."},
+        {who:"Lil Stinky · to Poe Boy", sp:1, t:"I believed you, man."},
         {who:"Angelique · to the crowd, when the recording plays", sp:1, t:"I typed those messages."},
         {who:"Marcus · only if Simone paid the goat · to Poe Boy", sp:1, t:"you said you'd open it."},
         {who:"Marcus · to Poe Boy", sp:1, t:"i kept asking. you kept recording. you wrote GOOD on it."},
@@ -322,13 +326,14 @@ const FIGHTS = {
         {who:"On the last turn", t:"It runs on into the early morning. By the end, the ballroom windows have gone grey."}
       ]},
     guide:{
-      tokens:"Ostrander and the thugs are off. Vampires standing, with the party. Lil Stinky at the decks, Poe Boy behind him. The USB is wherever the party left it.",
+      tokens:"Ostrander and the thugs are off. Vampires standing, with the party. Lil Stinky at the decks, Poe Boy behind him. Angelique with the party. The USB is wherever the party left it.",
       rounds:[
         {k:"After &ldquo;Drop.&rdquo;", who:"Roll initiative. Party and vampires against Poe Boy and Stinky. The goal is the USB, not killing him.", say:"<b>What do you do?</b>"},
-        {k:"Round 1", who:"Poe Boy Commands the USB holder. Stinky gets back to the decks. One vampire acts: Orlok grips Stinky.", say:"One word, in somebody else's voice, and your hand opens. The drive hits the floor."},
+        {k:"Round 1", who:"Poe Boy Commands the USB holder. Stinky gets back to the decks. One vampire acts: Orlok grips Stinky. Angelique goes to the USB holder in Poe Boy's face.", say:"One word, in somebody else's voice, and your hand opens. The drive hits the floor.", sp:"Angelique: &ldquo;Aux is round the back of the mixer, left side. I'm on the poster. I know this stage.&rdquo;"},
         {k:"Round 2", who:"Stinky swings at the USB holder and hits a vampire. Dracula carries the holder toward the decks.", say:"Stinky's sword catches a vampire. It smokes. It staggers."},
         {k:"Round 3", who:"Stinky gets moved or drops. Someone plugs in. Edward pulls a PC clear.", say:"He's off the decks. There's the aux."},
-        {k:"Round 4", who:"The recording plays. Stinky sits down. Clear the map: the fight's over.", say:"Read the recording, below."}
+        {k:"Round 4", who:"The recording plays. Stinky's oath breaks, no save: move his token next to Poe Boy. His Aura is gone and the decks are open. Poe Boy's Command stops landing.", say:"Read the recording, below."},
+        {k:"Round 5 on", who:"Stinky swings at Poe Boy. Angelique, in her own face, knifes him. The party takes him down. Give it two rounds, then the next PC hit knocks him out.", say:"He tries a voice. Then another one. Nobody in the room is listening.", sp:"Lil Stinky: &ldquo;I believed you, man.&rdquo;"}
       ],
       other:[
         ["Russ heals a vampire under fire","That's <b>badge req 3</b>, if it hasn't landed."],
@@ -336,23 +341,28 @@ const FIGHTS = {
         ["They plug in with Stinky standing there","Nobody can while he's at the decks. Shove, grapple, a spell or a vampire moves him."],
         ["The USB is still upstairs","Someone runs it down, about 2 rounds."],
         ["It drags past round 4","Dracula lands the drive in a PC's hand at the decks."],
-        ["They hit Poe Boy after the recording","The floor is gone. At 0 HP he's knocked out, not killed."]
+        ["They hit Poe Boy after the recording","The floor is gone. At 0 HP he's knocked out, not killed."],
+        ["Stinky or Angelique would drop Poe Boy","Hold him at 1 HP. A PC lands the last hit."],
+        ["They go after Stinky once he's turned","He takes it and doesn't swing back. He's looking at Poe Boy."]
       ]},
     lines:[
       {who:"DJ Poe Boy · each turn, on whoever holds the USB", t:"Drop."},
-      {who:"DJ Poe Boy · each turn, if nobody holds it, on the PC nearest the decks", t:"Flee."}
+      {who:"DJ Poe Boy · each turn, if nobody holds it, on the PC nearest the decks", t:"Flee."},
+      {who:"Angelique · round 1, to the party", t:"Aux is round the back of the mixer, left side. I'm on the poster. I know this stage."},
+      {who:"Lil Stinky · after the recording, to Poe Boy", t:"I believed you, man."}
     ],
-    rule:"<b>The USB can't be destroyed</b> &mdash; Command (&ldquo;Drop.&rdquo;) only costs time. When it plays, <b>Stinky's oath breaks with no save.</b>",
+    rule:"<b>The USB can't be destroyed</b> &mdash; Command (&ldquo;Drop.&rdquo;) only costs time. When it plays, <b>Stinky's oath breaks with no save and he turns on Poe Boy.</b>",
     run:{
       setup:"Ostrander is dead and the vampires are free. The party tells them about Marcus and the drive. Orlok: &ldquo;Let them play it.&rdquo; Poe Boy refuses: &ldquo;Drop.&rdquo; That's what turns them on him. Poe Boy and Lil Stinky hold the decks. The USB is wherever the party left it: if it's still in the old rig upstairs, someone runs it down (about 2 rounds).",
-      matchups:"Lil Stinky holds the decks; Poe Boy stays behind them, on the mic. Orlok goes for Stinky, Dracula shadows whoever holds the USB, Edward hangs back to pull PCs clear. The party's job: get the USB to the decks and get Stinky off them.",
+      matchups:"Lil Stinky holds the decks; Poe Boy stays behind them, on the mic. Orlok goes for Stinky, Dracula shadows whoever holds the USB, Edward hangs back to pull PCs clear, Angelique stays by the USB holder. The party's job: get the USB to the decks and get Stinky off them.",
       beats:["R1 · The USB is on the move. Poe Boy Commands its holder: &ldquo;Drop.&rdquo;",
              "R2 · The party reaches the decks. Stinky swings at the holder and smokes a vampire (Russ's heal).",
              "R3 · Stinky gets moved or drops. Someone plugs in.",
-             "R4 · The recording plays. Stinky sits down. The room turns."],
+             "R4 · The recording plays. Stinky turns on Poe Boy. The room turns.",
+             "R5 on · Stinky and Angelique on Poe Boy. The party takes him down."],
       allyJob:"One vampire a round, in turn, after everyone: Orlok grips Stinky, Dracula carries the USB holder toward the decks, Edward pulls a PC clear. Narrate it, no rolls.",
       win:"A PC at the decks plugs the USB in (their action). Then narrate the recording.",
-      ends:"Round 3 or 4: the recording plays, Stinky sits down, the room turns, Dracula takes the mic.",
+      ends:"Round 3 or 4: the recording plays, Stinky turns on Poe Boy, the room turns, Dracula takes the mic. Two rounds later Poe Boy is knocked out.",
       losing:"It can't be lost. If it drags past round 4, Dracula snatches the drive and lands it in a PC's hand at the decks."
     },
     foes:[
@@ -360,8 +370,8 @@ const FIGHTS = {
        say:"Borrowed lines only: a radio ad, a movie trailer, his mom.",
        turn:["Command, one word, <b>DC 15 Wis save</b>. The PC holding the USB: &ldquo;Drop.&rdquo; (it lands at their feet). Nobody holding it: the PC nearest the decks, &ldquo;Flee.&rdquo; (they spend their next move running from him).",
              "Mic stand at anyone next to him: <b>+4 to hit, 4 bludgeoning</b>. Pathetic on purpose."],
-       note:"<b>Can't drop below 1 HP until the recording plays</b>: at 1 he's on his knees behind the decks, still on the mic. +3 on his saves while Stinky is within 10 ft.",
-       drop:"He doesn't drop until the recording plays. Then the floor ends, his Command stops landing, the room boos and Dracula takes the mic. At 0 HP he's knocked out, not killed. The fight runs into the early morning; cut to the driveway at sunrise.",
+       note:"<b>Can't drop below 1 HP until the recording plays</b>: at 1 he's on his knees behind the decks, still on the mic. +3 on his saves while Stinky is within 10 ft, until Stinky turns.",
+       drop:"When the recording plays the floor ends, his Command stops landing, the room boos and Dracula takes the mic. Two rounds on, the next PC hit puts him at 0: knocked out, not killed. The fight runs into the early morning; cut to the driveway at sunrise.",
        hard:"He only Commands the PC holding the USB. No &ldquo;Flee.&rdquo;",
        easy:"He Commands two PCs a turn: &ldquo;Drop.&rdquo; and &ldquo;Flee.&rdquo;"},
       {id:"stinky", nm:"Lil Stinky", n:1, ac:18, hp:60, spd:"30", chassis:"Knight", cr:"3", xp:700,
@@ -369,17 +379,25 @@ const FIGHTS = {
        turn:["Back to the decks, next to Poe Boy.",
              "Longsword twice: <b>+5 to hit, 8 radiant</b> each. The PC holding the USB if he can reach them, otherwise the nearest vampire."],
        note:"<b>Nobody can plug in while he's standing at the decks.</b> Shove him, grapple him, move him with a spell or a vampire, or drop him, then plug in. A vampire he hits smokes and staggers: that's Russ's heal for badge req 3, if it hasn't landed.",
-       drop:"At 0 HP he's on one knee, sword down: out of the fight, awake, and still hears the recording. When it plays, his oath breaks, no save. He sits down.",
+       drop:"At 0 HP he's on one knee, sword down: out of the fight, awake, and still hears the recording. When it plays, his oath breaks, no save, and he gets up on the party's side: see Allies.",
        hard:"One swing, not two.",
        easy:"Add 20 HP (80)."}
     ],
-    alliesLabel:"Allies · end of each round, one acts, in turn, no rolls",
+    alliesLabel:"Allies · end of each round, no rolls",
     allies:[
-      {nm:"Orlok", act:"Takes hold of Lil Stinky: 10 necrotic."},
+      {nm:"Orlok", act:"In turn with Dracula and Edward, one a round. Takes hold of Lil Stinky: 10 necrotic."},
       {nm:"Dracula", act:"Swoops: carries the PC holding the USB 30 ft toward the decks."},
       {nm:"Edward", act:"Pulls one PC 30 ft out of trouble. No opportunity attacks."},
-      {nm:"Angelique", act:"What she does at the finale is still open. <b>If she's with the party:</b> 8 piercing on Stinky, no roll, every round."}
+      {nm:"Angelique", act:"Every round until the recording: wears Poe Boy's face beside the USB holder (nobody holding it: the PC nearest the decks). That PC has advantage on the save against his Command.",
+       tok:"Next to that PC.",
+       say:"Two Poe Boys now, and one of them is shaking his head at you."},
+      {nm:"Angelique, after the recording", act:"Every round: her own face, her own knife. 8 piercing on Poe Boy.",
+       tok:"Next to Poe Boy.",
+       say:"No borrowed face this time. She walks up to him looking like herself."},
+      {nm:"Lil Stinky, after the recording", act:"Every round: one swing at Poe Boy, 8 slashing, no roll. Poe Boy can't get past him off the decks. No HP from here: at 0 he gets up anyway.",
+       tok:"Turn him round, next to Poe Boy, between him and the way off the decks.",
+       say:"The light goes out of the sword. He turns around and looks at his best friend."}
     ],
-    allyNote:"They don't drop and have no HP to track."
+    allyNote:"They don't drop and have no HP to track. Their hits stop Poe Boy at 1 HP: a PC lands the last one."
   }
 };
