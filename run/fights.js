@@ -227,7 +227,7 @@ const FIGHTS = {
     guide:{
       tokens:"Thugs 1&ndash;3 between the party and the vampires. Ostrander and thugs 4&ndash;6 on the vampires. Lay Orlok, Dracula and Edward on their sides: pinned. Dracula next to Yobo, Edward where Bix can see him. Poe Boy and Stinky up on the decks: not in this fight. Angelique with the party.",
       rounds:[
-        {k:"Round 1", who:"Thugs 1&ndash;3 block the party and all swing at the same PC, the nearest. Thugs 4&ndash;6 hold the vampires down, no rolls. Ostrander works on Orlok and ignores the party until someone hits him or reaches him. Angelique calls off the thug on the most-hurt PC.", say:"Three of them step into your way. Behind them, a stake comes down to rest on Orlok's chest.", sp:"Orlok: &ldquo;Boy. Help me.&rdquo; Edward: &ldquo;Twenty-four years.&rdquo;"},
+        {k:"Round 1", who:"Thugs 1&ndash;3 block the party and all swing at the same PC, the nearest. Thugs 4&ndash;6 hold the vampires down, no rolls. Ostrander works on Orlok and ignores the party until someone hits him or reaches him. Angelique calls off the thug on the most-hurt PC.", say:"Three of them step into your way. Behind them, a stake comes down to rest on Orlok's chest.", sp:"Orlok: &ldquo;Boy. Help me.&rdquo; Edward: &ldquo;Twenty-five years.&rdquo;"},
         {k:"Round 2", who:"Thugs 1&ndash;3 are on the party and starting to drop. Ostrander: Hold on whoever hit him, rod at anyone next to him.", say:"Dracula is frozen mid-flourish, cape out, an arm's length from Yobo. Somebody is measuring. They've got to the quiet one. A mallet goes up over a stake on Edward's chest. He isn't looking at it. He's looking at Bix.", sp:"Poe Boy, on the mic: &ldquo;Oh, this is great. Keep going.&rdquo;"},
         {k:"Round 3", who:"Ostrander goes down round 2 or 3. No vampire is ever actually killed. Still up at the end of this round? The seal slips: see Losing.", say:"The mallet is still up. It's shaking."}
       ],
@@ -242,7 +242,7 @@ const FIGHTS = {
       ]},
     lines:[
       {who:"Orlok · pinned, to Russ", t:"Boy. Help me."},
-      {who:"Edward · on seeing Ostrander's men", t:"Twenty-four years."},
+      {who:"Edward · on seeing Ostrander's men", t:"Twenty-five years."},
       {who:"DJ Poe Boy · on the mic, during the fight", t:"Oh, this is great. Keep going."},
       {who:"The vampires · if they go for Poe Boy first", t:"Keep calling for help."}
     ],
