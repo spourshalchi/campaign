@@ -113,7 +113,7 @@
   .hp-of{font-size:15px;color:var(--mut)}
   .hp-b{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:6px}
   .hp-k{font-size:13px;color:var(--dim)}
-  .hp-k + button{margin-left:-2px}
+  .hp-g{display:inline-flex;align-items:center;gap:6px}
   .hp-b button,.tally button,.mini button{min-width:52px;height:46px;padding:0 8px;border-radius:9px;border:1px solid var(--line);background:#2a141b;
     color:#ffd9de;font-size:16px;font-weight:700}
   .hp-b button.up{color:var(--green);background:#122019;border-color:#24503c}
@@ -145,7 +145,7 @@
 </head>
 <body>
 <div id="page"></div>
-<script src="../fights.js?v=16"></script>
+<script src="../fights.js?v=17"></script>
 <script>
 "use strict";
 const $ = s => document.querySelector(s);
@@ -165,7 +165,7 @@ const said = l => l.note ? `<p class="line">${l.note}</p>` :
   `<div class="say${l.sp?" sp":""}"><span class="who">${l.sp?"Spencer · ":"Say"+(l.who?" · ":"")}${l.who||""}</span><p>${l.t}</p></div>`;
 const small = (k,v) => v ? `<p class="small"><b>${k}</b> ${v}</p>` : "";
 const step = (id,n,title,body) => `<section class="step" id="${id}"><h2 class="step-h"><span class="step-n">${n}</span>${title}</h2>${body}</section>`;
-const hpName = (x,i) => x.nm+(x.n>1?` ${i+1}`:"");
+const hpName = (x,i) => x.n>1 ? `${x.one||x.nm} ${i+1}` : x.nm;
 
 /* ---- 1. start the fight ---- */
 function stepStart(f){
@@ -197,6 +197,7 @@ function stepTurn(f){
       `<span class="foe-m">${x.when?x.when+" · ":""}speed ${x.spd}</span>${chips(x)}</div>`+
     (x.say?`<p class="foe-say"><span class="foe-sayk">Say</span> ${x.say}</p>`:"")+
     `<ul>${x.turn.map(t=>`<li>${t}</li>`).join("")}</ul>`+
+    (x.sayIf||[]).map(said).join("")+
     (x.note?`<p class="small">${x.note}</p>`:"")+
     (f.tally&&f.tally.foe===x.id?`<div class="mini" data-tally><span>${f.tally.label}</span><b class="tv"></b><button data-tad="1">+1 cut</button></div>`:"")+
     small("Too hard?",x.hard)+small("Too easy?",x.easy)+`</div>`;
@@ -219,8 +220,8 @@ function stepTrack(f){
     `<div class="tally-full" hidden>${t.full} ${goBtn("s-end","Go to step 5: Ending")}</div></div>` : "";
   const hpRow = (x,i) => `<div class="hp" data-hp="${x.id}:${i}" data-max="${x.hp}" data-min="${x.floor||0}" data-of="Started at ${x.hp}. AC ${x.ac}.">`+
     `<div class="hp-t"><span class="hp-n">${hpName(x,i)}: HP</span><span class="hp-v"></span><span class="hp-of"></span></div>`+
-    `<div class="hp-b"><span class="hp-k">Subtract</span><button data-d="-1">&minus;1</button><button data-d="-5">&minus;5</button><button data-d="-10">&minus;10</button>`+
-    `<span class="hp-k">Add back</span><button data-d="1" class="up">+1</button><button data-d="5" class="up">+5</button></div></div>`;
+    `<div class="hp-b"><span class="hp-g"><span class="hp-k">Subtract</span><button data-d="-1">&minus;1</button><button data-d="-5">&minus;5</button><button data-d="-10">&minus;10</button></span>`+
+    `<span class="hp-g"><span class="hp-k">Add back</span><button data-d="1" class="up">+1</button><button data-d="5" class="up">+5</button></span></div></div>`;
   const group = x => `<div class="trk" data-group="${x.id}">`+
     (x.hp ? Array.from({length:x.n},(_,i)=>hpRow(x,i)).join("") : `<div class="hp-t"><span class="hp-n">${x.nm}: no HP to track</span></div>`)+
     (x.hpnote?`<p class="trk-note">${x.hpnote}</p>`:"")+
@@ -228,7 +229,7 @@ function stepTrack(f){
     (x.endsFight?goBtn("s-end","Go to step 5: Ending"):"")+`</div>`;
   return step("s-track",4,"HP and trackers",
     tally+f.foes.map(group).join("")+
-    `<button class="reset" id="reset">Reset: put all HP${t?" and "+t.label.toLowerCase():""} back to the start</button>`);
+    (t||f.foes.some(x=>x.hp)?`<button class="reset" id="reset">Reset: put all HP${t?" and "+t.label.toLowerCase():""} back to the start</button>`:""));
 }
 
 /* ---- 5. ending ---- */
@@ -291,13 +292,7 @@ function menu(){
       .map(k=>`<a href="?f=${k}">${FIGHTS[k].name}</a>`).join("")).join("")}</div>`;
 }
 
-F ? fightPage(F.start?F:legacy(F)) : menu();
-
-/* fights not moved to the new layout yet */
-function legacy(f){ const g=f.guide||{}, read=f.read||{};
-  return {...f, start:{read:read.open||[], map:[g.tokens]},
-    rounds:(g.rounds||[]).map(r=>({k:r.k,say:r.say,do:r.who,sp:r.sp?[{who:"in the fight",t:r.sp}]:[]})),
-    ifs:g.other||[], end:{read:read.close||[]}}; }
+F ? fightPage(F) : menu();
 
 /* ---- the way back ---- */
 document.addEventListener("click",e=>{
