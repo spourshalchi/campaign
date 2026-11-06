@@ -41,7 +41,7 @@ const FIGHTS = {
         ["When the second pair drops","Clear the map. Read the cuts off the tally and set the Item 1 pieces."]
       ]},
     read:{close:[
-      {who:"Records Keeper · after the fight", sp:1, t:"You can try to put it back together. But that was your primary source, and it's gone. If you want one now, you'll have to go look at the house yourselves. &hellip;But be careful."}
+      {who:"Records Keeper · after the fight", sp:1, t:"Well. Don't just stand there. Get every scrap and put it back together."}
     ]},
     rule:"The shears go for the article, not the party. It <b>contains and erases; it does not kill.</b> Count the cuts &mdash; they set the puzzle.",
     run:{
