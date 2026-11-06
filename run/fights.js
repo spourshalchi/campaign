@@ -15,16 +15,6 @@
          allyJob (the allies' job each round, narrated), win, ends, losing
    ally: nm, act (one thing, no roll)
    ===================================================================== */
-/* The final battle's three stages, shown on both of its scene cards. 🟡 */
-const STAGES = [
-  {n:1, name:"The developer", enemy:"Ostrander and his thugs",
-   notes:[["Goal","survive and kill him"],["Poe Boy","on the decks, on the mic, not in this fight"],["Vampires","fighting the thugs"],["PC goes for Poe Boy","the charmed crowd is in the way and Ostrander's men are on them"]]},
-  {n:2, name:"The booth", enemy:"Poe Boy and Lil Stinky",
-   notes:[["Goal","get the USB to the decks, not kill him"],["Vampires","with the party"],["Thugs","the ones left have dropped their crowbars"]]},
-  {n:3, name:"The recording", enemy:"No one. The fight's over.",
-   notes:[["Now","it's the room's reaction"]]}
-];
-
 const FIGHTS = {
 
   library: {
@@ -163,11 +153,10 @@ const FIGHTS = {
   },
 
   developer: {
-    day:"Sunday", name:"The developer",
-    rule:"<b>The only lethal fight.</b> Ostrander seals the exits behind him, his own crew included.",
+    day:"Sunday", name:"The developer breaches",
+    rule:"<b>The only lethal fight.</b> Ostrander seals the exits behind him, his own crew included. His death flips the vampires &mdash; no persuasion check.",
     run:{
-      enemy:"Ostrander and his thugs. Poe Boy is on the decks, on the mic, not in this fight. If a PC goes for him, the charmed crowd is in the way and Ostrander's men are on them.",
-      setup:"Ostrander walks in with the crowd and six thugs, and seals the exits behind him (narrate it; it costs him nothing). The vampires go for his thugs. Roll initiative.",
+      setup:"Ostrander walks in with six thugs and seals the exits behind him (narrate it; it costs him nothing). The vampires go for his thugs. Roll initiative.",
       matchups:"The vampires take thugs 4–6 on the far side of the ballroom. The party faces Ostrander and thugs 1–3 at the breach. Poe Boy stays up on the decks, on the mic; he isn't in this fight.",
       beats:["R1 · Thugs 1–3 rush the party. Ostrander hangs back by the door, barking orders, and Holds whoever hits him. End of round: a vampire kills thug 4.",
              "R2 · Thugs 1–3 start dropping. End of round: the vampires kill thugs 5 and 6.",
@@ -185,7 +174,7 @@ const FIGHTS = {
              "Surveyor's rod at the nearest PC: <b>+6 to hit, 10 bludgeoning</b>.",
              "Steps back behind his crew."],
        note:"The first 25 damage is his ward cracking: narrate it, it's in the 100. No damage spells. Doesn't swing at a PC who's down.",
-       drop:"He's dead. Stop. Silence. Any thug still standing drops his crowbar and backs against the wall. Then the booth.",
+       drop:"He's dead. Stop. Silence. Then the vampires turn, no check. Any thug still standing drops his crowbar and backs against the wall.",
        hard:"Orlok pins him for a round: he loses his turn.",
        easy:"Add 25 HP (another layer of ward)."},
       {id:"thug", nm:"Thugs", n:6, ac:12, hp:16, spd:"30", chassis:"Tough", cr:"½", xp:100,
@@ -205,11 +194,10 @@ const FIGHTS = {
   },
 
   booth: {
-    day:"Sunday", name:"The booth",
+    day:"Sunday", name:"The ballroom decks",
     rule:"<b>The USB can't be destroyed</b> &mdash; Command (&ldquo;Drop.&rdquo;) only costs time. When it plays, <b>Stinky's oath breaks with no save.</b>",
     run:{
-      enemy:"Poe Boy and Lil Stinky. Get the USB to the decks; don't kill him. The vampires are with the party, and the remaining thugs have dropped their crowbars. When the recording plays there's no enemy: the fight's over.",
-      setup:"Ostrander is dead and the exits are still sealed. The party tells the vampires about Marcus and the drive. Orlok: &ldquo;Let them play it.&rdquo; Poe Boy refuses and casts Command: &ldquo;Drop.&rdquo; That refusal turns the vampires on him. Poe Boy and Lil Stinky hold the decks. The USB is wherever the party left it: if it's still in the old rig upstairs, someone runs it down (about 2 rounds).",
+      setup:"Ostrander is dead, the exits are still sealed and the vampires are with the party. Poe Boy and Lil Stinky hold the decks. The USB is wherever the party left it: if it's still in the old rig upstairs, someone runs it down (about 2 rounds).",
       matchups:"Lil Stinky holds the decks; Poe Boy stays behind them, on the mic. Orlok goes for Stinky, Dracula shadows whoever holds the USB, Edward hangs back to pull PCs clear. The party's job: get the USB to the decks and get Stinky off them.",
       beats:["R1 · The USB is on the move. Poe Boy Commands its holder: &ldquo;Drop.&rdquo;",
              "R2 · The party reaches the decks. Stinky swings at the holder and smokes a vampire (Russ's heal).",
