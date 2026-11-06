@@ -3,12 +3,12 @@
    After editing, bump this file's ?v= on its script tag in run/index.html. */
 SCENES.push(
 
-{ act:"night", no:5, title:"Enter Dood Mansion", where:"The trap springs · everything from here is inside",
+{ act:"night", no:5, title:"Enter Dood Mansion", where:"The front hall",
   steps:[
     {snd:["wind","drone"]},
     {say:"The top of the hill: an empty road, no cars, no light in any window. The boards are off the front door, pried away and stacked neat against the porch rail &mdash; the only thing about this house that's changed in decades. Inside, the hall breathes out cold, dusty air.", who:"Setting"},
     {do:"They walk in and <b>the doors bolt behind them</b>. Locked in."},
-    {note:"The doors bolting: state it flatly, once. It doesn't need justifying.", k:"rule"},
+    {note:"State it flatly, once.", k:"rule"},
     {snd:["bolt","steps","jump"], t:"The bolt, the footsteps, the hand"},
     {say:"That's a bolt throwing behind you. Footsteps overhead &mdash; and a hand comes out of the dark, grabs your sleeve, and pulls you down. It's <b>Angelique</b>."},
     {do:"<b>Spencer's turn:</b> Angelique tells them to get down and stay quiet."},
@@ -27,7 +27,7 @@ SCENES.push(
   ],
   cues:["wind","drone","bolt","steps","jump"] },
 
-{ act:"night", no:6, title:"First vampire encounter", where:"No fight &mdash; a performance · scripted end to end",
+{ act:"night", no:6, title:"First vampire encounter", where:"The hall · not a fight",
   steps:[
     {snd:["drone","heart"]},
     {say:"Pressed into the dark with Angelique, you hear them before you see them: three voices coming down the hall, in no hurry at all. One theatrical, one younger, and one very quiet.", who:"Setting"},
@@ -45,7 +45,7 @@ SCENES.push(
     {fight:1},
     {note:"Vampires <b>cannot kill a PC</b> here and never roll damage. Don't point it out.", k:"rule"},
     {do:"<b>Spencer's turn:</b> Orlok ends it with one word, then the dismissal."},
-    {note:"<b>Angelique:</b> from here it's the party's choice whether she travels with them."},
+    {note:"Let the party choose whether Angelique travels with them."},
     {end:"on Orlok's dismissal, with the party scattering to look for a way out."}
   ],
   next:"On Orlok's dismissal, Russ finds Orlok at the cabinet: cue 7.", go:["7"],
@@ -72,12 +72,11 @@ SCENES.push(
   ],
   cues:["drone","heart","steps","swoop","jump","braaam"] },
 
-{ act:"night", no:7, title:"Russ and the spectacles", where:"Saturday night · Cody · badge req 1 of 3",
+{ act:"night", no:7, title:"Russ and the spectacles", where:"Off the main hall · Russ",
   steps:[
     {snd:["drone"]},
     {say:"Off the main hall, a tall cabinet stands against the wall. On top of it, a pair of wire spectacles. Below them Orlok is patting slowly along the wrong shelf.", who:"Setting"},
     {do:"Russ is the one who finds him, right after the dismissal. Orlok can't see without the spectacles."},
-    {note:"Russ's <i>Assisting the Elderly</i> requirements card (printed) comes out here; he's had it since before play."},
     {do:"Russ reaches up and hands the spectacles over. <b>No roll.</b>"},
     {check:{skill:"Insight (Russ)", dc:"12", note:"<b>Call it</b> as Orlok takes the spectacles. <b>Success:</b> say that Orlok looks at him a beat too long, as if deciding something."}},
     {do:"Russ points at &ldquo;verified by your elder&rdquo;. <b>Spencer's turn:</b> Orlok refuses to sign."},
@@ -96,7 +95,7 @@ SCENES.push(
   ],
   cues:["drone"] },
 
-{ act:"night", no:8, title:"Edward spies on them", where:"Saturday night · Bix",
+{ act:"night", no:8, title:"Edward spies on them", where:"The upper floors · Bix",
   steps:[
     {snd:["creak","drone","heart"]},
     {say:"The upper floors in the dark: long corridors, doors that won't open, floorboards that answer every step. Every so often, at the end of a hall or in a doorway you've just passed, the same pale figure is standing very still.", who:"Setting"},
@@ -118,7 +117,7 @@ SCENES.push(
   ],
   cues:["creak","drone","heart","breath","riser"] },
 
-{ act:"night", no:9, title:"The botched summoning", where:"Saturday, late · combat · the Night 1 closer",
+{ act:"night", no:9, title:"The botched summoning", where:"The sealed room · combat",
   steps:[
     {snd:["summon","heart"]},
     {say:"The door gives, and the air in the sealed room is hot and close. Chalk lines across the floorboards, candle stubs burned down to nothing &mdash; and in the middle of it, something half-made drags itself upright.", who:"Setting"},
@@ -138,12 +137,12 @@ SCENES.push(
     {note:"Fire the <b>AIM chime</b> as the screen wakes, then kill all sound."},
     {end:"the instant the screen dies. Do not let them reach the room tonight. Next card: level up."}
   ],
-  next:"The screen dies: end of Saturday. Don't let them reach the room. Everyone levels to 5.", go:["L5"],
+  next:"The screen dies. Level up.", go:["L5"],
   fight:FIGHTS.summoning,
   npcs:[],
   cues:["summon","heart","jump","braaam","monitor","aim"] },
 
-{ act:"night", no:"L5", title:"Level up", where:"End of Saturday · everyone goes from 4 to 5",
+{ act:"night", no:"L5", title:"Level up", where:"Everyone goes from 4 to 5",
   steps:[
     {snd:["levelup"]},
     {say:"3rd-level spells are open now. Have a look at <b>Daylight</b> and <b>Plant Growth</b>.", who:"Say to Cody"},
@@ -157,7 +156,7 @@ SCENES.push(
     {do:"<b>Bard</b> (Yobo): 3rd-level slots; Bardic Inspiration becomes a d8; Font of Inspiration (regain on a short rest)."},
     {note:"Check each class against D&amp;D Beyond or the PHB."}
   ],
-  next:"That's Saturday. Anything unfinished waits for Sunday's start card.", go:["SUN"],
+  next:"On to Sunday's start card.", go:["SUN"],
   npcs:[],
   cues:["levelup"] }
 
