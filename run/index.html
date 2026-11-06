@@ -354,6 +354,11 @@
   .cuepill.on{border-color:var(--green);color:#d6ffe9;background:#1a3327}
   .cuepill.on .dot{background:var(--green);box-shadow:0 0 6px var(--green)}
   .cuepill .n{font-family:var(--f-mono);font-size:9px;color:var(--dim)}
+  .cuepills .ck{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#f2c063}
+  .cuepills .ck.bg{color:#8fe3bd}
+  .cuepill.bg{border-radius:18px;border-color:#2f5a48}
+  .cuepill.bg:not(.on) .dot{background:none;border:1.5px solid #8fe3bd}
+  .cuepill.fx{border-radius:6px;border-color:#6b4422}
 
   /* ---------------- SOUNDBOARD ---------------- */
   #board{flex:0 0 auto;background:linear-gradient(180deg,#14101d,#0c0912);border-top:1px solid var(--edge);
@@ -375,11 +380,29 @@
   .pad.suggest .hk{color:var(--gold)}
   .pad.stop{background:linear-gradient(180deg,#3a2030,#26141d);border-color:var(--blood);color:#ffc9d0}
   .pad.wait{opacity:.4}
+  /* This cue: what to leave running, apart from what to fire on a moment */
+  #cueGrp{align-items:stretch;gap:8px}
+  #cueGrp>.gl{align-self:center}
+  .cuesec{display:flex;flex-direction:column;gap:4px;padding:4px 7px 6px;border-radius:12px;border:1px solid}
+  .cuesec .ct{font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+  .cuesec .ct i{font-style:normal;font-weight:500;letter-spacing:.02em;text-transform:none;opacity:.8}
+  .cuesec .ps{display:flex;gap:6px}
+  .cuesec.bg{background:#14261f;border-color:#2f5a48}
+  .cuesec.bg .ct{color:#8fe3bd}
+  .cuesec.bg .pad{border-radius:18px;background:linear-gradient(180deg,#1b3129,#14241e);color:#c9f2de}
+  .cuesec.bg .pad.suggest:not(.on){border-color:#3f8f6c;box-shadow:none}
+  .cuesec.bg .pad.suggest .hk{color:#8fe3bd}
+  .cuesec.bg .pad.on{background:linear-gradient(180deg,#2f8a62,#1f6a4a);border-color:#9ff0ca;color:#fff;box-shadow:0 0 14px rgba(84,200,148,.55)}
+  .cuesec.fx{background:#2a1a14;border-color:#6b4422}
+  .cuesec.fx .ct{color:#f2c063}
+  .cuesec.fx .pad{border-radius:6px;background:linear-gradient(180deg,#3a2616,#291a10)}
+  .cuesec.fx .pad.suggest{box-shadow:none}
   #board .fixed{position:sticky;left:-12px;z-index:2;padding:0 8px 0 12px;margin-left:-12px;background:#110d19;
     box-shadow:6px 0 8px -6px #000}
   .sndstat{font-size:11px;color:var(--dim);white-space:nowrap;background:none;border:0;padding:0;min-height:44px}
   .sndstat:empty{display:none}
-  @media(max-width:600px){#board .fixed .vol{display:none}}
+  @media(max-width:820px){.vol input{width:48px}.cuesec .pad{min-width:52px;padding:4px 5px}}
+  @media(max-width:600px){#board .fixed .vol,.cuepills>.cl{display:none}}
   .sndstat.bad{color:#ffc9d0;cursor:pointer;text-decoration:underline}
   .vol{display:flex;align-items:center;gap:6px;flex:0 0 auto;color:var(--dim);font-size:11px}
   .vol input{width:80px}
@@ -444,6 +467,7 @@
   .ipad-row .box{width:34px;height:34px;border-color:#fff;align-self:center}
   .ipad-row.done{opacity:.55;filter:saturate(.4)}
   .donow .cuepills{margin-top:8px;align-items:center}
+  .donow .cuepills .cuepills{margin-top:0}
   .cuepills .cl{font-size:16px}
   .prep-f{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
   .prep-i .how{color:var(--mut);font-size:13.5px}
@@ -1563,8 +1587,11 @@ function render(i){
       rows += doRow(`tok:${key}`, `<b>⚔ Tokens out</b><span class="how">${toks.join(" · ")}</span>`); }
     (e.do||[]).forEach((t,k)=>{ rows += doRow(`do:${key}:${k}`, t); });
   }
-  const cuesHTML = (s.cues && s.cues.length) ? `<div class="cuepills"><span class="cl">🔊</span>` +
-    s.cues.map((k,i)=>`<button class="cuepill${amb[k]?" on":""}" data-cuefire="${k}"><span class="dot"></span>${CUE_LABEL[k]||k}${i<9?`<span class="n">⇧${i+1}</span>`:""}</button>`).join("") + `</div>` : "";
+  const cuePill = (k,i) => `<button class="cuepill ${isBgSound(k)?"bg":"fx"}${amb[k]?" on":""}" data-cuefire="${k}"><span class="dot"></span>${CUE_LABEL[k]||k}${i<9?`<span class="n">⇧${i+1}</span>`:""}</button>`;
+  const cueSounds = cueOrder(s.cues||[]), nBg = cueSounds.filter(isBgSound).length;
+  const cuesHTML = cueSounds.length ? `<div class="cuepills"><span class="cl">🔊</span>` +
+    (nBg?`<div class="cuepills"><span class="ck bg">Background</span>${cueSounds.slice(0,nBg).map((k,i)=>cuePill(k,i)).join("")}</div>`:"") +
+    (nBg<cueSounds.length?`<div class="cuepills"><span class="ck">Effects</span>${cueSounds.slice(nBg).map((k,i)=>cuePill(k,nBg+i)).join("")}</div>`:"") + `</div>` : "";
   const doHTML = (rows||cuesHTML) ? `<div class="donow"><div class="donow-h"><span class="donow-t">Do now</span>`+
     (rows?`<span class="donow-n" data-count></span>`:"")+`</div>${rows}${cuesHTML}</div>` : "";
 
@@ -1702,13 +1729,20 @@ function drawProgress(){
 function go(d){ if(d>0) markDone(cur,true); render(cur + d); }
 
 /* ---- cue highlight on soundboard ---- */
+function padOf(k){ return BOARD.flatMap(g=>g.pads).find(p=>p.key===k); }
+function isBgSound(k){ const p=padOf(k); return !!(p&&p.amb); }
+// background first, then effects, each in the order the cue lists them: the board, Do now and Shift+1-9 all count this way
+function cueOrder(keys){ return [...keys.filter(isBgSound),...keys.filter(k=>!isBgSound(k))]; }
 function highlightCues(keys){
   document.querySelectorAll(".pad").forEach(p=>p.classList.remove("suggest"));
   keys.forEach(k=>{ const el = padByKey[k]; if(el) el.classList.add("suggest"); });
   // the cue's own sounds sit at the front of the board, so none of them is a scroll away
   const row=$("#cueGrp"); if(!row) return;
   row.style.display=keys.length?"":"none";
-  row.innerHTML=`<span class="gl">This cue</span>`+keys.map((k,i)=>padHTML(BOARD.flatMap(g=>g.pads).find(p=>p.key===k),i<9?`⇧${i+1}`:"")).join("");
+  const order=cueOrder(keys), nBg=order.filter(isBgSound).length;
+  const sec=(cls,title,hint,list,from)=>list.length?`<div class="cuesec ${cls}"><span class="ct">${title} <i>${hint}</i></span><div class="ps">`+
+    list.map((k,i)=>padHTML(padOf(k),from+i<9?`⇧${from+i+1}`:"")).join("")+`</div></div>`:"";
+  row.innerHTML=`<span class="gl">This cue</span>`+sec("bg","Background","leave running",order.slice(0,nBg),0)+sec("fx","Effects","on the moment",order.slice(nBg),nBg);
   row.querySelectorAll(".pad").forEach(p=>p.classList.add("suggest"));
   $("#board").scrollLeft=0; syncAmb(); soundStat();
 }
@@ -1938,7 +1972,7 @@ function syncAmb(){
 /* ============================ SOUNDBOARD UI ========================== */
 /* ===================================================================== */
 const BOARD = [
-  {grp:"Rooms", pads:[
+  {grp:"Background", pads:[
     {key:"drone", amb:true, ic:"🏚", label:"House", hk:"1"},
     {key:"wind", amb:true, ic:"🌬", label:"Wind", hk:"2"},
     {key:"record", amb:true, ic:"💿", label:"'79 record", hk:"3"},
@@ -1958,7 +1992,7 @@ const BOARD = [
     {key:"hiss", amb:true, ic:"🔈", label:"Hiss"},
     {key:"dawn", amb:true, ic:"🌅", label:"Dawn"}
   ]},
-  {grp:"Stings", pads:[
+  {grp:"Effects", pads:[
     {key:"aim", ic:"💬", label:"AIM", hk:"7"},
     {key:"jump", ic:"⚡", label:"Jump", hk:"8"},
     {key:"braaam", ic:"🎺", label:"Braaam", hk:"9"},
@@ -2161,7 +2195,7 @@ document.addEventListener("keydown",e=>{
   const tag=(e.target.tagName||"").toLowerCase();
   if(tag==="input"||tag==="textarea") return; // don't hijack typing
   const k=e.key;
-  // shift+1-9: the current cue's sounds, in the order its Do now lists them
+  // shift+1-9: the current cue's sounds, numbered as on the board
   if(e.shiftKey && /^Digit[1-9]$/.test(e.code)){ const p=stage.querySelectorAll("[data-cuefire]")[+e.code[5]-1];
     if(p) firePad(p.dataset.cuefire); e.preventDefault(); return; }
   // sound hotkeys

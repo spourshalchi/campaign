@@ -76,7 +76,7 @@ each NPC says and reveals across the weekend.
 | `←` `→` / `Space` | Previous / next cue |
 | `1`–`6` | Toggle ambience (house, night wind, the '79 record, heartbeat, crowd, candles) |
 | `7`–`0`, `g` `p` `c` `l` | Fire a sting (AIM, jump, braaam, 3AM bell, riser, speakers on, scratch, level-up) |
-| `Shift`+`1`–`9` | The current cue's sounds, in the order its Do now lists them |
+| `Shift`+`1`–`9` | The current cue's sounds, numbered as on the board: background first, then effects |
 | `i` | Run sheet (jump anywhere, tick cues done) |
 | `d` | Roll a d20 (flat / advantage / disadvantage) |
 | `f` | Fullscreen |
@@ -93,7 +93,7 @@ The sounds are short MP3s in [`sounds/`](sounds/), about 5 MB in all, played wit
 board shows `Sounds n/42` until they're in. They stay in the browser's Cache Storage on `https` and `localhost`, so the next open
 needs no connection. If a file hasn't loaded, the original pads fall back to a live synth; the rest stay dimmed until they arrive.
 
-The board opens with **This cue**: that cue's sounds, numbered for `Shift`+`1`–`9`, and always in reach whatever Do now has scrolled to. Room pads latch on and off, fade in and out, and layer; stings are one-shots that overlap anything. **Silence** (or `Esc`) stops
+The board opens with **This cue**: that cue's sounds, always in reach whatever Do now has scrolled to, split into **Background** (leave running) and **Effects** (fire on the moment) and numbered across both for `Shift`+`1`–`9`. Room pads latch on and off, fade in and out, and layer; stings are one-shots that overlap anything. **Silence** (or `Esc`) stops
 all of it, stings included. A limiter on the master catches heavy layering.
 
 The sounds were generated in ElevenLabs Sound Effects from the prompts in
