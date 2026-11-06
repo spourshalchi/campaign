@@ -131,7 +131,6 @@
   .floating .fh{flex:1 0 auto;font-size:14px;font-weight:700;color:var(--amber);white-space:nowrap}
   .floating .fp{flex:0 0 auto;display:flex;align-items:center;min-height:36px;padding:4px 12px;white-space:nowrap;
     background:#0000004d;border:1px solid var(--amber-dim);border-radius:9px;color:var(--ink);font-size:14px}
-  .idx-item .ip{font-size:11px;color:var(--blue);margin-left:6px;font-family:var(--f-mono)}
 
   /* Two zones on one screen: Scott narrates (gold), Spencer voices (pink).
      Wide enough → the stage stops scrolling and each zone scrolls on its own. */
@@ -407,29 +406,6 @@
   .vol{display:flex;align-items:center;gap:6px;flex:0 0 auto;color:var(--dim);font-size:11px}
   .vol input{width:80px}
 
-  /* ---------------- OVERLAYS ---------------- */
-  .overlay{position:fixed;inset:0;z-index:60;background:#06040acc;backdrop-filter:blur(6px);
-    display:none;align-items:flex-start;justify-content:center;padding:40px 16px;overflow-y:auto}
-  .overlay.on{display:flex}
-  .sheet{width:100%;max-width:820px;background:var(--panel);border:1px solid var(--edge);border-radius:16px;
-    box-shadow:var(--shadow);overflow:hidden}
-  .sheet .sh{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--edge);
-    background:linear-gradient(180deg,#1b1528,#140f1e)}
-  .sheet .sh h3{margin:0;font-family:var(--f-disp);font-size:20px;flex:1}
-  .sheet .sh .x{width:32px;height:32px;border-radius:8px;border:1px solid var(--edge);background:#1a1428;color:var(--mut);
-    font-size:16px;cursor:pointer}
-  .sheet .sb{padding:18px 20px}
-
-  /* index overlay */
-  .idx-act{margin-bottom:16px}
-  .idx-act .ial{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin:0 0 8px}
-  .idx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
-  .idx-item{text-align:left;background:var(--panel2);border:1px solid var(--edge);border-radius:9px;padding:10px 12px;cursor:pointer}
-  .idx-item:hover{border-color:var(--dim)}
-  .idx-item.cur{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
-  .idx-item .in{font-family:var(--f-mono);font-size:11px;color:var(--gold)}
-  .idx-item .it{font-size:13.5px;color:var(--ink);font-weight:600;margin-top:2px}
-
   /* dice toast */
   #dice{position:fixed;z-index:70;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);
     background:#1b1528ee;border:1px solid var(--edge);border-radius:14px;padding:14px 22px;box-shadow:var(--shadow);
@@ -494,13 +470,7 @@
     text-transform:uppercase;color:var(--dim)}
 
   /* run sheet + props sheet */
-  .idx-note{margin:0 0 12px;font-size:14px;color:var(--mut);line-height:1.45}
-  .idx-item{display:flex;align-items:stretch;padding:0;overflow:hidden}
-  .idx-jump{flex:1;min-width:0;min-height:52px;text-align:left;background:transparent;border:none;color:inherit;font:inherit;padding:8px 10px;cursor:pointer;display:flex;flex-direction:column}
-  .idx-item .pt{margin-left:8px;color:var(--mut)}
-  .idx-done{flex:0 0 48px;border:none;border-left:1px solid var(--edge);background:#0000003d;color:transparent;font-size:18px;font-weight:800;cursor:pointer}
-  .idx-item.dn .idx-done{background:#1b4a33;color:var(--green)}
-  .idx-item.dn .it{color:var(--mut)}
+  .lv-note{margin:0 0 12px;font-size:14px;color:var(--mut);line-height:1.45}
 
 
   /* the level-up card */
@@ -543,7 +513,7 @@
   <a class="splink" href="?spencer">Spencer? Open your view &rsaquo;</a>
   <p class="hint">
     <kbd>&larr;</kbd> <kbd>&rarr;</kbd> turn cues &nbsp;·&nbsp; <kbd>1</kbd>&ndash;<kbd>0</kbd> soundboard &nbsp;·&nbsp; <kbd>⇧1</kbd>&ndash;<kbd>⇧9</kbd> this cue's sounds &nbsp;·&nbsp;
-    <kbd>i</kbd> index &nbsp;·&nbsp; <kbd>f</kbd> full screen &nbsp;·&nbsp; <kbd>d</kbd> roll d20 &nbsp;·&nbsp; <kbd>Esc</kbd> silence / close<br>
+    <kbd>f</kbd> full screen &nbsp;·&nbsp; <kbd>d</kbd> roll d20 &nbsp;·&nbsp; <kbd>Esc</kbd> silence / close<br>
     Tapping in unlocks the sound. It loads in the background and stays on this device, so the next open works offline.
   </p>
 </div>
@@ -562,8 +532,7 @@
     </div>
     <button class="timer" id="timer" title="Tap to pause / resume">--:--</button>
     <div class="tbtns">
-      <button class="tbtn" data-ov="index" title="Run sheet (I)">Index</button>
-      <button class="tbtn" id="fsBtn" title="Full screen (F)">Full</button>
+      <button class="tbtn" id="fsBtn" title="Full screen (F)">Full screen</button>
     </div>
   </div>
 
@@ -573,11 +542,6 @@
   <div id="board"></div>
 </div>
 
-<!-- overlays -->
-<div class="overlay" id="ov-index"><div class="sheet">
-  <div class="sh"><h3>Run sheet</h3><button class="x" data-close aria-label="Close">&times;</button></div>
-  <div class="sb" id="indexBody"></div>
-</div></div>
 <!-- ================= SPENCER'S VIEW (?spencer) ================= -->
 <div id="spv">
   <div class="sp-top">
@@ -1445,7 +1409,7 @@ const EXEC = {
     land:["It was <b>human-made and incomplete</b> (Arcana DC 14). Who drew it stays open.","Something in the house typed <b>&ldquo;is someone there&rdquo;</b>."],
     next:"The screen dies: end of Saturday. Don't let them reach the room. Everyone levels to 5.", go:["L5"],
     save:[["Skip","They go looking for the screen: the AIM-room door stays locked until Sunday's end."],
-          ["Out of time","Saturday ends wherever time runs out; everyone levels to 5 at the end of day one. Where an unplayed summoning goes is not decided yet. The level-up card is in Index, right after this cue."]]},
+          ["Out of time","Saturday ends wherever time runs out; everyone levels to 5 at the end of day one. Where an unplayed summoning goes is not decided yet. The level-up card comes right after this cue."]]},
   "L5":{mins:10, next:"That's Saturday. Anything unfinished waits for Sunday's start card.", go:["SUN"]},
   "SUN":{mins:5, next:"Into the first room. Study first if you can.", go:"rooms"},
   "10":{mins:25,
@@ -1612,7 +1576,7 @@ function render(i){
   // the level-up card
   const lv = s.levelup, lvHTML = lv ? `<div class="block"><ul class="rem"><li class="rule">${lv.why} <span class="ai">🟡</span></li></ul></div>`+
     `<div class="block"><p class="h">Every sheet</p><ul class="rem">${lv.all.map(t=>`<li class="level">${t}</li>`).join("")}</ul></div>`+
-    `<div class="block"><p class="h">By class <span class="ai">🟡</span></p>${lv.cls.map(([c,w,t])=>`<div class="lv-row"><span><b>${c}</b><i>${w}</i></span><span>${t}</span></div>`).join("")}<p class="idx-note">${lv.src}</p></div>` : "";
+    `<div class="block"><p class="h">By class <span class="ai">🟡</span></p>${lv.cls.map(([c,w,t])=>`<div class="lv-row"><span><b>${c}</b><i>${w}</i></span><span>${t}</span></div>`).join("")}<p class="lv-note">${lv.src}</p></div>` : "";
 
   // 🎯 leave knowing + ➜ next
   let wrapHTML = "";
@@ -1706,7 +1670,6 @@ function render(i){
   stage.querySelectorAll(".zone").forEach(z=>z.scrollTop=0);
   refreshCounts();
   highlightCues(s.cues||[]);
-  markIndexCurrent();
   drawProgress();
   tickTimer();
 }
@@ -2047,13 +2010,7 @@ function firePad(key,el){
   else fx(key);
 }
 
-/* ===================================================================== */
-/* ============================ OVERLAYS =============================== */
-/* ===================================================================== */
-function openOv(name){ closeOv(); if(name==="index") buildIndex(); $("#ov-"+name).classList.add("on"); }
-function closeOv(){ document.querySelectorAll(".overlay.on").forEach(o=>o.classList.remove("on")); }
-
-/* the run sheet: every cue by day, its planned start against the day clock, and a done box */
+/* minutes into the day that a cue is planned to start, for the clock */
 function planAt(i){
   const day=dayOf(SCENES[i]), at13=i>=idxOf(13);
   let m=0; SCENES.forEach((x,j)=>{ const mins=exOf(x).mins||0; if(!mins||j===i||dayOf(x)!==day) return;
@@ -2061,24 +2018,6 @@ function planAt(i){
   return m;
 }
 const hm = m => `${Math.floor(m/60)}:${String(m%60).padStart(2,"0")}`;
-function buildIndex(){
-  const groups={}; SCENES.forEach((s,i)=>{ (groups[s.act]=groups[s.act]||[]).push({s,i}); });
-  let html=`<p class="idx-note">Planned start on each cue is time since the day's clock started (🟡 a rough plan). Saturday ends wherever time runs out. Tick a cue done here, or it ticks itself when you move on.</p>`;
-  Object.keys(ACTS).forEach(a=>{ if(!groups[a]) return;
-    html+=`<div class="idx-act"><p class="ial" style="color:${ACTS[a].color}">${ACTS[a].label}</p><div class="idx-grid">`;
-    groups[a].forEach(({s,i})=>{ const m=exOf(s).mins;
-      html+=`<div class="idx-item${isDone(s.no)?" dn":""}" data-idx="${i}"><button class="idx-jump" data-jump="${i}">`+
-        `<span class="in">${noLabel(s)}${s.ipad&&s.ipad.length?`<span class="ip">📱 ${s.ipad.join(" + ")}</span>`:""}`+
-        `${m?`<span class="pt">+${hm(planAt(i))} · ${m}m</span>`:""}</span><span class="it">${s.title}</span></button>`+
-        (s.checklist?"":`<button class="idx-done" data-donetoggle="${i}" aria-label="Done">✓</button>`)+`</div>`; });
-    html+=`</div></div>`;
-  });
-  $("#indexBody").innerHTML=html;
-  markIndexCurrent();
-}
-function markIndexCurrent(){ const b=$("#indexBody"); if(!b) return;
-  b.querySelectorAll(".idx-item").forEach(el=>el.classList.toggle("cur",+el.dataset.idx===cur)); }
-
 /* ===================================================================== */
 /* ============================ DICE ================================== */
 /* ===================================================================== */
@@ -2143,15 +2082,6 @@ $("#next").addEventListener("click",()=>go(1));
 $("#timer").addEventListener("click",toggleTimer);
 $("#fsBtn").addEventListener("click",toggleFS);
 
-// top bar overlays
-document.querySelectorAll(".tbtn[data-ov]").forEach(b=>b.addEventListener("click",()=>openOv(b.dataset.ov)));
-$("#indexBody").addEventListener("click",e=>{
-  const d=e.target.closest("[data-donetoggle]"); if(d){ const i=+d.dataset.donetoggle; markDone(i,!isDone(SCENES[i].no)); buildIndex(); drawProgress(); return; }
-  const j=e.target.closest("[data-jump]"); if(j){ render(+j.dataset.jump); closeOv(); }
-});
-document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",closeOv));
-document.querySelectorAll(".overlay").forEach(o=>o.addEventListener("click",e=>{ if(e.target===o) closeOv(); }));
-
 // enemy HP: kept for the session, per cue and per enemy, so flipping cues doesn't lose it
 const HP = {};
 function hpOf(key,max){ return key in HP ? HP[key] : max; }
@@ -2205,16 +2135,14 @@ document.addEventListener("keydown",e=>{
   switch(k){
     case "ArrowRight": case " ": case "PageDown": go(1); e.preventDefault(); break;
     case "ArrowLeft": case "PageUp": go(-1); e.preventDefault(); break;
-    case "i": case "I": toggle("index"); break;
     case "d": case "D": rollDice(); break;
     case "f": case "F": toggleFS(); break;
     case "Escape":
-      if(document.querySelector(".overlay.on")||$("#dice").classList.contains("on")){ closeOv(); $("#dice").classList.remove("on"); }
+      if($("#dice").classList.contains("on")) $("#dice").classList.remove("on");
       else stopAll();
       break;
   }
 });
-function toggle(name){ const o=$("#ov-"+name); if(o.classList.contains("on")) closeOv(); else openOv(name); }
 
 /* ===================================================================== */
 /* ======================= SPENCER'S VIEW (?spencer) ==================== */

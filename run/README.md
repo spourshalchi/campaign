@@ -50,10 +50,10 @@ zone scrolls on its own, and below 700px they stack.
 **SPENCER · voice** (pink, right): his lines, IF blocks, and each NPC with a one-line voicing and the
 🔓 reveals they deliver or react to.
 
-### Ticks and the run sheet
-Ticks are saved on the device (`localStorage`; the page still works if storage is blocked). **Index** is
-the run sheet: every cue with its planned start, and a done box. Moving forward with › (or a Next button)
-marks the cue done.
+### Ticks and moving between cues
+Ticks are saved on the device (`localStorage`; the page still works if storage is blocked). ‹ › step through
+the cues in order, and each cue's Next buttons jump to where the story goes, including Sunday's room picker.
+Moving forward with › or a Next button marks the cue done.
 
 ### The clock
 One clock per day, saved on the device. It starts on the first cue you open that day and says how far
@@ -77,12 +77,11 @@ each NPC says and reveals across the weekend.
 | `1`–`6` | Toggle ambience (house, night wind, the '79 record, heartbeat, crowd, candles) |
 | `7`–`0`, `g` `p` `c` `l` | Fire a sting (AIM, jump, braaam, 3AM bell, riser, speakers on, scratch, level-up) |
 | `Shift`+`1`–`9` | The current cue's sounds, numbered as on the board: background first, then effects |
-| `i` | Run sheet (jump anywhere, tick cues done) |
 | `d` | Roll a d20 (flat / advantage / disadvantage) |
 | `f` | Fullscreen |
 | `Esc` | Close an overlay, or silence all sound |
 
-The top bar has ‹ › cue buttons beside the counter, the day clock, and Index and Full, all
+The top bar has ‹ › cue buttons beside the counter, the day clock, and Full screen, all
 44px, so it's fully touch-usable on the iPad. Nothing floats over the reading area.
 
 ## The soundboard
