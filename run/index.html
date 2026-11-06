@@ -130,16 +130,6 @@
   .lk{margin:0 0 12px}
   .lk-at{margin:0 0 6px;font-size:14px;color:var(--mut);font-style:italic}
   .lby{display:block;margin-top:1px;font-size:13px;color:var(--gold)}
-  /* Narrating the fight: tokens, what to say each round, who is hitting whom, what if */
-  .ng-t{margin:0 0 10px;font-size:15px;line-height:1.45}
-  .ng-t b{color:var(--gold);margin-right:4px}
-  .ng-r{margin:0 0 10px;padding:8px 10px;border-left:3px solid var(--blood);background:var(--panel);border-radius:0 8px 8px 0}
-  .ng-k{margin:0 0 3px;font:700 13px/1.3 var(--f-mono);color:#ff9aaa}
-  .ng-say{margin:0 0 4px;font-family:var(--f-disp);font-size:18px;line-height:1.4;color:var(--amber)}
-  .ng-who{margin:0;font-size:14.5px;line-height:1.4;color:var(--ink)}
-  .ng-sp{margin:4px 0 0;font-size:14.5px;line-height:1.4;color:var(--pink)}
-  .ng-oh{margin:12px 0 6px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
-  .ng-o{margin:0 0 6px;font-size:14.5px;line-height:1.4}
   /* Two zones on one screen: Scott narrates (gold), Spencer voices (pink).
      Wide enough → the stage stops scrolling and each zone scrolls on its own. */
   .zones{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:14px;align-items:stretch}
@@ -192,74 +182,14 @@
   .handover .hk{flex:0 0 auto;font-weight:800;color:var(--green);font-size:14px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
   .handover .ht b{color:#d6ffe9}
 
-  /* ⚔ fights are run at the table */
-  .fight{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:10px 12px;margin:0 0 14px;border-radius:10px;
-    background:rgba(224,69,93,.09);border:1px solid #4a2530;border-left:4px solid var(--blood)}
-  .fight .fk{font-weight:800;color:#ffb3bf;font-size:14px;letter-spacing:.04em;text-transform:uppercase}
-  .fight .fn{font-family:var(--f-disp);font-size:17px;color:var(--ink)}
-  .fight .fr{flex-basis:100%;font-size:14.5px;color:#ffd9de;line-height:1.45}
-
-  .fight .fr .ai{font-size:12px}
-  /* enemy turn cards */
-  .foes{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px;margin:0 0 14px}
-  .foe{background:#1a0f14;border:1px solid #4a2530;border-radius:12px;padding:10px 12px}
-  .foe-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:6px}
-  .foe-n{font-family:var(--f-disp);font-size:18px;color:#ffd9de;flex:1;min-width:0}
-  .foe-x{font-family:var(--f-mono);font-size:14px;color:var(--blood)}
-  .foe-s{font-family:var(--f-mono);font-size:14px;color:var(--mut)}
-  .foe-s b{color:var(--gold)}
-  .foe .ai{font-size:12px}
-  .foe-l{margin:4px 0 2px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:700}
-  ol.foe-turn{margin:0 0 8px;padding-left:20px;font-size:14px;line-height:1.45;color:var(--ink)}
-  ol.foe-turn li{margin-bottom:3px}
-  ol.foe-turn b{color:#ffb3bf}
-  .foe-atk{display:flex;flex-direction:column;gap:3px;font-size:14px;margin-bottom:6px}
-  .foe-atk div{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;padding:4px 8px;background:#0000004d;border-radius:6px}
-  .foe-atk .hit{font-family:var(--f-mono);color:var(--gold)}
-  .foe-sp{margin:0 0 8px;font-size:14px;line-height:1.45;color:var(--mut)}
-  .foe-sp b{color:var(--ink)}
-  .hps{display:flex;flex-direction:column;gap:5px}
-  .hpt{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-  .hpt .hpl{font-family:var(--f-mono);font-size:13px;color:var(--dim);min-width:22px}
-  .hpt .hpv{font-family:var(--f-mono);font-size:20px;font-weight:700;color:var(--green);min-width:38px;text-align:right}
-  .hpt .hpv{margin-right:auto}
-  .hpt button{min-width:44px;height:44px;border-radius:8px;border:1px solid #4a2530;background:#2a141b;color:#ffd9de;
-    font:inherit;font-size:15px;font-weight:700;cursor:pointer;padding:0 6px}
-  .hpt button.up{color:var(--green);background:#122019;border-color:#24503c}
-  .foe-st{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:6px;margin:2px 0 8px}
-  .foe-st div{background:#0000004d;border:1px solid #4a2530;border-radius:8px;padding:3px 12px 5px;display:flex;flex-direction:column;min-width:64px}
-  .foe-st span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:700}
-  .foe-st b{font-family:var(--f-mono);font-size:26px;line-height:1.1;color:var(--gold)}
-  .foe-st .spd b{font-size:17px;line-height:1.5;color:var(--ink)}
-  .foe-say{margin:0 0 6px;font-size:14px;font-style:italic;color:var(--mut)}
-  .foe-drop{margin:8px 0 0;font-size:14px;line-height:1.45;color:var(--ink)}
-  .foe-drop b{color:#ffb3bf;text-transform:uppercase;font-size:12px;letter-spacing:.08em;margin-right:4px}
-  .dials{display:flex;flex-direction:column;gap:3px;margin-top:8px;padding-top:7px;border-top:1px dashed #4a2530;font-size:14px;line-height:1.4;color:var(--mut)}
-  .dials b{color:var(--ink)}
-  .runf{background:#1a0f14;border:1px solid #4a2530;border-radius:10px;padding:8px 12px;margin:0 0 10px}
-  .runf-h{margin:0 0 4px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:700}
-  .runf-h .ai{letter-spacing:0}
-  .runf-r{display:grid;grid-template-columns:86px minmax(0,1fr);gap:10px;font-size:14.5px;line-height:1.45;padding:3px 0}
-  .runf-k{font-weight:800;color:#ffb3bf;font-size:13px;letter-spacing:.04em;text-transform:uppercase;padding-top:1px}
-  .runf-r.lose .runf-k{color:var(--blue)}
-  .runf-r.job .runf-k{color:var(--gold)}
-  ol.runf-b{list-style:none;margin:0;padding:0}
-  ol.runf-b li{margin:0 0 2px}
-  .tally{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 12px;margin:0 0 10px;border:2px solid var(--gold);
-    border-radius:10px;background:rgba(231,181,63,.08)}
-  .tally .tl{font-weight:800;font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--gold)}
-  .tally .tv{font-family:var(--f-mono);font-size:30px;font-weight:700;color:var(--ink);min-width:36px;text-align:center}
-  .tally button{min-width:56px;height:48px;border-radius:9px;border:1px solid #6b5420;background:#2a2210;color:var(--gold);
-    font:inherit;font-size:17px;font-weight:800;cursor:pointer}
-  .tally .tp{font-size:15px;color:var(--mut)}
-  .tally .tp b{font-family:var(--f-mono);font-size:20px;color:var(--gold)}
-  .allies{border:1px solid #3b3320;border-left:4px solid var(--gold);border-radius:10px;padding:8px 12px;margin:0 0 14px;
-    background:rgba(231,181,63,.06)}
-  .ally{display:grid;grid-template-columns:96px minmax(0,1fr);gap:10px;font-size:14.5px;line-height:1.45;padding:3px 0}
-  .ally b{color:var(--gold)}
-  .ally-n{margin:4px 0 0;font-size:13.5px;color:var(--mut)}
-  .hpt button:active{transform:translateY(1px)}
-  .hpt.down .hpv{color:var(--blood);text-decoration:line-through}
+  /* ⚔ each fight is its own page: the big link, and the page itself over the stage, so the board keeps playing */
+  .fightlink{display:block;min-height:64px;padding:12px 14px;margin:0 0 14px;border-radius:12px;text-decoration:none;
+    background:linear-gradient(180deg,#3a1420,#250d15);border:2px solid var(--blood);color:var(--ink)}
+  .fightlink .fk{display:block;font-weight:800;color:#ffb3bf;font-size:14px;letter-spacing:.04em;text-transform:uppercase}
+  .fightlink .fn{display:block;font-family:var(--f-disp);font-size:21px;line-height:1.25}
+  .fightlink .fr{display:block;margin-top:3px;font-size:14.5px;color:#ffd9de;line-height:1.45}
+  #stage.in-combat{position:relative;overflow:hidden}
+  .combat-frame{position:absolute;inset:0;width:100%;height:100%;border:0;background:var(--bg);z-index:5}
   /* 🪢 / ↪ safety nets */
   .net{display:flex;gap:10px;align-items:baseline;font-size:14.5px;line-height:1.45;padding:8px 12px;margin:0 0 8px;
     border-radius:10px;background:rgba(91,155,213,.08);border:1px dashed var(--blue);color:var(--ink)}
@@ -267,7 +197,7 @@
   .net.bk{background:rgba(162,121,245,.08);border-color:var(--purple)}
   .net.bk .nk{color:var(--purple)}
   .net .ai{font-size:12px}
-  .net + .revs, .net + .foes, .net + .fight{margin-top:6px}
+  .net + .revs{margin-top:6px}
   /* Spencer's IF block */
   .ifb{border:2px dashed var(--pink);border-radius:12px;padding:10px 12px;margin:0 0 14px;background:rgba(236,122,192,.05)}
   .ifb .ifw{margin:0 0 4px;font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--pink)}
@@ -535,7 +465,7 @@
   </div>
 </div>
 
-<script src="fights.js?v=7"></script>
+<script src="fights.js?v=8"></script>
 <script src="sounds/manifest.js?v=2"></script>
 <script>
 "use strict";
@@ -652,7 +582,7 @@ const SCENES = [
     "<b>Every cue opens with 🎯 Leave knowing</b>: where they are in the story, what must land before you move on, and who delivers it. Then <b>Do now</b>: what to hand over, set out or switch on the iPad, each with a box to tick. Below it: Setting, Pacing, Read aloud, skill checks (call it, the DC, what they learn, the fallback), and <b>➜ Next</b> (how to get out, with jump buttons). Everything under <b>Reference</b> is detail you can skip at the table.",
     "<b>One laptop, two zones.</b> Every cue splits in two: <b style=\"color:var(--gold)\">SCOTT · narrate</b> on the left and <b style=\"color:var(--pink)\">SPENCER · voice</b> on the right (who's in the scene, how they sound, their lines). Each side scrolls on its own.",
     "<b>🔓 Reveal</b> markers flag the moment someone learns something they didn't know &mdash; the players, one PC, or an NPC. Each one sits in the zone of whoever delivers it or has to react. When one fires, <b>both of you play the reaction</b>. They're 🟡 AI staging until Scott signs off.",
-    "<b>⚔ Rolls, initiative and turn order stay at the table.</b> Each fight cue opens with <b>Running this fight</b> (setup, who takes whom, what each round looks like, the allies&rsquo; job, win, when it ends, what to do if they&rsquo;re losing), then one card per enemy: AC · HP · speed, what it does on its turn, a tap-to-subtract HP counter, what happens when it drops, and a dial for too hard / too easy. Damage is fixed: no damage dice. Allies get one line each. HP resets on reload. Numbers are 🟡 drafts. Paper backup: <code>7-combat.pdf</code> in the print kit.",
+    "<b>⚔ Rolls, initiative and turn order stay at the table.</b> Each fight cue has one big link to its combat page: the read-alouds, who attacks whom each round, tokens, what-ifs, Spencer's lines, then one card per enemy with AC, HP, what it does on its turn, a tap-to-subtract HP counter, when it drops, and a dial for too hard / too easy. The soundboard stays up. Damage is fixed: no damage dice. HP stays until you tap Reset fight. Paper backup: <code>7-combat.pdf</code> in the print kit.",
     "<b>🪢 If stuck</b> lines are fail-forwards for puzzles; <b>↪ Backup</b> lines give each big reveal a second way in.",
     "<b>📱 The iPad lives on its home page</b> (<code>/</code>) all night: two big numbered items, in story order. A cue that needs one opens with a blue <b>iPad &rarr; item N</b> bar. Tap N, hand it over, and go back to the home page when the scene's done. Sunday's rooms run in any order and none of them uses the iPad." +
       `<div class="ipad-key">${Object.keys(IPAD).map(n=>`<span class="k">${n}</span><span><b>${IPAD[n].room}</b> &mdash; ${IPAD[n].prop} <code>${IPAD[n].path}</code></span>`).join("")}</div>`
@@ -1579,45 +1509,9 @@ function render(i){
     (s.backup?`<div class="net bk"><span class="nk">↪ Backup path</span><span>${s.backup} <span class="ai">🟡</span></span></div>`:"");
   const netHTML = nets ? `<div class="block">${nets}</div>` : "";
 
-  // ⚔ rolls and initiative stay at the table; every stat line lives in fights.js
-  let fightHTML = "";
-  if(s.fight){
-    const f = s.fight;
-    const runBox = f.run ? `<div class="runf"><p class="runf-h">Running this fight <span class="ai">🟡</span></p>`+
-      [["Setup",f.run.setup],["Matchups",f.run.matchups],
-       ["Beats",f.run.beats&&`<ol class="runf-b">${f.run.beats.map(b=>`<li>${b}</li>`).join("")}</ol>`],
-       ["Allies",f.run.allyJob],["Win",f.run.win],["Ends",f.run.ends],["Losing?",f.run.losing]]
-        .filter(([,v])=>v)
-        .map(([k,v])=>`<div class="runf-r${k==="Losing?"?" lose":""}${k==="Allies"?" job":""}"><span class="runf-k">${k}</span><span>${v}</span></div>`).join("")+`</div>` : "";
-    let tallyHTML = "";
-    if(f.tally){ const tk = `${cur}:tally`, v = hpOf(tk, f.tally.start);
-      tallyHTML = `<div class="tally" data-tally="${tk}" data-start="${f.tally.start}"><span class="tl">${f.tally.label}</span>`+
-        `<button data-tad="-1" aria-label="One fewer">&minus;1</button><span class="tv">${v}</span><button data-tad="1" aria-label="One more">+1</button>`+
-        `<span class="tp">&rarr; <b>${tallyOut(f.tally,v)}</b> pieces</span></div>`; }
-    const cards = f.foes.map(x=>{
-      const trackers = x.hp ? Array.from({length:x.n},(_,k)=>{
-        const hk = `${cur}:${x.id}:${k}`; const v = hpOf(hk, x.hp);
-        return `<div class="hpt${v<=0?" down":""}" data-hpkey="${hk}" data-max="${x.hp}" data-min="${x.floor||0}">`+
-          `<span class="hpl">${x.n>1?k+1:"HP"}</span><span class="hpv">${v}</span>`+
-          `<button data-hpd="-1">&minus;1</button><button data-hpd="-5">&minus;5</button><button data-hpd="-10">&minus;10</button>`+
-          `<button data-hpd="1" class="up">+1</button><button data-hpd="reset" title="Reset">&#8634;</button></div>`;
-      }).join("") : "";
-      return `<div class="foe"><div class="foe-h"><span class="foe-n">${x.nm}${x.n>1?` <span class="foe-x">&times;${x.n}</span>`:""}</span>`+
-        `<span class="ai" title="Draft numbers: review">🟡</span></div>`+
-        `<div class="foe-st"><div><span>AC</span><b>${x.ac}</b></div><div><span>HP</span><b>${x.hp||"&mdash;"}</b></div>`+
-        `<div class="spd"><span>Speed</span><b>${x.spd}</b></div></div>`+
-        (x.say?`<p class="foe-say">${x.say}</p>`:"")+
-        `<p class="foe-l">On its turn</p><ol class="foe-turn">${x.turn.map(t=>`<li>${t}</li>`).join("")}</ol>`+
-        (x.note?`<p class="foe-sp">${x.note}</p>`:"") + (trackers?`<div class="hps">${trackers}</div>`:"") +
-        `<p class="foe-drop"><b>When it drops</b> ${x.drop}</p>`+
-        `<div class="dials"><div><b>Too hard?</b> ${x.hard}</div><div><b>Too easy?</b> ${x.easy}</div></div></div>`;
-    }).join("");
-    const allyHTML = f.allies ? `<div class="allies"><p class="foe-l">${f.alliesLabel||"Allies"}</p>`+
-      f.allies.map(a=>`<div class="ally"><b>${a.nm}</b><span>${a.act}</span></div>`).join("")+
-      (f.allyNote?`<p class="ally-n">${f.allyNote}</p>`:"")+`</div>` : "";
-    fightHTML = `<div class="fight"><span class="fk">⚔ Combat · rolls &amp; initiative at the table</span><span class="fn">${f.name}</span><span class="fr">${f.rule}</span></div>`+
-      runBox + tallyHTML + `<div class="foes">${cards}</div>` + allyHTML;
-  }
+  // ⚔ the fight itself lives on its own page, run/combat/
+  const fightHTML = s.fight ? `<a class="fightlink" data-combat href="combat/?f=${Object.keys(FIGHTS).find(k=>FIGHTS[k]===s.fight)}">`+
+    `<span class="fk">⚔ Run this fight</span><span class="fn">${s.fight.name}</span><span class="fr">${s.fight.rule}</span></a>` : "";
 
   // checks
   const checksHTML = (s.checks && s.checks.length) ? `<div class="block"><p class="h">Potential skill checks</p><div class="checks">` +
@@ -1632,22 +1526,19 @@ function render(i){
   const beatsHTML = (s.beats && s.beats.length) ? `<div class="block"><p class="h">${s.pace?"Notes":"The beats"}</p><ul class="beats">` +
     s.beats.map(b=>`<li>${b}</li>`).join("") + `</ul></div>` : "";
   const canonHTML = s.act==="set" ? `<div class="block"><p class="h">Canon</p><div class="canon-note">Read-aloud lines and cues are drawn from the <b>codex</b> (DM-side suggestions, not player-facing truth). Skill-check DCs marked <b>*</b> and everything marked <b>🟡</b> &mdash; reveals, Leave knowing, Next &mdash; are proposals for this tool, not signed off &mdash; tune freely. Nothing here makes anything canon.</div></div>` : "";
-  const g = s.fight && s.fight.guide, guideHTML = g ? `<div class="block ng"><p class="h">🎙 Narrating the fight <span class="ai">🟡</span></p>`+
-    `<p class="ng-t"><b>Tokens</b> ${g.tokens}</p>`+
-    g.rounds.map(r=>`<div class="ng-r"><p class="ng-k">${r.k}</p><p class="ng-say">${r.say}</p><p class="ng-who">${r.who}</p>${r.sp?`<p class="ng-sp"><b>Spencer</b> ${r.sp}</p>`:""}</div>`).join("")+
-    `<p class="ng-oh">If they do something else</p>`+g.other.map(([k,v])=>`<p class="ng-o"><b>${k}.</b> ${v}</p>`).join("")+`</div>` : "";
   const refBody = revBlock(revs.filter(r=>r.by==="scott"),"🔓 All reveals") + remHTML + beatsHTML + canonHTML;
   const refHTML = refBody ? `<p class="ref-h">Reference</p>${refBody}` : "";
 
   let spHTML = spZone(s);
   if(!spHTML) spHTML = `<p class="zempty">No NPCs this cue. Scott's scene.</p>`;
 
+  stage.classList.remove("in-combat");
   stage.innerHTML =
     `<div class="slide-head"><span class="no">${noLabel(s)}</span>`+
     `<h2>${s.title}</h2>${e.mins?`<span class="mins">~${e.mins} min <span class="ai">🟡</span></span>`:""}<span class="where">${s.where}</span></div>`+
     `<div class="zones">`+
       `<section class="zone z-scott"><p class="zh"><span>Scott</span> · narrate</p>`+
-        `${checkHTML}${landHTML}${doHTML}${floatHTML}${setHTML}${paceHTML}${readHTML}${checksHTML}${lvHTML}${wrapHTML}${netHTML}${guideHTML}${fightHTML}${refHTML}</section>`+
+        `${checkHTML}${fightHTML}${landHTML}${doHTML}${floatHTML}${setHTML}${paceHTML}${readHTML}${checksHTML}${lvHTML}${wrapHTML}${netHTML}${refHTML}</section>`+
       `<section class="zone z-spencer"><p class="zh"><span>Spencer</span> · voice</p>${spHTML}</section>`+
     `</div>`;
 
@@ -2030,13 +1921,14 @@ $("#prev").addEventListener("click",()=>go(-1));
 $("#next").addEventListener("click",()=>go(1));
 $("#fsBtn").addEventListener("click",toggleFS);
 
-// enemy HP: kept for the session, per cue and per enemy, so flipping cues doesn't lose it
-const HP = {};
-function hpOf(key,max){ return key in HP ? HP[key] : max; }
-// a tally (the library's cut count) and what it sets: tiers are [[upTo, result], ...]
-function tallyOut(t,v){ return (t.tiers.find(([m])=>v<=m)||t.tiers[t.tiers.length-1])[1]; }
+// a fight's combat page opens over the stage, so the soundboard and whatever's playing carry on
+window.addEventListener("message",e=>{
+  if(e.origin!==location.origin || e.data!=="combat-close") return;
+  const fr=stage.querySelector(".combat-frame"); if(fr) fr.remove();
+  stage.classList.remove("in-combat");
+});
 
-// stage delegated clicks (checklists, Do now, jumps, HP trackers, cue pills)
+// stage delegated clicks (checklists, Do now, jumps, fight links, cue pills)
 stage.addEventListener("click",e=>{
   const pi=e.target.closest("[data-prep]"); if(pi){ const id=pi.dataset.prep, st=loadPrep(); st[id]=!st[id]; savePrep(st);
     pi.classList.toggle("done",!!st[id]); refreshCounts(); return; }
@@ -2044,13 +1936,9 @@ stage.addEventListener("click",e=>{
     dn.classList.toggle("done",!!st[k]); refreshCounts(); return; }
   const gb=e.target.closest("[data-go]"); if(gb){ markDone(cur,true); render(+gb.dataset.go); return; }
   if(e.target.closest("[data-prepreset]")){ if(confirm("Clear every tick (checklists, Do now, scenes done)?")){
-    try{ [PKEY,DKEY,NKEY,SKEY,"dood_clock_v1","dood_props_v1","dood_party_v1","dood_notes_v1","dood_floating_v1"].forEach(k=>localStorage.removeItem(k)); }catch(err){} render(cur); } return; }
-  const hb=e.target.closest("[data-hpd]"); if(hb){ const row=hb.closest("[data-hpkey]"), key=row.dataset.hpkey, max=+row.dataset.max;
-    const d=hb.dataset.hpd; HP[key] = d==="reset" ? max : Math.min(max, Math.max(+row.dataset.min, hpOf(key,max) + (+d)));
-    row.querySelector(".hpv").textContent=HP[key]; row.classList.toggle("down",HP[key]<=0); return; }
-  const tb=e.target.closest("[data-tad]"); if(tb){ const row=tb.closest("[data-tally]"), key=row.dataset.tally;
-    HP[key] = Math.max(0, hpOf(key,+row.dataset.start) + (+tb.dataset.tad));
-    row.querySelector(".tv").textContent=HP[key]; row.querySelector(".tp b").textContent=tallyOut(SCENES[cur].fight.tally,HP[key]); return; }
+    try{ [PKEY,DKEY,NKEY,SKEY,"dood_clock_v1","dood_props_v1","dood_party_v1","dood_notes_v1","dood_floating_v1","dood_combat_v1"].forEach(k=>localStorage.removeItem(k)); }catch(err){} render(cur); } return; }
+  const fl=e.target.closest("[data-combat]"); if(fl){ e.preventDefault(); stage.scrollTop=0; stage.classList.add("in-combat");
+    stage.insertAdjacentHTML("beforeend",`<iframe class="combat-frame" title="Combat" src="${fl.getAttribute("href")}"></iframe>`); return; }
   const cue=e.target.closest("[data-cuefire]"); if(cue){ firePad(cue.dataset.cuefire); return; }
 });
 

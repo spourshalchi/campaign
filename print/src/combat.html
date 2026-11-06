@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <!--
-  PRINT: the combat cheat sheet, the paper backup for the Run of Show's fight cards if the iPad dies.
+  PRINT: the combat cheat sheet, the paper backup for the combat page (run/combat/) if the iPad dies.
   One US Letter page per day (Saturday, Sunday): every stat strip, the "on its turn" lines, when it drops,
   and the fight's win / ends / losing lines, with boxes to tick HP by hand.
-  Content comes from run/fights.js, the same file the Run of Show reads, so the two never drift.
-  🟡 NOT CANON YET: every number (AI-made from SRD 5.2 creatures). Logged in CANON.md.
+  Content comes from run/fights.js, the same file the combat page reads, so the two never drift.
   PRINT ONLY: print/build.py renders it into print/7-combat.pdf. Plain paper, black and white is fine, 100%.
 -->
 <html lang="en">
@@ -66,7 +65,7 @@
 </style>
 </head>
 <body>
-<p class="bar"><b>Combat cheat sheet</b> · the paper backup for the Run of Show's fight cards. One Letter page per day, plain paper, 100%. Write HP in the boxes. 🟡 Every number is a draft.</p>
+<p class="bar"><b>Combat cheat sheet</b> · the paper backup for the combat page. One Letter page per day, plain paper, 100%. Write HP in the boxes.</p>
 <div id="pages"></div>
 <script src="../../run/fights.js"></script>
 <script>
@@ -96,7 +95,7 @@ const fight = f => `<div class="fight"><div class="top"><h2>${f.name}</h2>
 </div>`;
 document.getElementById("pages").innerHTML = DAYS.map(d=>`<div class="page"><div class="sheet">
   <h1>Combat · ${d.head}</h1>
-  <p class="sub">Rolls and initiative at the table. Damage is fixed: no damage dice. Write HP in the boxes. 🟡 Draft numbers.</p>
+  <p class="sub">Rolls and initiative at the table. Damage is fixed: no damage dice. Write HP in the boxes.</p>
   <div class="cols">${d.keys.map(k=>fight(FIGHTS[k])).join("")}</div>
 </div></div>`).join("");
 </script>

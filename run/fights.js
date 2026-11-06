@@ -1,15 +1,18 @@
 /* =====================================================================
    DOOD MANSION — FIGHT CARDS
-   Every fight's stat lines, in one place. Read by the Run of Show
-   (run/index.html, a scene's fight:FIGHTS.<key>) and by the print kit's
-   combat cheat sheet (print/src/combat.html).
+   Every fight's stat lines and narration, in one place. Read by the combat
+   page (run/combat/, one fight per ?f=<key>), the Run of Show (a scene's
+   fight:FIGHTS.<key>: the link, the tokens row, Spencer's lines) and the print
+   kit's combat cheat sheet (print/src/combat.html).
 
-   🟡 Not canon yet: every number here is AI-made, built from SRD 5.2
-   creatures (chassis), pared down so Scott can run it at the table.
-   Damage is fixed (no damage dice). Rolls and initiative stay at the table.
+   Built from SRD 5.2 creatures (chassis), pared down so Scott can run it at the
+   table. Damage is fixed (no damage dice). Rolls and initiative stay at the table.
 
-   guide (finale fights): tokens, rounds [{k, say, who, sp}], other [[if, then]]: narrating the fight.
-   lines (finale fights): Spencer's in-fight lines [{who, t}].
+   cue:   the Run of Show scene this fight belongs to.
+   read:  read-alouds that open and close the fight, {open, close}: [{who, t, sp}].
+          sp means Spencer voices it. Copied from the scene card's read, talk and ifblock.
+   guide: tokens, rounds [{k, say, who, sp}], other [[if, then]]: narrating the fight.
+   lines: Spencer's in-fight lines [{who, t}].
 
    foe:  id, nm, n (how many), ac, hp, floor (lowest HP, if not 0), spd, chassis, cr, xp,
          say (one line of flavour), turn (1–3 steps), note (the one gimmick),
@@ -21,7 +24,26 @@
 const FIGHTS = {
 
   library: {
-    day:"Saturday", name:"The trap in the binding",
+    day:"Saturday", cue:3, name:"The trap in the binding",
+    guide:{
+      tokens:"The article on a reading table. Shears 1 and 2 either side of it, one lane each. The swarm at the card catalogue, the cart by the stacks.",
+      rounds:[
+        {k:"They open it", who:"The first cut lands before anyone moves. The tally starts at 1. Roll initiative.", say:"The binding splits and a pair of shears comes out of the spine. <i>Snick.</i> A strip of the article falls to the table."},
+        {k:"Round 1", who:"Shears 1 and 2 dive for the article: a PC in the lane gets snipped, a clear lane means +1 cut. The cart rolls at the first blocker and pushes them out of the lane.", say:"They aren't coming for you. They're going for the page. Behind you, one squeaky wheel starts to roll."},
+        {k:"Round 2", who:"The swarm engulfs a blocker. The cart keeps ramming blockers out of the lanes. One pair of shears should go down about now.", say:"The card catalogue drawers slide open all at once, and then it's snowing."},
+        {k:"Round 3", who:"The second pair of shears drops and everything drops with it. Clear the map.", say:"The shears snap shut and clatter to the floor. The cards settle. The cart tips over and spills its books. The room is very quiet."}
+      ],
+      other:[
+        ["Nobody guards the article","The shears just cut. +1 each. At 5 cuts the page is done and everything drops."],
+        ["Someone picks up the volume","The shears follow it. Whoever holds it is in the way: snip them."],
+        ["They ignore the shears","Fine. Only the second pair going down ends it, and they keep cutting."],
+        ["Someone uses fire","Double on the swarm. Fire on the article is one more cut."],
+        ["A PC hits 0 HP","Out cold and stable. Nothing in this room kills."],
+        ["When the second pair drops","Clear the map. Read the cuts off the tally and set the Item 1 pieces."]
+      ]},
+    read:{close:[
+      {who:"Records Keeper · after the fight", sp:1, t:"You can try to put it back together. But that was your primary source, and it's gone. If you want one now, you'll have to go look at the house yourselves. &hellip;But be careful."}
+    ]},
     rule:"The shears go for the article, not the party. It <b>contains and erases; it does not kill.</b> Count the cuts &mdash; they set the puzzle.",
     run:{
       setup:"They open the volume. The shears come out of the spine and make the first cut before anyone moves (the tally starts at 1). Roll initiative.",
@@ -62,7 +84,20 @@ const FIGHTS = {
   },
 
   contact: {
-    day:"Saturday", name:"First contact &mdash; a pressure scene, not a fight",
+    day:"Saturday", cue:6, name:"First contact &mdash; a pressure scene, not a fight",
+    guide:{
+      tokens:"None unless they fight back. Then Dracula on whoever failed Stealth, Orlok and Edward farther down the hall.",
+      rounds:[
+        {k:"Someone fails Stealth", who:"Dracula swoops 40 ft and grabs them: DC 15 Str or Dex save or grappled. Initiative only if they fight back.", say:"Something crosses the wall very fast. Then there are two cold hands on you and a delighted face much too close to yours."},
+        {k:"Round 1", who:"Dracula shoves whoever he's holding 10 ft toward the others, or pins them and looms. No Bite, no damage. Orlok and Edward don't act. Edward watches Bix.", say:"He isn't hurting you. He's enjoying himself."},
+        {k:"Round 2, or when it stops being fun", who:"Orlok says one word. Dracula lets go and steps back. Done.", say:"One word from down the hall, very quiet, and the hands are gone.", sp:"Orlok: &ldquo;The night is young. It would be terribly rude to be finished with you already&hellip; Go on. Have a look around. We'll find you when we're ready.&rdquo;"}
+      ],
+      other:[
+        ["They hit him","He laughs. No HP to track."],
+        ["They ask if this is part of the party","Yes, absolutely. He's delighted."],
+        ["Someone runs","He doesn't chase. The dismissal lands anyway."],
+        ["They go for Orlok or Edward","Neither acts. Edward explains nothing. Take the next round's line anyway."]
+      ]},
     rule:"<b>The vampires can't kill a PC.</b> Grapple, shove, frighten: no Bite, no damage, nobody below 1 HP.",
     run:{
       setup:"Someone fails Stealth and Dracula swoops. Use initiative only if they fight back.",
@@ -89,7 +124,26 @@ const FIGHTS = {
   },
 
   summoning: {
-    day:"Saturday", name:"The botched summoning",
+    day:"Saturday", cue:9, name:"The botched summoning",
+    guide:{
+      tokens:"The 2&Prime; summoning in the middle of the chalk circle. Fragments 1&ndash;4 on the floor lines around it.",
+      rounds:[
+        {k:"Round 1", who:"Fragments 1 and 2 go for whoever hits it, 3 and 4 for the back line. It lurches for the sealed door and claws whoever is in its way.", say:"It isn't looking at you. It's dragging itself toward the door, toward something down the hall, and the chalk on the floor has started to crawl."},
+        {k:"Round 2", who:"It claws twice at whoever stands between it and the door. The fragments start crumbling.", say:"It goes through whoever's in the way like they're furniture. It still isn't looking at you."},
+        {k:"Round 3", who:"First time it's under 43 HP: the Unfinished Word. Every PC within 15 ft saves, DC 13 Wis: 13 psychic, half on a save.", say:"The hole in its chest turns toward you and it tries to say something. It doesn't get to the end of it. You feel it anyway."},
+        {k:"Round 4", who:"It drops and the fragments crumble with it. Clear the map. Read the kill line, below.", say:"It stops with one arm still out toward the door."}
+      ],
+      other:[
+        ["They leave the room","It can't follow. It keeps clawing toward the sealed door."],
+        ["They run for the sealed door","It doesn't open tonight. Nobody reaches that room."],
+        ["Someone tries to work out what it is","Arcana DC 14: human-made, incomplete. Who drew it stays open."],
+        ["Someone searches the wreckage","Investigation DC 12: another mic, still running. A miss is fine: Marcus's AIM line covers it."],
+        ["A PC hits 0 HP","It doesn't touch them. It wants the door."],
+        ["When it drops","The kill line, then stop. The night ends when the screen dies. Next card: level up."]
+      ]},
+    read:{close:[
+      {who:"On the kill · fire the AIM chime as the screen wakes, then kill all sound", t:"A monitor deep in the house flickers on by itself. The old AIM chime carries down the hall. One line types itself across a screen nobody is sitting at &mdash; <b>&ldquo;is someone there&rdquo;</b> &mdash; then it goes dark."}
+    ]},
     rule:"It's bound to its room and <b>claws toward the sealed door</b> the whole fight.",
     run:{
       setup:"They open the warm door. It drags itself up out of the chalk circle, and four fragments peel up off the floor lines. Roll initiative.",
@@ -123,7 +177,20 @@ const FIGHTS = {
   },
 
   reserve: {
-    day:"Sunday", name:"The circle stirs &mdash; reserve, don't plan on it",
+    day:"Sunday", cue:"R", name:"The circle stirs &mdash; reserve, don't plan on it",
+    guide:{
+      tokens:"The 2&Prime; summoning token is the remnant, in the half-drawn circle. Fragments 1&ndash;4 on the floor lines.",
+      rounds:[
+        {k:"Round 1", who:"Fragments 1&ndash;4 split across the party. The remnant claws the nearest PC twice.", say:"What's left of last night's thing pulls itself up out of the floorboards. Half of what it was, and still wrong."},
+        {k:"Round 2", who:"The fragments crumble. First time it's under 50 HP: the Unfinished Word. Every PC within 15 ft saves, DC 14 Wis: 18 psychic, half on a save.", say:"It tries the same word as last night. It gets no further with it, and it hurts more."},
+        {k:"Round 3", who:"It drops and the fragments crumble with it. Clear the map. On to the computer room.", say:"Chalk dust. The circle is just a drawing now."}
+      ],
+      other:[
+        ["They leave the room","It can't follow. Fine. Move on to the computer room."],
+        ["Someone studies the circle","Nothing new here. Move them on."],
+        ["A PC hits 0 HP","It doesn't touch them."],
+        ["It's eating the clock","It smears apart on its own. Move on."]
+      ]},
     rule:"Only if a room solved in five minutes and you're ahead of the clock. It costs about 20 minutes.",
     run:{
       setup:"On the way up to the computer room, the half-drawn circle in last night's room is moving. What's left of the summoning pulls itself out, with four fragments. Roll initiative.",
@@ -156,7 +223,17 @@ const FIGHTS = {
   },
 
   developer: {
-    day:"Sunday", name:"The developer",
+    day:"Sunday", cue:"14 · i", name:"The developer",
+    read:{
+      open:[
+        {who:"The hard hats", t:"Hard hats push through the crowd. They walk right past you. They're going for the vampires. A man with a clipboard says one word, and Orlok, Dracula and Edward stop dead, pinned where they stand. His men take out stakes."},
+        {who:"W. Ostrander · to his men", sp:1, t:"Stakes. Start with the old one."},
+        {who:"After Ostrander's line", t:"<b>What do you do?</b>"}
+      ],
+      close:[
+        {who:"He goes down", t:"Stop. Let the room be quiet for a moment."},
+        {who:"Then the seal breaks", t:"The seal goes. Three vampires get up, and it's over fast for the men nearest them. Anyone else in a hard hat lets go of his crowbar."}
+      ]},
     guide:{
       tokens:"Thugs 1&ndash;3 between the party and the vampires. Ostrander and thugs 4&ndash;6 on the vampires. Lay Orlok, Dracula and Edward on their sides: pinned. Dracula next to Yobo, Edward where Bix can see him. Poe Boy and Stinky up on the decks: not in this fight.",
       rounds:[
@@ -175,10 +252,10 @@ const FIGHTS = {
         ["When he drops","Take off Ostrander and every thug. Stand the vampires up. Next card."]
       ]},
     lines:[
-      {who:"Orlok · pinned, to Russ", t:"Boy. Help me. <span class='ai'>🟡</span>"},
-      {who:"Edward · on seeing Ostrander's men", t:"Twenty-four years. <span class='ai'>🟡</span>"},
-      {who:"DJ Poe Boy · on the mic, during the fight", t:"Oh, this is great. Keep going. <span class='ai'>🟡</span>"},
-      {who:"The vampires · if they go for Poe Boy first", t:"Keep calling for help. <span class='ai'>🟡</span>"}
+      {who:"Orlok · pinned, to Russ", t:"Boy. Help me."},
+      {who:"Edward · on seeing Ostrander's men", t:"Twenty-four years."},
+      {who:"DJ Poe Boy · on the mic, during the fight", t:"Oh, this is great. Keep going."},
+      {who:"The vampires · if they go for Poe Boy first", t:"Keep calling for help."}
     ],
     rule:"<b>The only lethal fight.</b> Ostrander pins the vampires with a seal and ignores the party until they interfere. <b>The vampires are never actually killed.</b>",
     run:{
@@ -220,7 +297,27 @@ const FIGHTS = {
   },
 
   booth: {
-    day:"Sunday", name:"The booth",
+    day:"Sunday", cue:"14 · ii", name:"The booth",
+    read:{
+      open:[
+        {who:"The vampires owe you", t:"The man who wanted this house is dead on the floor. Orlok is looking at you, and for once he isn't cold about it. The crowd hasn't noticed. The set hasn't stopped. Poe Boy is still up there."},
+        {who:"Orlok · to the party, after the silence", sp:1, t:"What's on the drive?"},
+        {who:"Orlok · if nobody raises the drive", sp:1, t:"You came down those stairs running. What did you find up there?"},
+        {who:"DJ Poe Boy · panicking, borrowed voices", sp:1, t:"Don't touch that dial!"},
+        {who:"Orlok · to Poe Boy", sp:1, t:"Let them play it."},
+        {who:"DJ Poe Boy · refusing, on whoever holds the USB", sp:1, t:"Drop."},
+        {who:"The objective", t:"Get the USB to the decks and get on aux."}
+      ],
+      close:[
+        {who:"When the USB hits the decks · narrate the recording", t:"His set cuts out mid-scream. Then typing. A door shuts. Then a scared kid, asking someone to open it. Asking again, quieter. And under all of it, perfectly calm, Poe Boy: nudging a level up, leaning in close to listen, pleased with how clean it sounds."},
+        {who:"Then let it sit", t:"The speakers hiss. Nobody in the ballroom moves."},
+        {who:"Marcus · only if Simone paid the goat · to Poe Boy", sp:1, t:"you said you'd open it."},
+        {who:"Marcus · to Poe Boy", sp:1, t:"i kept asking. you kept recording. you wrote GOOD on it."},
+        {who:"Marcus · to the vampires", sp:1, t:"i didn't go out a window. i was upstairs. the whole time."},
+        {who:"Marcus · last", sp:1, t:"ok. you can turn it off now."},
+        {who:"The charm breaks", t:"The smiles go, all at once, across the whole room. Somebody boos. Then everybody does."},
+        {who:"On the last turn", t:"It runs on into the early morning. By the end, the ballroom windows have gone grey."}
+      ]},
     guide:{
       tokens:"Ostrander and the thugs are off. Vampires standing, with the party. Lil Stinky at the decks, Poe Boy behind him. The USB is wherever the party left it.",
       rounds:[
@@ -228,7 +325,7 @@ const FIGHTS = {
         {k:"Round 1", who:"Poe Boy Commands the USB holder. Stinky gets back to the decks. One vampire acts: Orlok grips Stinky.", say:"One word, in somebody else's voice, and your hand opens. The drive hits the floor."},
         {k:"Round 2", who:"Stinky swings at the USB holder and hits a vampire. Dracula carries the holder toward the decks.", say:"Stinky's sword catches a vampire. It smokes. It staggers."},
         {k:"Round 3", who:"Stinky gets moved or drops. Someone plugs in. Edward pulls a PC clear.", say:"He's off the decks. There's the aux."},
-        {k:"Round 4", who:"The recording plays. Stinky sits down. Clear the map: the fight's over.", say:"Read the recording (scene card)."}
+        {k:"Round 4", who:"The recording plays. Stinky sits down. Clear the map: the fight's over.", say:"Read the recording, below."}
       ],
       other:[
         ["Russ heals a vampire under fire","That's <b>badge req 3</b>, if it hasn't landed."],
