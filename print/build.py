@@ -14,6 +14,7 @@ Output (in print/):
     3-deed.pdf          the deed, on its own: cream or parchment cardstock
     4-plain.pdf         plain or ivory paper: the site assessment, the Articles of Settlement, Orlok's ledger
     5-poster.pdf        Spencer's DJ poster, on plain white paper
+    8-backstory-reprint.pdf  just Simone's and Yobo's backstory cards with crop marks, on cardstock
     7-combat.pdf        the combat cheat sheet, one page per day, on plain paper (the Run of Show's fight cards on paper)
     photo-4x6.jpg       the party-room photograph, full bleed, as a Staples 4x6 photo print (1200x1800, 300dpi)
     previews/           a JPEG (or PNG) of every page, shown on print/index.html
@@ -82,7 +83,7 @@ def photo_print(base):
 
 def write_manifest():
     manifest = {stem: sorted(os.path.basename(f) for f in glob.glob(os.path.join(PREVIEWS, stem + "-*.*")))
-                for stem in ("cardstock", "photo", "deed", "plain", "poster", "combat")}
+                for stem in ("cardstock", "photo", "deed", "plain", "poster", "combat", "reprint")}
     with open(os.path.join(PREVIEWS, "manifest.json"), "w") as f:
         json.dump(manifest, f, indent=1)
 
@@ -151,6 +152,7 @@ def main():
     badge = page("print/src/badge.html")
     tickets = page("print/src/tickets.html", tickets_q)
     backstory = page("backstory/")
+    reprint = render(f"{base}/backstory/?reprint", os.path.join(tmp, "backstory_reprint.pdf"))
     settlement = page("print/src/settlement.html")
     survey = page("survey/")
     ledger = page("ledger/")
@@ -165,6 +167,12 @@ def main():
             w.add_page(p)
     w.compress_identical_objects(remove_identicals=True, remove_orphans=True)  # six invites share one image
     w.write(os.path.join(OUT, "1-cardstock.pdf"))
+
+    # 8 — only the reworked backstory cards, for anyone who already printed the kit
+    w = PdfWriter()
+    for pg in reprint.pages:
+        w.add_page(pg)
+    w.write(os.path.join(OUT, "8-backstory-reprint.pdf"))
 
     # 3 — the deed on its own, for cream or parchment cardstock
     w = PdfWriter()
@@ -198,6 +206,7 @@ def main():
     previews("4-plain.pdf", "plain")
     previews("5-poster.pdf", "poster")
     previews("7-combat.pdf", "combat")
+    previews("8-backstory-reprint.pdf", "reprint")
     write_manifest()
 
     counts = {"invite sheets": len(invite.pages), "badge": len(badge.pages),

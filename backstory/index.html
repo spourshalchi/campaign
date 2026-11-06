@@ -5,15 +5,19 @@
   remember / know about their backstory."
 
   ⛔ PLAYER-FACING. These carry ONLY what each character knows at the start of the weekend.
-  No mansion reveals: nothing about Edward / Goblinenon, the deed or the settlement, what happened
-  to the willow kid, who the killer is, what the vampires really are, or the finale.
+  No mansion reveals: nothing about Edward / Goblinenon, the deed or the settlement, where the willow
+  kid went, who the killer is, what the vampires really are, or the finale.
+
+  Simone's and Yobo's cards have a Public and a Private section. Scott tells the table in Scene 0:
+  anything in the Private section stays private, everything else is theirs to share.
 
   Each card is a few bullets that set up that PC's story this weekend, nothing more: not a rehash of the
   player's own character write-up, and nothing that isn't used in a beat. Every bullet has a source
   comment.
 
   PRINT: US Letter portrait, 100% / actual size. All five 4 × 3.3 in cards on one page, two across,
-  dashed cut lines. Card stock if Staples has it.
+  dashed cut lines. Card stock if Staples has it. ?reprint prints only Simone and Yobo with crop marks
+  (print/8-backstory-reprint.pdf).
 -->
 <html lang="en">
 <head>
@@ -107,11 +111,32 @@
   li b{font-weight:700}
   q{font-style:italic; quotes:"\201C" "\201D"}
 
+  /* Public / Private sections (Simone, Yobo). Overflow is clipped: re-check the print after any wording change. */
+  .dual .in{font-size:3.55cqi}          /* 10.2pt at 4in */
+  .dual li{margin-bottom:1.1cqi; line-height:1.3}
+  .sec{position:relative}
+  .sec .rem{margin:2.2cqi 0 1.1cqi}
+  .sec.private{
+    margin-top:1.8cqi; padding:1.5cqi 1.8cqi .5cqi; border-radius:1.2cqi;
+    background:var(--tint); border:.3cqi solid var(--accent);
+  }
+  .sec.private .rem{
+    display:inline-block; margin:0 0 1.2cqi; padding:.5cqi 1.5cqi; border-radius:.8cqi;
+    background:var(--accent); color:#fff;
+  }
+
+  .c-simone.dual .in{font-size:3.4cqi; padding-top:2.6cqi; padding-right:3.2cqi; padding-bottom:1.5cqi}   /* 9.8pt at 4in: her card has the most to fit */
+  .c-simone.dual .name{font-size:6.6cqi}
+  .c-simone.dual li{margin-bottom:.8cqi; line-height:1.27}
+  .c-simone.dual .sec .rem{margin:1.5cqi 0 .8cqi}
+  .c-simone.dual .sec.private{margin-top:1.1cqi; padding:1.1cqi 1.6cqi .3cqi}
+  .c-simone.dual .sec.private .rem{margin:0 0 .9cqi}
+
   /* accents */
   .c-bix   {--accent:#c8471f}
   .c-gnomey{--accent:#23824a}
-  .c-simone{--accent:#7b1f45}
-  .c-yobo  {--accent:#c2407e}
+  .c-simone{--accent:#7b1f45; --tint:#f4e7ec}
+  .c-yobo  {--accent:#c2407e; --tint:#fbecf3}
   .c-russ  {--accent:#2d6aa8}
 
   /* -------- print: all five cards on one Letter page, two across -------- */
@@ -129,7 +154,18 @@
       -webkit-print-color-adjust:exact; print-color-adjust:exact;
     }
     .card *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+
+    /* ?reprint: only Simone and Yobo, with crop marks and a little bleed */
+    body.reprint .stack{display:block}
+    body.reprint .crop-note{display:block; margin:0 auto; width:4in; font:9pt var(--f-body); color:#555; text-align:center}
+    body.reprint .cropbox{position:relative; width:4in; height:3.3in; margin:.6in auto 0; break-inside:avoid; page-break-inside:avoid}
+    body.reprint .cropbox::before{content:""; position:absolute; inset:-.0625in; background:var(--paper); -webkit-print-color-adjust:exact; print-color-adjust:exact}
+    body.reprint .card{outline:none; position:relative}
+    body.reprint .cm{position:absolute; background:#000}
   }
+  .crop-note{display:none}
+  body.reprint .card:not(.c-simone):not(.c-yobo){display:none}
+  body.reprint .top{display:none}
 </style>
 </head>
 <body>
@@ -177,40 +213,58 @@
     </section>
 
     <!-- ===================== SIMONE ===================== -->
-    <section class="card c-simone" id="simone">
+    <section class="card c-simone dual" id="simone">
       <div class="in">
         <span class="tab">Backstory</span>
         <div class="head"><h2 class="name">Simone&rsquo;s Warlock</h2><span class="player">Simone &middot; name TBD</span></div>
-        <p class="rem">What you remember</p>
-        <ul>
-          <!-- Sesh 8: Simone sold the kid a love spell, a wishing willow. Deliberately does not name who he wanted or what became of him. "years ago": the codex dates it five years back. -->
-          <li>Years ago a kid paid you for a love spell: a <b>wishing willow</b>, with his wish written on the slip. He wanted a girl to notice him.</li>
-          <!-- Character Bios (Simone): favourite satanic metal band playing in town at the end of the school year; love and revenge spells for money; Sesh 8: goat piggy bank. Band name: Scott, 3 Nov. -->
-          <li><b>Total Party Kill</b>, your favourite satanic metal band, is playing a show in town at the end of the school year. You&rsquo;ve been saving every dollar from your spell work for a ticket, in the <b>goat piggy bank</b>.</li>
-          <!-- Character Bios (Simone): the Devil, as an all-black goat with an upside-down red cross on its face -->
-          <li>Your patron is the Devil. It comes to you as the <b>black goat</b>.</li>
-        </ul>
+        <div class="sec">
+          <p class="rem">Public: share however you like</p>
+          <ul>
+            <!-- Character Bios (Simone): love and revenge spells for money -->
+            <li>You sell love spells and revenge spells to classmates.</li>
+            <!-- Character Bios (Simone): favourite satanic metal band playing in town at the end of the school year; Sesh 8: goat piggy bank. Band name: Scott, 3 Nov. -->
+            <li><b>Total Party Kill</b>, your favourite satanic metal band, is playing a show in town at the end of the school year. You&rsquo;ve been saving every dollar from your spell work for a ticket, in the <b>goat piggy bank</b>.</li>
+          </ul>
+        </div>
+        <div class="sec private">
+          <p class="rem">Private: keep this to yourself</p>
+          <ul>
+            <!-- Sesh 8: Simone sold the kid a wishing willow; Scott, 2026-11-06: this summer, and he's the kid on the posters. Does not name him or who he wanted. -->
+            <li>This summer a kid paid you for a love spell: a <b>wishing willow</b>, with his wish on the slip. He wanted a girl to notice him. Last month he went missing.</li>
+            <!-- Character Bios (Simone): the Devil, as an all-black goat with an upside-down red cross on its face -->
+            <li>Your patron is the Devil. It comes to you as the <b>black goat</b>.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- ===================== YOBO ===================== -->
-    <section class="card c-yobo" id="yobo">
+    <section class="card c-yobo dual" id="yobo">
       <div class="in">
         <span class="tab">Backstory</span>
         <div class="head"><h2 class="name">Yobo</h2><span class="player">John</span></div>
-        <p class="rem">What you remember</p>
-        <ul>
-          <!-- Character Bios (John): told everyone his grandma is Dolly Parton, a lie, to get in with the cool kids -->
-          <li>Everyone at school believes your grandmother is <b>Dolly Parton</b>. You&rsquo;ve never corrected them.</li>
-          <!-- In Person Session: "Dolly Parton riff"; Sesh 8 / codex gazebo: "you're the Dolly Parton guy, do a little riff" -->
-          <li>So wherever you show up, somebody wants a riff.</li>
-          <!-- Character Bios (John): moved from another school, tormented there for his singing and acting -->
-          <li>At your old school they laughed at your singing. Nobody here knows that.</li>
-          <!-- Character Bios (John): very insecure about whether he has real talent -->
-          <li>You&rsquo;re not sure you&rsquo;re actually any good.</li>
-          <!-- Scott, 3 Nov (aligned with John): Yobo wears a wig. Canon does not say why, so neither does the card. -->
-          <li>You wear a <b>wig</b>.</li>
-        </ul>
+        <div class="sec">
+          <p class="rem">Public: share however you like</p>
+          <ul>
+            <!-- Character Bios (John): told everyone his grandma is Dolly Parton, to get in with the cool kids -->
+            <li>Everyone at school believes your grandmother is <b>Dolly Parton</b>.</li>
+            <!-- In Person Session: "Dolly Parton riff"; Sesh 8 / codex gazebo: "you're the Dolly Parton guy, do a little riff" -->
+            <li>So wherever you show up, somebody wants a riff.</li>
+          </ul>
+        </div>
+        <div class="sec private">
+          <p class="rem">Private: keep this to yourself</p>
+          <ul>
+            <!-- Character Bios (John): a lie -->
+            <li>The Dolly Parton story is a lie.</li>
+            <!-- Scott, 3 Nov (aligned with John): Yobo wears a wig. Canon does not say why, so neither does the card. -->
+            <li>You wear a <b>wig</b>.</li>
+            <!-- Character Bios (John): moved from another school, tormented there for his singing and acting -->
+            <li>At your old school they laughed at your singing. Nobody here knows that.</li>
+            <!-- Character Bios (John): very insecure about whether he has real talent -->
+            <li>You&rsquo;re not sure you&rsquo;re actually any good.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -231,6 +285,23 @@
   </div>
 
 <script>
+  /* ?reprint: Simone and Yobo only, with crop marks (print/8-backstory-reprint.pdf) */
+  if(new URLSearchParams(location.search).has("reprint")){
+    document.body.classList.add("reprint");
+    var note=document.createElement("p"); note.className="crop-note";
+    note.textContent="Backstory reprint: Simone and Yobo. Print at 100% on cardstock and cut on the crop marks.";
+    document.querySelector(".stack").before(note);
+    document.querySelectorAll(".c-simone,.c-yobo").forEach(function(card){
+      var box=document.createElement("div"); box.className="cropbox";
+      card.before(box); box.appendChild(card);
+      ["top:0","bottom:0"].forEach(function(y){ ["left","right"].forEach(function(x){
+        var yk=y.split(":")[0], th=".5pt", len=".22in", off="-.3in";
+        var h=document.createElement("i"); h.className="cm"; h.style.cssText=yk+":0;"+x+":"+off+";width:"+len+";height:"+th;
+        var v=document.createElement("i"); v.className="cm"; v.style.cssText=x+":0;"+yk+":"+off+";height:"+len+";width:"+th;
+        box.appendChild(h); box.appendChild(v);
+      }); });
+    });
+  }
   /* iOS: kill pinch-zoom and double-tap zoom, per AGENTS.md */
   document.addEventListener("touchmove", function(e){
     if(e.scale !== undefined && e.scale !== 1) e.preventDefault();

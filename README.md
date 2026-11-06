@@ -81,6 +81,7 @@ Everything to print lives in the **print kit at [`print/`](print/)**: seven Stap
 | `print/3-deed.pdf` | Letter cardstock, cream or parchment, colour, 1-sided, 1 copy | The deed |
 | `print/4-plain.pdf` | Letter ivory or plain, colour, 1-sided, 1 copy | The developer's site assessment, the Articles of Settlement, Orlok's ledger |
 | `print/5-poster.pdf` | Letter plain white, colour, 1-sided, 1 copy | Spencer's DJ poster |
+| `print/8-backstory-reprint.pdf` | Letter cardstock, colour, 1-sided, 1 copy, cut on the crop marks | Simone's and Yobo's backstory cards with their Public and Private sections, for a kit already printed |
 | [Official 2024 character sheet](https://media.dndbeyond.com/compendium-images/free-rules/downloads/2024-character-sheet.pdf) (linked, not in the repo) | Letter plain white, B&W, 2-sided, 8 copies | Blank character sheets: 5 players + 3 spares |
 | `print/7-combat.pdf` | Letter plain white, B&W, 1-sided, 1 copy | The combat cheat sheet: every fight's stat lines, one page per day (DM only) |
 

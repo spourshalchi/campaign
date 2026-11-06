@@ -380,7 +380,6 @@
   .cuepills .cl{font-size:16px}
   .prep-f{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
   .prep-i .how{color:var(--mut);font-size:13.5px}
-  .prep-x{display:block;margin-top:5px;font-size:14px;line-height:1.45;color:var(--mut)}
 
   /* 🎯 leave knowing + ➜ next */
   .wrap{margin:0 0 16px;padding:10px 12px 12px;border:2px solid var(--gold);border-radius:12px;background:rgba(231,181,63,.07)}
@@ -540,12 +539,7 @@ const SCENES = [
     ]},
     {g:"Print run", items:[
       {id:"print", t:"<b>Print run picked up and cut</b> (<code>/print/</code>): invites, backstory cards, Russ's card, the badge, the willow's tag, the concert tickets, Yobo's two cards, battle tokens, the deed, the survey, the settlement, Orlok's ledger, character sheets, the combat cheat sheet."},
-      {id:"backstory-stickies", t:"<b>Backstory cards: cross out lines and add sticky notes.</b> Bix, Gnomey and Russ: no changes."+
-        "<span class='prep-x'><b>Simone.</b> Cross out: &ldquo;Years ago a kid paid you for a love spell...&rdquo; and &ldquo;Your patron is the Devil. It comes to you as the black goat.&rdquo;</span>"+
-        "<span class='prep-x'><b>Public sticky:</b> You sell love spells and revenge spells to classmates.</span>"+
-        "<span class='prep-x'><b>Private sticky:</b> Years ago you sold a love spell to a kid. His wish was for a girl to notice him. Last month he went missing. Your patron is the Devil. It comes to you as the black goat.</span>"+
-        "<span class='prep-x'><b>Yobo.</b> Cross out: &ldquo;You've never corrected them.&rdquo;, &ldquo;At your old school they laughed at your singing. Nobody here knows that.&rdquo;, &ldquo;You're not sure you're actually any good.&rdquo; and &ldquo;You wear a wig.&rdquo; No public sticky.</span>"+
-        "<span class='prep-x'><b>Private sticky:</b> The Dolly Parton story is a lie. You wear a wig. At your old school they laughed at your singing, and you're not sure you're any good.</span>"},
+      {id:"backstory-reprint", t:"<b>Reprinted Simone and Yobo backstory cards</b> (<code>8-backstory-reprint.pdf</code>, on cardstock, cut on the crop marks). Use these, not the old two."},
       {id:"photo", t:"<b>The photograph</b>: a Staples 4&times;6 photo print of <code>print/photo-4x6.jpg</code>, glossy or lustre. Same-day at most stores."},
       {id:"usb", t:"<b>USB stick</b> labelled <code>MARCUS_HALE</code>."},
       {id:"sticky-made", t:"<b>Sticky note</b> <code>Fluffy123</code>, handwritten. <b>The wishing willow</b>, handmade, with its tag tied on."}
@@ -573,7 +567,7 @@ const SCENES = [
   steps:[
     {slot:["Phones away, snacks out, sheets and dice in front of everyone.","Two days: today and tomorrow. Level 4 now, level 5 at the end of today.","You narrate and run the rolls. Spencer voices everyone they meet.","A kid from your school, Marcus Hale, went missing about a month ago. The posters are still up."], t:"Your intro, in your own words. Cover:"},
     {hand:"backstory"},
-    {say:"Anything on a private sticky note stays private. Everything else on your card, share however you like.", who:"Say as you hand them out"},
+    {say:"Anything in the Private section stays private. Everything else, share however you like.", who:"Say as you hand them out"},
     {hand:"reqcard"},
     {say:"Who's your character? Their name, one thing you'd notice about them from across the room, and one thing everyone at school knows about them.", who:"Say to each player in turn"},
     {tick:"<b>Bix Grimlor</b> &middot; Will"},
@@ -1032,7 +1026,7 @@ const SCENES = [
     {check:{skill:"Working it out", dc:"no roll", note:"Working out it isn't Poe Boy is character, not a check. When the drive mounts, the missing kid from the posters is the one in the computer."}},
     {do:"His story: lured, chased, soul-caged when <b>Poe Boy</b> shut the door. &#128275; He names him, short of murder."},
     {hand:"willow", do:"The bag: &#9995; <b>the willow</b> to Simone &#128275;, then &#9995; <b>the USB</b> &mdash; it mounts as <code>MARCUS_HALE</code> &#128275; and he sends the recording."},
-    {rev:{who:"Simone", t:"pulls the <b>wishing willow</b> from the bag &mdash; the one she sold at twelve: <i>I want Angelique to notice me</i>. This is the willow kid. She may have connected the posters to her customer long ago, and that's fine: the reveal is that he's in the computer, and how."}},
+    {rev:{who:"Simone", t:"pulls the <b>wishing willow</b> from the bag &mdash; the one she sold this summer: <i>I want Angelique to notice me</i>. This is the willow kid. She may have connected the posters to her customer long ago, and that's fine: the reveal is that he's in the computer, and how."}},
     {rev:{who:"Angelique", t:"learns why she knew him: the willow worked. Spencer plays her reaction."}},
     {hand:"usb"},
     {rev:{who:"Players", t:"see the drive mount as <b>MARCUS_HALE</b>: the missing kid from the posters is the one in the computer. Angelique realises it's the same boy."}},
