@@ -5,7 +5,6 @@ Usage (from the project root):
     python3 print/build.py
     python3 print/build.py --venue "Venue" --date "SAT JUN 25 2005"   # override a ticket field
     python3 print/build.py --photo-only                                # just remake photo-4x6.jpg
-    python3 print/build.py --combat-only                               # just remake 7-combat.pdf
 
 Every ticket flag is optional; leave them off and the tickets print the prop's own show details.
 
@@ -15,7 +14,6 @@ Output (in print/):
     4-plain.pdf         plain or ivory paper: the site assessment, the Articles of Settlement, Orlok's ledger
     5-poster.pdf        Spencer's DJ poster, on plain white paper
     8-backstory-reprint.pdf  just Simone's and Yobo's backstory cards with crop marks, on cardstock
-    7-combat.pdf        the combat cheat sheet, one page per day, on plain paper (the Run of Show's fight cards on paper)
     photo-4x6.jpg       the party-room photograph, full bleed, as a Staples 4x6 photo print (1200x1800, 300dpi)
     previews/           a JPEG (or PNG) of every page, shown on print/index.html
 
@@ -83,7 +81,7 @@ def photo_print(base):
 
 def write_manifest():
     manifest = {stem: sorted(os.path.basename(f) for f in glob.glob(os.path.join(PREVIEWS, stem + "-*.*")))
-                for stem in ("cardstock", "photo", "deed", "plain", "poster", "combat", "reprint")}
+                for stem in ("cardstock", "photo", "deed", "plain", "poster", "reprint")}
     with open(os.path.join(PREVIEWS, "manifest.json"), "w") as f:
         json.dump(manifest, f, indent=1)
 
@@ -108,7 +106,6 @@ def main():
     for k in ("band", "tour", "venue", "city", "date", "time"):
         ap.add_argument("--" + k, default="")
     ap.add_argument("--photo-only", action="store_true", help="only remake photo-4x6.jpg and its preview")
-    ap.add_argument("--combat-only", action="store_true", help="only remake 7-combat.pdf and its previews")
     args = ap.parse_args()
 
     if not os.path.exists(CHROME):
@@ -120,31 +117,12 @@ def main():
         write_manifest()
         print("photo-4x6.jpg     ", "%dx%d at %ddpi" % PHOTO)
         return
-    tickets_q = urlencode({k: v for k, v in vars(args).items() if v and k not in ("photo_only", "combat_only")})
+    tickets_q = urlencode({k: v for k, v in vars(args).items() if v and k != "photo_only"})
     tmp = tempfile.mkdtemp()
 
     def page(path, query=""):
         name = path.strip("/").replace("/", "_") or "root"
         return render(f"{base}/{path}{'?' + query if query else ''}", os.path.join(tmp, name + ".pdf"))
-
-    def combat_sheet():
-        # 7 — the combat cheat sheet, plain paper: reads run/fights.js, the Run of Show's own fight data
-        sheet = page("print/src/combat.html")
-        w = PdfWriter()
-        for p in sheet.pages:
-            w.add_page(p)
-        w.write(os.path.join(OUT, "7-combat.pdf"))
-        return sheet
-
-    if args.combat_only:
-        sheet = combat_sheet()
-        os.makedirs(PREVIEWS, exist_ok=True)
-        for old in glob.glob(os.path.join(PREVIEWS, "combat-*")):
-            os.remove(old)
-        previews("7-combat.pdf", "combat")
-        write_manifest()
-        print("7-combat.pdf      ", len(sheet.pages), "page(s)")
-        return
 
     print("Rendering props...")
     invite = page("print/src/invite.html", urlencode({"n": INVITES}))
@@ -193,8 +171,6 @@ def main():
         w.add_page(p)
     w.write(os.path.join(OUT, "5-poster.pdf"))
 
-    sheet = combat_sheet()
-
     # page previews for print/index.html — clear the old ones first
     os.makedirs(PREVIEWS, exist_ok=True)
     for old in glob.glob(os.path.join(PREVIEWS, "*")):
@@ -205,7 +181,6 @@ def main():
     previews("3-deed.pdf", "deed")
     previews("4-plain.pdf", "plain")
     previews("5-poster.pdf", "poster")
-    previews("7-combat.pdf", "combat")
     previews("8-backstory-reprint.pdf", "reprint")
     write_manifest()
 
@@ -218,7 +193,6 @@ def main():
     print("4-plain.pdf       ", len(survey.pages) + len(settlement.pages) + len(ledger.pages), "pages",
           {"survey": len(survey.pages), "settlement": len(settlement.pages), "ledger": len(ledger.pages)})
     print("5-poster.pdf      ", len(poster.pages), "page(s)")
-    print("7-combat.pdf      ", len(sheet.pages), "page(s)")
 
 
 if __name__ == "__main__":

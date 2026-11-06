@@ -81,7 +81,7 @@
 <main>
 
   <h1>Print Kit</h1>
-  <p class="lede"><b>At Staples, ask for actual size / 100% — no fit-to-page.</b> Every PDF is US Letter with the sizes baked in. Everything that gets printed, sorted into <b>seven Staples orders</b>: six document orders, and one photo print. Each file is one upload, one copy, except the character sheets (8 copies). Order 7, the combat cheat sheet, is a small order on its own. Cut at home afterwards. Every page is previewed below — tap one to see it full size.</p>
+  <p class="lede"><b>At Staples, ask for actual size / 100% — no fit-to-page.</b> Every PDF is US Letter with the sizes baked in. Everything that gets printed, sorted into <b>six Staples orders</b>: five document orders and one photo print, plus a one-sheet reprint if you printed the cardstock early. Each file is one upload, one copy, except the character sheets (8 copies). Cut at home afterwards. Every page is previewed below — tap one to see it full size.</p>
 
   <h2>Before you print</h2>
   <div class="panel">
@@ -217,26 +217,6 @@
     <p class="small muted">The party starts at level 4 and levels to 5 at the end of day one, so players fill them in <b>in pencil</b>.</p>
   </div>
 
-  <h2><span class="n">7</span>Combat cheat sheet</h2>
-  <div class="panel">
-    <div class="file"><a class="btn" href="7-combat.pdf" download>7-combat.pdf</a><span class="tag ok">Ready</span></div>
-    <dl class="settings">
-      <dt>Size</dt><dd>8.5 × 11 (Letter)</dd>
-      <dt>Paper</dt><dd>Plain white, regular weight</dd>
-      <dt>Colour</dt><dd>Black &amp; white is fine</dd>
-      <dt>Sides / Copies</dt><dd>1-sided · 1</dd>
-      <dt>Scaling</dt><dd>Actual size / 100%</dd>
-      <dt>Finishing</dt><dd>None</dd>
-    </dl>
-    <table>
-      <tr><th>Page</th><th>What</th><th>Cut</th><th>Live</th></tr>
-      <tr><td>1</td><td><b>Saturday's fights</b>: the trap in the binding, first contact, the botched summoning · <b>8.5 × 11 in</b></td><td>No cut</td><td><a class="prop" href="../run/">/run/</a></td></tr>
-      <tr><td>2</td><td><b>Sunday's fights</b>: the reserve, the developer, the ballroom decks · <b>8.5 × 11 in</b></td><td>No cut</td><td><a class="prop" href="../run/">/run/</a></td></tr>
-    </table>
-    <p class="small muted">The paper backup if the iPad dies: every stat strip, what each enemy does on its turn, what happens when it drops, and boxes to write HP in. Same numbers as the Run of Show's fight cards (both read <code>run/fights.js</code>). DM only.</p>
-    <div class="gallery" data-set="combat" data-label="Combat"></div>
-  </div>
-
   <h2><span class="n">8</span>Backstory reprint: Simone and Yobo</h2>
   <div class="panel">
     <div class="file"><a class="btn" href="8-backstory-reprint.pdf" download>8-backstory-reprint.pdf</a><span class="tag ok">Ready</span></div>
@@ -278,7 +258,6 @@
       <tr><td>Willow tag</td><td>Tie it to the handmade willow; it's in Marcus's backpack in the computer room. Simone pulls it out.</td></tr>
       <tr><td>Badge</td><td>Cody, in the ending scene, from the troop leader.</td></tr>
       <tr><td>Concert tickets</td><td>Simone, in the ending scene, from Poe Boy's mom.</td></tr>
-      <tr><td>Combat cheat sheet</td><td>Nobody: it stays behind the DM screen, in case the iPad dies.</td></tr>
       <tr><td>Battle tokens</td><td>Cut before the session. The PCs' and allies' tokens go on the grid; enemies stay with the DM until their fight.</td></tr>
     </table>
   </div>
@@ -287,7 +266,7 @@
   <div class="panel small">
     <p>From the repo root, with Google Chrome installed:</p>
     <pre>python3 print/build.py</pre>
-    <p>The invitations and the poster are Spencer's art (<code>src/assets/spencer-*.jpg</code>), laid out by <code>src/invite.html</code> and <code>src/poster.html</code>. That also remakes <code>photo-4x6.jpg</code> from <code>photo-4x6.html</code> (needs ImageMagick); <code>--photo-only</code> remakes just the photo, and <code>--combat-only</code> just the combat cheat sheet.</p>
+    <p>The invitations and the poster are Spencer's art (<code>src/assets/spencer-*.jpg</code>), laid out by <code>src/invite.html</code> and <code>src/poster.html</code>. That also remakes <code>photo-4x6.jpg</code> from <code>photo-4x6.html</code> (needs ImageMagick); <code>--photo-only</code> remakes just the photo.</p>
     <p>The tickets print their own show details; <code>--band</code>, <code>--venue</code>, <code>--city</code>, <code>--date</code> and <code>--time</code> override them. Each prop's own print layout decides how it looks, so fix the prop, not the script. Re-run after any prop change, and commit the new PDFs and JPG.</p>
   </div>
 

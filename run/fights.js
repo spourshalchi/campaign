@@ -2,8 +2,7 @@
    DOOD MANSION — FIGHT CARDS
    Every fight's stat lines and narration, in one place. Read by the combat
    page (run/combat/, one fight per ?f=<key>), the Run of Show (a scene's
-   fight:FIGHTS.<key>: the link, the tokens row, Spencer's lines) and the print
-   kit's combat cheat sheet (print/src/combat.html).
+   fight:FIGHTS.<key>: the link, the tokens row, Spencer's lines).
 
    Built from SRD 5.2 creatures (chassis), pared down so Scott can run it at the
    table. Damage is fixed (no damage dice). Rolls and initiative stay at the table.
