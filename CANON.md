@@ -84,15 +84,15 @@ rather than assuming, because it touches what the bolt actually means for the pa
 | **The ballroom is locked until 2:30**, when Poe Boy arrives and opens up for the crowd; they can't enter it until after AIM. The mics record on their own until then. The "once" reveal moves to the DJ poster on the AIM door and his voice on the speakers | Scott, 2026-11-06 |
 | **Poe Boy opens the front door at 2:30 for the crowd. Ostrander walks in with it**, because the survey says every door is secured from the inside and this is the first time he can get in. That is why he waits | Scott, 2026-11-06 |
 | **The end of AIM:** every speaker comes on, playing the party's own screams from the night, then Poe Boy's voice. That sends them to the ballroom | Scott, 2026-11-06 |
-| **The final battle has three stages, one enemy at a time:** The developer (Ostrander and his thugs; Poe Boy is on the decks, not in this fight), The booth (Poe Boy and Lil Stinky; the goal is the USB, not killing him; remaining thugs drop their crowbars), The recording (no enemy). The scenes drop "Phase 1" and "Phase 2" | Scott, 2026-11-06 |
-| **The vampires turn on Poe Boy only when he refuses to let the drive play.** They owe the party; the party tells them about Marcus and the drive; Orlok asks; Poe Boy refuses and casts Command | Scott, 2026-11-06 |
 
 🟡 **Not canon yet, drafted to run this:**
-- Every new DC, prompt and fallback: Perception 12 for the mic on the stairs and for Dracula's aside, Insight 12 for Russ and Orlok, Investigation 12 for the mic in the wreckage, Insight 12 in the party room, Insight 10 and the whole optional scare before the cellar, Perception 14 for the man with the clipboard.
-- New lines: *"It's only the rehearsal, and you missed your entrance."*, *"I know that mask. I've worn it for centuries."*, *"Not you. Them."*, *"Twenty-four years."*, *"What's on the drive?"*, *"Let them play it."*, the scare's lines, Poe Boy's *"Live and direct from the Dood house! Stay tuned!"* and *"Don't touch that dial!"*, Stinky's *"You said he ran off, man."*, Orlok's fallback, and every stage-change read-aloud and token note. Marcus's AIM lines *"he has mics all over this house"* and *"they think i ran off"*.
-- Refusal 2 of 3 at the start of the developer's stage.
-- **Two lines corrected against canon.** The brief's *"four hundred years"* became *"centuries"*: the doc never gives Dracula's age, and *centuries* is the existing wording. The brief's *"Twenty-five years"* became *"Twenty-four years"*: the photo is `10 31 '79`, Bix was born about nine months later, and Goblinenon died around then, so about 1980.
+- Every new DC, prompt and fallback: Perception 12 for the mic on the stairs and for Dracula's aside, Insight 12 for Russ and Orlok, Investigation 12 for the mic in the wreckage, Insight 12 in the party room, Insight 10 and the whole optional scare before the cellar.
+- New lines: *"It's only the rehearsal, and you missed your entrance."*, *"I know that mask. I've worn it for centuries."*, the scare's lines, the end-of-AIM read-aloud, and Poe Boy's *"Live and direct from the Dood house! Stay tuned!"*. Marcus's AIM lines *"he has mics all over this house"* and *"they think i ran off"*.
+- *"Centuries"* rather than the brief's *"four hundred years"*: the doc never gives Dracula's age, and *centuries* is the existing wording.
+- Refusal 2 of 3 at the start of the developer's phase.
 - No roll or spell opens the ballroom before 2:30.
+
+**Held, Scott is rethinking it:** the final battle's flow and fight beats, from the moment Ostrander breaches. Cue 14 and `run/fights.js` keep their existing beats, with the 3AM lie taken out, until he decides. How the vampires turn on Poe Boy is part of that.
 
 ## 📗 Story walk — Scott's decisions, 2026-11-06
 
@@ -327,7 +327,7 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 9. **What Angelique does at the finale.** She is at the AIM scene and stays through the final battle (`Scott, 2026-11-06`); what she does there is still open.
 10. ~~**The troop leader**~~ — **answered 3 Nov:** an over-earnest scout dad who runs Troop 187's nursing-home
     visits and drives Vinny up at dawn (table above). His name is still open. `Scott, 3 Nov`.
-11. ~~**Where the vampires stand at 3AM before the developer breaches.**~~ — **answered:** they stay on the job until 3AM, when the crowd is their target, then fight the developer's men. They turn on Poe Boy when he refuses to let the drive play. Sesh 7's *"takes control of some vampires"* no longer happens. `Scott, 2026-11-06`.
+11. ~~**Where the vampires stand at 3AM before the developer breaches.**~~ — **answered in part:** they stay on the job until 3AM, when the crowd is their target, and the lie is cut. Sesh 7's *"takes control of some vampires"* no longer happens. How they turn in the fight is held with the final battle. `Scott, 2026-11-06`.
 12. **The card doesn't say VIP.** Spencer's card reads *Haunted House · Dood Mansion · 8 PM*: no *VIP*, no *you're
     on the list*, no 3AM hint. The run and codex now play the skip-day beat as *being invited salvages the day*.
     Open: does anyone tell the five they're VIPs, and how do they learn the night runs to 3AM?

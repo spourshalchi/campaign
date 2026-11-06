@@ -136,25 +136,6 @@
   .lk{margin:0 0 12px}
   .lk-at{margin:0 0 6px;font-size:14px;color:var(--mut);font-style:italic}
   .lby{display:block;margin-top:1px;font-size:13px;color:var(--gold)}
-  /* The final battle's strip: the stage and the enemy right now */
-  .stg{flex:0 0 auto;margin:0 0 10px;border:1px solid var(--blood);border-radius:12px;background:#1d0d13;padding:8px 10px}
-  .stg-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
-  .stg-t{min-height:44px;padding:4px 8px;border-radius:8px;border:1px solid var(--edge);background:var(--panel);color:var(--mut);
-    font:600 14px/1.15 var(--f-body);text-transform:uppercase;letter-spacing:.03em;cursor:pointer}
-  .stg-t b{font-family:var(--f-mono)}
-  .stg-t.on{background:var(--blood);border-color:var(--blood);color:#fff}
-  .stg-p{display:none;margin-top:8px}
-  .stg-p.on{display:block}
-  .stg-en{margin:0;font-size:clamp(17px,2.4vw,22px);font-weight:700;color:#fff;line-height:1.2}
-  .stg-en span{display:inline-block;margin-right:8px;font:700 13px/1 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:#ff9aaa}
-  .stg-d{margin:4px 0 0;font-size:14.5px;line-height:1.4;color:var(--ink)}
-  .stg-d b{color:#ff9aaa}
-  /* One stage change: Scott's read, Spencer's line, the tokens */
-  .chg{margin:0 0 14px;padding:10px 12px;border:2px solid var(--blood);border-radius:12px;background:#1d0d13}
-  .chg-h{margin:0 0 8px;font-weight:700;font-size:15px;color:#fff}
-  .chg .read{margin:0 0 8px}
-  .chg-r{margin:0 0 6px;font-size:14.5px;line-height:1.4}
-  .chg-r b{display:inline-block;min-width:66px;margin-right:6px;color:#ff9aaa}
   /* Two zones on one screen: Scott narrates (gold), Spencer voices (pink).
      Wide enough → the stage stops scrolling and each zone scrolls on its own. */
   .zones{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:14px;align-items:stretch}
@@ -554,7 +535,7 @@
   </div>
 </div>
 
-<script src="fights.js?v=4"></script>
+<script src="fights.js?v=5"></script>
 <script src="sounds/manifest.js?v=2"></script>
 <script>
 "use strict";
@@ -1202,88 +1183,62 @@ const SCENES = [
   ],
   cues:["rig","aim","lockclick","heart","smash","bell","pa","braaam"] },
 
-{ act:"finale", no:"14 · i", stage:1, title:"The developer", where:"The ballroom · 3AM · stage 1 of 3 · the only lethal fight",
+{ act:"finale", no:"14 · i", title:"Climax — Phase 1: the developer breaches", where:"The ballroom · 3AM · the crowd arrives with the show · the only lethal fight",
   setting:"3AM, and the house is suddenly full of people. The ballroom is rigged as a stage: decks on the dais, cables run off into the walls, lights swinging over a crowd still pouring in. And Poe Boy's voice is in every speaker at once.",
   pace:[
-    "Russ shows Orlok the card. He still won't sign. <b>Refusal 2 of 3.</b> <span class='ai'>🟡</span>",
-    "The crowd pours in, hard hats among them. <b>Perception DC 14</b> (below). <span class='ai'>🟡</span>",
-    "Poe Boy on the mic <b>names all five</b>. &#128275;",
-    "Dracula, waiting in the wings: <b>&ldquo;Not you. Them.&rdquo;</b> &#128275; <span class='ai'>🟡</span>",
-    "<b>Ostrander seals the exits and attacks.</b> &#128275; &#9876; The only lethal fight.",
-    "The vampires go for his men. Edward, on seeing them: <b>&ldquo;Twenty-four years.&rdquo;</b> <span class='ai'>🟡</span>",
+    "At the start: Russ shows Orlok the card. He still won't sign. <b>Refusal 2 of 3.</b> <span class='ai'>🟡</span>",
+    "The crowd arrives with the show. Poe Boy on the mic <b>names all five</b>. &#128275;",
+    "<b>Ostrander breaches</b> and seals the exits behind him, his own crew included. &#128275; &#9876; The only lethal fight.",
+    "The vampires go for his thugs. &#128275;",
     "The party kills him."
   ],
   ends:"when he goes down. Stop, and let the room be quiet.",
   read:[
-    {who:"The crowd pours in 🟡", t:"The doors are open and the crowd is pouring in. Costumes, glitter, a few hard hats that might be costumes. Every face is turned up to the decks, smiling."},
-    {who:"He seals the exits 🟡", t:"A man with a clipboard steps out of the crowd and says one word. Every door in the ballroom slams and stays shut. The men in hard hats take out crowbars."},
     {who:"After he goes down", t:"Stop. Let the room be quiet for a moment."}
   ],
-  checks:[
-    {skill:"Perception", dc:"14", sug:true, note:"<b>Call it</b> as the crowd pours in. <b>Success:</b> among the charmed crowd, one man with a clipboard isn't charmed. That PC gets a warning before the breach. <b>Nobody spots him:</b> he breaches on schedule. <span class='ai'>🟡</span>"}
-  ],
   talk:[
-    {who:"Orlok · Russ shows him the card", t:"Looks at it. Doesn't sign it. <span class='ai'>🟡</span>"},
-    {who:"DJ Poe Boy · on the mic", t:"He names all five of them, in borrowed voices."},
-    {who:"Dracula · in the wings, to the party", t:"Not you. Them. <span class='ai'>🟡</span>"},
-    {who:"Edward · on seeing Ostrander's men", t:"Twenty-four years. <span class='ai'>🟡</span>"}
+    {who:"DJ Poe Boy · on the mic", t:"He names all five of them."}
   ],
   rev:[
     {by:"DJ Poe Boy", who:"Players", t:"hear him name all five of them in front of everyone."},
-    {by:"Dracula", who:"Players", t:"learn from &ldquo;Not you. Them.&rdquo; that the vampires are after the crowd, not them."},
     {by:"scott", who:"Players", t:"meet the man behind the checkout card: <b>W. Ostrander</b>, the developer."}
   ],
   beats:[
-    "<b>Angelique stays through the final battle</b> &mdash; what she does is still open.",
-    "<b>Let his death have its silence.</b> Nothing funny until the room has been quiet."
+    "<b>The crowd arrives with the show.</b> The five have been alone seven hours; at three the house fills up for Poe Boy's party, and every beat from here has an audience. <b>Angelique stays through the final battle</b> &mdash; what she does is still open.",
+    "<b>Where the vampires' heads are:</b> the 3AM crowd is the <b>bait for their scare</b>, not a rival event &mdash; the audience they've waited all night for. The developer's breach cuts in before they scare anyone. <span class='ai'>🟡</span>",
+    "Then the party kills him &mdash; converting &ldquo;not our enemy&rdquo; into &ldquo;the people who solved our actual problem, in front of us.&rdquo; <b>Two moments, not one.</b>",
+    "His crew dies in the scramble; <b>he's the death the room stops for</b> &mdash; the one with a name and a face, killed by the party. Self-defence &mdash; he sealed them in and attacked first &mdash; but these are teenagers. <b>Let it have its silence before the comedy starts.</b>"
   ],
   fight:FIGHTS.developer,
   npcs:[
-    {nm:"DJ Poe Boy", vc:"On the decks, on the mic, in borrowed lines. Holds the crowd with an Enthralling Performance. Not in this fight."},
+    {nm:"DJ Poe Boy", vc:"On the mic in borrowed lines. An Enthralling Performance holds the 3AM crowd &mdash; he needs them frightened and he needs them to stay."},
     {nm:"Orlok", vc:"Russ shows him the card at the start of the scene. He still won't sign. <span class='ai'>🟡</span>"},
-    {nm:"Dracula", vc:"In the wings, saving himself for the crowd. &ldquo;Not you. Them.&rdquo; <span class='ai'>🟡</span>"},
-    {nm:"Edward", vc:"Sees Ostrander's men and says one line. Doesn't explain it. <span class='ai'>🟡</span>"},
-    {nm:"W. Ostrander", vc:"An adult with a clipboard. Walks in with the crowd: it's the first time a door here has been open to him. Within four seconds it stops being folklore and becomes a contamination problem on a site he's paid for. Brushes off Poe Boy's recruit pitch."}
+    {nm:"W. Ostrander", vc:"An adult with a clipboard. Walks in with the crowd: it's the first time a door here has been open to him. Within four seconds it stops being folklore and becomes a contamination problem on a site he's paid for. Brushes off Poe Boy's recruit pitch. Wants the site cleared for the Galleria."}
   ],
   reminders:[
-    {t:"Give the death its <b>silence</b>. The comedy doesn't start until this lands.", k:"rule"}
+    {t:"His death is what <b>flips the vampires &mdash; no persuasion check.</b>", k:""},
+    {t:"Russ's badge req 3 opens next: heal a vampire under fire.", k:""},
+    {t:"Give the death its <b>silence</b>. The comedy doesn't start until this lands.", k:"rule"},
+    {t:"Poe Boy opens the front door at 2:30 for the crowd, and the ballroom with it.", k:""}
   ],
   cues:["set","crowd","pa","bolt","jump","braaam"] },
 
-{ act:"finale", no:"14 · ii", stage:2, title:"The booth", where:"The ballroom decks · stages 2 and 3 of 3 · badge req 3 of 3",
-  setting:"The developer is down and the exits are still sealed. The crowd is pressed to the walls, and up on the decks Poe Boy and Lil Stinky haven't moved.",
-  trans:[
-    {top:true, from:"The developer", to:"The booth",
-     read:"The man who wanted this house is dead on the floor, and the vampires know who did it. They owe you. What's left is up on the decks: Poe Boy, Lil Stinky, and the only aux in the house.",
-     spencer:"Orlok: &ldquo;What's on the drive?&rdquo; Then, to Poe Boy: &ldquo;Let them play it.&rdquo; Poe Boy refuses and casts Command: &ldquo;Drop.&rdquo; That refusal is what turns the vampires on him.",
-     tokens:"Take off Ostrander and any thugs left standing. Put on Poe Boy and Lil Stinky at the decks. The vampires stay.",
-     fallback:"The party doesn't mention the drive: Orlok asks what they found upstairs, and Poe Boy panicking over it gives it away."},
-    {from:"The booth", to:"The recording",
-     read:"His set cuts out mid-scream. Then typing. A door shuts. Then a scared kid, asking someone to open it. Asking again, quieter. And under all of it, perfectly calm, Poe Boy: nudging a level up, leaning in close to listen, pleased with how clean it sounds.",
-     spencer:"Lil Stinky sits down: &ldquo;You said he ran off, man.&rdquo;",
-     tokens:"Clear the map. The fight's over."}
-  ],
+{ act:"finale", no:"14 · ii", title:"Climax — Phase 2: the booth", where:"The ballroom decks · badge req 3 of 3",
+  setting:"The developer is down and the exits are still sealed. The crowd is pressed to the walls, the vampires are on your side now, and up on the decks Poe Boy and Lil Stinky aren't letting anyone near the aux.",
   pace:[
-    "<b>Stage 2.</b> Read the stage change above. The party tells the vampires about Marcus and the drive; Orlok asks Poe Boy to let them play it. He refuses. &#128275; &#9876; Party plus three vampires against Poe Boy and Stinky.",
+    "<b>The vampires turn</b> &mdash; no persuasion check. &#9876; Party plus three vampires against Poe Boy and Stinky.",
     "<b>Get the USB to the decks.</b> Command (&ldquo;Drop.&rdquo;) only costs time; Stinky standing guard at the decks is the puzzle.",
     "<b>Badge req 3</b>, any round: Russ heals a vampire under fire.",
-    "<b>Stage 3.</b> The USB hits the decks: read the stage change below. &#128275; Stinky's oath breaks, no save.",
+    "The USB hits the decks: <b>narrate the recording</b> (read-aloud). &#128275; Stinky's oath breaks, no save.",
     "<b>IF Simone paid the goat</b> &rarr; Spencer voices Marcus (his zone).",
     "Silence, one boo, then the whole room. <b>Dracula seizes the mic.</b> Poe Boy's Command stops landing."
   ],
   ends:"on the fight running into the early morning. Cut to the driveway at sunrise.",
   read:[
     {who:"The objective", t:"Get the USB to the decks and get on aux."},
+    {who:"When the USB hits the decks · narrate the recording 🟡", t:"Typing. A door shuts. Then a scared kid, asking someone to open it. Asking again, quieter. And under all of it, perfectly calm, Poe Boy: nudging a level up, leaning in close to listen, pleased with how clean it sounds."},
     {who:"Then let it sit", t:"The speakers hiss. Nobody in the ballroom moves."},
     {who:"On the last turn 🟡", t:"It runs on into the early morning. By the end, the ballroom windows have gone grey."}
-  ],
-  talk:[
-    {who:"Orlok · to the party, after the silence", t:"What's on the drive? <span class='ai'>🟡</span>"},
-    {who:"Orlok · to Poe Boy", t:"Let them play it. <span class='ai'>🟡</span>"},
-    {who:"DJ Poe Boy · refusing, on whoever holds the USB", t:"Drop. <span class='ai'>🟡</span>"},
-    {who:"Orlok · if nobody mentions the drive", t:"You came down those stairs running. What did you find up there? <span class='ai'>🟡</span>"},
-    {who:"DJ Poe Boy · panicking, borrowed voices", t:"Don't touch that dial! <span class='ai'>🟡</span>"},
-    {who:"Lil Stinky · when the recording plays, sitting down", t:"You said he ran off, man. <span class='ai'>🟡</span>"}
   ],
   ifblock:{when:"IF Simone paid the goat", say:"Spencer voices <b>Marcus</b> through every speaker in the house. Lowercase, the way he typed.",
     lines:[
@@ -1295,14 +1250,13 @@ const SCENES = [
     otherwise:"If she said no, skip it. The room has already turned; the ending loses nothing."},
   beats:[
     "<b>Objective:</b> the USB is wherever the party left it. If it's still <b>upstairs in the old rig</b>, someone runs it down (about 2 rounds).",
-    "Stinky's <b>Aura of Protection</b> buffs Poe Boy's saves &mdash; a puzzle, not a wall."
+    "Stinky's <b>Aura of Protection</b> buffs Poe Boy's saves &mdash; a puzzle, not a wall. <b>He isn't charmed; he just believes his friend.</b>"
   ],
   checks:[
     {skill:"Get to / hold the decks", dc:"no DC", sug:false, note:"The keep-away is the fight. Deal with Stinky to drop the aura, then plug in."}
   ],
   fight:FIGHTS.booth,
   rev:[
-    {by:"Orlok", who:"The vampires", t:"turn on Poe Boy when he refuses to let the drive play. Until then they don't fight him. <span class='ai'>🟡</span>"},
     {by:"scott", who:"The vampires", t:"learn from the recording Scott narrates that <b>a boy died in their house</b> and Poe Boy let it happen. He never went out a window. They had no idea."},
     {by:"scott", who:"Players", t:"realise <b>&ldquo;he said five&rdquo;</b> was about <b>Poe Boy</b> &mdash; he's the boy who told the vampires exactly five were coming."},
     {by:"scott", who:"The 3AM crowd", t:"learn the truth from the same recording: Poe Boy's calm voice under a scared kid. Silence, one boo, then the whole room."},
@@ -1311,7 +1265,6 @@ const SCENES = [
     {by:"Dracula", who:"The crowd", t:"hear Dracula seize the mic and denounce Poe Boy, magnificently."}
   ],
   npcs:[
-    {nm:"Orlok", vc:"Owes the party, and says so by asking one question. Doesn't fight Poe Boy until he refuses. <span class='ai'>🟡</span>"},
     {nm:"DJ Poe Boy", vc:"Not killed &mdash; <b>un-performed</b>. The glamour breaks, then his parents call him Upton."},
     {nm:"Lil Stinky", vc:"Stoner, bad rapper, honest to a fault. The only one not charmed &mdash; he just believes his friend. Oath breaks, he stops fighting and sits down. Diss track on Monday."},
     {nm:"Dracula", vc:"Seizes the mic and denounces Poe Boy magnificently. Waited all night for a real audience."}
@@ -1495,20 +1448,20 @@ const EXEC = {
     at:"The last room, nearing 3AM. The mystery gets answered here.",
     land:[["<b>Poe Boy</b> shut the door on him: killed by a human.","On screen, in AIM"],["<b>MARCUS_HALE</b>: the kid on the posters. Simone and Angelique realise it's the same boy.","On screen; Spencer plays Angelique"],["They hold <b>the recording</b> on the USB.","On screen"],["The party is <b>Poe Boy's</b>, and he's recorded them all night.","Scott, then Spencer on the speakers"]],
     next:"Every speaker comes on: 3AM. No break from here to the driveway.", go:["14 · i"],
-    save:[["Skip","They leave the USB behind: it stays where it is. At the booth someone runs it down."],
+    save:[["Skip","They leave the USB behind: it stays where it is. In phase 2 someone runs it down."],
           ["Absent","Simone's out: the answer to the goat is no."]]},
   "14 · i":{mins:45,
-    late:"When Ostrander drops, his remaining thugs drop their crowbars.",
-    do:["Crowd (5) as the house fills; PA (p) when Poe Boy takes the mic.","Poe Boy's and Stinky's tokens stay off the table."],
+    late:"When Ostrander drops, his remaining thugs die in the scramble.",
+    do:["Crowd (5) as the house fills; PA (p) when Poe Boy takes the mic."],
     at:"3AM. The ballroom is open, the crowd is here, and they just heard their own screams.",
-    land:[["Refusal 2 of 3: Orlok still won't sign. <span class='ai'>🟡</span>","Spencer"],["The vampires want the crowd, not them: <b>&ldquo;Not you. Them.&rdquo;</b>","Spencer"],["Ostrander dies. <b>Let it be quiet.</b>","Scott"]],
-    next:"Silence. Then the booth card: read the stage change.", go:["14 · ii"],
+    land:[["Refusal 2 of 3: Orlok still won't sign. <span class='ai'>🟡</span>","Spencer"],["Poe Boy <b>names all five</b> on the mic.","Spencer"],["Ostrander dies. <b>Let it be quiet.</b>","Scott"]],
+    next:"Silence, then the booth: cue 14 · ii.", go:["14 · ii"],
     save:[["Losing","See Losing? on the fight card."]]},
   "14 · ii":{mins:40,
     late:"The USB reaches the decks by round 2.",
-    do:["Swap the tokens (stage change below).","Where's the USB? Still upstairs, someone runs it down (about 2 rounds)."],
-    at:"The developer is dead. Different fight, different enemy.",
-    land:[["The vampires turn on Poe Boy because <b>he won't let the drive play</b>.","Spencer"],["The recording: <b>a boy died here</b> and Poe Boy let it happen.","Scott narrates"],["<b>&ldquo;He said five&rdquo;</b> was Poe Boy.","Scott"],["Badge req 3: Russ heals a vampire under fire.","Russ does it, any round"]],
+    do:["Where's the USB? Still upstairs, someone runs it down (about 2 rounds)."],
+    at:"The developer is dead.",
+    land:[["The recording: <b>a boy died here</b> and Poe Boy let it happen.","Scott narrates"],["<b>&ldquo;He said five&rdquo;</b> was Poe Boy.","Scott"],["Badge req 3: Russ heals a vampire under fire.","Russ does it, any round"]],
     next:"It runs into the early morning, then the driveway at sunrise: cue 15.", go:["15"],
     save:[["Losing","The USB can't be destroyed; one bad save never ends it. Stinky's oath breaks with no save."]]},
   "15":{mins:20,
@@ -1554,16 +1507,6 @@ function roomsLine(){
   return `<p class="rooms">Rooms: ${["10","11","12"].map(n=>{ const s=SCENES[idxOf(n)];
     const here=String(SCENES[cur].no)===n;
     return `<span class="${isDone(n)?"rd":here?"rh":""}">${isDone(n)?"✓":here?"&#9656;":"&#9744;"} ${s.title.replace(/^The /,"")}</span>`; }).join(" · ")}</p>`;
-}
-
-/* The final battle's strip: which stage, and who the enemy is right now. Stage 3 shares the booth's card. */
-let stageView = 0;
-function stageStrip(s){ if(!s.stage) return "";
-  const now = stageView || s.stage; stageView = 0;
-  return `<div class="stg">`+
-    `<div class="stg-tabs">${STAGES.map(x=>`<button class="stg-t${x.n===now?" on":""}" data-stage="${x.n}"><b>${x.n}</b> ${x.name}</button>`).join("")}</div>`+
-    STAGES.map(x=>`<div class="stg-p${x.n===now?" on":""}" data-stagep="${x.n}"><p class="stg-en"><span>Enemy right now</span> ${x.enemy}</p>`+
-      `<p class="stg-d">${x.notes.map(([k,v])=>`<b>${k}:</b> ${v}`).join(" &middot; ")} <span class="ai">🟡</span></p></div>`).join("")+`</div>`;
 }
 
 /* Spencer's zone: dialogue, then each NPC with voicing and what they reveal */
@@ -1681,7 +1624,7 @@ function render(i){
   if(s.fight){
     const f = s.fight;
     const runBox = f.run ? `<div class="runf"><p class="runf-h">Running this fight <span class="ai">🟡</span></p>`+
-      [["Enemy",f.run.enemy],["Setup",f.run.setup],["Matchups",f.run.matchups],
+      [["Setup",f.run.setup],["Matchups",f.run.matchups],
        ["Beats",f.run.beats&&`<ol class="runf-b">${f.run.beats.map(b=>`<li>${b}</li>`).join("")}</ol>`],
        ["Allies",f.run.allyJob],["Win",f.run.win],["Ends",f.run.ends],["Losing?",f.run.losing]]
         .filter(([,v])=>v)
@@ -1729,9 +1672,6 @@ function render(i){
   const beatsHTML = (s.beats && s.beats.length) ? `<div class="block"><p class="h">${s.pace?"Notes":"The beats"}</p><ul class="beats">` +
     s.beats.map(b=>`<li>${b}</li>`).join("") + `</ul></div>` : "";
   const canonHTML = s.act==="set" ? `<div class="block"><p class="h">Canon</p><div class="canon-note">Read-aloud lines and cues are drawn from the <b>codex</b> (DM-side suggestions, not player-facing truth). Skill-check DCs marked <b>*</b> and everything marked <b>🟡</b> &mdash; reveals, Leave knowing, Next, Rescues, the clock plan &mdash; are proposals for this tool, not signed off &mdash; tune freely. Nothing here makes anything canon.</div></div>` : "";
-  const chgHTML = t => `<div class="chg"><p class="chg-h">▶ Stage change: ${t.from} &rarr; ${t.to} <span class="ai">🟡</span></p><div class="read"><div class="rl">Scott reads</div><p>${t.read}</p></div>`+
-    `<p class="chg-r"><b>Spencer</b>${t.spencer}</p><p class="chg-r"><b>Tokens</b>${t.tokens}</p>`+(t.fallback?`<p class="chg-r"><b>Fallback</b>${t.fallback}</p>`:"")+`</div>`;
-  const chgTop = (s.trans||[]).filter(t=>t.top).map(chgHTML).join(""), chgEnd = (s.trans||[]).filter(t=>!t.top).map(chgHTML).join("");
   const refBody = revBlock(revs.filter(r=>r.by==="scott"),"🔓 All reveals") + remHTML + beatsHTML + canonHTML;
   const refHTML = refBody ? `<p class="ref-h">Reference</p>${refBody}` : "";
 
@@ -1741,10 +1681,9 @@ function render(i){
   stage.innerHTML =
     `<div class="slide-head"><span class="no">${noLabel(s)}</span>`+
     `<h2>${s.title}</h2>${e.mins?`<span class="mins">~${e.mins} min <span class="ai">🟡</span></span>`:""}<span class="where">${s.where}</span></div>`+
-    stageStrip(s)+
     `<div class="zones">`+
       `<section class="zone z-scott"><p class="zh"><span>Scott</span> · narrate</p>`+
-        `${checkHTML}${landHTML}${doHTML}${floatHTML}${setHTML}${chgTop}${paceHTML}${chgEnd}${readHTML}${checksHTML}${lvHTML}${wrapHTML}${saveHTML}${fightHTML}${refHTML}</section>`+
+        `${checkHTML}${landHTML}${doHTML}${floatHTML}${setHTML}${paceHTML}${readHTML}${checksHTML}${lvHTML}${wrapHTML}${saveHTML}${fightHTML}${refHTML}</section>`+
       `<section class="zone z-spencer"><p class="zh"><span>Spencer</span> · voice</p>${spHTML}</section>`+
     `</div>`;
 
@@ -2177,10 +2116,6 @@ stage.addEventListener("click",e=>{
   const dn=e.target.closest("[data-do]"); if(dn){ const k=dn.dataset.do, st=loadK(DKEY); st[k]=!st[k]; saveK(DKEY,st);
     dn.classList.toggle("done",!!st[k]); refreshCounts(); return; }
   const gb=e.target.closest("[data-go]"); if(gb){ markDone(cur,true); render(+gb.dataset.go); return; }
-  const sb=e.target.closest("[data-stage]"); if(sb){ const n=+sb.dataset.stage, home=n===1?"14 · i":"14 · ii";
-    if(String(SCENES[cur].no)!==home){ stageView=n; render(idxOf(home)); return; }
-    stage.querySelectorAll("[data-stage]").forEach(b=>b.classList.toggle("on",+b.dataset.stage===n));
-    stage.querySelectorAll("[data-stagep]").forEach(b=>b.classList.toggle("on",+b.dataset.stagep===n)); return; }
   const cr=e.target.closest("[data-clockreset]"); if(cr){ if(confirm("Restart this day's clock from zero?")){ clockStart(cr.dataset.clockreset,true); tickTimer(); } return; }
   if(e.target.closest("[data-prepreset]")){ if(confirm("Clear every tick (checklists, Do now, scenes done) and both day clocks?")){
     try{ [PKEY,DKEY,NKEY,CKEY,SKEY,"dood_props_v1","dood_party_v1","dood_notes_v1","dood_floating_v1"].forEach(k=>localStorage.removeItem(k)); }catch(err){} render(cur); } return; }

@@ -89,7 +89,7 @@ const allyBox = f => { if(!f.allies) return "";
   if(!list.length) return "";
   return `<div class="allies"><span class="k">${f.run.allyJob?"Also":f.alliesLabel||"Allies"}</span>${list.map(a=>`<p><b>${a.nm}</b> · ${a.act}</p>`).join("")}${f.allyNote?`<p>${f.allyNote}</p>`:""}</div>`; };
 const fight = f => `<div class="fight"><div class="top"><h2>${f.name}</h2>
-  <div class="run">${f.run.enemy?`<div><b>Enemy right now</b> ${f.run.enemy}</div>`:""}${f.run.matchups?`<div><b>Matchups</b> ${f.run.matchups}</div>`:""}${f.run.beats?`<div class="beats">${f.run.beats.map(b=>`<div>${b}</div>`).join("")}</div>`:""}${f.run.allyJob?`<div><b>Allies</b> ${f.run.allyJob}</div>`:""}<div><b>Win</b> ${f.run.win}</div>${f.run.beats?"":`<div><b>Ends</b> ${f.run.ends}</div>`}<div><b>Losing?</b> ${f.run.losing}</div></div>
+  <div class="run">${f.run.matchups?`<div><b>Matchups</b> ${f.run.matchups}</div>`:""}${f.run.beats?`<div class="beats">${f.run.beats.map(b=>`<div>${b}</div>`).join("")}</div>`:""}${f.run.allyJob?`<div><b>Allies</b> ${f.run.allyJob}</div>`:""}<div><b>Win</b> ${f.run.win}</div>${f.run.beats?"":`<div><b>Ends</b> ${f.run.ends}</div>`}<div><b>Losing?</b> ${f.run.losing}</div></div>
   ${f.tally?`<div class="run"><b>${f.tally.label}</b> start at ${f.tally.start}: 1–2 → 9 pieces · 3–4 → 16 · 5+ → 25. Tally: ________</div>`:""}</div>
   ${f.foes.map(foe).join("")}
   ${allyBox(f)}
