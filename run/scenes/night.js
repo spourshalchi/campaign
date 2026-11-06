@@ -11,20 +11,22 @@ SCENES.push(
     {note:"The doors bolting: state it flatly, once. It doesn't need justifying.", k:"rule"},
     {snd:["bolt","steps","jump"], t:"The bolt, the footsteps, the hand"},
     {say:"That's a bolt throwing behind you. Footsteps overhead &mdash; and a hand comes out of the dark, grabs your sleeve, and pulls you down. It's <b>Angelique</b>."},
-    {do:"Footsteps overhead &mdash; <b>Angelique grabs a sleeve and pulls them down into hiding</b>. She won't say from what."},
-    {note:"Angelique reaches them first and tells them to hide. <b>Don't let her explain yet</b> &mdash; &ldquo;hiding from what&rdquo; is the investigation's first question. Make them earn it."},
-    {do:"<b>If they try the door</b>: it doesn't move, there's no bolt on their side, and Angelique answers them (Spencer)."},
+    {do:"<b>Spencer's turn:</b> Angelique tells them to get down and stay quiet."},
+    {do:"<b>If they try the door:</b> it doesn't move, and there's no bolt on their side to throw. <b>Spencer's turn:</b> Angelique answers them."},
     {end:"hidden in the dark with Angelique &mdash; straight into first contact."}
   ],
   next:"Hidden in the dark, they hear voices: straight into cue 6.", go:["6"],
   talk:[
+    {who:"Angelique · pulling them down", t:"Get down. Get <i>down</i>. Stay quiet."},
+    {who:"Angelique · asked what from", t:"Just listen."},
+    {who:"Angelique · asked why she's here", t:"Not now."},
     {who:"Angelique · if they try the door", t:"Go on then. You'll just have to walk back past whatever I walked past."}
   ],
   rev:[
     {by:"Angelique", who:"Players", t:"learn Angelique is inside and hiding from something. Not what, and not why she came."}
   ],
   npcs:[
-    {nm:"Angelique", vc:"A frightened stranger who won't say why she came. Worth far more than an exposition tap. Her reason (don't say it yet): last month she typed some of Poe Boy's AIM messages to a kid, thinking it was a prank; the kid stopped coming to school; and she feels a pull to this house. She came to find out."}
+    {nm:"Angelique", pts:["Get them down and quiet","Won't say what she's hiding from","Won't say why she came","If they try the door: go ahead, but they'd have to walk back past what she walked past"], vc:"Frightened, whispering, won't say why she came. Her reason (don't say it yet): last month she typed some of Poe Boy's AIM messages to a kid, thinking it was a prank; the kid stopped coming to school; and she feels a pull to this house. She came to find out."}
   ],
   cues:["wind","drone","bolt","steps","jump"] },
 
