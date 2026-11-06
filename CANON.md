@@ -71,6 +71,28 @@ rather than assuming, because it touches what the bolt actually means for the pa
 
 ---
 
+## 📗 Story walk — Scott's decisions, 2026-11-06
+
+> Scott's calls on the plot holes from the invite-to-final-scene story walk (codex to-do p7).
+
+| Decision | Source |
+|---|---|
+| **Angelique's route is the party's choice.** She may travel with them through the house or not. If not, she's at the AIM door when the chime plays. Either way she is at the AIM scene and stays through the final battle. What she does there is still open question 9 | Scott, 2026-11-06 |
+| **The ending clock is glossed.** The fight runs into the early morning, then the driveway at sunrise. No seal mechanic: nothing has to lift Ostrander's seal on screen. *"Upton, honey?"* belongs to the driveway | Scott, 2026-11-06 |
+| **Rests.** Sunday starts at full HP and spell slots, plus one short rest before 3AM | Scott, 2026-11-06 |
+| **The class presentation has nothing to show.** There were plenty of witnesses, so no tape and no ancient Dutch artifact | Scott, 2026-11-06 |
+| **Marcus.** The school thought he ran away, and there were posters for a month | Scott, 2026-11-06 |
+| **The survey memo.** Poe Boy brought it to the vampires as proof of the threat | Scott, 2026-11-06 |
+| **Driveway arrivals.** Vinny keeps insisting he's late for the card game, so the scout dad drives him up. The parents come because they've been wondering where their kids have been | Scott, 2026-11-06 |
+| **Russ gets the badge no matter what**, including if he misses a requirement or the player is absent | Scott, 2026-11-06 |
+| **Simone having no Saturday moment is fine.** It isn't a gap | Scott, 2026-11-06 |
+| **Orlok's ledger dates stay as printed** (spring 2005, against a Halloween 2004 night). Scott: they won't notice | Scott, 2026-11-06 |
+| **The name on the backpack stays.** His name isn't a big reveal, so the USB isn't to be treated as a name reveal | Scott, 2026-11-06 |
+
+🟡 **Not canon yet, wording added to apply these:** the booth's last read-aloud (*"It runs on into the early morning. By the end, the ballroom windows have gone grey."*) and the AIM cue's prompt to offer the short rest before the chime. The driveway names only Poe Boy's parents, so the Run and codex say *their kid*.
+
+**Still under discussion with Scott, unchanged here:** sunlight at night and how Russ's requirements 1 and 2 differ, Poe Boy's lie, where Poe Boy is before 2:30 (with final-room access and what sends them there after AIM), the study door, and why Ostrander waits until 3AM.
+
 ## 📗 In Person Session
 
 > Notes from Scott and Spencer's in-person session, under the doc heading **IN PERSON SESSION**. The doc
@@ -272,7 +294,7 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
    `Scott, 3 Nov`. The poster on its door is Spencer's DJ poster (table above).
 8. **How much backstory is written out vs. revealed in dialogue.** Items to place: the silly bandz, 3am, the
    Dolly Parton riff, Angelique's side-eye.
-9. **What Angelique does at the finale.**
+9. **What Angelique does at the finale.** She is at the AIM scene and stays through the final battle (`Scott, 2026-11-06`); what she does there is still open.
 10. ~~**The troop leader**~~ — **answered 3 Nov:** an over-earnest scout dad who runs Troop 187's nursing-home
     visits and drives Vinny up at dawn (table above). His name is still open. `Scott, 3 Nov`.
 11. **Where the vampires stand at 3AM before the developer breaches.** Sesh 7's *"Poe Boy takes control of some
@@ -692,7 +714,7 @@ Three things in the codex were not just unsourced, they were wrong:
 | The vampires are good; they live off small animals; they want to be left alone | Sesh 5, 6 |
 | ~~Fork: find an advantage to fight them **vs.** discover you never had to~~ — **cut in the 24 Aug doc paste.** Spencer's idea; Scott and Spencer are aligned on the cut (3 Nov) | Sesh 2, reversed the 24 Aug doc paste |
 | Doors bolt shut on pure curiosity; the assignment is motivation enough | Sesh 5 |
-| Ancient Dutch artifact recovered at the end, presented in the bookend class | Sesh 5 |
+| ~~Ancient Dutch artifact recovered at the end, presented in the bookend class~~ — **retired:** there were plenty of witnesses, so they present with nothing to show | Sesh 5; retired: Scott, 2026-11-06 |
 | Final-room puzzle reveals the food stash (small animals), ~~releases a key to a hidden room~~ — **retired by Scott:** the cellar is plainly a clinic, with no hidden room | Sesh 6; retired: Scott, 3 Nov |
 | Combat set-piece guards the way to the computer | Sesh 6 |
 | Biggest clue: the kid was killed by a human | Sesh 6 ("maybe"), Sesh 7 |

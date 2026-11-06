@@ -214,7 +214,7 @@ const FIGHTS = {
        turn:["Command, one word, <b>DC 15 Wis save</b>. The PC holding the USB: &ldquo;Drop.&rdquo; (it lands at their feet). Nobody holding it: the PC nearest the decks, &ldquo;Flee.&rdquo; (they spend their next move running from him).",
              "Mic stand at anyone next to him: <b>+4 to hit, 4 bludgeoning</b>. Pathetic on purpose."],
        note:"<b>Can't drop below 1 HP until the recording plays</b>: at 1 he's on his knees behind the decks, still on the mic. +3 on his saves while Stinky is within 10 ft.",
-       drop:"He doesn't drop. Once the recording plays, his Command stops landing, the room boos and Dracula takes the mic. End on the headlights: &ldquo;Upton, honey?&rdquo;",
+       drop:"He doesn't drop. Once the recording plays, his Command stops landing, the room boos and Dracula takes the mic. The fight runs into the early morning; cut to the driveway at sunrise.",
        hard:"He only Commands the PC holding the USB. No &ldquo;Flee.&rdquo;",
        easy:"He Commands two PCs a turn: &ldquo;Drop.&rdquo; and &ldquo;Flee.&rdquo;"},
       {id:"stinky", nm:"Lil Stinky", n:1, ac:18, hp:60, spd:"30", chassis:"Knight", cr:"3", xp:700,
