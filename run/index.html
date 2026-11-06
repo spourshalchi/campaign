@@ -84,6 +84,7 @@
     cursor:pointer;display:flex;align-items:center;justify-content:center}
   .navbtn:hover{background:#2e2444}
   .navbtn:active{transform:translateY(1px)}
+  .navbtn:disabled{opacity:.28;background:transparent;cursor:default;transform:none}
   .nav .counter{padding:0 8px;min-width:92px;text-align:center}
   @media(max-width:1000px){.brand .b2{display:none}}
   @media(max-width:820px){.brand{display:none}.nav .counter{min-width:0}.act-pill{display:none}.topbar{gap:8px;padding:6px 10px}}
@@ -92,7 +93,6 @@
   #prog{flex:0 0 auto;display:flex;gap:2px;height:5px;padding:0 2px;background:#0c0a12}
   #prog span{flex:1 1 0;background:#2a2038;border-radius:2px}
   #prog span.done{background:#2f7a57} #prog span.cur{background:var(--gold)}
-  .slide-head .mins{font-family:var(--f-mono);font-size:13px;color:var(--mut)}
 
   /* stage */
   #stage{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:14px 18px}
@@ -118,13 +118,6 @@
   .ipad-key{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin:6px 0 2px;font-size:14px}
   .ipad-key .k{font-family:Tahoma,Geneva,sans-serif;font-weight:700;color:#1a1206;background:var(--gold);
     border-radius:5px;min-width:26px;text-align:center}
-  .floating{display:flex;flex-wrap:nowrap;align-items:center;gap:8px;margin:0 0 14px;padding:4px 6px 4px 12px;
-    background:#1e1a10;border:1px dashed var(--amber-dim);border-radius:10px;overflow-x:auto;scrollbar-width:none}
-  .floating::-webkit-scrollbar{display:none}
-  @media(max-width:1279px){.floating .fsub,.floating .fp code{display:none}}
-  .floating .fh{flex:1 0 auto;font-size:14px;font-weight:700;color:var(--amber);white-space:nowrap}
-  .floating .fp{flex:0 0 auto;display:flex;align-items:center;min-height:36px;padding:4px 12px;white-space:nowrap;
-    background:#0000004d;border:1px solid var(--amber-dim);border-radius:9px;color:var(--ink);font-size:14px}
 
   /* Leave knowing, first thing on every cue, and who delivers it */
   .lk{margin:0 0 12px}
@@ -478,6 +471,9 @@
   .lv-note{margin:0 0 12px;font-size:14px;color:var(--mut);line-height:1.45}
 
 
+  /* Scene 0 */
+  .op-slot{padding:10px 14px 4px;border:1px dashed var(--gold);border-radius:12px}
+  .op-l{margin:0 0 6px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)}
   /* the level-up card */
   .lv-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:10px;padding:8px 0;border-top:1px solid var(--edge);font-size:15px;line-height:1.45}
   .lv-row b{display:block;color:var(--gold)} .lv-row i{font-style:normal;font-size:13.5px;color:var(--mut)}
@@ -535,7 +531,7 @@
   </div>
 </div>
 
-<script src="fights.js?v=7"></script>
+<script src="fights.js?v=8"></script>
 <script src="sounds/manifest.js?v=2"></script>
 <script>
 "use strict";
@@ -571,16 +567,15 @@ const IPAD = {
 
 /* ============================= PHYSICAL PROPS ============================= */
 /* Every object that goes to the table, in hand-over order. cue = the scene no. it goes
-   out on ("PREP" before play, "float" for the two finds with no fixed room: those go
-   out by cue `due` at the latest). only = a condition. Feeds each cue's Do-now card,
-   the floating strip and the props-bag list on card zero. */
+   out on. only = a condition. Feeds each cue's Do-now card and the props-bag list on
+   card zero. */
 const PROPS = [
-  {id:"backstory",  nm:"Backstory cards",               to:"one per player",        cue:"PREP"},
-  {id:"reqcard",    nm:"Russ's requirements card",      to:"Cody (Russ)",           cue:"PREP"},
+  {id:"backstory",  nm:"Backstory cards",               to:"one per player",        cue:0,  how:"Give them a minute to read."},
+  {id:"reqcard",    nm:"Russ's requirements card",      to:"Cody (Russ)",           cue:0},
   {id:"invites",    nm:"Invite cards",                  to:"one per player",        cue:2,  how:"Spencer's card, one in each locker. No host named."},
   {id:"weight",     nm:"<i>The Weight of Your Lies</i>",to:"John (Yobo)",           cue:4,  how:"face-down, the moment the crew asks for a Dolly riff. Disadvantage on Performance, advantage on Deception."},
-  {id:"sticky",     nm:"Sticky note <code>Fluffy123</code>", to:"the table",        cue:"float", due:13},
-  {id:"survey",     nm:"Site survey",                   to:"the table",             cue:"float", due:13},
+  {id:"survey",     nm:"Site survey",                   to:"the table",             cue:8,  how:"to whoever finds it, from the look-around."},
+  {id:"sticky",     nm:"Sticky note <code>Fluffy123</code>", to:"the table",        cue:9,  how:"to whoever finds it, after the fight and before the screen wakes. They keep it for Sunday."},
   {id:"settlement", nm:"Articles of Settlement",        to:"Julia (Gnomey), alone", cue:10, how:"from the strongbox."},
   {id:"photo",      nm:"The photograph (4&times;6)",    to:"Will (Bix)",            cue:11, how:"say nothing."},
   {id:"truevoice",  nm:"<i>Your True Voice</i>",        to:"John (Yobo)",           cue:11, only:"only if he drops the lie", how:"face-down; it takes the place of the debuff card."},
@@ -591,13 +586,11 @@ const PROPS = [
   {id:"badge",      nm:"The badge",                     to:"Cody (Russ)",           cue:15, how:"from the troop leader, once Orlok signs."},
   {id:"deed",       nm:"The deed",                      to:"Julia (Gnomey)",        cue:15, how:"from Vinny."}
 ];
-const FLOATING = PROPS.filter(p=>p.cue==="float");
 /* saved on this device: prep checklist, Do-now ticks, scenes done, the card you're on */
 const PKEY="dood_prep_v1", DKEY="dood_do_v1", NKEY="dood_done_v1", SKEY="dood_pos_v1";
 function loadK(k){ try{return JSON.parse(localStorage.getItem(k))||{};}catch(e){return {};} }
 function saveK(k,o){ try{localStorage.setItem(k,JSON.stringify(o));}catch(e){} }
 function loadPrep(){ return loadK(PKEY); } function savePrep(o){ saveK(PKEY,o); }
-const MANSION_ACTS = ["night","sunday"];
 
 /* ============================= SCENES ============================= */
 const ACTS = {
@@ -616,18 +609,15 @@ const SCENES = [
       {id:"ipad-home", t:"<b>Players' iPad on its home page</b>, items 1&ndash;2. Add to Home Screen done and cache-busted (<code>?v=</code>). Open item 1 and item 2 once to check they load, then back to home."},
       {id:"laptop", t:"<b>Run of Show open</b>, sound up, soundboard tested (one ambience, one sting). Ticks reset (bottom of this card)."}]},
     {g:"Print run", items:[
-      {id:"print", t:"<b>Print run picked up and cut</b> (<code>/print/</code>): invites, backstory cards, Russ's card, the badge, the willow's tag, the concert tickets, Yobo's two cards, battle tokens, the deed, the survey, the settlement, Orlok's ledger, the DJ poster, character sheets, the combat cheat sheet."},
+      {id:"print", t:"<b>Print run picked up and cut</b> (<code>/print/</code>): invites, backstory cards, Russ's card, the badge, the willow's tag, the concert tickets, Yobo's two cards, battle tokens, the deed, the survey, the settlement, Orlok's ledger, character sheets, the combat cheat sheet."},
       {id:"photo", t:"<b>The photograph</b>: a Staples 4&times;6 photo print of <code>print/photo-4x6.jpg</code>, glossy or lustre. Same-day at most stores."},
       {id:"usb", t:"<b>USB stick</b> labelled <code>MARCUS_HALE</code>."},
       {id:"sticky-made", t:"<b>Sticky note</b> <code>Fluffy123</code>, handwritten. <b>The wishing willow</b>, handmade, with its tag tied on."}]},
     {g:"The room", items:[
-      {id:"poster", t:"<b>DJ poster</b> (<code>5-poster.pdf</code>) taped on the AIM-room door, which stays locked."},
       {id:"table", t:"<b>At the table</b>: character sheets, dice, battle map, the token bag sorted by fight (library, summoning, finale, reserve). Combat cheat sheet by your seat."},
       {id:"seat", t:"<b>Your seat</b>: Run of Show in front of you, the props bag at your feet in the order below, the hidden three (deed, tickets, badge) in a separate envelope."}]},
     {g:"Props bag &middot; packed in hand-over order", pack:true},
     {g:"At the table, before play", items:[
-      {id:"hand-backstory", t:"<b>&#9995; Backstory cards handed out</b>, one per player."},
-      {id:"hand-reqcard", t:"<b>&#9995; Russ's requirements card</b> (printed) to Cody."},
       {id:"spencer", t:"<b>Spencer briefed</b>: his pink zone on every cue."}]}
   ],
   spBrief:[
@@ -637,13 +627,6 @@ const SCENES = [
     "Scott narrates, runs checks and the enemy turns; you voice everyone else.",
     "<b>Handoff:</b> when Scott says an NPC's name and looks at you, you're on. Tap the table when a moment needs a roll or a check, and Scott takes it. <span class='ai'>🟡</span>"
   ],
-  pace:[
-    "<b>Phones away</b>, snacks out, sheets and dice in front of everyone.",
-    "<b>Each player introduces their character</b>: name, one thing you'd see across the room, one thing everyone at school knows about them. <span class='ai'>🟡</span>",
-    "&#9995; <b>Backstory cards</b> to each player, and Russ's card to Cody (ticks below). Give them a minute to read.",
-    "Read cue 1's Setting. You're in."
-  ],
-  ends:"on cue 1's Setting.",
   read:[{t:"Five kids. Two nights. One house that bolts its doors. Everything below is a physical object you want in reach — the story leans on hand-offs."}],
   beats:[
     "<b>Party is level 4</b>, leveling to <b>5</b> at the end of night one. Everything Sunday is built for five level-5 PCs.",
@@ -658,13 +641,27 @@ const SCENES = [
       `<div class="ipad-key">${Object.keys(IPAD).map(n=>`<span class="k">${n}</span><span><b>${IPAD[n].room}</b> &mdash; ${IPAD[n].prop} <code>${IPAD[n].path}</code></span>`).join("")}</div>`
   ],
   npcs:[],
-  reminders:[
-    {t:"<b>Yobo's debuff card doesn't say how to lose it. Don't hint.</b> The buff flips only when he performs as himself for Dracula in the party room; an earlier confession doesn't flip it. <span class='ai'>🟡</span>", k:"rule"},
-    {t:"<b>One physical prop per PC:</b> Bix &mdash; the printed photograph &middot; Gnomey &mdash; the printed deed (Vinny hands it over at the end) &middot; Simone &mdash; the wishing willow &middot; Russ &mdash; badge + card &middot; Yobo &mdash; two secret printed cards, <i>The Weight of Your Lies</i> (gazebo) and <i>Your True Voice</i> (party room).", k:""},
-    {t:"<b>Hand-over order</b> is the props bag list above. Each cue's Do now says <b>✋</b> when it's time.", k:""},
-    {t:"Keep the <b>deed, tickets and badge</b> out of sight until the driveway.", k:"rule"},
-    {t:"Everything printed is in the kit at <code>/print/</code>. That includes Spencer's invite and his DJ poster (taped on the AIM-room door before play). Not printed: the sticky note and the willow (handmade).", k:""}
-  ],
+  cues:[] },
+
+{ act:"town", no:0, title:"Opening the game", where:"At the table · read from this card",
+  opening:{
+    intro:[
+      "Phones away, snacks out, sheets and dice in front of everyone.",
+      "Two days: today and tomorrow. Level 4 now, level 5 at the end of today.",
+      "You narrate and run the rolls. Spencer voices everyone they meet."
+    ],
+    ask:"Who are you? Your name, one thing we'd see across the room, and one thing everyone at school knows about you.",
+    pcs:[
+      ["bix","Bix Grimlor","Will"],
+      ["gnomey","Gnomey Soprano","Julia"],
+      ["simone","Simone's warlock","Simone","no in-world name needed"],
+      ["yobo","Yobo","John"],
+      ["russ","Russ","Cody"]
+    ],
+    know:"You all go to the same school. Who here do you already know, and from where?",
+    keep:"They share what's public, not what's on their backstory cards. Keep it to who knows of whom: they band together in History class."
+  },
+  npcs:[],
   cues:[] },
 
 { act:"town", no:1, title:"History class", where:"Fantasy high school · the bookend opens",
@@ -893,11 +890,13 @@ const SCENES = [
   setting:"The upper floors in the dark: long corridors, doors that won't open, floorboards that answer every step. Every so often, at the end of a hall or in a doorway you've just passed, the same pale figure is standing very still.",
   pace:[
     "Let them explore. They <b>catch Edward watching them</b> &mdash; watching <b>Bix</b>. &#128275;",
+    "<b>The look-around</b> (read-aloud): Investigation <b>DC 12</b>. On a table in a room off the hall, among the vampires' things: the memo, because Poe Boy brought it to them as proof of the threat. <b>Highest roll finds it even on a miss.</b> &#9995; the printed survey. <span class='ai'>🟡</span>",
     "They catch him at it <b>a second time</b>. Play it as horror: <i>the vampire has picked one of us.</i>",
     "He never approaches and never explains. Route them upstairs to the <b>warm door</b> (read-aloud)."
   ],
   ends:"at the warm, breathing door &mdash; straight into the summoning.",
-  read:[{t:"A door on the top floor you haven't tried is warm to the touch &mdash; and something on the other side of it is breathing."}],
+  read:[{who:"The look-around 🟡", t:"You're looking for a way out. Everyone roll Investigation."},
+    {who:"Routing them on", t:"A door on the top floor you haven't tried is warm to the touch &mdash; and something on the other side of it is breathing."}],
   beats:[
     "Let them be wrong about it for as long as possible. <b>Edward does not explain himself tonight</b> ; that happens in the driveway at sunrise.",
     "<b>If they try the ballroom:</b> heavy doors, locked, and no roll or spell opens them. Cables run under the door. It opens at 2:30. <span class='ai'>🟡</span>",
@@ -906,10 +905,15 @@ const SCENES = [
   rev:[
     {by:"Edward", who:"Players", t:"learn Edward is watching <b>Bix</b> specifically. They should read it as <i>the vampire has picked one of us</i>. He explains nothing."}
   ],
+  checks:[
+    {skill:"Investigation", dc:"12", sug:true, note:"<b>Call it</b> as the look-around, everyone rolls. <b>Success:</b> the site survey. <b>Fallback:</b> the highest roll finds it even on a miss. <span class='ai'>🟡</span>"}
+  ],
   npcs:[
     {nm:"Edward", vc:"Has known who Bix is since they walked in. Watches, doesn't approach. Let him be caught at it twice."}
   ],
-  reminders:[],
+  reminders:[
+    {t:"If they reach the locked door at the end of the upstairs hall, narrate the poster (cue 13's read-aloud). That's as far as they get.", k:""}
+  ],
   cues:["creak","drone","heart","breath","riser"] },
 
 { act:"night", no:9, title:"The botched summoning", where:"Saturday, late · combat · the Night 1 closer",
@@ -918,11 +922,13 @@ const SCENES = [
     "They open the warm door: <b>the summoning</b>, visibly incomplete. &#9876; Fight.",
     "Every round, narrate it <b>clawing toward one sealed door down the hall</b>.",
     "Arcana DC 14: &#128275; <b>human-made, incomplete</b>. Who drew it stays open.",
-    "Anyone searching the wreckage: <b>Investigation DC 12</b> (below). <span class='ai'>🟡</span>",
-    "On the kill: the monitor, the chime, <b>&ldquo;is someone there&rdquo;</b> (read-aloud). &#128275;"
+    "<b>After the kill, before the screen:</b> the wreckage search (read-aloud). Investigation <b>DC 10</b>: the sticky note, <code>Fluffy123</code>, stuck to a candle box. <b>DC 12</b>: also another mic. <b>Highest roll finds the note even on a miss.</b> &#9995; the note, and tell them they keep it for Sunday. <span class='ai'>🟡</span>",
+    "Then the monitor, the chime, <b>&ldquo;is someone there&rdquo;</b> (read-aloud). They should be holding the password when it types. &#128275;"
   ],
   ends:"the instant the screen dies. Do not let them reach the room tonight. Next card: level up.",
-  read:[{who:"On the kill", t:"A monitor deep in the house flickers on by itself. The old AIM chime carries down the hall. One line types itself across a screen nobody is sitting at &mdash; <b>&ldquo;is someone there&rdquo;</b> &mdash; then it goes dark."}],
+  backup:"<b>The sticky note</b> &mdash; if the summoning isn't played, the note comes out in the first room they search on Sunday.",
+  read:[{who:"The wreckage search 🟡", t:"Take a minute to look through the wreckage. Everyone roll Investigation."},
+    {who:"After the search", t:"A monitor deep in the house flickers on by itself. The old AIM chime carries down the hall. One line types itself across a screen nobody is sitting at &mdash; <b>&ldquo;is someone there&rdquo;</b> &mdash; then it goes dark."}],
   beats:[
     "In the wreckage: a half-drawn ritual circle. <b>Leave who drew it open tonight.</b>"
   ],
@@ -932,7 +938,8 @@ const SCENES = [
   ],
   checks:[
     {skill:"Arcana", dc:"14", sug:true, note:"Recognize it as an <b>incomplete, human-made</b> summoning &mdash; the planted clue."},
-    {skill:"Investigation", dc:"12", sug:true, note:"<b>Call it</b> if anyone searches the wreckage. <b>Success:</b> another mic, still running. <b>Fallback:</b> Marcus's AIM line, &ldquo;he has mics all over this house.&rdquo; <span class='ai'>🟡</span>"}
+    {skill:"Investigation", dc:"10", sug:true, note:"<b>Call it</b> after the kill, everyone rolls. <b>Success:</b> the sticky note <code>Fluffy123</code>, stuck to a candle box. <b>Fallback:</b> the highest roll finds it even on a miss. <span class='ai'>🟡</span>"},
+    {skill:"Investigation", dc:"12", sug:true, note:"<b>Same roll.</b> <b>Success:</b> another mic, still running. <b>Fallback:</b> Marcus's AIM line, &ldquo;he has mics all over this house.&rdquo; <span class='ai'>🟡</span>"}
   ],
   fight:FIGHTS.summoning,
   npcs:[],
@@ -966,8 +973,6 @@ const SCENES = [
     {g:"Table", items:[
       {id:"sun-level", t:"<b>Every sheet at level 5</b> (the level-up card comes just before this one). Told Cody 3rd-level spells are open, Daylight and Plant Growth?"},
       {id:"sun-rest", t:"<b>Full HP and spell slots</b> for everyone at the start of Sunday."},
-      {id:"sun-props", t:"<b>Sticky note and survey</b> not out yet? They go to the first rooms they search today."},
-      {id:"sun-poster", t:"<b>DJ poster</b> still on the AIM-room door."},
       {id:"sun-ipad", t:"<b>Players' iPad</b> charged and on its home page. Nothing on it until the AIM room."},
       {id:"sun-spencer", t:"<b>Spencer</b> on cue 10 in his pink zone."}]},
     {g:"Open the day", items:[
@@ -1062,7 +1067,7 @@ const SCENES = [
   ],
   cues:["candle","needle","record","cheer","levelup"] },
 
-{ act:"sunday", no:"S", title:"Dracula's scare", where:"Sunday · optional · between rooms, before the cellar · about 10 minutes",
+{ act:"sunday", no:"S", title:"Dracula's scare", where:"Sunday · optional · between rooms, before the cellar",
   setting:"The hall between rooms. A draught from nowhere, and the candles start going out.",
   pace:[
     "<b>Optional.</b> Run it between rooms, before the cellar. Skip it if you're short on time. <span class='ai'>🟡</span>",
@@ -1115,7 +1120,7 @@ const SCENES = [
   setting:"Last night's room is cold now. The half-drawn circle is still on the floorboards &mdash; and one of the chalk lines is moving.",
   pace:[
     "<b>Only if</b> a room solved in five minutes and there's time to spare. Otherwise skip this cue.",
-    "On the way up to the computer room, the circle stirs. &#9876; Fight, about 20 minutes.",
+    "On the way up to the computer room, the circle stirs. &#9876; Fight.",
     "When the remnant drops, move straight on to the computer room."
   ],
   ends:"when the remnant drops. Nothing new is learned here.",
@@ -1142,11 +1147,12 @@ const SCENES = [
   stuck:"Password: the sticky note. If they never found it, it's tucked in the monitor bezel. Any capitalisation works, unlimited tries.",
   backup:"<b>Poe Boy killed Marcus</b> &mdash; if the chat stalls or Simone logs off early, the recording at the decks proves it to everyone. The USB can't be destroyed, so it always plays.",
   read:[
+    {who:"The poster · narrate it whenever they read that door 🟡", t:"A purple poster on the door: <b>Haunted Bash</b>. 3 AM. Dood Mansion. <b>DJ Poe Boy</b>, huge, with Lil Stinky and Angelique."},
     {who:"The door opens · when the table is ready", t:"From down the hall, faint and tinny: the old AIM chime. Then the lock on the door with the poster clicks open &mdash; and nobody touched it."},
     {who:"Ending the room 🟡", t:"It's three in the morning, and every speaker in this house just came on at once. It's you. Your own screams from tonight, cut together over a beat. Then Poe Boy's voice, over the top of it. Downstairs, the ballroom doors are standing open."}
   ],
   beats:[
-    "<b>The door stays locked until the end</b>, with <b>Spencer's DJ poster</b> on it (<code>5-poster.pdf</code>, taped up before play). Try it early and it doesn't open; this is the last room every time. The poster is the first thing that names Poe Boy as the host."
+    "<b>The door stays locked until the end</b>, with <b>Spencer's DJ poster</b> on it. You narrate the poster (read-aloud). Try it early and it doesn't open; this is the last room every time. The poster is the first thing that names Poe Boy as the host."
   ],
   checks:[
     {skill:"Working it out", dc:"no roll", sug:false, note:"Working out it isn't Poe Boy is character, not a check. When the drive mounts, Simone &amp; Angelique realize it's the same boy."}
@@ -1347,94 +1353,92 @@ const SCENES = [
 
 /* ============================= EXECUTION ============================= */
 /* The table layer on top of each scene, keyed by scene no. Read in a glance.
-   mins  rough minutes for the scene (🟡 Saturday about 3½ h, Sunday about 4 h)
    do    set-up beyond the props, iPad and tokens (those come in on their own); ticks saved
    land  🎯 what the table must leave the scene knowing: the must-land reveals, nothing else
    next  ➜ how to get out; go = the cue(s) to jump to ("rooms" = Sunday's room picker)
 */
 const EXEC = {
-  "1":{mins:10,
+  "0":{next:"Read Scene 1's Setting aloud. It opens on &ldquo;Fourth period, history.&rdquo;", go:["1"]},
+  "1":{
     at:"Fourth period. Nothing has happened yet.",
     land:[["They're a group of five on a local-history project that needs a <b>primary source, not the internet</b>.","Spencer, as the teacher"]],
     next:"On the bell, smash cut to the lockers.", go:["2"]},
-  "2":{mins:10,
+  "2":{
     do:["Spencer ready for Vinny's call on Gnomey's flip phone."],
     at:"Still at school, the five who missed skip day.",
     land:[["A party at <b>Dood Mansion, 8PM</b>, and <b>only these five</b> got a card.","Scott"],["Gnomey heard his great-uncle talk about a card game &ldquo;up the hill&rdquo; with a Cornelis.","Spencer, as Vinny"]],
     next:"They pick the hall of records or the gazebo, either order. Whichever comes second ends on cue 4's &ldquo;ten to eight&rdquo; line.", go:["3","4"]},
-  "3":{mins:60,
+  "3":{
     do:["After the jigsaw: players' iPad back to its home page."],
     at:"In town, looking into the house before the party.",
     land:[["The slaying method: <b>dig up the coffin, stake the heart, rebury</b>.","Scott, from the page"],["The checkout card: <b>U.M. Livingsworth III, V. Soprano 1938, W. Ostrander</b>.","Scott, from the card"],["The source is gone; <b>the house is the only primary source left</b>.","Spencer, as the Records Keeper"]],
     next:"Her &ldquo;be careful&rdquo; lands. Gazebo next, or up the hill if they've been. If this is the second stop, end on the &ldquo;ten to eight&rdquo; line from cue 4.", go:["4","5"]},
-  "4":{mins:20,
+  "4":{
     at:"In town. They meet Poe Boy and don't know it's his party.",
     land:[["Poe Boy says he's been up there <b>once</b> &mdash; and it's a lie (Insight DC 14).","Spencer"],["<b>Angelique</b> knows something and can't say it.","Spencer"],["John holds <i>The Weight of Your Lies</i>.","Scott hands it over"]],
     next:"Ten to eight (read-aloud), and they walk up the hill. Library still to do? Go there first and save the clock line for its end.", go:["5","3"]},
-  "5":{mins:10,
-    do:["Sticky note and survey within reach: the note the first time they search any room, the survey on a later search. Poe Boy brought the survey to the vampires as proof of the threat."],
+  "5":{
     at:"8PM. Walking in.",
     land:[["They're <b>locked in</b>, no bolt on their side.","Scott"],["<b>Angelique</b> is inside, hiding from something. Not what, not why.","Spencer"]],
     next:"Hidden in the dark, they hear voices: straight into cue 6.", go:["6"]},
-  "6":{mins:30,
+  "6":{
     do:["Spencer: the overheard argument is his. Cue him."],
     at:"Locked in and hiding. They think they're being hunted; the vampires think it's a rehearsal.",
     land:[["Someone told the vampires <b>exactly five</b> were coming: &ldquo;the boy.&rdquo;","Spencer"],["The vampires keep <b>&ldquo;meals&rdquo;</b> somewhere.","Spencer"],["They think they're being <b>hunted</b>.","Spencer, then Scott"]],
     next:"On Orlok's dismissal, Russ finds Orlok at the cabinet: cue 7.", go:["7"]},
-  "7":{mins:10,
+  "7":{
     at:"Just dismissed, looking for a way out.",
     land:[["Orlok <b>won't ask for help</b>.","Scott sets it up, Spencer plays it"],["He <b>won't sign</b>: refusal 1 of 3.","Spencer"]],
     next:"No thanks, the house dark in every direction (read-aloud). Turn them loose: cue 8.", go:["8"]},
-  "8":{mins:20,
-    do:["First room they search: &#9995; the sticky note."],
+  "8":{
     at:"Exploring the upper floors, being watched.",
-    land:[["<b>Edward is watching Bix</b>, twice. He explains nothing.","Scott"]],
+    land:[["<b>Edward is watching Bix</b>, twice. He explains nothing.","Scott"],["They hold the <b>site survey</b>. 🟡","Scott hands it over"]],
     next:"The warm, breathing door (read-aloud): cue 9.", go:["9"]},
-  "9":{mins:40,
-    do:["On the kill: AIM chime (7), then Silence (Esc)."],
+  "9":{
+    do:["After the wreckage search: AIM chime (7), then Silence (Esc)."],
     at:"Late Saturday. The first thing in the house that really hurts.",
-    land:[["It was <b>human-made and incomplete</b> (Arcana DC 14). Who drew it stays open.","Scott"],["Something in the house typed <b>&ldquo;is someone there&rdquo;</b>.","Scott"]],
+    land:[["It was <b>human-made and incomplete</b> (Arcana DC 14). Who drew it stays open.","Scott"],["They hold the <b>sticky note</b>, and keep it for Sunday. 🟡","Scott hands it over"],["Something in the house typed <b>&ldquo;is someone there&rdquo;</b>.","Scott"]],
     next:"The screen dies: end of Saturday. Don't let them reach the room. Everyone levels to 5.", go:["L5"]},
-  "L5":{mins:10, next:"That's Saturday. Anything unfinished waits for Sunday's start card.", go:["SUN"]},
-  "SUN":{mins:5, next:"Into the first room. Study first if you can.", go:"rooms"},
-  "10":{mins:25,
+  "L5":{next:"That's Saturday. Anything unfinished waits for Sunday's start card.", go:["SUN"]},
+  "SUN":{next:"Into the first room. Study first if you can.", go:"rooms"},
+  "10":{
     do:["Get <b>Julia alone</b> with the settlement: the others search the hall or the next door."],
     at:"Sunday, the rooms. They still think the vampires are killers.",
     land:[["Gnomey, alone: <b>V. Soprano won the house</b>; <b>whoever holds the deed owns it</b>; the deed isn't here.","Scott, with the printed settlement"]],
     next:"He's read it three times (read-aloud). Next room.", go:"rooms"},
-  "11":{mins:35,
+  "11":{
     do:["Record (3) on when Dracula drops the needle."],
     at:"Sunday, the rooms. The vampires are still on the job.",
     land:[["Bix holds the photo: his mother, and Edward before he was turned.","Scott hands it over and says nothing"],["Dracula sees through Yobo. <b>Only a true performance</b> opens the door.","Spencer"]],
     next:"The needle lifts (read-aloud). Next room.", go:"rooms"},
-  "S":{mins:0,
+  "S":{
     at:"Between rooms. The vampires are still on the job, and it's wearing thin.",
     land:[["The vampires are <b>still trying to scare them</b>, and their hearts aren't in it.","Scott sets it up, Spencer voices"]],
     next:"He leaves. Next room.", go:"rooms"},
-  "12":{mins:25,
+  "12":{
     at:"Sunday, the rooms. This is where the vampires are cleared.",
     land:[["<b>Orlok is a vet</b>; the animals are his patients.","Scott, with the ledger"],["<b>The vampires don't kill.</b>","Spencer, as the patients; the ledger if nobody asks"],["Badge req 2 done.","Russ does it"]],
     next:"The flowers open and Russ dresses the fox's leg. Next room.", go:"rooms"},
-  "R":{mins:0, next:"The remnant drops: on to the AIM door.", go:["13"]},
-  "13":{mins:40,
-    do:["Sticky note or survey still in the bag? &#9995; Now.","Short rest not taken yet? Offer it before the chime.","Angelique not with them? She's at the AIM door when the chime plays.","When the table is ready: AIM chime (7), then the lock clicks."],
+  "R":{next:"The remnant drops: on to the AIM door.", go:["13"]},
+  "13":{
+    do:["Short rest not taken yet? Offer it before the chime.","Angelique not with them? She's at the AIM door when the chime plays.","When the table is ready: AIM chime (7), then the lock clicks."],
     at:"The last room, nearing 3AM. The mystery gets answered here.",
     land:[["<b>Poe Boy</b> shut the door on him: killed by a human.","On screen, in AIM"],["<b>MARCUS_HALE</b>: the kid on the posters. Simone and Angelique realise it's the same boy.","On screen; Spencer plays Angelique"],["They hold <b>the recording</b> on the USB.","On screen"],["The party is <b>Poe Boy's</b>, and he's recorded them all night.","Scott, then Spencer on the speakers"]],
     next:"Every speaker comes on: 3AM. No break from here to the driveway.", go:["14 · i"]},
-  "14 · i":{mins:45,
+  "14 · i":{
     do:["Crowd (5) as the house fills; PA (p) when Poe Boy takes the mic."],
     at:"3AM. They came for Poe Boy, and just learned the vampires are innocent.",
     land:[["Refusal 2 of 3: Orlok still won't sign. <span class='ai'>🟡</span>","Spencer"],["Poe Boy <b>names all five</b> on the mic.","Spencer"],["<b>The vampires need saving</b>, and it's the party's choice.","Scott reads, Spencer as Ostrander and Orlok"],["Ostrander dies. <b>Let it be quiet.</b>","Scott"]],
     next:"Silence, then the seal breaks. Then the booth card.", go:["14 · ii"]},
-  "14 · ii":{mins:40,
+  "14 · ii":{
     at:"The developer is dead and the vampires owe them. Now Poe Boy.",
     land:[["The vampires turn on Poe Boy because <b>he won't let the drive play</b>.","Spencer"],["The recording: <b>a boy died here</b> and Poe Boy let it happen.","Scott narrates"],["<b>&ldquo;He said five&rdquo;</b> was Poe Boy.","Scott"],["Badge req 3: Russ heals a vampire under fire, if it hasn't landed.","Russ does it, any round"]],
     next:"It runs into the early morning, then the driveway at sunrise: cue 15.", go:["15"]},
-  "15":{mins:20,
+  "15":{
     at:"Sunrise. It's over, and everyone arrives.",
     land:[["Poe Boy is <b>Upton</b>, U.M. Livingsworth III.","Spencer, as his mother"],["<b>The house is Gnomey's</b>; the vampires can stay.","Spencer, as Vinny and Orlok, then Julia"],["Bix hears <b>Edward's whole story</b>.","Spencer"]],
     next:"After Edward, let it sit. Cut to class.", go:["16"]},
-  "16":{mins:10,
+  "16":{
     at:"Back in class. The bookend.",
     land:[["They present the project. Nobody reacts.","A player says it"]],
     next:"The end. Breathe."}
@@ -1496,7 +1500,7 @@ function spZone(s){
 }
 
 function render(i){
-  cur = (i + SCENES.length) % SCENES.length;
+  cur = i;
   const s = SCENES[cur], act = ACTS[s.act], e = exOf(s), key = String(s.no);
   saveK(SKEY,{no:key});
 
@@ -1505,13 +1509,14 @@ function render(i){
   pill.textContent = act.label;
   pill.style.color = act.color; pill.style.borderColor = act.color;
   $("#counter").innerHTML = `Cue <b>${s.no}</b> · ${cur+1}/${SCENES.length}`;
+  $("#prev").disabled = cur===0; $("#next").disabled = cur===SCENES.length-1;
 
   // card zero / Sunday: checklist, ticks saved per device. pack:true lists every prop for the bag.
   let checkHTML = "";
   if(s.checklist){
     const st=loadPrep();
     const groups = s.checklist.map(g=>({g:g.g, items: g.pack ?
-      PROPS.filter(p=>p.cue!=="PREP").map(p=>({id:"pack:"+p.id, t:`<b>${p.nm}</b> <span class="how">${p.cue==="float"?"floating, out by cue "+p.due:"cue "+p.cue} &rarr; ${p.to}</span>`})) : g.items}));
+      PROPS.map(p=>({id:"pack:"+p.id, t:`<b>${p.nm}</b> <span class="how">cue ${p.cue} &rarr; ${p.to}</span>`})) : g.items}));
     const all=groups.flatMap(g=>g.items), on=it=>!!st[it.id];
     checkHTML = `<div class="prep"><div class="prep-h"><span class="prep-t">${s.no==="SUN"?"Before Sunday":"Before the night"} <span class="ai">🟡 review</span></span>`+
       `<span class="prep-n" data-count>${all.filter(on).length} / ${all.length}</span></div>`+
@@ -1523,7 +1528,7 @@ function render(i){
   // ✅ Do now: this cue's props, the iPad, tokens, set-up, sound
   let rows = "";
   if(!s.checklist){
-    rows += PROPS.filter(p=>String(p.cue)===key).map(handRow).join("");
+    if(!s.opening) rows += PROPS.filter(p=>String(p.cue)===key).map(handRow).join("");
     (s.ipad||[]).forEach(n=>{ const it=IPAD[n], k=`ipad:${key}:${n}`, on=!!loadK(DKEY)[k];
       rows += `<div class="ipad-row${on?" done":""}" data-do="${k}" role="button"><span class="n">${n}</span><div class="tx">`+
         `<div class="go">📱 iPad &rarr; item ${n} · <span class="rm">${it.room}</span></div>`+
@@ -1541,19 +1546,20 @@ function render(i){
   const doHTML = (rows||cuesHTML) ? `<div class="donow"><div class="donow-h"><span class="donow-t">Do now</span>`+
     (rows?`<span class="donow-n" data-count></span>`:"")+`</div>${rows}${cuesHTML}</div>` : "";
 
-  // floating props strip, on every mansion cue
-  let floatHTML = "";
-  if(MANSION_ACTS.includes(s.act) && !s.checklist && !s.levelup){
-    floatHTML = `<div class="floating"><span class="fh">🗂 Floating<span class="fsub"> · hand over when they search</span></span>` +
-      FLOATING.map(f=>`<span class="fp">${f.nm}</span>`).join("") + `</div>`;
-  }
-
   // setting + pacing + read-aloud
   const setHTML = s.setting ? `<div class="read set"><div class="rl">Setting &middot; read this first <span class="ai">🟡</span></div><p>${s.setting}</p></div>` : "";
   const paceHTML = s.pace ? `<div class="block"><p class="h">Pacing <span class="ai">🟡</span></p><ol class="pace">` +
     s.pace.map(t=>`<li>${t}</li>`).join("") + (s.ends?`<li class="end"><b>Ends</b> ${s.ends}</li>`:"") + `</ol></div>` : "";
   const readHTML = (s.read && s.read.length) ? `<div class="read"><div class="rl">Read aloud / play the moment</div>` +
     s.read.map(r => `<p>${r.who?`<span class="who">${r.who}</span>`:""}${r.t}</p>`).join("") + `</div>` : "";
+
+  // Scene 0: opening the game, in the order he does it
+  const op = s.opening, opHTML = op ? `<div class="block"><p class="h">1 · Your intro <span class="ai">🟡</span></p><div class="op-slot"><p class="op-l">Your own words. Cover:</p><ul class="rem">${op.intro.map(t=>`<li>${t}</li>`).join("")}</ul></div></div>`+
+    `<div class="block"><p class="h">2 · Who's who <span class="ai">🟡</span></p>${PROPS.filter(p=>p.cue===0).map(handRow).join("")}`+
+    `<div class="read"><div class="rl">Say to each player in turn</div><p>${op.ask}</p></div>`+
+    op.pcs.map(([id,nm,pl,x])=>doRow("open:"+id,`<b>${nm}</b> &middot; ${pl}${x?`<span class="how">${x}</span>`:""}`)).join("")+
+    `<div class="read"><div class="rl">Then say</div><p>${op.know}</p></div><ul class="rem"><li class="rule">${op.keep}</li></ul></div>`+
+    `<div class="block"><p class="h">3 · Into History class</p></div>` : "";
 
   // the level-up card
   const lv = s.levelup, lvHTML = lv ? `<div class="block"><ul class="rem"><li class="rule">${lv.why} <span class="ai">🟡</span></li></ul></div>`+
@@ -1644,10 +1650,10 @@ function render(i){
 
   stage.innerHTML =
     `<div class="slide-head"><span class="no">${noLabel(s)}</span>`+
-    `<h2>${s.title}</h2>${e.mins?`<span class="mins">~${e.mins} min <span class="ai">🟡</span></span>`:""}<span class="where">${s.where}</span></div>`+
+    `<h2>${s.title}</h2><span class="where">${s.where}</span></div>`+
     `<div class="zones">`+
       `<section class="zone z-scott"><p class="zh"><span>Scott</span> · narrate</p>`+
-        `${checkHTML}${landHTML}${doHTML}${floatHTML}${setHTML}${paceHTML}${readHTML}${checksHTML}${lvHTML}${wrapHTML}${netHTML}${guideHTML}${fightHTML}${refHTML}</section>`+
+        `${checkHTML}${landHTML}${doHTML}${setHTML}${paceHTML}${readHTML}${checksHTML}${opHTML}${lvHTML}${wrapHTML}${netHTML}${guideHTML}${fightHTML}${refHTML}</section>`+
       `<section class="zone z-spencer"><p class="zh"><span>Spencer</span> · voice</p>${spHTML}</section>`+
     `</div>`;
 
@@ -1670,10 +1676,10 @@ function refreshCounts(){
 function drawProgress(){
   const day=dayOf(SCENES[cur]), done=loadK(NKEY);
   $("#prog").innerHTML = SCENES.map((x,j)=>({x,j})).filter(({x})=>dayOf(x)===day && !x.checklist)
-    .map(({x,j})=>`<span class="${j===cur?"cur":done[String(x.no)]?"done":""}" style="flex-grow:${exOf(x).mins||5}"></span>`).join("");
+    .map(({x,j})=>`<span class="${j===cur?"cur":done[String(x.no)]?"done":""}"></span>`).join("");
 }
 
-function go(d){ if(d>0) markDone(cur,true); render(cur + d); }
+function go(d){ const n=cur+d; if(n<0||n>=SCENES.length) return; if(d>0) markDone(cur,true); render(n); }
 
 /* ---- cue highlight on soundboard ---- */
 function padOf(k){ return BOARD.flatMap(g=>g.pads).find(p=>p.key===k); }
