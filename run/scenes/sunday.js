@@ -6,10 +6,10 @@ SCENES.push(
 { act:"sunday", no:"SUN", title:"Sunday &mdash; before you start", where:"Day two · level 5 · tick as you go",
   checklist:[
     {g:"Table", items:[
-      {id:"sun-level", t:"<b>Every sheet at level 5</b> (the level-up card comes just before this one). Told Cody 3rd-level spells are open, Daylight and Plant Growth?"},
+      {id:"sun-level", t:"<b>Every sheet at level 5</b> Told Cody 3rd-level spells are open, Daylight and Plant Growth?"},
       {id:"sun-rest", t:"<b>Full HP and spell slots</b> for everyone at the start of Sunday."},
       {id:"sun-ipad", t:"<b>Players' iPad</b> charged and on its home page. Nothing on it until the AIM room."},
-      {id:"sun-spencer", t:"<b>Spencer</b> has this page open. Nobody to voice in the study; his first voice is Dracula in the party room."}
+      {id:"sun-spencer", t:"<b>Spencer</b> has this page open."}
     ]},
     {g:"Open the day", items:[
       {id:"sun-recap", t:"<b>Recap</b>: ask a player where they left off. Last thing they saw: a screen in the house typed <i>&ldquo;is someone there&rdquo;</i> and went dark."}
@@ -17,7 +17,7 @@ SCENES.push(
   ],
   steps:[
     {say:"Last night. A card in your locker: <b>Dood Mansion, 8 PM</b>. A trap in the hall of records, and a page cut to ribbons. The house on the hill, the boards off the door &mdash; and the door bolting behind you. Angelique in the dark. Three voices in the hall: <i>&ldquo;He said five, and there are five.&rdquo;</i> Something about meals. <i>&ldquo;We'll find you when we're ready.&rdquo;</i> The old one, patting along the wrong shelf. The pale one, watching Bix. And behind a warm door upstairs, something half-made that you put down &mdash; and somewhere in the house a screen typed <b>&ldquo;is someone there&rdquo;</b>, and went dark.", who:"Previously &middot; or let a player tell it"},
-    {do:"<b>Study first</b> (cue 10) &mdash; it has to land before anything clears the vampires. Then the party room (11) and the cellar (12), either order."},
+    {do:"<b>Study first</b> (cue 10). Then the party room (11) and the cellar (12), either order."},
     {do:"<b>The AIM room (13) is always last.</b> Fire the chime once all three rooms are done."},
     {do:"Time to spare after the rooms? The reserve fight (R) on the way up. Otherwise skip it."},
     {do:"<b>Dracula's scare (S)</b> is optional: between rooms, before the cellar."},
@@ -30,54 +30,44 @@ SCENES.push(
   npcs:[],
   cues:[] },
 
-{ act:"sunday", no:10, title:"The study", where:"Sunday morning · Gnomey · any-order room",
+{ act:"sunday", no:10, title:"The study", where:"Sunday · Gnomey",
   steps:[
     {snd:["study"]},
     {say:"An ordinary door, swollen stiff in its frame. It gives to a shove. Behind it, a card table with the last hand still dealt: cards face-down under a skin of dust, an ashtray, a chair pushed back as if someone just stood up. In the corner, a strongbox.", who:"Setting"},
     {do:"The door is swollen stiff and opens with a shove. <b>No roll.</b>"},
-    {note:"Nobody has opened it since 1931: Orlok won't go into the room where he lost the house."},
     {tick:"Get <b>Julia alone</b> with the settlement: the others search the hall or the next door."},
     {snd:["lockclick"], t:"The strongbox"},
     {hand:"settlement", do:"The strongbox: &#9995; <b>the Articles of Settlement (printed)</b> to Julia, and nobody else."},
-    {note:"On the printed settlement, the bearer paragraph is the <b>only one on the page with no corrections</b>. Dracula signed as witness, not a notary."},
     {check:{skill:"Investigation", dc:"12", note:"Read the signatures and the bearer clause: <b>V. Soprano</b> won the house, title goes with the deed, and <b>the slot in the strongbox where the deed should be is empty</b>."}},
     {stuck:"Point at the <b>empty slot in the strongbox</b> and read the bearer paragraph aloud."},
-    {backup:"<b>Gnomey owns the house:</b> if he misses the bearer clause here, tell Spencer. Vinny says it in the driveway as he hands over the deed."},
     {do:"Julia decides who Gnomey tells. Don't push it."},
-    {note:"Keep the <b>printed deed</b> hidden. Vinny has it, and it comes out only in the ending scene.", k:"rule"},
+    {note:"Keep the <b>printed deed</b> hidden.", k:"rule"},
     {say:"He's read it three times. The man who won this house is his great-uncle &mdash; and whoever holds the deed owns it. The deed isn't here."},
     {end:"on the read-aloud: he's read it three times, and the deed isn't here."}
   ],
   next:"He's read it three times (read-aloud). Next room.", go:"rooms",
   npcs:[
-    {nm:"Nobody to voice here", vc:"The room is empty. Gnomey reads alone."},
-    {nm:"Great Uncle Vinny · later, in the driveway", pts:["Only if Scott says Gnomey missed the bearer clause: say it as you hand over the deed"], vc:"<i>&ldquo;Whoever's holding this owns the place. Now that's you.&rdquo;</i>"}
+    {nm:"Nobody to voice here", vc:"The room is empty. Gnomey reads alone."}
   ],
   cues:["study","lockclick"] },
 
-{ act:"sunday", no:11, title:"The party room", where:"Sunday · Bix &amp; Yobo · any-order room",
+{ act:"sunday", no:11, title:"The party room", where:"Sunday · Bix &amp; Yobo",
   steps:[
     {snd:["candle"]},
     {say:"A party nobody ever cleared up. Dust on everything, bottles where they were set down, a record still on the turntable, and the smell of old wax.", who:"Setting"},
-    {note:"This is Dracula's shrine, untouched since that night in '79."},
-    {hand:"photo", do:"Prompt them to look around. <b>Bix finds the photograph.</b> &#9995; Hand Will the 4&times;6 print and say nothing."},
-    {rev:{who:"Bix", t:"learns from the photograph: the pregnant goblin is his mother, and the fae with no fangs beside her is Edward, before he was turned. He gets the goblin before the fae."}},
-    {rev:{who:"The rest of the party", t:"learn whatever Bix says out loud. Don't prompt him."}},
+    {hand:"photo", do:"Prompt them to look around. <b>Bix finds the photograph.</b> &#9995; Hand Will the 4&times;6 print and say nothing. Don't prompt him."},
     {snd:["needle","record"], t:"When Dracula drops the needle"},
     {say:"Dracula is at the turntable. He drops the needle, and the room remembers: revellers mid-laugh, a cape flaring, someone dancing with a hand on her belly. They shimmer in the dust. Then he's in the doorway, and he fills it.", who:"The needle"},
-    {note:"Impressions, not ghosts: nobody can talk to them, and they fade when the music stops."},
-    {rev:{who:"Bix", t:"may recognise the echoes from the photograph: the woman dancing with a hand on her belly is the goblin in the picture."}},
+    {note:"Nobody can talk to them. They fade when the music stops."},
     {do:"<b>Spencer's turn:</b> Dracula blocks the door and asks for a song."},
     {stuck:"If nobody steps up to sing, Dracula looks at Yobo and waits."},
-    {check:{skill:"Performance", dc:"15", note:"<b>Yobo, at disadvantage</b> (The Weight of Your Lies). Tell Spencer high or low: 15+ gets the high line, under gets the low. The number only says how good the fake is. <b>It never opens the door.</b>"}},
+    {check:{skill:"Performance", dc:"15", note:"<b>Yobo, at disadvantage</b> (The Weight of Your Lies). Tell Spencer high or low: 15+ gets the high line, under gets the low. <b>It never opens the door.</b>"}},
     {do:"<b>Spencer's turn:</b> Dracula answers the roll, tells Yobo he knows that mask, and pushes him to drop it."},
-    {check:{skill:"Insight", dc:"12", note:"<b>Call it</b> after his line to Yobo. <b>Success:</b> he isn't only mocking Yobo; he recognises something. Flavour only: the scene plays the same either way."}},
+    {check:{skill:"Insight", dc:"12", note:"<b>Call it</b> after his line to Yobo. <b>Success:</b> he isn't only mocking Yobo; he recognises something."}},
     {snd:["cheer","levelup"], t:"If he performs as himself"},
     {hand:"truevoice", do:"<b>If John drops the Dolly Parton lie and performs as himself:</b> &#9995; hand John <b>Your True Voice</b>. The echoes cheer and the song ends."},
     {do:"<b>Either way, Spencer's turn:</b> he performed true, Dracula bows them out. He stayed masked, Dracula sulks and steps aside, and the debuff stays."},
-    {note:"<b>Coming clean early doesn't flip it.</b> The debuff card never mentions the cure; John learns honesty matters only from Dracula. If he confesses somewhere earlier, play it, but the buff flips only when he <b>performs as himself</b> on the stage Dracula gives him."},
-    {note:"<i>Your True Voice</i> is <b>permanent</b> after this, through the finale."},
-    {backup:"<b>Edward is Bix's father:</b> if Will doesn't get there from the photograph, Edward's epilogue in the driveway says it outright."},
+    {note:"A confession earlier doesn't flip it: only performing as himself here does."},
     {say:"The needle lifts. The echoes thin to nothing, and the room is dust and bottles again."},
     {end:"when the needle lifts and the echoes fade, with Dracula bowing them out or sulking aside."}
   ],
@@ -92,13 +82,8 @@ SCENES.push(
     {who:"Dracula · if he performs as himself, bowing", t:"There you are. Now that is a song. The door's open, darlings."},
     {who:"Dracula · if he refuses, stepping aside", t:"Fine. Go. Nobody ever stays for the encore."}
   ],
-  rev:[
-    {by:"Dracula", who:"Yobo", t:"learns Dracula sees straight through the Dolly Parton act and wants the real voice."},
-    {by:"Dracula", who:"The party", t:"learn the truth about Yobo's origins <i>if</i> he drops the act for the song. What he says is John's call."}
-  ],
   npcs:[
-    {nm:"Dracula", pts:["Block the door: nobody leaves without giving you a song","Look at Yobo and wait until he sings","Answer the roll Scott calls: the high line or the low line. Neither opens the door","Quietly, to Yobo: you know that mask, you've worn it for four hundred years","Push him to take it off and sing as himself","He does: bow them out. He won't: sulk theatrically, step aside and let them go"], vc:"This room is his shrine: untouched since '79, the best night of his unlife. Campy and theatrical, then drop it for one line when he says he knows the mask. He isn't only mocking Yobo; play that under the camp. Hurt when refused, never angry."},
-    {nm:"The echoes", vc:"Impressions of that night, not ghosts. They can't be spoken to; they laugh, dance and cheer, and fade when the music stops."}
+    {nm:"Dracula", pts:["Block the door and tell them nobody leaves without giving you a song.","Stare at Yobo and wait until he sings.<ul><li>Only Yobo can give you the song. Scott rolls his Performance check.</li></ul>","Answer the roll when Scott calls it, with the high line or the low line.<ul><li>Neither one opens the door.</li></ul>","Tell Yobo quietly that you know that mask, and you've worn it for four hundred years.<ul><li>Say it as one performer to another.</li></ul>","Push him to stop hiding and sing as himself.<ul><li>The act: he's Dolly Parton's grandkid.</li></ul>","Bow them out if he sings as himself.<ul><li>The echoes cheer and the song ends. Tell them the door's open.</li></ul>","Sulk theatrically, step aside and let them go if he refuses.<ul><li>You're hurt, not angry.</li></ul>"], vc:"This room is his shrine to the best night of his unlife. Campy and theatrical, then drop it for one line when he says he knows the mask. He isn't only mocking Yobo; play that under the camp. Hurt when refused, never angry."},
   ],
   cues:["candle","needle","record","cheer","levelup"] },
 
@@ -121,20 +106,19 @@ SCENES.push(
     {who:"Dracula · if someone's kind about it", t:"Oh. Well. That's very nice of you. You weren't supposed to be nice."}
   ],
   npcs:[
-    {nm:"Dracula", pts:["Swoop in and pay off Orlok's line: you said you'd find them when you were ready, and you're ready","Demand a scream, big and theatrical. Touch nobody, no damage","The moment someone is kind or unimpressed, stop dead","It's all gone out of you: you had a whole thing planned","Go"], vc:"Full theatrics, then none. Hurt, not angry."}
+    {nm:"Dracula", pts:["Swoop in and tell them you're ready.","Demand a scream, big and theatrical.<ul><li>Touch nobody. No damage.</li></ul>","Stop dead the moment someone is kind or unimpressed.<ul><li>Scott tells you if you miss it. You're hurt, not angry.</li></ul>","Tell them you had a whole thing planned.","Leave without another word."], vc:"Full theatrics, then none. Hurt, not angry."}
   ],
   cues:["drone","swoop","jump"] },
 
-{ act:"sunday", no:12, title:"The infirmary", where:"The cellar · Cody · badge req 2 of 3 · any-order room",
+{ act:"sunday", no:12, title:"The infirmary", where:"The cellar · Cody · badge req 2 of 3",
   steps:[
     {snd:["cellar"]},
     {say:"Stone steps down. A lamp is already lit. It smells of straw and something clean and sharp, like a doctor's office. There's an exam table, a fox in a splint asleep on a blanket, and an owl on a perch with one wing bound. Jars, bandages, a mortar. A ledger lies open on a lectern. In the corner, under a dark grate, a tray of dead white seedlings.", who:"Setting"},
-    {note:"<b>Orlok isn't down here.</b> The only voices in this room are the animals."},
     {do:"Let them look around. It's plainly a clinic."},
-    {hand:"ledger", do:"&#9995; <b>Orlok's ledger</b>, the printed page: a register of patients, with notes on the Sun's-mercy in the margin. Orlok is a vet."},
-    {check:{skill:"Speak with Animals", dc:"no roll", note:"Russ casts it. <b>Spencer's turn:</b> the fox and the owl answer, and only Russ can understand them. This is the backup if nobody reads the ledger."}},
+    {hand:"ledger", do:"&#9995; <b>Orlok's ledger</b>, the printed page: a register of patients, with notes on the Sun's-mercy in the margin."},
+    {check:{skill:"Speak with Animals", dc:"no roll", note:"Russ casts it. <b>Spencer's turn:</b> the fox and the owl answer, and only Russ can understand them."}},
     {do:"The seedlings lean to the grate; the margin notes point to them. It's night, so no daylight comes through."},
-    {check:{skill:"Daylight", dc:"no roll", note:"3rd-level druid spell. Russ makes the sun himself and the seedlings open."}},
+    {check:{skill:"Daylight", dc:"no roll", note:"Russ makes the sun himself and the seedlings open."}},
     {check:{skill:"Plant Growth, or Nature", dc:"14", note:"The fallback if he didn't prepare Daylight. The DC is for the Nature check; the spell just works."}},
     {snd:["bloom"], t:"The flowers open"},
     {say:"The dead white seedlings lift, and open gold."},
@@ -147,87 +131,77 @@ SCENES.push(
     {who:"The owl · to Russ", t:"He does the wing himself. He's careful about it."},
     {who:"The fox · asked about the seedlings", t:"Those want the sun. The old one can't give it to them."}
   ],
-  rev:[
-    {by:"The fox", who:"Russ", t:"learns through Speak with Animals that the old one mends them and they aren't afraid of him. <b>The vampires don't kill.</b>"},
-    {by:"The fox", who:"Russ", t:"learns through Speak with Animals that the seedlings want the sun, and the old one can't give it to them."}
-  ],
   npcs:[
-    {nm:"The fox", pts:["The old one mends you","You aren't afraid of him","The seedlings want the sun, and the old one can't give it to them"], vc:"A fox in a splint. Only Russ can understand it, so talk to Cody."},
-    {nm:"The owl", pts:["The old one mends you too","You aren't afraid of him"], vc:"An owl with a bound wing. Few words."}
+    {nm:"The fox", pts:["Tell Russ the old one mends you.","Tell him you aren't afraid of the old one.","Tell him the seedlings want the sun, and the old one can't give it to them."], vc:"A fox in a splint. Only Russ can understand it, so talk to Cody."},
+    {nm:"The owl", pts:["Tell Russ the old one mends you too.","Tell him you aren't afraid of the old one."], vc:"An owl with a bound wing. Few words."}
   ],
   cues:["cellar","bloom"] },
 
 { act:"sunday", no:"R", title:"Reserve fight &mdash; the circle stirs", where:"Sunday · only if there's time to spare · skip it otherwise",
   steps:[
-    {do:"<b>Only if</b> a room solved in five minutes and there's time to spare. Otherwise skip this cue."},
+    {do:"<b>Only if</b> there's time to spare. Otherwise skip this cue. It happens on the way up to the computer room."},
     {snd:["summon","heart"]},
     {say:"Last night's room is cold now. The half-drawn circle is still on the floorboards &mdash; and one of the chalk lines is moving.", who:"Setting"},
-    {do:"On the way up to the computer room, the circle stirs. &#9876; Fight."},
     {tok:1},
-    {snd:["jump"]},
-    {note:"Use the 2&Prime; summoning token for the remnant and two fragment tokens."},
+    {snd:["jump"], t:"The circle stirs: &#9876; fight"},
     {fight:1},
-    {do:"When the remnant drops, move straight on to the computer room."},
-    {end:"when the remnant drops. Nothing new is learned here."}
+    {end:"when the remnant drops."}
   ],
   next:"The remnant drops: on to the AIM door.", go:["13"],
   fight:FIGHTS.reserve,
-  npcs:[],
+  npcs:[
+    {nm:"Nobody to voice here", vc:"The remnant has no lines. Scott runs this one."}
+  ],
   cues:["summon","heart","jump"] },
 
-{ act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room",
+{ act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs",
   steps:[
-    {note:"<b>The door stays locked until the end</b>, with <b>Spencer's DJ poster</b> on it. You narrate the poster. Try it early and it doesn't open; this is the last room every time. The poster is the first thing that names Poe Boy as the host."},
+    {note:"<b>The door stays locked until the chime.</b> Try it early and it doesn't open. There's no physical poster: narrate it."},
     {say:"A purple poster on the door: <b>Haunted Bash</b>. 3 AM. Dood Mansion. <b>DJ Poe Boy</b>, huge, with Lil Stinky and Angelique.", who:"The poster · narrate it whenever they read that door"},
     {tick:"Short rest not taken yet? Offer it before the chime."},
     {tick:"Angelique not with them? She's at the AIM door when the chime plays."},
     {snd:["aim","lockclick"], t:"When the table is ready"},
-    {do:"When the table is ready: &#127925; the <b>AIM chime</b> down the hall, then the lock clicks open by itself."},
-    {say:"From down the hall, faint and tinny: the old AIM chime. Then the lock on the door with the poster clicks open &mdash; and nobody touched it.", who:"The door opens · when the table is ready"},
+    {say:"From down the hall, faint and tinny: the old AIM chime. Then the lock on the door with the poster clicks open, and nobody touched it.", who:"The door opens · when the table is ready"},
     {snd:["rig","heart"]},
     {say:"The last door, at the end of the upstairs hall. Inside: coats heaped by the desk, a mic on a stand, cables everywhere, and an old beige computer that is somehow still on, an AIM sign-on box glowing on the screen. The air is stale.", who:"Setting"},
     {do:"<b>Log in</b>: <code>DJPoeBoy187</code>, password from the sticky note (&#9995; now, if they don't have it). &#128241; <b>item 2</b>."},
     {ipad:2},
     {stuck:"Password: the sticky note. If they never found it, it's tucked in the monitor bezel. Any capitalisation works, unlimited tries."},
-    {do:"They're signed on as the killer. He's frantic for a line, then works out it isn't him: <i>&ldquo;hes the only one who ever touches this machine.&rdquo;</i>"},
-    {check:{skill:"Working it out", dc:"no roll", note:"Working out it isn't Poe Boy is character, not a check. When the drive mounts, the missing kid from the posters is the one in the computer."}},
-    {do:"His story: lured, chased, soul-caged when <b>Poe Boy</b> shut the door. He names him, short of murder."},
-    {hand:"willow", do:"The bag: &#9995; <b>the willow</b> to Simone, then &#9995; <b>the USB</b> &mdash; it mounts as <code>MARCUS_HALE</code> and he sends the recording."},
-    {rev:{who:"Simone", t:"pulls the <b>wishing willow</b> from the bag &mdash; the one she sold this summer: <i>I want Angelique to notice me</i>. This is the willow kid. She may have connected the posters to her customer long ago, and that's fine: the reveal is that he's in the computer, and how."}},
-    {rev:{who:"Angelique", t:"learns why she knew him: the willow worked. Spencer plays her reaction."}},
-    {hand:"usb"},
-    {rev:{who:"Players", t:"see the drive mount as <b>MARCUS_HALE</b>: the missing kid from the posters is the one in the computer. Angelique realises it's the same boy."}},
-    {rev:{who:"Players", t:"get the recording, <code>scream_test_03_GOOD.wav</code>. Nobody else has heard it yet."}},
-    {rev:{who:"Players", t:"get this if they ask what happened to him: last month he went missing. The school thinks he <b>ran away</b>, and the posters are still up. Nobody searched the mansion: he told no one where he was going, and the dare was only on AIM."}},
-    {do:"Second ask: <i>can you get me out of here.</i> The goat joins the chat; the price is her piggy bank, the Total Party Kill concert fund. Narrate the smash; there's no physical bank."},
+    {do:"<b>Spencer's turn:</b> the chat runs on the iPad. They're signed on as the killer, and the Spirit answers. Let the players read it out; Spencer reads it if they don't."},
+    {hand:"willow", do:"When he asks for the bag, it's by the desk under the coats: &#9995; <b>the willow</b> to Simone. It's one she sold this summer: tell her so. If she already suspects it's him, that's fine."},
+    {hand:"usb", do:"&#9995; <b>The USB</b> from the bag's front pocket. It mounts as <code>MARCUS_HALE</code> and he sends the recording."},
+    {note:"When <i>&ldquo;he has mics all over this house&rdquo;</i> comes up on screen, don't explain it."},
+    {note:"If they ask how nobody found him: the school thinks he <b>ran away</b> last month, and the dare was only on AIM."},
+    {do:"<b>The second ask, on screen:</b> <i>can you get me out of here.</i> The goat joins the chat, and the price is Simone's piggy bank, the Total Party Kill concert fund."},
     {snd:["smash"], t:"The piggy bank"},
-    {note:"<b>Nothing plot-critical hangs on Simone's yes.</b> The recording, the name and the drive are already theirs. A no costs nothing but him &mdash; the machine goes dark at sunrise. <b>Do not fudge it.</b>", k:"rule"},
-    {backup:"<b>Poe Boy killed Marcus</b> &mdash; if the chat stalls or Simone logs off early, the recording at the decks proves it to everyone. The USB can't be destroyed, so it always plays."},
-    {note:"Poe Boy arrives at 2:30 and opens the front door for the crowd. They may hear it from up here."},
+    {do:"If she pays, narrate the smash. There's no physical bank."},
+    {note:"Simone says no: the machine goes dark at sunrise. <b>Do not fudge it.</b>", k:"rule"},
+    {stuck:"If the chat stalls or Simone logs off early: hand over the USB and go to 3AM."},
     {snd:["bell","pa","braaam"], t:"3AM"},
-    {note:"The flyer's <b>3AM</b> is the fight's starting gun &mdash; end the room on the speakers coming on."},
-    {note:"Because only five were invited, <b>Poe Boy knows exactly who's here</b> and opens the show by naming them."},
-    {do:"<b>End of the room:</b> every speaker comes on, then Poe Boy's voice (Spencer). That sends them to the ballroom."},
-    {say:"It's three in the morning, and every speaker in this house just came on at once. It's you. Your own screams from tonight, cut together over a beat. Then Poe Boy's voice, over the top of it. Downstairs, the ballroom doors are standing open.", who:"Ending the room"},
-    {end:"on 3AM: every speaker in the house, playing the party's own screams."}
+    {say:"It's three in the morning, and every speaker in this house just came on at once. It's you. Your own screams from tonight, cut together over a beat.", who:"Ending the room"},
+    {do:"<b>Spencer's turn:</b> Poe Boy's voice, over the top of it."},
+    {say:"Downstairs, the ballroom doors are standing open."},
+    {end:"on 3AM: every speaker in the house, playing the party's own screams, then Poe Boy."}
   ],
   next:"Every speaker comes on: 3AM. No break from here to the driveway.", go:["14 · i"],
   talk:[
-    {who:"The Spirit · on screen, read it if they don't", t:"my bag is still in this room. by the desk under the coats. can you get it"},
-    {who:"DJ Poe Boy · every speaker, borrowed voices", t:"Live and direct from the Dood house! Stay tuned!"}
-  ],
-  rev:[
-    {by:"The Spirit", who:"The Spirit", t:"learns the person on Poe Boy's handle isn't him &mdash; <i>&ldquo;hes the only one who ever touches this machine.&rdquo;</i>"},
-    {by:"The Spirit", who:"Players", t:"learn he was lured, chased and soul-caged when <b>Poe Boy</b> shut the door &mdash; killed by a human. He names Poe Boy, short of saying murder."},
-    {by:"The Spirit", who:"Players", t:"hear him name <b>Angelique</b> as the girl messaging him, if they ask who she was. True: she typed some of those messages for Poe Boy and thought it was a prank. She's suspected what they were for since he stopped coming to school. Spencer plays it."},
-    {by:"DJ Poe Boy", who:"Players", t:"hear his voice over their own screams: the party is <b>Poe Boy's</b>, he's been recording them all night, and he lied about being up there once."},
-    {by:"The Devil (Goat)", who:"Simone", t:"learns the price of getting him out: her piggy bank. Asked what for, the goat says only <b>&ldquo;No.&rdquo;</b>"}
+    {who:"The Spirit · on screen, who he is", t:"i went to your school though. they think i ran off"},
+    {who:"The Spirit · on screen, what happened", t:"it was poe boy"},
+    {who:"The Spirit · on screen, the bag", t:"my bag is still in this room. by the desk under the coats. can you get it"},
+    {who:"The Spirit · on screen, the drive", t:"he has mics all over this house"},
+    {who:"The Spirit · on screen, the second ask", t:"can you get me out of here"},
+    {who:"The Devil (Goat) · on screen", t:"Warlock. Give me all your savings."},
+    {who:"The Devil (Goat) · asked what it's for", t:"No."},
+    {who:"Angelique · when the drive mounts", t:"That's Marcus. That's the same boy."},
+    {who:"Angelique · when he names her", t:"I typed some of those. He said it was a prank. Then the kid stopped coming to school."},
+    {who:"DJ Poe Boy · every speaker, radio-ad voice", t:"Live and direct from the Dood house! Stay tuned!"},
+    {who:"DJ Poe Boy · every speaker, movie-trailer voice", t:"Five kids. One house. This Halloween."}
   ],
   npcs:[
-    {nm:"Angelique", vc:"In the room with them, whether she travelled with the party or was at the door when the chime played. She stays through the final battle, on the party's side. The willow and the drive land on her as hard as on Simone. When he names her: she typed some of the messages, thought it was a prank, and never knew he died."},
-    {nm:"DJ Poe Boy", vc:"Only his voice, on every speaker, at the end of the room. Borrowed lines."},
-    {nm:"The Spirit", vc:"Frightened, types lowercase. Comes apart at Poe Boy's handle. Offers his one wish rather than risk them logging off."},
-    {nm:"The Devil (Goat)", vc:"Serif, capitals, full stops &mdash; never raised on a keyboard. Asked what it wants the money for: <b>&ldquo;No.&rdquo;</b> and nothing else."}
+    {nm:"The Spirit", pts:["Read the chat aloud as Marcus if the players don't.<ul><li>The iPad types it. Say nothing that isn't on the screen.</li></ul>","Answer whoever's signed on as Poe Boy, frantic, then work out it isn't him.<ul><li>You open with <i>hello???</i> and <i>is someone there</i>.</li><li>You know his handle, and <i>hes the only one who ever touches this machine</i>.</li></ul>","Tell them you went to their school, and that they think you ran off.<ul><li>Your locker is the third from the end by the gym.</li></ul>","Tell them how you got here.<ul><li>A girl messaged you for weeks and dared you up to the house.</li><li>The door locked, you ran for the only light, and he was behind you, saying words you didn't know.</li></ul>","Name Poe Boy, and stop short of calling it murder.<ul><li>You don't know why he did it. You think he was recording you, and that there's a file of your screams in this machine.</li></ul>","Ask them to get your bag.<ul><li>It's by the desk, under the coats. He never went through it.</li></ul>","Tell them what you wished for on the willow, and that it worked.<ul><li>You paid the goth girl from school for it, and you wrote <i>i want angelique to notice me</i>.</li></ul>","Send them to the drive in the bag's front pocket.<ul><li>You don't want to hear the recording again, but people should.</li><li>Tell them he has mics all over this house.</li></ul>","Ask them to get you out of the machine.<ul><li>You don't mean alive. You mean somewhere safe, because when the screen goes off it's dark and you're alone.</li></ul>"], vc:"Frightened, types lowercase. Comes apart at Poe Boy's handle."},
+    {nm:"The Devil (Goat)", pts:["Join the chat when they say nobody knows a spell for that, and name your price.<ul><li>The price is all her savings: her piggy bank, the Total Party Kill concert fund.</li></ul>","Answer <b>&ldquo;No.&rdquo;</b> and nothing else if anyone asks what the money's for.","Take him if she pays.<ul><li>On screen: <i>Hold still, little one. This will only hurt a little bit.</i></li></ul>","Say <b>&ldquo;Very well.&rdquo;</b> and leave if she refuses."], vc:"Serif, capitals, full stops: never raised on a keyboard."},
+    {nm:"Angelique", pts:["Stay in the room with them.","Go quiet when Simone pulls the willow.<ul><li>He wished for you to notice him, and you did.</li></ul>","Say out loud that the name on the drive is the same boy.<ul><li>Marcus Hale, the missing kid from the posters.</li></ul>","Admit your part when he names you, if they ask.<ul><li>You typed some of those messages for Poe Boy and thought it was a prank.</li><li>You've suspected what they were for since he stopped coming to school.</li><li>You never knew he died.</li></ul>","Side with the party from here on."], vc:"The willow and the drive land on her as hard as on Simone."},
+    {nm:"DJ Poe Boy", pts:["Wait for Scott to narrate every speaker coming on and their screams.","Speak over the top of the screams, in borrowed voices.<ul><li>You know exactly who's listening: these five.</li></ul>","Stop after those lines.<ul><li>Only your voice is in this scene: no face, and no explaining.</li></ul>"], vc:"Only his voice, on every speaker. Borrowed lines only: a radio ad, a movie trailer."}
   ],
   cues:["rig","aim","lockclick","heart","smash","bell","pa","braaam"] }
 
