@@ -103,26 +103,21 @@ SCENES.push(
   steps:[
     {snd:["creak","drone","heart"]},
     {say:"The upper floors in the dark: long corridors, doors that won't open, floorboards that answer every step. Every so often, at the end of a hall or in a doorway you've just passed, the same pale figure is standing very still.", who:"Setting"},
-    {do:"Let them explore. They <b>catch Edward watching them</b> &mdash; watching <b>Bix</b>."},
+    {do:"Let them explore. <b>They catch Edward watching them</b>, and it's Bix he's looking at. If they speak to him, he doesn't answer."},
     {say:"You're looking for a way out. Everyone roll Investigation.", who:"The look-around"},
-    {check:{skill:"Investigation", dc:"12", note:"<b>Call it</b> as the look-around, everyone rolls. <b>Success:</b> the site survey. <b>Fallback:</b> the highest roll finds it even on a miss."}},
-    {hand:"survey", do:"<b>The look-around</b>: Investigation <b>DC 12</b>. On a table in a room off the hall, among the vampires' things: the memo, because Poe Boy brought it to them as proof of the threat. <b>Highest roll finds it even on a miss.</b> &#9995; the printed survey."},
-    {do:"They catch him at it <b>a second time</b>. Play it as horror: <i>the vampire has picked one of us.</i>"},
-    {note:"Let them be wrong about it for as long as possible. <b>Edward does not explain himself tonight</b> ; that happens in the driveway at sunrise."},
+    {check:{skill:"Investigation", dc:"12", note:"<b>Call it</b> as the look-around, everyone rolls. <b>Success:</b> the site survey. <b>Miss:</b> the highest roll finds it anyway."}},
+    {hand:"survey", do:"&#9995; <b>The printed survey</b>, to whoever finds it: on a table in a room off the hall, among the vampires' things."},
+    {do:"<b>They catch him at it a second time.</b> Play it as horror: <i>the vampire has picked one of us.</i>"},
     {note:"<b>If they try the ballroom:</b> heavy doors, locked, and no roll or spell opens them. Cables run under the door. It opens at 2:30."},
     {note:"<b>If they look for Poe Boy:</b> he isn't in the house until 2:30. The mics record on their own."},
     {note:"If they reach the locked door at the end of the upstairs hall, narrate the poster (the first read-aloud on cue 13). That's as far as they get."},
     {snd:["breath","riser"], t:"The warm door"},
-    {do:"He never approaches and never explains. Route them upstairs to the <b>warm door</b>."},
     {say:"A door on the top floor you haven't tried is warm to the touch &mdash; and something on the other side of it is breathing.", who:"Routing them on"},
     {end:"at the warm, breathing door &mdash; straight into the summoning."}
   ],
   next:"The warm, breathing door (read-aloud): cue 9.", go:["9"],
-  rev:[
-    {by:"Edward", who:"Players", t:"learn Edward is watching <b>Bix</b> specifically. They should read it as <i>the vampire has picked one of us</i>. He explains nothing."}
-  ],
   npcs:[
-    {nm:"Edward", vc:"Has known who Bix is since they walked in. Watches, doesn't approach. Let him be caught at it twice."}
+    {nm:"Edward", pts:["No lines tonight: he's only ever caught watching","It's Bix he watches, both times","Spoken to, he doesn't answer","Never approaches, never explains"], vc:"Has known who Bix is since they walked in. Let them think he's picked one of them to hunt. He explains himself in the driveway at sunrise, not before."}
   ],
   cues:["creak","drone","heart","breath","riser"] },
 
