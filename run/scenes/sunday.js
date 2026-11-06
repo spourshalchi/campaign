@@ -1,4 +1,4 @@
-/* Sunday: the start card, the rooms (10 to 13, Dracula's scare) and the reserve fight.
+/* Sunday: the start card, the rooms (10 to 13, Dracula's scare).
    Read by run/index.html, loaded in order after scenes/pre.js. Steps and fields: see run/README.md.
    After editing, bump this file's ?v= on its script tag in run/index.html. */
 SCENES.push(
@@ -19,7 +19,6 @@ SCENES.push(
     {say:"Last night. A card in your locker: <b>Dood Mansion, 8 PM</b>. A trap in the hall of records, and a page cut to ribbons. The house on the hill, the boards off the door &mdash; and the door bolting behind you. Three voices in the hall: <i>&ldquo;He said five, and there are five.&rdquo;</i> Something about meals. <i>&ldquo;We'll find you when we're ready.&rdquo;</i> The old one, patting along the wrong shelf. The pale one, watching Bix. And behind a warm door upstairs, something half-made that you put down &mdash; and somewhere in the house a screen typed <b>&ldquo;is someone there&rdquo;</b>, and went dark.", who:"Previously &middot; or let a player tell it"},
     {do:"<b>Study first</b> (cue 10). Then the party room (11) and the cellar (12), either order."},
     {do:"<b>The AIM room (13) is always last.</b> Fire the chime once all three rooms are done."},
-    {do:"Time to spare after the rooms? The reserve fight (R) on the way up. Otherwise skip it."},
     {do:"<b>Dracula's scare (S)</b> is optional: between rooms, before the cellar."},
     {do:"<b>The ballroom stays locked until 2:30.</b> No roll opens it."},
     {do:"The party gets <b>one short rest</b> before 3AM."},
@@ -145,23 +144,6 @@ SCENES.push(
     ], vc:"An owl with a bound wing. Few words."}
   ],
   cues:["cellar","bloom"] },
-
-{ act:"sunday", no:"R", title:"Reserve fight &mdash; the circle stirs", where:"Sunday · only if there's time to spare · skip it otherwise",
-  steps:[
-    {do:"<b>Only if</b> there's time to spare. Otherwise skip this cue. It happens on the way up to the computer room."},
-    {snd:["summon","heart"]},
-    {say:"Last night's room is cold now. The half-drawn circle is still on the floorboards &mdash; and one of the chalk lines is moving.", who:"Setting"},
-    {tok:1},
-    {snd:["jump"], t:"The circle stirs: &#9876; fight"},
-    {fight:1},
-    {end:"when the remnant drops."}
-  ],
-  next:"The remnant drops: on to the AIM door.", go:["13"],
-  fight:FIGHTS.reserve,
-  npcs:[
-    {nm:"Nobody to voice here", vc:"The remnant has no lines. Scott runs this one."}
-  ],
-  cues:["summon","heart","jump"] },
 
 { act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs",
   steps:[
