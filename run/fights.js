@@ -8,7 +8,7 @@
    table. Damage is fixed (no damage dice). Rolls and initiative stay at the table.
 
    cue:   the Run of Show scene this fight belongs to.
-   start: read [{who, t, sp}], announce, record, map [lines]: opening the fight.
+   start: read [{who, t, sp}], announce, map [lines]: opening the fight.
    rounds: [{k, say, do, sp:[{who, t}]}]: what to narrate each round.
    end:   when, read [{who, t, sp} or {note}], next: closing the fight.
    Read-aloud lines: sp means Spencer voices it; {note} is a plain line for Scott.
@@ -74,47 +74,6 @@ const FIGHTS = {
        drop:"A wheel comes off; it tips over and spills its books.",
        hard:"It stops pushing: damage only.",
        easy:"Add 10 HP (43)."}
-    ]
-  },
-
-  contact: {
-    day:"Saturday", cue:6, name:"First contact",
-    start:{
-      read:[{who:"Someone fails Stealth", t:"Something crosses the wall very fast. Then there are two cold hands on you and a delighted face much too close to yours."}],
-      announce:"Only if they fight back.",
-      record:"Only if they fight back. Write down each player's roll. Roll once for Dracula.",
-      map:["No tokens unless they fight back.","If they do: Dracula on whoever failed Stealth, Orlok and Edward farther down the hall."]
-    },
-    rounds:[
-      {k:"Round 1", say:"He isn't hurting you. He's enjoying himself.", do:"Dracula goes in step 3. Edward watches Bix.", sp:[{who:"Dracula · holding someone", t:"Oh, very good. Again."},{who:"Dracula · asked if this is part of the party", t:"Part of the party? Yes. Oh, absolutely yes."}]},
-      {k:"Round 2, or when it stops being fun", do:"Go to step 5."}
-    ],
-    end:{
-      when:"After a round or two, or the moment it stops being fun.",
-      read:[
-        {who:"Orlok · to Dracula, quietly", sp:1, t:"Enough."},
-        {t:"One word from down the hall, very quiet, and the hands are gone."},
-        {who:"Orlok · the dismissal", sp:1, t:"The night is young. It would be terribly rude to be finished with you already&hellip; Go on. Have a look around. We'll find you when we're ready."}
-      ],
-      next:"Russ finds Orlok at the cabinet: cue 7."
-    },
-    turnIntro:"Dracula only.",
-    foes:[
-      {id:"dracula", nm:"Dracula", n:1, ac:16, hp:0, spd:"40, climbs walls", chassis:"Vampire", cr:"&mdash;", xp:0,
-       turn:["Swoops 40 ft at whoever failed Stealth and grabs them: <b>DC 15 Str or Dex save</b> or grappled. Escaping takes their action and a <b>DC 15</b> Athletics or Acrobatics check.",
-             "<b>Already holding someone?</b> Shoves them 10 ft toward the others, or pins them and looms.",
-             "<b>Orlok speaks?</b> Lets go and steps back. Done."],
-       note:"<b>No Bite. No damage. Nobody drops.</b> If someone runs, he doesn't chase.",
-       hpnote:"If they hit him, he laughs.",
-       drop:"He doesn't. Orlok's one word ends it.",
-       endsFight:1,
-       hard:"He lets go and just watches.",
-       easy:"He grabs a second PC. He has two hands."}
-    ],
-    alliesLabel:"Also in the hall",
-    allies:[
-      {nm:"Orlok", act:"Doesn't act. When you're ready to end it: one word."},
-      {nm:"Edward", act:"Doesn't act. Watches Bix."}
     ]
   },
 

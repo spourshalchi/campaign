@@ -42,15 +42,12 @@ SCENES.push(
     {note:"If they reach the locked door at the end of the upstairs hall, narrate the DJ poster (the first read-aloud on cue 13). That's as far as they get."},
     {snd:["steps","swoop","jump","braaam"], t:"Dracula"},
     {do:"<b>Someone rolls badly: Dracula swoops</b> and grabs them. DC 15 Str or Dex save or grappled, then he shoves them. <b>Spencer's turn:</b> Dracula, enjoying himself. &#9876; pressure scene."},
-    {tok:1},
-    {fight:1},
     {note:"Vampires <b>cannot kill a PC</b> here and never roll damage. Don't point it out.", k:"rule"},
     {do:"<b>Spencer's turn:</b> Orlok ends it with one word, then the dismissal."},
     {note:"Let the party choose whether Angelique travels with them."},
     {end:"on Orlok's dismissal, with the party scattering to look for a way out."}
   ],
   next:"On Orlok's dismissal, Russ finds Orlok at the cabinet: cue 7.", go:["7"],
-  fight:FIGHTS.contact,
   npcs:[
     {nm:"Dracula", pts:[
       {at:"Overheard, while they hide"},

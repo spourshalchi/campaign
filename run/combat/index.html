@@ -142,7 +142,7 @@
 </head>
 <body>
 <div id="page"></div>
-<script src="../fights.js?v=18"></script>
+<script src="../fights.js?v=19"></script>
 <script>
 "use strict";
 const $ = s => document.querySelector(s);
@@ -171,7 +171,7 @@ function stepStart(f){
   return step("s-start",1,"Start the fight",
     (s.read||[]).map(said).join("")+
     act("Announce: roll for initiative", s.announce||"")+
-    act("Record initiative", s.record||"Write down each player's roll. Roll once for all the enemies together.")+
+    act("Record initiative", "Write down each player's roll. Roll once for all the enemies together.")+
     act("Set up the combat map", `<ul>${s.map.map(t=>`<li>${t}</li>`).join("")}</ul>`));
 }
 
@@ -188,7 +188,7 @@ function stepRounds(f){
 const tierName = (t,v) => (t.tiers.find(([m])=>v<=m)||t.tiers[t.tiers.length-1])[1];
 const tallyMax = t => t.tiers[t.tiers.length-2][0]+1;
 function stepTurn(f){
-  const chips = x => x.hp ? Array.from({length:x.n},(_,i)=>`<span class="chip" data-chip="${x.id}:${i}" data-max="${x.hp}"></span>`).join("") : "";
+  const chips = x => Array.from({length:x.n},(_,i)=>`<span class="chip" data-chip="${x.id}:${i}" data-max="${x.hp}"></span>`).join("");
   const foe = x => `<div class="foe" data-foe="${x.id}"><div class="foe-h"><span class="foe-n">${x.nm}${x.n>1?` &times;${x.n}`:""}</span>`+
       `<span class="foe-m">${x.when?x.when+" · ":""}speed ${x.spd}</span>${chips(x)}</div>`+
     (x.say?`<p class="foe-say"><span class="foe-sayk">Say</span> ${x.say}</p>`:"")+
@@ -219,13 +219,13 @@ function stepTrack(f){
     `<div class="hp-b"><span class="hp-g"><span class="hp-k">Subtract</span><button data-d="-1">&minus;1</button><button data-d="-5">&minus;5</button><button data-d="-10">&minus;10</button></span>`+
     `<span class="hp-g"><span class="hp-k">Add back</span><button data-d="1" class="up">+1</button><button data-d="5" class="up">+5</button></span></div></div>`;
   const group = x => `<div class="trk" data-group="${x.id}">`+
-    (x.hp ? Array.from({length:x.n},(_,i)=>hpRow(x,i)).join("") : `<div class="hp-t"><span class="hp-n">${x.nm}: no HP to track</span></div>`)+
+    Array.from({length:x.n},(_,i)=>hpRow(x,i)).join("")+
     (x.hpnote?`<p class="trk-note">${x.hpnote}</p>`:"")+
     `<p class="trk-drop"><b>When it drops:</b> ${x.drop}</p>`+
     (x.endsFight?goBtn("s-end","Go to step 5: Ending"):"")+`</div>`;
   return step("s-track",4,"HP and trackers",
     tally+f.foes.map(group).join("")+
-    (t||f.foes.some(x=>x.hp)?`<button class="reset" id="reset">Reset: put all HP${t?" and "+t.label.toLowerCase():""} back to the start</button>`:""));
+    `<button class="reset" id="reset">Reset: put all HP${t?" and "+t.label.toLowerCase():""} back to the start</button>`);
 }
 
 /* ---- 5. ending ---- */
@@ -246,7 +246,7 @@ function paint(f){
     el.querySelector(".hp-v").textContent=v; el.querySelector(".hp-of").textContent=el.dataset.of; el.classList.toggle("down",v<=0); });
   $$("[data-chip]").forEach(el=>{ const v=hpOf(el.dataset.chip,+el.dataset.max), n=+el.dataset.chip.split(":")[1], many=el.parentNode.querySelectorAll(".chip").length>1;
     el.textContent=(many?`${n+1}: `:"")+`${v} HP`; el.classList.toggle("down",v<=0); });
-  f.foes.forEach(x=>{ if(!x.hp) return;
+  f.foes.forEach(x=>{
     const downs = Array.from({length:x.n},(_,i)=>hpOf(`${x.id}:${i}`,x.hp)<=0);
     $(`[data-foe="${x.id}"]`).classList.toggle("out",downs.every(Boolean));
     $(`[data-group="${x.id}"]`).classList.toggle("dropped",downs.some(Boolean)); });
