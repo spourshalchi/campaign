@@ -48,12 +48,12 @@ SCENES.push(
     {say:"The hallway between periods: slamming metal, sneakers squeaking on linoleum, somebody's Discman leaking through the headphones. Wedged in the vent of each of your lockers is the same small card.", who:"Setting"},
     {hand:"invites", do:"&#9995; <b>Each of them finds the card</b> (invites). It reads <i>&ldquo;Haunted House &middot; Dood Mansion &middot; 8 PM.&rdquo;</i> No name on it. There's a party, and they're invited."},
     {do:"They compare notes: <b>nobody else in school got one.</b>"},
-    {note:"<b>Optional, in passing:</b> by the gym, one of the missing posters: a kid their age, last seen in September. The kid who ran away. Describe it, don't read out a name, and don't dwell on it."},
+    {note:"<b>Optional, in passing:</b> by the gym, one of the missing posters: a kid their age, last seen in September. Describe it, don't read out a name, and don't dwell on it."},
     {tick:"Spencer ready for Vinny's call on Gnomey's flip phone."},
     {snd:["phone"], t:"Vinny's call"},
     {say:"Gnomey, as you read that name, your flip phone rings. It's your Great Uncle Vinny, the family's old bootlegger. He's ancient now, in a home, and mostly gone.", who:"Narrate"},
     {do:"<b>Spencer's turn:</b> Vinny's call. Then let it sit there unexplained."},
-    {do:"They pick where to dig: the <b>hall of records</b> (cue 3) or the <b>gazebo</b> (cue 4), in either order. If they don't bite, hand a detour to a PC."},
+    {do:"They pick where to dig: the <b>hall of records</b> (cue 3) or the <b>gazebo</b> (cue 4), in either order."},
     {note:"<b>If they don't bite, hand a detour to a PC:</b> tell <b>Bix</b> the Records Keeper knows old names; tell <b>Gnomey</b> the old crew at the gazebo will already know."},
     {note:"If they march up the hill early: the front is <b>still boarded at this hour</b> and turns them back."},
     {say:"It's barely noon. The card says <b>eight</b>. And not one of you has ever heard the name <b>Dood</b> before."},
@@ -72,7 +72,7 @@ SCENES.push(
   ],
   cues:["hall","phone"] },
 
-{ act:"town", no:3, title:"The library &amp; hall of records", where:"Town · Saturday's town fight",
+{ act:"town", no:3, title:"The library &amp; hall of records", where:"Town",
   steps:[
     {snd:["records"]},
     {say:"The hall of records is cold and very quiet: long tables, green-shaded lamps, the smell of old paper and floor polish. The Records Keeper looks up from her desk as you come in.", who:"Setting"},
@@ -83,14 +83,14 @@ SCENES.push(
     {tok:1},
     {fight:1},
     {ipad:1, do:"&#128241; <b>Item 1</b> after the fight: set the pieces from the cut count and hand over the torn page."},
-    {stuck:"If the jigsaw stalls past ten minutes: <b>Spencer's turn</b>, the Records Keeper tells them the page-2 lore. The folklore is what matters, not the finished picture."},
+    {stuck:"If the jigsaw stalls past ten minutes: <b>Spencer's turn</b>, the Records Keeper tells them the page-2 lore."},
     {tick:"After the jigsaw: players' iPad back to its home page."},
     {do:"They read it: the town's talk about the Dood house (a polite voice at the door, no answer by day, music, a splinted dog), and on page 2 a reader's old-country tale with the slaying method (dig up the coffin, stake the heart, rebury). Piecing the method together: Investigation or History DC 12. In the back pocket, the checkout card: <b>U.M. Livingsworth III</b>, <b>V. Soprano 1938</b>, <b>W. Ostrander</b>."},
     {check:{skill:"Investigation / History", dc:"12", note:"Assemble the slaying method from the folklore: coffins, stake, rebury."}},
     {rev:{who:"Gnomey", t:"may clock his own family name, <b>Soprano</b>, on the card. Don't push it."}},
     {do:"<b>Spencer's turn:</b> the Records Keeper's nudge."},
     {check:{skill:"Insight", dc:"13", note:"Tell that her &ldquo;be careful&rdquo; is sincere."}},
-    {end:"when the lore's in the bag and her &ldquo;be careful&rdquo; has landed. Next: the gazebo, or the hill if they've been already."}
+    {end:"when the lore's in the bag and her &ldquo;be careful&rdquo; has landed."}
   ],
   next:"Her &ldquo;be careful&rdquo; lands. Gazebo next, or up the hill if they've been. If this is the second stop, end on the &ldquo;ten to eight&rdquo; line from cue 4.", go:["4","5"],
   talk:[
@@ -111,9 +111,9 @@ SCENES.push(
     {do:"<b>Spencer's turn:</b> Poe Boy, the crew and Angelique."},
     {do:"They ask about the house or the cards. <b>Spencer's turn:</b> Poe Boy. Then call Insight DC 14."},
     {check:{skill:"Insight", dc:"14", note:"Sense the &ldquo;once&rdquo; is a lie, or that Angelique is holding something back."}},
-    {hand:"weight", do:"<b>Spencer's turn:</b> the crew. &#9995; When they ask for the riff, hand John the secret <b>The Weight of Your Lies</b> card (printed): disadvantage on Performance, advantage on Deception. Then his first Performance check: <b>DC 12</b>, rolled in secret, at disadvantage."},
+    {hand:"weight", do:"<b>Spencer's turn:</b> the crew. &#9995; When they ask for the riff, hand John the secret <b>The Weight of Your Lies</b> card (printed): disadvantage on Performance, advantage on Deception."},
     {check:{skill:"Performance", dc:"12", note:"<b>Yobo only, in secret, at disadvantage.</b> Hand him <i>The Weight of Your Lies</i> first. Made it: the crew buys it. Missed: it wobbles and they needle him."}},
-    {note:"<b>The card doesn't say how to lose it. Don't hint.</b>"},
+    {note:"<b>Don't hint at how to lose the card's effect.</b>"},
     {say:"Whoever's wearing a watch &mdash; it's <b>ten to eight</b>. That's the time on the card."},
     {end:"on the clock: ten to eight, the time on the card."}
   ],
