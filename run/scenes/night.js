@@ -26,7 +26,7 @@ SCENES.push(
     {by:"Angelique", who:"Players", t:"learn Angelique is inside and hiding from something. Not what, and not why she came."}
   ],
   npcs:[
-    {nm:"Angelique", pts:["Get them down and quiet","Won't say what she's hiding from","Won't say why she came","If they try the door: go ahead, but they'd have to walk back past what she walked past"], vc:"Frightened, whispering, won't say why she came. Her reason (don't say it yet): last month she typed some of Poe Boy's AIM messages to a kid, thinking it was a prank; the kid stopped coming to school; and she feels a pull to this house. She came to find out."}
+    {nm:"Angelique", pts:["Pull them down into hiding and tell them to stay quiet.","Refuse to say what you're hiding from.<ul><li>If they ask, just tell them to listen.</li></ul>","Refuse to say why you came.<ul><li>Your reason, not to be said yet: last month you typed some of Poe Boy's AIM messages to a kid, thinking it was a prank. The kid stopped coming to school. You feel a pull to this house, and you came to find out.</li></ul>","Warn them off the front door if they try it.<ul><li>It won't open. Going that way means walking back past whatever you walked past.</li></ul>"], vc:"Frightened, whispering."}
   ],
   cues:["wind","drone","bolt","steps","jump"] },
 
@@ -68,10 +68,10 @@ SCENES.push(
   ],
   fight:FIGHTS.contact,
   npcs:[
-    {nm:"Dracula", pts:["Overheard: he said five, there are five, the boy's learning to count","They're all children, and that's the point","The meals haven't been fed yet","If they make their Perception: it's only the rehearsal, and you missed your entrance","The swoop: hands on, delighted, no damage. If they hit him, he laughs","Asked if this is part of the party: yes, absolutely","Lets go the instant Orlok speaks"], vc:"Campy, theatrical, lays hands on them and enjoys it far too much. To him this is a rehearsal. Never says who &ldquo;the boy&rdquo; is."},
-    {nm:"Orlok", pts:["Overheard: have the meals been fed? See to it before we begin","Stay out of the grab until you're ready to end it","One word, quietly, and Dracula stops","The dismissal, as a threat","Explain nothing: not the doors, not the meals, not the boy"], vc:"Patient and very polite, even while doing something awful. Wants to be left alone in his house. Keeps back: he lost it to Vinny at cards in 1931."},
-    {nm:"Edward", pts:["Overheard: one of them is a child","In the hall, stay out of it and watch Bix","Don't approach, don't answer"], vc:"The younger voice. Bix is his son; he says nothing until the driveway."},
-    {nm:"Angelique", pts:["Keep them quiet while the voices pass","Still won't say what she's hiding from, or why she came"], vc:"Whispering, frightened."}
+    {nm:"Dracula", pts:["Tell the others that five came, just as the boy said.<ul><li>The boy told you five, and there are five. Never say who the boy is.</li></ul>","Answer Edward that they're all children, and that's the point.","Mention, if you like, that the boy says they come for the music and stay for you.","Tell Orlok the meals haven't been fed yet, as far as you know.","Say the rehearsal line if they make their Perception.<ul><li>Scott tells you when. The line is below: it's only the rehearsal, and you missed your entrance.</li></ul>","Grab whoever fails Stealth, and enjoy it.<ul><li>Scott narrates the swoop and calls the save. No bite and no damage. If they hit you, laugh.</li></ul>","Say yes, delighted, if they ask whether this is part of the party.","Let go the instant Orlok speaks."], vc:"Campy, theatrical, lays hands on them and enjoys it far too much. To him this is a rehearsal."},
+    {nm:"Orlok", pts:["Ask whether the meals have been fed.<ul><li>Tell Dracula to see to it before you begin. You won't have them distracted.</li></ul>","Stay out of the grab until Scott cues you to end it.<ul><li>That's after a round or two, or the moment it stops being fun.</li></ul>","Stop Dracula with one quiet word.","Deliver the dismissal below as a threat, very politely.","Refuse to explain anything.<ul><li>Say nothing about the doors, the meals or the boy.</li></ul>"], vc:"Patient and very polite, even while doing something awful. Wants to be left alone in his house. Keeps back: he lost it to Vinny at cards in 1931."},
+    {nm:"Edward", pts:["Point out that one of them is a child.","Watch Bix and stay out of the grab.<ul><li>Bix is your son. You say nothing about it until the driveway.</li></ul>","Refuse to approach anyone or answer them."], vc:"The younger voice."},
+    {nm:"Angelique", pts:["Keep them quiet while the voices pass.","Refuse to say what you're hiding from or why you came."], vc:"Whispering, frightened."}
   ],
   cues:["drone","heart","steps","swoop","jump","braaam"] },
 
@@ -95,7 +95,7 @@ SCENES.push(
     {who:"Orlok · if Russ pushes", t:"I said no."}
   ],
   npcs:[
-    {nm:"Orlok", pts:["Keep patting along the wrong shelf","Don't ask for help, even if he's offered it","Take the spectacles with no thanks","Shown &ldquo;verified by your elder&rdquo;: a flat no","Give nothing back, and keep him cold"], vc:"Cold and dignified, and very polite about it. The only crack is that the kid reached up for him and didn't flinch. Don't play it beyond silence: no signature tonight."}
+    {nm:"Orlok", pts:["Keep patting along the wrong shelf until Russ acts.<ul><li>Dracula put your spectacles on top of the cabinet, and you can't see without them.</li></ul>","Refuse to ask for help, even when he offers it.","Take the spectacles without a word of thanks.","Refuse to sign when Russ shows you the card.<ul><li>He'll point at &ldquo;verified by your elder&rdquo;. Give him a flat no. This is the first of three refusals.</li></ul>","Stay cold and give him nothing back."], vc:"Cold and dignified, and very polite about it. The only crack is that the kid reached up for him and didn't flinch. Don't play it beyond silence: no signature tonight."}
   ],
   cues:["drone"] },
 
@@ -117,7 +117,7 @@ SCENES.push(
   ],
   next:"The warm, breathing door (read-aloud): cue 9.", go:["9"],
   npcs:[
-    {nm:"Edward", pts:["No lines tonight: he's only ever caught watching","It's Bix he watches, both times","Spoken to, he doesn't answer","Never approaches, never explains"], vc:"Has known who Bix is since they walked in. Let them think he's picked one of them to hunt. He explains himself in the driveway at sunrise, not before."}
+    {nm:"Edward", pts:["Stand still and watch Bix each time they catch you.<ul><li>They catch you twice. Scott narrates it. You have no lines tonight.</li></ul>","Ignore anything they say to you.","Refuse to approach or explain.<ul><li>You've known who Bix is since they walked in. You explain yourself in the driveway at sunrise, not before.</li></ul>"], vc:"Let them think he's picked one of them to hunt."}
   ],
   cues:["creak","drone","heart","breath","riser"] },
 
