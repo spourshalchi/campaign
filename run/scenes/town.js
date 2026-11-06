@@ -78,10 +78,11 @@ SCENES.push(
     {say:"The hall of records is cold and very quiet: long tables, green-shaded lamps, the smell of old paper and floor polish. The Records Keeper looks up from her desk as you come in.", who:"Setting"},
     {do:"They ask about Dood. <b>Spencer's turn:</b> the Records Keeper."},
     {do:"She sets the bound volume on the table, intact. They open it."},
-    {snd:["riser","paper","jump"], t:"The trap"},
+    {snd:["library","riser","paper","jump"], t:"The trap"},
     {do:"<b>Opening it springs the trap</b>: the reading room's stationery comes alive and goes for the article. &#9876; Fight &mdash; <b>count the cuts</b>."},
     {tok:1},
     {fight:1},
+    {snd:["library"], t:"Fight over: tap off"},
     {do:"<b>Spencer's turn:</b> the Records Keeper, right after the fight."},
     {ipad:1, do:"&#128241; <b>Item 1:</b> tap the difficulty the combat page shows (Easy, Medium or Hard), then hand over the torn page."},
     {stuck:"If the jigsaw stalls past ten minutes: <b>Spencer's turn</b>, the Records Keeper tells them what the page says."},
@@ -109,7 +110,7 @@ SCENES.push(
       {t:"Warn them to be careful, and mean it.", say:"&hellip;But be careful."}
     ], vc:"Helpful. Beyond these points, play her to taste."}
   ],
-  cues:["records","riser","paper","jump"] },
+  cues:["records","library","riser","paper","jump"] },
 
 { act:"town", no:4, title:"The gazebo", where:"Town · the bad kids",
   steps:[
