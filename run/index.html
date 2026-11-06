@@ -131,7 +131,6 @@
   .floating .fh{flex:1 0 auto;font-size:14px;font-weight:700;color:var(--amber);white-space:nowrap}
   .floating .fp{flex:0 0 auto;display:flex;align-items:center;min-height:36px;padding:4px 12px;white-space:nowrap;
     background:#0000004d;border:1px solid var(--amber-dim);border-radius:9px;color:var(--ink);font-size:14px}
-  .idx-item .ip{font-size:11px;color:var(--blue);margin-left:6px;font-family:var(--f-mono)}
 
   /* Leave knowing, first thing on every cue, and who delivers it */
   .lk{margin:0 0 12px}
@@ -430,29 +429,6 @@
   .vol{display:flex;align-items:center;gap:6px;flex:0 0 auto;color:var(--dim);font-size:11px}
   .vol input{width:80px}
 
-  /* ---------------- OVERLAYS ---------------- */
-  .overlay{position:fixed;inset:0;z-index:60;background:#06040acc;backdrop-filter:blur(6px);
-    display:none;align-items:flex-start;justify-content:center;padding:40px 16px;overflow-y:auto}
-  .overlay.on{display:flex}
-  .sheet{width:100%;max-width:820px;background:var(--panel);border:1px solid var(--edge);border-radius:16px;
-    box-shadow:var(--shadow);overflow:hidden}
-  .sheet .sh{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--edge);
-    background:linear-gradient(180deg,#1b1528,#140f1e)}
-  .sheet .sh h3{margin:0;font-family:var(--f-disp);font-size:20px;flex:1}
-  .sheet .sh .x{width:32px;height:32px;border-radius:8px;border:1px solid var(--edge);background:#1a1428;color:var(--mut);
-    font-size:16px;cursor:pointer}
-  .sheet .sb{padding:18px 20px}
-
-  /* index overlay */
-  .idx-act{margin-bottom:16px}
-  .idx-act .ial{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin:0 0 8px}
-  .idx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
-  .idx-item{text-align:left;background:var(--panel2);border:1px solid var(--edge);border-radius:9px;padding:10px 12px;cursor:pointer}
-  .idx-item:hover{border-color:var(--dim)}
-  .idx-item.cur{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
-  .idx-item .in{font-family:var(--f-mono);font-size:11px;color:var(--gold)}
-  .idx-item .it{font-size:13.5px;color:var(--ink);font-weight:600;margin-top:2px}
-
   /* dice toast */
   #dice{position:fixed;z-index:70;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);
     background:#1b1528ee;border:1px solid var(--edge);border-radius:14px;padding:14px 22px;box-shadow:var(--shadow);
@@ -517,42 +493,13 @@
     text-transform:uppercase;color:var(--dim)}
 
   /* run sheet + props sheet */
-  .idx-note{margin:0 0 12px;font-size:14px;color:var(--mut);line-height:1.45}
-  .idx-item{display:flex;align-items:stretch;padding:0;overflow:hidden}
-  .idx-jump{flex:1;min-width:0;min-height:52px;text-align:left;background:transparent;border:none;color:inherit;font:inherit;padding:8px 10px;cursor:pointer;display:flex;flex-direction:column}
-  .idx-item .pt{margin-left:8px;color:var(--mut)}
-  .idx-done{flex:0 0 48px;border:none;border-left:1px solid var(--edge);background:#0000003d;color:transparent;font-size:18px;font-weight:800;cursor:pointer}
-  .idx-item.dn .idx-done{background:#1b4a33;color:var(--green)}
-  .idx-item.dn .it{color:var(--mut)}
+  .lv-note{margin:0 0 12px;font-size:14px;color:var(--mut);line-height:1.45}
 
 
   /* the level-up card */
   .lv-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:10px;padding:8px 0;border-top:1px solid var(--edge);font-size:15px;line-height:1.45}
   .lv-row b{display:block;color:var(--gold)} .lv-row i{font-style:normal;font-size:13.5px;color:var(--mut)}
   @media(max-width:640px){.lv-row{grid-template-columns:1fr;gap:2px}}
-  /* splash link to Spencer's view */
-  #splash .splink{margin-top:18px;color:var(--pink);font-size:15px;text-decoration:none;padding:12px 16px;border:1px solid #4f2846;border-radius:10px}
-
-  /* Spencer's view: his phone, one scroll */
-  #spv{display:none;position:fixed;inset:0;flex-direction:column;background:var(--bg);padding:var(--safe-t) var(--safe-r) 0 var(--safe-l);height:100dvh}
-  #spv.on{display:flex}
-  .sp-top{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:6px 12px;min-height:56px;background:linear-gradient(180deg,#1d0f1a,#120a11);border-bottom:1px solid #4f2846}
-  .sp-brand{font-family:var(--f-disp);font-size:18px;font-weight:700;color:var(--pink)} .sp-brand span{color:var(--ink)}
-  .sp-tab{height:44px;padding:0 14px;border-radius:9px;border:1px solid #4f2846;background:transparent;color:var(--mut);font:inherit;font-size:14px;cursor:pointer}
-  .sp-tab.on{background:var(--pink);border-color:var(--pink);color:#1a0812;font-weight:700}
-  .sp-chips{flex:0 0 auto;display:flex;gap:6px;overflow-x:auto;padding:8px 12px;border-bottom:1px solid var(--edge);scrollbar-width:none}
-  .sp-chips::-webkit-scrollbar{display:none}
-  .sp-chip{flex:0 0 auto;min-width:44px;height:44px;padding:0 12px;border-radius:9px;border:1px solid var(--edge);background:var(--panel2);
-    color:var(--ink);font-family:var(--f-mono);font-size:14px;cursor:pointer;white-space:nowrap}
-  .sp-body{position:relative;flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:12px 14px calc(40px + var(--safe-b))}
-  .sp-cue{max-width:760px;margin:0 auto 22px;padding:0 0 16px;border-bottom:2px solid #4f2846}
-  .sp-cue h3{margin:0 0 4px;font-family:var(--f-disp);font-size:22px;line-height:1.2}
-  .sp-cue h3 .no{font-family:var(--f-mono);font-size:15px;color:var(--pink);margin-right:6px}
-  .sp-where{margin:0 0 8px;font-size:13.5px;color:var(--dim)}
-  .sp-where b{color:var(--pink)} .sp-if{color:var(--pink)}
-  .sp-set{margin:0 0 12px;font-size:15px;line-height:1.5;color:var(--mut)}
-  .sp-npc-cue{padding:10px 0;border-top:1px solid var(--edge)}
-  .sp-npc-cue .vc{font-size:15px;color:var(--ink);opacity:.86;line-height:1.45;margin:0 0 8px}
 </style>
 </head>
 <body>
@@ -563,10 +510,9 @@
   <h1>Dood Mansion</h1>
   <p class="sub">A cue-to-cue prompt book for running the two-night haunt. Read-aloud, beats, checks, hand-overs, reveals and a live soundboard — everything you need to run the moment.</p>
   <button class="go" id="beginBtn">Take the booth &rsaquo;</button>
-  <a class="splink" href="?spencer">Spencer? Open your view &rsaquo;</a>
   <p class="hint">
     <kbd>&larr;</kbd> <kbd>&rarr;</kbd> turn cues &nbsp;·&nbsp; <kbd>1</kbd>&ndash;<kbd>0</kbd> soundboard &nbsp;·&nbsp; <kbd>⇧1</kbd>&ndash;<kbd>⇧9</kbd> this cue's sounds &nbsp;·&nbsp;
-    <kbd>i</kbd> index &nbsp;·&nbsp; <kbd>f</kbd> full screen &nbsp;·&nbsp; <kbd>d</kbd> roll d20 &nbsp;·&nbsp; <kbd>Esc</kbd> silence / close<br>
+    <kbd>f</kbd> full screen &nbsp;·&nbsp; <kbd>d</kbd> roll d20 &nbsp;·&nbsp; <kbd>Esc</kbd> silence / close<br>
     Tapping in unlocks the sound. It loads in the background and stays on this device, so the next open works offline.
   </p>
 </div>
@@ -585,8 +531,7 @@
     </div>
     <button class="timer" id="timer" title="Tap to pause / resume">--:--</button>
     <div class="tbtns">
-      <button class="tbtn" data-ov="index" title="Run sheet (I)">Index</button>
-      <button class="tbtn" id="fsBtn" title="Full screen (F)">Full</button>
+      <button class="tbtn" id="fsBtn" title="Full screen (F)">Full screen</button>
     </div>
   </div>
 
@@ -594,23 +539,6 @@
   <div id="stage"></div>
 
   <div id="board"></div>
-</div>
-
-<!-- overlays -->
-<div class="overlay" id="ov-index"><div class="sheet">
-  <div class="sh"><h3>Run sheet</h3><button class="x" data-close aria-label="Close">&times;</button></div>
-  <div class="sb" id="indexBody"></div>
-</div></div>
-<!-- ================= SPENCER'S VIEW (?spencer) ================= -->
-<div id="spv">
-  <div class="sp-top">
-    <span class="sp-brand">Spencer <span>&middot; voice</span></span>
-    <span class="spacer"></span>
-    <button class="sp-tab on" data-sptab="cue">By cue</button>
-    <button class="sp-tab" data-sptab="npc">By NPC</button>
-  </div>
-  <div class="sp-chips" id="spChips"></div>
-  <div class="sp-body" id="spBody"></div>
 </div>
 
 <div id="dice">
@@ -683,8 +611,8 @@ const PROPS = [
   {id:"deed",       nm:"The deed",                      to:"Julia (Gnomey)",        cue:15, how:"from Vinny."}
 ];
 const FLOATING = PROPS.filter(p=>p.cue==="float");
-/* saved on this device: prep checklist, Do-now ticks, scenes done, the day clocks */
-const PKEY="dood_prep_v1", DKEY="dood_do_v1", NKEY="dood_done_v1", CKEY="dood_clock_v1";
+/* saved on this device: prep checklist, Do-now ticks, scenes done, the day clocks, the card you're on */
+const PKEY="dood_prep_v1", DKEY="dood_do_v1", NKEY="dood_done_v1", CKEY="dood_clock_v1", SKEY="dood_pos_v1";
 function loadK(k){ try{return JSON.parse(localStorage.getItem(k))||{};}catch(e){return {};} }
 function saveK(k,o){ try{localStorage.setItem(k,JSON.stringify(o));}catch(e){} }
 function loadPrep(){ return loadK(PKEY); } function savePrep(o){ saveK(PKEY,o); }
@@ -705,8 +633,7 @@ const SCENES = [
     {g:"iPads &amp; laptop", items:[
       {id:"ipad-charged", t:"<b>Both iPads and the laptop charged</b>, chargers in the bag. Auto-Lock off on both iPads so the screen doesn't sleep mid-scene."},
       {id:"ipad-home", t:"<b>Players' iPad on its home page</b>, items 1&ndash;2. Add to Home Screen done and cache-busted (<code>?v=</code>). Open item 1 and item 2 once to check they load, then back to home."},
-      {id:"laptop", t:"<b>Run of Show open</b>, sound up, soundboard tested (one ambience, one sting). Ticks and the clock reset (bottom of this card)."},
-      {id:"spencer-view", t:"<b>Spencer's view open on his phone</b>: <code>/run/?spencer</code> &mdash; every cue's lines, reveals and NPCs, and a By NPC tab."}]},
+      {id:"laptop", t:"<b>Run of Show open</b>, sound up, soundboard tested (one ambience, one sting). Ticks and the clock reset (bottom of this card)."}]},
     {g:"Print run", items:[
       {id:"print", t:"<b>Print run picked up and cut</b> (<code>/print/</code>): invites, backstory cards, Russ's card, the badge, the willow's tag, the concert tickets, Yobo's two cards, battle tokens, the deed, the survey, the settlement, Orlok's ledger, the DJ poster, character sheets, the combat cheat sheet."},
       {id:"photo", t:"<b>The photograph</b>: a Staples 4&times;6 photo print of <code>print/photo-4x6.jpg</code>, glossy or lustre. Same-day at most stores."},
@@ -720,15 +647,14 @@ const SCENES = [
     {g:"At the table, before play", items:[
       {id:"hand-backstory", t:"<b>&#9995; Backstory cards handed out</b>, one per player."},
       {id:"hand-reqcard", t:"<b>&#9995; Russ's requirements card</b> (printed) to Cody."},
-      {id:"spencer", t:"<b>Spencer briefed</b>: his pink zone on every cue, or his phone view."}]}
+      {id:"spencer", t:"<b>Spencer briefed</b>: his pink zone on every cue."}]}
   ],
   spBrief:[
     "<b>Your zone is the pink one on the right</b>, on every cue.",
     "<b>Lines</b> at the top are yours to say. <b>IF blocks</b> (dashed) only play if their condition happened.",
     "Each <b>NPC</b> has a one-line voicing. A <b>🔓 Reveal</b> under an NPC is something they let slip, or something they learn and react to.",
     "Scott narrates, runs checks and the enemy turns; you voice everyone else.",
-    "<b>Handoff:</b> when Scott says an NPC's name and looks at you, you're on. Tap the table when a moment needs a roll or a check, and Scott takes it. <span class='ai'>🟡</span>",
-    "<b>On your phone:</b> <code>/run/?spencer</code> has every cue's lines in one scroll, plus a By NPC tab. Scott calls the cue number; jump to it from the chips at the top."
+    "<b>Handoff:</b> when Scott says an NPC's name and looks at you, you're on. Tap the table when a moment needs a roll or a check, and Scott takes it. <span class='ai'>🟡</span>"
   ],
   pace:[
     "<b>Phones away</b>, snacks out, sheets and dice in front of everyone. The Saturday clock starts when you open cue 1.",
@@ -1061,7 +987,7 @@ const SCENES = [
       {id:"sun-props", t:"<b>Sticky note and survey</b> not out yet? They go to the first rooms they search today."},
       {id:"sun-poster", t:"<b>DJ poster</b> still on the AIM-room door."},
       {id:"sun-ipad", t:"<b>Players' iPad</b> charged and on its home page. Nothing on it until the AIM room."},
-      {id:"sun-spencer", t:"<b>Spencer</b> on cue 10 in his view."}]},
+      {id:"sun-spencer", t:"<b>Spencer</b> on cue 10 in his pink zone."}]},
     {g:"Open the day", items:[
       {id:"sun-clock", t:"<b>Clock restarted</b> for Sunday (button below)."},
       {id:"sun-recap", t:"<b>Recap</b>: ask a player where they left off. Last thing they saw: a screen in the house typed <i>&ldquo;is someone there&rdquo;</i> and went dark."}]}
@@ -1532,7 +1458,7 @@ const EXEC = {
     land:[["It was <b>human-made and incomplete</b> (Arcana DC 14). Who drew it stays open.","Scott"],["Something in the house typed <b>&ldquo;is someone there&rdquo;</b>.","Scott"]],
     next:"The screen dies: end of Saturday. Don't let them reach the room. Everyone levels to 5.", go:["L5"],
     save:[["Skip","They go looking for the screen: the AIM-room door stays locked until Sunday's end."],
-          ["Out of time","Saturday ends wherever time runs out; everyone levels to 5 at the end of day one. Where an unplayed summoning goes is not decided yet. The level-up card is in Index, right after this cue."]]},
+          ["Out of time","Saturday ends wherever time runs out; everyone levels to 5 at the end of day one. Where an unplayed summoning goes is not decided yet. The level-up card comes right after this cue."]]},
   "L5":{mins:10, next:"That's Saturday. Anything unfinished waits for Sunday's start card.", go:["SUN"]},
   "SUN":{mins:5, next:"Into the first room. Study first if you can.", go:"rooms"},
   "10":{mins:25,
@@ -1664,6 +1590,7 @@ function spZone(s){
 function render(i){
   cur = (i + SCENES.length) % SCENES.length;
   const s = SCENES[cur], act = ACTS[s.act], e = exOf(s), key = String(s.no);
+  saveK(SKEY,{no:key});
   if(!s.checklist) clockStart(dayOf(s));
 
   // top bar
@@ -1725,7 +1652,7 @@ function render(i){
   // the level-up card
   const lv = s.levelup, lvHTML = lv ? `<div class="block"><ul class="rem"><li class="rule">${lv.why} <span class="ai">🟡</span></li></ul></div>`+
     `<div class="block"><p class="h">Every sheet</p><ul class="rem">${lv.all.map(t=>`<li class="level">${t}</li>`).join("")}</ul></div>`+
-    `<div class="block"><p class="h">By class <span class="ai">🟡</span></p>${lv.cls.map(([c,w,t])=>`<div class="lv-row"><span><b>${c}</b><i>${w}</i></span><span>${t}</span></div>`).join("")}<p class="idx-note">${lv.src}</p></div>` : "";
+    `<div class="block"><p class="h">By class <span class="ai">🟡</span></p>${lv.cls.map(([c,w,t])=>`<div class="lv-row"><span><b>${c}</b><i>${w}</i></span><span>${t}</span></div>`).join("")}<p class="lv-note">${lv.src}</p></div>` : "";
 
   // 🎯 leave knowing + ➜ next
   const landRow = l => { const [t,by] = Array.isArray(l) ? l : [l,""]; return `<li>${t}${by?`<span class="lby">${by}</span>`:""}</li>`; };
@@ -1825,7 +1752,6 @@ function render(i){
   stage.querySelectorAll(".zone").forEach(z=>z.scrollTop=0);
   refreshCounts();
   highlightCues(s.cues||[]);
-  markIndexCurrent();
   drawProgress();
   tickTimer();
 }
@@ -2166,13 +2092,7 @@ function firePad(key,el){
   else fx(key);
 }
 
-/* ===================================================================== */
-/* ============================ OVERLAYS =============================== */
-/* ===================================================================== */
-function openOv(name){ closeOv(); if(name==="index") buildIndex(); $("#ov-"+name).classList.add("on"); }
-function closeOv(){ document.querySelectorAll(".overlay.on").forEach(o=>o.classList.remove("on")); }
-
-/* the run sheet: every cue by day, its planned start against the day clock, and a done box */
+/* minutes into the day that a cue is planned to start, for the clock */
 function planAt(i){
   const day=dayOf(SCENES[i]), at13=i>=idxOf(13);
   let m=0; SCENES.forEach((x,j)=>{ const mins=exOf(x).mins||0; if(!mins||j===i||dayOf(x)!==day) return;
@@ -2180,24 +2100,6 @@ function planAt(i){
   return m;
 }
 const hm = m => `${Math.floor(m/60)}:${String(m%60).padStart(2,"0")}`;
-function buildIndex(){
-  const groups={}; SCENES.forEach((s,i)=>{ (groups[s.act]=groups[s.act]||[]).push({s,i}); });
-  let html=`<p class="idx-note">Planned start on each cue is time since the day's clock started (🟡 a rough plan). Saturday ends wherever time runs out. Tick a cue done here, or it ticks itself when you move on.</p>`;
-  Object.keys(ACTS).forEach(a=>{ if(!groups[a]) return;
-    html+=`<div class="idx-act"><p class="ial" style="color:${ACTS[a].color}">${ACTS[a].label}</p><div class="idx-grid">`;
-    groups[a].forEach(({s,i})=>{ const m=exOf(s).mins;
-      html+=`<div class="idx-item${isDone(s.no)?" dn":""}" data-idx="${i}"><button class="idx-jump" data-jump="${i}">`+
-        `<span class="in">${noLabel(s)}${s.ipad&&s.ipad.length?`<span class="ip">📱 ${s.ipad.join(" + ")}</span>`:""}`+
-        `${m?`<span class="pt">+${hm(planAt(i))} · ${m}m</span>`:""}</span><span class="it">${s.title}</span></button>`+
-        (s.checklist?"":`<button class="idx-done" data-donetoggle="${i}" aria-label="Done">✓</button>`)+`</div>`; });
-    html+=`</div></div>`;
-  });
-  $("#indexBody").innerHTML=html;
-  markIndexCurrent();
-}
-function markIndexCurrent(){ const b=$("#indexBody"); if(!b) return;
-  b.querySelectorAll(".idx-item").forEach(el=>el.classList.toggle("cur",+el.dataset.idx===cur)); }
-
 /* ===================================================================== */
 /* ============================ DICE ================================== */
 /* ===================================================================== */
@@ -2251,7 +2153,7 @@ function begin(){
   $("#app").classList.add("on");
   initAudio(); unlock();
   buildBoard(); loadSounds();
-  render(0); tInt=setInterval(tickTimer,1000);
+  render(Math.max(0,idxOf(loadK(SKEY).no))); tInt=setInterval(tickTimer,1000);
 }
 $("#beginBtn").addEventListener("click",begin);
 $("#splash").addEventListener("click",e=>{ if(e.target.id==="splash") begin(); });
@@ -2261,15 +2163,6 @@ $("#prev").addEventListener("click",()=>go(-1));
 $("#next").addEventListener("click",()=>go(1));
 $("#timer").addEventListener("click",toggleTimer);
 $("#fsBtn").addEventListener("click",toggleFS);
-
-// top bar overlays
-document.querySelectorAll(".tbtn[data-ov]").forEach(b=>b.addEventListener("click",()=>openOv(b.dataset.ov)));
-$("#indexBody").addEventListener("click",e=>{
-  const d=e.target.closest("[data-donetoggle]"); if(d){ const i=+d.dataset.donetoggle; markDone(i,!isDone(SCENES[i].no)); buildIndex(); drawProgress(); return; }
-  const j=e.target.closest("[data-jump]"); if(j){ render(+j.dataset.jump); closeOv(); }
-});
-document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",closeOv));
-document.querySelectorAll(".overlay").forEach(o=>o.addEventListener("click",e=>{ if(e.target===o) closeOv(); }));
 
 // enemy HP: kept for the session, per cue and per enemy, so flipping cues doesn't lose it
 const HP = {};
@@ -2290,7 +2183,7 @@ stage.addEventListener("click",e=>{
     stage.querySelectorAll("[data-stagep]").forEach(b=>b.classList.toggle("on",+b.dataset.stagep===n)); return; }
   const cr=e.target.closest("[data-clockreset]"); if(cr){ if(confirm("Restart this day's clock from zero?")){ clockStart(cr.dataset.clockreset,true); tickTimer(); } return; }
   if(e.target.closest("[data-prepreset]")){ if(confirm("Clear every tick (checklists, Do now, scenes done) and both day clocks?")){
-    try{ [PKEY,DKEY,NKEY,CKEY,"dood_props_v1","dood_party_v1","dood_notes_v1","dood_floating_v1"].forEach(k=>localStorage.removeItem(k)); }catch(err){} render(cur); } return; }
+    try{ [PKEY,DKEY,NKEY,CKEY,SKEY,"dood_props_v1","dood_party_v1","dood_notes_v1","dood_floating_v1"].forEach(k=>localStorage.removeItem(k)); }catch(err){} render(cur); } return; }
   const hb=e.target.closest("[data-hpd]"); if(hb){ const row=hb.closest("[data-hpkey]"), key=row.dataset.hpkey, max=+row.dataset.max;
     const d=hb.dataset.hpd; HP[key] = d==="reset" ? max : Math.min(max, Math.max(+row.dataset.min, hpOf(key,max) + (+d)));
     row.querySelector(".hpv").textContent=HP[key]; row.classList.toggle("down",HP[key]<=0); return; }
@@ -2328,71 +2221,14 @@ document.addEventListener("keydown",e=>{
   switch(k){
     case "ArrowRight": case " ": case "PageDown": go(1); e.preventDefault(); break;
     case "ArrowLeft": case "PageUp": go(-1); e.preventDefault(); break;
-    case "i": case "I": toggle("index"); break;
     case "d": case "D": rollDice(); break;
     case "f": case "F": toggleFS(); break;
     case "Escape":
-      if(document.querySelector(".overlay.on")||$("#dice").classList.contains("on")){ closeOv(); $("#dice").classList.remove("on"); }
+      if($("#dice").classList.contains("on")) $("#dice").classList.remove("on");
       else stopAll();
       break;
   }
 });
-function toggle(name){ const o=$("#ov-"+name); if(o.classList.contains("on")) closeOv(); else openOv(name); }
-
-/* ===================================================================== */
-/* ======================= SPENCER'S VIEW (?spencer) ==================== */
-/* ===================================================================== */
-/* For his phone: every cue's lines, IF blocks, NPCs and reveals in one scroll, or regrouped
-   by NPC. Built from the same SCENES data as his pink zone. No audio, no splash. */
-const PC_LINE = /^(Gnomey|Bix|Yobo|Russ|Simone)(,|$)/;           // a PC's own line, not Spencer's
-const ALIAS = {"Poe Boy's mother":"Poe Boy's parents"};
-const speaker = who => { const n=who.split("·")[0].replace(/\s*\(.*?\)\s*/g," ").trim(); return ALIAS[n]||n; };
-let spTab = "cue";
-function spCueHTML(){
-  const live = SCENES.map((s,i)=>({s,i})).filter(({s})=>(!s.checklist || s.spBrief) && !s.levelup);
-  $("#spChips").innerHTML = live.map(({s,i})=>`<button class="sp-chip" data-spgo="${i}">${s.checklist?"Brief":s.no}</button>`).join("");
-  return live.map(({s,i})=>{
-    const zone = spZone(s), react = (s.rev||[]).filter(r=>r.by==="scott");
-    if(s.checklist) return `<section class="sp-cue" id="sp-${i}"><h3>Your briefing</h3>${zone}</section>`;
-    return `<section class="sp-cue" id="sp-${i}"><h3><span class="no">${noLabel(s)}</span> ${s.title}</h3>`+
-      (s.where?`<p class="sp-where">${s.where}</p>`:"")+
-      (s.stage?STAGES.filter(x=>s.stage===1?x.n===1:x.n>1).map(x=>`<p class="stg-en"><span>${x.name}</span> ${x.enemy}</p>`).join(""):"")+
-      (s.setting?`<p class="sp-set">${s.setting}</p>`:"")+
-      (zone || `<p class="zempty">Scott's scene. Nothing to voice.</p>`)+
-      (react.length?revBlock(react,"🔓 Scott delivers &middot; you react"):"")+`</section>`;
-  }).join("");
-}
-function spNpcHTML(){
-  const map = new Map();
-  const add = (name,i,part) => { if(PC_LINE.test(name)) return;
-    if(!map.has(name)) map.set(name,new Map()); const m=map.get(name);
-    if(!m.has(i)) m.set(i,{vc:"",lines:[],revs:[]}); part(m.get(i)); };
-  SCENES.forEach((s,i)=>{
-    (s.npcs||[]).forEach(n=>add(speaker(n.nm),i,o=>{ o.vc=n.vc; o.revs=(s.rev||[]).filter(r=>r.by===n.nm); }));
-    (s.talk||[]).forEach(l=>add(speaker(l.who),i,o=>o.lines.push(l)));
-    if(s.ifblock) s.ifblock.lines.forEach(l=>add(speaker(l.who),i,o=>{ o.lines.push(l); o.cond=s.ifblock.when; }));
-  });
-  $("#spChips").innerHTML = [...map.keys()].map((n,k)=>`<button class="sp-chip" data-spnpc="${k}">${n}</button>`).join("");
-  return [...map.entries()].map(([name,cues],k)=>`<section class="sp-cue" id="spn-${k}"><h3>${name}</h3>`+
-    [...cues.entries()].map(([i,o])=>`<div class="sp-npc-cue"><p class="sp-where"><b>${noLabel(SCENES[i])}</b> &middot; ${SCENES[i].title}${o.cond?` &middot; <span class="sp-if">${o.cond}</span>`:""}</p>`+
-      (o.vc?`<p class="vc">${o.vc}</p>`:"")+
-      (o.lines.length?`<div class="talk">${o.lines.map(l=>`<p><span class="who">${l.who}</span>${l.t}</p>`).join("")}</div>`:"")+
-      (o.revs.length?`<div class="npc-revs">${o.revs.map(revRow).join("")}</div>`:"")+`</div>`).join("")+`</section>`).join("");
-}
-function spRender(){
-  $("#spBody").innerHTML = spTab==="cue" ? spCueHTML() : spNpcHTML();
-  $("#spBody").scrollTop = 0;
-  document.querySelectorAll(".sp-tab").forEach(b=>b.classList.toggle("on",b.dataset.sptab===spTab));
-}
-function spBegin(){
-  $("#splash").style.display="none"; $("#spv").classList.add("on");
-  document.title = "Dood Mansion — Spencer";
-  spRender();
-  document.querySelectorAll(".sp-tab").forEach(b=>b.addEventListener("click",()=>{ spTab=b.dataset.sptab; spRender(); }));
-  $("#spChips").addEventListener("click",e=>{ const c=e.target.closest("[data-spgo],[data-spnpc]"); if(!c) return;
-    const el=$(c.dataset.spgo!==undefined?"#sp-"+c.dataset.spgo:"#spn-"+c.dataset.spnpc); if(el) $("#spBody").scrollTop = el.offsetTop - 8; });
-}
-if(new URLSearchParams(location.search).has("spencer")) spBegin();
 
 // block pinch-zoom & rubber-band
 document.addEventListener("touchmove",e=>{ if(e.scale && e.scale!==1) e.preventDefault(); },{passive:false});
