@@ -20,133 +20,136 @@
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;padding:0;height:100%;width:100%;overflow:hidden}
-  body{background:var(--bg);color:var(--ink);font-family:var(--f-body);line-height:1.45;font-size:15px;
+  body{background:var(--bg);color:var(--ink);font-family:var(--f-body);line-height:1.45;font-size:16px;
     -webkit-font-smoothing:antialiased;overscroll-behavior:none}
   b{color:var(--ink)}
   #page{display:flex;flex-direction:column;height:100dvh;
     padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+  button{font:inherit;cursor:pointer}
 
-  /* the bar: back, name, reset, jumps */
+  /* the bar: back, name, jumps to the five steps */
   .bar{flex:0 0 auto;padding:max(8px,env(safe-area-inset-top)) 12px 8px;background:#12101a;border-bottom:1px solid var(--edge);
     -webkit-user-select:none;user-select:none}
   .bar-t{display:flex;align-items:center;gap:10px}
-  .back,.reset,.jump{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:10px;
-    font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
+  .back,.jump,.go{display:inline-flex;align-items:center;justify-content:center;min-height:44px;border-radius:10px;
+    font-weight:700;text-decoration:none}
   .back{flex:0 0 auto;padding:0 14px;background:linear-gradient(180deg,#f4cf72,#d9a02f);border:0;color:#1a1206}
   .name{flex:1 1 auto;min-width:0;font-family:var(--f-disp);font-size:19px;line-height:1.2}
-  .reset{flex:0 0 auto;padding:0 12px;background:transparent;border:1px solid var(--line);color:var(--rose)}
-  .jumps{display:flex;gap:6px;margin-top:8px;overflow-x:auto;scrollbar-width:none}
-  .jumps::-webkit-scrollbar{display:none}
-  .jump{flex:1 1 auto;padding:0 6px;white-space:nowrap;background:var(--panel);border:1px solid var(--edge);color:var(--ink);font-size:14px}
+  .jumps{display:flex;gap:6px;margin-top:8px}
+  .jump{flex:1 1 0;min-width:0;padding:0 4px;white-space:nowrap;background:var(--panel);border:1px solid var(--edge);color:var(--ink);font-size:15px}
 
-  /* one scroll on a phone; on anything wider, narration left and enemies right, each scrolling alone */
-  .panes{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
-  .pane{padding:12px 12px 8px}
-  .pane:last-child{padding-bottom:max(28px,env(safe-area-inset-bottom))}
-  @media(min-width:760px){
-    .panes{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr);overflow:hidden}
-    .pane{min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
-      padding-bottom:max(28px,env(safe-area-inset-bottom))}
-    .pane + .pane{border-left:1px solid var(--edge)}
-    .jump.narrow{display:none}
-  }
+  /* one column, read top to bottom */
+  .scroll{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+  .col{max-width:760px;margin:0 auto;padding:4px 12px max(40px,env(safe-area-inset-bottom))}
 
-  .sec{margin:0 0 18px}
-  .h{margin:0 0 8px;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);
+  .step{margin:0;padding:14px 0 6px}
+  .step-h{display:flex;align-items:center;gap:10px;margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--line);
+    font-family:var(--f-disp);font-size:24px;font-weight:400;line-height:1.2;color:#fff;-webkit-user-select:none;user-select:none}
+  .step-n{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;
+    background:var(--blood);color:#fff;font:800 18px var(--f-body)}
+  .sub-h{margin:16px 0 6px;font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);
     -webkit-user-select:none;user-select:none}
-  .rule{margin:0 0 10px;padding:10px 12px;border-radius:10px;background:rgba(224,69,93,.09);border:1px solid var(--line);
-    border-left:4px solid var(--blood);font-size:15.5px;color:#ffd9de}
-  .rule b{color:#fff}
-  .row{display:grid;grid-template-columns:82px minmax(0,1fr);gap:10px;padding:5px 0;font-size:15px}
-  .row .k{font-weight:800;color:var(--rose);font-size:13px;letter-spacing:.04em;text-transform:uppercase;padding-top:2px}
-  .row.tok .k{color:var(--gold)}
-  .row.job .k{color:var(--gold)}
-  .row.lose .k{color:var(--blue)}
-
-  @media(max-width:479px){
-    .bar-t{flex-wrap:wrap;justify-content:space-between}
-    .name{order:3;flex-basis:100%}
-    .jumps{gap:4px}
-    .row,.ally{grid-template-columns:1fr;gap:0}
-  }
-  @media(max-width:340px){.jump{padding:0 3px;font-size:13px}}
+  .line{margin:0 0 8px;font-size:16px}
+  .small{margin:6px 0 0;font-size:14.5px;color:var(--mut)}
+  .small b{color:var(--ink)}
+  .go{padding:0 14px;margin-top:8px;background:#2a2210;border:1px solid #6b5420;color:var(--gold)}
 
   /* read-alouds: amber is Scott, pink is Spencer */
   .say{margin:0 0 8px;padding:9px 12px;border-radius:10px;background:#17130b;border:1px solid #5a4520}
   .say .who{display:block;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
-  .say p{margin:0;font-family:var(--f-disp);font-size:18px;line-height:1.4;color:var(--amber)}
+  .say p{margin:0;font-family:var(--f-disp);font-size:18.5px;line-height:1.4;color:var(--amber)}
   .say p b{color:#fff}
   .say.sp{background:#1d0f1a;border-color:#4f2846}
   .say.sp .who{color:var(--pink)}
   .say.sp p{color:#ffd6ee}
 
-  .rnd{margin:0 0 10px;padding:9px 12px;border-left:3px solid var(--blood);background:var(--panel);border-radius:0 10px 10px 0}
-  .rnd-k{margin:0 0 4px;font:700 14px/1.3 var(--f-mono);color:#ff9aaa}
-  .rnd-say{margin:0 0 6px;font-family:var(--f-disp);font-size:18px;line-height:1.4;color:var(--amber)}
-  .rnd-who{margin:0;font-size:15px}
-  .rnd-sp{margin:6px 0 0;font-size:15px;color:#ffd6ee}
-  .rnd-sp b{color:var(--pink)}
-  .oth{margin:0 0 8px;font-size:15px}
-  .oth b{color:var(--rose)}
+  /* 1: the opening checklist */
+  .act{margin:0 0 8px;padding:9px 12px;border-radius:10px;background:var(--panel);border:1px solid var(--edge)}
+  .act-k{display:block;font-weight:800;font-size:17px;color:#fff}
+  .act ul{margin:4px 0 0;padding-left:20px}
+  .act li{margin-bottom:2px}
 
-  /* enemies */
-  .foe{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:0 0 12px}
-  .foe-n{margin:0 0 6px;font-family:var(--f-disp);font-size:19px;color:#ffd9de}
-  .foe-x{font-family:var(--f-mono);font-size:15px;color:var(--blood)}
-  .st{display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:6px;margin:0 0 8px;-webkit-user-select:none;user-select:none}
-  .st div{display:flex;flex-direction:column;min-width:60px;padding:3px 10px 5px;background:#0000004d;border:1px solid var(--line);border-radius:8px}
-  .st span{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
-  .st b{font-family:var(--f-mono);font-size:26px;line-height:1.1;color:var(--gold)}
-  .st .spd b{font-size:16px;line-height:1.6;color:var(--ink)}
-  .foe-say{margin:0 0 6px;font-style:italic;color:var(--mut);font-size:14px}
-  .foe-l{margin:6px 0 2px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
-  .foe ol{margin:0 0 8px;padding-left:20px;font-size:15px}
-  .foe li{margin-bottom:3px}
+  /* 2: the rounds */
+  .rnd{margin:0 0 12px;padding:9px 12px;border-left:4px solid var(--blood);background:var(--panel);border-radius:0 10px 10px 0}
+  .rnd-k{margin:0 0 6px;font-weight:800;font-size:17px;color:#fff}
+  .rnd .line:last-child,.rnd .say:last-child{margin-bottom:0}
+  .ifs{margin:0;padding:0;list-style:none}
+  .ifs li{padding:6px 0;border-top:1px solid var(--edge)}
+  .ifs b{color:var(--rose)}
+
+  /* 3: on my turn */
+  .foe{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:0 0 10px}
+  .foe.out{opacity:.45}
+  .foe-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:0 0 6px}
+  .foe-n{font-family:var(--f-disp);font-size:20px;color:#ffd9de}
+  .foe-m{font-size:14px;color:var(--mut)}
+  .chip{font:700 14px var(--f-mono);color:var(--green)}
+  .chip.down{color:var(--blood);text-decoration:line-through}
+  .foe-say{margin:0 0 6px;font-family:var(--f-disp);font-size:17px;line-height:1.35;color:var(--amber)}
+  .foe-sayk{font:700 12.5px var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-right:4px}
+  .foe ul{margin:0;padding:0;list-style:none}
+  .foe li{margin:0 0 6px;font-size:16px}
   .foe li b{color:var(--rose)}
-  .foe-note{margin:0 0 8px;font-size:14.5px;color:var(--mut)}
-  .foe-note b{color:var(--ink)}
-  .foe-drop{margin:8px 0 0;font-size:15px}
-  .foe-drop b{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--rose);margin-right:4px}
-  .dials{display:flex;flex-direction:column;gap:3px;margin-top:8px;padding-top:7px;border-top:1px dashed var(--line);font-size:14px;color:var(--mut)}
-
-  .hps{display:flex;flex-direction:column;gap:6px;-webkit-user-select:none;user-select:none}
-  .hp{display:flex;align-items:center;gap:5px}
-  .hp-l{flex:0 0 auto;min-width:20px;font:13px var(--f-mono);color:var(--dim)}
-  .hp-v{flex:1 1 auto;min-width:38px;font:700 22px var(--f-mono);color:var(--green)}
-  .hp button{flex:0 0 auto;min-width:44px;height:44px;padding:0 4px;border-radius:8px;border:1px solid var(--line);background:#2a141b;
-    color:#ffd9de;font:inherit;font-size:15px;font-weight:700;cursor:pointer}
-  .hp button.up{color:var(--green);background:#122019;border-color:#24503c}
-  .hp button:active,.tally button:active{transform:translateY(1px)}
-  .hp.down .hp-v{color:var(--blood);text-decoration:line-through}
-
-  .tally{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 12px;margin:0 0 12px;border:2px solid var(--gold);border-radius:10px;
-    background:rgba(231,181,63,.08);-webkit-user-select:none;user-select:none}
-  .tally .tl{font-weight:800;font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--gold)}
-  .tally .tv{min-width:36px;text-align:center;font:700 30px var(--f-mono)}
-  .tally button{min-width:56px;height:48px;border-radius:9px;border:1px solid #6b5420;background:#2a2210;color:var(--gold);font:inherit;font-size:17px;font-weight:800;cursor:pointer}
-  .tally .tp{font-size:15px;color:var(--mut)}
-  .tally .tp b{font:700 20px var(--f-mono);color:var(--gold)}
-
-  .allies{border:1px solid #3b3320;border-left:4px solid var(--gold);border-radius:10px;padding:8px 12px;margin:0 0 12px;background:rgba(231,181,63,.06)}
-  .ally{display:grid;grid-template-columns:92px minmax(0,1fr);gap:10px;padding:4px 0;font-size:15px}
-  .ally > b{color:var(--gold)}
-  .ally-n{margin:4px 0 0;font-size:14px;color:var(--mut)}
-  .ally-t{display:block;margin-top:3px;font-size:14px;color:var(--mut)}
+  .mini{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:8px;padding-top:8px;border-top:1px dashed var(--line);
+    -webkit-user-select:none;user-select:none}
+  .mini b{font:700 22px var(--f-mono);color:var(--gold)}
+  .allies{border:1px solid #3b3320;border-left:4px solid var(--gold);border-radius:10px;padding:8px 12px;margin:14px 0 10px;background:rgba(231,181,63,.06)}
+  .allies-h{margin:0 0 6px;font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+  .ally{padding:6px 0;border-top:1px solid #3b3320}
+  .ally:first-of-type{border-top:0}
+  .ally > b{display:block;color:var(--gold)}
+  .ally-t{display:block;margin-top:3px;font-size:14.5px;color:var(--mut)}
   .ally-t b{color:var(--gold)}
-  .ally-s{display:block;margin-top:3px;font-family:var(--f-disp);font-size:16px;line-height:1.35;color:var(--amber)}
+  .ally-s{display:block;margin-top:3px;font-family:var(--f-disp);font-size:17px;line-height:1.35;color:var(--amber)}
+
+  /* 4: the trackers */
+  .trk{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:0 0 10px}
+  .hp{padding:0 0 10px;-webkit-user-select:none;user-select:none}
+  .hp + .hp{padding-top:10px;border-top:1px solid var(--line)}
+  .hp-t{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px}
+  .hp-n{flex:1 1 100%;font-weight:800;font-size:17px;color:#ffd9de}
+  .hp-v{font:700 34px/1.1 var(--f-mono);color:var(--green)}
+  .hp.down .hp-v{color:var(--blood)}
+  .hp-of{font-size:15px;color:var(--mut)}
+  .hp-b{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:6px}
+  .hp-k{font-size:13px;color:var(--dim)}
+  .hp-k + button{margin-left:-2px}
+  .hp-b button,.tally button,.mini button{min-width:52px;height:46px;padding:0 8px;border-radius:9px;border:1px solid var(--line);background:#2a141b;
+    color:#ffd9de;font-size:16px;font-weight:700}
+  .hp-b button.up{color:var(--green);background:#122019;border-color:#24503c}
+  .hp-b button:active,.tally button:active,.mini button:active{transform:translateY(1px)}
+  .trk-note{margin:0 0 6px;font-size:15px;color:var(--ink)}
+  .trk-drop{margin:0;padding:8px 10px;border-radius:8px;background:#00000040;font-size:15.5px}
+  .trk-drop b{color:var(--rose)}
+  .trk.dropped .trk-drop{background:rgba(231,181,63,.14);outline:1px solid var(--gold)}
+  .tally{border:2px solid var(--gold);background:rgba(231,181,63,.08);-webkit-user-select:none;user-select:none}
+  .tally .hp-n{color:var(--gold)}
+  .tally .tv{font:700 34px/1.1 var(--f-mono);color:var(--ink)}
+  .tally button,.mini button{border-color:#6b5420;background:#2a2210;color:var(--gold)}
+  .tiers{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .tier{padding:4px 10px;border-radius:8px;border:1px solid #6b5420;font-size:15px;color:var(--mut)}
+  .tier.on{background:var(--gold);border-color:var(--gold);color:#1a1206;font-weight:800}
+  .tally-full{margin:8px 0 0;font-weight:700;color:#fff}
+  .reset{min-height:44px;padding:0 14px;border-radius:10px;background:transparent;border:1px solid var(--line);color:var(--rose);font-weight:700}
+
+  /* 5: the way out */
+  .next{margin-top:12px;padding:10px 12px;border-radius:12px;background:var(--panel);border:1px solid var(--edge)}
+  .next .back{width:100%;margin-top:8px;min-height:52px;font-size:17px}
 
   /* no ?f=: pick a fight */
   .menu{flex:1 1 auto;overflow-y:auto;padding:14px 12px max(28px,env(safe-area-inset-bottom))}
+  .menu .sub-h{margin-top:0}
   .menu a{display:flex;align-items:center;min-height:52px;padding:8px 14px;margin:0 0 8px;border-radius:10px;background:var(--card);border:1px solid var(--line);
     color:#ffd9de;font-family:var(--f-disp);font-size:18px;text-decoration:none}
 </style>
 </head>
 <body>
 <div id="page"></div>
-<script src="../fights.js?v=14"></script>
+<script src="../fights.js?v=15"></script>
 <script>
 "use strict";
 const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
 const PKEY = "dood_combat_v1", POS = "dood_pos_v1";
 const inRoS = window.parent !== window;
 function load(){ try{ return JSON.parse(localStorage.getItem(PKEY))||{}; }catch(e){ return {}; } }
@@ -154,83 +157,128 @@ function save(o){ try{ localStorage.setItem(PKEY,JSON.stringify(o)); }catch(e){}
 
 const key = new URLSearchParams(location.search).get("f");
 const F = Object.prototype.hasOwnProperty.call(FIGHTS,key) ? FIGHTS[key] : null;
-const backBtn = label => `<a class="back" href="../" id="back">&lsaquo; ${label}</a>`;
+const backBtn = label => `<a class="back" href="../" data-back>${label}</a>`;
+const goBtn = (id,label) => `<button class="go" data-jump="${id}">${label}</button>`;
 
-/* ---- the fight, in the order it gets used ---- */
-const row = (k,v,cls) => v ? `<div class="row ${cls||""}"><span class="k">${k}</span><span>${v}</span></div>` : "";
-const says = list => (list||[]).map(r=>r.note?`<p class="oth">${r.note}</p>`:`<div class="say${r.sp?" sp":""}"><span class="who">${r.sp?"Spencer · ":""}${r.who}</span><p>${r.t}</p></div>`).join("");
-const round = r => `<div class="rnd"><p class="rnd-k">${r.k}</p><p class="rnd-say">${r.say}</p><p class="rnd-who">${r.who}</p>${r.sp?`<p class="rnd-sp"><b>Spencer</b> ${r.sp}</p>`:""}</div>`;
+/* ---- pieces ---- */
+const said = l => l.note ? `<p class="line">${l.note}</p>` :
+  `<div class="say${l.sp?" sp":""}"><span class="who">${l.sp?"Spencer · ":"Say"+(l.who?" · ":"")}${l.who||""}</span><p>${l.t}</p></div>`;
+const small = (k,v) => v ? `<p class="small"><b>${k}</b> ${v}</p>` : "";
+const step = (id,n,title,body) => `<section class="step" id="${id}"><h2 class="step-h"><span class="step-n">${n}</span>${title}</h2>${body}</section>`;
+const hpName = (x,i) => x.nm+(x.n>1?` ${i+1}`:"");
 
-function narration(f){
-  const g = f.guide||{}, read = f.read||{}, r = f.run;
-  return `<p class="rule">${f.rule}</p>${row("Win",r.win)}${row("Ends",r.ends)}`+
-    `<div class="sec" id="s-setup" style="margin-top:14px"><p class="h">Set up</p>`+
-      row("Setup",r.setup)+row("Tokens",g.tokens,"tok")+row("Matchups",r.matchups)+row("Allies",r.allyJob,"job")+
-      (read.open?`<div style="margin-top:10px">${says(read.open)}</div>`:"")+`</div>`+
-    `<div class="sec" id="s-rounds"><p class="h">Round by round</p>`+
-      (g.rounds||[]).map(round).join("")+
-      (f.lines?`<p class="h" style="margin-top:14px">Spencer, during the fight</p>${says(f.lines.map(l=>({...l,sp:1})))}`:"")+`</div>`+
-    `<div class="sec" id="s-if"><p class="h">If they do something else</p>`+
-      (g.other||[]).map(([k,v])=>`<p class="oth"><b>${k}.</b> ${v}</p>`).join("")+row("Losing?",r.losing,"lose")+`</div>`+
-    (read.close?`<div class="sec" id="s-end"><p class="h">Ending it</p>${says(read.close)}</div>`:"");
+/* ---- 1. start the fight ---- */
+function stepStart(f){
+  const s = f.start;
+  const act = (k,v) => `<div class="act"><span class="act-k">${k}</span>${v}</div>`;
+  return step("s-start",1,"Start the fight",
+    (s.read||[]).map(said).join("")+
+    act("Announce: roll for initiative", s.announce||"")+
+    act("Record initiative", s.record||"Write down each player's roll. Roll once for all the enemies together.")+
+    act("Set up the combat map", `<ul>${s.map.map(t=>`<li>${t}</li>`).join("")}</ul>`));
 }
 
-const tallyOut = (t,v) => (t.tiers.find(([m])=>v<=m)||t.tiers[t.tiers.length-1])[1];
-function enemies(f,st){
-  const tally = f.tally ? `<div class="tally" data-tally><span class="tl">${f.tally.label}</span>`+
-    `<button data-tad="-1" aria-label="One fewer">&minus;1</button><span class="tv"></span><button data-tad="1" aria-label="One more">+1</button>`+
-    `<span class="tp">&rarr; <b></b> pieces</span></div>` : "";
-  const hpRow = (x,i) => `<div class="hp" data-hp="${x.id}:${i}" data-max="${x.hp}" data-min="${x.floor||0}">`+
-    `<span class="hp-l">${x.n>1?i+1:""}</span><span class="hp-v"></span>`+
-    `<button data-d="-1">&minus;1</button><button data-d="-5">&minus;5</button><button data-d="-10">&minus;10</button>`+
-    `<button data-d="1" class="up">+1</button></div>`;
-  const cards = f.foes.map(x=>`<div class="foe"><p class="foe-n">${x.nm}${x.n>1?` <span class="foe-x">&times;${x.n}</span>`:""}</p>`+
-    `<div class="st"><div><span>AC</span><b>${x.ac}</b></div><div><span>HP</span><b>${x.hp||"&mdash;"}</b></div><div class="spd"><span>Speed</span><b>${x.spd}</b></div></div>`+
-    (x.say?`<p class="foe-say">${x.say}</p>`:"")+
-    `<p class="foe-l">On its turn</p><ol>${x.turn.map(t=>`<li>${t}</li>`).join("")}</ol>`+
-    (x.note?`<p class="foe-note">${x.note}</p>`:"")+
-    (x.hp?`<div class="hps">${Array.from({length:x.n},(_,i)=>hpRow(x,i)).join("")}</div>`:"")+
-    `<p class="foe-drop"><b>When it drops</b> ${x.drop}</p>`+
-    `<div class="dials"><div><b>Too hard?</b> ${x.hard}</div><div><b>Too easy?</b> ${x.easy}</div></div></div>`).join("");
-  const allies = f.allies ? `<div class="allies"><p class="foe-l">${f.alliesLabel||"Allies"}</p>`+
-    f.allies.map(a=>`<div class="ally"><b>${a.nm}</b><span>${a.act}${a.tok?`<span class="ally-t"><b>Token</b> ${a.tok}</span>`:""}${a.say?`<span class="ally-s">${a.say}</span>`:""}</span></div>`).join("")+
-    (f.allyNote?`<p class="ally-n">${f.allyNote}</p>`:"")+`</div>` : "";
-  return tally+cards+allies;
+/* ---- 2. round by round ---- */
+function stepRounds(f){
+  const round = r => `<div class="rnd"><p class="rnd-k">${r.k}</p>`+
+    (r.say?said({t:r.say}):"")+(r.do?`<p class="line">${r.do}</p>`:"")+
+    (r.sp||[]).map(l=>said({...l,sp:1})).join("")+`</div>`;
+  return step("s-rounds",2,"Round by round",
+    f.rounds.map(round).join("")+
+    (f.ifs&&f.ifs.length?`<p class="sub-h">If they do something else</p><ul class="ifs">${f.ifs.map(([k,v])=>`<li><b>${k}:</b> ${v}</li>`).join("")}</ul>`:""));
+}
+
+/* ---- 3. on my turn: every enemy, then the allies ---- */
+const tierName = (t,v) => (t.tiers.find(([m])=>v<=m)||t.tiers[t.tiers.length-1])[1];
+const tallyMax = t => t.tiers[t.tiers.length-2][0]+1;
+function stepTurn(f){
+  const chips = x => x.hp ? Array.from({length:x.n},(_,i)=>`<span class="chip" data-chip="${x.id}:${i}" data-max="${x.hp}"></span>`).join("") : "";
+  const foe = x => `<div class="foe" data-foe="${x.id}"><div class="foe-h"><span class="foe-n">${x.nm}${x.n>1?` &times;${x.n}`:""}</span>`+
+      `<span class="foe-m">${x.when?x.when+" · ":""}speed ${x.spd}</span>${chips(x)}</div>`+
+    (x.say?`<p class="foe-say"><span class="foe-sayk">Say</span> ${x.say}</p>`:"")+
+    `<ul>${x.turn.map(t=>`<li>${t}</li>`).join("")}</ul>`+
+    (x.note?`<p class="small">${x.note}</p>`:"")+
+    (f.tally&&f.tally.foe===x.id?`<div class="mini" data-tally><span>${f.tally.label}</span><b class="tv"></b><button data-tad="1">+1 cut</button></div>`:"")+
+    small("Too hard?",x.hard)+small("Too easy?",x.easy)+`</div>`;
+  const allies = f.allies ? `<div class="allies"><p class="allies-h">${f.alliesLabel||"Allies"}</p>`+
+    f.allies.map(a=>`<div class="ally"><b>${a.nm}</b>${a.act}${a.tok?`<span class="ally-t"><b>Token:</b> ${a.tok}</span>`:""}${a.say?`<span class="ally-s">${a.say}</span>`:""}</div>`).join("")+
+    (f.allyNote?`<p class="small">${f.allyNote}</p>`:"")+`</div>` : "";
+  return step("s-turn",3,"On my turn",
+    `<p class="line">${f.turnIntro||"All the enemies go together, in this order. Skip any that are down."}</p>`+
+    f.foes.map(foe).join("")+allies);
+}
+
+/* ---- 4. HP and trackers ---- */
+function stepTrack(f){
+  const t = f.tally;
+  const tally = t ? `<div class="trk tally" data-tally>`+
+    `<div class="hp-t"><span class="hp-n">${t.label}: tally</span><span class="tv"></span></div>`+
+    `<div class="hp-b"><button data-tad="-1">&minus;1 cut</button><button data-tad="1">+1 cut</button></div>`+
+    `<div class="tiers">${t.tiers.map(([m,nm],i,a)=>`<span class="tier" data-tier="${nm}">${i===0?`Up to ${m} cuts`:i===a.length-1?`${a[i-1][0]+1} cuts`:`${a[i-1][0]+1}&ndash;${m} cuts`} = ${nm}</span>`).join("")}</div>`+
+    `<p class="small">${t.use}</p>`+
+    `<div class="tally-full" hidden>${t.full} ${goBtn("s-end","Go to step 5: Ending")}</div></div>` : "";
+  const hpRow = (x,i) => `<div class="hp" data-hp="${x.id}:${i}" data-max="${x.hp}" data-min="${x.floor||0}" data-of="Started at ${x.hp}. AC ${x.ac}.">`+
+    `<div class="hp-t"><span class="hp-n">${hpName(x,i)}: HP</span><span class="hp-v"></span><span class="hp-of"></span></div>`+
+    `<div class="hp-b"><span class="hp-k">Subtract</span><button data-d="-1">&minus;1</button><button data-d="-5">&minus;5</button><button data-d="-10">&minus;10</button>`+
+    `<span class="hp-k">Add back</span><button data-d="1" class="up">+1</button><button data-d="5" class="up">+5</button></div></div>`;
+  const group = x => `<div class="trk" data-group="${x.id}">`+
+    (x.hp ? Array.from({length:x.n},(_,i)=>hpRow(x,i)).join("") : `<div class="hp-t"><span class="hp-n">${x.nm}: no HP to track</span></div>`)+
+    (x.hpnote?`<p class="trk-note">${x.hpnote}</p>`:"")+
+    `<p class="trk-drop"><b>When it drops:</b> ${x.drop}</p>`+
+    (x.endsFight?goBtn("s-end","Go to step 5: Ending"):"")+`</div>`;
+  return step("s-track",4,"HP and trackers",
+    tally+f.foes.map(group).join("")+
+    `<button class="reset" id="reset">Reset: put all HP${t?" and "+t.label.toLowerCase():""} back to the start</button>`);
+}
+
+/* ---- 5. ending ---- */
+function stepEnd(f){
+  const e = f.end;
+  return step("s-end",5,"Ending",
+    (e.when?`<p class="line"><b>${e.when}</b></p>`:"")+
+    (e.read||[]).map(said).join("")+
+    `<div class="next"><span class="act-k">What comes next</span>${e.next||""}`+
+    backBtn(`Back to the Run of Show: cue ${f.cue}`)+`</div>`);
 }
 
 /* ---- HP and the tally, kept per fight until Reset ---- */
 function paint(f){
   const st = load()[key]||{};
-  document.querySelectorAll("[data-hp]").forEach(el=>{
-    const k=el.dataset.hp, v = k in st ? st[k] : +el.dataset.max;
-    el.querySelector(".hp-v").textContent=v; el.classList.toggle("down",v<=0); });
-  const t=$("[data-tally]"); if(t){ const v = "tally" in st ? st.tally : f.tally.start;
-    t.querySelector(".tv").textContent=v; t.querySelector(".tp b").textContent=tallyOut(f.tally,v); }
+  const hpOf = (k,max) => k in st ? st[k] : max;
+  $$("[data-hp]").forEach(el=>{ const v=hpOf(el.dataset.hp,+el.dataset.max);
+    el.querySelector(".hp-v").textContent=v; el.querySelector(".hp-of").textContent=el.dataset.of; el.classList.toggle("down",v<=0); });
+  $$("[data-chip]").forEach(el=>{ const v=hpOf(el.dataset.chip,+el.dataset.max), n=+el.dataset.chip.split(":")[1], many=el.parentNode.querySelectorAll(".chip").length>1;
+    el.textContent=(many?`${n+1}: `:"")+`${v} HP`; el.classList.toggle("down",v<=0); });
+  f.foes.forEach(x=>{ if(!x.hp) return;
+    const downs = Array.from({length:x.n},(_,i)=>hpOf(`${x.id}:${i}`,x.hp)<=0);
+    $(`[data-foe="${x.id}"]`).classList.toggle("out",downs.every(Boolean));
+    $(`[data-group="${x.id}"]`).classList.toggle("dropped",downs.some(Boolean)); });
+  if(f.tally){ const v = "tally" in st ? st.tally : f.tally.start, tier = tierName(f.tally,v);
+    $$("[data-tally] .tv").forEach(el=>{ el.textContent=v; });
+    $$("[data-tier]").forEach(el=>el.classList.toggle("on",el.dataset.tier===tier));
+    $$("[data-tier-now]").forEach(el=>{ el.textContent=tier; });
+    $(".tally-full").hidden = v<tallyMax(f.tally); }
 }
 function setVal(k,v){ const all=load(); (all[key]=all[key]||{})[k]=v; save(all); }
 
 function fightPage(f){
   document.title = "Combat · "+f.name.replace(/&mdash;/g,"—").replace(/&[^;]+;/g,"");
-  const jump = (id,label,cls) => `<button class="jump ${cls||""}" data-jump="${id}">${label}</button>`;
+  const jump = (id,label) => `<button class="jump" data-jump="${id}">${label}</button>`;
   $("#page").innerHTML =
-    `<div class="bar"><div class="bar-t">${backBtn(`Back to cue ${f.cue}`)}<span class="name">${f.name}</span>`+
-      `<button class="reset" id="reset">Reset fight</button></div>`+
-      `<div class="jumps">${jump("s-setup","Set up")}${jump("s-rounds","Rounds")}${jump("s-if","What if")}`+
-      `${f.read&&f.read.close?jump("s-end","Ending"):""}${jump("s-foes","Enemies","narrow")}</div></div>`+
-    `<div class="panes" id="panes"><div class="pane" id="p-narr">${narration(f)}</div>`+
-      `<div class="pane" id="s-foes">${enemies(f)}</div></div>`;
+    `<div class="bar"><div class="bar-t">${backBtn(`&lsaquo; Cue ${f.cue}`)}<span class="name">${f.name}</span></div>`+
+      `<div class="jumps">${jump("s-start","Start")}${jump("s-rounds","Rounds")}${jump("s-turn","My turn")}${jump("s-track","HP")}${jump("s-end","Ending")}</div></div>`+
+    `<div class="scroll" id="scroll"><div class="col">${stepStart(f)}${stepRounds(f)}${stepTurn(f)}${stepTrack(f)}${stepEnd(f)}</div></div>`;
   paint(f);
 
   $("#page").addEventListener("click",e=>{
-    const j=e.target.closest("[data-jump]"); if(j){ const el=document.getElementById(j.dataset.jump);
-      const box = getComputedStyle($("#panes")).display==="grid" ? el.closest(".pane") : $("#panes");
-      box.scrollTop += el.getBoundingClientRect().top - box.getBoundingClientRect().top - 8; return; }
-    if(e.target.closest("#reset")){ if(confirm("Reset this fight's HP"+(f.tally?" and "+f.tally.label.toLowerCase():"")+"?")){
+    const j=e.target.closest("[data-jump]"); if(j){ const el=document.getElementById(j.dataset.jump), box=$("#scroll");
+      box.scrollTop += el.getBoundingClientRect().top - box.getBoundingClientRect().top; return; }
+    if(e.target.closest("#reset")){ if(confirm("Put all HP"+(f.tally?" and "+f.tally.label.toLowerCase():"")+" back to the start?")){
       const all=load(); delete all[key]; save(all); paint(f); } return; }
     const b=e.target.closest("[data-d]"); if(b){ const r=b.closest("[data-hp]"), k=r.dataset.hp, st=load()[key]||{}, max=+r.dataset.max;
-      setVal(k, Math.min(max, Math.max(+r.dataset.min, (k in st?st[k]:max) + (+b.dataset.d)))); paint(f); return; }
+      setVal(k, Math.max(+r.dataset.min, (k in st?st[k]:max) + (+b.dataset.d))); paint(f); return; }
     const t=e.target.closest("[data-tad]"); if(t){ const st=load()[key]||{};
-      setVal("tally", Math.max(0, ("tally" in st?st.tally:f.tally.start) + (+t.dataset.tad))); paint(f); return; }
+      setVal("tally", Math.min(tallyMax(f.tally), Math.max(0, ("tally" in st?st.tally:f.tally.start) + (+t.dataset.tad)))); paint(f); return; }
   });
 }
 
@@ -238,15 +286,22 @@ function fightPage(f){
 function menu(){
   document.title = "Combat";
   const days = [...new Set(Object.values(FIGHTS).map(f=>f.day))];
-  $("#page").innerHTML = `<div class="bar"><div class="bar-t">${backBtn("Run of Show")}<span class="name">Combat</span></div></div>`+
-    `<div class="menu">${days.map(d=>`<p class="h">${d}</p>`+Object.keys(FIGHTS).filter(k=>FIGHTS[k].day===d)
+  $("#page").innerHTML = `<div class="bar"><div class="bar-t">${backBtn("&lsaquo; Run of Show")}<span class="name">Combat</span></div></div>`+
+    `<div class="menu">${days.map(d=>`<p class="sub-h">${d}</p>`+Object.keys(FIGHTS).filter(k=>FIGHTS[k].day===d)
       .map(k=>`<a href="?f=${k}">${FIGHTS[k].name}</a>`).join("")).join("")}</div>`;
 }
 
-F ? fightPage(F) : menu();
+F ? fightPage(F.start?F:legacy(F)) : menu();
+
+/* fights not moved to the new layout yet */
+function legacy(f){ const g=f.guide||{}, read=f.read||{};
+  return {...f, start:{read:read.open||[], map:[g.tokens]},
+    rounds:(g.rounds||[]).map(r=>({k:r.k,say:r.say,do:r.who,sp:r.sp?[{who:"in the fight",t:r.sp}]:[]})),
+    ifs:g.other||[], end:{read:read.close||[]}}; }
 
 /* ---- the way back ---- */
-$("#back").addEventListener("click",e=>{
+document.addEventListener("click",e=>{
+  if(!e.target.closest("[data-back]")) return;
   if(inRoS){ e.preventDefault(); window.parent.postMessage("combat-close",location.origin); return; }
   if(F){ try{ localStorage.setItem(POS,JSON.stringify({no:String(F.cue)})); }catch(err){} }
 });
