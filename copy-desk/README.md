@@ -10,7 +10,7 @@ It never edits the props directly. It reads them, lets you edit/annotate, and ex
 
 ```
 open Copy Desk → read the copy in context → edit inline or drop a feedback note
-   → Export changes → hand the packet to Claude → Claude applies + fact-checks against CANON.md
+   → Export changes → hand the packet to Claude → Claude applies + checks against the Run of Show and assets
    → re-run the extractor → reload → keep going until you're happy
 ```
 
@@ -73,8 +73,7 @@ Every artifact is reviewed in the shape it's actually experienced:
   (unreachable) nodes and the ritual hand-off are flagged. There's also a plain **List** view.
 - **The Codex** → a **relationship graph** overview (click a character to jump to its card) + a
   group jump-nav, then the codex's own grouped cards: characters, relationships, session flow,
-  backstory, run of show, combat, props, names, and open questions. `not canon` / `doc` badges
-  come straight from the status model in `CANON.md`.
+  backstory, run of show, combat, props, names, and open questions.
 - **Invite / Settlement / Photograph / Torn Page** → each built handout's copy, in reading order.
 
 ## Editing

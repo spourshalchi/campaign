@@ -1,5 +1,8 @@
 # Canon Ledger
 
+> **Old decision log, kept as history. It no longer decides anything.**
+> The Run of Show and the printed and shown assets decide what's in the game.
+
 **One question per line: did Scott (or Spencer) sign off on it, or did a session make it and nobody has
 reviewed it yet?**
 

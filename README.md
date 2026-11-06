@@ -24,19 +24,16 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 │   └── assets/photograph.jpg  ← the painting itself
 ├── codex/            ← DM-facing campaign codex (not linked from the landing page)
 ├── run/              ← DM-facing "Run of Show" — the day-of prompt book (not linked either)
-├── CANON.md          ← canon ledger: what came from the brainstorm doc vs. what an AI made up
+├── CANON.md          ← old decision log, kept as history
 ├── PROPOSALS.md      ← parked work-in-progress, agreed to by nobody
 ├── AGENTS.md         ← agent guide for adding new props (CLAUDE.md imports it)
 ├── README.md         ← this file
 └── split_sounds.py   ← utility for splitting WAV dumps into clips
 ```
 
-## Canon
+## What's in the game
 
-The story lives in the [brainstorm doc](https://docs.google.com/document/d/1UXole4uGten28LVWA-ePK14ten4GIOj_ZfYEnsIRuWM/edit) — that's the only place canon is made.
-Props and the codex have generated a lot of connective tissue on their own, so **[CANON.md](CANON.md)**
-tracks every claim as either 📗 *in doc* (with the session it came from) or 🟡 *not canon* (invented here).
-The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
+The [Run of Show](run/) plus the printed and shown assets are what's in the game. The [codex](codex/) is reference; they win where it disagrees.
 
 ## The iPad home page
 
@@ -85,7 +82,7 @@ Everything to print lives in the **print kit at [`print/`](print/)**: seven Stap
 | `print/4-plain.pdf` | Letter ivory or plain, colour, 1-sided, 1 copy | The developer's site assessment, the Articles of Settlement, Orlok's ledger |
 | `print/5-poster.pdf` | Letter plain white, colour, 1-sided, 1 copy | Spencer's DJ poster |
 | [Official 2024 character sheet](https://media.dndbeyond.com/compendium-images/free-rules/downloads/2024-character-sheet.pdf) (linked, not in the repo) | Letter plain white, B&W, 2-sided, 8 copies | Blank character sheets: 5 players + 3 spares |
-| `print/7-combat.pdf` | Letter plain white, B&W, 1-sided, 1 copy | The combat cheat sheet: every fight's stat lines, one page per day (DM only) 🟡 |
+| `print/7-combat.pdf` | Letter plain white, B&W, 1-sided, 1 copy | The combat cheat sheet: every fight's stat lines, one page per day (DM only) |
 
 Rebuild after any prop change (needs Google Chrome, `pypdf` and ImageMagick); it remakes the PDFs and `photo-4x6.jpg`:
 

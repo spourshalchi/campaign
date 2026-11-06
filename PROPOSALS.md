@@ -1,7 +1,7 @@
-# Proposals — NOT CANON
+# Proposals
 
 Parked work-in-progress. Nothing in this file is agreed. It exists so a half-finished idea
-doesn't get lost and doesn't leak into the codex as fact. See `/CANON.md` for what is settled.
+doesn't get lost and doesn't leak into the codex as fact. See the Run of Show for what's in the game.
 
 ---
 
