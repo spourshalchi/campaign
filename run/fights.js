@@ -4,8 +4,8 @@
    (run/index.html, a scene's fight:FIGHTS.<key>) and by the print kit's
    combat cheat sheet (print/src/combat.html).
 
-   🟡 Not canon yet: every number here is AI-made, built from SRD 5.2
-   creatures (chassis), pared down so Scott can run it at the table.
+   Built from SRD 5.2 creatures (chassis), pared down so Scott can run it
+   at the table.
    Damage is fixed (no damage dice). Rolls and initiative stay at the table.
 
    guide (finale fights): tokens, rounds [{k, say, who, sp}], other [[if, then]]: narrating the fight.
@@ -175,10 +175,10 @@ const FIGHTS = {
         ["When he drops","Take off Ostrander and every thug. Stand the vampires up. Next card."]
       ]},
     lines:[
-      {who:"Orlok · pinned, to Russ", t:"Boy. Help me. <span class='ai'>🟡</span>"},
-      {who:"Edward · on seeing Ostrander's men", t:"Twenty-four years. <span class='ai'>🟡</span>"},
-      {who:"DJ Poe Boy · on the mic, during the fight", t:"Oh, this is great. Keep going. <span class='ai'>🟡</span>"},
-      {who:"The vampires · if they go for Poe Boy first", t:"Keep calling for help. <span class='ai'>🟡</span>"}
+      {who:"Orlok · pinned, to Russ", t:"Boy. Help me."},
+      {who:"Edward · on seeing Ostrander's men", t:"Twenty-four years."},
+      {who:"DJ Poe Boy · on the mic, during the fight", t:"Oh, this is great. Keep going."},
+      {who:"The vampires · if they go for Poe Boy first", t:"Keep calling for help."}
     ],
     rule:"<b>The only lethal fight.</b> Ostrander pins the vampires with a seal and ignores the party until they interfere. <b>The vampires are never actually killed.</b>",
     run:{

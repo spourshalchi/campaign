@@ -5,49 +5,24 @@ the night one moment at a time, with everything you need to run that moment on s
 
 **Live:** `https://spourshalchi.github.io/campaign/run/`
 
-> ## 🟡 Canon status
->
-> **This is a DM aid, not a source of canon.** Nothing here becomes true by being on a slide.
->
-> - **Read-aloud lines, scripts and bridge cues** are pulled from the [codex](../codex/) —
->   they are DM-side suggestions and staging, not player-facing fact. Canon is what Scott has signed
->   off in [CANON.md](../CANON.md).
-> - **Skill-check DCs marked with `*`** are proposals invented for this tool to give you a
->   number to work from. Tune them freely.
-> - **Combat stat blocks** come from `fights.js`: the beats are settled, every number is a proposal.
-> - **Everything marked 🟡** — reveals, Leave knowing, Next — is AI staging
->   waiting on Scott (logged in CANON.md, *The Run of Show's table layer*).
->
-> If you change a beat here, change it in the codex and CANON.md too. This file is the last link
-> in that chain, never the first.
-
 ## What's on each slide
 
 **Card zero is the pre-session checklist**: iPads and laptop, the print run, the room, the props bag
-(every prop, packed in hand-over order) and Spencer's briefing. **Scene 0** is what Scott reads from to open
-the game: his intro, the hand-outs, character introductions, then into History class. **Cue 9's Next button leads
-to the level-up card**: the level 4 to 5 steps by class, and the nudge to Cody about Daylight and Plant
-Growth. **Sunday** gets its own before-you-start card (level 5, rests, the recap). Card zero has **Reset
-everything for the next run**.
+(every prop, packed in hand-over order) and Spencer's briefing, with **Reset everything for the next run**.
+**Scene 0** is what Scott reads from to open the game. **Cue 9's Next button leads to the level-up card.**
+**Sunday** has its own before-you-start checklist above its steps.
 
 Every other cue is split into two colour-coded zones on one screen; on a wide enough screen each
 zone scrolls on its own, and below 700px they stack.
 
 **SCOTT · narrate** (gold, left), top to bottom:
-- **🎯 Leave knowing** — first on every cue: where they are in the story, the must-land points, and who delivers each.
-- **Do now** — a tickable card: every **✋ hand-over** for this cue (from the `PROPS` registry), the
-  **📱 iPad → item N** bar, **⚔ tokens out** on fight cues, set-up (`EXEC.do`), and the cue's sound
-  buttons.
-- **Setting**, **Pacing** (numbered, ending on the line the scene ends on), **Read aloud**.
-- **Skill checks** — when to call it, the DC, what they learn, the fallback.
-- **🎙 Narrating the fight** (the two ballroom scenes) — the tokens, what to say each round, who is hitting whom, and what to do if the players do something else.
-- **➜ Next** — how to get out, with jump
-  buttons. On Sunday the buttons are a room picker: the rooms not yet done, then the AIM room.
-- **🪢 If stuck** and **↪ Backup path**, on the cues that have them.
-- **⚔ Combat** — Running this fight, then a turn card per enemy with a tap HP tracker (kept while you
-  flip cues, reset on reload).
-- **Potential skill checks**, each with its DC or marked *no roll*, then **Reference**: every reveal,
-  reminders and notes.
+- **🎯 Leave knowing** — where they are in the story, the must-land points, and who delivers each.
+- **One numbered list, in the order Scott does things** (`steps`): sounds to tap in place, read-alouds,
+  instructions, checks with their DC, **✋** hand-overs and set-up lines with a tick box, **📱** digital props
+  with an open button, tokens, and the fight in place. Notes, reveals, **🪢 If stuck** and **↪ Backup path**
+  lines hang off the step they belong to.
+- **➜ Next** — how to get out, with jump buttons. On Sunday the buttons are a room picker: the rooms not yet
+  done, then the AIM room.
 
 **SPENCER · voice** (pink, right): his lines, IF blocks, and each NPC with a one-line voicing and the
 🔓 reveals they deliver or react to.
@@ -79,7 +54,7 @@ The sounds are short MP3s in [`sounds/`](sounds/), about 5 MB in all, played wit
 board shows `Sounds n/42` until they're in. They stay in the browser's Cache Storage on `https` and `localhost`, so the next open
 needs no connection. If a file hasn't loaded, the original pads fall back to a live synth; the rest stay dimmed until they arrive.
 
-The board opens with **This cue**: that cue's sounds, always in reach whatever Do now has scrolled to, split into **Background** (leave running) and **Effects** (fire on the moment) and numbered across both for `Shift`+`1`–`9`. Room pads latch on and off, fade in and out, and layer; stings are one-shots that overlap anything. **Silence** (or `Esc`) stops
+The board opens with **This cue**: that cue's sounds, always in reach however far the steps have scrolled, split into **Background** (leave running) and **Effects** (fire on the moment) and numbered across both for `Shift`+`1`–`9`. Room pads latch on and off, fade in and out, and layer; stings are one-shots that overlap anything. **Silence** (or `Esc`) stops
 all of it, stings included. A limiter on the master catches heavy layering.
 
 The sounds were generated in ElevenLabs Sound Effects from the prompts in
@@ -101,8 +76,9 @@ Home Screen from Safari for a fullscreen booth.
 ## Editing the content
 
 It's a single self-contained `index.html` plus `fights.js`. In the `<script>`:
-- `SCENES` — the cues: setting, pace, read, rev, talk, npcs and so on. The level-up card is the scene `L5`.
-- `PROPS` — every physical prop, who gets it and on which cue. Add a prop here, not on a scene; it feeds
-  the cue's Do now and the props bag on card zero.
-- `EXEC` — the table layer, keyed by scene no.: `do`, `at`, `land`, `next` / `go`.
+- `SCENES` — the cues. `steps` is Scott's list (the step kinds are listed above `SCENES`); `talk`, `ifblock`, `rev`,
+  `npcs` and `spBrief` are Spencer's panel; `cues` fills the soundboard's This cue row. The level-up card is the scene `L5`.
+- `PROPS` — every physical prop, who gets it and on which cue. Add a prop here, and a `{hand:id}` step on
+  its scene; it also feeds the props bag on card zero.
+- `EXEC` — the table layer, keyed by scene no.: `at`, `land`, `next` / `go`.
 - `IPAD` — the players' iPad items.
