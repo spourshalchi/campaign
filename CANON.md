@@ -944,9 +944,20 @@ transitions above it binds nobody, but it's listed so the review queue can see i
 - **⏱ Behind / Ahead** lines per cue. One goes past existing text: when behind in 14 · i, Ostrander's remaining
   thugs die in the scramble once he drops.
 - **Opening the table** (card zero): each player introduces their character before cue 1.
-- **The Kit**: the Cast sheet (voice / wants / knows, summarised from the codex), the Party sheet's "if a player is
-  absent" lines (Yobo absent: the party-room door opens on Dracula's sulk), the Scott–Spencer handoff signal, and
-  the Improv rooms and spare names (generic, no plot). The 2024 rules summary and level-up steps are rules, not lore.
+- **The Scott–Spencer handoff signal** (card zero, Spencer's briefing).
+- **Less to maintain, information in the scene** (`Scott, 2026-11-06`). The Props tab and its tracker, the Kit's Party,
+  Cast, Rules and Improv tabs, the rules summary, the AC / HP / passive Perception boxes and the spotlight ticks are gone.
+  Scott's note on Improv read "we need anyhting in the improv tab", taken as "we don't need anything": the spare rooms
+  and names went with it, and it's his to reverse. Notes stayed. What moved into scenes, all 🟡:
+  - **Two DCs are new:** Yobo's gazebo Performance is DC 12 (made it: the crew buys it; missed: it wobbles and they
+    needle him), and in the party room DC 15 splits Dracula's high line from his low line. It still never opens the door.
+  - **The level-up card** after cue 9: the level 4 to 5 steps by class (rules, not lore), and "3rd-level spells are
+    open, Daylight and Plant Growth" said to Cody, because cue 12 relies on it.
+  - **Lines from the Cast sheet:** Vinny (cue 2), Poe Boy and Angelique (cue 4), Orlok and Edward (cue 6), the
+    Total Party Kill concert fund (cue 13), Dracula as witness on the settlement (cue 10), Ostrander and the Galleria
+    (14 · i), Stinky's voice (14 · ii). Summarised from the codex and CANON; none is a new fact.
+  - **Absent-player lines** on cues 4, 10, 11 and 13 (John, Julia, John, Simone). Bix's and Russ's were
+    already covered on cues 11 and 15.
 
 ---
 
