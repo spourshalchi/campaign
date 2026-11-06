@@ -5,7 +5,7 @@ SCENES.push(
 
 { act:"town", no:0, title:"Opening the game", where:"At the table · read from this card",
   steps:[
-    {slot:["Phones away, snacks out, sheets and dice in front of everyone.","Two days: today and tomorrow. Level 4 now, level 5 at the end of today.","I narrate and run the rolls. Spencer voices everyone they meet.","A kid from your school, Marcus Hale, went missing about a month ago. The posters are still up."], t:"Your intro, in your own words. Cover:"},
+    {slot:["Phones away, snacks out, sheets and dice in front of everyone.","Two days: today and tomorrow. Level 4 now, level 5 at the end of today.","I narrate and run the rolls. Spencer voices everyone they meet."], t:"Your intro, in your own words. Cover:"},
     {hand:"backstory"},
     {say:"Anything in the Private section stays private. Everything else, share however you like.", who:"Say as you hand them out"},
     {hand:"reqcard"},
@@ -15,7 +15,7 @@ SCENES.push(
     {tick:"<b>Simone's warlock</b> &middot; Simone<span class=\"how\">no in-world name needed</span>"},
     {tick:"<b>Yobo</b> &middot; John"},
     {tick:"<b>Russ</b> &middot; Cody"},
-    {say:"You're all in the same History class. You know each other by sight and reputation, even if you've never really talked.", who:"Then say"}
+    {say:"This is Transyltown, New York, a charming little suburb in the Hudson Valley. There's a hall of records, an old armory, a scout troop, and a fantasy high school, where the five of you are super seniors: in your twenties, and this is supposed to be your last year. It's Halloween, 2004. On the hill at the edge of town there's an abandoned Dutch mansion. Its front door has been boarded up for decades, and the local kids throw rocks at the windows on dares. A kid from your school went missing about a month ago. Everyone says he ran away. The posters are still up. You all have History together. You know each other by sight and reputation, even if you've never really talked.", who:"The opening · read aloud"}
   ],
   next:"Read Scene 1's Setting aloud. It opens on &ldquo;Fourth period, history.&rdquo;", go:["1"],
   npcs:[],
@@ -46,7 +46,7 @@ SCENES.push(
     {say:"The hallway between periods: slamming metal, sneakers squeaking on linoleum, somebody's Discman leaking through the headphones. Wedged in the vent of each of your lockers is the same small card.", who:"Setting"},
     {hand:"invites", do:"&#9995; <b>Each of them finds the card</b> (invites). It reads <i>&ldquo;Haunted House &middot; Dood Mansion &middot; 8 PM.&rdquo;</i> No name on it. There's a party, and they're invited."},
     {do:"They compare notes: <b>nobody else in school got one.</b>"},
-    {note:"<b>Optional, in passing:</b> by the gym, one of the missing posters: <b>Marcus Hale</b>, last seen in September. The kid who ran away. Don't dwell on it."},
+    {note:"<b>Optional, in passing:</b> by the gym, one of the missing posters: a kid their age, last seen in September. The kid who ran away. Describe it, don't read out a name, and don't dwell on it."},
     {tick:"Spencer ready for Vinny's call on Gnomey's flip phone."},
     {snd:["phone"], t:"Vinny's call"},
     {do:"<b>Gnomey reads &ldquo;Dood&rdquo; and his flip phone rings</b> &mdash; Great Uncle Vinny (Spencer). Let it sit there unexplained."},
@@ -107,10 +107,10 @@ SCENES.push(
   steps:[
     {snd:["gazebo"]},
     {say:"The gazebo by the school, where the bad kids smoke. A haze of cigarette smoke, a boombox on the rail, and DJ Poe Boy holding court with his crew &mdash; Angelique among them, not quite looking at you.", who:"Setting"},
-    {do:"Meet <b>Poe Boy</b> and the crew. <b>Angelique tries to warn them and can't</b>: a side-eye, a swallowed half-sentence."},
-    {do:"Asked about the house, Poe Boy says he's been up there <b>once</b>, with a shrug, and is cool about the cards. Insight DC 14. The DJ poster on the AIM door and his voice on the speakers pay it off."},
+    {do:"<b>Spencer's turn:</b> they meet Poe Boy and the crew, and Angelique tries to warn them."},
+    {do:"They ask about the house or the cards. <b>Spencer's turn:</b> Poe Boy plays it down. Insight DC 14. The DJ poster on the AIM door and his voice on the speakers pay it off."},
     {check:{skill:"Insight", dc:"14", note:"Sense the &ldquo;once&rdquo; is a lie, or that Angelique is holding something back."}},
-    {hand:"weight", do:"<b>Yobo's arc opens</b>: the crew clocks him &mdash; &ldquo;do a little riff.&rdquo; &#9995; Hand John the secret <b>The Weight of Your Lies</b> card (printed): disadvantage on Performance, advantage on Deception. Then his first Performance check: <b>DC 12</b>, rolled in secret, at disadvantage."},
+    {hand:"weight", do:"<b>Yobo's arc opens. Spencer's turn:</b> the crew asks him for a riff. &#9995; Hand John the secret <b>The Weight of Your Lies</b> card (printed): disadvantage on Performance, advantage on Deception. Then his first Performance check: <b>DC 12</b>, rolled in secret, at disadvantage."},
     {check:{skill:"Performance", dc:"12", note:"<b>Yobo only, in secret, at disadvantage.</b> Juggling the lie is the debuff: hand him <i>The Weight of Your Lies</i> first. Made it: the crew buys it. Missed: it wobbles and they needle him."}},
     {note:"<b>The debuff card doesn't say how to lose it. Don't hint.</b> John learns honesty matters only from Dracula, in the party room."},
     {note:"By now the <b>boards are off the front door</b>, stacked neat against the porch rail &mdash; the only change to the house in decades. That's the invitation."},
@@ -127,8 +127,9 @@ SCENES.push(
     {by:"Angelique", who:"Players", t:"can learn she's holding something back &mdash; a side-eye, a swallowed half-sentence. Nothing more."}
   ],
   npcs:[
-    {nm:"DJ Poe Boy", vc:"Kenku &mdash; <b>voice him only in borrowed / sampled lines.</b> Glamour-charming, subversive, real cred. Here he plays everything down: been up there once, a shrug, nothing to see. Cool about the cards &mdash; never says he sent them, never says it's his party. Wants real screams for his horror score. Keeps back: he shut the door on Marcus, and his name is Upton."},
-    {nm:"Angelique", vc:"Changeling, trad goth. Wants them warned, can't say it out loud. A side-eye and a held breath, not exposition."}
+    {nm:"DJ Poe Boy", pts:["Asked about the house: been up there once, with a shrug","Nothing to see up there","Cool about the cards: never says he sent them or that it's his party"], vc:"Kenku &mdash; <b>voice him only in borrowed / sampled lines.</b> Glamour-charming, subversive, real cred. Here he plays everything down: been up there once, a shrug, nothing to see. Cool about the cards &mdash; never says he sent them, never says it's his party. Wants real screams for his horror score. Keeps back: he shut the door on Marcus, and his name is Upton."},
+    {nm:"Angelique", pts:["Try to warn them and can't, with the crew around: a side-eye, a swallowed half-sentence","Nothing more than that"], vc:"Changeling, trad goth. Wants them warned, can't say it out loud. A side-eye and a held breath, not exposition."},
+    {nm:"The crew", pts:["Clock Yobo as the Dolly Parton guy","Get him to do a little riff","Buy it or needle him, on his Performance roll"], vc:"Poe Boy's bad kids, smoking at the gazebo."}
   ],
   cues:["gazebo"] }
 
