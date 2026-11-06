@@ -23,7 +23,7 @@ const PROPS = [
   {id:"reqcard",    nm:"Russ's requirements card",      to:"Cody (Russ)",           cue:0},
   {id:"invites",    nm:"Invite cards",                  to:"one per player",        cue:2,  how:"Spencer's card, one in each locker. No host named."},
   {id:"weight",     nm:"<i>The Weight of Your Lies</i>",to:"John (Yobo)",           cue:4,  how:"face-down, the moment the crew asks for a Dolly riff. Disadvantage on Performance, advantage on Deception."},
-  {id:"survey",     nm:"Site survey",                   to:"the table",             cue:8,  how:"to whoever finds it, from the look-around."},
+  {id:"survey",     nm:"Site survey",                   to:"the table",             cue:7,  how:"to whoever finds it, from the look-around."},
   {id:"sticky",     nm:"Sticky note <code>Fluffy123</code>", to:"the table",        cue:9,  how:"to whoever finds it, after the fight and before the screen wakes. They keep it for Sunday."},
   {id:"settlement", nm:"Articles of Settlement",        to:"Julia (Gnomey), alone", cue:10, how:"from the strongbox."},
   {id:"photo",      nm:"The photograph (4&times;6)",    to:"Will (Bix)",            cue:11, how:"say nothing."},
