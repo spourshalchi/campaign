@@ -34,29 +34,22 @@ SCENES.push(
   steps:[
     {snd:["drone","heart"]},
     {say:"Pressed into the dark with Angelique, you hear them before you see them: three voices coming down the hall, in no hurry at all. One theatrical, one younger, and one very quiet.", who:"Setting"},
+    {check:{skill:"Stealth", dc:"13", note:"<b>Call it</b> as they hide, everyone rolls. They roll it again as they explore. Save a miss for the swoop below: the argument plays first."}},
     {say:"From your hiding place, you can hear them talking."},
-    {do:"<b>Hide</b>: Stealth DC 13."},
-    {check:{skill:"Stealth", dc:"13", note:"Hide when Angelique pulls them down; then recurring &mdash; eventually someone rolls badly."}},
-    {note:"Play the vampires as <b>hosts on a job</b>. To them this is a rehearsal."},
-    {tick:"Spencer: the overheard argument is his. Cue him."},
-    {do:"<b>The overheard argument</b> (Spencer), every line true and damning. &ldquo;the boy&rdquo; told them five; there are &ldquo;meals.&rdquo; <b>Perception DC 12</b> to catch Dracula's aside."},
-    {check:{skill:"Perception", dc:"12", note:"<b>Call it</b> during the overheard argument. <b>Success:</b> they catch Dracula: &ldquo;It's only the rehearsal, and you missed your entrance.&rdquo; <b>Fallback:</b> &ldquo;He said five&rdquo; plays as scripted."}},
-    {do:"They may take the vampires for <b>costumed party entertainment</b> &mdash; &ldquo;is this part of the party?&rdquo; The vampires play along."},
-    {do:"<b>Explore under recurring Stealth, DC 13,</b> until someone rolls badly. On the stairs: <b>Perception DC 12</b> for the mic. Somewhere in there Bix catches <b>Edward glimmering</b> in the moonlight (Bix beat 1 of 3)."},
-    {check:{skill:"Perception", dc:"12", note:"<b>Call it</b> when they take the stairs. <b>Success:</b> a small mic taped to the rail, its cable running into the wall. <b>Fallback:</b> they find the second mic, in the summoning's wreckage (cue 9)."}},
-    {rev:{who:"Players", t:"learn, the first time they read the <b>DJ poster</b> on the locked upstairs door (any time they explore, tonight or Sunday), that a party here is <b>Poe Boy's</b>. His voice on the speakers at 3AM confirms it, and that he lied about being up there once."}},
+    {do:"<b>Spencer's turn:</b> the overheard argument."},
+    {check:{skill:"Perception", dc:"12", note:"<b>Call it</b> during the argument. <b>Success:</b> they catch one more line from Dracula, and Spencer says it."}},
+    {do:"Turn them loose: they move through the house, <b>rolling Stealth DC 13 as they go</b>, until someone rolls badly."},
+    {check:{skill:"Perception", dc:"12", note:"<b>Call it</b> when they take the stairs. <b>Success:</b> a small mic taped to the rail, its cable running into the wall. <b>Miss:</b> they find the second mic, in the summoning's wreckage (cue 9)."}},
+    {do:"Somewhere in there, Bix catches <b>Edward glimmering</b> in the moonlight, watching him (Bix beat 1 of 3)."},
+    {note:"If they reach the locked door at the end of the upstairs hall, narrate the DJ poster (the first read-aloud on cue 13). That's as far as they get."},
     {snd:["steps","swoop","jump","braaam"], t:"Dracula"},
-    {do:"<b>Dracula swoops</b>, grapples (DC 15 Str or Dex save) and shoves &mdash; <b>no damage</b>. &#9876; pressure scene."},
+    {do:"<b>Someone rolls badly: Dracula swoops</b> and grabs them. DC 15 Str or Dex save or grappled, then he shoves them. <b>Spencer's turn:</b> Dracula, enjoying himself. &#9876; pressure scene."},
     {tok:1},
     {fight:1},
-    {note:"Vampires <b>cannot kill a PC</b> here.", k:"rule"},
-    {check:{skill:"Insight", dc:"no roll", note:"They'll read this as being hunted. Let them. The vampires never roll damage."}},
-    {rev:{who:"Players", t:"may notice the vampires never roll damage. Don't point it out."}},
-    {do:"<b>Orlok ends it with one word</b>, then the dismissal. They hear a hunt."},
-    {note:"Play the dismissal as a threat. Expect the party to search the house for a way out."},
-    {note:"Do <b>not</b> let Orlok discover the locked doors or explain anything &mdash; he decided the doors and owns the building."},
+    {note:"Vampires <b>cannot kill a PC</b> here and never roll damage. They'll read this as being hunted. Let them, and don't point it out.", k:"rule"},
+    {do:"<b>Spencer's turn:</b> Orlok ends it with one word, then the dismissal."},
     {note:"<b>Angelique:</b> from here it's the party's choice whether she travels with them. If she doesn't, she's at the AIM door when the chime plays."},
-    {end:"on Orlok's &ldquo;We'll find you when we're ready&rdquo; &mdash; and the party scattering to look for a way out."}
+    {end:"on Orlok's dismissal, with the party scattering to look for a way out."}
   ],
   next:"On Orlok's dismissal, Russ finds Orlok at the cabinet: cue 7.", go:["7"],
   talk:[
@@ -64,23 +57,21 @@ SCENES.push(
     {who:"Edward", t:"One of them is a child."},
     {who:"Dracula", t:"They're all children. That's rather the point."},
     {who:"Dracula · optional", t:"The boy says they come for the music and stay for us."},
-    {who:"Dracula · overheard, Perception DC 12", t:"It's only the rehearsal, and you missed your entrance."},
+    {who:"Dracula · only on their Perception DC 12", t:"It's only the rehearsal, and you missed your entrance."},
     {who:"Orlok", t:"Have our meals been fed?"},
     {who:"Dracula", t:"Not yet I don't think."},
     {who:"Orlok", t:"See to it before we begin. I won't have them distracted."},
-    {who:"Orlok · dismissal", t:"The night is young. It would be terribly rude to be finished with you already&hellip; Go on. Have a look around. We'll find you when we're ready."}
+    {who:"Dracula · asked if this is part of the party", t:"Part of the party? Yes. Oh, absolutely yes."},
+    {who:"Dracula · holding someone", t:"Oh, very good. Again."},
+    {who:"Orlok · to Dracula, quietly", t:"Enough."},
+    {who:"Orlok · the dismissal", t:"The night is young. It would be terribly rude to be finished with you already&hellip; Go on. Have a look around. We'll find you when we're ready."}
   ],
   fight:FIGHTS.contact,
-  rev:[
-    {by:"spencer", who:"Players", t:"learn from the overheard argument that <b>someone told the vampires exactly five were coming</b> &mdash; &ldquo;the boy.&rdquo; Not who."},
-    {by:"spencer", who:"Players", t:"learn the vampires keep &ldquo;meals&rdquo; somewhere in the house. Let them assume the worst; the cellar answers it Sunday."},
-    {by:"spencer", who:"Players", t:"can catch, if Dracula's optional line is used, that the <b>party and the haunting are one plan</b>. A free clue."},
-    {by:"spencer", who:"Players", t:"hear the dismissal as a hunt. It's really a show schedule &mdash; nobody corrects them."}
-  ],
   npcs:[
-    {nm:"Dracula", vc:"Campy, theatrical, lays hands on them &mdash; and enjoys it far too much. Asked if this is part of the party, he's delighted to say yes. Stops the instant Orlok speaks."},
-    {nm:"Orlok", vc:"Patient and very polite, even while doing something awful. One word from him stops Dracula. Wants to be left alone in his house. Keeps back: he lost it to Vinny at cards in 1931."},
-    {nm:"Edward", vc:"Watches Bix. Does not approach. Bix is his son; he says nothing until the driveway."}
+    {nm:"Dracula", pts:["Overheard: he said five, there are five, the boy's learning to count","They're all children, and that's the point","The meals haven't been fed yet","If they make their Perception: it's only the rehearsal, and you missed your entrance","The swoop: hands on, delighted, no damage. If they hit him, he laughs","Asked if this is part of the party: yes, absolutely","Lets go the instant Orlok speaks"], vc:"Campy, theatrical, lays hands on them and enjoys it far too much. To him this is a rehearsal. Never says who &ldquo;the boy&rdquo; is."},
+    {nm:"Orlok", pts:["Overheard: have the meals been fed? See to it before we begin","Stay out of the grab until you're ready to end it","One word, quietly, and Dracula stops","The dismissal, as a threat","Explain nothing: not the doors, not the meals, not the boy"], vc:"Patient and very polite, even while doing something awful. Wants to be left alone in his house. Keeps back: he lost it to Vinny at cards in 1931."},
+    {nm:"Edward", pts:["Overheard: one of them is a child","In the hall, stay out of it and watch Bix","Don't approach, don't answer"], vc:"The younger voice. Bix is his son; he says nothing until the driveway."},
+    {nm:"Angelique", pts:["Keep them quiet while the voices pass","Still won't say what she's hiding from, or why she came"], vc:"Whispering, frightened."}
   ],
   cues:["drone","heart","steps","swoop","jump","braaam"] },
 
