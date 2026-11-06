@@ -8,6 +8,9 @@
    table. Damage is fixed (no damage dice). Rolls and initiative stay at the table.
 
    cue:   the Run of Show scene this fight belongs to.
+   start: read [{who, t, sp}], announce, record, map [lines]: opening the fight.
+   rounds: [{k, say, do, sp:[{who, t}]}]: what to narrate each round. ifs: [[if, then]].
+   end:   when, read [{who, t, sp} or {note}], next: closing the fight.
    read:  read-alouds that open and close the fight, {open, close}: [{who, t, sp}].
           sp means Spencer voices it; {note} is a plain line for Scott. Copied from the scene card's read, talk and ifblock.
    guide: tokens, rounds [{k, say, who, sp}], other [[if, then]]: narrating the fight.
@@ -24,48 +27,49 @@ const FIGHTS = {
 
   library: {
     day:"Saturday", cue:3, name:"The trap in the binding",
-    guide:{
-      tokens:"The article on a reading table. Shears 1 and 2 either side of it, one lane each. The swarm at the card catalogue, the cart by the stacks.",
-      rounds:[
-        {k:"They open it", who:"The first cut lands before anyone moves. The tally starts at 1. Roll initiative.", say:"The binding splits and a pair of shears comes out of the spine. <i>Snick.</i> A strip of the article falls to the table."},
-        {k:"Round 1", who:"Shears 1 and 2 dive for the article: a PC in the lane gets snipped, a clear lane means +1 cut. The cart rolls at the first blocker and pushes them out of the lane.", say:"They aren't coming for you. They're going for the page. Behind you, one squeaky wheel starts to roll."},
-        {k:"Round 2", who:"The swarm engulfs a blocker. The cart keeps ramming blockers out of the lanes. One pair of shears should go down about now.", say:"The card catalogue drawers slide open all at once, and then it's snowing."},
-        {k:"The second pair drops", who:"Everything drops with it. Clear the map.", say:"The shears snap shut and clatter to the floor. The cards settle. The cart tips over and spills its books. The room is very quiet."}
-      ],
-      other:[
-        ["Nobody guards the article","The shears just cut. +1 each. At 5 cuts the page is done and everything drops."],
-        ["Someone picks up the volume","The shears follow it. Whoever holds it is in the way: snip them."],
-        ["They ignore the shears","Fine. Only the second pair going down ends it, and they keep cutting."],
-        ["Someone uses fire","Double on the swarm. Fire on the article is one more cut."],
-        ["A PC hits 0 HP","Out cold and stable. Nothing in this room kills."],
-        ["When the second pair drops","Clear the map. Read the cuts off the tally and set the Item 1 pieces."]
-      ]},
-    read:{close:[
-      {who:"Records Keeper · after the fight", sp:1, t:"You can try to put it back together. But that was your primary source, and it's gone. If you want one now, you'll have to go look at the house yourselves. &hellip;But be careful."}
-    ]},
-    rule:"The shears go for the article, not the party. It <b>contains and erases; it does not kill.</b> Count the cuts &mdash; they set the puzzle.",
-    run:{
-      setup:"They open the volume. The shears come out of the spine and make the first cut before anyone moves (the tally starts at 1). Roll initiative.",
-      matchups:"Shears 1 and 2 each take a lane to the article, one from each side. The cart and the swarm go for whoever blocks a lane. Ask the table who's guarding the book.",
-      win:"Drop both shears. When the second pair goes down, the rest of the stationery drops where it is.",
-      ends:"Round 2 or 3.",
-      losing:"Nobody dies here: a PC at 0 HP is out cold and stable. If it's going badly, the shears finish the page (5 cuts) and everything drops."
+    start:{
+      read:[{who:"They open it", t:"The binding splits and a pair of shears comes out of the spine. <i>Snick.</i> A strip of the article falls to the table."},{note:"That's the first cut. It's already on the tally."}],
+      map:["The article on a reading table.","Shears 1 and 2 either side of it, one lane each.","The swarm at the card catalogue, the cart by the stacks.","Ask who's guarding the article, and put those tokens in the lanes."]
     },
-    tally:{label:"Cuts", start:1, tiers:[[2,9],[4,16],[99,25]]},
+    rounds:[
+      {k:"Round 1", say:"They aren't coming for you. They're going for the page. Behind you, one squeaky wheel starts to roll.", do:"On my turn: the shears and the cart. The swarm waits."},
+      {k:"Round 2", say:"The card catalogue drawers slide open all at once, and then it's snowing.", do:"On my turn: the swarm joins in."},
+      {k:"Round 3 and after", do:"Keep going until the second pair of shears drops, or the cuts tally is full. Then step 5."}
+    ],
+    ifs:[
+      ["Someone picks up the volume","The shears follow it. Whoever holds it is in the way: snip them."],
+      ["Someone uses fire on the article","One more cut."],
+      ["A PC hits 0 HP","Out cold and stable."],
+      ["It's going badly","The shears finish the page. Tap the cuts up to full and go to step 5."]
+    ],
+    end:{
+      when:"The second pair of shears drops, or the cuts tally is full.",
+      read:[
+        {who:"Everything drops", t:"The shears snap shut and clatter to the floor. The cards settle. The cart tips over and spills its books. The room is very quiet."},
+        {note:"Clear the map."},
+        {who:"Records Keeper · after the fight", sp:1, t:"Well. Don't just stand there. Get every scrap and put it back together."},
+        {note:"<b>Item 1 on the iPad:</b> tap <b data-tier-now></b>, the difficulty shown by the cuts. Then hand over the torn page."}
+      ],
+      next:"The jigsaw, then they read the page."
+    },
+    tally:{label:"Cuts on the article", foe:"shears", start:1, tiers:[[2,"Easy"],[4,"Medium"],[99,"Hard"]],
+      use:"The highlighted one is the difficulty to tap on Item 1 after the fight.",
+      full:"The page is done. Everything drops."},
     foes:[
       {id:"shears", nm:"Archival shears", n:2, ac:14, hp:20, spd:"fly 30", chassis:"Flying Sword", cr:"½", xp:100,
        say:"A dry snick-snick, like someone trimming coupons.",
        turn:["<b>A PC between it and the article?</b> Snip that PC: <b>+5 to hit, 6 slashing</b>. No cut this turn.",
              "<b>Nobody in the way?</b> It flies to the article and cuts. No roll. <b>Tap +1 cut.</b>"],
-       note:"It never goes after anyone who isn't in its way.",
-       drop:"It snaps shut and clatters to the floor.",
+       drop:"It snaps shut and clatters to the floor. When the second pair drops, the rest of the stationery drops too.",
+       endsFight:1,
        hard:"One pair jams in the binding for a round: no cut that turn.",
        easy:"Give each pair 8 more HP (28)."},
       {id:"cards", nm:"Swarm of index cards", n:1, ac:12, hp:22, spd:"fly 30", chassis:"Swarm of Insects", cr:"½", xp:100,
        say:"The card catalogue drawers spit out a blizzard.",
        turn:["Moves onto the PC blocking a shears lane (or the nearest PC).",
              "Paper cuts: <b>+5 to hit, 7 slashing</b>."],
-       note:"<b>Fire does double.</b>",
+       when:"From round 2",
+       hpnote:"<b>Fire does double.</b>",
        drop:"The cards settle like snow and lie still.",
        hard:"Under 11 HP it does 4, not 7.",
        easy:"Add 10 HP (32)."},
@@ -94,7 +98,6 @@ const FIGHTS = {
         ["Someone runs","He doesn't chase. The dismissal lands anyway."],
         ["They go for Orlok or Edward","Neither acts. Edward explains nothing. Take the next round's line anyway."]
       ]},
-    rule:"<b>The vampires can't kill a PC.</b> Grapple, shove, frighten: no Bite, no damage, nobody below 1 HP.",
     run:{
       setup:"Someone fails Stealth and Dracula swoops. Use initiative only if they fight back.",
       win:"Nobody wins. They get grabbed, shoved and scared, and nobody gets hurt.",
@@ -141,7 +144,6 @@ const FIGHTS = {
       {note:"<b>DC 10:</b> the sticky note, <code>Fluffy123</code>, stuck to a candle box. <b>DC 12:</b> also another mic. Highest roll finds the note even on a miss. &#9995; the note; they keep it for Sunday."},
       {who:"After the search · fire the AIM chime as the screen wakes, then kill all sound", t:"A monitor deep in the house flickers on by itself. The old AIM chime carries down the hall. One line types itself across a screen nobody is sitting at &mdash; <b>&ldquo;is someone there&rdquo;</b> &mdash; then it goes dark."}
     ]},
-    rule:"It's bound to its room and <b>claws toward the sealed door</b> the whole fight.",
     run:{
       setup:"They open the warm door. It drags itself up out of the chalk circle, and two fragments peel up off the floor lines. Roll initiative.",
       matchups:"The summoning takes whoever stands between it and the sealed door. Fragment 1 goes for the PC hitting it; fragment 2 goes for the back line.",
@@ -184,7 +186,6 @@ const FIGHTS = {
         ["A PC hits 0 HP","It doesn't touch them."],
         ["It's eating the clock","It smears apart on its own. Move on."]
       ]},
-    rule:"Only if a room solved in five minutes and there's time to spare.",
     run:{
       setup:"On the way up to the computer room, the half-drawn circle in last night's room is moving. What's left of the summoning pulls itself out, with two fragments. Roll initiative.",
       matchups:"The remnant takes the nearest PC. Fragments 1 and 2 split across the rest.",
@@ -246,7 +247,6 @@ const FIGHTS = {
       {who:"DJ Poe Boy · on the mic, during the fight", t:"Oh, this is great. Keep going."},
       {who:"The vampires · if they go for Poe Boy first", t:"Keep calling for help."}
     ],
-    rule:"<b>The only lethal fight.</b> Ostrander pins the vampires with a seal and ignores the party until they interfere. <b>The vampires are never actually killed.</b>",
     run:{
       setup:"Ostrander and six thugs walk in with the crowd, go straight past the party and pin all three vampires with a seal (narrate it; it costs him nothing). Roll initiative when the party acts.",
       matchups:"Thugs 1–3 block the party. Thugs 4–6 are on the vampires. Ostrander ignores the party until they interfere. Poe Boy stays up on the decks, on the mic; he isn't in this fight.",
@@ -333,7 +333,6 @@ const FIGHTS = {
       {who:"Angelique · round 1, to the party", t:"Aux is round the back of the mixer, left side. I'm on the poster. I know this stage."},
       {who:"Lil Stinky · after the recording, to Poe Boy", t:"I believed you, man."}
     ],
-    rule:"<b>The USB can't be destroyed</b> &mdash; Command (&ldquo;Drop.&rdquo;) only costs time. When it plays, <b>Stinky's oath breaks with no save and he turns on Poe Boy.</b>",
     run:{
       setup:"Ostrander is dead and the vampires are free. The party tells them about Marcus and the drive. Orlok: &ldquo;Let them play it.&rdquo; Poe Boy refuses: &ldquo;Drop.&rdquo; That's what turns them on him. Poe Boy and Lil Stinky hold the decks. The USB is wherever the party left it: if it's still in the old rig upstairs, someone runs it down (about 2 rounds).",
       matchups:"Lil Stinky holds the decks; Poe Boy stays behind them, on the mic. Orlok goes for Stinky, Dracula shadows whoever holds the USB, Edward hangs back to pull PCs clear, Angelique stays by the USB holder. The party's job: get the USB to the decks and get Stinky off them.",
