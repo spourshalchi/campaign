@@ -86,7 +86,6 @@
   .rnd-who{margin:0;font-size:15px}
   .rnd-sp{margin:6px 0 0;font-size:15px;color:#ffd6ee}
   .rnd-sp b{color:var(--pink)}
-  .rnd-beat{margin:0;font-size:15px}
   .oth{margin:0 0 8px;font-size:15px}
   .oth b{color:var(--rose)}
 
@@ -144,7 +143,7 @@
 </head>
 <body>
 <div id="page"></div>
-<script src="../fights.js?v=12"></script>
+<script src="../fights.js?v=13"></script>
 <script>
 "use strict";
 const $ = s => document.querySelector(s);
@@ -169,7 +168,7 @@ function narration(f){
       row("Setup",r.setup)+row("Tokens",g.tokens,"tok")+row("Matchups",r.matchups)+row("Allies",r.allyJob,"job")+
       (read.open?`<div style="margin-top:10px">${says(read.open)}</div>`:"")+`</div>`+
     `<div class="sec" id="s-rounds"><p class="h">Round by round</p>`+
-      (g.rounds ? g.rounds.map(round).join("") : (r.beats||[]).map(b=>`<div class="rnd"><p class="rnd-beat">${b}</p></div>`).join(""))+
+      (g.rounds||[]).map(round).join("")+
       (f.lines?`<p class="h" style="margin-top:14px">Spencer, during the fight</p>${says(f.lines.map(l=>({...l,sp:1})))}`:"")+`</div>`+
     `<div class="sec" id="s-if"><p class="h">If they do something else</p>`+
       (g.other||[]).map(([k,v])=>`<p class="oth"><b>${k}.</b> ${v}</p>`).join("")+row("Losing?",r.losing,"lose")+`</div>`+
