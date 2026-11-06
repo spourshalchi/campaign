@@ -10,7 +10,7 @@
 
    cue:   the Run of Show scene this fight belongs to.
    read:  read-alouds that open and close the fight, {open, close}: [{who, t, sp}].
-          sp means Spencer voices it. Copied from the scene card's read, talk and ifblock.
+          sp means Spencer voices it; {note} is a plain line for Scott. Copied from the scene card's read, talk and ifblock.
    guide: tokens, rounds [{k, say, who, sp}], other [[if, then]]: narrating the fight.
    lines: Spencer's in-fight lines [{who, t}].
 
@@ -131,18 +131,20 @@ const FIGHTS = {
         {k:"Round 1", who:"Fragments 1 and 2 go for whoever hits it, 3 and 4 for the back line. It lurches for the sealed door and claws whoever is in its way.", say:"It isn't looking at you. It's dragging itself toward the door, toward something down the hall, and the chalk on the floor has started to crawl."},
         {k:"Round 2", who:"It claws twice at whoever stands between it and the door. The fragments start crumbling.", say:"It goes through whoever's in the way like they're furniture. It still isn't looking at you."},
         {k:"Round 3", who:"First time it's under 43 HP: the Unfinished Word. Every PC within 15 ft saves, DC 13 Wis: 13 psychic, half on a save.", say:"The hole in its chest turns toward you and it tries to say something. It doesn't get to the end of it. You feel it anyway."},
-        {k:"Round 4", who:"It drops and the fragments crumble with it. Clear the map. Read the kill line, below.", say:"It stops with one arm still out toward the door."}
+        {k:"Round 4", who:"It drops and the fragments crumble with it. Clear the map. The wreckage search, then the screen: both below.", say:"It stops with one arm still out toward the door."}
       ],
       other:[
         ["They leave the room","It can't follow. It keeps clawing toward the sealed door."],
         ["They run for the sealed door","It doesn't open tonight. Nobody reaches that room."],
         ["Someone tries to work out what it is","Arcana DC 14: human-made, incomplete. Who drew it stays open."],
-        ["Someone searches the wreckage","Investigation DC 12: another mic, still running. A miss is fine: Marcus's AIM line covers it."],
+        ["Someone searches the wreckage mid-fight","Not yet. Everyone rolls after the kill."],
         ["A PC hits 0 HP","It doesn't touch them. It wants the door."],
-        ["When it drops","The kill line, then stop. The night ends when the screen dies. Next card: level up."]
+        ["When it drops","The wreckage search, then the screen. The night ends when the screen dies. Next card: level up."]
       ]},
     read:{close:[
-      {who:"On the kill · fire the AIM chime as the screen wakes, then kill all sound", t:"A monitor deep in the house flickers on by itself. The old AIM chime carries down the hall. One line types itself across a screen nobody is sitting at &mdash; <b>&ldquo;is someone there&rdquo;</b> &mdash; then it goes dark."}
+      {who:"The wreckage search", t:"Take a minute to look through the wreckage. Everyone roll Investigation."},
+      {note:"<b>DC 10:</b> the sticky note, <code>Fluffy123</code>, stuck to a candle box. <b>DC 12:</b> also another mic. Highest roll finds the note even on a miss. &#9995; the note; they keep it for Sunday."},
+      {who:"After the search · fire the AIM chime as the screen wakes, then kill all sound", t:"A monitor deep in the house flickers on by itself. The old AIM chime carries down the hall. One line types itself across a screen nobody is sitting at &mdash; <b>&ldquo;is someone there&rdquo;</b> &mdash; then it goes dark."}
     ]},
     rule:"It's bound to its room and <b>claws toward the sealed door</b> the whole fight.",
     run:{
@@ -163,7 +165,7 @@ const FIGHTS = {
              "Claws twice at the nearest PC: <b>+6 to hit, 9 slashing</b> each.",
              "<b>Once, the first time it's under 43 HP:</b> Unfinished Word. Every PC within 15 ft makes a <b>DC 13 Wis save</b>: 13 psychic, half on a save."],
        note:"Never attacks a PC at 0 HP.",
-       drop:"Read the monitor line, fire the AIM chime, then kill all sound.",
+       drop:"Run the wreckage search first. Then read the monitor line, fire the AIM chime, and kill all sound.",
        hard:"It spends a turn clawing at the door instead of a PC.",
        easy:"Add 20 HP (105)."},
       {id:"frag", nm:"Ritual fragments", n:4, ac:12, hp:7, spd:"30", chassis:"Shadow, no Strength drain", cr:"¼", xp:50,
@@ -191,7 +193,7 @@ const FIGHTS = {
         ["A PC hits 0 HP","It doesn't touch them."],
         ["It's eating the clock","It smears apart on its own. Move on."]
       ]},
-    rule:"Only if a room solved in five minutes and you're ahead of the clock. It costs about 20 minutes.",
+    rule:"Only if a room solved in five minutes and there's time to spare.",
     run:{
       setup:"On the way up to the computer room, the half-drawn circle in last night's room is moving. What's left of the summoning pulls itself out, with four fragments. Roll initiative.",
       matchups:"The remnant takes the nearest PC. Fragments 1–4 split across the rest.",

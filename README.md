@@ -24,19 +24,16 @@ Hosted on GitHub Pages. Live at **https://spourshalchi.github.io/campaign/** (re
 │   └── assets/photograph.jpg  ← the painting itself
 ├── codex/            ← DM-facing campaign codex (not linked from the landing page)
 ├── run/              ← DM-facing "Run of Show" — the day-of prompt book (not linked either)
-├── CANON.md          ← canon ledger: what came from the brainstorm doc vs. what an AI made up
+├── CANON.md          ← old decision log, kept as history
 ├── PROPOSALS.md      ← parked work-in-progress, agreed to by nobody
 ├── AGENTS.md         ← agent guide for adding new props (CLAUDE.md imports it)
 ├── README.md         ← this file
 └── split_sounds.py   ← utility for splitting WAV dumps into clips
 ```
 
-## Canon
+## What's in the game
 
-The story lives in the [brainstorm doc](https://docs.google.com/document/d/1UXole4uGten28LVWA-ePK14ten4GIOj_ZfYEnsIRuWM/edit) — that's the only place canon is made.
-Props and the codex have generated a lot of connective tissue on their own, so **[CANON.md](CANON.md)**
-tracks every claim as either 📗 *in doc* (with the session it came from) or 🟡 *not canon* (invented here).
-The codex renders the same statuses as badges and has a **Not Canon Yet** tab.
+The [Run of Show](run/) plus the printed and shown assets are what's in the game. The [codex](codex/) is reference; they win where it disagrees.
 
 ## The iPad home page
 
@@ -56,7 +53,7 @@ Sunday's three rooms run in any order and are all paper. Item 2 opens AIM with t
 | AIM | `aim/` | Haunted 2000s AOL Instant Messenger. The buddy is the kid Poe Boy soul-caged into the machine — the branching tree pulls the whole confession out of him, and ends with him **sending the party a file**: the recording of his own death, over AIM's file-transfer window. That USB is what wins the finale. |
 | Torn Page | `puzzle/` | 1937 newspaper front page, cut up in front of them by a trap in the binding. Reassemble, flip for the page-2 lore, and check the pocket card for who borrowed it last — including **V. Soprano, 1938**, which is where Gnomey's tie to the house gets hinted. Springing the trap is what summons the developer to the house that night. See [puzzle/README.md](puzzle/README.md) |
 | Invite | `print/src/invite.html` (print only) | Spencer's card, as he made it: a haunted house under an orange moon, *Haunted House · Dood Mansion · 8 PM*. It never names the host. Six copies, one per locker and a spare. |
-| DJ poster | `print/src/poster.html` (print only) | Spencer's purple collage, as he made it: *Haunted Bash · 3 AM · Dood Mansion · DJ Poe Boy · Lil Stinky · Angelique*. Taped on the locked AIM-room door. |
+| DJ poster | `print/src/poster.html` (print only) | Spencer's purple collage, as he made it: *Haunted Bash · 3 AM · Dood Mansion · DJ Poe Boy · Lil Stinky · Angelique*. In the story it's on the locked AIM-room door; Scott narrates it. |
 | Settlement | `print/src/settlement.html` (print only) | The 1931 contract from the strongbox in the study, with the Dood wax seal. Two drunk men signed away a mansion over $11.40, and **the only paragraph on the page with no corrections in it is the one that vests title in the bearer of the deed.** |
 | Deed | `print/src/deed.html` (print only) | The 1931 deed to Dood Mansion, with the Dood wax seal. Uncle Vinny has carried it since the night he won the house and hands it to Gnomey in the ending scene. **Print it at Staples** — it's Gnomey's physical prop. |
 | Photograph | `print/photo-4x6.jpg` | **Print only.** A 1979 snapshot from the party room — two vampires mugging, a pregnant goblin laughing, and a fae with no fangs — full bleed, with the orange `10 31 '79` date stamp. A Staples 4×6 photo print; no back side. Bix's beat: hand Will the print and say nothing. |
@@ -85,7 +82,7 @@ Everything to print lives in the **print kit at [`print/`](print/)**: seven Stap
 | `print/4-plain.pdf` | Letter ivory or plain, colour, 1-sided, 1 copy | The developer's site assessment, the Articles of Settlement, Orlok's ledger |
 | `print/5-poster.pdf` | Letter plain white, colour, 1-sided, 1 copy | Spencer's DJ poster |
 | [Official 2024 character sheet](https://media.dndbeyond.com/compendium-images/free-rules/downloads/2024-character-sheet.pdf) (linked, not in the repo) | Letter plain white, B&W, 2-sided, 8 copies | Blank character sheets: 5 players + 3 spares |
-| `print/7-combat.pdf` | Letter plain white, B&W, 1-sided, 1 copy | The combat cheat sheet: every fight's stat lines, one page per day (DM only) 🟡 |
+| `print/7-combat.pdf` | Letter plain white, B&W, 1-sided, 1 copy | The combat cheat sheet: every fight's stat lines, one page per day (DM only) |
 
 Rebuild after any prop change (needs Google Chrome, `pypdf` and ImageMagick); it remakes the PDFs and `photo-4x6.jpg`:
 

@@ -44,7 +44,7 @@
   .pane{padding:12px 12px 8px}
   .pane:last-child{padding-bottom:max(28px,env(safe-area-inset-bottom))}
   @media(min-width:760px){
-    .panes{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);overflow:hidden}
+    .panes{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr);overflow:hidden}
     .pane{min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
       padding-bottom:max(28px,env(safe-area-inset-bottom))}
     .pane + .pane{border-left:1px solid var(--edge)}
@@ -69,6 +69,7 @@
     .jumps{gap:4px}
     .row,.ally{grid-template-columns:1fr;gap:0}
   }
+  @media(max-width:340px){.jump{padding:0 3px;font-size:13px}}
 
   /* read-alouds: amber is Scott, pink is Spencer */
   .say{margin:0 0 8px;padding:9px 12px;border-radius:10px;background:#17130b;border:1px solid #5a4520}
@@ -140,7 +141,7 @@
 </head>
 <body>
 <div id="page"></div>
-<script src="../fights.js?v=8"></script>
+<script src="../fights.js?v=10"></script>
 <script>
 "use strict";
 const $ = s => document.querySelector(s);
@@ -155,7 +156,7 @@ const backBtn = label => `<a class="back" href="../" id="back">&lsaquo; ${label}
 
 /* ---- the fight, in the order it gets used ---- */
 const row = (k,v,cls) => v ? `<div class="row ${cls||""}"><span class="k">${k}</span><span>${v}</span></div>` : "";
-const says = list => (list||[]).map(r=>`<div class="say${r.sp?" sp":""}"><span class="who">${r.sp?"Spencer · ":""}${r.who}</span><p>${r.t}</p></div>`).join("");
+const says = list => (list||[]).map(r=>r.note?`<p class="oth">${r.note}</p>`:`<div class="say${r.sp?" sp":""}"><span class="who">${r.sp?"Spencer · ":""}${r.who}</span><p>${r.t}</p></div>`).join("");
 const round = r => `<div class="rnd"><p class="rnd-k">${r.k}</p><p class="rnd-say">${r.say}</p><p class="rnd-who">${r.who}</p>${r.sp?`<p class="rnd-sp"><b>Spencer</b> ${r.sp}</p>`:""}</div>`;
 
 function narration(f){

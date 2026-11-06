@@ -449,9 +449,8 @@ function renderCard(item,sectionId){
   else if(state.query && !visFields.length && !flagged) return null;
 
   const head=el('div','card-head');
-  const statusTag=item.status==='ai'?'<span class="tag ai">not canon</span>':item.status==='doc'?'<span class="tag doc">doc</span>':'';
   head.innerHTML='<h3>'+esc(item.title||item.key)+(item.subtitle?'<span class="sub">'+esc(item.subtitle)+'</span>':'')+'</h3>'+
-    (item.group?'<span class="tag grp">'+esc(item.group)+'</span> ':'')+statusTag;
+    (item.group?'<span class="tag grp">'+esc(item.group)+'</span> ':'');
   card.appendChild(head);
   const body=el('div','card-body');
   const fieldsToShow=(state.filter==='all'||state.filter==='flagged')?item.fields:visFields;
@@ -961,7 +960,7 @@ function packetMarkdown(p){
   md+='> **How to apply (Claude): locate each edit by its `path`, not by a global find/replace.** '+
       'Many copy strings are identical across items (e.g. `no`, `TBD`, `Player Character`), so replacing on `original` alone will hit the wrong place. '+
       'Each `path` is a byte-exact source coordinate (file + JS/DOM access path); open that file, go to that location, and replace its `original` text with `revised`. '+
-      'For each feedback note, revise the referenced copy as described. **Fact-check every change against CANON.md before applying.** Then re-run `node copy-desk/extract.mjs`.\n\n';
+      'For each feedback note, revise the referenced copy as described. **Check every change against the Run of Show and the assets before applying.** Then re-run `node copy-desk/extract.mjs`.\n\n';
   if(p.edits.length){
     md+='## Direct edits\n\n';
     const bySec={};for(const e of p.edits)(bySec[e.section]||(bySec[e.section]=[])).push(e);

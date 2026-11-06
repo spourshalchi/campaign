@@ -1,5 +1,8 @@
 # Canon Ledger
 
+> **Old decision log, kept as history. It no longer decides anything.**
+> The Run of Show and the printed and shown assets decide what's in the game.
+
 **One question per line: did Scott (or Spencer) sign off on it, or did a session make it and nobody has
 reviewed it yet?**
 
@@ -109,6 +112,8 @@ rather than assuming, because it touches what the bolt actually means for the pa
 | **The class presentation has nothing to show.** There were plenty of witnesses, so no tape and no ancient Dutch artifact | Scott, 2026-11-06 |
 | **Marcus.** The school ~~thought~~ thinks he ran away, and ~~there were posters for a month~~ the posters are still up: he's an active missing-kid story | Scott, 2026-11-06 |
 | **The survey memo.** Poe Boy brought it to the vampires as proof of the threat | Scott, 2026-11-06 |
+| **The two clues stop floating.** Each comes out at a fixed moment Scott prompts. 🟡 The moments: the survey on cue 8 (Investigation DC 12), the sticky note after the summoning on cue 9 (DC 10); the highest roll finds each even on a miss | Scott, 2026-11-06 |
+| **The DJ poster is on the AIM-room door in the game only.** Nothing goes up at the table; Scott narrates it. The art and `5-poster.pdf` stay | Scott, 2026-11-06 |
 | **Driveway arrivals.** Vinny keeps insisting he's late for the card game, so the scout dad drives him up. The parents come because they've been wondering where their kids have been | Scott, 2026-11-06 |
 | **Russ gets the badge no matter what**, including if he misses a requirement or the player is absent | Scott, 2026-11-06 |
 | **Simone having no Saturday moment is fine.** It isn't a gap | Scott, 2026-11-06 |
@@ -179,7 +184,7 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 | **There is one event: DJ Poe Boy's Halloween party at Dood Mansion, 3AM.** The public poster advertises it. The five locker cards are **VIP early entry** to that same party, ~~7PM sharp — *you're on the list*~~ **8 PM**. **There is no separate haunted-house event.** It replaces the "Haunted House Invite" of Sesh 0, Sesh 1 and Sesh 6. ~~The card's own copy is signed off once the "saved you a spot" line is removed~~ — **the card is Spencer's** (row below) | Scott, 3 Nov; 8PM and the card: Scott, 2026-11-04 · not in doc |
 | **The VIP card is anonymous.** It never names Poe Boy or any host, which keeps Sesh 0/1's *mysterious invitations*. ~~It reads *YOU'RE ON THE LIST · VIP EARLY ENTRY · DOOD MANSION · 7PM SHARP*, with at most a small hint that the party starts at 3~~ — **replaced by Spencer's card** (row below), which has no 3AM hint and no VIP wording. **The DJ poster on the AIM door is the only printed thing that names him** | Scott, 3 Nov; the card: Scott, 2026-11-04 · not in doc |
 | ✅ **The invite is Spencer's finished card, used as-is** (`print/src/assets/spencer-invite.jpg`): a haunted house under an orange moon, *HAUNTED HOUSE · DOOD MANSION · 8 PM*. No host named. Printed 4×5 in so it fits a 6.25×4.25 in envelope (Scott, 2026-11-04), six copies on cardstock. The old `/invite/` card is retired | Scott, 2026-11-04 · not in doc (signed off) |
-| ✅ **The DJ poster is Spencer's finished poster, used as-is** (`print/src/assets/spencer-poster.jpg`): a purple collage, *HAUNTED BASH · 3 AM · DOOD MANSION · DJ POE BOY · LIL STINKY · ANGELIQUE*. One letter page on plain paper, taped on the AIM-room door | Scott, 2026-11-04 · not in doc (signed off) |
+| ✅ **The DJ poster is Spencer's finished poster, used as-is** (`print/src/assets/spencer-poster.jpg`): a purple collage, *HAUNTED BASH · 3 AM · DOOD MANSION · DJ POE BOY · LIL STINKY · ANGELIQUE*. One letter page on plain paper. ~~Taped on the AIM-room door~~ In the story it's on the AIM-room door; nothing goes up at the table and Scott narrates it (`Scott, 2026-11-06`) | Scott, 2026-11-04 · not in doc (signed off) |
 | **The early-entry time is 8PM** — the time on Spencer's card. Five kids have the house for **seven hours** before the 3AM show | Scott, 2026-11-04 · not in doc |
 | **At the gazebo Poe Boy says he's been up there once**, with a shrug, and nothing else. He plays it cool about the cards. **The "once" is a lie, and the lie is the clue:** ~~later they find his gear, the ballroom stage and his old rig upstairs, and realise he's been here plenty~~ the DJ poster on the AIM door and his voice on the speakers give it away | Scott, 3 Nov; moved: Scott, 2026-11-06 |
 | **Poe Boy is revealed as the host** when they find the ballroom setup and when his voice comes over the speakers at 3AM — plus the DJ poster on the AIM door | Scott, 3 Nov |
@@ -247,8 +252,8 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
   **Total Party Kill** (see Simone, below).
 - **The developer's site assessment in `/survey/`** (printed, `print/4-plain.pdf`) — **✅ signed off, `Scott, 3 Nov`**:
   Hudson Crossing Development Corp., the Galleria, the dates and the site notes are canon. A
-  faxed, photocopied internal memo the party finds in the house. Like the sticky note it is a **floating find**:
-  the DM hands it over during one of the times they look around a room. Canon behind it before the sign-off: the mega mall
+  faxed, photocopied internal memo the party finds in the house. ~~Like the sticky note it is a floating find, handed over during one of the times they look around a room.~~
+  It comes out on cue 8, in a look-around Scott prompts (`Scott, 2026-11-06`; 🟡 the moment and DC 12). Canon behind it before the sign-off: the mega mall
   (Sesh 5, 7), W. Ostrander (🟡, 26 Aug), the same company ~20 years ago (30 Aug), and that he doesn't know
   what's in the house (the 24 Aug doc paste). Signed off with it:
   - the company, **Hudson Crossing Development Corp.** (Albany), and the mall, **Hudson Crossing Galleria**.
@@ -314,8 +319,8 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 ### Still open from this session
 1. ~~**The invitation:** is it to the concert or to the haunted house?~~ — **answered 3 Nov:** one event, Poe Boy's
    3AM Halloween party; the locker cards are anonymous VIP early entry at 8PM (table above). `Scott, 3 Nov`; 8PM: `Scott, 2026-11-04 · not in doc`.
-2. ~~**When the party gets the poster**~~ — **answered 3 Nov:** Spencer made it (`Scott, 2026-11-04 · not in doc`); it's taped on the
-   locked AIM-room door, not handed out at the gazebo (table above). `Scott, 3 Nov`.
+2. ~~**When the party gets the poster**~~ — **answered 3 Nov:** Spencer made it (`Scott, 2026-11-04 · not in doc`); it's on the
+   locked AIM-room door, not handed out at the gazebo (table above). `Scott, 3 Nov`. In the story only: Scott narrates it (`Scott, 2026-11-06`).
 3. ~~**What Vinny says on the early call.**~~ — **answered 3 Nov:** he thinks it's 1931 and asks about tonight's card game with Cornelis (table above). `Scott, 3 Nov`.
 4. ~~**Will's trait** for Bix's parents.~~ — **done:** painted into the photograph (table above); the painting is in Scott's
    review queue. `Scott, 3 Nov`.
@@ -386,7 +391,7 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 | **The company that hired the men who killed Goblinenon is the same real-estate company** that wants the land today — so it has been after this house for ~20 years, and it is the reason Bix is an orphan | Scott, 30 Aug |
 | **The patron joins the AIM conversation** as a third screen name rather than appearing only at the table: the window becomes a group chat, the theme flips, and it negotiates on screen | Scott, 30 Aug (his idea) |
 | **The party has to log in.** The computer sits at an AIM sign-on screen with **`DJPoeBoy187`** saved — Sesh 7 already makes the machine his — and the password box empty. The password is **`Fluffy123`**, his cat, handed over on a sticky note | Scott, 30 Aug |
-| **The sticky note is a floating prop.** The DM keeps it in hand and gives it over the first time they search any room in the house; it has no fixed location | Scott, 3 Nov |
+| ~~**The sticky note is a floating prop.** The DM keeps it in hand and gives it over the first time they search any room in the house; it has no fixed location~~ **The sticky note comes out at a fixed moment**: 🟡 the wreckage search after the summoning, before the screen wakes, stuck to a candle box (Investigation DC 10, highest roll finds it even on a miss). If the summoning isn't played, the first room they search on Sunday | Scott, 3 Nov; fixed moment: Scott, 2026-11-06 |
 | Therefore **the party types to the Spirit as his killer** for the whole conversation | 30 Aug · follows from the above |
 
 > ⛔ **The load-bearing constraint, and it is a design rule rather than a lore fact.** The USB, the
@@ -560,7 +565,7 @@ then flips to **a clinic**.~~ **Scott, 3 Nov:** no fake-out — the room is plai
 | **Simone's warlock has no in-world name** — none is needed. Her backstory card says *name TBD*, and no NPC calls her by name. DM-facing notes still say Simone, meaning the player | Scott, 3 Nov |
 | **Lil Stinky's race is deliberately undefined** — it doesn't matter | Scott, 3 Nov |
 | **The crew is three:** Poe Boy, Lil Stinky and Angelique. The fourth crew member is cut | Scott, 3 Nov |
-| **The DJ poster** ~~is optional~~ — **Spencer made it** (signed off as-is: `Scott, 2026-11-04 · not in doc`). It is **taped on the locked AIM-room door** (the "poster on the door"); it is not a gazebo handout. Poe Boy / Lil Stinky / Angelique, a 3AM set. ~~It reads doors open 2:30AM~~ — the finished poster prints only *3 AM*; doors at 2:30AM stays as story (In Person Session) | Scott, 3 Nov; the poster: Scott, 2026-11-04 · not in doc |
+| **The DJ poster** ~~is optional~~ — **Spencer made it** (signed off as-is: `Scott, 2026-11-04 · not in doc`). It is **on the locked AIM-room door** (the "poster on the door"), in the story only: Scott narrates it (`Scott, 2026-11-06`); it is not a gazebo handout. Poe Boy / Lil Stinky / Angelique, a 3AM set. ~~It reads doors open 2:30AM~~ — the finished poster prints only *3 AM*; doors at 2:30AM stays as story (In Person Session) | Scott, 3 Nov; the poster: Scott, 2026-11-04 · not in doc |
 | **Will's trait is done** in the painted photograph: Goblinenon's short dark-green skin, long ears and small brown leather boots, and Edward's notched ear, echo Will's Bix | Scott, 3 Nov |
 | **The 4×6 photo print is signed off** — the painting, the parents' looks and the `10 31 '79` date stamp, as printed from `print/photo-4x6.html` | Scott, 4 Nov (signed off) |
 | **The session break is deliberately undefined.** Saturday ends wherever time runs out; the botched summoning closes Night 1 if the clock allows but isn't required to. Everyone levels to 5 at the end of day one | Scott, 3 Nov |
@@ -970,7 +975,8 @@ transitions above it binds nobody, but it's listed so the review queue can see i
 - **The Scott–Spencer handoff signal** (card zero, Spencer's briefing).
 - **The Index button and its run sheet are out of the top bar, and "Full" reads "Full screen"** (`Scott, 2026-11-06`).
 - **Spencer's phone view (`/run/?spencer`, By NPC) is removed; his content stays in the pink zone on the one Run of Show** (`Scott, 2026-11-06`).
-- **The day clock, the Behind / Ahead lines and the Rescues listed above are removed from the Run of Show** (`Scott, 2026-11-06`).
+- **All clock functionality, the clock plan and the Behind / Ahead lines and Rescues listed above are removed from the Run of Show; the arrows stop at the first and last cards; the pre-session reminders are gone** (`Scott, 2026-11-06`).
+- **Scene 0, "Opening the game"** (`Scott, 2026-11-06`): the opening sequence moved here. 🟡 The prompts, and the order: Scott's intro, hand-outs, then character introductions.
 - **Less to maintain, information in the scene** (`Scott, 2026-11-06`). The Props tab and its tracker, the whole Kit (Party,
   Cast, Rules, Notes and Improv tabs), the rules summary, the AC / HP / passive Perception boxes and the spotlight ticks are gone.
   Scott's note on Improv read "we need anyhting in the improv tab", taken as "we don't need anything": the spare rooms
@@ -1043,8 +1049,8 @@ script; what a sound implies about a scene is 🟡 until Scott has heard it:
     load-bearing three times over — Simone's savings, the goat's price, and Poe Boy's grounding — and the
     name is printable, on a shirt and on the tickets his mother hands over. Scott's pick; the band was
     Spencer's call, so confirm it with him. `Scott, 3 Nov`.
-20. ~~**Where the sticky note is found.**~~ — **answered 3 Nov:** nowhere fixed. It's a floating prop the DM
-    hands over the first time they search any room. `Scott, 3 Nov`. 🟡 **The cat is invented**: `Fluffy123` is Scott's password, but nothing says Poe Boy has a
+20. ~~**Where the sticky note is found.**~~ — **answered 3 Nov:** ~~nowhere fixed: a floating prop the DM
+    hands over the first time they search any room.~~ `Scott, 3 Nov`. A fixed moment now, the wreckage of the summoning (`Scott, 2026-11-06`; table above). 🟡 **The cat is invented**: `Fluffy123` is Scott's password, but nothing says Poe Boy has a
     cat. It fits (sweet, out-of-touch parents who spoil him) and it rhymes with the Volvo, so it's cheap
     to keep and cheap to drop.
 21. **Whether Bix's Sesh 5 overnight and Sesh 8's Edward connect.** Bix broke into this house as a
