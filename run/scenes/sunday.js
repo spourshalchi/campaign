@@ -58,41 +58,46 @@ SCENES.push(
 { act:"sunday", no:11, title:"The party room", where:"Sunday · Bix &amp; Yobo · any-order room",
   steps:[
     {snd:["candle"]},
-    {say:"Dracula's shrine. He has kept the party room untouched since that night in '79, the best night of his unlife: dust on everything, bottles where they were set down, a record still on the turntable, and the smell of old wax.", who:"Setting"},
-    {hand:"photo", do:"Prompt them to look around. <b>Bix finds the photograph.</b> &#9995; Hand Will the 4&times;6 print and say nothing. Bix: his parents."},
-    {rev:{who:"Bix", t:"learns from the photograph: the pregnant goblin is his mother, and the fae with no fangs beside her is Edward, before he was turned. Hand Will the print and say nothing &mdash; he gets the goblin before the fae."}},
+    {say:"A party nobody ever cleared up. Dust on everything, bottles where they were set down, a record still on the turntable, and the smell of old wax.", who:"Setting"},
+    {note:"This is Dracula's shrine, untouched since that night in '79."},
+    {hand:"photo", do:"Prompt them to look around. <b>Bix finds the photograph.</b> &#9995; Hand Will the 4&times;6 print and say nothing."},
+    {rev:{who:"Bix", t:"learns from the photograph: the pregnant goblin is his mother, and the fae with no fangs beside her is Edward, before he was turned. He gets the goblin before the fae."}},
     {rev:{who:"The rest of the party", t:"learn whatever Bix says out loud. Don't prompt him."}},
     {snd:["needle","record"], t:"When Dracula drops the needle"},
-    {do:"<b>Dracula is in the doorway.</b> He drops the needle and the room <i>remembers</i>: faint echoes of that night shimmer in &mdash; revellers mid-laugh, a cape flaring, someone dancing with a hand on her belly. Impressions, not ghosts: nobody can talk to them, and they fade when the music stops. Bix may know them from the photo. Then Dracula blocks the exit (Spencer)."},
-    {rev:{who:"Bix", t:"may recognise the echoes from the photograph &mdash; the woman dancing with a hand on her belly is the goblin in the picture."}},
-    {do:"<b>Yobo's Performance check</b>, at disadvantage (the debuff). <b>The roll can't win it</b>: it only measures how good the fake is. <b>DC 15</b> splits high from low. Either way Dracula answers it (Spencer) and the door stays shut."},
-    {check:{skill:"Performance", dc:"15", note:"<b>Yobo, at disadvantage</b> (The Weight of Your Lies). 15+ gets the high line, under gets the low. The number only says how good the fake is &mdash; <b>it never opens the door</b>. Only a true performance earns <i>Your True Voice</i>."}},
-    {note:"<b>The roll can't win it.</b> The door opens only for a true performance, or when John refuses and Dracula sulks and lets them go."},
+    {say:"Dracula is at the turntable. He drops the needle, and the room remembers: revellers mid-laugh, a cape flaring, someone dancing with a hand on her belly. They shimmer in the dust. Then he's in the doorway, and he fills it.", who:"The needle"},
+    {note:"Impressions, not ghosts: nobody can talk to them, and they fade when the music stops."},
+    {rev:{who:"Bix", t:"may recognise the echoes from the photograph: the woman dancing with a hand on her belly is the goblin in the picture."}},
+    {do:"<b>Spencer's turn:</b> Dracula blocks the door and asks for a song."},
     {stuck:"If nobody steps up to sing, Dracula looks at Yobo and waits."},
-    {do:"<b>Dracula clocks the fake</b> (Spencer) and pushes Yobo to stop hiding and live as himself. Dracula sees through Yobo."},
-    {note:"<b>Dracula isn't only mocking Yobo.</b> He recognises the mask. Play that under the camp."},
+    {check:{skill:"Performance", dc:"15", note:"<b>Yobo, at disadvantage</b> (The Weight of Your Lies). Tell Spencer high or low: 15+ gets the high line, under gets the low. The number only says how good the fake is. <b>It never opens the door.</b>"}},
+    {do:"<b>Spencer's turn:</b> Dracula answers the roll, tells Yobo he knows that mask, and pushes him to drop it."},
     {check:{skill:"Insight", dc:"12", note:"<b>Call it</b> after his line to Yobo. <b>Success:</b> he isn't only mocking Yobo; he recognises something. Flavour only: the scene plays the same either way."}},
     {snd:["cheer","levelup"], t:"If he performs as himself"},
-    {hand:"truevoice", do:"<b>If John drops the Dolly Parton lie and performs as himself</b> &rarr; &#9995; hand John <b>Your True Voice</b>. The echoes cheer, the song ends, and Dracula bows them out. <b>If he stays masked</b> &rarr; Dracula sulks theatrically, steps aside and lets them go; the debuff stays."},
-    {note:"<b>Coming clean early doesn't flip it.</b> The debuff card never mentions the cure; John learns honesty matters only from Dracula. If he confesses somewhere earlier, play it &mdash; but the buff flips only when he <b>performs as himself</b> on the stage Dracula gives him."},
+    {hand:"truevoice", do:"<b>If John drops the Dolly Parton lie and performs as himself:</b> &#9995; hand John <b>Your True Voice</b>. The echoes cheer and the song ends."},
+    {do:"<b>Either way, Spencer's turn:</b> he performed true, Dracula bows them out. He stayed masked, Dracula sulks and steps aside, and the debuff stays."},
+    {note:"<b>Coming clean early doesn't flip it.</b> The debuff card never mentions the cure; John learns honesty matters only from Dracula. If he confesses somewhere earlier, play it, but the buff flips only when he <b>performs as himself</b> on the stage Dracula gives him."},
     {note:"<i>Your True Voice</i> is <b>permanent</b> after this, through the finale."},
-    {backup:"<b>Edward is Bix's father</b> &mdash; if Will doesn't get there from the photograph, Edward's epilogue in the driveway says it outright."},
+    {backup:"<b>Edward is Bix's father:</b> if Will doesn't get there from the photograph, Edward's epilogue in the driveway says it outright."},
     {say:"The needle lifts. The echoes thin to nothing, and the room is dust and bottles again."},
-    {end:"when the needle lifts and the echoes fade &mdash; with Dracula bowing them out, or sulking aside."}
+    {end:"when the needle lifts and the echoes fade, with Dracula bowing them out or sulking aside."}
   ],
   next:"The needle lifts (read-aloud). Next room.", go:"rooms",
   talk:[
-    {who:"Dracula · blocking the exit", t:"Nobody leaves my party without giving me a song."},
-    {who:"Dracula · if the roll is 15+", t:"Technically flawless. Completely empty. Again, and this time be someone."},
-    {who:"Dracula · if the roll is under 15", t:"Ah. There's the wobble. What are you hiding, darling?"},
-    {who:"Dracula · to Yobo, clocking the fake", t:"I know that mask. I've worn it for centuries."}
+    {who:"Dracula · blocking the door", t:"Nobody leaves my party without giving me a song."},
+    {who:"Dracula · waiting on Yobo", t:"You. Dolly Parton's grandkid. Up you get."},
+    {who:"Dracula · if Scott says high (15+)", t:"Technically flawless. Completely empty. Again, and this time be someone."},
+    {who:"Dracula · if Scott says low (under 15)", t:"Ah. There's the wobble. What are you hiding, darling?"},
+    {who:"Dracula · quietly, to Yobo", t:"I know that mask. I've worn it for four hundred years."},
+    {who:"Dracula · pushing him", t:"It's exhausting, isn't it? Take it off. Sing me the one that's yours."},
+    {who:"Dracula · if he performs as himself, bowing", t:"There you are. Now that is a song. The door's open, darlings."},
+    {who:"Dracula · if he refuses, stepping aside", t:"Fine. Go. Nobody ever stays for the encore."}
   ],
   rev:[
-    {by:"Dracula", who:"Yobo", t:"learns Dracula sees straight through the Dolly Parton act &mdash; and wants the real voice."},
+    {by:"Dracula", who:"Yobo", t:"learns Dracula sees straight through the Dolly Parton act and wants the real voice."},
     {by:"Dracula", who:"The party", t:"learn the truth about Yobo's origins <i>if</i> he drops the act for the song. What he says is John's call."}
   ],
   npcs:[
-    {nm:"Dracula", vc:"This room is his shrine: untouched since '79, the best night of his unlife. Campy and theatrical. Blocks the door for a song, sees through Yobo because he knows the mask, and pushes him to drop the act. Sulks if refused."},
+    {nm:"Dracula", pts:["Block the door: nobody leaves without giving you a song","Look at Yobo and wait until he sings","Answer the roll Scott calls: the high line or the low line. Neither opens the door","Quietly, to Yobo: you know that mask, you've worn it for four hundred years","Push him to take it off and sing as himself","He does: bow them out. He won't: sulk theatrically, step aside and let them go"], vc:"This room is his shrine: untouched since '79, the best night of his unlife. Campy and theatrical, then drop it for one line when he says he knows the mask. He isn't only mocking Yobo; play that under the camp. Hurt when refused, never angry."},
     {nm:"The echoes", vc:"Impressions of that night, not ghosts. They can't be spoken to; they laugh, dance and cheer, and fade when the music stops."}
   ],
   cues:["candle","needle","record","cheer","levelup"] },
@@ -101,21 +106,22 @@ SCENES.push(
   steps:[
     {do:"<b>Optional.</b> Run it between rooms, before the cellar. Skip it if you're short on time."},
     {snd:["drone"]},
-    {say:"The hall between rooms. A draught from nowhere, and the candles start going out.", who:"Setting"},
-    {say:"The candles in the hall go out one at a time, coming toward you. Something large unfolds from the ceiling.", who:"Set it up"},
+    {say:"The hall between rooms. A draught from nowhere. The candles start going out, one at a time, coming toward you. Something large unfolds from the ceiling.", who:"Setting"},
     {snd:["swoop","jump"], t:"The swoop"},
-    {do:"Scott sets it up. <b>Dracula swoops</b> with full theatrics (Spencer). No damage."},
+    {do:"<b>Spencer's turn:</b> Dracula swoops with full theatrics. No damage."},
     {check:{skill:"Insight", dc:"10", note:"<b>Call it</b> when he swoops. <b>Success:</b> his heart isn't in it. <b>Miss or nobody rolls:</b> the collapse still plays."}},
-    {do:"<b>It collapses</b> as soon as someone is kind to him or unimpressed."},
+    {do:"<b>Someone is kind to him or unimpressed: tell Spencer.</b> It collapses on the spot, and he leaves."},
     {end:"when it collapses and he leaves."}
   ],
   next:"He leaves. Next room.", go:"rooms",
   talk:[
     {who:"Dracula · swooping", t:"We said we'd find you when we were ready. We are ready. Scream!"},
-    {who:"Dracula · when it collapses", t:"No? Nothing? Fine. I had a whole thing planned."}
+    {who:"Dracula · nobody's screaming", t:"Scream, I said! Louder! I can do this all night!"},
+    {who:"Dracula · when it collapses", t:"No? Nothing? Fine. I had a whole thing planned."},
+    {who:"Dracula · if someone's kind about it", t:"Oh. Well. That's very nice of you. You weren't supposed to be nice."}
   ],
   npcs:[
-    {nm:"Dracula", vc:"Full theatrics, no damage. Pays off Orlok's &ldquo;We'll find you when we're ready.&rdquo; Stops dead the moment someone is kind or unimpressed: hurt, not angry."}
+    {nm:"Dracula", pts:["Swoop in and pay off Orlok's line: you said you'd find them when you were ready, and you're ready","Demand a scream, big and theatrical. Touch nobody, no damage","The moment someone is kind or unimpressed, stop dead","It's all gone out of you: you had a whole thing planned","Go"], vc:"Full theatrics, then none. Hurt, not angry."}
   ],
   cues:["drone","swoop","jump"] },
 
@@ -153,7 +159,7 @@ SCENES.push(
     {do:"On the way up to the computer room, the circle stirs. &#9876; Fight."},
     {tok:1},
     {snd:["jump"]},
-    {note:"Use the 2&Prime; summoning token for the remnant and the four fragment tokens."},
+    {note:"Use the 2&Prime; summoning token for the remnant and two fragment tokens."},
     {fight:1},
     {do:"When the remnant drops, move straight on to the computer room."},
     {end:"when the remnant drops. Nothing new is learned here."}
