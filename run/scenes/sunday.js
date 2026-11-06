@@ -9,7 +9,7 @@ SCENES.push(
       {id:"sun-level", t:"<b>Every sheet at level 5</b> (the level-up card comes just before this one). Told Cody 3rd-level spells are open, Daylight and Plant Growth?"},
       {id:"sun-rest", t:"<b>Full HP and spell slots</b> for everyone at the start of Sunday."},
       {id:"sun-ipad", t:"<b>Players' iPad</b> charged and on its home page. Nothing on it until the AIM room."},
-      {id:"sun-spencer", t:"<b>Spencer</b> on cue 10 in his pink zone."}
+      {id:"sun-spencer", t:"<b>Spencer</b> has this page open. Nobody to voice in the study; his first voice is Dracula in the party room."}
     ]},
     {g:"Open the day", items:[
       {id:"sun-recap", t:"<b>Recap</b>: ask a player where they left off. Last thing they saw: a screen in the house typed <i>&ldquo;is someone there&rdquo;</i> and went dark."}
@@ -36,23 +36,23 @@ SCENES.push(
     {say:"An ordinary door, swollen stiff in its frame. It gives to a shove. Behind it, a card table with the last hand still dealt: cards face-down under a skin of dust, an ashtray, a chair pushed back as if someone just stood up. In the corner, a strongbox.", who:"Setting"},
     {do:"The door is swollen stiff and opens with a shove. <b>No roll.</b>"},
     {note:"Nobody has opened it since 1931: Orlok won't go into the room where he lost the house."},
-    {note:"<b>Run it before anything clears the vampires.</b>"},
     {tick:"Get <b>Julia alone</b> with the settlement: the others search the hall or the next door."},
     {snd:["lockclick"], t:"The strongbox"},
-    {hand:"settlement", do:"The strongbox: &#9995; <b>the Articles of Settlement (printed)</b>. Get <b>Gnomey alone</b> with it."},
+    {hand:"settlement", do:"The strongbox: &#9995; <b>the Articles of Settlement (printed)</b> to Julia, and nobody else."},
     {note:"On the printed settlement, the bearer paragraph is the <b>only one on the page with no corrections</b>. Dracula signed as witness, not a notary."},
-    {note:"<b>Make sure Gnomey is alone.</b> Give Julia the secret; let her choose who to tell."},
-    {do:"Investigation DC 12: <b>V. Soprano won the house</b>, the bearer clause, and <b>the empty slot</b> where the deed should be."},
-    {check:{skill:"Investigation", dc:"12", note:"Read the signatures and the bearer clause: <b>V. Soprano</b> won the house, and title goes with the deed. If nobody gets there: <b>point at the empty slot in the strongbox</b> and read the bearer paragraph aloud."}},
+    {check:{skill:"Investigation", dc:"12", note:"Read the signatures and the bearer clause: <b>V. Soprano</b> won the house, title goes with the deed, and <b>the slot in the strongbox where the deed should be is empty</b>."}},
     {stuck:"Point at the <b>empty slot in the strongbox</b> and read the bearer paragraph aloud."},
-    {backup:"<b>Gnomey owns the house</b> &mdash; if he misses the bearer clause here, Vinny says it as he hands over the deed: <i>&ldquo;Whoever's holding this owns the place. Now that's you.&rdquo;</i>"},
-    {do:"Julia decides who Gnomey tells."},
+    {backup:"<b>Gnomey owns the house:</b> if he misses the bearer clause here, tell Spencer. Vinny says it in the driveway as he hands over the deed."},
+    {do:"Julia decides who Gnomey tells. Don't push it."},
     {note:"Keep the <b>printed deed</b> hidden. Vinny has it, and it comes out only in the ending scene.", k:"rule"},
     {say:"He's read it three times. The man who won this house is his great-uncle &mdash; and whoever holds the deed owns it. The deed isn't here."},
     {end:"on the read-aloud: he's read it three times, and the deed isn't here."}
   ],
   next:"He's read it three times (read-aloud). Next room.", go:"rooms",
-  npcs:[],
+  npcs:[
+    {nm:"Nobody to voice here", vc:"The room is empty. Gnomey reads alone."},
+    {nm:"Great Uncle Vinny · later, in the driveway", pts:["Only if Scott says Gnomey missed the bearer clause: say it as you hand over the deed"], vc:"<i>&ldquo;Whoever's holding this owns the place. Now that's you.&rdquo;</i>"}
+  ],
   cues:["study","lockclick"] },
 
 { act:"sunday", no:11, title:"The party room", where:"Sunday · Bix &amp; Yobo · any-order room",
