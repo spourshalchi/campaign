@@ -16,7 +16,6 @@ Every other cue is split into two colour-coded zones on one screen; on a wide en
 zone scrolls on its own, and below 700px they stack.
 
 **SCOTT · narrate** (gold, left), top to bottom:
-- **🎯 Leave knowing** — where they are in the story, the must-land points, and who delivers each.
 - **One numbered list, in the order Scott does things** (`steps`): sounds to tap in place, read-alouds,
   instructions, checks with their DC, **✋** hand-overs and set-up lines with a tick box, **📱** digital props
   with an open button, tokens, and a big link to the fight's page, `combat/?f=<key>`, which opens over the stage so the soundboard stays up. Notes, reveals, **🪢 If stuck** and **↪ Backup path**
@@ -24,7 +23,7 @@ zone scrolls on its own, and below 700px they stack.
 - **➜ Next** — how to get out, with jump buttons. On Sunday the buttons are a room picker: the rooms not yet
   done, then the AIM room.
 
-**SPENCER · voice** (pink, right): his lines, IF blocks, and each NPC with a one-line voicing and the
+**SPENCER · voice** (pink, right): the points each NPC has to get across (`pts`, in order), his lines, IF blocks, and each NPC with a one-line voicing and the
 🔓 reveals they deliver or react to.
 
 ### Ticks and moving between cues
@@ -80,5 +79,5 @@ It's a self-contained `index.html` plus `fights.js` and the combat page, `combat
   `npcs` and `spBrief` are Spencer's panel; `cues` fills the soundboard's This cue row. The level-up card is the scene `L5`.
 - `PROPS` — every physical prop, who gets it and on which cue. Add a prop here, and a `{hand:id}` step on
   its scene; it also feeds the props bag on card zero.
-- `EXEC` — the table layer, keyed by scene no.: `at`, `land`, `next` / `go`.
+- `EXEC` — the table layer, keyed by scene no.: `next` / `go`.
 - `IPAD` — the players' iPad items.

@@ -119,10 +119,6 @@
   .ipad-key .k{font-family:Tahoma,Geneva,sans-serif;font-weight:700;color:#1a1206;background:var(--gold);
     border-radius:5px;min-width:26px;text-align:center}
 
-  /* Leave knowing, first thing on every cue, and who delivers it */
-  .lk{margin:0 0 12px}
-  .lk-at{margin:0 0 6px;font-size:14px;color:var(--mut);font-style:italic}
-  .lby{display:block;margin-top:1px;font-size:13px;color:var(--gold)}
   /* Two zones on one screen: Scott narrates (gold), Spencer voices (pink).
      Wide enough → the stage stops scrolling and each zone scrolls on its own. */
   .zones{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:14px;align-items:stretch}
@@ -384,9 +380,11 @@
   /* 🎯 leave knowing + ➜ next */
   .wrap{margin:0 0 16px;padding:10px 12px 12px;border:2px solid var(--gold);border-radius:12px;background:rgba(231,181,63,.07)}
   .wl{margin:0 0 6px;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
-  .wl.nx{margin-top:12px;color:var(--ink)}
-  ul.land{margin:0;padding:0 0 0 20px;font-size:15.5px;line-height:1.45;color:var(--ink)}
-  ul.land li{margin-bottom:4px} ul.land li b{color:#ffe9b8}
+  .wl.nx{margin-top:0;color:var(--ink)}
+  .pts{margin:0 0 12px;padding:10px 12px;border:2px solid var(--pink);border-radius:12px;background:rgba(240,120,190,.07)}
+  .pts-n{margin:0 0 6px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--pink)}
+  .pts ol{margin:0;padding:0 0 0 22px;font-size:15.5px;line-height:1.45;color:var(--ink)}
+  .pts li{margin-bottom:4px}
   .wn{margin:0;font-size:15px;line-height:1.45;color:var(--ink)}
   .gos{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
   .gobtn{min-height:44px;padding:6px 14px;border-radius:9px;border:1px solid var(--gold);background:#2a2210;color:#ffe9b8;
@@ -555,7 +553,8 @@ const SCENES = [
   ],
   spBrief:[
     "<b>Your zone is the pink one on the right</b>, on every cue.",
-    "<b>Lines</b> at the top are yours to say. <b>IF blocks</b> (dashed) only play if their condition happened.",
+    "<b>Points</b> at the top are what each NPC has to get across, in order.",
+    "<b>Lines</b> are yours to say. <b>IF blocks</b> (dashed) only play if their condition happened.",
     "Each <b>NPC</b> has a one-line voicing. A <b>🔓 Reveal</b> under an NPC is something they let slip, or something they learn and react to.",
     "Scott narrates, runs checks and the enemy turns; you voice everyone else.",
     "<b>Handoff:</b> when Scott says an NPC's name and looks at you, you're on. Tap the table when a moment needs a roll or a check, and Scott takes it."
@@ -584,16 +583,17 @@ const SCENES = [
   steps:[
     {snd:["class"]},
     {say:"Fourth period, history. The radiators clank, the room smells of dry-erase marker, and most of the desks are empty &mdash; the rest of the senior class is out on skip day. Nobody told the five of you.", who:"Setting"},
-    {do:"The teacher looks at who's left and groups the five of them for a <b>local-history / folklore project</b>."},
+    {do:"<b>Spencer's turn:</b> the teacher sets the project and sends them to the hall of records."},
     {note:"This is the loop you close in the finale: they present the project back to this class."},
-    {do:"Let them clock why they're the only ones here: <b>senior skip day, and nobody told them.</b>"},
-    {do:"On the way out the teacher sets the rule: <b>a primary source, not the internet.</b> That puts the hall of records on the board."},
     {snd:["schoolbell"], t:"The bell"},
     {say:"That's the bell. You've got about four minutes to hit your locker and get to next period.", who:"Bell"},
     {end:"on the bell: four minutes to their lockers. Cut straight to cue 2."}
   ],
+  talk:[
+    {who:"History Teacher · on the way out", t:"Start at the hall of records. I want a primary source, not the internet."}
+  ],
   npcs:[
-    {nm:"History Teacher", vc:"Assigns the project. <b>Not</b> the teacher who believes in Gnomey &mdash; those are two different people."}
+    {nm:"History Teacher", pts:["Form the remaining kids into a group","What the project is: local history and folklore","Start at the hall of records: a primary source, not the internet"], vc:"Assigns the project. <b>Not</b> the teacher who believes in Gnomey &mdash; those are two different people."}
   ],
   cues:["class","schoolbell"] },
 
@@ -601,12 +601,12 @@ const SCENES = [
   steps:[
     {snd:["hall"]},
     {say:"The hallway between periods: slamming metal, sneakers squeaking on linoleum, somebody's Discman leaking through the headphones. Wedged in the vent of each of your lockers is the same small card.", who:"Setting"},
-    {hand:"invites", do:"&#9995; <b>Each of them finds the card</b> (invites). It reads <i>&ldquo;Haunted House &middot; Dood Mansion &middot; 8 PM.&rdquo;</i> No name on it. &#128275; there's a party, and they're invited."},
-    {do:"They compare notes: &#128275; <b>nobody else in school got one.</b>"},
+    {hand:"invites", do:"&#9995; <b>Each of them finds the card</b> (invites). It reads <i>&ldquo;Haunted House &middot; Dood Mansion &middot; 8 PM.&rdquo;</i> No name on it. There's a party, and they're invited."},
+    {do:"They compare notes: <b>nobody else in school got one.</b>"},
     {note:"<b>Optional, in passing:</b> by the gym, one of the missing posters: <b>Marcus Hale</b>, last seen in September. The kid who ran away. Don't dwell on it."},
     {tick:"Spencer ready for Vinny's call on Gnomey's flip phone."},
     {snd:["phone"], t:"Vinny's call"},
-    {do:"<b>Gnomey reads &ldquo;Dood&rdquo; and his flip phone rings</b> &mdash; Great Uncle Vinny (Spencer). &#128275; Let it sit there unexplained."},
+    {do:"<b>Gnomey reads &ldquo;Dood&rdquo; and his flip phone rings</b> &mdash; Great Uncle Vinny (Spencer). Let it sit there unexplained."},
     {do:"They pick where to dig: the <b>hall of records</b> (cue 3) or the <b>gazebo</b> (cue 4), in either order. If they don't bite, hand a detour to a PC."},
     {note:"<b>If they don't bite, hand a detour to a PC:</b> tell <b>Bix</b> the Records Keeper knows old names; tell <b>Gnomey</b> the old crew at the gazebo will already know."},
     {note:"If they march up the hill early: the front is <b>still boarded at this hour</b> and turns them back. The boards come off during the day."},
@@ -620,7 +620,7 @@ const SCENES = [
     {by:"Great Uncle Vinny (phone)", who:"Gnomey", t:"hears his great-uncle talk about a card game &ldquo;up the hill&rdquo; and a &ldquo;Cornelis&rdquo; &mdash; no idea yet that it's the house, or 1931."}
   ],
   npcs:[
-    {nm:"Great Uncle Vinny (phone)", vc:"Ancient and mostly gone, and sure it's 1931. Doesn't explain who Cornelis is. Keeps back, without meaning to: he won the house at cards in 1931 and has the deed."}
+    {nm:"Great Uncle Vinny (phone)", pts:["A card game up the hill tonight","Cornelis owes you a rematch","Don't explain who Cornelis is"], vc:"Ancient and mostly gone, and sure it's 1931. Doesn't explain who Cornelis is. Keeps back, without meaning to: he won the house at cards in 1931 and has the deed."}
   ],
   cues:["hall","phone"] },
 
@@ -628,7 +628,7 @@ const SCENES = [
   steps:[
     {snd:["records"]},
     {say:"The hall of records is cold and very quiet: long tables, green-shaded lamps, the smell of old paper and floor polish. The Records Keeper looks up from her desk as you come in.", who:"Setting"},
-    {do:"They ask about Dood. The Records Keeper fetches the bound 1937 volume and hands it over <b>intact</b>."},
+    {do:"They ask about Dood. <b>Spencer's turn:</b> the Records Keeper fetches the volume."},
     {snd:["riser","paper","jump"], t:"The trap"},
     {do:"<b>Opening it springs the trap</b>: the reading room's stationery comes alive and goes for the article. &#9876; Fight &mdash; <b>count the cuts</b>."},
     {rev:{who:"Ostrander (off-stage)", t:"learns someone has opened his records &mdash; the trap tells him. He drives out tonight. The party never learns this."}},
@@ -638,11 +638,11 @@ const SCENES = [
     {ipad:1, do:"&#128241; <b>Item 1</b> after the fight: set the pieces from the cut count and hand over the torn page."},
     {stuck:"If the jigsaw stalls past ten minutes, the Records Keeper <b>remembers the page-2 lore</b> and tells it. The folklore is what matters, not the finished picture."},
     {tick:"After the jigsaw: players' iPad back to its home page."},
-    {do:"They read it: the town's talk about the Dood house (a polite voice at the door, no answer by day, music, a splinted dog), and on page 2 a reader's old-country tale with &#128275; the slaying method (dig up the coffin, stake the heart, rebury). Piecing the method together: Investigation or History DC 12. In the back pocket, &#128275; the checkout card."},
+    {do:"They read it: the town's talk about the Dood house (a polite voice at the door, no answer by day, music, a splinted dog), and on page 2 a reader's old-country tale with the slaying method (dig up the coffin, stake the heart, rebury). Piecing the method together: Investigation or History DC 12. In the back pocket, the checkout card."},
     {check:{skill:"Investigation / History", dc:"12", note:"Assemble the slaying method from the folklore: coffins, stake, rebury."}},
     {rev:{who:"Players", t:"see the checkout card: <b>U.M. Livingsworth III</b>, <b>V. Soprano 1938</b>, <b>W. Ostrander</b>. Nobody knows Livingsworth is Poe Boy until the driveway."}},
     {rev:{who:"Gnomey", t:"may clock his own family name, <b>Soprano</b>, on the card. Don't push it."}},
-    {do:"The Records Keeper's nudge: the source is gone, so go look at the house yourselves &mdash; <i>&ldquo;But be careful.&rdquo;</i> &#128275; Insight DC 13: she means it."},
+    {do:"<b>Spencer's turn:</b> the Records Keeper's nudge."},
     {check:{skill:"Insight", dc:"13", note:"Tell that her &ldquo;be careful&rdquo; is sincere."}},
     {end:"when the lore's in the bag and her &ldquo;be careful&rdquo; has landed. Next: the gazebo, or the hill if they've been already."}
   ],
@@ -654,7 +654,7 @@ const SCENES = [
     {by:"Records Keeper", who:"Players", t:"hear the primary source is gone &mdash; if they want one now, it's the house itself. She sends them up the hill with a &ldquo;be careful.&rdquo;"}
   ],
   npcs:[
-    {nm:"Records Keeper", vc:"Helpful, not a harbinger. Hands over the volume intact; after the trap, points them at the house as the only primary source left, and means the &ldquo;be careful.&rdquo; Beyond that, unwritten &mdash; play to taste."}
+    {nm:"Records Keeper", pts:["Fetch the bound 1937 volume and hand it over intact","After the fight: that was their primary source, and it's gone","If they want one now, it's the house itself","But be careful, and mean it"], vc:"Helpful, not a harbinger. Hands over the volume intact; after the trap, points them at the house as the only primary source left, and means the &ldquo;be careful.&rdquo; Beyond that, unwritten &mdash; play to taste."}
   ],
   cues:["records","riser","paper","jump"] },
 
@@ -662,8 +662,8 @@ const SCENES = [
   steps:[
     {snd:["gazebo"]},
     {say:"The gazebo by the school, where the bad kids smoke. A haze of cigarette smoke, a boombox on the rail, and DJ Poe Boy holding court with his crew &mdash; Angelique among them, not quite looking at you.", who:"Setting"},
-    {do:"Meet <b>Poe Boy</b> and the crew. <b>Angelique tries to warn them and can't</b>: a side-eye, a swallowed half-sentence. &#128275;"},
-    {do:"Asked about the house, Poe Boy says he's been up there <b>once</b>, with a shrug, and is cool about the cards. &#128275; Insight DC 14. The DJ poster on the AIM door and his voice on the speakers pay it off."},
+    {do:"Meet <b>Poe Boy</b> and the crew. <b>Angelique tries to warn them and can't</b>: a side-eye, a swallowed half-sentence."},
+    {do:"Asked about the house, Poe Boy says he's been up there <b>once</b>, with a shrug, and is cool about the cards. Insight DC 14. The DJ poster on the AIM door and his voice on the speakers pay it off."},
     {check:{skill:"Insight", dc:"14", note:"Sense the &ldquo;once&rdquo; is a lie, or that Angelique is holding something back."}},
     {hand:"weight", do:"<b>Yobo's arc opens</b>: the crew clocks him &mdash; &ldquo;do a little riff.&rdquo; &#9995; Hand John the secret <b>The Weight of Your Lies</b> card (printed): disadvantage on Performance, advantage on Deception. Then his first Performance check: <b>DC 12</b>, rolled in secret, at disadvantage."},
     {check:{skill:"Performance", dc:"12", note:"<b>Yobo only, in secret, at disadvantage.</b> Juggling the lie is the debuff: hand him <i>The Weight of Your Lies</i> first. Made it: the crew buys it. Missed: it wobbles and they needle him."}},
@@ -690,11 +690,11 @@ const SCENES = [
   steps:[
     {snd:["wind","drone"]},
     {say:"The top of the hill: an empty road, no cars, no light in any window. The boards are off the front door, pried away and stacked neat against the porch rail &mdash; the only thing about this house that's changed in decades. Inside, the hall breathes out cold, dusty air.", who:"Setting"},
-    {do:"They walk in on curiosity and an invitation, and <b>the doors bolt behind them</b>. &#128275; locked in."},
+    {do:"They walk in on curiosity and an invitation, and <b>the doors bolt behind them</b>. Locked in."},
     {note:"The doors bolting: state it flatly, once. It doesn't need justifying.", k:"rule"},
     {snd:["bolt","steps","jump"], t:"The bolt, the footsteps, the hand"},
     {say:"That's a bolt throwing behind you. Footsteps overhead &mdash; and a hand comes out of the dark, grabs your sleeve, and pulls you down. It's <b>Angelique</b>."},
-    {do:"Footsteps overhead &mdash; <b>Angelique grabs a sleeve and pulls them down into hiding</b>. &#128275; She won't say from what."},
+    {do:"Footsteps overhead &mdash; <b>Angelique grabs a sleeve and pulls them down into hiding</b>. She won't say from what."},
     {note:"Angelique reaches them first and tells them to hide. <b>Don't let her explain yet</b> &mdash; &ldquo;hiding from what&rdquo; is the investigation's first question. Make them earn it."},
     {do:"<b>If they try the door</b>: it doesn't move, there's no bolt on their side, and Angelique answers them (Spencer)."},
     {end:"hidden in the dark with Angelique &mdash; straight into first contact."}
@@ -719,10 +719,10 @@ const SCENES = [
     {check:{skill:"Stealth", dc:"13", note:"Hide when Angelique pulls them down; then recurring &mdash; eventually someone rolls badly."}},
     {note:"Play the vampires as <b>hosts on a job</b>. To them this is a rehearsal."},
     {tick:"Spencer: the overheard argument is his. Cue him."},
-    {do:"<b>The overheard argument</b> (Spencer), every line true and damning. &#128275; &ldquo;the boy&rdquo; told them five; &#128275; there are &ldquo;meals.&rdquo; <b>Perception DC 12</b> to catch Dracula's aside."},
+    {do:"<b>The overheard argument</b> (Spencer), every line true and damning. &ldquo;the boy&rdquo; told them five; there are &ldquo;meals.&rdquo; <b>Perception DC 12</b> to catch Dracula's aside."},
     {check:{skill:"Perception", dc:"12", note:"<b>Call it</b> during the overheard argument. <b>Success:</b> they catch Dracula: &ldquo;It's only the rehearsal, and you missed your entrance.&rdquo; <b>Fallback:</b> &ldquo;He said five&rdquo; plays as scripted."}},
     {do:"They may take the vampires for <b>costumed party entertainment</b> &mdash; &ldquo;is this part of the party?&rdquo; The vampires play along."},
-    {do:"<b>Explore under recurring Stealth, DC 13,</b> until someone rolls badly. On the stairs: <b>Perception DC 12</b> for the mic. Somewhere in there Bix catches <b>Edward glimmering</b> in the moonlight &#128275; (Bix beat 1 of 3)."},
+    {do:"<b>Explore under recurring Stealth, DC 13,</b> until someone rolls badly. On the stairs: <b>Perception DC 12</b> for the mic. Somewhere in there Bix catches <b>Edward glimmering</b> in the moonlight (Bix beat 1 of 3)."},
     {check:{skill:"Perception", dc:"12", note:"<b>Call it</b> when they take the stairs. <b>Success:</b> a small mic taped to the rail, its cable running into the wall. <b>Fallback:</b> they find the second mic, in the summoning's wreckage (cue 9)."}},
     {rev:{who:"Players", t:"learn, the first time they read the <b>DJ poster</b> on the locked upstairs door (any time they explore, tonight or Sunday), that a party here is <b>Poe Boy's</b>. His voice on the speakers at 3AM confirms it, and that he lied about being up there once."}},
     {snd:["steps","swoop","jump","braaam"], t:"Dracula"},
@@ -732,7 +732,7 @@ const SCENES = [
     {note:"Vampires <b>cannot kill a PC</b> here.", k:"rule"},
     {check:{skill:"Insight", dc:"no roll", note:"They'll read this as being hunted. Let them. The vampires never roll damage."}},
     {rev:{who:"Players", t:"may notice the vampires never roll damage. Don't point it out."}},
-    {do:"<b>Orlok ends it with one word</b>, then the dismissal. &#128275; They hear a hunt."},
+    {do:"<b>Orlok ends it with one word</b>, then the dismissal. They hear a hunt."},
     {note:"Play the dismissal as a threat. Expect the party to search the house for a way out."},
     {note:"Do <b>not</b> let Orlok discover the locked doors or explain anything &mdash; he decided the doors and owns the building."},
     {note:"<b>Angelique:</b> from here it's the party's choice whether she travels with them. If she doesn't, she's at the AIM door when the chime plays."},
@@ -768,11 +768,11 @@ const SCENES = [
     {snd:["drone"]},
     {say:"Off the main hall, a tall cabinet stands against the wall. On top of it, a pair of wire spectacles. Below them Orlok is patting slowly along the wrong shelf.", who:"Setting"},
     {note:"Russ's <i>Assisting the Elderly</i> requirements card (printed) comes out here; he's had it since before play."},
-    {do:"Right after the dismissal, Russ finds Orlok at the cabinet. <b>Dracula has put his spectacles on top of it</b> and he can't see without them, so he's patting along the wrong shelf. Still cold and dignified. He won't ask for help. &#128275;"},
+    {do:"Right after the dismissal, Russ finds Orlok at the cabinet. <b>Dracula has put his spectacles on top of it</b> and he can't see without them, so he's patting along the wrong shelf. Still cold and dignified. He won't ask for help."},
     {do:"Russ reaches up and hands the spectacles over. <b>No roll.</b>"},
     {check:{skill:"Insight (Russ)", dc:"12", note:"<b>Call it</b> as he takes the spectacles. <b>Success:</b> Orlok looks at him a beat too long, as if deciding something. Flavour only; nothing hangs on it."}},
     {note:"Keep him cold."},
-    {do:"Russ points at &ldquo;verified by your elder&rdquo;: Orlok <b>flatly refuses to sign</b>. Refusal 1 of 3. &#128275;"},
+    {do:"Russ points at &ldquo;verified by your elder&rdquo;: Orlok <b>flatly refuses to sign</b>. Refusal 1 of 3."},
     {say:"Spectacles handed over, not a word of thanks. Behind him the house goes dark in every direction."},
     {end:"on the read-aloud: no thanks, and the house dark in every direction. Turn them loose to explore."}
   ],
@@ -788,7 +788,7 @@ const SCENES = [
   steps:[
     {snd:["creak","drone","heart"]},
     {say:"The upper floors in the dark: long corridors, doors that won't open, floorboards that answer every step. Every so often, at the end of a hall or in a doorway you've just passed, the same pale figure is standing very still.", who:"Setting"},
-    {do:"Let them explore. They <b>catch Edward watching them</b> &mdash; watching <b>Bix</b>. &#128275;"},
+    {do:"Let them explore. They <b>catch Edward watching them</b> &mdash; watching <b>Bix</b>."},
     {say:"You're looking for a way out. Everyone roll Investigation.", who:"The look-around"},
     {check:{skill:"Investigation", dc:"12", note:"<b>Call it</b> as the look-around, everyone rolls. <b>Success:</b> the site survey. <b>Fallback:</b> the highest roll finds it even on a miss."}},
     {hand:"survey", do:"<b>The look-around</b>: Investigation <b>DC 12</b>. On a table in a room off the hall, among the vampires' things: the memo, because Poe Boy brought it to them as proof of the threat. <b>Highest roll finds it even on a miss.</b> &#9995; the printed survey."},
@@ -818,7 +818,7 @@ const SCENES = [
     {tok:1},
     {snd:["jump","braaam"], t:"In the fight"},
     {do:"Every round, narrate it <b>clawing toward one sealed door down the hall</b>."},
-    {do:"Arcana DC 14: &#128275; <b>human-made, incomplete</b>. Who drew it stays open."},
+    {do:"Arcana DC 14: <b>human-made, incomplete</b>. Who drew it stays open."},
     {check:{skill:"Arcana", dc:"14", note:"Recognize it as an <b>incomplete, human-made</b> summoning &mdash; the planted clue."}},
         {fight:1},
 {say:"Take a minute to look through the wreckage. Everyone roll Investigation.", who:"The wreckage search"},
@@ -827,7 +827,7 @@ const SCENES = [
     {note:"In the wreckage: a half-drawn ritual circle. <b>Leave who drew it open tonight.</b>"},
     {hand:"sticky", do:"<b>After the kill, before the screen:</b> the wreckage search. Investigation <b>DC 10</b>: the sticky note, <code>Fluffy123</code>, stuck to a candle box. <b>DC 12</b>: also another mic. <b>Highest roll finds the note even on a miss.</b> &#9995; the note, and tell them they keep it for Sunday."},
     {backup:"<b>The sticky note</b> &mdash; if the summoning isn't played, the note comes out in the first room they search on Sunday."},
-    {do:"Then the monitor, the chime, <b>&ldquo;is someone there&rdquo;</b>. They should be holding the password when it types. &#128275;"},
+    {do:"Then the monitor, the chime, <b>&ldquo;is someone there&rdquo;</b>. They should be holding the password when it types."},
     {snd:["monitor","aim"], t:"The screen wakes"},
     {say:"A monitor deep in the house flickers on by itself. The old AIM chime carries down the hall. One line types itself across a screen nobody is sitting at &mdash; <b>&ldquo;is someone there&rdquo;</b> &mdash; then it goes dark.", who:"After the search"},
     {note:"Fire the <b>AIM chime</b> as the screen wakes, then kill all sound."},
@@ -892,11 +892,11 @@ const SCENES = [
     {hand:"settlement", do:"The strongbox: &#9995; <b>the Articles of Settlement (printed)</b>. Get <b>Gnomey alone</b> with it."},
     {note:"On the printed settlement, the bearer paragraph is the <b>only one on the page with no corrections</b>. Dracula signed as witness, not a notary."},
     {note:"<b>Make sure Gnomey is alone.</b> Give Julia the secret; let her choose who to tell."},
-    {do:"Investigation DC 12: &#128275; <b>V. Soprano won the house</b>, the bearer clause, and <b>the empty slot</b> where the deed should be."},
+    {do:"Investigation DC 12: <b>V. Soprano won the house</b>, the bearer clause, and <b>the empty slot</b> where the deed should be."},
     {check:{skill:"Investigation", dc:"12", note:"Read the signatures and the bearer clause: <b>V. Soprano</b> won the house, and title goes with the deed. If nobody gets there: <b>point at the empty slot in the strongbox</b> and read the bearer paragraph aloud."}},
     {stuck:"Point at the <b>empty slot in the strongbox</b> and read the bearer paragraph aloud."},
     {backup:"<b>Gnomey owns the house</b> &mdash; if he misses the bearer clause here, Vinny says it as he hands over the deed: <i>&ldquo;Whoever's holding this owns the place. Now that's you.&rdquo;</i>"},
-    {do:"Julia decides who Gnomey tells. &#128275;"},
+    {do:"Julia decides who Gnomey tells."},
     {note:"Keep the <b>printed deed</b> hidden. Vinny has it, and it comes out only in the ending scene.", k:"rule"},
     {say:"He's read it three times. The man who won this house is his great-uncle &mdash; and whoever holds the deed owns it. The deed isn't here."},
     {end:"on the read-aloud: he's read it three times, and the deed isn't here."}
@@ -908,17 +908,17 @@ const SCENES = [
   steps:[
     {snd:["candle"]},
     {say:"Dracula's shrine. He has kept the party room untouched since that night in '79, the best night of his unlife: dust on everything, bottles where they were set down, a record still on the turntable, and the smell of old wax.", who:"Setting"},
-    {hand:"photo", do:"Prompt them to look around. <b>Bix finds the photograph.</b> &#9995; Hand Will the 4&times;6 print and say nothing. &#128275; Bix: his parents."},
+    {hand:"photo", do:"Prompt them to look around. <b>Bix finds the photograph.</b> &#9995; Hand Will the 4&times;6 print and say nothing. Bix: his parents."},
     {rev:{who:"Bix", t:"learns from the photograph: the pregnant goblin is his mother, and the fae with no fangs beside her is Edward, before he was turned. Hand Will the print and say nothing &mdash; he gets the goblin before the fae."}},
     {rev:{who:"The rest of the party", t:"learn whatever Bix says out loud. Don't prompt him."}},
     {snd:["needle","record"], t:"When Dracula drops the needle"},
-    {do:"<b>Dracula is in the doorway.</b> He drops the needle and the room <i>remembers</i>: faint echoes of that night shimmer in &mdash; revellers mid-laugh, a cape flaring, someone dancing with a hand on her belly. Impressions, not ghosts: nobody can talk to them, and they fade when the music stops. &#128275; Bix may know them from the photo. Then Dracula blocks the exit (Spencer)."},
+    {do:"<b>Dracula is in the doorway.</b> He drops the needle and the room <i>remembers</i>: faint echoes of that night shimmer in &mdash; revellers mid-laugh, a cape flaring, someone dancing with a hand on her belly. Impressions, not ghosts: nobody can talk to them, and they fade when the music stops. Bix may know them from the photo. Then Dracula blocks the exit (Spencer)."},
     {rev:{who:"Bix", t:"may recognise the echoes from the photograph &mdash; the woman dancing with a hand on her belly is the goblin in the picture."}},
     {do:"<b>Yobo's Performance check</b>, at disadvantage (the debuff). <b>The roll can't win it</b>: it only measures how good the fake is. <b>DC 15</b> splits high from low. Either way Dracula answers it (Spencer) and the door stays shut."},
     {check:{skill:"Performance", dc:"15", note:"<b>Yobo, at disadvantage</b> (The Weight of Your Lies). 15+ gets the high line, under gets the low. The number only says how good the fake is &mdash; <b>it never opens the door</b>. Only a true performance earns <i>Your True Voice</i>."}},
     {note:"<b>The roll can't win it.</b> The door opens only for a true performance, or when John refuses and Dracula sulks and lets them go."},
     {stuck:"If nobody steps up to sing, Dracula looks at Yobo and waits."},
-    {do:"<b>Dracula clocks the fake</b> (Spencer) and pushes Yobo to stop hiding and live as himself. &#128275; Dracula sees through Yobo."},
+    {do:"<b>Dracula clocks the fake</b> (Spencer) and pushes Yobo to stop hiding and live as himself. Dracula sees through Yobo."},
     {note:"<b>Dracula isn't only mocking Yobo.</b> He recognises the mask. Play that under the camp."},
     {check:{skill:"Insight", dc:"12", note:"<b>Call it</b> after his line to Yobo. <b>Success:</b> he isn't only mocking Yobo; he recognises something. Flavour only: the scene plays the same either way."}},
     {snd:["cheer","levelup"], t:"If he performs as himself"},
@@ -971,8 +971,8 @@ const SCENES = [
     {snd:["cellar"]},
     {say:"Stone steps down. A lamp is already lit. It smells of straw and something clean and sharp, like a doctor's office. There's an exam table, a fox in a splint asleep on a blanket, and an owl on a perch with one wing bound. Jars, bandages, a mortar. A ledger lies open on a lectern. In the corner, under a dark grate, a tray of dead white seedlings.", who:"Setting"},
     {do:"Let them look around. It's plainly a clinic."},
-    {hand:"ledger", do:"&#9995; <b>Orlok's ledger</b>, the printed page: a register of patients, with notes on the Sun's-mercy in the margin. &#128275; Orlok is a vet."},
-    {do:"Russ can use <b>Speak with Animals</b>. The fox and the owl say the old one mends them, and they aren't afraid of him. &#128275; The vampires don't kill. This is the backup if nobody reads the ledger. The fox also says the seedlings want the sun, and the old one can't give it to them."},
+    {hand:"ledger", do:"&#9995; <b>Orlok's ledger</b>, the printed page: a register of patients, with notes on the Sun's-mercy in the margin. Orlok is a vet."},
+    {do:"Russ can use <b>Speak with Animals</b>. The fox and the owl say the old one mends them, and they aren't afraid of him. The vampires don't kill. This is the backup if nobody reads the ledger. The fox also says the seedlings want the sun, and the old one can't give it to them."},
     {check:{skill:"Speak with Animals", dc:"no roll", note:"The fox and the owl: the old one mends them, and they aren't afraid of him. The fox: the seedlings want the sun, and the old one can't give it to them."}},
     {do:"The seedlings lean to the grate; the margin notes point to them. It's night, so no daylight comes through. Russ makes the sun himself with <b>Daylight</b> (3rd-level druid spell)."},
     {check:{skill:"Daylight", dc:"no roll", note:"3rd-level druid spell. Russ makes the sun himself and the seedlings open."}},
@@ -1022,17 +1022,17 @@ const SCENES = [
     {do:"<b>Log in</b>: <code>DJPoeBoy187</code>, password from the sticky note (&#9995; now, if they don't have it). &#128241; <b>item 2</b>."},
     {ipad:2},
     {stuck:"Password: the sticky note. If they never found it, it's tucked in the monitor bezel. Any capitalisation works, unlimited tries."},
-    {do:"They're signed on as the killer. He's frantic for a line, then works out it isn't him: <i>&ldquo;hes the only one who ever touches this machine.&rdquo;</i> &#128275;"},
+    {do:"They're signed on as the killer. He's frantic for a line, then works out it isn't him: <i>&ldquo;hes the only one who ever touches this machine.&rdquo;</i>"},
     {check:{skill:"Working it out", dc:"no roll", note:"Working out it isn't Poe Boy is character, not a check. When the drive mounts, the missing kid from the posters is the one in the computer."}},
-    {do:"His story: lured, chased, soul-caged when <b>Poe Boy</b> shut the door. &#128275; He names him, short of murder."},
-    {hand:"willow", do:"The bag: &#9995; <b>the willow</b> to Simone &#128275;, then &#9995; <b>the USB</b> &mdash; it mounts as <code>MARCUS_HALE</code> &#128275; and he sends the recording."},
+    {do:"His story: lured, chased, soul-caged when <b>Poe Boy</b> shut the door. He names him, short of murder."},
+    {hand:"willow", do:"The bag: &#9995; <b>the willow</b> to Simone, then &#9995; <b>the USB</b> &mdash; it mounts as <code>MARCUS_HALE</code> and he sends the recording."},
     {rev:{who:"Simone", t:"pulls the <b>wishing willow</b> from the bag &mdash; the one she sold this summer: <i>I want Angelique to notice me</i>. This is the willow kid. She may have connected the posters to her customer long ago, and that's fine: the reveal is that he's in the computer, and how."}},
     {rev:{who:"Angelique", t:"learns why she knew him: the willow worked. Spencer plays her reaction."}},
     {hand:"usb"},
     {rev:{who:"Players", t:"see the drive mount as <b>MARCUS_HALE</b>: the missing kid from the posters is the one in the computer. Angelique realises it's the same boy."}},
     {rev:{who:"Players", t:"get the recording, <code>scream_test_03_GOOD.wav</code>. Nobody else has heard it yet."}},
     {rev:{who:"Players", t:"get this if they ask what happened to him: last month he went missing. The school thinks he <b>ran away</b>, and the posters are still up. Nobody searched the mansion: he told no one where he was going, and the dare was only on AIM."}},
-    {do:"Second ask: <i>can you get me out of here.</i> The goat joins the chat; the price is her piggy bank, the Total Party Kill concert fund. &#128275; Narrate the smash; there's no physical bank."},
+    {do:"Second ask: <i>can you get me out of here.</i> The goat joins the chat; the price is her piggy bank, the Total Party Kill concert fund. Narrate the smash; there's no physical bank."},
     {snd:["smash"], t:"The piggy bank"},
     {note:"<b>Nothing plot-critical hangs on Simone's yes.</b> The recording, the name and the drive are already theirs. A no costs nothing but him &mdash; the machine goes dark at sunrise. <b>Do not fudge it.</b>", k:"rule"},
     {backup:"<b>Poe Boy killed Marcus</b> &mdash; if the chat stalls or Simone logs off early, the recording at the decks proves it to everyone. The USB can't be destroyed, so it always plays."},
@@ -1040,7 +1040,7 @@ const SCENES = [
     {snd:["bell","pa","braaam"], t:"3AM"},
     {note:"The flyer's <b>3AM</b> is the fight's starting gun &mdash; end the room on the speakers coming on."},
     {note:"Because only five were invited, <b>Poe Boy knows exactly who's here</b> and opens the show by naming them."},
-    {do:"<b>End of the room:</b> every speaker comes on, then Poe Boy's voice (Spencer). &#128275; That sends them to the ballroom."},
+    {do:"<b>End of the room:</b> every speaker comes on, then Poe Boy's voice (Spencer). That sends them to the ballroom."},
     {say:"It's three in the morning, and every speaker in this house just came on at once. It's you. Your own screams from tonight, cut together over a beat. Then Poe Boy's voice, over the top of it. Downstairs, the ballroom doors are standing open.", who:"Ending the room"},
     {end:"on 3AM: every speaker in the house, playing the party's own screams."}
   ],
@@ -1070,15 +1070,15 @@ const SCENES = [
     {note:"Poe Boy opens the front door at 2:30 for the crowd, and the ballroom with it. The crowd stays because it's charmed."},
     {do:"Russ shows Orlok the card. He still won't sign. <b>Refusal 2 of 3.</b>"},
     {snd:["pa"], t:"Poe Boy takes the mic"},
-    {do:"The party arrives wanting Poe Boy. He <b>names all five</b> on the mic. &#128275;"},
-    {do:"Dracula, waiting for his cue: <b>&ldquo;Not you. Them.&rdquo;</b> &#128275;"},
+    {do:"The party arrives wanting Poe Boy. He <b>names all five</b> on the mic."},
+    {do:"Dracula, waiting for his cue: <b>&ldquo;Not you. Them.&rdquo;</b>"},
     {do:"As the crowd pours in: <b>Perception DC 14</b>."},
     {check:{skill:"Perception", dc:"14", note:"<b>Call it</b> as the crowd pours in. <b>Success:</b> among the charmed crowd, one man with a clipboard isn't charmed: a warning before he acts. His name is already on the library card and the survey (<i>coordinate through W.O.</i>), so a player can place him. <b>Miss:</b> it plays on schedule."}},
     {note:"<b>Angelique is on the party's side</b> through the final battle."},
     {snd:["jump","braaam"], t:"The hard hats"},
     {say:"Hard hats push through the crowd. They walk right past you. They're going for the vampires. A man with a clipboard says one word, and Orlok, Dracula and Edward stop dead, pinned where they stand. His men take out stakes.", who:"The hard hats"},
     {rev:{who:"Players", t:"meet the man behind the checkout card and the survey: <b>W. Ostrander</b>, the developer."}},
-    {do:"<b>The hard hats go for the vampires</b>. Spencer gives Ostrander's line. <b>You ask: &ldquo;What do you do?&rdquo;</b> &#128275; &#9876;"},
+    {do:"<b>The hard hats go for the vampires</b>. Spencer gives Ostrander's line. <b>You ask: &ldquo;What do you do?&rdquo;</b> &#9876;"},
     {say:"<b>What do you do?</b>", who:"After Ostrander's line"},
     {tok:1},
     {fight:1},
@@ -1115,13 +1115,14 @@ const SCENES = [
     {say:"The developer is down. The crowd is still swaying, still smiling, and up on the decks Poe Boy and Lil Stinky aren't letting anyone near the aux.", who:"Setting"},
     {say:"The man who wanted this house is dead on the floor. Orlok is looking at you, and for once he isn't cold about it. The crowd hasn't noticed. The set hasn't stopped. Poe Boy is still up there.", who:"The vampires owe you"},
     {do:"<b>The vampires owe the party</b>. The party tells them about Marcus and the drive. <b>Nobody raises it:</b> Orlok asks, and Poe Boy panicking gives it away."},
-    {do:"Orlok: <b>&ldquo;What's on the drive?&rdquo;</b> Then to Poe Boy: <b>&ldquo;Let them play it.&rdquo;</b> Poe Boy refuses: <b>&ldquo;Drop.&rdquo;</b> That's what turns them on him. &#128275; &#9876;"},
+    {do:"Orlok: <b>&ldquo;What's on the drive?&rdquo;</b> Then to Poe Boy: <b>&ldquo;Let them play it.&rdquo;</b> Poe Boy refuses: <b>&ldquo;Drop.&rdquo;</b> That's what turns them on him. &#9876;"},
     {tok:1},
     {say:"Get the USB to the decks and get on aux.", who:"The objective"},
     {fight:1},
+    {note:"<b>Badge req 3</b>, if it hasn't landed: Russ heals a vampire under fire, any round."},
     {snd:["scratch"], t:"The USB hits the decks"},
     {snd:["hiss"], t:"Under the recording"},
-    {do:"The USB hits the decks: <b>narrate the recording</b>. &#128275; Stinky's oath breaks, no save, and he turns on Poe Boy."},
+    {do:"The USB hits the decks: <b>narrate the recording</b>. Stinky's oath breaks, no save, and he turns on Poe Boy."},
     {say:"His set cuts out mid-scream. Then typing. A door shuts. Then a scared kid, asking someone to open it. Asking again, quieter. And under all of it, perfectly calm, Poe Boy: nudging a level up, leaning in close to listen, pleased with how clean it sounds.", who:"When the USB hits the decks · narrate the recording"},
     {note:"<b>Narrate the recording</b> &mdash; the single biggest table moment. There's no file to play; it's your voice."},
     {say:"The speakers hiss. Nobody in the ballroom moves.", who:"Then let it sit"},
@@ -1174,14 +1175,14 @@ const SCENES = [
     {note:"<b>Resolve it all right here, in one scene at the house.</b> Two cars, back to back, while the crowd is still on the lawn: the parents' Volvo, then the troop leader's car with <b>Vinny in the passenger seat</b>."},
     {snd:["car"], t:"The first car"},
     {say:"Sunrise. The crowd's still on the lawn when the first car pulls up the drive."},
-    {hand:"tickets", do:"The Volvo: Poe Boy's parents. <i>&ldquo;Upton, honey?&rdquo;</i> &#128275; He's grounded; &#9995; <b>the tickets</b> to Simone."},
+    {hand:"tickets", do:"The Volvo: Poe Boy's parents. <i>&ldquo;Upton, honey?&rdquo;</i> He's grounded; &#9995; <b>the tickets</b> to Simone."},
     {note:"The parents have been wondering where their kid has been. Vinny has kept insisting he's late for the card game, so the scout dad drove him up."},
     {snd:["car"], t:"The second car"},
     {hand:"badge", do:"The troop leader's car, Vinny in the passenger seat. Orlok signs, through his teeth; &#9995; <b>the badge</b> to Cody."},
     {note:"<b>Russ gets the badge no matter what</b>, even if he missed a requirement."},
     {snd:["levelup"], t:"The badge"},
-    {hand:"deed", do:"Vinny &#9995; <b>the deed</b> to Gnomey. &ldquo;This is my house.&rdquo; Orlok confirms it; &ldquo;You can stay.&rdquo; &#128275;"},
-    {do:"The quiet one: <b>Edward explains himself to Bix.</b> No jokes. &#128275;"},
+    {hand:"deed", do:"Vinny &#9995; <b>the deed</b> to Gnomey. &ldquo;This is my house.&rdquo; Orlok confirms it; &ldquo;You can stay.&rdquo;"},
+    {do:"The quiet one: <b>Edward explains himself to Bix.</b> No jokes."},
     {end:"after Edward. Let it sit, then cut to class."}
   ],
   talk:[
@@ -1221,87 +1222,32 @@ const SCENES = [
 ];
 
 /* ============================= EXECUTION ============================= */
-/* Leave knowing and Next for each scene, keyed by scene no.
-   land  🎯 what the table must leave the scene knowing: the must-land reveals, nothing else
+/* Next for each scene, keyed by scene no.
    next  ➜ how to get out; go = the cue(s) to jump to ("rooms" = Sunday's room picker)
 */
 const EXEC = {
   "0":{next:"Read Scene 1's Setting aloud. It opens on &ldquo;Fourth period, history.&rdquo;", go:["1"]},
-  "1":{
-    at:"Fourth period. Nothing has happened yet.",
-    land:[["They're a group of five on a local-history project that needs a <b>primary source, not the internet</b>.","Spencer, as the teacher"]],
-    next:"On the bell, smash cut to the lockers.", go:["2"]},
-  "2":{
-    at:"Still at school, the five who missed skip day.",
-    land:[["A party at <b>Dood Mansion, 8PM</b>, and <b>only these five</b> got a card.","Scott"],["Gnomey heard his great-uncle talk about a card game &ldquo;up the hill&rdquo; with a Cornelis.","Spencer, as Vinny"]],
-    next:"They pick the hall of records or the gazebo, either order. Whichever comes second ends on cue 4's &ldquo;ten to eight&rdquo; line.", go:["3","4"]},
-  "3":{
-    at:"In town, looking into the house before the party.",
-    land:[["The slaying method: <b>dig up the coffin, stake the heart, rebury</b>.","Scott, from the page"],["The checkout card: <b>U.M. Livingsworth III, V. Soprano 1938, W. Ostrander</b>.","Scott, from the card"],["The source is gone; <b>the house is the only primary source left</b>.","Spencer, as the Records Keeper"]],
-    next:"Her &ldquo;be careful&rdquo; lands. Gazebo next, or up the hill if they've been. If this is the second stop, end on the &ldquo;ten to eight&rdquo; line from cue 4.", go:["4","5"]},
-  "4":{
-    at:"In town. They meet Poe Boy and don't know it's his party.",
-    land:[["Poe Boy says he's been up there <b>once</b> &mdash; and it's a lie (Insight DC 14).","Spencer"],["<b>Angelique</b> knows something and can't say it.","Spencer"],["John holds <i>The Weight of Your Lies</i>.","Scott hands it over"]],
-    next:"Ten to eight (read-aloud), and they walk up the hill. Library still to do? Go there first and save the clock line for its end.", go:["5","3"]},
-  "5":{
-    at:"8PM. Walking in.",
-    land:[["They're <b>locked in</b>, no bolt on their side.","Scott"],["<b>Angelique</b> is inside, hiding from something. Not what, not why.","Spencer"]],
-    next:"Hidden in the dark, they hear voices: straight into cue 6.", go:["6"]},
-  "6":{
-    at:"Locked in and hiding. They think they're being hunted; the vampires think it's a rehearsal.",
-    land:[["Someone told the vampires <b>exactly five</b> were coming: &ldquo;the boy.&rdquo;","Spencer"],["The vampires keep <b>&ldquo;meals&rdquo;</b> somewhere.","Spencer"],["They think they're being <b>hunted</b>.","Spencer, then Scott"]],
-    next:"On Orlok's dismissal, Russ finds Orlok at the cabinet: cue 7.", go:["7"]},
-  "7":{
-    at:"Just dismissed, looking for a way out.",
-    land:[["Orlok <b>won't ask for help</b>.","Scott sets it up, Spencer plays it"],["He <b>won't sign</b>: refusal 1 of 3.","Spencer"]],
-    next:"No thanks, the house dark in every direction (read-aloud). Turn them loose: cue 8.", go:["8"]},
-  "8":{
-    at:"Exploring the upper floors, being watched.",
-    land:[["<b>Edward is watching Bix</b>, twice. He explains nothing.","Scott"],["They hold the <b>site survey</b>.","Scott hands it over"]],
-    next:"The warm, breathing door (read-aloud): cue 9.", go:["9"]},
-  "9":{
-    at:"Late Saturday. The first thing in the house that really hurts.",
-    land:[["It was <b>human-made and incomplete</b> (Arcana DC 14). Who drew it stays open.","Scott"],["They hold the <b>sticky note</b>, and keep it for Sunday.","Scott hands it over"],["Something in the house typed <b>&ldquo;is someone there&rdquo;</b>.","Scott"]],
-    next:"The screen dies: end of Saturday. Don't let them reach the room. Everyone levels to 5.", go:["L5"]},
+  "1":{next:"On the bell, smash cut to the lockers.", go:["2"]},
+  "2":{next:"They pick the hall of records or the gazebo, either order. Whichever comes second ends on cue 4's &ldquo;ten to eight&rdquo; line.", go:["3","4"]},
+  "3":{next:"Her &ldquo;be careful&rdquo; lands. Gazebo next, or up the hill if they've been. If this is the second stop, end on the &ldquo;ten to eight&rdquo; line from cue 4.", go:["4","5"]},
+  "4":{next:"Ten to eight (read-aloud), and they walk up the hill. Library still to do? Go there first and save the clock line for its end.", go:["5","3"]},
+  "5":{next:"Hidden in the dark, they hear voices: straight into cue 6.", go:["6"]},
+  "6":{next:"On Orlok's dismissal, Russ finds Orlok at the cabinet: cue 7.", go:["7"]},
+  "7":{next:"No thanks, the house dark in every direction (read-aloud). Turn them loose: cue 8.", go:["8"]},
+  "8":{next:"The warm, breathing door (read-aloud): cue 9.", go:["9"]},
+  "9":{next:"The screen dies: end of Saturday. Don't let them reach the room. Everyone levels to 5.", go:["L5"]},
   "L5":{next:"That's Saturday. Anything unfinished waits for Sunday's start card.", go:["SUN"]},
   "SUN":{next:"Into the first room. Study first if you can.", go:"rooms"},
-  "10":{
-    at:"Sunday, the rooms. They still think the vampires are killers.",
-    land:[["Gnomey, alone: <b>V. Soprano won the house</b>; <b>whoever holds the deed owns it</b>; the deed isn't here.","Scott, with the printed settlement"]],
-    next:"He's read it three times (read-aloud). Next room.", go:"rooms"},
-  "11":{
-    at:"Sunday, the rooms. The vampires are still on the job.",
-    land:[["Bix holds the photo: his mother, and Edward before he was turned.","Scott hands it over and says nothing"],["Dracula sees through Yobo. <b>Only a true performance</b> opens the door.","Spencer"]],
-    next:"The needle lifts (read-aloud). Next room.", go:"rooms"},
-  "S":{
-    at:"Between rooms. The vampires are still on the job, and it's wearing thin.",
-    land:[["The vampires are <b>still trying to scare them</b>, and their hearts aren't in it.","Scott sets it up, Spencer voices"]],
-    next:"He leaves. Next room.", go:"rooms"},
-  "12":{
-    at:"Sunday, the rooms. This is where the vampires are cleared.",
-    land:[["<b>Orlok is a vet</b>; the animals are his patients.","Scott, with the ledger"],["<b>The vampires don't kill.</b>","Spencer, as the patients; the ledger if nobody asks"],["Badge req 2 done.","Russ does it"]],
-    next:"The flowers open and Russ dresses the fox's leg. Next room.", go:"rooms"},
+  "10":{next:"He's read it three times (read-aloud). Next room.", go:"rooms"},
+  "11":{next:"The needle lifts (read-aloud). Next room.", go:"rooms"},
+  "S":{next:"He leaves. Next room.", go:"rooms"},
+  "12":{next:"The flowers open and Russ dresses the fox's leg. Next room.", go:"rooms"},
   "R":{next:"The remnant drops: on to the AIM door.", go:["13"]},
-  "13":{
-    at:"The last room, nearing 3AM. The mystery gets answered here.",
-    land:[["<b>Poe Boy</b> shut the door on him: killed by a human.","On screen, in AIM"],["<b>MARCUS_HALE</b>: the missing kid from the posters is the one in the computer, and how he got there.","On screen; Spencer plays Angelique"],["They hold <b>the recording</b> on the USB.","On screen"],["The party is <b>Poe Boy's</b>, and he's recorded them all night.","Scott, then Spencer on the speakers"]],
-    next:"Every speaker comes on: 3AM. No break from here to the driveway.", go:["14 · i"]},
-  "14 · i":{
-    at:"3AM. They came for Poe Boy, and just learned the vampires are innocent.",
-    land:[["Refusal 2 of 3: Orlok still won't sign.","Spencer"],["Poe Boy <b>names all five</b> on the mic.","Spencer"],["<b>The vampires need saving</b>, and it's the party's choice.","Scott reads, Spencer as Ostrander and Orlok"],["Ostrander dies. <b>Let it be quiet.</b>","Scott"]],
-    next:"Silence, then the seal breaks. Then the booth card.", go:["14 · ii"]},
-  "14 · ii":{
-    at:"The developer is dead and the vampires owe them. Now Poe Boy.",
-    land:[["The vampires turn on Poe Boy because <b>he won't let the drive play</b>.","Spencer"],["The recording: <b>a boy died here</b> and Poe Boy let it happen.","Scott narrates"],["<b>&ldquo;He said five&rdquo;</b> was Poe Boy.","Scott"],["Badge req 3: Russ heals a vampire under fire, if it hasn't landed.","Russ does it, any round"]],
-    next:"It runs into the early morning, then the driveway at sunrise: cue 15.", go:["15"]},
-  "15":{
-    at:"Sunrise. It's over, and everyone arrives.",
-    land:[["Poe Boy is <b>Upton</b>, U.M. Livingsworth III.","Spencer, as his mother"],["<b>The house is Gnomey's</b>; the vampires can stay.","Spencer, as Vinny and Orlok, then Julia"],["Bix hears <b>Edward's whole story</b>.","Spencer"]],
-    next:"After Edward, let it sit. Cut to class.", go:["16"]},
-  "16":{
-    at:"Back in class. The bookend.",
-    land:[["They present the project. Nobody reacts.","A player says it"]],
-    next:"The end. Breathe."}
+  "13":{next:"Every speaker comes on: 3AM. No break from here to the driveway.", go:["14 · i"]},
+  "14 · i":{next:"Silence, then the seal breaks. Then the booth card.", go:["14 · ii"]},
+  "14 · ii":{next:"It runs into the early morning, then the driveway at sunrise: cue 15.", go:["15"]},
+  "15":{next:"After Edward, let it sit. Cut to class.", go:["16"]},
+  "16":{next:"The end. Breathe."}
 };
 
 /* ===================================================================== */
@@ -1343,8 +1289,9 @@ const revBlock = (list,label) => list.length ?
   `<div class="revs"><p class="rh">${label||"🔓 Reveals"}</p>${list.map(revRow).join("")}</div>` : "";
 function spZone(s){
   const revs=s.rev||[], npcNames=(s.npcs||[]).map(n=>n.nm);
-  const mineLand=(exOf(s).land||[]).filter(l=>Array.isArray(l) && /Spencer/.test(l[1]));
-  let h = mineLand.length ? `<div class="wrap lk"><p class="wl">🎯 Leave knowing, from you</p><ul class="land">${mineLand.map(l=>`<li>${l[0]}</li>`).join("")}</ul></div>` : "";
+  // what each NPC has to get across, in order, above the lines and voice notes
+  const withPts=(s.npcs||[]).filter(n=>n.pts);
+  let h = withPts.map(n=>`<div class="pts"><p class="pts-n">${n.nm}</p><ol>${n.pts.map(p=>`<li>${p}</li>`).join("")}</ol></div>`).join("");
   h += revBlock(revs.filter(r=>r.by!=="scott" && !npcNames.includes(r.by)));
   const said = (s.talk||[]).concat((s.fight&&s.fight.lines)||[]);
   if(said.length) h += `<div class="talk">` + said.map(l=>`<p><span class="who">${l.who}</span>${l.t}</p>`).join("") + `</div>`;
@@ -1388,9 +1335,6 @@ function render(i){
   const cuePill = k => { const n=cueOrder(s.cues||[]).indexOf(k); return `<button class="cuepill ${isBgSound(k)?"bg":"fx"}${amb[k]?" on":""}" data-cuefire="${k}"><span class="dot"></span>${CUE_LABEL[k]||k}${n>=0&&n<9?`<span class="n">⇧${n+1}</span>`:""}</button>`; };
 
   // 🎯 leave knowing + ➜ next
-  const landRow = l => { const [t,by] = Array.isArray(l) ? l : [l,""]; return `<li>${t}${by?`<span class="lby">${by}</span>`:""}</li>`; };
-  const landHTML = (e.land||e.at) ? `<div class="wrap lk"><p class="wl">🎯 Leave knowing</p>`+
-    (e.at?`<p class="lk-at">${e.at}</p>`:"")+(e.land?`<ul class="land">${e.land.map(landRow).join("")}</ul>`:"")+`</div>` : "";
   let wrapHTML = "";
   if(e.next){
     const gos = e.go==="rooms" ? roomsGo() : (e.go||[]).map(idxOf);
@@ -1441,7 +1385,7 @@ function render(i){
     `<h2>${s.title}</h2><span class="where">${s.where}</span></div>`+
     `<div class="zones">`+
       `<section class="zone z-scott"><p class="zh"><span>Scott</span> · narrate</p>`+
-        `${checkHTML}${landHTML}${stepsHTML}${wrapHTML}</section>`+
+        `${checkHTML}${stepsHTML}${wrapHTML}</section>`+
       `<section class="zone z-spencer"><p class="zh"><span>Spencer</span> · voice</p>${spHTML}</section>`+
     `</div>`;
 
