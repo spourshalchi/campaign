@@ -87,7 +87,7 @@ loaded in this order:
 | `scenes/finale.js` | Cues 14 to 16 |
 
 Each scene is one object: `steps` is Scott's list; `next` and `go` are the Next text and its jump buttons (`go:"rooms"` is
-Sunday's room picker); `talk`, `ifblock`, `rev`, `npcs` (with `pts`, the points in order) and `spBrief` are Spencer's panel;
+Sunday's room picker); `talk`, `ifblock`, `rev`, `npcs` (with `pts`, the points in order: each a full instruction starting with a verb, with any facts it needs in a nested `<ul>` in the same string) and `spBrief` are Spencer's panel;
 `cues` fills the soundboard's This cue row. To add a prop, add it to `PROPS` and a `{hand:id}` step on its scene.
 
 **After editing a content file, bump that file's `?v=` on its script tag in `index.html`**, or an iPad that already has
