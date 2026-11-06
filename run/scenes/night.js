@@ -41,9 +41,10 @@ SCENES.push(
     {do:"Somewhere in there, Bix catches <b>Edward glimmering</b> in the moonlight, watching him."},
     {note:"If they reach the locked door at the end of the upstairs hall, narrate the DJ poster (the first read-aloud on cue 13). That's as far as they get."},
     {snd:["steps","swoop","jump","braaam"], t:"Dracula"},
-    {do:"<b>Someone rolls badly: Dracula swoops</b> and grabs them. DC 15 Str or Dex save or grappled, then he shoves them. <b>Spencer's turn:</b> Dracula, enjoying himself. &#9876; pressure scene."},
-    {note:"Vampires <b>cannot kill a PC</b> here and never roll damage. Don't point it out.", k:"rule"},
-    {do:"<b>Spencer's turn:</b> Orlok ends it with one word, then the dismissal."},
+    {do:"<b>Someone rolls badly: Dracula swoops.</b> Describe the vampires grabbing and shoving the party around, with no damage. <b>Spencer's turn:</b> Dracula's taunts."},
+    {check:{skill:"Optional save", dc:"13", note:"<b>Call it</b> when a vampire goes for a PC. <b>Str or Dex</b> to slip a grab or stay standing, <b>Wis</b> to shake off the fear. <b>Success:</b> they slip free. <b>Failure:</b> they're pinned, shoved across the room, or frozen for a moment. Nobody's hurt."}},
+    {do:"After a couple of these, or the moment it stops being fun: <b>Spencer's turn:</b> Orlok's one word. Everything stops."},
+    {do:"<b>Spencer's turn:</b> the dismissal."},
     {note:"Let the party choose whether Angelique travels with them."},
     {end:"on Orlok's dismissal, with the party scattering to look for a way out."}
   ],
@@ -58,7 +59,7 @@ SCENES.push(
       {t:"Say the rehearsal line, only if Scott says they made their Perception.", say:"It's only the rehearsal, and you missed your entrance."},
       {at:"While they explore", gap:"Scott runs it, nothing for you."},
       {at:"The swoop"},
-      {t:"Grab whoever fails Stealth, and enjoy it.<ul><li>Scott narrates the swoop and calls the save. No bite and no damage. If they hit you, laugh.</li></ul>", say:"Oh, very good. Again."},
+      {t:"Taunt them while Scott narrates the grabbing and shoving.<ul><li>If they hit you, laugh.</li></ul>", say:["Oh, very good. Again.","Come now, you can run faster than that.","Don't stop, you're doing wonderfully."]},
       {t:"Say yes, delighted, if they ask whether this is part of the party.", say:"Part of the party? Yes. Oh, absolutely yes."},
       "Let go the instant Orlok speaks."
     ], vc:"Campy, theatrical, lays hands on them and enjoys it far too much. Play it like a rehearsal."},
@@ -67,8 +68,8 @@ SCENES.push(
       {t:"Ask whether the meals have been fed, after Dracula's &ldquo;That's rather the point.&rdquo;", say:"Have our meals been fed?"},
       {t:"Tell Dracula to see to it before you begin.", say:"See to it before we begin. I won't have them distracted."},
       {at:"While they explore", gap:"Scott runs it, nothing for you."},
-      {at:"The swoop", gap:"Stay out of the grab. Scott cues you to end it after a round or two."},
-      {at:"When Scott cues you"},
+      {at:"The swoop", gap:"Scott narrates it, nothing for you until he cues you."},
+      {at:"The end, when Scott cues you"},
       {t:"Stop Dracula with one quiet word.", say:"Enough."},
       {t:"Deliver the dismissal as a threat, very politely.", say:"The night is young. It would be terribly rude to be finished with you already&hellip; Go on. Have a look around. We'll find you when we're ready."},
       "Refuse to explain anything.<ul><li>Say nothing about the doors, the meals or the boy.</li></ul>"
@@ -78,7 +79,7 @@ SCENES.push(
       {t:"Point out that one of them is a child, after Dracula's &ldquo;learning to count.&rdquo;", say:"One of them is a child."},
       {at:"While they explore", gap:"Scott narrates Bix catching you in the moonlight, nothing for you."},
       {at:"The swoop"},
-      "Watch Bix and stay out of the grab.",
+      "Watch Bix and leave the grabbing to the others.",
       "Refuse to approach anyone or answer them."
     ], vc:"The younger voice."},
     {nm:"Angelique", pts:["Keep them quiet while the voices pass.","Refuse to say what you're hiding from or why you came."], vc:"Whispering, frightened."}
