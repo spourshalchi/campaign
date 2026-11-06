@@ -59,7 +59,7 @@ const SOUND_FILES = {
 },
 "library": {
 "f": "library.mp3",
-"v": "bc129cca",
+"v": "fbd96ee6",
 "amb": true,
 "len": 65.4549,
 "src": "elevenlabs"

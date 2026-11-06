@@ -734,7 +734,7 @@ def library_fight(x):
     m = filt(m, lambda f: 1 - .25 * bp(f, 1200, 3500, 2))
     ref = rms(m); n = len(m); y = np.zeros(n)
     def at(bar, beat=1, sixteenth=0): return (bar * 4 + beat - 1) * LIB_BEAT + sixteenth * LIB_BEAT / 4
-    snip = lib_stem("snip", .165, .52, -7, ref); stamp = lib_stem("stamp", 0, .22, -5, ref); drawer = lib_stem("drawer", .225, .95, 0, ref)
+    snip = lib_stem("snip", .165, .30, -15, ref); stamp = lib_stem("stamp", 0, .22, -5, ref); drawer = lib_stem("drawer", .225, .95, 0, ref)
     paper = lib_stem("paper", .25, 2.3, -13, ref); cart = lib_stem("cart", .1, 2.6, -15, ref); shh = lib_stem("shh", 0, 1.42, -6, ref)
     def nudged(ev, pitch, gain):
         i = np.arange(0, len(ev) - 1, pitch); return np.interp(i, np.arange(len(ev)), ev) * gain
@@ -746,12 +746,9 @@ def library_fight(x):
     # rubber stamps on the backbeat, in and out so it never turns into a click track
     for b in [*range(4, 8), *range(12, 16), *range(20, 24), *range(28, 32), 34, 35]:
         hit(stamp, at(b, 2)); hit(stamp, at(b, 4))
-    # shears on the off-beats, with a double snip closing every fourth bar
-    for b in [*range(8, 12), *range(12, 16), 16, 17, *range(24, 26), *range(28, 32)]:
-        for beat in (1, 2, 3, 4):
-            if beat == 1 or r.random() < .75: hit(snip, at(b, beat, 2), .9)
-    for b in (3, 7, 11, 15, 19, 23, 31, 35):
-        hit(snip, at(b, 4, 2)); hit(snip, at(b, 4, 3), .8)
+    # shears: one quiet snip now and then, unevenly spaced, so they never settle into a rhythm
+    for b, beat in ((5, 2), (14, 4), (21, 3), (30, 2), (34, 4)):
+        hit(snip, at(b, beat, 2))
     # paper flurries swell into three of the slams and scatter off the fourth
     for b in (8, 24, 32): place(y, paper, N(at(b) - len(paper) / SR + .05))
     place(y, paper[::-1] * .9, N(at(16) + .05))
