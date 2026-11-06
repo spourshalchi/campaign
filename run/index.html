@@ -477,29 +477,6 @@
   .lv-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:10px;padding:8px 0;border-top:1px solid var(--edge);font-size:15px;line-height:1.45}
   .lv-row b{display:block;color:var(--gold)} .lv-row i{font-style:normal;font-size:13.5px;color:var(--mut)}
   @media(max-width:640px){.lv-row{grid-template-columns:1fr;gap:2px}}
-  /* splash link to Spencer's view */
-  #splash .splink{margin-top:18px;color:var(--pink);font-size:15px;text-decoration:none;padding:12px 16px;border:1px solid #4f2846;border-radius:10px}
-
-  /* Spencer's view: his phone, one scroll */
-  #spv{display:none;position:fixed;inset:0;flex-direction:column;background:var(--bg);padding:var(--safe-t) var(--safe-r) 0 var(--safe-l);height:100dvh}
-  #spv.on{display:flex}
-  .sp-top{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:6px 12px;min-height:56px;background:linear-gradient(180deg,#1d0f1a,#120a11);border-bottom:1px solid #4f2846}
-  .sp-brand{font-family:var(--f-disp);font-size:18px;font-weight:700;color:var(--pink)} .sp-brand span{color:var(--ink)}
-  .sp-tab{height:44px;padding:0 14px;border-radius:9px;border:1px solid #4f2846;background:transparent;color:var(--mut);font:inherit;font-size:14px;cursor:pointer}
-  .sp-tab.on{background:var(--pink);border-color:var(--pink);color:#1a0812;font-weight:700}
-  .sp-chips{flex:0 0 auto;display:flex;gap:6px;overflow-x:auto;padding:8px 12px;border-bottom:1px solid var(--edge);scrollbar-width:none}
-  .sp-chips::-webkit-scrollbar{display:none}
-  .sp-chip{flex:0 0 auto;min-width:44px;height:44px;padding:0 12px;border-radius:9px;border:1px solid var(--edge);background:var(--panel2);
-    color:var(--ink);font-family:var(--f-mono);font-size:14px;cursor:pointer;white-space:nowrap}
-  .sp-body{position:relative;flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:12px 14px calc(40px + var(--safe-b))}
-  .sp-cue{max-width:760px;margin:0 auto 22px;padding:0 0 16px;border-bottom:2px solid #4f2846}
-  .sp-cue h3{margin:0 0 4px;font-family:var(--f-disp);font-size:22px;line-height:1.2}
-  .sp-cue h3 .no{font-family:var(--f-mono);font-size:15px;color:var(--pink);margin-right:6px}
-  .sp-where{margin:0 0 8px;font-size:13.5px;color:var(--dim)}
-  .sp-where b{color:var(--pink)} .sp-if{color:var(--pink)}
-  .sp-set{margin:0 0 12px;font-size:15px;line-height:1.5;color:var(--mut)}
-  .sp-npc-cue{padding:10px 0;border-top:1px solid var(--edge)}
-  .sp-npc-cue .vc{font-size:15px;color:var(--ink);opacity:.86;line-height:1.45;margin:0 0 8px}
 </style>
 </head>
 <body>
@@ -510,7 +487,6 @@
   <h1>Dood Mansion</h1>
   <p class="sub">A cue-to-cue prompt book for running the two-night haunt. Read-aloud, beats, checks, hand-overs, reveals and a live soundboard — everything you need to run the moment.</p>
   <button class="go" id="beginBtn">Take the booth &rsaquo;</button>
-  <a class="splink" href="?spencer">Spencer? Open your view &rsaquo;</a>
   <p class="hint">
     <kbd>&larr;</kbd> <kbd>&rarr;</kbd> turn cues &nbsp;·&nbsp; <kbd>1</kbd>&ndash;<kbd>0</kbd> soundboard &nbsp;·&nbsp; <kbd>⇧1</kbd>&ndash;<kbd>⇧9</kbd> this cue's sounds &nbsp;·&nbsp;
     <kbd>f</kbd> full screen &nbsp;·&nbsp; <kbd>d</kbd> roll d20 &nbsp;·&nbsp; <kbd>Esc</kbd> silence / close<br>
@@ -540,18 +516,6 @@
   <div id="stage"></div>
 
   <div id="board"></div>
-</div>
-
-<!-- ================= SPENCER'S VIEW (?spencer) ================= -->
-<div id="spv">
-  <div class="sp-top">
-    <span class="sp-brand">Spencer <span>&middot; voice</span></span>
-    <span class="spacer"></span>
-    <button class="sp-tab on" data-sptab="cue">By cue</button>
-    <button class="sp-tab" data-sptab="npc">By NPC</button>
-  </div>
-  <div class="sp-chips" id="spChips"></div>
-  <div class="sp-body" id="spBody"></div>
 </div>
 
 <div id="dice">
@@ -646,8 +610,7 @@ const SCENES = [
     {g:"iPads &amp; laptop", items:[
       {id:"ipad-charged", t:"<b>Both iPads and the laptop charged</b>, chargers in the bag. Auto-Lock off on both iPads so the screen doesn't sleep mid-scene."},
       {id:"ipad-home", t:"<b>Players' iPad on its home page</b>, items 1&ndash;2. Add to Home Screen done and cache-busted (<code>?v=</code>). Open item 1 and item 2 once to check they load, then back to home."},
-      {id:"laptop", t:"<b>Run of Show open</b>, sound up, soundboard tested (one ambience, one sting). Ticks and the clock reset (bottom of this card)."},
-      {id:"spencer-view", t:"<b>Spencer's view open on his phone</b>: <code>/run/?spencer</code> &mdash; every cue's lines, reveals and NPCs, and a By NPC tab."}]},
+      {id:"laptop", t:"<b>Run of Show open</b>, sound up, soundboard tested (one ambience, one sting). Ticks and the clock reset (bottom of this card)."}]},
     {g:"Print run", items:[
       {id:"print", t:"<b>Print run picked up and cut</b> (<code>/print/</code>): invites, backstory cards, Russ's card, the badge, the willow's tag, the concert tickets, Yobo's two cards, battle tokens, the deed, the survey, the settlement, Orlok's ledger, the DJ poster, character sheets, the combat cheat sheet."},
       {id:"photo", t:"<b>The photograph</b>: a Staples 4&times;6 photo print of <code>print/photo-4x6.jpg</code>, glossy or lustre. Same-day at most stores."},
@@ -661,15 +624,14 @@ const SCENES = [
     {g:"At the table, before play", items:[
       {id:"hand-backstory", t:"<b>&#9995; Backstory cards handed out</b>, one per player."},
       {id:"hand-reqcard", t:"<b>&#9995; Russ's requirements card</b> (printed) to Cody."},
-      {id:"spencer", t:"<b>Spencer briefed</b>: his pink zone on every cue, or his phone view."}]}
+      {id:"spencer", t:"<b>Spencer briefed</b>: his pink zone on every cue."}]}
   ],
   spBrief:[
     "<b>Your zone is the pink one on the right</b>, on every cue.",
     "<b>Lines</b> at the top are yours to say. <b>IF blocks</b> (dashed) only play if their condition happened.",
     "Each <b>NPC</b> has a one-line voicing. A <b>🔓 Reveal</b> under an NPC is something they let slip, or something they learn and react to.",
     "Scott narrates, runs checks and the enemy turns; you voice everyone else.",
-    "<b>Handoff:</b> when Scott says an NPC's name and looks at you, you're on. Tap the table when a moment needs a roll or a check, and Scott takes it. <span class='ai'>🟡</span>",
-    "<b>On your phone:</b> <code>/run/?spencer</code> has every cue's lines in one scroll, plus a By NPC tab. Scott calls the cue number; jump to it from the chips at the top."
+    "<b>Handoff:</b> when Scott says an NPC's name and looks at you, you're on. Tap the table when a moment needs a roll or a check, and Scott takes it. <span class='ai'>🟡</span>"
   ],
   pace:[
     "<b>Phones away</b>, snacks out, sheets and dice in front of everyone. The Saturday clock starts when you open cue 1.",
@@ -1002,7 +964,7 @@ const SCENES = [
       {id:"sun-props", t:"<b>Sticky note and survey</b> not out yet? They go to the first rooms they search today."},
       {id:"sun-poster", t:"<b>DJ poster</b> still on the AIM-room door."},
       {id:"sun-ipad", t:"<b>Players' iPad</b> charged and on its home page. Nothing on it until the AIM room."},
-      {id:"sun-spencer", t:"<b>Spencer</b> on cue 10 in his view."}]},
+      {id:"sun-spencer", t:"<b>Spencer</b> on cue 10 in his pink zone."}]},
     {g:"Open the day", items:[
       {id:"sun-clock", t:"<b>Clock restarted</b> for Sunday (button below)."},
       {id:"sun-recap", t:"<b>Recap</b>: ask a player where they left off. Last thing they saw: a screen in the house typed <i>&ldquo;is someone there&rdquo;</i> and went dark."}]}
@@ -2143,60 +2105,6 @@ document.addEventListener("keydown",e=>{
       break;
   }
 });
-
-/* ===================================================================== */
-/* ======================= SPENCER'S VIEW (?spencer) ==================== */
-/* ===================================================================== */
-/* For his phone: every cue's lines, IF blocks, NPCs and reveals in one scroll, or regrouped
-   by NPC. Built from the same SCENES data as his pink zone. No audio, no splash. */
-const PC_LINE = /^(Gnomey|Bix|Yobo|Russ|Simone)(,|$)/;           // a PC's own line, not Spencer's
-const ALIAS = {"Poe Boy's mother":"Poe Boy's parents"};
-const speaker = who => { const n=who.split("·")[0].replace(/\s*\(.*?\)\s*/g," ").trim(); return ALIAS[n]||n; };
-let spTab = "cue";
-function spCueHTML(){
-  const live = SCENES.map((s,i)=>({s,i})).filter(({s})=>(!s.checklist || s.spBrief) && !s.levelup);
-  $("#spChips").innerHTML = live.map(({s,i})=>`<button class="sp-chip" data-spgo="${i}">${s.checklist?"Brief":s.no}</button>`).join("");
-  return live.map(({s,i})=>{
-    const zone = spZone(s), react = (s.rev||[]).filter(r=>r.by==="scott");
-    if(s.checklist) return `<section class="sp-cue" id="sp-${i}"><h3>Your briefing</h3>${zone}</section>`;
-    return `<section class="sp-cue" id="sp-${i}"><h3><span class="no">${noLabel(s)}</span> ${s.title}</h3>`+
-      (s.where?`<p class="sp-where">${s.where}</p>`:"")+
-      (s.setting?`<p class="sp-set">${s.setting}</p>`:"")+
-      (zone || `<p class="zempty">Scott's scene. Nothing to voice.</p>`)+
-      (react.length?revBlock(react,"🔓 Scott delivers &middot; you react"):"")+`</section>`;
-  }).join("");
-}
-function spNpcHTML(){
-  const map = new Map();
-  const add = (name,i,part) => { if(PC_LINE.test(name)) return;
-    if(!map.has(name)) map.set(name,new Map()); const m=map.get(name);
-    if(!m.has(i)) m.set(i,{vc:"",lines:[],revs:[]}); part(m.get(i)); };
-  SCENES.forEach((s,i)=>{
-    (s.npcs||[]).forEach(n=>add(speaker(n.nm),i,o=>{ o.vc=n.vc; o.revs=(s.rev||[]).filter(r=>r.by===n.nm); }));
-    (s.talk||[]).forEach(l=>add(speaker(l.who),i,o=>o.lines.push(l)));
-    if(s.ifblock) s.ifblock.lines.forEach(l=>add(speaker(l.who),i,o=>{ o.lines.push(l); o.cond=s.ifblock.when; }));
-  });
-  $("#spChips").innerHTML = [...map.keys()].map((n,k)=>`<button class="sp-chip" data-spnpc="${k}">${n}</button>`).join("");
-  return [...map.entries()].map(([name,cues],k)=>`<section class="sp-cue" id="spn-${k}"><h3>${name}</h3>`+
-    [...cues.entries()].map(([i,o])=>`<div class="sp-npc-cue"><p class="sp-where"><b>${noLabel(SCENES[i])}</b> &middot; ${SCENES[i].title}${o.cond?` &middot; <span class="sp-if">${o.cond}</span>`:""}</p>`+
-      (o.vc?`<p class="vc">${o.vc}</p>`:"")+
-      (o.lines.length?`<div class="talk">${o.lines.map(l=>`<p><span class="who">${l.who}</span>${l.t}</p>`).join("")}</div>`:"")+
-      (o.revs.length?`<div class="npc-revs">${o.revs.map(revRow).join("")}</div>`:"")+`</div>`).join("")+`</section>`).join("");
-}
-function spRender(){
-  $("#spBody").innerHTML = spTab==="cue" ? spCueHTML() : spNpcHTML();
-  $("#spBody").scrollTop = 0;
-  document.querySelectorAll(".sp-tab").forEach(b=>b.classList.toggle("on",b.dataset.sptab===spTab));
-}
-function spBegin(){
-  $("#splash").style.display="none"; $("#spv").classList.add("on");
-  document.title = "Dood Mansion — Spencer";
-  spRender();
-  document.querySelectorAll(".sp-tab").forEach(b=>b.addEventListener("click",()=>{ spTab=b.dataset.sptab; spRender(); }));
-  $("#spChips").addEventListener("click",e=>{ const c=e.target.closest("[data-spgo],[data-spnpc]"); if(!c) return;
-    const el=$(c.dataset.spgo!==undefined?"#sp-"+c.dataset.spgo:"#spn-"+c.dataset.spnpc); if(el) $("#spBody").scrollTop = el.offsetTop - 8; });
-}
-if(new URLSearchParams(location.search).has("spencer")) spBegin();
 
 // block pinch-zoom & rubber-band
 document.addEventListener("touchmove",e=>{ if(e.scale && e.scale!==1) e.preventDefault(); },{passive:false});

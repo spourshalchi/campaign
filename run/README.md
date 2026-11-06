@@ -64,11 +64,6 @@ day's cues: done, here, to come.
 Each cue's Rescues also carry **⏱ Behind** (what to compress) and **⏱ Ahead** (what to stretch); the
 clock lights up whichever applies.
 
-### Spencer's view
-`/run/?spencer` (or the link on the splash) opens a phone view with no audio: every cue's lines, IF
-blocks, NPCs and reveals in one scroll with jump chips, and a **By NPC** tab that regroups everything
-each NPC says and reveals across the weekend.
-
 ## Controls
 
 | Key | Does |

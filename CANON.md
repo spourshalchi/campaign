@@ -946,6 +946,7 @@ transitions above it binds nobody, but it's listed so the review queue can see i
 - **Opening the table** (card zero): each player introduces their character before cue 1.
 - **The Scott–Spencer handoff signal** (card zero, Spencer's briefing).
 - **The Index button and its run sheet are out of the top bar, and "Full" reads "Full screen"** (`Scott, 2026-11-06`).
+- **Spencer's phone view (`/run/?spencer`, By NPC) is removed; his content stays in the pink zone on the one Run of Show** (`Scott, 2026-11-06`).
 - **Less to maintain, information in the scene** (`Scott, 2026-11-06`). The Props tab and its tracker, the whole Kit (Party,
   Cast, Rules, Notes and Improv tabs), the rules summary, the AC / HP / passive Perception boxes and the spotlight ticks are gone.
   Scott's note on Improv read "we need anyhting in the improv tab", taken as "we don't need anything": the spare rooms
