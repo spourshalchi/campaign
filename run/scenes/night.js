@@ -30,7 +30,6 @@ SCENES.push(
     {do:"The voices move off. Turn them loose to move through the house."},
     {check:{skill:"Stealth", dc:"13", note:"<b>Call it</b> as they move through the house, as often as you like, until someone rolls badly."}},
     {check:{skill:"Perception", dc:"12", note:"<b>Call it</b> when they take the stairs. <b>Success:</b> a small mic taped to the rail, its cable running into the wall."}},
-    {do:"Somewhere in there, Bix catches <b>Edward glimmering</b> in the moonlight, watching him."},
     {note:"If they reach the locked door at the end of the upstairs hall, narrate the DJ poster (the first read-aloud on cue 13). That's as far as they get."},
     {snd:["steps","swoop","jump","braaam"], t:"Dracula"},
     {do:"<b>Someone rolls badly: Dracula swoops</b>, on whoever missed the hide if anyone did. Describe the vampires grabbing and shoving the party around, with no damage. <b>Spencer's turn:</b> Dracula's taunts."},
@@ -68,7 +67,7 @@ SCENES.push(
     {nm:"Edward", pts:[
       {at:"Overheard, while they hide"},
       {t:"Point out that one of them is a child, after Dracula's &ldquo;learning to count.&rdquo;", say:"One of them is a child."},
-      {at:"While they explore", gap:"Scott narrates Bix catching you in the moonlight, nothing for you."},
+      {at:"While they explore", gap:"Scott runs it, nothing for you."},
       {at:"The swoop"},
       "Watch Bix and leave the grabbing to the others.",
       "Refuse to approach anyone or answer them."
@@ -103,7 +102,7 @@ SCENES.push(
   steps:[
     {snd:["creak","drone","heart"]},
     {say:"The upper floors in the dark: long corridors, doors that won't open, floorboards that answer every step. Every so often, at the end of a hall or in a doorway you've just passed, the same pale figure is standing very still.", who:"Setting"},
-    {do:"Let them explore. <b>They catch Edward watching them</b>, and it's Bix he's looking at. If they speak to him, he doesn't answer."},
+    {do:"Let them explore. <b>They catch Edward watching them</b>, glimmering in the moonlight from a window, and it's Bix he's looking at. If they speak to him, he doesn't answer."},
     {say:"You're looking for a way out. Everyone roll Investigation.", who:"The look-around"},
     {check:{skill:"Investigation", dc:"12", note:"<b>Call it</b> as the look-around, everyone rolls. <b>Success:</b> the site survey. <b>Miss:</b> the highest roll finds it anyway."}},
     {hand:"survey", do:"&#9995; <b>The printed survey</b>, to whoever finds it: on a table in a room off the hall, among the vampires' things."},
