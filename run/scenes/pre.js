@@ -59,7 +59,7 @@ const SCENES = [
       {id:"sticky-made", t:"<b>Sticky note</b> <code>Fluffy123</code>, handwritten. <b>The wishing willow</b>, handmade, with its tag tied on."}
     ]},
     {g:"The room", items:[
-      {id:"table", t:"<b>At the table</b>: character sheets, dice, battle map, the token bag sorted by fight (library, summoning, finale, reserve)."},
+      {id:"table", t:"<b>At the table</b>: character sheets, dice, battle map, the token bag sorted by fight (library, summoning, finale)."},
       {id:"seat", t:"<b>Your seat</b>: Run of Show in front of you, the props bag at your feet in the order below, the hidden three (deed, tickets, badge) in a separate envelope."}
     ]},
     {g:"Props bag &middot; packed in hand-over order", pack:true},
