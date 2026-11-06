@@ -3,7 +3,7 @@
    After editing, bump this file's ?v= on its script tag in run/index.html. */
 SCENES.push(
 
-{ act:"finale", no:"14 · i", title:"The developer", where:"The ballroom · 3AM · step 1 of 2: save the vampires · the only lethal fight",
+{ act:"finale", no:"14 · i", title:"The developer", where:"Step 1 of 2: save the vampires",
   steps:[
     {snd:["set","crowd"]},
     {say:"3AM, and the house is suddenly full of people. The ballroom is rigged as a stage: decks on the dais, cables run off into the walls, lights swinging over a crowd still pouring in, every face turned up and smiling. And on the decks, Poe Boy, playing your screams to all of them.", who:"Setting"},
@@ -23,7 +23,7 @@ SCENES.push(
     {say:"The seal goes. Three vampires get up, and it's over fast for the men nearest them. Anyone else in a hard hat lets go of his crowbar.", who:"Then the seal breaks"},
     {end:"when the seal breaks and the vampires are on their feet."}
   ],
-  next:"Silence, then the seal breaks. Then the booth card.", go:["14 · ii"],
+  next:"Straight to the booth.", go:["14 · ii"],
   talk:[
     {who:"DJ Poe Boy · on the mic, radio-ad voice", t:"Caller number one, Bix Grimlor, you're on the air!"},
     {who:"DJ Poe Boy · the rest, same voice", t:"Gnomey Soprano! Yobo! Russ! Simone! Stay tuned!"},
@@ -41,7 +41,7 @@ SCENES.push(
   ],
   cues:["set","crowd","pa","jump","braaam"] },
 
-{ act:"finale", no:"14 · ii", title:"The booth", where:"The ballroom decks · step 2 of 2: get Poe Boy · badge req 3 if it hasn't landed",
+{ act:"finale", no:"14 · ii", title:"The booth", where:"Step 2 of 2: get Poe Boy",
   steps:[
     {snd:["set","crowd"]},
     {say:"The developer is down. The crowd is still swaying, still smiling, and up on the decks Poe Boy and Lil Stinky aren't letting anyone near the aux.", who:"Setting"},
@@ -55,7 +55,6 @@ SCENES.push(
     {snd:["scratch"], t:"The USB hits the decks"},
     {snd:["hiss"], t:"Under the recording"},
     {say:"His set cuts out mid-scream. Then typing. A door shuts. Then a scared kid, asking someone to open it. Asking again, quieter. And under all of it, perfectly calm, Poe Boy: nudging a level up, leaning in close to listen, pleased with how clean it sounds.", who:"When the USB hits the decks · narrate the recording"},
-    {note:"There's no file to play. It's your voice."},
     {say:"The speakers hiss. Nobody in the ballroom moves.", who:"Then let it sit"},
     {say:"The light goes out of Lil Stinky's sword. He turns around and looks at his best friend.", who:"Lil Stinky's oath breaks"},
     {note:"<b>No save.</b> Don't put this on a d20.", k:"rule"},
@@ -66,9 +65,9 @@ SCENES.push(
     {do:"<b>Spencer's turn:</b> Dracula seizes the mic. Poe Boy's Command stops landing."},
     {do:"Stinky and Angelique go for Poe Boy, and the party takes him down. <b>At 0 HP he's knocked out, not killed.</b>"},
     {say:"It runs on into the early morning. By the end, the ballroom windows have gone grey.", who:"On the last turn"},
-    {end:"on the fight running into the early morning. Cut to the driveway at sunrise."}
+    {end:"on the fight running into the early morning."}
   ],
-  next:"It runs into the early morning, then the driveway at sunrise: cue 15.", go:["15"],
+  next:"Cut to the driveway at sunrise.", go:["15"],
   talk:[
     {who:"Orlok · to the party, after the silence", t:"What's on the drive?"},
     {who:"Orlok · if nobody raises the drive", t:"You came down those stairs running. What did you find up there?"},
@@ -99,7 +98,7 @@ SCENES.push(
   ],
   cues:["set","crowd","scratch","hiss","boo","braaam"] },
 
-{ act:"finale", no:15, title:"The driveway", where:"Dood Mansion · sunrise · one scene, everyone arrives",
+{ act:"finale", no:15, title:"The driveway", where:"",
   steps:[
     {snd:["dawn","crowd"]},
     {say:"Sunrise on the lawn. The crowd is still milling about in last night's costumes, the vampires keep to the shade of the porch, and in daylight the house looks almost like a house again.", who:"Setting"},
@@ -115,9 +114,9 @@ SCENES.push(
     {hand:"deed", do:"<b>Spencer's turn:</b> Vinny and the deed."},
     {do:"Let Julia say it: <i>&ldquo;This is my house.&rdquo;</i> <b>Spencer's turn:</b> Orlok confirms it. Then Julia: <i>&ldquo;You can stay.&rdquo;</i>"},
     {do:"<b>Spencer's turn:</b> Edward explains himself to Bix. <b>No jokes.</b>"},
-    {end:"after Edward. Let it sit, then cut to class."}
+    {end:"after Edward. Let it sit."}
   ],
-  next:"After Edward, let it sit. Cut to class.", go:["16"],
+  next:"Cut to class.", go:["16"],
   talk:[
     {who:"Poe Boy's mother · finding him", t:"Upton, honey?"},
     {who:"Poe Boy's mother", t:"We've been wondering where you've been."},
@@ -143,7 +142,7 @@ SCENES.push(
   ],
   cues:["dawn","crowd","car","levelup"] },
 
-{ act:"finale", no:16, title:"Back to class", where:"The bookend",
+{ act:"finale", no:16, title:"Back to class", where:"",
   steps:[
     {snd:["class"]},
     {say:"The same history classroom, the same clanking radiators. The five of you at the front, scraped and bruised, a black eye or two between you.", who:"Setting"},
@@ -151,9 +150,9 @@ SCENES.push(
     {note:"<b>Play them battered.</b>"},
     {do:"Let a player deliver it: <i>&ldquo;&hellip;and yeah that was our class project.&rdquo;</i> Nobody in class reacts."},
     {do:"<b>The closers</b>: Stinky's diss track, the mall breaking ground in Amityville, and, if Simone paid the goat, Marcus helping people find books on the library computers."},
-    {end:"on the room not reacting. This is the end. Breathe."}
+    {end:"on the room not reacting."}
   ],
-  next:"The end. Breathe.",
+  next:"The end.",
   npcs:[],
   cues:["class"] }
 
