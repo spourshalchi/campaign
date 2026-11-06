@@ -158,11 +158,11 @@ SCENES.push(
   steps:[
     {snd:["class"]},
     {say:"The same history classroom, the same clanking radiators. The five of you at the front, scraped and bruised, a black eye or two between you.", who:"Setting"},
-    {do:"They present the project. <b>Nothing to show:</b> there were plenty of witnesses."},
-    {note:"The real-estate company is <b>scared off the land</b>, and they present in class &mdash; closing scene one's loop. <b>Play them battered.</b> Nobody in class reacts."},
-    {do:"Let a player deliver it: <i>&ldquo;&hellip;and yeah that was our class project.&rdquo;</i> Nobody reacts."},
+    {do:"They present the project. <b>They don't have to show the tape or an artifact:</b> there were plenty of witnesses."},
+    {note:"The real-estate company is <b>scared off the land</b>. <b>Play them battered.</b>"},
+    {do:"Let a player deliver it: <i>&ldquo;&hellip;and yeah that was our class project.&rdquo;</i> Nobody in class reacts."},
     {do:"<b>The closers</b>: Stinky's diss track, the mall breaking ground in Amityville, and, if Simone paid the goat, Marcus helping people find books on the library computers."},
-    {note:"Gnomey leads the gang and fronts for the vampires as the one who can stand in daylight. He takes no rent and asks nothing &mdash; same as Vinny."},
+    {note:"Gnomey leads the gang and fronts for the vampires as the one who can stand in daylight. He takes no rent and asks nothing, same as Vinny."},
     {end:"on the room not reacting. This is the end. Breathe."}
   ],
   next:"The end. Breathe.",
