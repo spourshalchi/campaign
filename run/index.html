@@ -139,11 +139,6 @@
   @media(max-width:699px){.zones{grid-template-columns:1fr}}
 
   /* Spencer's dialogue script */
-  .talk{background:radial-gradient(120% 120% at 50% 0%,#1d0f1a,#0f080d);border:1px solid #4f2846;border-radius:12px;
-    padding:12px 14px;margin-bottom:14px}
-  .talk p{margin:0 0 9px;font-family:var(--f-disp);font-size:17px;line-height:1.45;color:#ffd6ee}
-  .talk p:last-child{margin-bottom:0}
-  .talk .who{display:block;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;color:var(--pink);text-transform:uppercase}
 
   /* card zero checklist */
   .prep{margin:0 0 16px;padding:10px 12px 12px;border:1px solid #5a4520;border-radius:12px;background:#17130b}
@@ -183,23 +178,18 @@
   .net .nk{flex:0 0 auto;font-weight:800;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--blue);white-space:nowrap}
   .net.bk{background:rgba(162,121,245,.08);border-color:var(--purple)}
   .net.bk .nk{color:var(--purple)}
-  .net + .revs{margin-top:6px}
   /* Spencer's IF block */
   .ifb{border:2px dashed var(--pink);border-radius:12px;padding:10px 12px;margin:0 0 14px;background:rgba(236,122,192,.05)}
   .ifb .ifw{margin:0 0 4px;font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--pink)}
   .ifb .ifs{margin:0 0 8px;font-size:14.5px;color:var(--ink)}
-  .ifb .talk{margin-bottom:8px}
   .ifb .ifo{margin:0;font-size:14px;color:var(--mut)}
 
   /* 🔓 reveals */
-  .revs{margin:0 0 14px}
-  .revs .rh{margin:0 0 6px;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
   .rev{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;line-height:1.45;color:var(--ink);
     background:rgba(84,200,148,.08);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:7px 10px;margin-bottom:6px}
   .rev .rk{flex:0 0 auto}
   .rev .rt{flex:1;min-width:0}
   .rev .rt b{color:var(--green)}
-  .npc-revs{margin-top:8px}
 
   /* teleprompter read box */
   .read{position:relative;background:
@@ -269,10 +259,6 @@
   .check .cn b{color:var(--ink)}
 
 
-  .npc{padding:10px 0;border-top:1px solid var(--edge)}
-  .zone .npc:first-of-type{border-top:none}
-  .npc .nm{font-size:16px;font-weight:700;color:var(--pink)}
-  .npc .vc{font-size:14.5px;color:var(--ink);opacity:.86;line-height:1.45;margin-top:2px}
 
   ul.rem{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
   ul.rem li{position:relative;padding-left:24px;font-size:14px;line-height:1.45;color:var(--mut)}
@@ -381,11 +367,17 @@
   .wrap{margin:0 0 16px;padding:10px 12px 12px;border:2px solid var(--gold);border-radius:12px;background:rgba(231,181,63,.07)}
   .wl{margin:0 0 6px;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
   .wl.nx{margin-top:0;color:var(--ink)}
-  .pts{margin:0 0 12px;padding:10px 12px;border:2px solid var(--pink);border-radius:12px;background:rgba(240,120,190,.07)}
-  .pts-n{margin:0 0 6px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--pink)}
-  .pts ol{margin:0;padding:0 0 0 22px;font-size:15.5px;line-height:1.45;color:var(--ink)}
-  .pts li{margin-bottom:4px}
-  .pts ul{margin:4px 0 2px;padding:0 0 0 18px;font-size:14.5px;list-style:disc}
+  /* Spencer's card: who, then what to say in order */
+  .spc{margin:0 0 12px;padding:12px 14px;border:1px solid #4f2846;border-radius:12px;background:rgba(240,120,190,.05)}
+  .spc-n{margin:0;font-family:var(--f-disp);font-size:24px;font-weight:700;line-height:1.15;color:var(--pink)}
+  .spc-v{margin:3px 0 0;font-size:14.5px;line-height:1.4;color:var(--mut)}
+  .spc-l{margin:10px 0 0;padding:0 0 0 24px;font-size:16px;line-height:1.45;color:var(--ink)}
+  .spc-l > li{margin-bottom:9px} .spc-l > li:last-child{margin-bottom:0}
+  .spc-l ul{margin:4px 0 2px;padding:0 0 0 18px;font-size:15px;list-style:disc}
+  .spc-say{display:block;margin-top:4px;padding-left:10px;border-left:2px solid var(--pink);font-family:var(--f-disp);font-size:17px;line-height:1.4;color:#ffd6ee}
+  .spc-say i{display:block;font-family:var(--f-mono);font-style:normal;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--pink)}
+  .spc-r{margin:9px 0 0;font-size:14px;line-height:1.4;color:var(--mut)} .spc-r b{color:var(--ink)}
+  .spc .ifb{margin:10px 0 0}
   .wn{margin:0;font-size:15px;line-height:1.45;color:var(--ink)}
   .gos{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
   .gobtn{min-height:44px;padding:6px 14px;border-radius:9px;border:1px solid var(--gold);background:#2a2210;color:#ffe9b8;
@@ -528,25 +520,35 @@ function roomsLine(){
 
 /* Spencer's zone: dialogue, then each NPC with voicing and what they reveal */
 const revRow = r => `<div class="rev"><span class="rk">🔓</span><span class="rt"><b>${r.who}</b> ${r.t}</span></div>`;
-const revBlock = (list,label) => list.length ?
-  `<div class="revs"><p class="rh">${label||"🔓 Reveals"}</p>${list.map(revRow).join("")}</div>` : "";
+/* Spencer's panel: one card per person. Name, who they are, then what to say in order, with each sample line
+   on its point. A point is a string or {t, say}; lines in talk and fight.lines find their person from "Name · when",
+   and their point by shared words, so {t, say} is only needed to place one by hand. */
+const SP_ALIAS = {"Poe Boy's mother":"Poe Boy's parents", "The fox":"The patients"};
+const spName = nm => nm.replace(/\s*\(.*?\)\s*/g," ").trim();
+const spWho = who => { const [a,...r]=who.split("·"), [n,...c]=a.split(","), nm=spName(n);
+  return {nm:SP_ALIAS[nm]||nm, ctx:[c.join(",").trim(),...r.map(x=>x.trim())].filter(Boolean).join(" · ")}; };
+const SP_STOP = new Set("the and that this with your you they them their have from what when then into about for are was his her him she not but who all".split(" "));
+const spWords = t => new Set((t.replace(/<[^>]+>|&\w+;/g," ").toLowerCase().match(/[a-z']{3,}/g)||[]).filter(w=>!SP_STOP.has(w)).map(w=>w.slice(0,5)));
 function spZone(s){
-  const revs=s.rev||[], npcNames=(s.npcs||[]).map(n=>n.nm);
-  // what each NPC has to get across, in order, above the lines and voice notes
-  const withPts=(s.npcs||[]).filter(n=>n.pts);
-  let h = withPts.map(n=>`<div class="pts"><p class="pts-n">${n.nm}</p><ol>${n.pts.map(p=>`<li>${p}</li>`).join("")}</ol></div>`).join("");
-  h += revBlock(revs.filter(r=>r.by!=="scott" && !npcNames.includes(r.by)));
-  const said = (s.talk||[]).concat((s.fight&&s.fight.lines)||[]);
-  if(said.length) h += `<div class="talk">` + said.map(l=>`<p><span class="who">${l.who}</span>${l.t}</p>`).join("") + `</div>`;
-  if(s.spBrief) h += `<div class="block"><p class="h">Spencer's briefing</p><ul class="rem">${s.spBrief.map(b=>`<li>${b}</li>`).join("")}</ul></div>`;
-  if(s.ifblock){ const b=s.ifblock;
-    h += `<div class="ifb"><p class="ifw">${b.when}</p><p class="ifs">${b.say}</p>` +
-      `<div class="talk">${b.lines.map(l=>`<p><span class="who">${l.who}</span>${l.t}</p>`).join("")}</div>` +
-      (b.otherwise?`<p class="ifo">${b.otherwise}</p>`:"") + `</div>`; }
-  (s.npcs||[]).forEach(n=>{ const mine=revs.filter(r=>r.by===n.nm);
-    h += `<div class="npc"><div class="nm">${n.nm}</div><div class="vc">${n.vc}</div>` +
-      (mine.length?`<div class="npc-revs">${mine.map(revRow).join("")}</div>`:"") + `</div>`; });
-  return h;
+  const cards=new Map();
+  const card = nm => { if(!cards.has(nm)) cards.set(nm,{nm,items:[],ifs:[],revs:[]}); return cards.get(nm); };
+  (s.npcs||[]).forEach(n=>{ const c=card(spName(n.nm)); c.vc=n.vc;
+    c.items=(n.pts||[]).map(p=>typeof p==="string"?{t:p,lines:[]}:{t:p.t,lines:p.say?[].concat(p.say).map(l=>({t:l})):[]}); });
+  // sample lines: onto the point they share the most words with, otherwise their own step, in scene order
+  (s.talk||[]).concat((s.fight&&s.fight.lines)||[]).forEach(l=>{ const {nm,ctx}=spWho(l.who), c=card(nm), w=spWords(l.t+" "+ctx);
+    let best=null, top=1; c.items.filter(it=>it.t).forEach(it=>{ const pw=spWords(it.t); let n=0; w.forEach(x=>{ if(pw.has(x)) n++; }); if(n>top){ top=n; best=it; } });
+    if(best) best.lines.push({t:l.t,ctx}); else c.items.push({lines:[{t:l.t,ctx}]}); });
+  // reveals land in the card of whoever delivers them; "spencer" means whoever the text names, or the scene
+  (s.rev||[]).filter(r=>r.by!=="scott").forEach(r=>{ const by=spWho(r.by).nm;
+    const nm = by.toLowerCase()!=="spencer" ? by : ([...cards.keys()].find(k=>r.t.includes(k))||"In this scene");
+    card(nm).revs.push(r); });
+  if(s.ifblock){ const b=s.ifblock; card(spWho(b.lines[0].who).nm).ifs.push(b); }
+  const say = l => `<span class="spc-say">${l.ctx?`<i>${l.ctx}</i>`:""}${l.t}</span>`;
+  const list = its => its.length?`<ol class="spc-l">${its.map(it=>`<li>${it.t||""}${it.lines.map(say).join("")}</li>`).join("")}</ol>`:"";
+  const brief = s.spBrief?`<div class="block"><p class="h">Spencer's briefing</p><ul class="rem">${s.spBrief.map(b=>`<li>${b}</li>`).join("")}</ul></div>`:"";
+  return brief+[...cards.values()].map(c=>`<div class="spc"><p class="spc-n">${c.nm}</p>`+(c.vc?`<p class="spc-v">${c.vc}</p>`:"")+list(c.items)+
+    c.ifs.map(b=>`<div class="ifb"><p class="ifw">${b.when}</p><p class="ifs">${b.say}</p>`+list(b.lines.map(l=>({lines:[{t:l.t,ctx:spWho(l.who).ctx}]})))+(b.otherwise?`<p class="ifo">${b.otherwise}</p>`:"")+`</div>`).join("")+
+    c.revs.map(r=>`<p class="spc-r"><b>${r.who}</b> ${r.t}</p>`).join("")+`</div>`).join("");
 }
 
 function render(i){
