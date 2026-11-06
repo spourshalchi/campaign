@@ -1,7 +1,6 @@
 # Torn Page — The Transyltown Crier
 
-> Every name, date and rumour in the 1937 paper is this prop's invention. It leans on: Cornelis Dood (= Orlok) built the house and lived alone in forty rooms; Columbia County;
-> the Frisian slaying-method folklore (Sesh 2).
+> Every name, date and rumour in the 1937 paper is this prop's invention. It leans on: Cornelis Dood (= Orlok) built the house and lived alone in forty rooms; Columbia County.
 
 The party's in-town research stop. A torn front page from the library's bound
 volumes: assemble it against the clock, then flip it to read page 2.
@@ -50,10 +49,6 @@ the site. A stigmatized property is a liability, so he made the article
 unrecoverable rather than argue with it. He can walk into a records hall in
 daylight, which the vampires cannot, and he almost certainly doesn't believe a word
 of what he destroyed.
-
-The irony is worth playing: he cut up the one page carrying the method for
-destroying the vampires, so the company trying to take the house has been
-protecting its tenants the entire time.
 
 None of that is in the prop. The players just watch a book try to eat itself.
 
@@ -147,7 +142,7 @@ the house; none is explained on the page.
 | Front | The late Cornelis Dood built it and lived alone with forty rooms; it is kept up and nobody is paid to keep it | Orlok |
 | Page 2 | The hill road's talk: no shutter opened by day, one lit window, gramophone music and a party on summer nights, trucks up the hill after midnight in the dry years | the sun; the party room; Vinny and the cellar |
 | Page 2 | A beagle home with its broken leg splinted in clean linen; hens with two small marks that go on laying | Orlok's clinic |
-| Page 2 | **"From a Reader":** a grandmother's Frisian tale with the slaying method (splinter in the lid over the heart, nail it, rebury), plus the A/B diagram | the misdirection: the house points at the vampires (Scott, 3 Nov) |
+| Page 2 | **"Van Wyck's Oldest Account":** a standing order left at the gate four times a year (lamp oil, candles, nails, putty, white lead, carbolic soap), paid from a tin on the gatepost, partly in old silver; nobody ever seen | the kept-up house; Orlok's clinic |
 | Page 2 | Four small ads, one of them the lost hat | texture |
 | Pocket | The checkout card — `V. Soprano` 1938, Poe Boy's real name, W. Ostrander | Gnomey's tie; the driveway |
 
@@ -163,7 +158,7 @@ names on page 2 are in the `<template>` in `index.html`.
 - **Sheriff Corwin Stade.**
 - **Pieter Hoeck** — shares a surname with `E. Hoeck` on the checkout card.
 - **Mrs. Dekker** — her hens on page 2, her pullets in the FOR SALE ad.
-- **Mrs. H. de Bruin** — the letter writer; nods to Sesh 2's skipper, Steven de Bruin.
+- **Mr. Van Wyck** — the merchant in the notice; his hardware store is in the ads too.
 
 ## The Records Keeper
 

@@ -188,7 +188,7 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 | **The early-entry time is 8PM** — the time on Spencer's card. Five kids have the house for **seven hours** before the 3AM show | Scott, 2026-11-04 · not in doc |
 | **At the gazebo Poe Boy says he's been up there once**, with a shrug, and nothing else. He plays it cool about the cards. **The "once" is a lie, and the lie is the clue:** ~~later they find his gear, the ballroom stage and his old rig upstairs, and realise he's been here plenty~~ the DJ poster on the AIM door and his voice on the speakers give it away | Scott, 3 Nov; moved: Scott, 2026-11-06 |
 | **Poe Boy is revealed as the host** when they find the ballroom setup and when his voice comes over the speakers at 3AM — plus the DJ poster on the AIM door | Scott, 3 Nov |
-| **Design intent: a mystery that points the wrong way.** The players may half-suspect Poe Boy, and that's fine. The house then points everything at the vampires — the bolted doors, Angelique pulling them into hiding, the overheard *"Five. He said five…"*, Dracula's grab, Orlok's *"We'll find you when we're ready"*, Edward watching Bix, the library's coffin lore, the "food stash". The reveal — the clinic, Marcus saying a person did it, the recording — recasts *"he said five"* as Poe Boy | Scott, 3 Nov |
+| **Design intent: a mystery that points the wrong way.** The players may half-suspect Poe Boy, and that's fine. The house then points everything at the vampires — the bolted doors, Angelique pulling them into hiding, the overheard *"Five. He said five…"*, Dracula's grab, Orlok's *"We'll find you when we're ready"*, Edward watching Bix, ~~the library's coffin lore~~ (cut, Scott, 2026-11-06), the "food stash". The reveal — the clinic, Marcus saying a person did it, the recording — recasts *"he said five"* as Poe Boy | Scott, 3 Nov |
 | **Why the VIP card works:** the five missed the senior-skip-day memo and feel lame, and being on a VIP list salvages the day. It's also Poe Boy's lure — who turns down VIP? He wants them alone for seven hours (8PM card; Scott, 2026-11-04) to record real screams | Scott, 3 Nov |
 | At first contact the party may take the vampires for **costumed party entertainment** — *"is this part of the party?"* | Scott, 3 Nov |
 | **The vampires think the concert is part of their plan.** The five VIPs are ~~the **warm-up scare**~~ a **rehearsal** (`Scott, 2026-11-06`); the 3AM crowd is the real scare: they come for the music, they leave screaming, the legend spreads and the mall dies. The vampires don't care about the music; **Dracula secretly wants an audience**. Their own scare plan stands | Scott, 3 Nov |
@@ -779,7 +779,7 @@ the story now** — so this counts as in-doc like anything else, not as one pers
 | Claim | Source |
 |---|---|
 | The **fampier** (Friesland): 1973, skipper Steven de Bruin; children on the heath, teeth marks; devil-banisher; wooden splinter in the lid over the heart; nailed shut; howling; reburied | Sesh 2, quoted from Poortinga, *Skaakspul* 258 |
-| Therefore the method: dig up the coffins, stake the heart, rebury | Sesh 2 |
+| ~~Therefore the method: dig up the coffins, stake the heart, rebury~~ — off the Crier and the Run of Show: the party never kills the vampires, and Scott doesn't like the letter that carried it | Sesh 2; cut: Scott, 2026-11-06 |
 | Frisian Kingdom texture — Frisii, Zuiderzee, Kennemerland, Malorix & Verritus, Nero, 58 AD | Sesh 2 |
 | ~~The **Gjenganger**~~ — Scandinavian revenant, corporeal, died before its time, vicious up close, spreads decay; prevented by a runic inscription in the coffin. **Retired in Sesh 8** — see the retirement note above | Sesh 2 (*"Up to you if we go with it"*), used in Sesh 6 |
 | The mansion's original owner: never married, no children, isolated, died by his own hand from loneliness. **Reassigned from the Gjenganger to Orlok** | Sesh 6, reassigned by Sesh 8 |
@@ -842,8 +842,11 @@ past *the late* and *built it, alone, forty rooms*, no owner named, and no year 
 Canon it leans on: Orlok is Cornelis Dood, who built the house, never married, alone in forty rooms, and the town
 buried him (Sesh 8; Scott, 31 Aug); Columbia County (the deed and settlement); Vinny's liquor in the cellar until
 repeal (Sesh 8); the vampires live off small animals and Orlok mends them (Sesh 5, 6, 8); locals won't discuss the
-house and lights are seen after dark (the survey); Gnomey's crew daring each other to ring the bell (Sesh 5); the
-fampier tale and its method (Sesh 2) and the library's coffin lore as misdirection (Scott, 3 Nov).
+house and lights are seen after dark (the survey); Gnomey's crew daring each other to ring the bell (Sesh 5).
+
+**Cut (Scott, 2026-11-06):** the "From a Reader" letter from Mrs. H. de Bruin, the Frisian tale, the slaying method and
+the A/B diagram; *"i dont like it at all"*, and the party never kills the vampires. With them went the Run of Show's
+DC 12 method check and the Records Keeper's stalled-jigsaw line about it. Fampier remains in the doc's research table below.
 
 🟡 Invented by the prop, all of it:
 - **The issue:** Thursday 28 October 1937, Vol. LXVII No. 43, *Sixty-Seventh Year*, *Serving Columbia County Since 1871*.
@@ -865,25 +868,24 @@ fampier tale and its method (Sesh 2) and the library's coffin lore as misdirecti
   hill in August with a broken foreleg, home three weeks later splinted in clean linen; **Mrs. Dekker's hens** found
   some mornings with two small marks at the neck, and they go on laying; an unnamed man: *"I don't say it's bad… I'd
   like to keep it that way."*
-- **"From a Reader":** **Mrs. H. de Bruin**, Mill Street (the surname nods to Sesh 2's skipper), retells her Frisian
-  grandmother's tale: sleeping children with teeth marks, a banisher of devils, the sunken ground, the unspoiled body,
-  the splinter in the lid over the heart, nailed shut, reburied, a quarter hour of howling, the children wake. The
-  diagram (A the splinter, B the heart) is *drawn for the Crier from Mrs. de Bruin's description*.
+- **"Van Wyck's Oldest Account":** the Dood place is the oldest account at Van Wyck's Hardware, handed down father to son
+  for three generations. Four times a year the store's man leaves an order at the gate on the hill road: lamp oil, wax
+  candles, cut nails, putty, white lead, carbolic soap. The money waits on the gatepost in a tobacco tin, always right,
+  rising with prices in the War; part of it old silver the bank takes by weight. Nobody has seen who takes the order in.
+  That the fence has a gate is the prop's too.
 - **Ads:** a Reformed Church Hall Hallowe'en social; *LOST, boy's brown felt hat, the Haan farm*; Dekker farm pullets;
   Van Wyck's Hardware.
 - **E. Hoeck** on the checkout card now reads as kin of Pieter Hoeck. R. Ackerman stays texture.
 
 **Echoes, for the DM:** the polite voice and the dinner-jacket man → the vampires' hospitality and Dracula; the
 daylight silence → the developer's unanswered knocks; music and a party → the party room; the trucks → Vinny and the
-cellar; the splint and the hens → Orlok's clinic; *could not say whose* → the settlement and the deed; the dare →
+cellar; the splint, the hens and the carbolic soap → Orlok's clinic; the nails, putty and white lead → the kept-up house; *could not say whose* → the settlement and the deed; the dare →
 Gnomey's crew. None of it is explained on the page.
 
 ### 2. The trap on the library volume
 - That anyone cast a spell on the page at all (this is the puzzle's whole timer mechanic)
 - That the **real-estate company's leader** did it, that he's a man, that he's scrubbing a stigmatized
   property, that he doesn't believe a word of it
-- The "accidental irony" beat — that he destroyed the one page carrying the staking method, so the company
-  trying to take the house has been protecting its tenants
 - That he can't touch word of mouth
 - The trap's contents — the shears, the swarms, the book cart — and the rule that the shears' death
   round sets the puzzle's piece count
