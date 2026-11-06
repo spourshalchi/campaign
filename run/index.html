@@ -374,6 +374,9 @@
   .spc-l{margin:10px 0 0;padding:0 0 0 24px;font-size:16px;line-height:1.45;color:var(--ink)}
   .spc-l > li{margin-bottom:9px} .spc-l > li:last-child{margin-bottom:0}
   .spc-l ul{margin:4px 0 2px;padding:0 0 0 18px;font-size:15px;list-style:disc}
+  .spc-at{margin:14px 0 -2px;padding:4px 10px;border-radius:6px;background:var(--pink);color:#1a0812;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+  .spc-gap{margin:14px 0 0;padding:6px 10px;border:1px dashed var(--gold);border-radius:6px;font-size:14px;line-height:1.4;color:var(--gold)}
+  .spc-gap b{display:block;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
   .spc-say{display:block;margin-top:4px;padding-left:10px;border-left:2px solid var(--pink);font-family:var(--f-disp);font-size:17px;line-height:1.4;color:#ffd6ee}
   .spc-say i{display:block;font-family:var(--f-mono);font-style:normal;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--pink)}
   .spc-r{margin:9px 0 0;font-size:14px;line-height:1.4;color:var(--mut)} .spc-r b{color:var(--ink)}
@@ -448,7 +451,7 @@
 
 <script src="fights.js?v=13"></script>
 <script src="scenes/pre.js?v=1"></script>
-<script src="scenes/town.js?v=8"></script>
+<script src="scenes/town.js?v=9"></script>
 <script src="scenes/night.js?v=9"></script>
 <script src="scenes/sunday.js?v=10"></script>
 <script src="scenes/finale.js?v=8"></script>
@@ -533,7 +536,7 @@ function spZone(s){
   const cards=new Map();
   const card = nm => { if(!cards.has(nm)) cards.set(nm,{nm,items:[],ifs:[],revs:[]}); return cards.get(nm); };
   (s.npcs||[]).forEach(n=>{ const c=card(spName(n.nm)); c.vc=n.vc;
-    c.items=(n.pts||[]).map(p=>typeof p==="string"?{t:p,lines:[]}:{t:p.t,lines:p.say?[].concat(p.say).map(l=>({t:l})):[]}); });
+    c.items=(n.pts||[]).map(p=>typeof p==="string"?{t:p,lines:[]}:p.at?p:{t:p.t,lines:p.say?[].concat(p.say).map(l=>({t:l})):[]}); });
   // sample lines: onto the point they share the most words with, otherwise their own step, in scene order
   (s.talk||[]).concat((s.fight&&s.fight.lines)||[]).forEach(l=>{ const {nm,ctx}=spWho(l.who), c=card(nm), w=spWords(l.t+" "+ctx);
     let best=null, top=1; c.items.filter(it=>it.t).forEach(it=>{ const pw=spWords(it.t); let n=0; w.forEach(x=>{ if(pw.has(x)) n++; }); if(n>top){ top=n; best=it; } });
@@ -544,7 +547,12 @@ function spZone(s){
     card(nm).revs.push(r); });
   if(s.ifblock){ const b=s.ifblock; card(spWho(b.lines[0].who).nm).ifs.push(b); }
   const say = l => `<span class="spc-say">${l.ctx?`<i>${l.ctx}</i>`:""}${l.t}</span>`;
-  const list = its => its.length?`<ol class="spc-l">${its.map(it=>`<li>${it.t||""}${it.lines.map(say).join("")}</li>`).join("")}</ol>`:"";
+  // {at} starts a labelled moment and restarts the numbers; {at, gap} is a moment with nothing to say
+  const ol = its => its.length?`<ol class="spc-l">${its.map(it=>`<li>${it.t||""}${it.lines.map(say).join("")}</li>`).join("")}</ol>`:"";
+  const list = its => { let out="", run=[]; const flush=()=>{ out+=ol(run); run=[]; };
+    its.forEach(it=>{ if(!it.at){ run.push(it); return; } flush();
+      out+=it.gap?`<p class="spc-gap"><b>${it.at}</b>${it.gap}</p>`:`<p class="spc-at">${it.at}</p>`; });
+    flush(); return out; };
   const brief = s.spBrief?`<div class="block"><p class="h">Spencer's briefing</p><ul class="rem">${s.spBrief.map(b=>`<li>${b}</li>`).join("")}</ul></div>`:"";
   return brief+[...cards.values()].map(c=>`<div class="spc"><p class="spc-n">${c.nm}</p>`+(c.vc?`<p class="spc-v">${c.vc}</p>`:"")+list(c.items)+
     c.ifs.map(b=>`<div class="ifb"><p class="ifw">${b.when}</p><p class="ifs">${b.say}</p>`+list(b.lines.map(l=>({lines:[{t:l.t,ctx:spWho(l.who).ctx}]})))+(b.otherwise?`<p class="ifo">${b.otherwise}</p>`:"")+`</div>`).join("")+

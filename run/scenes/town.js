@@ -100,7 +100,17 @@ SCENES.push(
   ],
   fight:FIGHTS.library,
   npcs:[
-    {nm:"Records Keeper", pts:["Answer their question about Dood by fetching the bound 1937 volume of the Crier and handing it over intact.", "Tell them the lore from page 2, only if Scott says the jigsaw has stalled.<ul><li>It's a reader's tale from the old country.</li><li>The method: dig up the coffin, stake the heart, bury it again.</li></ul>", "Tell them, after the fight, that the volume was their primary source and it's gone.", "Tell them that if they still want a primary source, they'll have to go look at the house themselves.", "Warn them to be careful, and mean it."], vc:"Helpful. Beyond these points, play her to taste."}
+    {nm:"Records Keeper", pts:[
+      {at:"When they arrive"},
+      "Answer their question about Dood by fetching the bound 1937 volume of the Crier and handing it over intact.",
+      {at:"The fight", gap:"Scott runs it, nothing for you."},
+      {at:"After the fight"},
+      "Tell them the volume was their primary source and it's gone.",
+      "Tell them that if they still want a primary source, they'll have to go look at the house themselves.",
+      "Warn them to be careful, and mean it.",
+      {at:"Only if the jigsaw stalls"},
+      "Tell them the lore from page 2, only if Scott says the jigsaw has stalled.<ul><li>It's a reader's tale from the old country.</li><li>The method: dig up the coffin, stake the heart, bury it again.</li></ul>"
+    ], vc:"Helpful. Beyond these points, play her to taste."}
   ],
   cues:["records","riser","paper","jump"] },
 
