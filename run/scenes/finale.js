@@ -111,38 +111,46 @@ SCENES.push(
   steps:[
     {snd:["dawn","crowd"]},
     {say:"Sunrise on the lawn. The crowd is still milling about in last night's costumes, the vampires keep to the shade of the porch, and in daylight the house looks almost like a house again.", who:"Setting"},
-    {note:"<b>Resolve it all right here, in one scene at the house.</b> Two cars, back to back, while the crowd is still on the lawn: the parents' Volvo, then the troop leader's car with <b>Vinny in the passenger seat</b>."},
     {snd:["car"], t:"The first car"},
-    {say:"Sunrise. The crowd's still on the lawn when the first car pulls up the drive."},
-    {hand:"tickets", do:"The Volvo: Poe Boy's parents. <i>&ldquo;Upton, honey?&rdquo;</i> He's grounded; &#9995; <b>the tickets</b> to Simone."},
-    {note:"The parents have been wondering where their kid has been. Vinny has kept insisting he's late for the card game, so the scout dad drove him up."},
+    {say:"A Volvo comes up the drive, past the crowd. Two people in matching fleece get out.", who:"The first car"},
+    {hand:"tickets", do:"<b>Spencer's turn:</b> Poe Boy's parents find him."},
     {snd:["car"], t:"The second car"},
-    {hand:"badge", do:"The troop leader's car, Vinny in the passenger seat. Orlok signs, through his teeth; &#9995; <b>the badge</b> to Cody."},
-    {note:"<b>Russ gets the badge no matter what</b>, even if he missed a requirement."},
+    {say:"A second car behind it. A man in khaki shorts gets out, whistle round his neck, clipboard under his arm. In the passenger seat, an ancient man is already talking.", who:"The second car"},
+    {do:"<b>Spencer's turn:</b> the troop leader asks for Russ's card. Orlok signs it, through his teeth."},
+    {hand:"badge"},
+    {note:"<b>Russ gets the badge no matter what</b>, even if he missed a requirement.", k:"rule"},
     {snd:["levelup"], t:"The badge"},
-    {hand:"deed", do:"Vinny &#9995; <b>the deed</b> to Gnomey. &ldquo;This is my house.&rdquo; Orlok confirms it; &ldquo;You can stay.&rdquo;"},
-    {do:"The quiet one: <b>Edward explains himself to Bix.</b> No jokes."},
+    {hand:"deed", do:"<b>Spencer's turn:</b> Vinny and the deed."},
+    {do:"Let Julia say it: <i>&ldquo;This is my house.&rdquo;</i> <b>Spencer's turn:</b> Orlok confirms it. Then Julia: <i>&ldquo;You can stay.&rdquo;</i>"},
+    {do:"<b>Spencer's turn:</b> Edward explains himself to Bix. <b>No jokes.</b>"},
     {end:"after Edward. Let it sit, then cut to class."}
   ],
   next:"After Edward, let it sit. Cut to class.", go:["16"],
   talk:[
-    {who:"Poe Boy's mother", t:"Upton, honey?"},
-    {who:"Gnomey, once he has the deed", t:"This is my house. &middot; You can stay."}
+    {who:"Poe Boy's mother · finding him", t:"Upton, honey?"},
+    {who:"Poe Boy's mother", t:"We've been wondering where you've been."},
+    {who:"Poe Boy's mother", t:"You're grounded, mister. And you are certainly not going to that satan concert."},
+    {who:"Poe Boy's mother · to Simone, with the tickets", t:"Here, sweetie. Somebody should use these."},
+    {who:"Russ's troop leader · getting out", t:"He kept saying he was late for a card game, so I drove him up."},
+    {who:"Russ's troop leader · to Russ", t:"Got that card? Just need your elder's signature, right there."},
+    {who:"Russ's troop leader · with the badge", t:"That's the paperwork in order. Congratulations, son."},
+    {who:"Great Uncle Vinny", t:"Is it the fourteenth? I'm late. Cornelis owes me a rematch."},
+    {who:"Great Uncle Vinny · handing Gnomey the deed", t:"Whoever's holding this owns the place. Now that's you."},
+    {who:"Orlok · confirming, in front of everyone", t:"He holds the deed. The house is his."},
+    {who:"Edward · to Bix", t:"Your mother was Goblinenon. Our cart threw a tire out on this road, so we knocked on this door."},
+    {who:"Edward · to Bix", t:"The company sent men to clear this house. They killed her."},
+    {who:"Edward · to Bix", t:"I was dying. They turned me to save me."},
+    {who:"Edward · to Bix", t:"I carried you down the hill that night and left you there. On purpose. Anything was better than being raised by this."}
   ],
   rev:[
-    {by:"Poe Boy's parents", who:"Everyone", t:"learns DJ Poe Boy is <b>Upton</b> &mdash; U.M. Livingsworth III from the checkout card. Let the table connect it."},
-    {by:"Poe Boy's parents", who:"Simone", t:"gets the two concert tickets from his mother's hand."},
-    {by:"Russ's troop leader", who:"Russ", t:"gets the badge once Orlok signs the card. Hand Cody the printed badge."},
-    {by:"Great Uncle Vinny", who:"Gnomey and everyone", t:"see Vinny hand Gnomey <b>the deed</b>. The house is Gnomey's from this moment."},
-    {by:"Orlok", who:"The vampires", t:"hear Orlok confirm Gnomey's claim in front of everyone, then Gnomey say they can stay."},
-    {by:"Edward", who:"Bix", t:"learns the whole timeline: the men the company sent to clear the house, Goblinenon killed, Edward badly hurt and turned by the vampires to save him, and why he carried the baby &mdash; Bix &mdash; down the hill and left him there on purpose. No jokes."}
+    {by:"Poe Boy's parents", who:"Everyone", t:"learns DJ Poe Boy is <b>Upton</b>: U.M. Livingsworth III from the checkout card. Let the table connect it."}
   ],
   npcs:[
-    {nm:"Poe Boy's parents", vc:"A Volvo, matching fleece, sweet and oblivious. Wondering where he's been. She calls him Upton."},
-    {nm:"Russ's troop leader", vc:"Over-earnest scout dad: khaki shorts in November, a whistle, a clipboard. Runs Troop 187's nursing-home visits and drove Vinny up, because Vinny kept insisting he's late for the card game. <b>Completely unfazed by vampires</b> as long as the paperwork is in order."},
-    {nm:"Great Uncle Vinny", vc:"Ancient and mostly gone. The same voice as Saturday's phone call. Still insisting he's late for the card game. Hands over the deed like it was always the plan."},
-    {nm:"Orlok", vc:"Signs Russ's card and confirms Gnomey's claim, both through his teeth. Pissed, and complies perfectly."},
-    {nm:"Edward", vc:"The whole timeline to Bix. No jokes in it."}
+    {nm:"Poe Boy's parents", pts:["You've been wondering where your kid has been","Find him: &ldquo;Upton, honey?&rdquo;","Ground him, and no concert","His mother hands the two tickets to Simone"], vc:"A Volvo, matching fleece, sweet and oblivious."},
+    {nm:"Russ's troop leader", pts:["You drove Vinny up, because he kept insisting he's late for the card game","Ask Russ for the card and get Orlok's signature","Hand Russ the badge"], vc:"Over-earnest scout dad, no name needed: khaki shorts in November, a whistle, a clipboard. Runs Troop 187's nursing-home visits. <b>Completely unfazed by vampires</b> as long as the paperwork is in order."},
+    {nm:"Great Uncle Vinny", pts:["Still insisting you're late for the card game","Hand Gnomey the deed like it was always the plan","Say whoever's holding it owns the place"], vc:"Ancient and mostly gone. The same voice as Saturday's phone call."},
+    {nm:"Orlok", pts:["Sign Russ's card, through your teeth","Gnomey says it's his house: confirm it in front of everyone"], vc:"Pissed, and complies perfectly."},
+    {nm:"Edward", pts:["The cart and the party: how you and Goblinenon came to this house","The men the company sent: Goblinenon killed, you badly hurt","The vampires turned you to save you","Why you carried the baby, Bix, down the hill and left him there on purpose"], vc:"To Bix, quietly. No jokes in it."}
   ],
   cues:["dawn","crowd","car","levelup"] },
 
@@ -150,11 +158,11 @@ SCENES.push(
   steps:[
     {snd:["class"]},
     {say:"The same history classroom, the same clanking radiators. The five of you at the front, scraped and bruised, a black eye or two between you.", who:"Setting"},
-    {do:"They present the project. <b>Nothing to show:</b> there were plenty of witnesses."},
-    {note:"The real-estate company is <b>scared off the land</b>, and they present in class &mdash; closing scene one's loop. <b>Play them battered.</b> Nobody in class reacts."},
-    {do:"Let a player deliver it: <i>&ldquo;&hellip;and yeah that was our class project.&rdquo;</i> Nobody reacts."},
+    {do:"They present the project. <b>They don't have to show the tape or an artifact:</b> there were plenty of witnesses."},
+    {note:"The real-estate company is <b>scared off the land</b>. <b>Play them battered.</b>"},
+    {do:"Let a player deliver it: <i>&ldquo;&hellip;and yeah that was our class project.&rdquo;</i> Nobody in class reacts."},
     {do:"<b>The closers</b>: Stinky's diss track, the mall breaking ground in Amityville, and, if Simone paid the goat, Marcus helping people find books on the library computers."},
-    {note:"Gnomey leads the gang and fronts for the vampires as the one who can stand in daylight. He takes no rent and asks nothing &mdash; same as Vinny."},
+    {note:"Gnomey leads the gang and fronts for the vampires as the one who can stand in daylight. He takes no rent and asks nothing, same as Vinny."},
     {end:"on the room not reacting. This is the end. Breathe."}
   ],
   next:"The end. Breathe.",
