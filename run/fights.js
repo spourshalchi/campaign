@@ -16,7 +16,7 @@
    foe:  id, nm, n (how many), ac, hp, floor (lowest HP, if not 0), spd, chassis, cr, xp,
          say (one line of flavour), turn (1–3 steps), note (the one gimmick),
          drop (when it drops), hard / easy (the dials)
-   run:  setup, matchups (who takes whom at the start), beats (one line per round),
+   run:  setup, matchups (who takes whom at the start),
          allyJob (the allies' job each round, narrated), win, ends, losing
    ally: nm, act (one thing, no roll), tok (where the token goes), say (one line of narration)
    ===================================================================== */
@@ -30,7 +30,7 @@ const FIGHTS = {
         {k:"They open it", who:"The first cut lands before anyone moves. The tally starts at 1. Roll initiative.", say:"The binding splits and a pair of shears comes out of the spine. <i>Snick.</i> A strip of the article falls to the table."},
         {k:"Round 1", who:"Shears 1 and 2 dive for the article: a PC in the lane gets snipped, a clear lane means +1 cut. The cart rolls at the first blocker and pushes them out of the lane.", say:"They aren't coming for you. They're going for the page. Behind you, one squeaky wheel starts to roll."},
         {k:"Round 2", who:"The swarm engulfs a blocker. The cart keeps ramming blockers out of the lanes. One pair of shears should go down about now.", say:"The card catalogue drawers slide open all at once, and then it's snowing."},
-        {k:"Round 3", who:"The second pair of shears drops and everything drops with it. Clear the map.", say:"The shears snap shut and clatter to the floor. The cards settle. The cart tips over and spills its books. The room is very quiet."}
+        {k:"The second pair drops", who:"Everything drops with it. Clear the map.", say:"The shears snap shut and clatter to the floor. The cards settle. The cart tips over and spills its books. The room is very quiet."}
       ],
       other:[
         ["Nobody guards the article","The shears just cut. +1 each. At 5 cuts the page is done and everything drops."],
@@ -47,23 +47,20 @@ const FIGHTS = {
     run:{
       setup:"They open the volume. The shears come out of the spine and make the first cut before anyone moves (the tally starts at 1). Roll initiative.",
       matchups:"Shears 1 and 2 each take a lane to the article, one from each side. The cart and the swarm go for whoever blocks a lane. Ask the table who's guarding the book.",
-      beats:["R1 · Both shears dive for the page. The cart rolls at the first blocker.",
-             "R2 · The swarm engulfs a blocker. One pair of shears goes down.",
-             "R3 · The second pair drops, and everything else drops with it."],
       win:"Drop both shears. When the second pair goes down, the rest of the stationery drops where it is.",
       ends:"Round 2 or 3.",
       losing:"Nobody dies here: a PC at 0 HP is out cold and stable. If it's going badly, the shears finish the page (5 cuts) and everything drops."
     },
     tally:{label:"Cuts", start:1, tiers:[[2,9],[4,16],[99,25]]},
     foes:[
-      {id:"shears", nm:"Archival shears", n:2, ac:14, hp:12, spd:"fly 30", chassis:"Flying Sword", cr:"½", xp:100,
+      {id:"shears", nm:"Archival shears", n:2, ac:14, hp:20, spd:"fly 30", chassis:"Flying Sword", cr:"½", xp:100,
        say:"A dry snick-snick, like someone trimming coupons.",
        turn:["<b>A PC between it and the article?</b> Snip that PC: <b>+5 to hit, 6 slashing</b>. No cut this turn.",
              "<b>Nobody in the way?</b> It flies to the article and cuts. No roll. <b>Tap +1 cut.</b>"],
        note:"It never goes after anyone who isn't in its way.",
        drop:"It snaps shut and clatters to the floor.",
        hard:"One pair jams in the binding for a round: no cut that turn.",
-       easy:"Give each pair 8 more HP (20)."},
+       easy:"Give each pair 8 more HP (28)."},
       {id:"cards", nm:"Swarm of index cards", n:1, ac:12, hp:22, spd:"fly 30", chassis:"Swarm of Insects", cr:"½", xp:100,
        say:"The card catalogue drawers spit out a blizzard.",
        turn:["Moves onto the PC blocking a shears lane (or the nearest PC).",
@@ -125,12 +122,11 @@ const FIGHTS = {
   summoning: {
     day:"Saturday", cue:9, name:"The botched summoning",
     guide:{
-      tokens:"The 2&Prime; summoning in the middle of the chalk circle. Fragments 1&ndash;4 on the floor lines around it.",
+      tokens:"The 2&Prime; summoning in the middle of the chalk circle. Fragments 1 and 2 on the floor lines around it.",
       rounds:[
-        {k:"Round 1", who:"Fragments 1 and 2 go for whoever hits it, 3 and 4 for the back line. It lurches for the sealed door and claws whoever is in its way.", say:"It isn't looking at you. It's dragging itself toward the door, toward something down the hall, and the chalk on the floor has started to crawl."},
-        {k:"Round 2", who:"It claws twice at whoever stands between it and the door. The fragments start crumbling.", say:"It goes through whoever's in the way like they're furniture. It still isn't looking at you."},
-        {k:"Round 3", who:"First time it's under 43 HP: the Unfinished Word. Every PC within 15 ft saves, DC 13 Wis: 13 psychic, half on a save.", say:"The hole in its chest turns toward you and it tries to say something. It doesn't get to the end of it. You feel it anyway."},
-        {k:"Round 4", who:"It drops and the fragments crumble with it. Clear the map. The wreckage search, then the screen: both below.", say:"It stops with one arm still out toward the door."}
+        {k:"Round 1", who:"Fragment 1 goes for whoever hits it, fragment 2 for the back line. It lurches for the sealed door and claws whoever is in its way.", say:"It isn't looking at you. It's dragging itself toward the door, toward something down the hall, and the chalk on the floor has started to crawl."},
+        {k:"Round 2", who:"It claws twice at whoever stands between it and the door. First time it's under 30 HP: the Unfinished Word. Every PC within 15 ft saves, DC 13 Wis: 8 psychic, half on a save.", say:"It goes through whoever's in the way like they're furniture. The hole in its chest turns toward you and it tries to say something. It doesn't get to the end of it. You feel it anyway."},
+        {k:"It drops", who:"The fragments crumble with it. Clear the map. The wreckage search, then the screen: both below.", say:"It stops with one arm still out toward the door."}
       ],
       other:[
         ["They leave the room","It can't follow. It keeps clawing toward the sealed door."],
@@ -147,32 +143,28 @@ const FIGHTS = {
     ]},
     rule:"It's bound to its room and <b>claws toward the sealed door</b> the whole fight.",
     run:{
-      setup:"They open the warm door. It drags itself up out of the chalk circle, and four fragments peel up off the floor lines. Roll initiative.",
-      matchups:"The summoning takes whoever stands between it and the sealed door. Fragments 1 and 2 go for the PCs hitting it; fragments 3 and 4 go for the back line.",
-      beats:["R1 · The fragments swarm. It lurches for the door.",
-             "R2 · It claws whoever is in its way. The fragments start crumbling.",
-             "R3 · Under half: the Unfinished Word.",
-             "R4 · It drops. The monitor line."],
+      setup:"They open the warm door. It drags itself up out of the chalk circle, and two fragments peel up off the floor lines. Roll initiative.",
+      matchups:"The summoning takes whoever stands between it and the sealed door. Fragment 1 goes for the PC hitting it; fragment 2 goes for the back line.",
       win:"Drop the summoning. The fragments crumble with it.",
-      ends:"Round 3 or 4. On the kill: the monitor line, the AIM chime, and the night ends.",
+      ends:"Round 2 or 3. On the kill: the monitor line, the AIM chime, and the night ends.",
       losing:"It never attacks a PC at 0 HP: it wants the door. If two PCs are down, it tears through the wall toward the sealed door and comes apart on the threshold. Read the kill line anyway."
     },
     foes:[
-      {id:"summon", nm:"The botched summoning", n:1, ac:13, hp:85, spd:"30", chassis:"Flesh Golem, scaled down", cr:"4", xp:1100,
+      {id:"summon", nm:"The botched summoning", n:1, ac:13, hp:60, spd:"30", chassis:"Flesh Golem, scaled down", cr:"4", xp:1100,
        say:"A hole in its chest where something was never drawn.",
        turn:["Lurches toward the sealed door down the hall. It can't leave the room.",
-             "Claws twice at the nearest PC: <b>+6 to hit, 9 slashing</b> each.",
-             "<b>Once, the first time it's under 43 HP:</b> Unfinished Word. Every PC within 15 ft makes a <b>DC 13 Wis save</b>: 13 psychic, half on a save."],
+             "Claws twice at the nearest PC: <b>+6 to hit, 8 slashing</b> each.",
+             "<b>Once, the first time it's under 30 HP:</b> Unfinished Word. Every PC within 15 ft makes a <b>DC 13 Wis save</b>: 8 psychic, half on a save."],
        note:"Never attacks a PC at 0 HP.",
        drop:"Run the wreckage search first. Then read the monitor line, fire the AIM chime, and kill all sound.",
        hard:"It spends a turn clawing at the door instead of a PC.",
-       easy:"Add 20 HP (105)."},
-      {id:"frag", nm:"Ritual fragments", n:4, ac:12, hp:7, spd:"30", chassis:"Shadow, no Strength drain", cr:"¼", xp:50,
+       easy:"Add 15 HP (75)."},
+      {id:"frag", nm:"Ritual fragments", n:2, ac:12, hp:7, spd:"30", chassis:"Shadow, no Strength drain", cr:"¼", xp:50,
        say:"Chalk scrawls, crawling.",
        turn:["Goes for whoever is hitting the summoning (or the nearest PC).",
              "Grab: <b>+4 to hit, 5 necrotic</b>."],
        drop:"Crumbles to chalk dust.",
-       hard:"Two of them smear out and stop. Mark them down.",
+       hard:"One of them smears out and stops. Mark it down.",
        easy:"Give each 5 more HP (12)."}
     ]
   },
@@ -180,11 +172,11 @@ const FIGHTS = {
   reserve: {
     day:"Sunday", cue:"R", name:"The circle stirs &mdash; reserve, don't plan on it",
     guide:{
-      tokens:"The 2&Prime; summoning token is the remnant, in the half-drawn circle. Fragments 1&ndash;4 on the floor lines.",
+      tokens:"The 2&Prime; summoning token is the remnant, in the half-drawn circle. Fragments 1 and 2 on the floor lines.",
       rounds:[
-        {k:"Round 1", who:"Fragments 1&ndash;4 split across the party. The remnant claws the nearest PC twice.", say:"What's left of last night's thing pulls itself up out of the floorboards. Half of what it was, and still wrong."},
-        {k:"Round 2", who:"The fragments crumble. First time it's under 50 HP: the Unfinished Word. Every PC within 15 ft saves, DC 14 Wis: 18 psychic, half on a save.", say:"It tries the same word as last night. It gets no further with it, and it hurts more."},
-        {k:"Round 3", who:"It drops and the fragments crumble with it. Clear the map. On to the computer room.", say:"Chalk dust. The circle is just a drawing now."}
+        {k:"Round 1", who:"Fragments 1 and 2 split across the party. The remnant claws the nearest PC twice.", say:"What's left of last night's thing pulls itself up out of the floorboards. Half of what it was, and still wrong."},
+        {k:"Round 2", who:"The fragments crumble. First time it's under 35 HP: the Unfinished Word. Every PC within 15 ft saves, DC 14 Wis: 10 psychic, half on a save.", say:"It tries the same word as last night. It gets no further with it, and it hurts more."},
+        {k:"It drops", who:"The fragments crumble with it. Clear the map. On to the computer room.", say:"Chalk dust. The circle is just a drawing now."}
       ],
       other:[
         ["They leave the room","It can't follow. Fine. Move on to the computer room."],
@@ -194,31 +186,28 @@ const FIGHTS = {
       ]},
     rule:"Only if a room solved in five minutes and there's time to spare.",
     run:{
-      setup:"On the way up to the computer room, the half-drawn circle in last night's room is moving. What's left of the summoning pulls itself out, with four fragments. Roll initiative.",
-      matchups:"The remnant takes the nearest PC. Fragments 1–4 split across the rest.",
-      beats:["R1 · The fragments swarm. The remnant claws the nearest PC.",
-             "R2 · The fragments crumble. Under half: the Unfinished Word.",
-             "R3 · It drops."],
+      setup:"On the way up to the computer room, the half-drawn circle in last night's room is moving. What's left of the summoning pulls itself out, with two fragments. Roll initiative.",
+      matchups:"The remnant takes the nearest PC. Fragments 1 and 2 split across the rest.",
       win:"Drop the remnant. The fragments crumble with it.",
-      ends:"Round 2 or 3. Nothing new is learned; move on to the computer room.",
+      ends:"Round 2. Nothing new is learned; move on to the computer room.",
       losing:"Same as last night: it never attacks a PC at 0 HP. If two PCs are down, it smears apart on its own."
     },
     foes:[
-      {id:"remnant", nm:"The remnant", n:1, ac:14, hp:100, spd:"30", chassis:"Flesh Golem", cr:"6", xp:2300,
+      {id:"remnant", nm:"The remnant", n:1, ac:14, hp:70, spd:"30", chassis:"Flesh Golem", cr:"6", xp:2300,
        say:"Half of last night's thing, still wrong.",
        turn:["Moves to the nearest PC. It can't leave the room.",
-             "Claws twice: <b>+7 to hit, 11 slashing</b> each.",
-             "<b>Once, the first time it's under 50 HP:</b> Unfinished Word. Every PC within 15 ft makes a <b>DC 14 Wis save</b>: 18 psychic, half on a save."],
+             "Claws twice: <b>+7 to hit, 9 slashing</b> each.",
+             "<b>Once, the first time it's under 35 HP:</b> Unfinished Word. Every PC within 15 ft makes a <b>DC 14 Wis save</b>: 10 psychic, half on a save."],
        note:"Never attacks a PC at 0 HP.",
        drop:"Chalk dust. The circle is just a drawing now.",
        hard:"It spends a turn scrabbling at the floor lines.",
-       easy:"Add 25 HP (125)."},
-      {id:"frag2", nm:"Ritual fragments", n:4, ac:12, hp:10, spd:"30", chassis:"Shadow, no Strength drain", cr:"¼", xp:50,
+       easy:"Add 20 HP (90)."},
+      {id:"frag2", nm:"Ritual fragments", n:2, ac:12, hp:10, spd:"30", chassis:"Shadow, no Strength drain", cr:"¼", xp:50,
        say:"The same chalk scrawls.",
        turn:["Goes for the nearest PC.",
              "Grab: <b>+5 to hit, 6 necrotic</b>."],
        drop:"Crumbles to chalk dust.",
-       hard:"Two of them smear out and stop.",
+       hard:"One of them smears out and stops.",
        easy:"Give each 5 more HP (15)."}
     ]
   },
@@ -227,7 +216,7 @@ const FIGHTS = {
     day:"Sunday", cue:"14 · i", name:"The developer",
     read:{
       open:[
-        {who:"The hard hats", t:"Hard hats push through the crowd. They walk right past you. They're going for the vampires. A man with a clipboard says one word, and Orlok, Dracula and Edward stop dead, pinned where they stand. His men take out stakes."},
+        {who:"The hard hats", t:"Hard hats push through the crowd. They walk right past you. They're going for the vampires. A man with a clipboard holds up a seal and says one word, and Orlok, Dracula and Edward stop dead, pinned where they stand. His men take out stakes."},
         {who:"W. Ostrander · to his men", sp:1, t:"Stakes. Start with the old one."},
         {who:"After Ostrander's line", t:"<b>What do you do?</b>"}
       ],
@@ -238,10 +227,9 @@ const FIGHTS = {
     guide:{
       tokens:"Thugs 1&ndash;3 between the party and the vampires. Ostrander and thugs 4&ndash;6 on the vampires. Lay Orlok, Dracula and Edward on their sides: pinned. Dracula next to Yobo, Edward where Bix can see him. Poe Boy and Stinky up on the decks: not in this fight. Angelique with the party.",
       rounds:[
-        {k:"Round 1", who:"Thugs 1&ndash;3 block the party and swing at the nearest PC. Thugs 4&ndash;6 hold the vampires down, no rolls. Ostrander works on Orlok and ignores the party until someone hits him or reaches him. Angelique calls off the thug on the most-hurt PC.", say:"Three of them step into your way. Behind them, a stake comes down to rest on Orlok's chest.", sp:"Orlok: &ldquo;Boy. Help me.&rdquo; Edward: &ldquo;Twenty-four years.&rdquo;"},
-        {k:"Round 2", who:"Thugs 1&ndash;3 are on the party and starting to drop. Ostrander: Hold on whoever hit him, rod at anyone next to him.", say:"Dracula is frozen mid-flourish, cape out, an arm's length from Yobo. They've reached him. Somebody is measuring.", sp:"Poe Boy, on the mic: &ldquo;Oh, this is great. Keep going.&rdquo;"},
-        {k:"Round 3", who:"Thugs 1&ndash;3 mostly down. Ostrander is exposed.", say:"They've got to the quiet one. A mallet goes up over a stake on Edward's chest. He isn't looking at it. He's looking at Bix."},
-        {k:"Round 4 on", who:"Hold here. No vampire is ever actually killed. Ostrander goes down round 3 or 4.", say:"The mallet is still up. It's shaking."}
+        {k:"Round 1", who:"Thugs 1&ndash;3 block the party and all swing at the same PC, the nearest. Thugs 4&ndash;6 hold the vampires down, no rolls. Ostrander works on Orlok and ignores the party until someone hits him or reaches him. Angelique calls off the thug on the most-hurt PC.", say:"Three of them step into your way. Behind them, a stake comes down to rest on Orlok's chest.", sp:"Orlok: &ldquo;Boy. Help me.&rdquo; Edward: &ldquo;Twenty-four years.&rdquo;"},
+        {k:"Round 2", who:"Thugs 1&ndash;3 are on the party and starting to drop. Ostrander: Hold on whoever hit him, rod at anyone next to him.", say:"Dracula is frozen mid-flourish, cape out, an arm's length from Yobo. Somebody is measuring. They've got to the quiet one. A mallet goes up over a stake on Edward's chest. He isn't looking at it. He's looking at Bix.", sp:"Poe Boy, on the mic: &ldquo;Oh, this is great. Keep going.&rdquo;"},
+        {k:"Round 3", who:"Ostrander goes down round 2 or 3. No vampire is ever actually killed. Still up at the end of this round? The seal slips: see Losing.", say:"The mallet is still up. It's shaking."}
       ],
       other:[
         ["They go for Poe Boy first","He can't drop below 1 HP and Stinky blocks. The vampires keep calling for help. He isn't going anywhere. Take the next round's line anyway."],
@@ -262,33 +250,29 @@ const FIGHTS = {
     run:{
       setup:"Ostrander and six thugs walk in with the crowd, go straight past the party and pin all three vampires with a seal (narrate it; it costs him nothing). Roll initiative when the party acts.",
       matchups:"Thugs 1–3 block the party. Thugs 4–6 are on the vampires. Ostrander ignores the party until they interfere. Poe Boy stays up on the decks, on the mic; he isn't in this fight.",
-      beats:["R1 · Thugs 1–3 block and swing. A stake rests on Orlok's chest.",
-             "R2 · Thugs 1–3 start dropping. Dracula is pinned mid-flourish near Yobo.",
-             "R3 · Ostrander is exposed. A stake over Edward's chest, with Bix watching.",
-             "R4 · He goes down. Stop. Silence. The seal breaks."],
       allyJob:"Pinned: the vampires don't act, and are never actually killed. When the seal breaks they finish thugs 4–6. Angelique calls off one of thugs 1–3 each round. Narrate it, no rolls.",
       win:"Drop Ostrander. The party has to do it, not the vampires.",
-      ends:"Round 3 or 4, when he goes down. Stop. Let the room be quiet.",
-      losing:"If two PCs are down: the seal slips and Orlok gets a hand free. Ostrander loses his turns, and the next hit from a PC kills him."
+      ends:"Round 2 or 3, when he goes down. Stop. Let the room be quiet.",
+      losing:"If two PCs are down, or he's still up at the end of round 3: the seal slips and Orlok gets a hand free. Ostrander loses his turns, and the next hit from a PC kills him."
     },
     foes:[
-      {id:"ostrander", nm:"W. Ostrander", n:1, ac:15, hp:100, spd:"30", chassis:"Mage, no damage spells", cr:"6", xp:2300,
+      {id:"ostrander", nm:"W. Ostrander", n:1, ac:15, hp:60, spd:"30", chassis:"Mage, no damage spells", cr:"6", xp:2300,
        say:"An adult with a clipboard. To him this is a contamination problem on a site he's paid for.",
        turn:["<b>No PC has hit him or reached him?</b> Ignores the party and works on the vampires.",
              "<b>A PC hit him since his last turn?</b> Hold that PC: <b>DC 15 Wis save</b> or they lose their next turn, frozen.",
              "Surveyor's rod at a PC next to him: <b>+6 to hit, 10 bludgeoning</b>."],
-       note:"The first 25 damage is his ward cracking: narrate it, it's in the 100. No damage spells. Doesn't swing at a PC who's down.",
+       note:"The first 15 damage is his ward cracking: narrate it, it's in the 60. No damage spells. Doesn't swing at a PC who's down.",
        drop:"He's dead. Stop. Silence. The seal breaks: the vampires finish thugs 4–6, no rolls. Any of thugs 1–3 left drop their crowbars.",
        hard:"He keeps ignoring the party for one more round, even after they hit him.",
-       easy:"Add 25 HP (another layer of ward)."},
-      {id:"thug", nm:"Thugs", n:6, ac:12, hp:16, spd:"30", chassis:"Tough", cr:"½", xp:100,
+       easy:"Add 15 HP (another layer of ward)."},
+      {id:"thug", nm:"Thugs", n:6, ac:12, hp:11, spd:"30", chassis:"Tough", cr:"½", xp:100,
        say:"A demolition crew. Hard hats, crowbars, stakes.",
-       turn:["<b>Thugs 4–6 stay on the vampires, no rolls, unless a PC reaches them.</b> Thugs 1–3: <b>a PC on Ostrander?</b> Gets between them. Otherwise moves to the nearest PC.",
+       turn:["<b>Thugs 4–6 stay on the vampires, no rolls, unless a PC reaches them.</b> Thugs 1–3 all go for the same PC: <b>a PC on Ostrander?</b> That one. Otherwise the nearest.",
              "Crowbar: <b>+4 to hit, 8 bludgeoning</b>."],
        note:"Doesn't swing at a PC who's down.",
        drop:"Dead. A hard hat rolls across the floor.",
        hard:"One of thugs 1–3 breaks and runs.",
-       easy:"Give each 8 more HP (24)."}
+       easy:"Give each 5 more HP (16)."}
     ],
     alliesLabel:"Allies · no rolls",
     allies:[
@@ -328,18 +312,17 @@ const FIGHTS = {
       tokens:"Ostrander and the thugs are off. Vampires standing, with the party. Lil Stinky at the decks, Poe Boy behind him. Angelique with the party. The USB is wherever the party left it.",
       rounds:[
         {k:"After &ldquo;Drop.&rdquo;", who:"Roll initiative. Party and vampires against Poe Boy and Stinky. The goal is the USB, not killing him.", say:"<b>What do you do?</b>"},
-        {k:"Round 1", who:"Poe Boy Commands the USB holder. Stinky gets back to the decks. One vampire acts: Orlok grips Stinky. Angelique goes to the USB holder in Poe Boy's face.", say:"One word, in somebody else's voice, and your hand opens. The drive hits the floor.", sp:"Angelique: &ldquo;Aux is round the back of the mixer, left side. I'm on the poster. I know this stage.&rdquo;"},
-        {k:"Round 2", who:"Stinky swings at the USB holder and hits a vampire. Dracula carries the holder toward the decks.", say:"Stinky's sword catches a vampire. It smokes. It staggers."},
-        {k:"Round 3", who:"Stinky gets moved or drops. Someone plugs in. Edward pulls a PC clear.", say:"He's off the decks. There's the aux."},
-        {k:"Round 4", who:"The recording plays. Stinky's oath breaks, no save: move his token next to Poe Boy. His Aura is gone and the decks are open. Poe Boy's Command stops landing.", say:"Read the recording, below."},
-        {k:"Round 5 on", who:"Stinky swings at Poe Boy. Angelique, in her own face, knifes him. The party takes him down. Give it two rounds, then the next PC hit knocks him out.", say:"He tries a voice. Then another one. Nobody in the room is listening.", sp:"Lil Stinky: &ldquo;I believed you, man.&rdquo;"}
+        {k:"Round 1", who:"Poe Boy Commands the USB holder. Stinky gets back to the decks, and his first swing goes through a vampire, no roll: Russ's heal, if it hasn't landed. One vampire acts: Orlok grips Stinky. Angelique goes to the USB holder in Poe Boy's face.", say:"One word, in somebody else's voice, and your hand opens. The drive hits the floor. Stinky's sword catches a vampire. It smokes. It staggers.", sp:"Angelique: &ldquo;Aux is round the back of the mixer, left side. I'm on the poster. I know this stage.&rdquo;"},
+        {k:"Round 2", who:"Dracula carries the holder toward the decks. Stinky gets moved or drops. Someone plugs in, or Edward pulls a PC clear and it's round 3.", say:"He's off the decks. There's the aux."},
+        {k:"When it plays", who:"Stinky's oath breaks, no save: move his token next to Poe Boy. His Aura is gone and the decks are open. Poe Boy's Command stops landing.", say:"Read the recording, below."},
+        {k:"The round after", who:"Stinky swings at Poe Boy. Angelique, in her own face, knifes him. The next PC hit knocks him out.", say:"He tries a voice. Then another one. Nobody in the room is listening.", sp:"Lil Stinky: &ldquo;I believed you, man.&rdquo;"}
       ],
       other:[
         ["Russ heals a vampire under fire","That's <b>badge req 3</b>, if it hasn't landed."],
         ["They try to kill Poe Boy","He can't drop below 1 HP until the recording plays: on his knees, still on the mic. Point at the decks."],
         ["They plug in with Stinky standing there","Nobody can while he's at the decks. Shove, grapple, a spell or a vampire moves him."],
         ["The USB is still upstairs","Someone runs it down, about 2 rounds."],
-        ["It drags past round 4","Dracula lands the drive in a PC's hand at the decks."],
+        ["It drags past round 3","Dracula lands the drive in a PC's hand at the decks, and it plays."],
         ["They hit Poe Boy after the recording","The floor is gone. At 0 HP he's knocked out, not killed."],
         ["Stinky or Angelique would drop Poe Boy","Hold him at 1 HP. A PC lands the last hit."],
         ["They go after Stinky once he's turned","He takes it and doesn't swing back. He's looking at Poe Boy."]
@@ -354,37 +337,32 @@ const FIGHTS = {
     run:{
       setup:"Ostrander is dead and the vampires are free. The party tells them about Marcus and the drive. Orlok: &ldquo;Let them play it.&rdquo; Poe Boy refuses: &ldquo;Drop.&rdquo; That's what turns them on him. Poe Boy and Lil Stinky hold the decks. The USB is wherever the party left it: if it's still in the old rig upstairs, someone runs it down (about 2 rounds).",
       matchups:"Lil Stinky holds the decks; Poe Boy stays behind them, on the mic. Orlok goes for Stinky, Dracula shadows whoever holds the USB, Edward hangs back to pull PCs clear, Angelique stays by the USB holder. The party's job: get the USB to the decks and get Stinky off them.",
-      beats:["R1 · The USB is on the move. Poe Boy Commands its holder: &ldquo;Drop.&rdquo;",
-             "R2 · The party reaches the decks. Stinky swings at the holder and smokes a vampire (Russ's heal).",
-             "R3 · Stinky gets moved or drops. Someone plugs in.",
-             "R4 · The recording plays. Stinky turns on Poe Boy. The room turns.",
-             "R5 on · Stinky and Angelique on Poe Boy. The party takes him down."],
       allyJob:"One vampire a round, in turn, after everyone: Orlok grips Stinky, Dracula carries the USB holder toward the decks, Edward pulls a PC clear. Narrate it, no rolls.",
       win:"A PC at the decks plugs the USB in (their action). Then narrate the recording.",
-      ends:"Round 3 or 4: the recording plays, Stinky turns on Poe Boy, the room turns, Dracula takes the mic. Two rounds later Poe Boy is knocked out.",
-      losing:"It can't be lost. If it drags past round 4, Dracula snatches the drive and lands it in a PC's hand at the decks."
+      ends:"Round 2 or 3: the recording plays, Stinky turns on Poe Boy, the room turns, Dracula takes the mic. The round after, Poe Boy is knocked out.",
+      losing:"It can't be lost. If it drags past round 3, Dracula snatches the drive and lands it in a PC's hand at the decks, and it plays."
     },
     foes:[
-      {id:"poeboy", nm:"DJ Poe Boy", n:1, ac:15, hp:120, floor:1, spd:"30", chassis:"Cultist Fanatic, more HP", cr:"4", xp:1100,
+      {id:"poeboy", nm:"DJ Poe Boy", n:1, ac:15, hp:60, floor:1, spd:"30", chassis:"Cultist Fanatic, more HP", cr:"4", xp:1100,
        say:"Borrowed lines only: a radio ad, a movie trailer, his mom.",
        turn:["Command, one word, <b>DC 15 Wis save</b>. The PC holding the USB: &ldquo;Drop.&rdquo; (it lands at their feet). Nobody holding it: the PC nearest the decks, &ldquo;Flee.&rdquo; (they spend their next move running from him).",
              "Mic stand at anyone next to him: <b>+4 to hit, 4 bludgeoning</b>. Pathetic on purpose."],
        note:"<b>Can't drop below 1 HP until the recording plays</b>: at 1 he's on his knees behind the decks, still on the mic. +3 on his saves while Stinky is within 10 ft, until Stinky turns.",
-       drop:"When the recording plays the floor ends, his Command stops landing, the room boos and Dracula takes the mic. Two rounds on, the next PC hit puts him at 0: knocked out, not killed. The fight runs into the early morning; cut to the driveway at sunrise.",
+       drop:"When the recording plays the floor ends, his Command stops landing, the room boos and Dracula takes the mic. One round on, the next PC hit puts him at 0: knocked out, not killed. The fight runs into the early morning; cut to the driveway at sunrise.",
        hard:"He only Commands the PC holding the USB. No &ldquo;Flee.&rdquo;",
        easy:"He Commands two PCs a turn: &ldquo;Drop.&rdquo; and &ldquo;Flee.&rdquo;"},
-      {id:"stinky", nm:"Lil Stinky", n:1, ac:18, hp:60, spd:"30", chassis:"Knight", cr:"3", xp:700,
+      {id:"stinky", nm:"Lil Stinky", n:1, ac:18, hp:40, spd:"30", chassis:"Knight", cr:"3", xp:700,
        say:"Sincere. Not charmed: he believes his friend.",
        turn:["Back to the decks, next to Poe Boy.",
              "Longsword twice: <b>+5 to hit, 8 radiant</b> each. The PC holding the USB if he can reach them, otherwise the nearest vampire."],
        note:"<b>Nobody can plug in while he's standing at the decks.</b> Shove him, grapple him, move him with a spell or a vampire, or drop him, then plug in. A vampire he hits smokes and staggers: that's Russ's heal for badge req 3, if it hasn't landed.",
        drop:"At 0 HP he's on one knee, sword down: out of the fight, awake, and still hears the recording. When it plays, his oath breaks, no save, and he gets up on the party's side: see Allies.",
        hard:"One swing, not two.",
-       easy:"Add 20 HP (80)."}
+       easy:"Add 20 HP (60)."}
     ],
     alliesLabel:"Allies · end of each round, no rolls",
     allies:[
-      {nm:"Orlok", act:"In turn with Dracula and Edward, one a round. Takes hold of Lil Stinky: 10 necrotic."},
+      {nm:"Orlok", act:"In turn with Dracula and Edward, one a round. Takes hold of Lil Stinky: 10 necrotic, and he's off the decks until his next turn."},
       {nm:"Dracula", act:"Swoops: carries the PC holding the USB 30 ft toward the decks."},
       {nm:"Edward", act:"Pulls one PC 30 ft out of trouble. No opportunity attacks."},
       {nm:"Angelique", act:"Every round until the recording: wears Poe Boy's face beside the USB holder (nobody holding it: the PC nearest the decks). That PC has advantage on the save against his Command.",
