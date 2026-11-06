@@ -216,7 +216,7 @@ const FIGHTS = {
     day:"Sunday", cue:"14 · i", name:"The developer",
     read:{
       open:[
-        {who:"The hard hats", t:"Hard hats push through the crowd. They walk right past you. They're going for the vampires. A man with a clipboard says one word, and Orlok, Dracula and Edward stop dead, pinned where they stand. His men take out stakes."},
+        {who:"The hard hats", t:"Hard hats push through the crowd. They walk right past you. They're going for the vampires. A man with a clipboard holds up a seal and says one word, and Orlok, Dracula and Edward stop dead, pinned where they stand. His men take out stakes."},
         {who:"W. Ostrander · to his men", sp:1, t:"Stakes. Start with the old one."},
         {who:"After Ostrander's line", t:"<b>What do you do?</b>"}
       ],
