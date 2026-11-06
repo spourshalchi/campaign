@@ -165,7 +165,7 @@ SCENES.push(
     {do:"On the way up to the computer room, the circle stirs. &#9876; Fight."},
     {tok:1},
     {snd:["jump"]},
-    {note:"Use the 2&Prime; summoning token for the remnant and the four fragment tokens."},
+    {note:"Use the 2&Prime; summoning token for the remnant and two fragment tokens."},
     {fight:1},
     {do:"When the remnant drops, move straight on to the computer room."},
     {end:"when the remnant drops. Nothing new is learned here."}
