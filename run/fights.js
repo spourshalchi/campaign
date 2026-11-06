@@ -47,7 +47,7 @@ const FIGHTS = {
       read:[
         {who:"Everything drops", t:"The shears snap shut and clatter to the floor. The cards settle. The cart tips over and spills its books. The room is very quiet."},
         {note:"Clear the map."},
-        {who:"Records Keeper · after the fight", sp:1, t:"You can try to put it back together. But that was your primary source, and it's gone. If you want one now, you'll have to go look at the house yourselves. &hellip;But be careful."},
+        {who:"Records Keeper · after the fight", sp:1, t:"Well. Don't just stand there. Get every scrap and put it back together."},
         {note:"<b>Item 1 on the iPad:</b> tap <b data-tier-now></b>, the difficulty shown by the cuts. Then hand over the torn page."}
       ],
       next:"The jigsaw, then they read the page."
