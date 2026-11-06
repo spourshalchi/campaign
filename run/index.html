@@ -136,6 +136,16 @@
   .lk{margin:0 0 12px}
   .lk-at{margin:0 0 6px;font-size:14px;color:var(--mut);font-style:italic}
   .lby{display:block;margin-top:1px;font-size:13px;color:var(--gold)}
+  /* Narrating the fight: tokens, what to say each round, who is hitting whom, what if */
+  .ng-t{margin:0 0 10px;font-size:15px;line-height:1.45}
+  .ng-t b{color:var(--gold);margin-right:4px}
+  .ng-r{margin:0 0 10px;padding:8px 10px;border-left:3px solid var(--blood);background:var(--panel);border-radius:0 8px 8px 0}
+  .ng-k{margin:0 0 3px;font:700 13px/1.3 var(--f-mono);color:#ff9aaa}
+  .ng-say{margin:0 0 4px;font-family:var(--f-disp);font-size:18px;line-height:1.4;color:var(--amber)}
+  .ng-who{margin:0;font-size:14.5px;line-height:1.4;color:var(--ink)}
+  .ng-sp{margin:4px 0 0;font-size:14.5px;line-height:1.4;color:var(--pink)}
+  .ng-oh{margin:12px 0 6px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+  .ng-o{margin:0 0 6px;font-size:14.5px;line-height:1.4}
   /* Two zones on one screen: Scott narrates (gold), Spencer voices (pink).
      Wide enough → the stage stops scrolling and each zone scrolls on its own. */
   .zones{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:14px;align-items:stretch}
@@ -535,7 +545,7 @@
   </div>
 </div>
 
-<script src="fights.js?v=5"></script>
+<script src="fights.js?v=6"></script>
 <script src="sounds/manifest.js?v=2"></script>
 <script>
 "use strict";
@@ -900,7 +910,9 @@ const SCENES = [
   ends:"at the warm, breathing door &mdash; straight into the summoning.",
   read:[{t:"A door on the top floor you haven't tried is warm to the touch &mdash; and something on the other side of it is breathing."}],
   beats:[
-    "Let them be wrong about it for as long as possible. <b>Edward does not explain himself tonight</b> ; that happens in the driveway at sunrise."
+    "Let them be wrong about it for as long as possible. <b>Edward does not explain himself tonight</b> ; that happens in the driveway at sunrise.",
+    "<b>If they try the ballroom:</b> heavy doors, locked, and no roll or spell opens them. Cables run under the door. It opens at 2:30. <span class='ai'>🟡</span>",
+    "<b>If they look for Poe Boy:</b> he isn't in the house until 2:30. The mics record on their own. <span class='ai'>🟡</span>"
   ],
   rev:[
     {by:"Edward", who:"Players", t:"learn Edward is watching <b>Bix</b> specifically. They should read it as <i>the vampire has picked one of us</i>. He explains nothing."}
@@ -1183,62 +1195,118 @@ const SCENES = [
   ],
   cues:["rig","aim","lockclick","heart","smash","bell","pa","braaam"] },
 
-{ act:"finale", no:"14 · i", title:"Climax — Phase 1: the developer breaches", where:"The ballroom · 3AM · the crowd arrives with the show · the only lethal fight",
-  setting:"3AM, and the house is suddenly full of people. The ballroom is rigged as a stage: decks on the dais, cables run off into the walls, lights swinging over a crowd still pouring in. And Poe Boy's voice is in every speaker at once.",
+{ act:"finale", no:"14 · i", title:"The developer", where:"The ballroom · 3AM · step 1 of 2: save the vampires · the only lethal fight",
+  setting:"3AM, and the house is suddenly full of people. The ballroom is rigged as a stage: decks on the dais, cables run off into the walls, lights swinging over a crowd still pouring in, every face turned up and smiling. And on the decks, Poe Boy, playing your screams to all of them.",
   pace:[
-    "At the start: Russ shows Orlok the card. He still won't sign. <b>Refusal 2 of 3.</b> <span class='ai'>🟡</span>",
-    "The crowd arrives with the show. Poe Boy on the mic <b>names all five</b>. &#128275;",
-    "<b>Ostrander breaches</b> and seals the exits behind him, his own crew included. &#128275; &#9876; The only lethal fight.",
-    "The vampires go for his thugs. &#128275;",
-    "The party kills him."
+    "Russ shows Orlok the card. He still won't sign. <b>Refusal 2 of 3.</b> <span class='ai'>🟡</span>",
+    "The party arrives wanting Poe Boy. He <b>names all five</b> on the mic. &#128275;",
+    "Dracula, waiting for his cue: <b>&ldquo;Not you. Them.&rdquo;</b> &#128275; <span class='ai'>🟡</span>",
+    "As the crowd pours in: <b>Perception DC 14</b> (below). <span class='ai'>🟡</span>",
+    "<b>The hard hats go for the vampires</b> (read-aloud). Spencer gives Ostrander's line. <b>You ask: &ldquo;What do you do?&rdquo;</b> &#128275; &#9876; <span class='ai'>🟡</span>",
+    "Run the fight from <b>Narrating the fight</b> below. <b>Badge req 3</b> can land here, on a pinned vampire.",
+    "The party kills him. <b>Silence.</b> Then the seal breaks (read-aloud)."
   ],
-  ends:"when he goes down. Stop, and let the room be quiet.",
+  ends:"when the seal breaks and the vampires are on their feet.",
   read:[
-    {who:"After he goes down", t:"Stop. Let the room be quiet for a moment."}
+    {who:"The hard hats 🟡", t:"Hard hats push through the crowd. They walk right past you. They're going for the vampires. A man with a clipboard says one word, and Orlok, Dracula and Edward stop dead, pinned where they stand. His men take out stakes."},
+    {who:"After Ostrander's line", t:"<b>What do you do?</b>"},
+    {who:"He goes down", t:"Stop. Let the room be quiet for a moment."},
+    {who:"Then the seal breaks 🟡", t:"The seal goes. Three vampires get up, and it's over fast for the men nearest them. Anyone else in a hard hat lets go of his crowbar."}
   ],
+  checks:[
+    {skill:"Perception", dc:"14", sug:true, note:"<b>Call it</b> as the crowd pours in. <b>Success:</b> among the charmed crowd, one man with a clipboard isn't charmed: a warning before he acts. His name is already on the library card and the survey (<i>coordinate through W.O.</i>), so a player can place him. <b>Miss:</b> it plays on schedule. <span class='ai'>🟡</span>"}
+  ],
+  guide:{
+    tokens:"Thugs 1&ndash;3 between the party and the vampires. Ostrander and thugs 4&ndash;6 on the vampires. Lay Orlok, Dracula and Edward on their sides: pinned. Dracula next to Yobo, Edward where Bix can see him. Poe Boy and Stinky up on the decks: not in this fight.",
+    rounds:[
+      {k:"Round 1", who:"Thugs 1&ndash;3 block the party and swing at the nearest PC. Thugs 4&ndash;6 hold the vampires down, no rolls. Ostrander works on Orlok and ignores the party until someone hits him or reaches him.", say:"Three of them step into your way. Behind them, a stake comes down to rest on Orlok's chest.", sp:"Orlok: &ldquo;Boy. Help me.&rdquo; Edward: &ldquo;Twenty-four years.&rdquo;"},
+      {k:"Round 2", who:"Thugs 1&ndash;3 are on the party and starting to drop. Ostrander: Hold on whoever hit him, rod at anyone next to him.", say:"Dracula is frozen mid-flourish, cape out, an arm's length from Yobo. They've reached him. Somebody is measuring.", sp:"Poe Boy, on the mic: &ldquo;Oh, this is great. Keep going.&rdquo;"},
+      {k:"Round 3", who:"Thugs 1&ndash;3 mostly down. Ostrander is exposed.", say:"They've got to the quiet one. A mallet goes up over a stake on Edward's chest. He isn't looking at it. He's looking at Bix."},
+      {k:"Round 4 on", who:"Hold here. No vampire is ever actually killed. Ostrander goes down round 3 or 4.", say:"The mallet is still up. It's shaking."}
+    ],
+    other:[
+      ["They go for Poe Boy first","He can't drop below 1 HP and Stinky blocks. The vampires keep calling for help. He isn't going anywhere. Take the next round's line anyway."],
+      ["Nobody moves, or they try to talk","Ostrander doesn't stop. Orlok asks again. Take the next round's line anyway."],
+      ["They try to break the seal","It holds until he drops. Point them at the man with the clipboard."],
+      ["They go for thugs 4&ndash;6","Fine. Ostrander turns on whoever gets close."],
+      ["They leave","The doors are open and nobody stops them. Orlok calls after them."],
+      ["Russ heals a pinned vampire","That's <b>badge req 3</b>. If it doesn't happen here, it's still open at the booth."],
+      ["When he drops","Take off Ostrander and every thug. Stand the vampires up. Next card."]
+    ]},
   talk:[
-    {who:"DJ Poe Boy · on the mic", t:"He names all five of them."}
+    {who:"Orlok · Russ shows him the card", t:"Looks at it. Doesn't sign it. <span class='ai'>🟡</span>"},
+    {who:"DJ Poe Boy · on the mic", t:"He names all five of them, in borrowed voices."},
+    {who:"Dracula · waiting for his cue, to the party", t:"Not you. Them. <span class='ai'>🟡</span>"},
+    {who:"W. Ostrander · to his men", t:"Stakes. Start with the old one. <span class='ai'>🟡</span>"},
+    {who:"Orlok · pinned, to Russ", t:"Boy. Help me. <span class='ai'>🟡</span>"},
+    {who:"Edward · on seeing Ostrander's men", t:"Twenty-four years. <span class='ai'>🟡</span>"},
+    {who:"DJ Poe Boy · on the mic, during the fight", t:"Oh, this is great. Keep going. <span class='ai'>🟡</span>"}
   ],
   rev:[
     {by:"DJ Poe Boy", who:"Players", t:"hear him name all five of them in front of everyone."},
-    {by:"scott", who:"Players", t:"meet the man behind the checkout card: <b>W. Ostrander</b>, the developer."}
+    {by:"Dracula", who:"Players", t:"learn from &ldquo;Not you. Them.&rdquo; that the vampires are after the crowd, not them."},
+    {by:"scott", who:"Players", t:"meet the man behind the checkout card and the survey: <b>W. Ostrander</b>, the developer."}
   ],
   beats:[
-    "<b>The crowd arrives with the show.</b> The five have been alone seven hours; at three the house fills up for Poe Boy's party, and every beat from here has an audience. <b>Angelique stays through the final battle</b> &mdash; what she does is still open.",
-    "<b>Where the vampires' heads are:</b> the 3AM crowd is the <b>bait for their scare</b>, not a rival event &mdash; the audience they've waited all night for. The developer's breach cuts in before they scare anyone. <span class='ai'>🟡</span>",
-    "Then the party kills him &mdash; converting &ldquo;not our enemy&rdquo; into &ldquo;the people who solved our actual problem, in front of us.&rdquo; <b>Two moments, not one.</b>",
-    "His crew dies in the scramble; <b>he's the death the room stops for</b> &mdash; the one with a name and a face, killed by the party. Self-defence &mdash; he sealed them in and attacked first &mdash; but these are teenagers. <b>Let it have its silence before the comedy starts.</b>"
+    "<b>Angelique stays through the final battle</b> &mdash; what she does is still open.",
+    "<b>He's the death the room stops for.</b> They stepped in to save the vampires and he attacked them, but these are teenagers. Nothing funny until the room has been quiet."
   ],
   fight:FIGHTS.developer,
   npcs:[
-    {nm:"DJ Poe Boy", vc:"On the mic in borrowed lines. An Enthralling Performance holds the 3AM crowd &mdash; he needs them frightened and he needs them to stay."},
-    {nm:"Orlok", vc:"Russ shows him the card at the start of the scene. He still won't sign. <span class='ai'>🟡</span>"},
-    {nm:"W. Ostrander", vc:"An adult with a clipboard. Walks in with the crowd: it's the first time a door here has been open to him. Within four seconds it stops being folklore and becomes a contamination problem on a site he's paid for. Brushes off Poe Boy's recruit pitch. Wants the site cleared for the Galleria."}
+    {nm:"DJ Poe Boy", vc:"On the decks, on the mic, in borrowed lines. Holds the crowd with an Enthralling Performance. Delighted. Not in this fight."},
+    {nm:"Orlok", vc:"Russ shows him the card at the start: he still won't sign. Pinned, he asks for help, which he wouldn't do at the cabinet. Keeps calling if they go for Poe Boy. <span class='ai'>🟡</span>"},
+    {nm:"Dracula", vc:"Waiting for his cue, saving himself for the crowd. Then pinned mid-flourish near Yobo. <span class='ai'>🟡</span>"},
+    {nm:"Edward", vc:"Sees Ostrander's men and says one line. Doesn't explain it. Pinned, he looks at Bix, not at the stake. <span class='ai'>🟡</span>"},
+    {nm:"W. Ostrander", vc:"An adult with a clipboard. Walks in with the crowd. Ignores the party until they interfere: to him this is a site with a pest problem. Wants the site cleared for the Galleria."}
   ],
   reminders:[
-    {t:"His death is what <b>flips the vampires &mdash; no persuasion check.</b>", k:""},
-    {t:"Russ's badge req 3 opens next: heal a vampire under fire.", k:""},
-    {t:"Give the death its <b>silence</b>. The comedy doesn't start until this lands.", k:"rule"},
-    {t:"Poe Boy opens the front door at 2:30 for the crowd, and the ballroom with it.", k:""}
+    {t:"Poe Boy opens the front door at 2:30 for the crowd, and the ballroom with it. The crowd stays because it's charmed.", k:""},
+    {t:"Give the death its <b>silence</b>. The comedy doesn't start until this lands.", k:"rule"}
   ],
-  cues:["set","crowd","pa","bolt","jump","braaam"] },
+  cues:["set","crowd","pa","jump","braaam"] },
 
-{ act:"finale", no:"14 · ii", title:"Climax — Phase 2: the booth", where:"The ballroom decks · badge req 3 of 3",
-  setting:"The developer is down and the exits are still sealed. The crowd is pressed to the walls, the vampires are on your side now, and up on the decks Poe Boy and Lil Stinky aren't letting anyone near the aux.",
+{ act:"finale", no:"14 · ii", title:"The booth", where:"The ballroom decks · step 2 of 2: get Poe Boy · badge req 3 if it hasn't landed",
+  setting:"The developer is down. The crowd is still swaying, still smiling, and up on the decks Poe Boy and Lil Stinky aren't letting anyone near the aux.",
   pace:[
-    "<b>The vampires turn</b> &mdash; no persuasion check. &#9876; Party plus three vampires against Poe Boy and Stinky.",
-    "<b>Get the USB to the decks.</b> Command (&ldquo;Drop.&rdquo;) only costs time; Stinky standing guard at the decks is the puzzle.",
-    "<b>Badge req 3</b>, any round: Russ heals a vampire under fire.",
+    "<b>The vampires owe the party</b> (read-aloud). The party tells them about Marcus and the drive. <b>Nobody raises it:</b> Orlok asks, and Poe Boy panicking gives it away. <span class='ai'>🟡</span>",
+    "Orlok: <b>&ldquo;What's on the drive?&rdquo;</b> Then to Poe Boy: <b>&ldquo;Let them play it.&rdquo;</b> Poe Boy refuses: <b>&ldquo;Drop.&rdquo;</b> That's what turns them on him. &#128275; &#9876; <span class='ai'>🟡</span>",
+    "<b>Get the USB to the decks.</b> Run it from <b>Narrating the fight</b> below.",
+    "<b>Badge req 3</b>, any round, if it hasn't landed: Russ heals a vampire under fire.",
     "The USB hits the decks: <b>narrate the recording</b> (read-aloud). &#128275; Stinky's oath breaks, no save.",
     "<b>IF Simone paid the goat</b> &rarr; Spencer voices Marcus (his zone).",
-    "Silence, one boo, then the whole room. <b>Dracula seizes the mic.</b> Poe Boy's Command stops landing."
+    "The charm breaks and the crowd turns: silence, one boo, then the whole room. <b>Dracula seizes the mic.</b> Poe Boy's Command stops landing."
   ],
   ends:"on the fight running into the early morning. Cut to the driveway at sunrise.",
   read:[
+    {who:"The vampires owe you 🟡", t:"The man who wanted this house is dead on the floor. Orlok is looking at you, and for once he isn't cold about it. The crowd hasn't noticed. The set hasn't stopped. Poe Boy is still up there."},
     {who:"The objective", t:"Get the USB to the decks and get on aux."},
-    {who:"When the USB hits the decks · narrate the recording 🟡", t:"Typing. A door shuts. Then a scared kid, asking someone to open it. Asking again, quieter. And under all of it, perfectly calm, Poe Boy: nudging a level up, leaning in close to listen, pleased with how clean it sounds."},
+    {who:"When the USB hits the decks · narrate the recording 🟡", t:"His set cuts out mid-scream. Then typing. A door shuts. Then a scared kid, asking someone to open it. Asking again, quieter. And under all of it, perfectly calm, Poe Boy: nudging a level up, leaning in close to listen, pleased with how clean it sounds."},
     {who:"Then let it sit", t:"The speakers hiss. Nobody in the ballroom moves."},
+    {who:"The charm breaks 🟡", t:"The smiles go, all at once, across the whole room. Somebody boos. Then everybody does."},
     {who:"On the last turn 🟡", t:"It runs on into the early morning. By the end, the ballroom windows have gone grey."}
+  ],
+  guide:{
+    tokens:"Ostrander and the thugs are off. Vampires standing, with the party. Lil Stinky at the decks, Poe Boy behind him. The USB is wherever the party left it.",
+    rounds:[
+      {k:"After &ldquo;Drop.&rdquo;", who:"Roll initiative. Party and vampires against Poe Boy and Stinky. The goal is the USB, not killing him.", say:"<b>What do you do?</b>"},
+      {k:"Round 1", who:"Poe Boy Commands the USB holder. Stinky gets back to the decks. One vampire acts: Orlok grips Stinky.", say:"One word, in somebody else's voice, and your hand opens. The drive hits the floor."},
+      {k:"Round 2", who:"Stinky swings at the USB holder and hits a vampire. Dracula carries the holder toward the decks.", say:"Stinky's sword catches a vampire. It smokes. It staggers."},
+      {k:"Round 3", who:"Stinky gets moved or drops. Someone plugs in. Edward pulls a PC clear.", say:"He's off the decks. There's the aux."},
+      {k:"Round 4", who:"The recording plays. Stinky sits down. Clear the map: the fight's over.", say:"Read the recording above."}
+    ],
+    other:[
+      ["They try to kill Poe Boy","He can't drop below 1 HP until the recording plays: on his knees, still on the mic. Point at the decks."],
+      ["They plug in with Stinky standing there","Nobody can while he's at the decks. Shove, grapple, a spell or a vampire moves him."],
+      ["The USB is still upstairs","Someone runs it down, about 2 rounds."],
+      ["It drags past round 4","Dracula lands the drive in a PC's hand at the decks."],
+      ["They hit Poe Boy after the recording","The floor is gone. At 0 HP he's knocked out, not killed."]
+    ]},
+  talk:[
+    {who:"Orlok · to the party, after the silence", t:"What's on the drive? <span class='ai'>🟡</span>"},
+    {who:"Orlok · to Poe Boy", t:"Let them play it. <span class='ai'>🟡</span>"},
+    {who:"DJ Poe Boy · refusing, on whoever holds the USB", t:"Drop. <span class='ai'>🟡</span>"},
+    {who:"Orlok · if nobody raises the drive", t:"You came down those stairs running. What did you find up there? <span class='ai'>🟡</span>"},
+    {who:"DJ Poe Boy · panicking, borrowed voices", t:"Don't touch that dial! <span class='ai'>🟡</span>"}
   ],
   ifblock:{when:"IF Simone paid the goat", say:"Spencer voices <b>Marcus</b> through every speaker in the house. Lowercase, the way he typed.",
     lines:[
@@ -1249,23 +1317,24 @@ const SCENES = [
     ],
     otherwise:"If she said no, skip it. The room has already turned; the ending loses nothing."},
   beats:[
-    "<b>Objective:</b> the USB is wherever the party left it. If it's still <b>upstairs in the old rig</b>, someone runs it down (about 2 rounds).",
-    "Stinky's <b>Aura of Protection</b> buffs Poe Boy's saves &mdash; a puzzle, not a wall. <b>He isn't charmed; he just believes his friend.</b>"
+    "Stinky's <b>Aura of Protection</b> buffs Poe Boy's saves &mdash; a puzzle, not a wall."
   ],
   checks:[
     {skill:"Get to / hold the decks", dc:"no DC", sug:false, note:"The keep-away is the fight. Deal with Stinky to drop the aura, then plug in."}
   ],
   fight:FIGHTS.booth,
   rev:[
+    {by:"Orlok", who:"The vampires", t:"turn on Poe Boy when he refuses to let the drive play. Until then they don't fight him. <span class='ai'>🟡</span>"},
     {by:"scott", who:"The vampires", t:"learn from the recording Scott narrates that <b>a boy died in their house</b> and Poe Boy let it happen. He never went out a window. They had no idea."},
     {by:"scott", who:"Players", t:"realise <b>&ldquo;he said five&rdquo;</b> was about <b>Poe Boy</b> &mdash; he's the boy who told the vampires exactly five were coming."},
-    {by:"scott", who:"The 3AM crowd", t:"learn the truth from the same recording: Poe Boy's calm voice under a scared kid. Silence, one boo, then the whole room."},
+    {by:"scott", who:"The 3AM crowd", t:"learn the truth from the same recording: Poe Boy's calm voice under a scared kid. The charm breaks. Silence, one boo, then the whole room."},
     {by:"spencer", who:"Poe Boy and the vampires", t:"hear it from Marcus himself &mdash; <b>only if Simone paid the goat</b>."},
     {by:"Lil Stinky", who:"Lil Stinky", t:"hears his best friend stay calm while a kid dies. <b>His oath breaks, no save.</b> He sits down."},
     {by:"Dracula", who:"The crowd", t:"hear Dracula seize the mic and denounce Poe Boy, magnificently."}
   ],
   npcs:[
-    {nm:"DJ Poe Boy", vc:"Not killed &mdash; <b>un-performed</b>. The glamour breaks, then his parents call him Upton."},
+    {nm:"Orlok", vc:"Owes the party, and pays by asking one question. Doesn't fight Poe Boy until he refuses. <span class='ai'>🟡</span>"},
+    {nm:"DJ Poe Boy", vc:"Not killed &mdash; <b>un-performed</b>. The glamour breaks. His parents call him Upton in the driveway."},
     {nm:"Lil Stinky", vc:"Stoner, bad rapper, honest to a fault. The only one not charmed &mdash; he just believes his friend. Oath breaks, he stops fighting and sits down. Diss track on Monday."},
     {nm:"Dracula", vc:"Seizes the mic and denounces Poe Boy magnificently. Waited all night for a real audience."}
   ],
@@ -1274,7 +1343,7 @@ const SCENES = [
     {t:"USB can't be destroyed; one bad save never ends the campaign.", k:"rule"},
     {t:"Stinky's oath breaks with <b>no save</b> &mdash; don't put the best beat on a d20.", k:"rule"}
   ],
-  cues:["set","crowd","scratch","hiss","boo","braaam","car"] },
+  cues:["set","crowd","scratch","hiss","boo","braaam"] },
 
 { act:"finale", no:15, title:"The driveway", where:"Dood Mansion · sunrise · one scene, everyone arrives",
   setting:"Sunrise on the lawn. The crowd is still milling about in last night's costumes, the vampires keep to the shade of the porch, and in daylight the house looks almost like a house again.",
@@ -1452,16 +1521,16 @@ const EXEC = {
           ["Absent","Simone's out: the answer to the goat is no."]]},
   "14 · i":{mins:45,
     late:"When Ostrander drops, his remaining thugs die in the scramble.",
-    do:["Crowd (5) as the house fills; PA (p) when Poe Boy takes the mic."],
-    at:"3AM. The ballroom is open, the crowd is here, and they just heard their own screams.",
-    land:[["Refusal 2 of 3: Orlok still won't sign. <span class='ai'>🟡</span>","Spencer"],["Poe Boy <b>names all five</b> on the mic.","Spencer"],["Ostrander dies. <b>Let it be quiet.</b>","Scott"]],
-    next:"Silence, then the booth: cue 14 · ii.", go:["14 · ii"],
+    do:["Crowd (5) as the house fills; PA (p) when Poe Boy takes the mic.","Poe Boy and Stinky go on the decks. Lay the vampires' tokens down when the seal lands."],
+    at:"3AM. They came for Poe Boy, and just learned the vampires are innocent.",
+    land:[["Refusal 2 of 3: Orlok still won't sign. <span class='ai'>🟡</span>","Spencer"],["Poe Boy <b>names all five</b> on the mic.","Spencer"],["<b>The vampires need saving</b>, and it's the party's choice.","Scott reads, Spencer as Ostrander and Orlok"],["Ostrander dies. <b>Let it be quiet.</b>","Scott"]],
+    next:"Silence, then the seal breaks. Then the booth card.", go:["14 · ii"],
     save:[["Losing","See Losing? on the fight card."]]},
   "14 · ii":{mins:40,
     late:"The USB reaches the decks by round 2.",
-    do:["Where's the USB? Still upstairs, someone runs it down (about 2 rounds)."],
-    at:"The developer is dead.",
-    land:[["The recording: <b>a boy died here</b> and Poe Boy let it happen.","Scott narrates"],["<b>&ldquo;He said five&rdquo;</b> was Poe Boy.","Scott"],["Badge req 3: Russ heals a vampire under fire.","Russ does it, any round"]],
+    do:["Swap the tokens (Narrating the fight, below)."],
+    at:"The developer is dead and the vampires owe them. Now Poe Boy.",
+    land:[["The vampires turn on Poe Boy because <b>he won't let the drive play</b>.","Spencer"],["The recording: <b>a boy died here</b> and Poe Boy let it happen.","Scott narrates"],["<b>&ldquo;He said five&rdquo;</b> was Poe Boy.","Scott"],["Badge req 3: Russ heals a vampire under fire, if it hasn't landed.","Russ does it, any round"]],
     next:"It runs into the early morning, then the driveway at sunrise: cue 15.", go:["15"],
     save:[["Losing","The USB can't be destroyed; one bad save never ends it. Stinky's oath breaks with no save."]]},
   "15":{mins:20,
@@ -1672,6 +1741,10 @@ function render(i){
   const beatsHTML = (s.beats && s.beats.length) ? `<div class="block"><p class="h">${s.pace?"Notes":"The beats"}</p><ul class="beats">` +
     s.beats.map(b=>`<li>${b}</li>`).join("") + `</ul></div>` : "";
   const canonHTML = s.act==="set" ? `<div class="block"><p class="h">Canon</p><div class="canon-note">Read-aloud lines and cues are drawn from the <b>codex</b> (DM-side suggestions, not player-facing truth). Skill-check DCs marked <b>*</b> and everything marked <b>🟡</b> &mdash; reveals, Leave knowing, Next, Rescues, the clock plan &mdash; are proposals for this tool, not signed off &mdash; tune freely. Nothing here makes anything canon.</div></div>` : "";
+  const g = s.guide, guideHTML = g ? `<div class="block ng"><p class="h">🎙 Narrating the fight <span class="ai">🟡</span></p>`+
+    `<p class="ng-t"><b>Tokens</b> ${g.tokens}</p>`+
+    g.rounds.map(r=>`<div class="ng-r"><p class="ng-k">${r.k}</p><p class="ng-say">${r.say}</p><p class="ng-who">${r.who}</p>${r.sp?`<p class="ng-sp"><b>Spencer</b> ${r.sp}</p>`:""}</div>`).join("")+
+    `<p class="ng-oh">If they do something else</p>`+g.other.map(([k,v])=>`<p class="ng-o"><b>${k}.</b> ${v}</p>`).join("")+`</div>` : "";
   const refBody = revBlock(revs.filter(r=>r.by==="scott"),"🔓 All reveals") + remHTML + beatsHTML + canonHTML;
   const refHTML = refBody ? `<p class="ref-h">Reference</p>${refBody}` : "";
 
@@ -1683,7 +1756,7 @@ function render(i){
     `<h2>${s.title}</h2>${e.mins?`<span class="mins">~${e.mins} min <span class="ai">🟡</span></span>`:""}<span class="where">${s.where}</span></div>`+
     `<div class="zones">`+
       `<section class="zone z-scott"><p class="zh"><span>Scott</span> · narrate</p>`+
-        `${checkHTML}${landHTML}${doHTML}${floatHTML}${setHTML}${paceHTML}${readHTML}${checksHTML}${lvHTML}${wrapHTML}${saveHTML}${fightHTML}${refHTML}</section>`+
+        `${checkHTML}${landHTML}${doHTML}${floatHTML}${setHTML}${paceHTML}${readHTML}${checksHTML}${guideHTML}${lvHTML}${wrapHTML}${saveHTML}${fightHTML}${refHTML}</section>`+
       `<section class="zone z-spencer"><p class="zh"><span>Spencer</span> · voice</p>${spHTML}</section>`+
     `</div>`;
 

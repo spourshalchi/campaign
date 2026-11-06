@@ -40,7 +40,9 @@ zone scrolls on its own, and below 700px they stack.
 - **🗂 Floating** — on every mansion cue: the sticky note and the site survey. The AIM-room cue's Do now
   has a last call for both.
 - **Setting**, **Pacing** (numbered, ending on the line the scene ends on), **Read aloud**.
-- **Skill checks** — when to call it, the DC, what they learn, the fallback. **➜ Next** — how to get out, with jump
+- **Skill checks** — when to call it, the DC, what they learn, the fallback.
+- **🎙 Narrating the fight** (the two ballroom scenes) — the tokens, what to say each round, who is hitting whom, and what to do if the players do something else.
+- **➜ Next** — how to get out, with jump
   buttons. On Sunday the buttons are a room picker: the rooms not yet done, then the AIM room.
 - **🛟 Rescues** — 🪢 if stuck, ↪ backup path, and stall / split / skip / off-script lines.
 - **⚔ Combat** — Running this fight, then a turn card per enemy with a tap HP tracker (kept while you

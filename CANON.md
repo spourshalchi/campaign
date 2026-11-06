@@ -82,6 +82,9 @@ rather than assuming, because it touches what the bolt actually means for the pa
 | **The vampires mean to scare the party all along but get heart-warmed:** Edward has the family connection to Bix, Russ keeps helping Orlok, Dracula sees himself in Yobo. They stay on the job until 3AM, when the crowd is their target | Scott, 2026-11-06 |
 | **Cut: the 3AM lie** that the party are the mall company's people, and the "vampires turn on the party" beat. The scout and window lies to the vampires stay, in September 2004 | Scott, 2026-11-06 |
 | **The ballroom is locked until 2:30**, when Poe Boy arrives and opens up for the crowd; they can't enter it until after AIM. The mics record on their own until then. The "once" reveal moves to the DJ poster on the AIM door and his voice on the speakers | Scott, 2026-11-06 |
+| **The final battle is two clear steps: save the vampires, then get Poe Boy.** Ostrander attacks the vampires, not the party; the players choose to save them because they've just learned they're innocent. He pins all three with a seal, thugs 1–3 block the party, thugs 4–6 are on the vampires, and he ignores the party until they interfere. The vampires are never actually killed. The party kills him; the seal breaks; the vampires finish thugs 4–6; any of thugs 1–3 left drop their crowbars | Scott, 2026-11-06 |
+| **The booth:** the vampires owe the party. They turn on Poe Boy when he refuses to let the drive play. His 1-HP floor ends when the recording plays; at 0 HP he's knocked out, not killed. *"Upton, honey?"* stays in the driveway | Scott, 2026-11-06 |
+| **Removed:** the seal on the exits, Ostrander turning on the crowd, and Poe Boy's recruit pitch. The crowd stays because it's charmed. He's still the death the room stops for: they stepped in to save the vampires and he attacked them | Scott, 2026-11-06 |
 | **Poe Boy opens the front door at 2:30 for the crowd. Ostrander walks in with it**, because the survey says every door is secured from the inside and this is the first time he can get in. That is why he waits | Scott, 2026-11-06 |
 | **The end of AIM:** every speaker comes on, playing the party's own screams from the night, then Poe Boy's voice. That sends them to the ballroom | Scott, 2026-11-06 |
 
@@ -89,10 +92,10 @@ rather than assuming, because it touches what the bolt actually means for the pa
 - Every new DC, prompt and fallback: Perception 12 for the mic on the stairs and for Dracula's aside, Insight 12 for Russ and Orlok, Investigation 12 for the mic in the wreckage, Insight 12 in the party room, Insight 10 and the whole optional scare before the cellar.
 - New lines: *"It's only the rehearsal, and you missed your entrance."*, *"I know that mask. I've worn it for centuries."*, the scare's lines, the end-of-AIM read-aloud, and Poe Boy's *"Live and direct from the Dood house! Stay tuned!"*. Marcus's AIM lines *"he has mics all over this house"* and *"they think i ran off"*.
 - *"Centuries"* rather than the brief's *"four hundred years"*: the doc never gives Dracula's age, and *centuries* is the existing wording.
-- Refusal 2 of 3 at the start of the developer's phase.
+- Refusal 2 of 3 at the start of the developer's fight.
+- The final battle's lines: Dracula's *"Not you. Them."*, Ostrander's *"Stakes. Start with the old one."*, Orlok's *"Boy. Help me."*, *"What's on the drive?"* and *"Let them play it."*, Poe Boy's *"Oh, this is great. Keep going."* and *"Don't touch that dial!"*, every read-aloud and round-by-round narration line, Perception 14 for the man with the clipboard, and the too-hard dials and losing exit reworked for pinned vampires.
+- *"Twenty-four years"* rather than the brief's *"Twenty-five years"*: the photo is `10 31 '79`, Bix was born about nine months later, and Goblinenon died around then, so about 1980.
 - No roll or spell opens the ballroom before 2:30.
-
-**Held, Scott is rethinking it:** the final battle's flow and fight beats, from the moment Ostrander breaches. Cue 14 and `run/fights.js` keep their existing beats, with the 3AM lie taken out, until he decides. How the vampires turn on Poe Boy is part of that.
 
 ## 📗 Story walk — Scott's decisions, 2026-11-06
 
@@ -327,7 +330,7 @@ This replaces Sesh 8's blue-chip marker: the settlement's *"the marker being the
 9. **What Angelique does at the finale.** She is at the AIM scene and stays through the final battle (`Scott, 2026-11-06`); what she does there is still open.
 10. ~~**The troop leader**~~ — **answered 3 Nov:** an over-earnest scout dad who runs Troop 187's nursing-home
     visits and drives Vinny up at dawn (table above). His name is still open. `Scott, 3 Nov`.
-11. ~~**Where the vampires stand at 3AM before the developer breaches.**~~ — **answered in part:** they stay on the job until 3AM, when the crowd is their target, and the lie is cut. Sesh 7's *"takes control of some vampires"* no longer happens. How they turn in the fight is held with the final battle. `Scott, 2026-11-06`.
+11. ~~**Where the vampires stand at 3AM before the developer breaches.**~~ — **answered:** they stay on the job until 3AM, when the crowd is their target. Ostrander pins them, the party saves them, and they turn on Poe Boy when he refuses to let the drive play. Sesh 7's *"takes control of some vampires"* no longer happens. `Scott, 2026-11-06`.
 12. **The card doesn't say VIP.** Spencer's card reads *Haunted House · Dood Mansion · 8 PM*: no *VIP*, no *you're
     on the list*, no 3AM hint. The run and codex now play the skip-day beat as *being invited salvages the day*.
     Open: does anyone tell the five they're VIPs, and how do they learn the night runs to 3AM?
@@ -576,10 +579,10 @@ survives. The cellar and the corridor are both still fine — they just need new
 | He destroyed the 1937 page **himself**, which is why there's no contractor to trace | the 24 Aug doc paste |
 | **Springing the trap summons him.** The party's cleverest move in town puts him in his car | the 24 Aug doc paste, reflavoured by Scott, 26 Aug |
 | He does not know what's in the house. He finds out, updates in four seconds, starts giving orders | the 24 Aug doc paste |
-| He breaches at 3AM and seals the exits behind him — his own crew included. He walks in with the crowd (`Scott, 2026-11-06`) | the 24 Aug doc paste |
-| ~~**He is the only death in the story**~~ — **his thugs die too**: the party and the vampires kill them in the fight, played PG-13 comic-horror. He is still **the death the room stops for**, and the only one who isn't a monster. Self-defence | the 24 Aug doc paste; the thugs: Scott, 2026-11-04 |
-| His death flips the vampires. **No persuasion check** | the 24 Aug doc paste |
-| Poe Boy tries to recruit him mid-fight and gets brushed off | the 24 Aug doc paste |
+| He breaches at 3AM ~~and seals the exits behind him — his own crew included~~ and pins the vampires with a seal. He walks in with the crowd | the 24 Aug doc paste; changed: Scott, 2026-11-06 |
+| ~~**He is the only death in the story**~~ — **his thugs die too**: the party and the vampires kill them in the fight, played PG-13 comic-horror. He is still **the death the room stops for**, and the only one who isn't a monster. They stepped in to save the vampires and he attacked them (`Scott, 2026-11-06`) | the 24 Aug doc paste; the thugs: Scott, 2026-11-04 |
+| ~~His death flips the vampires. **No persuasion check**~~ — **changed:** his death breaks the seal and they owe the party; they turn on Poe Boy when he refuses to let the drive play | the 24 Aug doc paste; changed: Scott, 2026-11-06 |
+| ~~Poe Boy tries to recruit him mid-fight and gets brushed off~~ — **removed** | the 24 Aug doc paste; removed: Scott, 2026-11-06 |
 
 ### The USB chain
 | Claim | Source |
@@ -658,8 +661,8 @@ Invented with them, all 🟡:
   Nobody on his side swings at a downed PC. If two PCs are down, Orlok and Dracula pin him and the next PC hit kills him.
 - **The vampires never roll initiative.** They act at the end of each round with no rolls. Phase 2: one acts each
   round, in turn — Orlok grips Stinky for 10, Dracula carries the USB holder 30 ft, Edward pulls a PC 30 ft clear.
-- ✅ **The thugs die** (`Scott, 2026-11-04`): the party and the vampires kill them. 🟡 The split is invented: the
-  vampires kill thugs 4–6 (one at the end of round 1, two at the end of round 2); the party faces Ostrander and thugs 1–3.
+- ✅ **The thugs die** (`Scott, 2026-11-04`): the party and the vampires kill them. 🟡 ~~The split is invented: the
+  vampires kill thugs 4–6 (one at the end of round 1, two at the end of round 2); the party faces Ostrander and thugs 1–3.~~ **Thugs 1–3 block the party, thugs 4–6 are on the pinned vampires, who finish them when the seal breaks; any of 1–3 left drop their crowbars** (`Scott, 2026-11-06`).
 - **Matchups and beats by round** for every multi-enemy fight (who takes whom at the start, one line per round, the
   allies' job as one narrated line), at Scott's request (`Scott, 2026-11-04`). The splits and beats are invented.
 - **Poe Boy's Command** is *"Drop."* at the USB holder or *"Flee."* at whoever's nearest the decks, DC 15. **He can't
