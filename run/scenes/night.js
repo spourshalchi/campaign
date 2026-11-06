@@ -9,43 +9,34 @@ SCENES.push(
     {say:"The top of the hill: an empty road, no cars, no light in any window. The boards are off the front door, pried away and stacked neat against the porch rail &mdash; the only thing about this house that's changed in decades. Inside, the hall breathes out cold, dusty air.", who:"Setting"},
     {do:"They walk in and <b>the doors bolt behind them</b>. Locked in."},
     {note:"State it flatly, once.", k:"rule"},
-    {snd:["bolt","steps","jump"], t:"The bolt, the footsteps, the hand"},
-    {say:"That's a bolt throwing behind you. Footsteps overhead &mdash; and a hand comes out of the dark, grabs your sleeve, and pulls you down. It's <b>Angelique</b>."},
-    {do:"<b>Spencer's turn:</b> Angelique tells them to get down and stay quiet."},
-    {do:"<b>If they try the door:</b> it doesn't move, and there's no bolt on their side to throw. <b>Spencer's turn:</b> Angelique answers them."},
-    {end:"hidden in the dark with Angelique &mdash; straight into first contact."}
+    {snd:["bolt","steps"], t:"The bolt and the footsteps"},
+    {say:"That's a bolt throwing behind you. Footsteps overhead. What do you do?"},
+    {do:"Prompt them to hide."},
+    {check:{skill:"Stealth", dc:"12", note:"<b>Call it</b> as they hide, everyone rolls. <b>They hide either way.</b> <b>Miss:</b> play up the tension, and note who missed: Dracula goes for them first in cue 6."}},
+    {do:"<b>If they try the door:</b> it doesn't move, and there's no bolt on their side to throw."},
+    {end:"hidden in the dark, straight into first contact."}
   ],
   next:"Hidden in the dark, they hear voices: straight into cue 6.", go:["6"],
-  npcs:[
-    {nm:"Angelique", pts:[
-      {at:"When you grab them"},
-      {t:"Pull them down into hiding and tell them to stay quiet.", say:"Get down. Get <i>down</i>. Stay quiet."},
-      {t:"Refuse to say what you're hiding from, and tell them to listen.", say:"Just listen."},
-      {t:"Refuse to say why you came.", say:"Not now."},
-      {at:"Only if they try the door"},
-      {t:"Warn them off it.<ul><li>It won't open. Going that way means walking back past whatever you walked past.</li></ul>", say:"Go on then. You'll just have to walk back past whatever I walked past."}
-    ], vc:"Frightened, whispering."}
-  ],
-  cues:["wind","drone","bolt","steps","jump"] },
+  npcs:[],
+  cues:["wind","drone","bolt","steps"] },
 
 { act:"night", no:6, title:"First vampire encounter", where:"The hall · not a fight",
   steps:[
     {snd:["drone","heart"]},
-    {say:"Pressed into the dark with Angelique, you hear them before you see them: three voices coming down the hall, in no hurry at all. One theatrical, one younger, and one very quiet.", who:"Setting"},
-    {check:{skill:"Stealth", dc:"13", note:"<b>Call it</b> as they hide, everyone rolls. They roll it again as they explore. Save a miss for the swoop below: the argument plays first."}},
-    {say:"From your hiding place, you can hear them talking."},
+    {say:"From where you're hiding, you hear them before you see them: three voices coming down the hall, in no hurry at all. One theatrical, one younger, and one very quiet.", who:"Setting"},
+    {say:"They stop close enough for you to hear every word."},
     {do:"<b>Spencer's turn:</b> the overheard argument."},
     {check:{skill:"Perception", dc:"12", note:"<b>Call it</b> during the argument. <b>Success:</b> they catch one more line from Dracula, and Spencer says it."}},
-    {do:"Turn them loose: they move through the house, <b>rolling Stealth DC 13 as they go</b>, until someone rolls badly."},
+    {do:"The voices move off. Turn them loose to move through the house."},
+    {check:{skill:"Stealth", dc:"13", note:"<b>Call it</b> as they move through the house, as often as you like, until someone rolls badly."}},
     {check:{skill:"Perception", dc:"12", note:"<b>Call it</b> when they take the stairs. <b>Success:</b> a small mic taped to the rail, its cable running into the wall."}},
     {do:"Somewhere in there, Bix catches <b>Edward glimmering</b> in the moonlight, watching him."},
     {note:"If they reach the locked door at the end of the upstairs hall, narrate the DJ poster (the first read-aloud on cue 13). That's as far as they get."},
     {snd:["steps","swoop","jump","braaam"], t:"Dracula"},
-    {do:"<b>Someone rolls badly: Dracula swoops.</b> Describe the vampires grabbing and shoving the party around, with no damage. <b>Spencer's turn:</b> Dracula's taunts."},
+    {do:"<b>Someone rolls badly: Dracula swoops</b>, on whoever missed the hide if anyone did. Describe the vampires grabbing and shoving the party around, with no damage. <b>Spencer's turn:</b> Dracula's taunts."},
     {check:{skill:"Optional save", dc:"13", note:"<b>Call it</b> when a vampire goes for a PC. <b>Str or Dex</b> to slip a grab or stay standing, <b>Wis</b> to shake off the fear. <b>Success:</b> they slip free. <b>Failure:</b> they're pinned, shoved across the room, or frozen for a moment. Nobody's hurt."}},
     {do:"After a couple of these, or the moment it stops being fun: <b>Spencer's turn:</b> Orlok's one word. Everything stops."},
     {do:"<b>Spencer's turn:</b> the dismissal."},
-    {note:"Let the party choose whether Angelique travels with them."},
     {end:"on Orlok's dismissal, with the party scattering to look for a way out."}
   ],
   next:"On Orlok's dismissal, Russ finds Orlok at the cabinet: cue 7.", go:["7"],
@@ -81,8 +72,7 @@ SCENES.push(
       {at:"The swoop"},
       "Watch Bix and leave the grabbing to the others.",
       "Refuse to approach anyone or answer them."
-    ], vc:"The younger voice."},
-    {nm:"Angelique", pts:["Keep them quiet while the voices pass.","Refuse to say what you're hiding from or why you came."], vc:"Whispering, frightened."}
+    ], vc:"The younger voice."}
   ],
   cues:["drone","heart","steps","swoop","jump","braaam"] },
 
