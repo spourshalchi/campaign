@@ -89,13 +89,14 @@ rather than assuming, because it touches what the bolt actually means for the pa
 | **Badge requirement 1 has no sun.** Dracula has put Orlok's spectacles on top of a tall cabinet. Orlok can't see without them, so he's patting along the wrong shelf, still cold and dignified, and won't ask for help. Russ reaches up and hands them over: no roll, no thanks, refusal 1 of 3 | Scott, 2026-11-06 |
 | **Badge requirement 2: Orlok is not in the cellar, and Russ makes the sun himself.** It's night, so no daylight comes through the grate. Russ casts Daylight (3rd-level druid spell, available at level 5). Fallback if he didn't prepare it: Plant Growth or the Nature check, DC 14. The scene ends when the flowers open and he dresses the fox's leg | Scott, 2026-11-06 |
 | **The Daylight hints, none printed.** At the end-of-Saturday level-up, Scott mentions 3rd-level spells are open and names Daylight and Plant Growth. The printed ledger already says the seedlings lean to the grate. Through Speak with Animals, the fox says they want the sun and the old one can't give it to them | Scott, 2026-11-06 |
+| **The study door is an ordinary door, no puzzle.** It's swollen stiff and opens with a shove, no roll. 🟡 Nobody has opened it since 1931 because Orlok won't go into the room where he lost the house: that reason is not canon yet | Scott, 2026-11-06 |
 | **Refusal 2 of 3 moves to Orlok's next appearance**, the start of the ballroom scene (cue 14 · i): Russ shows him the card and he still won't sign. 🟡 The placement is not canon yet | Scott, 2026-11-06 |
 | **Orlok's ledger dates stay as printed** (spring 2005, against a Halloween 2004 night). Scott: they won't notice | Scott, 2026-11-06 |
 | **The name on the backpack stays.** His name isn't a big reveal, so the USB isn't to be treated as a name reveal | Scott, 2026-11-06 |
 
-🟡 **Not canon yet, wording added to apply these:** the booth's last read-aloud (*"It runs on into the early morning. By the end, the ballroom windows have gone grey."*) the AIM cue's prompt to offer the short rest before the chime, refusal 2's placement at the start of cue 14 · i (before Poe Boy's lie), and the rewritten cue 7 and cue 12 settings and the Sunday recap line (*"The old one, patting along the wrong shelf"*). The driveway names only Poe Boy's parents, so the Run and codex say *their kid*.
+🟡 **Not canon yet, wording added to apply these:** the booth's last read-aloud (*"It runs on into the early morning. By the end, the ballroom windows have gone grey."*) the AIM cue's prompt to offer the short rest before the chime, refusal 2's placement at the start of cue 14 · i (before Poe Boy's lie), and the rewritten cue 7 and cue 12 settings and the Sunday recap line (*"The old one, patting along the wrong shelf"*). The study staying shut sits beside the monthly card game running until '33 (codex backstory), so those last games would have been played in another room; nothing says so yet. The driveway names only Poe Boy's parents, so the Run and codex say *their kid*.
 
-**Still under discussion with Scott, unchanged here:** Poe Boy's lie, where Poe Boy is before 2:30 (with final-room access and what sends them there after AIM), the study door, and why Ostrander waits until 3AM.
+**Still under discussion with Scott, unchanged here:** Poe Boy's lie, where Poe Boy is before 2:30 (with final-room access and what sends them there after AIM), and why Ostrander waits until 3AM.
 
 ## 📗 In Person Session
 
@@ -400,7 +401,7 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 |---|---|
 | **Gnomey is the rightful owner of the mansion**, via ~~the chip~~ **the deed** — ~~he has carried since session one~~ **which Vinny hands him in the ending scene** | Sesh 8, replaced by In Person Session |
 | He becomes **head of household and the new leader of the gang** | Sesh 8 |
-| **The study** — sealed since the thirties. ~~A poker set exactly one chip short,~~ the last hand still on the table, and a strongbox with ~~the deed and~~ the signed settlement — **the deed's slot empty** | Sesh 8; the deed: Scott, 1 Nov |
+| **The study** — sealed since the thirties (an ordinary stiff door, no puzzle: `Scott, 2026-11-06`). ~~A poker set exactly one chip short,~~ the last hand still on the table, and a strongbox with ~~the deed and~~ the signed settlement — **the deed's slot empty** | Sesh 8; the deed: Scott, 1 Nov |
 | **Epilogue:** he fronts for the vampires as the man who can stand in daylight, takes no rent and asks nothing. Orlok is pissed, complies perfectly, and thanks him through his teeth | Sesh 8 |
 | ~~He calls the nursing home at the end~~ — **replaced by In Person Session:** Vinny calls *him* early, and shows up in person at the end | Sesh 8, replaced by In Person Session |
 
@@ -438,7 +439,7 @@ The draft spec stays parked in `PROPOSALS.md` as dead work.
 - ~~Orlok's mortal name~~ — **ratified by Scott, 31 Aug.** Cornelis Dood and Orlok are the same man;
   **Dood is Orlok's mortal surname.** The Dutch pun and the puzzle prop both survive, and the Crier's
   obituary is technically accurate. `Scott, 31 Aug`.
-- **The study door puzzle** — left deliberately open. No proposal on the table.
+- ~~**The study door puzzle** — left deliberately open. No proposal on the table.~~ — **answered: no puzzle.** An ordinary door that opens with a shove. `Scott, 2026-11-06`.
 - **The botched summoning** — that it's Poe Boy's, and every stat behind it.
 - **The party room** as a built location, and the photograph's placement in it.
 - ~~**The parents' looks in the photograph.**~~ — **✅ signed off with the photo print, `Scott, 4 Nov (signed off)`:**
@@ -528,7 +529,7 @@ then flips to **a clinic**.~~ **Scott, 3 Nov:** no fake-out — the room is plai
 | 🟡 The party room is **an early, soft hint that the vampires aren't monsters** | Scott, 3 Nov |
 | **Contingencies:** if they won't go in, none written; they'll improvise. ~~They kill the vampires early~~ — **off the table: the party never kills the vampires** | Scott, 3 Nov; the vampires: Scott, 2026-11-04 |
 | **The set-dressing list is signed off** (codex to-do t5). **No physical piggy bank:** Simone's smash is narrated or mimed. The piggy bank itself stays in the story (Sesh 8) | Scott, 3 Nov |
-| **The mansion has enough puzzles:** the study door, the party room, the cellar ledger and the sticky note | Scott, 3 Nov |
+| **The mansion has enough puzzles:** ~~the study door,~~ the party room, the cellar ledger and the sticky note | Scott, 3 Nov; the study door is no puzzle: Scott, 2026-11-06 |
 | **Simone's warlock has no in-world name** — none is needed. Her backstory card says *name TBD*, and no NPC calls her by name. DM-facing notes still say Simone, meaning the player | Scott, 3 Nov |
 | **Lil Stinky's race is deliberately undefined** — it doesn't matter | Scott, 3 Nov |
 | **The crew is three:** Poe Boy, Lil Stinky and Angelique. The fourth crew member is cut | Scott, 3 Nov |
@@ -975,8 +976,8 @@ transitions above it binds nobody, but it's listed so the review queue can see i
     the animals now. ~~It carries forty-year-old crates nobody came back for~~ — no crates (`Scott, 3 Nov`).
 15. ~~**Orlok's mortal name**~~ — **answered 31 Aug.** Cornelis Dood *is* Orlok. Dood is his mortal surname,
     the Dutch pun survives, and the Crier's obituary is accurate. `Scott, 31 Aug`.
-16. **The study door — deliberately undefined.** The room and its contents are Sesh 8; **how the party gets
-    through the door is not designed, and is not being designed yet.** Scott's call, 31 Aug.
+16. ~~**The study door — deliberately undefined.**~~ — **answered: an ordinary door, no puzzle.** It's swollen stiff and
+    opens with a shove, no roll. The room and its contents are Sesh 8. `Scott, 2026-11-06`.
 17. **What the botched summoning actually is.** Saturday's mansion combat is now named and nothing else
     about it is written.
 18. ~~**Cody's and John's mansion threads**~~ — **both answered in Sesh 8.** Every PC now has a room:

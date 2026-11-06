@@ -1065,9 +1065,9 @@ const SCENES = [
   cues:[] },
 
 { act:"sunday", no:10, title:"The study", where:"Sunday morning · Gnomey · any-order room",
-  setting:"A door sealed since the thirties. Behind it, a card table with the last hand still dealt: cards face-down under a skin of dust, an ashtray, a chair pushed back as if someone just stood up. In the corner, a strongbox.",
+  setting:"An ordinary door, swollen stiff in its frame. It gives to a shove. Behind it, a card table with the last hand still dealt: cards face-down under a skin of dust, an ashtray, a chair pushed back as if someone just stood up. In the corner, a strongbox.",
   pace:[
-    "Get the door open &mdash; <b>deliberately undefined</b>; when you design it, make it a whole-party problem.",
+    "The door is swollen stiff and opens with a shove. <b>No roll.</b>",
     "The strongbox: &#9995; <b>the Articles of Settlement (printed)</b>. Get <b>Gnomey alone</b> with it.",
     "Investigation 12: &#128275; <b>V. Soprano won the house</b>, the bearer clause, and <b>the empty slot</b> where the deed should be.",
     "Julia decides who Gnomey tells. &#128275;"
@@ -1078,6 +1078,7 @@ const SCENES = [
   read:[{t:"He's read it three times. The man who won this house is his great-uncle &mdash; and whoever holds the deed owns it. The deed isn't here."}],
   beats:[
     "Sunday opens on <b>three per-PC rooms in any order.</b> This one is Gnomey's.",
+    "Nobody has opened it since 1931: Orlok won't go into the room where he lost the house. <span class='ai'>🟡</span>",
     "<b>Gnomey doesn't have the deed.</b> What he learns here is that his great-uncle won the house, and that title rests with whoever holds the deed missing from this strongbox. Where it is stays a question until Vinny walks in at the end.",
     "<b>Run it before anything exonerates the vampires</b>, so Gnomey learns his family has a claim on a house full of things he still believes are killers &mdash; and has all of Sunday to sit on it.",
     "<b>Make sure Gnomey is alone.</b> The payoff isn't the discovery &mdash; it's the ending, when Vinny hands him the deed and he says it out loud. Give Julia the secret; let her choose who to tell."
@@ -1457,8 +1458,7 @@ const EXEC = {
     late:"Gnomey alone with the settlement; the bearer paragraph read aloud.",
     do:["Get <b>Julia alone</b> with the settlement: the others search the hall or the next door."],
     land:["Gnomey, alone: <b>V. Soprano won the house</b>; <b>whoever holds the deed owns it</b>; the deed isn't here."],
-    next:"He's read it three times (read-aloud). Next room.", go:"rooms",
-    save:[["Stall","The door is still undesigned: decide it before Sunday."]]},
+    next:"He's read it three times (read-aloud). Next room.", go:"rooms"},
   "11":{mins:35,
     late:"One Performance, Dracula's push, then John's choice.", early:"Let the echoes play: Bix with the photo, the room remembering.",
     do:["Record (3) on when Dracula drops the needle."],
@@ -1537,7 +1537,7 @@ const CAST = [
   {nm:"DJ Poe Boy", cues:[4,"14 · i","14 · ii",15], voice:"Kenku: speaks only in borrowed, sampled lines. Glamour charm, too cool.", wants:"Real screams for his horror score.", knows:"Keeps back: he sent the cards, it's his party, he shut the door on Marcus, his name is Upton."},
   {nm:"Angelique", cues:[4,5,13,"14 · i","14 · ii"], voice:"Changeling, trad goth. A side-eye and a held breath, not exposition.", wants:"To warn them; to find out what happened to the kid.", knows:"She typed some of Poe Boy's messages to him, thinking it was a prank. Says so only when he names her. Party's choice whether she travels with them; if not, she's at the AIM door when the chime plays. Stays through the final battle. What she does at 3AM is open."},
   {nm:"The crew", cues:[4], voice:"Poe Boy's hangers-on at the gazebo.", wants:"A Dolly riff out of Yobo.", knows:"Nothing."},
-  {nm:"Orlok", cues:[6,7,"14 · i",15], voice:"Patient, very polite, cold. One word stops Dracula.", wants:"To be left alone in his house; the scare to save it.", knows:"The house isn't his: he lost it to Vinny in 1931. Won't sign Russ's card until the driveway. Won't explain the doors."},
+  {nm:"Orlok", cues:[6,7,"14 · i",15], voice:"Patient, very polite, cold. One word stops Dracula.", wants:"To be left alone in his house; the scare to save it.", knows:"The house isn't his: he lost it to Vinny in 1931, and he won't go into the room where it happened. Won't sign Russ's card until the driveway. Won't explain the doors."},
   {nm:"Dracula", cues:[6,11,"14 · ii"], voice:"Campy, theatrical, hands-on, delighted. Kind in the party room.", wants:"A real audience.", knows:"Witnessed the 1931 settlement (not a notary). Sees through Yobo."},
   {nm:"Edward", cues:[6,8,15], voice:"Watches Bix. Never approaches. No jokes when he finally talks.", wants:"To be left alone.", knows:"Bix is his son, and the whole timeline. Tells it only in the driveway."},
   {nm:"The Spirit (Marcus Hale)", cues:[13,"14 · ii",16], voice:"Frightened, types lowercase, comes apart at Poe Boy's handle.", wants:"His bag; then out.", knows:"Poe Boy shut the door. Angelique was the girl messaging him."},
