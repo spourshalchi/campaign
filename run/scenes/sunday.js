@@ -129,25 +129,31 @@ SCENES.push(
   steps:[
     {snd:["cellar"]},
     {say:"Stone steps down. A lamp is already lit. It smells of straw and something clean and sharp, like a doctor's office. There's an exam table, a fox in a splint asleep on a blanket, and an owl on a perch with one wing bound. Jars, bandages, a mortar. A ledger lies open on a lectern. In the corner, under a dark grate, a tray of dead white seedlings.", who:"Setting"},
+    {note:"<b>Orlok isn't down here.</b> The only voices in this room are the animals."},
     {do:"Let them look around. It's plainly a clinic."},
     {hand:"ledger", do:"&#9995; <b>Orlok's ledger</b>, the printed page: a register of patients, with notes on the Sun's-mercy in the margin. Orlok is a vet."},
-    {do:"Russ can use <b>Speak with Animals</b>. The fox and the owl say the old one mends them, and they aren't afraid of him. The vampires don't kill. This is the backup if nobody reads the ledger. The fox also says the seedlings want the sun, and the old one can't give it to them."},
-    {check:{skill:"Speak with Animals", dc:"no roll", note:"The fox and the owl: the old one mends them, and they aren't afraid of him. The fox: the seedlings want the sun, and the old one can't give it to them."}},
-    {do:"The seedlings lean to the grate; the margin notes point to them. It's night, so no daylight comes through. Russ makes the sun himself with <b>Daylight</b> (3rd-level druid spell)."},
+    {check:{skill:"Speak with Animals", dc:"no roll", note:"Russ casts it. <b>Spencer's turn:</b> the fox and the owl answer, and only Russ can understand them. This is the backup if nobody reads the ledger."}},
+    {do:"The seedlings lean to the grate; the margin notes point to them. It's night, so no daylight comes through."},
     {check:{skill:"Daylight", dc:"no roll", note:"3rd-level druid spell. Russ makes the sun himself and the seedlings open."}},
-    {do:"Didn't prepare it? <b>Plant Growth</b>, or the Nature check, DC 14."},
-    {check:{skill:"Nature / Plant Growth", dc:"14", note:"The fallback if he didn't prepare Daylight."}},
+    {check:{skill:"Plant Growth, or Nature", dc:"14", note:"The fallback if he didn't prepare Daylight. The DC is for the Nature check; the spell just works."}},
     {snd:["bloom"], t:"The flowers open"},
-    {do:"They open gold, and he dresses the fox's leg with one. <b>Badge req 2.</b>"},
+    {say:"The dead white seedlings lift, and open gold."},
+    {do:"Russ dresses the fox's leg with one. <b>Badge req 2.</b>"},
     {end:"when the flowers open and Russ dresses the fox's leg."}
   ],
   next:"The flowers open and Russ dresses the fox's leg. Next room.", go:"rooms",
+  talk:[
+    {who:"The fox · to Russ", t:"The old one mends me. Why would I be scared of him?"},
+    {who:"The owl · to Russ", t:"He does the wing himself. He's careful about it."},
+    {who:"The fox · asked about the seedlings", t:"Those want the sun. The old one can't give it to them."}
+  ],
   rev:[
-    {by:"The patients", who:"Russ", t:"learns through Speak with Animals that the old one mends them and they aren't afraid of him. <b>The vampires don't kill.</b>"},
+    {by:"The fox", who:"Russ", t:"learns through Speak with Animals that the old one mends them and they aren't afraid of him. <b>The vampires don't kill.</b>"},
     {by:"The fox", who:"Russ", t:"learns through Speak with Animals that the seedlings want the sun, and the old one can't give it to them."}
   ],
   npcs:[
-    {nm:"The patients", vc:"A fox in a splint and an owl with a bound wing. Only Russ can understand them."}
+    {nm:"The fox", pts:["The old one mends you","You aren't afraid of him","The seedlings want the sun, and the old one can't give it to them"], vc:"A fox in a splint. Only Russ can understand it, so talk to Cody."},
+    {nm:"The owl", pts:["The old one mends you too","You aren't afraid of him"], vc:"An owl with a bound wing. Few words."}
   ],
   cues:["cellar","bloom"] },
 
