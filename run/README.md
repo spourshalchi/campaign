@@ -19,7 +19,7 @@ zone scrolls on its own, and below 700px they stack.
 - **🎯 Leave knowing** — where they are in the story, the must-land points, and who delivers each.
 - **One numbered list, in the order Scott does things** (`steps`): sounds to tap in place, read-alouds,
   instructions, checks with their DC, **✋** hand-overs and set-up lines with a tick box, **📱** digital props
-  with an open button, tokens, and the fight in place. Notes, reveals, **🪢 If stuck** and **↪ Backup path**
+  with an open button, tokens, and a big link to the fight's page, `combat/?f=<key>`, which opens over the stage so the soundboard stays up. Notes, reveals, **🪢 If stuck** and **↪ Backup path**
   lines hang off the step they belong to.
 - **➜ Next** — how to get out, with jump buttons. On Sunday the buttons are a room picker: the rooms not yet
   done, then the AIM room.
@@ -75,7 +75,7 @@ Home Screen from Safari for a fullscreen booth.
 
 ## Editing the content
 
-It's a single self-contained `index.html` plus `fights.js`. In the `<script>`:
+It's a self-contained `index.html` plus `fights.js` and the combat page, `combat/index.html`, which reads the same `fights.js`. In the `<script>`:
 - `SCENES` — the cues. `steps` is Scott's list (the step kinds are listed above `SCENES`); `talk`, `ifblock`, `rev`,
   `npcs` and `spBrief` are Spencer's panel; `cues` fills the soundboard's This cue row. The level-up card is the scene `L5`.
 - `PROPS` — every physical prop, who gets it and on which cue. Add a prop here, and a `{hand:id}` step on

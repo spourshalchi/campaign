@@ -313,6 +313,7 @@ const FIGHTS = {
       close:[
         {who:"When the USB hits the decks · narrate the recording", t:"His set cuts out mid-scream. Then typing. A door shuts. Then a scared kid, asking someone to open it. Asking again, quieter. And under all of it, perfectly calm, Poe Boy: nudging a level up, leaning in close to listen, pleased with how clean it sounds."},
         {who:"Then let it sit", t:"The speakers hiss. Nobody in the ballroom moves."},
+        {who:"Angelique · to the crowd, when the recording plays", sp:1, t:"I typed those messages."},
         {who:"Marcus · only if Simone paid the goat · to Poe Boy", sp:1, t:"you said you'd open it."},
         {who:"Marcus · to Poe Boy", sp:1, t:"i kept asking. you kept recording. you wrote GOOD on it."},
         {who:"Marcus · to the vampires", sp:1, t:"i didn't go out a window. i was upstairs. the whole time."},
