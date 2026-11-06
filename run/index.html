@@ -354,6 +354,9 @@
   .cuepill:hover{border-color:var(--dim)}
   .cuepill .dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
   .cuepill:active{transform:translateY(1px)}
+  .cuepill.on{border-color:var(--green);color:#d6ffe9;background:#1a3327}
+  .cuepill.on .dot{background:var(--green);box-shadow:0 0 6px var(--green)}
+  .cuepill .n{font-family:var(--f-mono);font-size:9px;color:var(--dim)}
 
   /* ---------------- SOUNDBOARD ---------------- */
   #board{flex:0 0 auto;background:linear-gradient(180deg,#14101d,#0c0912);border-top:1px solid var(--edge);
@@ -374,6 +377,13 @@
   .pad.suggest{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 0 14px rgba(231,181,63,.35);color:#ffe9b8}
   .pad.suggest .hk{color:var(--gold)}
   .pad.stop{background:linear-gradient(180deg,#3a2030,#26141d);border-color:var(--blood);color:#ffc9d0}
+  .pad.wait{opacity:.4}
+  #board .fixed{position:sticky;left:-12px;z-index:2;padding:0 8px 0 12px;margin-left:-12px;background:#110d19;
+    box-shadow:6px 0 8px -6px #000}
+  .sndstat{font-size:11px;color:var(--dim);white-space:nowrap;background:none;border:0;padding:0;min-height:44px}
+  .sndstat:empty{display:none}
+  @media(max-width:600px){#board .fixed .vol{display:none}}
+  .sndstat.bad{color:#ffc9d0;cursor:pointer;text-decoration:underline}
   .vol{display:flex;align-items:center;gap:6px;flex:0 0 auto;color:var(--dim);font-size:11px}
   .vol input{width:80px}
 
@@ -560,9 +570,9 @@
   <button class="go" id="beginBtn">Take the booth &rsaquo;</button>
   <a class="splink" href="?spencer">Spencer? Open your view &rsaquo;</a>
   <p class="hint">
-    <kbd>&larr;</kbd> <kbd>&rarr;</kbd> turn cues &nbsp;·&nbsp; <kbd>1</kbd>&ndash;<kbd>0</kbd> soundboard &nbsp;·&nbsp;
+    <kbd>&larr;</kbd> <kbd>&rarr;</kbd> turn cues &nbsp;·&nbsp; <kbd>1</kbd>&ndash;<kbd>0</kbd> soundboard &nbsp;·&nbsp; <kbd>⇧1</kbd>&ndash;<kbd>⇧9</kbd> this cue's sounds &nbsp;·&nbsp;
     <kbd>i</kbd> index &nbsp;·&nbsp; <kbd>f</kbd> full screen &nbsp;·&nbsp; <kbd>d</kbd> roll d20 &nbsp;·&nbsp; <kbd>Esc</kbd> silence / close<br>
-    Tapping in unlocks the synthesized audio (Web Audio, no files — works offline on the iPad).
+    Tapping in unlocks the sound. It loads in the background and stays on this device, so the next open works offline.
   </p>
 </div>
 
@@ -636,6 +646,7 @@
 </div>
 
 <script src="fights.js?v=3"></script>
+<script src="sounds/manifest.js?v=1"></script>
 <script>
 "use strict";
 /* =====================================================================
@@ -646,10 +657,14 @@
 
 /* -------- soundboard cue map: key -> board button index (set later) -------- */
 const CUE_LABEL = {
-  drone:"House drone", rain:"Rain / wind", record:"Record skip", heart:"Heartbeat",
-  crowd:"Crowd murmur", candle:"Candles", aim:"AIM chime", jump:"Jump scare",
-  braaam:"Braaam", bell:"3AM bell", riser:"Tension riser", pa:"PA / feedback",
-  scratch:"Record scratch", levelup:"Level-up", dice:"Dice clatter"
+  drone:"House", wind:"Night wind", record:"The '79 record", heart:"Heartbeat", crowd:"Crowd", candle:"Candles",
+  class:"Classroom", hall:"Hallway", records:"Records room", gazebo:"Gazebo", creak:"Floorboards", summon:"Summoning",
+  study:"Sealed study", cellar:"Cellar", rig:"Old rig", set:"Poe Boy's set", hiss:"Speaker hiss", dawn:"Dawn",
+  aim:"AIM chime", jump:"Jump scare", braaam:"Braaam", bell:"3AM bell", riser:"Tension riser", pa:"Speakers on",
+  scratch:"Record scratch", levelup:"Level-up", dice:"Dice clatter",
+  schoolbell:"School bell", phone:"Flip phone", paper:"Paper flurry", bolt:"Door bolt", steps:"Footsteps overhead",
+  swoop:"Cape swoop", breath:"Breathing door", monitor:"Monitor on", lockclick:"Lock clicks", smash:"Piggy bank",
+  needle:"Needle drop", cheer:"Echoes cheer", boo:"The boo", car:"Car on gravel", bloom:"Flowers open"
 };
 
 /* ============================= iPAD ITEMS ============================= */
@@ -782,7 +797,7 @@ const SCENES = [
     {nm:"History Teacher", vc:"Assigns the project. <b>Not</b> the teacher who believes in Gnomey &mdash; those are two different people."}
   ],
   reminders:[{t:"This is the loop you close in the finale: they present the project back to this class.", k:""}],
-  cues:[] },
+  cues:["class","schoolbell"] },
 
 { act:"town", no:2, title:"Letters in the lockers", where:"Smash cut",
   setting:"The hallway between periods: slamming metal, sneakers squeaking on linoleum, somebody's Discman leaking through the headphones. Wedged in the vent of each of your lockers is the same small card.",
@@ -810,7 +825,7 @@ const SCENES = [
   npcs:[
     {nm:"Great Uncle Vinny (phone)", vc:"Ancient and mostly gone, and sure it's 1931. Doesn't explain who Cornelis is."}
   ],
-  cues:[] },
+  cues:["hall","phone"] },
 
 { act:"town", no:3, title:"The library &amp; hall of records", where:"Town · the clincher · Saturday's town fight", ipad:[1],
   setting:"The hall of records is cold and very quiet: long tables, green-shaded lamps, the smell of old paper and floor polish. The Records Keeper looks up from her desk as you come in.",
@@ -845,7 +860,7 @@ const SCENES = [
   reminders:[
     {t:"Saturday's fight is here in town, not at the mansion.", k:""}
   ],
-  cues:["riser","jump","dice"] },
+  cues:["records","riser","paper","jump"] },
 
 { act:"town", no:4, title:"The gazebo", where:"Town · the bad kids",
   setting:"The gazebo by the school, where the bad kids smoke. A haze of cigarette smoke, a boombox on the rail, and DJ Poe Boy holding court with his crew &mdash; Angelique among them, not quite looking at you.",
@@ -880,7 +895,7 @@ const SCENES = [
     {t:"By now the <b>boards are off the front door</b>, stacked neat against the porch rail &mdash; the only change to the house in decades. That's the invitation.", k:""},
     {t:"If they sprang the records trap, Ostrander is already in his car.", k:""}
   ],
-  cues:["crowd"] },
+  cues:["gazebo"] },
 
 { act:"night", no:5, title:"Enter Dood Mansion", where:"The trap springs · everything from here is inside",
   setting:"The top of the hill: an empty road, no cars, no light in any window. The boards are off the front door, pried away and stacked neat against the porch rail &mdash; the only thing about this house that's changed in decades. Inside, the hall breathes out cold, dusty air.",
@@ -908,7 +923,7 @@ const SCENES = [
   reminders:[
     {t:"The doors bolting is canon &mdash; state it flatly, once. It doesn't need justifying.", k:"rule"}
   ],
-  cues:["jump","drone"] },
+  cues:["wind","drone","bolt","steps","jump"] },
 
 { act:"night", no:6, title:"First vampire encounter", where:"No fight &mdash; a performance · scripted end to end",
   setting:"Pressed into the dark with Angelique, you hear them before you see them: three voices coming down the hall, in no hurry at all. One theatrical, one younger, and one very quiet.",
@@ -961,7 +976,7 @@ const SCENES = [
   reminders:[
     {t:"Vampires <b>cannot kill a PC</b> here.", k:"rule"}
   ],
-  cues:["drone","heart","jump","braaam"] },
+  cues:["drone","heart","steps","swoop","jump","braaam"] },
 
 { act:"night", no:7, title:"Russ and the spectacles", where:"Saturday night · Cody · badge req 1 of 3",
   setting:"Off the main hall, a tall cabinet stands against the wall. On top of it, a pair of wire spectacles. Below them Orlok is patting slowly along the wrong shelf.",
@@ -986,7 +1001,7 @@ const SCENES = [
     {t:"Russ's requirements card (printed) comes out here; he's had it since before play. This also plants the infirmary &mdash; he'll want the specs for fine vet work downstairs.", k:""},
     {t:"Refusal 1 of 3.", k:""}
   ],
-  cues:[] },
+  cues:["drone"] },
 
 { act:"night", no:8, title:"Edward spies on them", where:"Saturday night · Bix · beat 2 of 3",
   setting:"The upper floors in the dark: long corridors, doors that won't open, floorboards that answer every step. Every so often, at the end of a hall or in a doorway you've just passed, the same pale figure is standing very still.",
@@ -1007,7 +1022,7 @@ const SCENES = [
     {nm:"Edward", vc:"Has known who Bix is since they walked in. Watches, doesn't approach. Let him be caught at it twice."}
   ],
   reminders:[],
-  cues:["drone","heart","riser"] },
+  cues:["creak","drone","heart","breath","riser"] },
 
 { act:"night", no:9, title:"The botched summoning", where:"Saturday, late · combat · the Night 1 closer",
   setting:"The door gives, and the air in the sealed room is hot and close. Chalk lines across the floorboards, candle stubs burned down to nothing &mdash; and in the middle of it, something half-made drags itself upright.",
@@ -1036,7 +1051,7 @@ const SCENES = [
     {t:"<b>End of session one &mdash; everyone levels to 5.</b> Mention that 3rd-level spells are open, and name <b>Daylight</b> and <b>Plant Growth</b>.", k:"level"},
     {t:"Fire the <b>AIM chime</b> as the screen wakes, then kill all sound.", k:""}
   ],
-  cues:["heart","jump","aim","levelup"] },
+  cues:["summon","heart","jump","braaam","monitor","aim","levelup"] },
 
 { act:"sunday", no:"SUN", title:"Sunday &mdash; before you start", where:"Day two · level 5 · tick as you go",
   checklist:[
@@ -1095,7 +1110,7 @@ const SCENES = [
     {t:"On the printed settlement, the bearer paragraph is the <b>only one on the page with no corrections</b>.", k:""},
     {t:"Keep the <b>printed deed</b> hidden. Vinny has it, and it comes out only in the ending scene.", k:"rule"}
   ],
-  cues:[] },
+  cues:["study","lockclick"] },
 
 { act:"sunday", no:11, title:"The party room", where:"Sunday · Bix &amp; Yobo · any-order room",
   setting:"Dracula's shrine. He has kept the party room untouched since that night in '79, the best night of his unlife: dust on everything, bottles where they were set down, a record still on the turntable, and the smell of old wax.",
@@ -1139,7 +1154,7 @@ const SCENES = [
   reminders:[
     {t:"<i>Your True Voice</i> is <b>permanent</b> after this, through the finale.", k:"level"}
   ],
-  cues:["record","crowd","candle"] },
+  cues:["candle","needle","record","cheer","levelup"] },
 
 { act:"sunday", no:12, title:"The infirmary", where:"The cellar · Cody · badge req 2 of 3 · any-order room",
   setting:"Stone steps down. A lamp is already lit. It smells of straw and something clean and sharp, like a doctor's office. There's an exam table, a fox in a splint asleep on a blanket, and an owl on a perch with one wing bound. Jars, bandages, a mortar. A ledger lies open on a lectern. In the corner, under a dark grate, a tray of dead white seedlings.",
@@ -1165,7 +1180,7 @@ const SCENES = [
   npcs:[
     {nm:"The patients", vc:"A fox in a splint and an owl with a bound wing. Only Russ can understand them."}
   ],
-  cues:["candle"] },
+  cues:["cellar","bloom"] },
 
 { act:"sunday", no:"R", title:"Reserve fight &mdash; the circle stirs", where:"Sunday · only if you're ahead of the clock · skip it otherwise",
   setting:"Last night's room is cold now. The half-drawn circle is still on the floorboards &mdash; and one of the chalk lines is moving.",
@@ -1181,7 +1196,7 @@ const SCENES = [
   fight:FIGHTS.reserve,
   npcs:[],
   reminders:[],
-  cues:["heart","jump"] },
+  cues:["summon","heart","jump"] },
 
 { act:"sunday", no:13, title:"The Spirit, the backpack, the USB", where:"The old rig upstairs · always the last room", ipad:[2],
   setting:"The last door, at the end of the upstairs hall. Inside: coats heaped by the desk, a mic on a stand, cables everywhere, and an old beige computer that is somehow still on, an AIM sign-on box glowing on the screen. The air is stale.",
@@ -1232,7 +1247,7 @@ const SCENES = [
     {t:"The flyer's <b>3AM</b> is the fight's starting gun &mdash; end the room on the speakers coming on.", k:""},
     {t:"Because only five were invited, <b>Poe Boy knows exactly who's here</b> and opens the show by naming them.", k:""}
   ],
-  cues:["aim","drone","heart","braaam","bell","pa"] },
+  cues:["rig","aim","lockclick","heart","smash","bell","pa","braaam"] },
 
 { act:"finale", no:"14 · i", title:"Climax — Phase 1: the developer breaches", where:"The ballroom · 3AM · the crowd arrives with the show · the only lethal fight",
   setting:"3AM, and the house is suddenly full of people. The ballroom is rigged as a stage: decks on the dais, cables run off into the walls, lights swinging over a crowd still pouring in. And Poe Boy's voice is in every speaker at once.",
@@ -1274,7 +1289,7 @@ const SCENES = [
     {t:"Give the death its <b>silence</b>. The comedy doesn't start until this lands.", k:"rule"},
     {t:"Open question to decide: how does the crowd get through a bolted door at 3AM? (Obvious answer: Poe Boy opens the front for his own show &mdash; doors open half an hour before the set.)", k:""}
   ],
-  cues:["crowd","jump","braaam","pa"] },
+  cues:["set","crowd","pa","bolt","jump","braaam"] },
 
 { act:"finale", no:"14 · ii", title:"Climax — Phase 2: the booth", where:"The ballroom decks · badge req 3 of 3",
   setting:"The developer is down and the exits are still sealed. The crowd is pressed to the walls, the vampires are on your side now, and up on the decks Poe Boy and Lil Stinky aren't letting anyone near the aux.",
@@ -1327,7 +1342,7 @@ const SCENES = [
     {t:"USB can't be destroyed; one bad save never ends the campaign.", k:"rule"},
     {t:"Stinky's oath breaks with <b>no save</b> &mdash; don't put the best beat on a d20.", k:"rule"}
   ],
-  cues:["crowd","scratch","braaam","levelup"] },
+  cues:["set","crowd","scratch","hiss","boo","braaam","car"] },
 
 { act:"finale", no:15, title:"The driveway", where:"Dood Mansion · sunrise · one scene, everyone arrives",
   setting:"Sunrise on the lawn. The crowd is still milling about in last night's costumes, the vampires keep to the shade of the porch, and in daylight the house looks almost like a house again.",
@@ -1364,7 +1379,7 @@ const SCENES = [
     {nm:"Edward", vc:"The whole timeline to Bix. No jokes in it."}
   ],
   reminders:[],
-  cues:["crowd","levelup"] },
+  cues:["dawn","crowd","car","levelup"] },
 
 { act:"finale", no:16, title:"Back to class", where:"The bookend",
   setting:"The same history classroom, the same clanking radiators. The five of you at the front, scraped and bruised, a black eye or two between you.",
@@ -1383,7 +1398,7 @@ const SCENES = [
   reminders:[
     {t:"This is the end. Breathe.", k:""}
   ],
-  cues:["levelup"] }
+  cues:["class"] }
 ];
 
 /* ============================= EXECUTION ============================= */
@@ -1706,7 +1721,7 @@ function render(i){
     (e.do||[]).forEach((t,k)=>{ rows += doRow(`do:${key}:${k}`, t); });
   }
   const cuesHTML = (s.cues && s.cues.length) ? `<div class="cuepills"><span class="cl">🔊</span>` +
-    s.cues.map(k=>`<button class="cuepill" data-cuefire="${k}"><span class="dot"></span>${CUE_LABEL[k]||k}</button>`).join("") + `</div>` : "";
+    s.cues.map((k,i)=>`<button class="cuepill${amb[k]?" on":""}" data-cuefire="${k}"><span class="dot"></span>${CUE_LABEL[k]||k}${i<9?`<span class="n">⇧${i+1}</span>`:""}</button>`).join("") + `</div>` : "";
   const doHTML = (rows||cuesHTML) ? `<div class="donow"><div class="donow-h"><span class="donow-t">Do now</span>`+
     (rows?`<span class="donow-n" data-count></span>`:"")+`</div>${rows}${cuesHTML}</div>` : "";
 
@@ -1855,6 +1870,12 @@ function go(d){ if(d>0) markDone(cur,true); render(cur + d); }
 function highlightCues(keys){
   document.querySelectorAll(".pad").forEach(p=>p.classList.remove("suggest"));
   keys.forEach(k=>{ const el = padByKey[k]; if(el) el.classList.add("suggest"); });
+  // the cue's own sounds sit at the front of the board, so none of them is a scroll away
+  const row=$("#cueGrp"); if(!row) return;
+  row.style.display=keys.length?"":"none";
+  row.innerHTML=`<span class="gl">This cue</span>`+keys.map((k,i)=>padHTML(BOARD.flatMap(g=>g.pads).find(p=>p.key===k),i<9?`⇧${i+1}`:"")).join("");
+  row.querySelectorAll(".pad").forEach(p=>p.classList.add("suggest"));
+  $("#board").scrollLeft=0; syncAmb(); soundStat();
 }
 
 /* ===================================================================== */
@@ -1868,7 +1889,10 @@ function initAudio(){
   const C = window.AudioContext || window.webkitAudioContext;
   if(!C) return;
   AC = new C();
-  master = AC.createGain(); master.gain.value = masterVol; master.connect(AC.destination);
+  master = AC.createGain(); master.gain.value = masterVol;
+  // layered ambience plus a sting can sum past full scale: catch it here rather than clip the speaker
+  const lim = AC.createDynamicsCompressor(); lim.threshold.value=-6; lim.knee.value=6; lim.ratio.value=12; lim.attack.value=0.003; lim.release.value=0.2;
+  master.connect(lim); lim.connect(AC.destination);
   // shared noise buffer (2s)
   const n = AC.sampleRate*2; noiseBuf = AC.createBuffer(1,n,AC.sampleRate);
   const d = noiseBuf.getChannelData(0);
@@ -1880,9 +1904,67 @@ function noiseSrc(loop){ const s=AC.createBufferSource(); s.buffer=noiseBuf; s.l
 function env(node,t0,a,peak,rel){ const g=node; g.gain.setValueAtTime(0.0001,t0);
   g.gain.exponentialRampToValueAtTime(peak,t0+a); g.gain.exponentialRampToValueAtTime(0.0001,t0+a+rel); }
 
+/* ---------- SAMPLES: sounds/*.mp3, decoded once, one BufferSource per play ---------- */
+/* Anything not loaded yet falls back to the synth below, where there's a synth for it. */
+const BUF={};
+const liveFx=new Set();
+const SYNTH_KEYS=["drone","wind","record","heart","crowd","candle","aim","jump","braaam","bell","riser","pa","scratch","levelup","dice"];
+const SAMPLE_OF={drone:"house"};                  // pad key -> file, where they differ
+const fileOf=key=>SOUND_FILES[SAMPLE_OF[key]||key];
+const soundURL=f=>`sounds/${f.f}?v=${f.v}`;
+async function soundBytes(url){
+  let c=null;
+  try{ c=await caches.open("ros-sounds"); const hit=await c.match(url); if(hit) return await hit.arrayBuffer(); }catch(e){ c=null; }
+  const r=await fetch(url); if(!r.ok) throw new Error(r.status);
+  if(c) try{ await c.put(url,r.clone()); }catch(e){}
+  return r.arrayBuffer();
+}
+let sndKeys=[], sndFailed=[];
+function soundStat(){
+  const el=$("#sndStat"); if(!el) return;
+  const have=sndKeys.filter(k=>BUF[k]).length;
+  el.classList.toggle("bad",sndFailed.length>0);
+  el.textContent = sndFailed.length ? `⚠ ${sndFailed.length} sounds missing · retry` : have<sndKeys.length ? `Sounds ${have}/${sndKeys.length}` : "";
+  document.querySelectorAll(".pad[data-pad]").forEach(p=>{ const k=p.dataset.pad; p.classList.toggle("wait",!BUF[k]&&!SYNTH_KEYS.includes(k)); });
+}
+async function loadSounds(){
+  if(!AC||typeof SOUND_FILES==="undefined") return;
+  sndKeys=Object.keys(BOARD.flatMap(g=>g.pads).reduce((o,p)=>(o[p.key]=1,o),{dice:1})).filter(fileOf);
+  sndFailed=[];
+  // stings first: they're small, and the ones you can't do without
+  const q=sndKeys.filter(k=>!BUF[k]).sort((a,b)=>fileOf(a).amb-fileOf(b).amb);
+  soundStat();
+  const worker=async()=>{ while(q.length){ const k=q.shift();
+    try{ const ab=await soundBytes(soundURL(fileOf(k)));
+      BUF[k]=await new Promise((ok,no)=>AC.decodeAudioData(ab,ok,no));
+    }catch(e){ sndFailed.push(k); }
+    soundStat(); } };
+  await Promise.all([worker(),worker(),worker(),worker()]);
+  soundStat();
+  // drop anything an earlier version of the board left in the cache
+  try{ const c=await caches.open("ros-sounds"), want=new Set(sndKeys.map(k=>new URL(soundURL(fileOf(k)),location.href).href));
+    (await c.keys()).forEach(r=>{ if(!want.has(r.url)) c.delete(r); }); }catch(e){}
+}
+function playSample(key,rate){
+  const src=AC.createBufferSource(), g=AC.createGain(), live={src,g};
+  src.buffer=BUF[key]; if(rate) src.playbackRate.value=rate;
+  src.connect(g); g.connect(master); liveFx.add(live);
+  src.onended=()=>liveFx.delete(live);
+  src.start();
+}
+function loopSample(key){
+  const src=AC.createBufferSource(), g=AC.createGain(), f=fileOf(key), t=now();
+  src.buffer=BUF[key]; src.loop=true; src.loopStart=SOUND_PAD; src.loopEnd=SOUND_PAD+f.len;
+  src.connect(g); g.connect(master);
+  g.gain.setValueAtTime(0.0001,t); g.gain.setTargetAtTime(1,t,0.5);
+  src.start(t,SOUND_PAD);
+  amb[key]={g,stop:()=>src.stop()};
+}
+
 /* ---------- ONE-SHOTS ---------- */
 function fx(key){
   if(!AC) return;
+  if(BUF[key]){ playSample(key, key==="dice" ? 0.9+Math.random()*0.2 : 0); return; }
   const t=now();
   switch(key){
     case "aim": { // friendly two-tone chime
@@ -1947,13 +2029,15 @@ function fx(key){
 /* ---------- AMBIENCE (toggle) ---------- */
 function ambStop(key){
   const a=amb[key]; if(!a) return;
-  if(a.stop){ try{a.g.gain.setTargetAtTime(0.0001,now(),0.3);}catch(e){} setTimeout(()=>{try{a.stop();}catch(e){}},400); }
+  if(a.stop){ try{a.g.gain.setTargetAtTime(0.0001,now(),0.25);}catch(e){} setTimeout(()=>{try{a.stop();}catch(e){}},1300); }
   if(a.interval) clearInterval(a.interval);
   delete amb[key];
 }
 function ambToggle(key){
   if(!AC) return false;
   if(amb[key]){ ambStop(key); return false; }
+  if(BUF[key]){ loopSample(key); return true; }
+  if(!SYNTH_KEYS.includes(key)) return false;     // still loading, and there's no synth for it
   const t=now();
   if(key==="drone"){
     const g=AC.createGain(),lp=AC.createBiquadFilter(); lp.type="lowpass"; lp.frequency.value=320;
@@ -1964,7 +2048,7 @@ function ambToggle(key){
     const lfo=AC.createOscillator(),lg=AC.createGain(); lfo.frequency.value=0.07; lg.gain.value=0.08;
     lfo.connect(lg); lg.connect(g.gain); lfo.start(t);
     amb[key]={g,stop:()=>{os.forEach(o=>o.stop());lfo.stop();}};
-  } else if(key==="rain"){
+  } else if(key==="wind"){
     const s=noiseSrc(true),bp=AC.createBiquadFilter(),hp=AC.createBiquadFilter(),g=AC.createGain();
     bp.type="bandpass"; bp.frequency.value=1500; bp.Q.value=0.6; hp.type="highpass"; hp.frequency.value=400;
     s.connect(hp); hp.connect(bp); bp.connect(g); g.connect(master); g.gain.value=0.0001;
@@ -2005,19 +2089,39 @@ function ambToggle(key){
   }
   return true;
 }
-function stopAll(){ Object.keys(amb).forEach(ambStop); }
+function stopAll(){
+  Object.keys(amb).forEach(ambStop);
+  liveFx.forEach(l=>{ try{ l.g.gain.setTargetAtTime(0.0001,now(),0.03); l.src.stop(now()+0.2); }catch(e){} });
+  syncAmb();
+}
+function syncAmb(){
+  document.querySelectorAll(".pad.amb").forEach(p=>p.classList.toggle("on",!!amb[p.dataset.pad]));
+  document.querySelectorAll("[data-cuefire]").forEach(p=>p.classList.toggle("on",!!amb[p.dataset.cuefire]));
+}
 
 /* ===================================================================== */
 /* ============================ SOUNDBOARD UI ========================== */
 /* ===================================================================== */
 const BOARD = [
-  {grp:"Ambience", pads:[
+  {grp:"Rooms", pads:[
     {key:"drone", amb:true, ic:"🏚", label:"House", hk:"1"},
-    {key:"rain", amb:true, ic:"🌧", label:"Rain", hk:"2"},
-    {key:"record", amb:true, ic:"💿", label:"Record", hk:"3"},
+    {key:"wind", amb:true, ic:"🌬", label:"Wind", hk:"2"},
+    {key:"record", amb:true, ic:"💿", label:"'79 record", hk:"3"},
     {key:"heart", amb:true, ic:"🫀", label:"Heart", hk:"4"},
     {key:"crowd", amb:true, ic:"👥", label:"Crowd", hk:"5"},
-    {key:"candle", amb:true, ic:"🕯", label:"Candles", hk:"6"}
+    {key:"candle", amb:true, ic:"🕯", label:"Candles", hk:"6"},
+    {key:"class", amb:true, ic:"🏫", label:"Class"},
+    {key:"hall", amb:true, ic:"🚪", label:"Hallway"},
+    {key:"records", amb:true, ic:"📚", label:"Records"},
+    {key:"gazebo", amb:true, ic:"📻", label:"Gazebo"},
+    {key:"creak", amb:true, ic:"🪵", label:"Boards"},
+    {key:"summon", amb:true, ic:"🔥", label:"Summoning"},
+    {key:"study", amb:true, ic:"🃏", label:"Study"},
+    {key:"cellar", amb:true, ic:"💧", label:"Cellar"},
+    {key:"rig", amb:true, ic:"🖥", label:"Old rig"},
+    {key:"set", amb:true, ic:"🎧", label:"The set"},
+    {key:"hiss", amb:true, ic:"🔈", label:"Hiss"},
+    {key:"dawn", amb:true, ic:"🌅", label:"Dawn"}
   ]},
   {grp:"Stings", pads:[
     {key:"aim", ic:"💬", label:"AIM", hk:"7"},
@@ -2025,36 +2129,52 @@ const BOARD = [
     {key:"braaam", ic:"🎺", label:"Braaam", hk:"9"},
     {key:"bell", ic:"🔔", label:"3AM bell", hk:"0"},
     {key:"riser", ic:"📈", label:"Riser", hk:"g"},
-    {key:"pa", ic:"📢", label:"PA", hk:"p"},
+    {key:"pa", ic:"📢", label:"Speakers", hk:"p"},
     {key:"scratch", ic:"⏹", label:"Scratch", hk:"c"},
-    {key:"levelup", ic:"⬆", label:"Level-up", hk:"l"}
+    {key:"levelup", ic:"⬆", label:"Level-up", hk:"l"},
+    {key:"schoolbell", ic:"🛎", label:"School bell"},
+    {key:"phone", ic:"📱", label:"Flip phone"},
+    {key:"paper", ic:"📄", label:"Paper"},
+    {key:"bolt", ic:"🔒", label:"Bolt"},
+    {key:"steps", ic:"👣", label:"Footsteps"},
+    {key:"swoop", ic:"🦇", label:"Swoop"},
+    {key:"breath", ic:"🫁", label:"Breathing"},
+    {key:"monitor", ic:"📺", label:"Monitor"},
+    {key:"lockclick", ic:"🗝", label:"Lock"},
+    {key:"smash", ic:"🐖", label:"Piggy"},
+    {key:"needle", ic:"🎶", label:"Needle"},
+    {key:"cheer", ic:"👏", label:"Cheer"},
+    {key:"boo", ic:"👎", label:"Boo"},
+    {key:"car", ic:"🚗", label:"Car"},
+    {key:"bloom", ic:"🌼", label:"Flowers"}
   ]}
 ];
 const padByKey={};
+const padHTML=(p,hk)=>`<button class="pad ${p.amb?'amb':'one'}" data-pad="${p.key}" data-amb="${p.amb?1:0}">`+
+  `<span class="hk">${hk||""}</span><span class="ic">${p.ic}</span><span>${p.label}</span></button>`;
 function buildBoard(){
-  const b=$("#board"); let html="";
+  const b=$("#board");
+  let html=`<div class="grp fixed"><button class="pad stop" id="stopAll"><span class="hk">esc</span><span class="ic">■</span><span>Silence</span></button>`+
+    `<div class="vol">🔈<input type="range" id="vol" min="0" max="100" value="80"></div><button class="sndstat" id="sndStat"></button></div><div class="grp" id="cueGrp"></div>`;
   BOARD.forEach(section=>{
     html+=`<div class="grp"><span class="gl">${section.grp}</span>`;
-    section.pads.forEach(p=>{
-      html+=`<button class="pad ${p.amb?'amb':'one'}" data-pad="${p.key}" data-amb="${p.amb?1:0}">`+
-        `<span class="hk">${p.hk}</span><span class="ic">${p.ic}</span><span>${p.label}</span></button>`;
-    });
+    section.pads.forEach(p=>{ html+=padHTML(p,p.hk); });
     html+=`</div>`;
   });
-  html+=`<div class="grp"><button class="pad stop" id="stopAll"><span class="hk">esc</span><span class="ic">■</span><span>Silence</span></button></div>`;
-  html+=`<div class="vol">🔈<input type="range" id="vol" min="0" max="100" value="80">🔊</div>`;
   b.innerHTML=html;
-  b.querySelectorAll(".pad[data-pad]").forEach(el=>{
+  b.querySelectorAll(".grp:not(#cueGrp) .pad[data-pad]").forEach(el=>{
     const key=el.dataset.pad; padByKey[key]=el;
     el.addEventListener("click",()=>firePad(key,el));
   });
-  $("#stopAll").addEventListener("click",()=>{stopAll(); document.querySelectorAll(".pad.amb").forEach(p=>p.classList.remove("on"));});
+  $("#cueGrp").addEventListener("click",e=>{ const p=e.target.closest("[data-pad]"); if(p) firePad(p.dataset.pad); });
+  $("#stopAll").addEventListener("click",stopAll);
+  $("#sndStat").addEventListener("click",()=>{ if(sndFailed.length) loadSounds(); });
   $("#vol").addEventListener("input",e=>{ masterVol=e.target.value/100; if(master) master.gain.setTargetAtTime(masterVol,now(),0.05); });
 }
 function firePad(key,el){
   el=el||padByKey[key]; if(!el) return;
   unlock();
-  if(el.dataset.amb==="1"){ const on=ambToggle(key); el.classList.toggle("on",on); }
+  if(el.dataset.amb==="1"){ ambToggle(key); syncAmb(); }
   else fx(key);
 }
 
@@ -2153,7 +2273,7 @@ function begin(){
   $("#splash").style.display="none";
   $("#app").classList.add("on");
   initAudio(); unlock();
-  buildBoard(); wireKit();
+  buildBoard(); wireKit(); loadSounds();
   render(0); tInt=setInterval(tickTimer,1000);
 }
 $("#beginBtn").addEventListener("click",begin);
@@ -2219,8 +2339,11 @@ document.addEventListener("keydown",e=>{
   const tag=(e.target.tagName||"").toLowerCase();
   if(tag==="input"||tag==="textarea") return; // don't hijack typing
   const k=e.key;
+  // shift+1-9: the current cue's sounds, in the order its Do now lists them
+  if(e.shiftKey && /^Digit[1-9]$/.test(e.code)){ const p=stage.querySelectorAll("[data-cuefire]")[+e.code[5]-1];
+    if(p) firePad(p.dataset.cuefire); e.preventDefault(); return; }
   // sound hotkeys
-  const hk={"1":"drone","2":"rain","3":"record","4":"heart","5":"crowd","6":"candle",
+  const hk={"1":"drone","2":"wind","3":"record","4":"heart","5":"crowd","6":"candle",
             "7":"aim","8":"jump","9":"braaam","0":"bell","g":"riser","p":"pa","c":"scratch","l":"levelup"};
   if(hk[k]){ firePad(hk[k]); e.preventDefault(); return; }
   switch(k){
@@ -2233,7 +2356,7 @@ document.addEventListener("keydown",e=>{
     case "f": case "F": toggleFS(); break;
     case "Escape":
       if(document.querySelector(".overlay.on")||$("#dice").classList.contains("on")){ closeOv(); $("#dice").classList.remove("on"); }
-      else { stopAll(); document.querySelectorAll(".pad.amb").forEach(p=>p.classList.remove("on")); }
+      else stopAll();
       break;
   }
 });

@@ -85,8 +85,9 @@ each NPC says and reveals across the weekend, and the **Cast** sheet.
 | Key | Does |
 |---|---|
 | `←` `→` / `Space` | Previous / next cue |
-| `1`–`6` | Toggle ambience (house drone, rain, record skip, heartbeat, crowd, candles) |
-| `7`–`0`, `g` `p` `c` `l` | Fire a sting (AIM, jump, braaam, 3AM bell, riser, PA, scratch, level-up) |
+| `1`–`6` | Toggle ambience (house, night wind, the '79 record, heartbeat, crowd, candles) |
+| `7`–`0`, `g` `p` `c` `l` | Fire a sting (AIM, jump, braaam, 3AM bell, riser, speakers on, scratch, level-up) |
+| `Shift`+`1`–`9` | The current cue's sounds, in the order its Do now lists them |
 | `i` | Run sheet (jump anywhere, tick cues done) |
 | `d` | Roll a d20 (flat / advantage / disadvantage) |
 | `f` | Fullscreen |
@@ -97,11 +98,27 @@ The top bar has ‹ › cue buttons beside the counter, the day clock, and Props
 
 ## The soundboard
 
-All audio is **synthesized live with the Web Audio API** — there are no sound files to load,
-so it works offline and drops nothing on iPad (the HTMLAudio bug in the root
-[CLAUDE.md](../CLAUDE.md) can't bite it). Ambience buttons latch on/off and can be layered;
-stings are one-shots. The single `audioCtx.resume()` unlock happens when you tap in on the
-splash. **Silence** (or `Esc`) kills every ambience loop at once.
+The sounds are short MP3s in [`sounds/`](sounds/), about 5 MB in all, played with the Web Audio API
+(`fetch` + `decodeAudioData`, one `BufferSource` per play, so the iOS HTMLAudio bug in
+[AGENTS.md](../AGENTS.md) can't bite them). They load in the background after you tap in, stings first; the
+board shows `Sounds n/42` until they're in. They stay in the browser's Cache Storage on `https` and `localhost`, so the next open
+needs no connection. If a file hasn't loaded, the original pads fall back to a live synth; the rest stay dimmed until they arrive.
+
+The board opens with **This cue**: that cue's sounds, numbered for `Shift`+`1`–`9`, and always in reach whatever Do now has scrolled to. Room pads latch on and off, fade in and out, and layer; stings are one-shots that overlap anything. **Silence** (or `Esc`) stops
+all of it, stings included. A limiter on the master catches heavy layering.
+
+To change a sound, edit [`sounds/src/make_sounds.py`](sounds/src/make_sounds.py) and run it: it renders each sound, masters it to
+its own loudness target, wraps each loop so the seam is sample-accurate, and rewrites `sounds/manifest.js`. It isn't part of the
+page and nothing at the table needs it. It needs `numpy` and `ffmpeg`. After a re-render, bump the `?v=` on the `manifest.js` script tag.
+
+Every sound has an ElevenLabs prompt in that file. With `ELEVENLABS_API_KEY` set in your own environment:
+
+```bash
+python3 run/sounds/src/make_sounds.py --eleven --only crowd
+```
+
+That spends credits on one sound. `--all` in place of `--only` fetches the rest. Fetched audio lands in `sounds/src/eleven/` and
+wins over the render from then on, through the same mastering; delete a file there to go back.
 
 ## Not on the landing page — on purpose
 
