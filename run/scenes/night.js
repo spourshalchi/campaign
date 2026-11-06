@@ -79,21 +79,23 @@ SCENES.push(
   steps:[
     {snd:["drone"]},
     {say:"Off the main hall, a tall cabinet stands against the wall. On top of it, a pair of wire spectacles. Below them Orlok is patting slowly along the wrong shelf.", who:"Setting"},
+    {do:"Russ is the one who finds him, right after the dismissal. <b>Dracula put the spectacles up there</b>, and Orlok can't see without them."},
     {note:"Russ's <i>Assisting the Elderly</i> requirements card (printed) comes out here; he's had it since before play."},
-    {do:"Right after the dismissal, Russ finds Orlok at the cabinet. <b>Dracula has put his spectacles on top of it</b> and he can't see without them, so he's patting along the wrong shelf. Still cold and dignified. He won't ask for help."},
     {do:"Russ reaches up and hands the spectacles over. <b>No roll.</b>"},
-    {check:{skill:"Insight (Russ)", dc:"12", note:"<b>Call it</b> as he takes the spectacles. <b>Success:</b> Orlok looks at him a beat too long, as if deciding something. Flavour only; nothing hangs on it."}},
-    {note:"Keep him cold."},
-    {do:"Russ points at &ldquo;verified by your elder&rdquo;: Orlok <b>flatly refuses to sign</b>. Refusal 1 of 3."},
+    {check:{skill:"Insight (Russ)", dc:"12", note:"<b>Call it</b> as Orlok takes the spectacles. <b>Success:</b> say that Orlok looks at him a beat too long, as if deciding something. Nothing hangs on it."}},
+    {do:"Russ points at &ldquo;verified by your elder&rdquo;. <b>Spencer's turn:</b> Orlok refuses to sign. Refusal 1 of 3."},
     {say:"Spectacles handed over, not a word of thanks. Behind him the house goes dark in every direction."},
     {end:"on the read-aloud: no thanks, and the house dark in every direction. Turn them loose to explore."}
   ],
   next:"No thanks, the house dark in every direction (read-aloud). Turn them loose: cue 8.", go:["8"],
-  rev:[
-    {by:"Orlok", who:"Orlok", t:"learns a warm kid will reach up for him and want nothing back. Play the tiny crack; still no signature."}
+  talk:[
+    {who:"Orlok · asked what he's looking for", t:"Nothing that concerns you."},
+    {who:"Orlok · handed the spectacles", t:"(Silence. He puts them on.)"},
+    {who:"Orlok · shown the card", t:"No."},
+    {who:"Orlok · if Russ pushes", t:"I said no."}
   ],
   npcs:[
-    {nm:"Orlok", vc:"Cold and dignified. Won't ask for help. Takes the favour, gives nothing back. Won't sign the card. If Russ makes his Insight: look at him a beat too long, in silence."}
+    {nm:"Orlok", pts:["Keep patting along the wrong shelf","Don't ask for help, even if he's offered it","Take the spectacles with no thanks","Shown &ldquo;verified by your elder&rdquo;: a flat no","Give nothing back, and keep him cold"], vc:"Cold and dignified, and very polite about it. The only crack is that the kid reached up for him and didn't flinch. Don't play it beyond silence: no signature tonight."}
   ],
   cues:["drone"] },
 
