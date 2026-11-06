@@ -35,11 +35,11 @@ SCENES.push(
   talk:[
     {who:"History Teacher · to the five of them", t:"So you five are who I've got today. Congratulations, you're a group."},
     {who:"History Teacher · the project", t:"Local history and folklore. Something from this town. You'll present it to the class."},
-    {who:"History Teacher · on the way out", t:"Start at the hall of records. I want a primary source, not the internet."},
+    {who:"History Teacher · on the way out", t:"And I want a primary source, not the internet."},
     {who:"History Teacher · if they ask where everyone is", t:"Senior skip day. Apparently nobody told you."}
   ],
   npcs:[
-    {nm:"History Teacher", pts:["Form the remaining kids into a group","What the project is: local history and folklore","Start at the hall of records: a primary source, not the internet"], vc:"Assigns the project. <b>Not</b> the teacher who believes in Gnomey &mdash; those are two different people."}
+    {nm:"History Teacher", pts:["Put the five of them into a group.", "Explain what the project is.<ul><li>The subject: local history and folklore, from this town.</li><li>Why this group: they're the only seniors in class, because everyone else is out on skip day.</li><li>What's due: they present it out loud, back to this class.</li><li>The rule: it needs a primary source, not the internet.</li></ul>"], vc:"Assigns the project. <b>Not</b> the teacher who believes in Gnomey &mdash; those are two different people."}
   ],
   cues:["class","schoolbell"] },
 
@@ -72,7 +72,7 @@ SCENES.push(
     {by:"Great Uncle Vinny (phone)", who:"Gnomey", t:"hears his great-uncle talk about a card game &ldquo;up the hill&rdquo; and a &ldquo;Cornelis&rdquo; &mdash; no idea yet that it's the house, or 1931."}
   ],
   npcs:[
-    {nm:"Great Uncle Vinny (phone)", pts:["You think it's 1931 and you're confused","Is it the fourteenth? There's a card game up the hill tonight","Cornelis owes you a rematch","You're late. Whatever they ask, you never explain"], vc:"Ancient and mostly gone, and sure it's 1931. Doesn't explain who Cornelis is. Keeps back, without meaning to: he won the house at cards in 1931 and has the deed."}
+    {nm:"Great Uncle Vinny (phone)", pts:["Sound confused, and talk as if it's 1931.", "Ask Gnomey if it's the fourteenth.", "Tell him there's a card game up the hill tonight and that Cornelis owes you a rematch.", "Insist you're late, and don't explain anything they ask, including who Cornelis is."], vc:"Ancient and mostly gone, and sure it's 1931. Doesn't explain who Cornelis is. Keeps back, without meaning to: he won the house at cards in 1931 and has the deed."}
   ],
   cues:["hall","phone"] },
 
@@ -110,7 +110,7 @@ SCENES.push(
     {by:"Records Keeper", who:"Players", t:"hear the primary source is gone &mdash; if they want one now, it's the house itself. She sends them up the hill with a &ldquo;be careful.&rdquo;"}
   ],
   npcs:[
-    {nm:"Records Keeper", pts:["Fetch the bound 1937 volume and hand it over intact","After the fight: that was their primary source, and it's gone","If they want one now, it's the house itself","But be careful, and mean it"], vc:"Helpful, not a harbinger. Hands over the volume intact; after the trap, points them at the house as the only primary source left, and means the &ldquo;be careful.&rdquo; Beyond that, unwritten &mdash; play to taste."}
+    {nm:"Records Keeper", pts:["Answer their question about Dood by fetching the bound 1937 volume of the Crier and handing it over intact.", "Tell them the lore from page 2, only if Scott says the jigsaw has stalled.<ul><li>It's a reader's tale from the old country.</li><li>The method: dig up the coffin, stake the heart, bury it again.</li></ul>", "Tell them, after the fight, that the volume was their primary source and it's gone.", "Tell them that if they still want a primary source, they'll have to go look at the house themselves.", "Warn them to be careful, and mean it."], vc:"Helpful, not a harbinger. Hands over the volume intact; after the trap, points them at the house as the only primary source left, and means the &ldquo;be careful.&rdquo; Beyond that, unwritten &mdash; play to taste."}
   ],
   cues:["records","riser","paper","jump"] },
 
@@ -145,9 +145,9 @@ SCENES.push(
     {by:"Angelique", who:"Players", t:"can learn she's holding something back &mdash; a side-eye, a swallowed half-sentence. Nothing more."}
   ],
   npcs:[
-    {nm:"DJ Poe Boy", pts:["Asked about the house: been up there once, with a shrug","Nothing to see up there","Cool about the cards: don't say you sent them or that it's your party"], vc:"Kenku &mdash; <b>voice him only in borrowed / sampled lines.</b> Glamour-charming, subversive, real cred. Here he plays everything down: been up there once, a shrug, nothing to see. Cool about the cards &mdash; never says he sent them, never says it's his party. Wants real screams for his horror score. Keeps back: he shut the door on Marcus, and his name is Upton."},
-    {nm:"Angelique", pts:["Try to warn them and can't, with the crew around: a side-eye, a swallowed half-sentence","Nothing more than that"], vc:"Changeling, trad goth. Wants them warned, can't say it out loud. A side-eye and a held breath, not exposition."},
-    {nm:"The crew", pts:["Clock Yobo as the Dolly Parton guy","Get him to do a little riff","Buy it or needle him, on his Performance roll (Scott tells you which)"], vc:"Poe Boy's bad kids, smoking at the gazebo."}
+    {nm:"DJ Poe Boy", pts:["Say you've been up there once, with a shrug, when they ask about the house.", "Play the house down as nothing to see.", "Stay cool about the cards.<ul><li>Don't say you sent them.</li><li>Don't say it's your party.</li></ul>", "Needle Gnomey about the silly bandz if he's in front of you.<ul><li>He ran with your crew in middle school.</li><li>He walked out when he caught you skimming his cut.</li></ul>"], vc:"Kenku &mdash; <b>voice him only in borrowed / sampled lines.</b> Glamour-charming, subversive, real cred. Here he plays everything down: been up there once, a shrug, nothing to see. Cool about the cards &mdash; never says he sent them, never says it's his party. Wants real screams for his horror score. Keeps back: he shut the door on Marcus, and his name is Upton."},
+    {nm:"Angelique", pts:["Try to warn them, then stop yourself because the crew is standing right there.<ul><li>All that gets out is a side-eye and a swallowed half-sentence.</li></ul>", "Say nothing more than that."], vc:"Changeling, trad goth. Wants them warned, can't say it out loud. A side-eye and a held breath, not exposition."},
+    {nm:"The crew", pts:["Recognize Yobo as the Dolly Parton guy.<ul><li>Everyone at school believes his grandmother is Dolly Parton.</li></ul>", "Ask him to do a little riff.", "React to his Performance roll when Scott tells you the result.<ul><li>If he made it, buy it.</li><li>If he missed, needle him.</li></ul>"], vc:"Poe Boy's bad kids, smoking at the gazebo."}
   ],
   cues:["gazebo"] }
 
