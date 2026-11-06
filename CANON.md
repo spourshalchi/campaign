@@ -945,10 +945,11 @@ transitions above it binds nobody, but it's listed so the review queue can see i
   thugs die in the scramble once he drops.
 - **Opening the table** (card zero): each player introduces their character before cue 1.
 - **The Scott–Spencer handoff signal** (card zero, Spencer's briefing).
-- **Less to maintain, information in the scene** (`Scott, 2026-11-06`). The Props tab and its tracker, the Kit's Party,
-  Cast, Rules and Improv tabs, the rules summary, the AC / HP / passive Perception boxes and the spotlight ticks are gone.
+- **Less to maintain, information in the scene** (`Scott, 2026-11-06`). The Props tab and its tracker, the whole Kit (Party,
+  Cast, Rules, Notes and Improv tabs), the rules summary, the AC / HP / passive Perception boxes and the spotlight ticks are gone.
   Scott's note on Improv read "we need anyhting in the improv tab", taken as "we don't need anything": the spare rooms
-  and names went with it, and it's his to reverse. Notes stayed. What moved into scenes, all 🟡:
+  and names went with it, and it's his to reverse. Notes: "we dont need notes either", so Sunday's callbacks from them went too; Sunday's
+  "previously" read-aloud is fixed text and stays. What moved into scenes, all 🟡:
   - **Two DCs are new:** Yobo's gazebo Performance is DC 12 (made it: the crew buys it; missed: it wobbles and they
     needle him), and in the party room DC 15 splits Dracula's high line from his low line. It still never opens the door.
   - **The level-up card** after cue 9: the level 4 to 5 steps by class (rules, not lore), and "3rd-level spells are

@@ -483,19 +483,6 @@
   .lv-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:10px;padding:8px 0;border-top:1px solid var(--edge);font-size:15px;line-height:1.45}
   .lv-row b{display:block;color:var(--gold)} .lv-row i{font-style:normal;font-size:13.5px;color:var(--mut)}
   @media(max-width:640px){.lv-row{grid-template-columns:1fr;gap:2px}}
-  /* notes */
-  .knote-add{display:flex;gap:8px}
-  .knote-add input{flex:1;min-width:0;height:48px;padding:0 12px;border-radius:10px;border:1px solid var(--gold);background:#0000004d;color:var(--ink);
-    font:inherit;font-size:16px;-webkit-user-select:text;user-select:text}
-  .kadd{height:48px;padding:0 18px;border-radius:10px;border:none;background:var(--gold);color:#1a1206;font:inherit;font-weight:800;cursor:pointer}
-  .ktags{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0 6px}
-  .ktag{height:40px;padding:0 12px;border-radius:999px;border:1px solid var(--edge);background:transparent;color:var(--mut);font:inherit;font-size:13.5px;cursor:pointer}
-  .ktag.on{background:var(--gold);color:#1a1206;border-color:var(--gold);font-weight:700}
-  .kat{margin-left:auto;font-size:13px;color:var(--dim)}
-  .knote{display:flex;align-items:flex-start;gap:10px;padding:6px 0;border-top:1px solid var(--edge);font-size:15px;line-height:1.45}
-  .kcueno{flex:0 0 auto;min-width:36px;font-family:var(--f-mono);font-size:12.5px;color:var(--gold);padding-top:2px}
-  .knote .kt{flex:1;min-width:0;-webkit-user-select:text;user-select:text} .knote .kt b{color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
-  .kdel{flex:0 0 44px;height:36px;border-radius:8px;border:1px solid var(--edge);background:transparent;color:var(--dim);font-size:18px;cursor:pointer}
   /* splash link to Spencer's view */
   #splash .splink{margin-top:18px;color:var(--pink);font-size:15px;text-decoration:none;padding:12px 16px;border:1px solid #4f2846;border-radius:10px}
 
@@ -532,7 +519,7 @@
   <a class="splink" href="?spencer">Spencer? Open your view &rsaquo;</a>
   <p class="hint">
     <kbd>&larr;</kbd> <kbd>&rarr;</kbd> turn cues &nbsp;·&nbsp; <kbd>1</kbd>&ndash;<kbd>0</kbd> soundboard &nbsp;·&nbsp; <kbd>⇧1</kbd>&ndash;<kbd>⇧9</kbd> this cue's sounds &nbsp;·&nbsp;
-    <kbd>i</kbd> index &nbsp;·&nbsp; <kbd>n</kbd> notes &nbsp;·&nbsp; <kbd>f</kbd> full screen &nbsp;·&nbsp; <kbd>d</kbd> roll d20 &nbsp;·&nbsp; <kbd>Esc</kbd> silence / close<br>
+    <kbd>i</kbd> index &nbsp;·&nbsp; <kbd>f</kbd> full screen &nbsp;·&nbsp; <kbd>d</kbd> roll d20 &nbsp;·&nbsp; <kbd>Esc</kbd> silence / close<br>
     Tapping in unlocks the sound. It loads in the background and stays on this device, so the next open works offline.
   </p>
 </div>
@@ -551,7 +538,6 @@
     </div>
     <button class="timer" id="timer" title="Tap to pause / resume">--:--</button>
     <div class="tbtns">
-      <button class="tbtn" data-ov="notes" title="What they did, promised or named (N)">Notes</button>
       <button class="tbtn" data-ov="index" title="Run sheet (I)">Index</button>
       <button class="tbtn" id="fsBtn" title="Full screen (F)">Full</button>
     </div>
@@ -568,11 +554,6 @@
   <div class="sh"><h3>Run sheet</h3><button class="x" data-close aria-label="Close">&times;</button></div>
   <div class="sb" id="indexBody"></div>
 </div></div>
-<div class="overlay" id="ov-notes"><div class="sheet">
-  <div class="sh"><h3>Notes</h3><button class="x" data-close aria-label="Close">&times;</button></div>
-  <div class="sb" id="notesBody"></div>
-</div></div>
-
 <!-- ================= SPENCER'S VIEW (?spencer) ================= -->
 <div id="spv">
   <div class="sp-top">
@@ -655,8 +636,8 @@ const PROPS = [
   {id:"deed",       nm:"The deed",                      to:"Julia (Gnomey)",        cue:15, how:"from Vinny."}
 ];
 const FLOATING = PROPS.filter(p=>p.cue==="float");
-/* saved on this device: prep checklist, Do-now ticks, scenes done, the day clocks, live notes */
-const PKEY="dood_prep_v1", DKEY="dood_do_v1", NKEY="dood_done_v1", CKEY="dood_clock_v1", OKEY="dood_notes_v1";
+/* saved on this device: prep checklist, Do-now ticks, scenes done, the day clocks */
+const PKEY="dood_prep_v1", DKEY="dood_do_v1", NKEY="dood_done_v1", CKEY="dood_clock_v1";
 function loadK(k){ try{return JSON.parse(localStorage.getItem(k))||{};}catch(e){return {};} }
 function saveK(k,o){ try{localStorage.setItem(k,JSON.stringify(o));}catch(e){} }
 function loadPrep(){ return loadK(PKEY); } function savePrep(o){ saveK(PKEY,o); }
@@ -715,7 +696,7 @@ const SCENES = [
     "<b>Sunday's three rooms run in any order</b> — Study (Gnomey), Party room (Bix &amp; Yobo), Cellar (Cody). <b>The old rig upstairs (Simone) is locked until the end</b> and is always the last room. The corridor set-piece is cut.",
     "Only <b>five people</b> got the 8PM card. The <b>3AM poster is public</b> &mdash; that's when the house fills up for the party. Poe Boy sells the whole night as his <b>Halloween party</b>; what he's really after is his samples.",
     "<b>Every cue opens with Do now</b>: what to hand over, set out or switch on the iPad, each with a box to tick. Below it: Setting, Pacing, Read aloud, then <b>🎯 Leave knowing</b> (what must land before you move on), <b>➜ Next</b> (how to get out, with jump buttons) and <b>🛟 Rescues</b> (stall, split, skip). Everything under <b>Reference</b> is detail you can skip at the table.",
-    "<b>The clock in the top bar</b> runs per day against a rough plan (🟡) and says how far ahead or behind you are. <b>Notes</b> beside it (or N) is for what they did, promised or named; Saturday's turn up on Sunday's start card.",
+    "<b>The clock in the top bar</b> runs per day against a rough plan (🟡) and says how far ahead or behind you are.",
     "<b>One laptop, two zones.</b> Every cue splits in two: <b style=\"color:var(--gold)\">SCOTT · narrate</b> on the left and <b style=\"color:var(--pink)\">SPENCER · voice</b> on the right (who's in the scene, how they sound, their lines). Each side scrolls on its own.",
     "<b>🔓 Reveal</b> markers flag the moment someone learns something they didn't know &mdash; the players, one PC, or an NPC. Each one sits in the zone of whoever delivers it or has to react. When one fires, <b>both of you play the reaction</b>. They're 🟡 AI staging until Scott signs off.",
     "<b>⚔ Rolls, initiative and turn order stay at the table.</b> Each fight cue opens with <b>Running this fight</b> (setup, who takes whom, what each round looks like, the allies&rsquo; job, win, when it ends, what to do if they&rsquo;re losing), then one card per enemy: AC · HP · speed, what it does on its turn, a tap-to-subtract HP counter, what happens when it drops, and a dial for too hard / too easy. Damage is fixed: no damage dice. Allies get one line each. HP resets on reload. Numbers are 🟡 drafts. Paper backup: <code>7-combat.pdf</code> in the print kit.",
@@ -1690,7 +1671,7 @@ function render(i){
     `<h2>${s.title}</h2>${e.mins?`<span class="mins">~${e.mins} min <span class="ai">🟡</span></span>`:""}<span class="where">${s.where}</span></div>`+
     `<div class="zones">`+
       `<section class="zone z-scott"><p class="zh"><span>Scott</span> · narrate</p>`+
-        `${checkHTML}${s.no==="SUN"?callbacksHTML():""}${doHTML}${floatHTML}${setHTML}${paceHTML}${readHTML}${lvHTML}${wrapHTML}${saveHTML}${fightHTML}${checksHTML}${refHTML}</section>`+
+        `${checkHTML}${doHTML}${floatHTML}${setHTML}${paceHTML}${readHTML}${lvHTML}${wrapHTML}${saveHTML}${fightHTML}${checksHTML}${refHTML}</section>`+
       `<section class="zone z-spencer"><p class="zh"><span>Spencer</span> · voice</p>${spHTML}</section>`+
     `</div>`;
 
@@ -1702,11 +1683,6 @@ function render(i){
   drawProgress();
   tickTimer();
 }
-
-/* Sunday's start card: Saturday's notes, for callbacks */
-function callbacksHTML(){ const n=loadNotes().filter(x=>x.day==="sat");
-  return `<div class="block"><p class="h">Callbacks from Saturday</p>`+(n.length?n.map(x=>`<div class="knote"><span class="kcueno">${x.cue}</span><span class="kt">${x.tag?`<b>${x.tag}</b> `:""}${x.t.replace(/</g,"&lt;")}</span></div>`).join("")
-    :`<p class="zempty">No notes from Saturday. Notes in the top bar (or N) while you play.</p>`)+`</div>`; }
 
 /* tick counters on the checklist and the Do-now card */
 function refreshCounts(){
@@ -2040,7 +2016,7 @@ function firePad(key,el){
 /* ===================================================================== */
 /* ============================ OVERLAYS =============================== */
 /* ===================================================================== */
-function openOv(name){ closeOv(); if(name==="index") buildIndex(); if(name==="notes") buildNotes(); $("#ov-"+name).classList.add("on"); if(name==="notes"){ const i=$("#noteIn"); if(i) i.focus(); } }
+function openOv(name){ closeOv(); if(name==="index") buildIndex(); $("#ov-"+name).classList.add("on"); }
 function closeOv(){ document.querySelectorAll(".overlay.on").forEach(o=>o.classList.remove("on")); }
 
 /* the run sheet: every cue by day, its planned start against the day clock, and a done box */
@@ -2121,7 +2097,7 @@ function begin(){
   $("#splash").style.display="none";
   $("#app").classList.add("on");
   initAudio(); unlock();
-  buildBoard(); wireNotes(); loadSounds();
+  buildBoard(); loadSounds();
   render(0); tInt=setInterval(tickTimer,1000);
 }
 $("#beginBtn").addEventListener("click",begin);
@@ -2156,8 +2132,8 @@ stage.addEventListener("click",e=>{
     dn.classList.toggle("done",!!st[k]); refreshCounts(); return; }
   const gb=e.target.closest("[data-go]"); if(gb){ markDone(cur,true); render(+gb.dataset.go); return; }
   const cr=e.target.closest("[data-clockreset]"); if(cr){ if(confirm("Restart this day's clock from zero?")){ clockStart(cr.dataset.clockreset,true); tickTimer(); } return; }
-  if(e.target.closest("[data-prepreset]")){ if(confirm("Clear every tick (checklists, Do now, scenes done), the notes and both day clocks?")){
-    try{ [PKEY,DKEY,NKEY,CKEY,OKEY,"dood_props_v1","dood_party_v1","dood_floating_v1"].forEach(k=>localStorage.removeItem(k)); }catch(err){} render(cur); } return; }
+  if(e.target.closest("[data-prepreset]")){ if(confirm("Clear every tick (checklists, Do now, scenes done) and both day clocks?")){
+    try{ [PKEY,DKEY,NKEY,CKEY,"dood_props_v1","dood_party_v1","dood_notes_v1","dood_floating_v1"].forEach(k=>localStorage.removeItem(k)); }catch(err){} render(cur); } return; }
   const hb=e.target.closest("[data-hpd]"); if(hb){ const row=hb.closest("[data-hpkey]"), key=row.dataset.hpkey, max=+row.dataset.max;
     const d=hb.dataset.hpd; HP[key] = d==="reset" ? max : Math.min(max, Math.max(+row.dataset.min, hpOf(key,max) + (+d)));
     row.querySelector(".hpv").textContent=HP[key]; row.classList.toggle("down",HP[key]<=0); return; }
@@ -2196,7 +2172,6 @@ document.addEventListener("keydown",e=>{
     case "ArrowRight": case " ": case "PageDown": go(1); e.preventDefault(); break;
     case "ArrowLeft": case "PageUp": go(-1); e.preventDefault(); break;
     case "i": case "I": toggle("index"); break;
-    case "n": case "N": openOv("notes"); e.preventDefault(); break;
     case "d": case "D": rollDice(); break;
     case "f": case "F": toggleFS(); break;
     case "Escape":
@@ -2206,35 +2181,6 @@ document.addEventListener("keydown",e=>{
   }
 });
 function toggle(name){ const o=$("#ov-"+name); if(o.classList.contains("on")) closeOv(); else openOv(name); }
-
-/* ===================================================================== */
-/* ============================== NOTES ================================ */
-/* ===================================================================== */
-function loadNotes(){ try{ return JSON.parse(localStorage.getItem(OKEY))||[]; }catch(e){ return []; } }
-function saveNotes(a){ try{ localStorage.setItem(OKEY,JSON.stringify(a)); }catch(e){} }
-function buildNotes(){
-  const notes=loadNotes(), s=SCENES[cur];
-  $("#notesBody").innerHTML = `<div class="knote-add"><input id="noteIn" placeholder="What they did, promised or named&hellip;" autocomplete="off">`+
-    `<button class="kadd" data-noteadd>Add</button></div>`+
-    `<div class="ktags">${["Did","Promised","Named","Callback"].map(t=>`<button class="ktag" data-notetag="${t}">${t}</button>`).join("")}<span class="kat">on cue ${s.no}</span></div>`+
-    (notes.length?["sat","sun"].map(d=>{ const list=notes.map((n,i)=>({n,i})).filter(({n})=>n.day===d);
-      return list.length?`<p class="prep-g">${d==="sat"?"Saturday":"Sunday"}</p>`+list.reverse().map(({n,i})=>
-        `<div class="knote"><span class="kcueno">${n.cue}</span><span class="kt">${n.tag?`<b>${n.tag}</b> `:""}${n.t.replace(/</g,"&lt;")}</span><button class="kdel" data-notedel="${i}" aria-label="Delete">&times;</button></div>`).join(""):""; }).join("")
-      : `<p class="idx-note">Nothing yet. Saturday's notes show up on Sunday's start card for callbacks.</p>`);
-}
-let noteTag="";
-function addNote(){ const i=$("#noteIn"), t=i.value.trim(); if(!t) return; const a=loadNotes(), s=SCENES[cur];
-  a.push({t, tag:noteTag, cue:String(s.no), day:dayOf(s), at:Date.now()}); saveNotes(a); noteTag=""; buildNotes(); const n=$("#noteIn"); if(n) n.focus(); }
-function wireNotes(){
-  const nb=$("#notesBody");
-  nb.addEventListener("click",e=>{
-    if(e.target.closest("[data-noteadd]")){ addNote(); return; }
-    const tg=e.target.closest("[data-notetag]"); if(tg){ noteTag = noteTag===tg.dataset.notetag ? "" : tg.dataset.notetag;
-      nb.querySelectorAll(".ktag").forEach(b=>b.classList.toggle("on",b.dataset.notetag===noteTag)); $("#noteIn").focus(); return; }
-    const d=e.target.closest("[data-notedel]"); if(d){ if(confirm("Delete this note?")){ const a=loadNotes(); a.splice(+d.dataset.notedel,1); saveNotes(a); buildNotes(); } return; }
-  });
-  nb.addEventListener("keydown",e=>{ if(e.target.id==="noteIn" && e.key==="Enter"){ e.preventDefault(); addNote(); } });
-}
 
 /* ===================================================================== */
 /* ======================= SPENCER'S VIEW (?spencer) ==================== */

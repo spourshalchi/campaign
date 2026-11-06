@@ -61,10 +61,6 @@ ahead or behind the rough plan (`EXEC.mins`) you are. Tap it to pause. A clock m
 starts again, so a read-through the night before doesn't count. The thin bar under the top bar is the
 day's cues: done, here, to come.
 
-### Notes
-**Notes** in the top bar (`N`) takes a quick line for what players did, promised or named, stamped with the
-cue. Saturday's notes show on Sunday's start card as callbacks.
-
 Each cue's Rescues also carry **⏱ Behind** (what to compress) and **⏱ Ahead** (what to stretch); the
 clock lights up whichever applies.
 
@@ -82,12 +78,11 @@ each NPC says and reveals across the weekend.
 | `7`–`0`, `g` `p` `c` `l` | Fire a sting (AIM, jump, braaam, 3AM bell, riser, speakers on, scratch, level-up) |
 | `Shift`+`1`–`9` | The current cue's sounds, in the order its Do now lists them |
 | `i` | Run sheet (jump anywhere, tick cues done) |
-| `n` | Notes |
 | `d` | Roll a d20 (flat / advantage / disadvantage) |
 | `f` | Fullscreen |
 | `Esc` | Close an overlay, or silence all sound |
 
-The top bar has ‹ › cue buttons beside the counter, the day clock, and Notes, Index and Full, all
+The top bar has ‹ › cue buttons beside the counter, the day clock, and Index and Full, all
 44px, so it's fully touch-usable on the iPad. Nothing floats over the reading area.
 
 ## The soundboard
