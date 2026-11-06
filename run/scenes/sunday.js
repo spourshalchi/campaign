@@ -42,7 +42,7 @@ SCENES.push(
     {note:"On the printed settlement, the bearer paragraph is the <b>only one on the page with no corrections</b>. Dracula signed as witness, not a notary."},
     {check:{skill:"Investigation", dc:"12", note:"Read the signatures and the bearer clause: <b>V. Soprano</b> won the house, title goes with the deed, and <b>the slot in the strongbox where the deed should be is empty</b>."}},
     {stuck:"Point at the <b>empty slot in the strongbox</b> and read the bearer paragraph aloud."},
-    {backup:"<b>Gnomey owns the house:</b> if he misses the bearer clause here, tell Spencer. Vinny says it in the driveway as he hands over the deed."},
+    {backup:"<b>Gnomey owns the house:</b> if he misses the bearer clause here, Vinny says it in the driveway as he hands over the deed."},
     {do:"Julia decides who Gnomey tells. Don't push it."},
     {note:"Keep the <b>printed deed</b> hidden. Vinny has it, and it comes out only in the ending scene.", k:"rule"},
     {say:"He's read it three times. The man who won this house is his great-uncle &mdash; and whoever holds the deed owns it. The deed isn't here."},
@@ -50,8 +50,7 @@ SCENES.push(
   ],
   next:"He's read it three times (read-aloud). Next room.", go:"rooms",
   npcs:[
-    {nm:"Nobody to voice here", vc:"The room is empty. Gnomey reads alone."},
-    {nm:"Great Uncle Vinny · later, in the driveway", pts:["Tell Gnomey that whoever holds the deed owns the place, as you hand it over.<ul><li>Only if Scott says he missed the bearer clause here.</li><li>The line: <i>&ldquo;Whoever's holding this owns the place. Now that's you.&rdquo;</i></li></ul>"], vc:"Not in this room. A heads-up for the driveway."}
+    {nm:"Nobody to voice here", vc:"The room is empty. Gnomey reads alone."}
   ],
   cues:["study","lockclick"] },
 
