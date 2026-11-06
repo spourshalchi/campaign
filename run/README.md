@@ -53,7 +53,7 @@ zone scrolls on its own, and below 700px they stack.
 ### Ticks and moving between cues
 Ticks are saved on the device (`localStorage`; the page still works if storage is blocked). ‹ › step through
 the cues in order, and each cue's Next buttons jump to where the story goes, including Sunday's room picker.
-Moving forward with › or a Next button marks the cue done.
+Moving forward with › or a Next button marks the cue done. The page reopens on the card you were last on; Reset goes back to card zero.
 
 ### The clock
 One clock per day, saved on the device. It starts on the first cue you open that day and says how far

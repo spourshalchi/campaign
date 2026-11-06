@@ -588,8 +588,8 @@ const PROPS = [
   {id:"deed",       nm:"The deed",                      to:"Julia (Gnomey)",        cue:15, how:"from Vinny."}
 ];
 const FLOATING = PROPS.filter(p=>p.cue==="float");
-/* saved on this device: prep checklist, Do-now ticks, scenes done, the day clocks */
-const PKEY="dood_prep_v1", DKEY="dood_do_v1", NKEY="dood_done_v1", CKEY="dood_clock_v1";
+/* saved on this device: prep checklist, Do-now ticks, scenes done, the day clocks, the card you're on */
+const PKEY="dood_prep_v1", DKEY="dood_do_v1", NKEY="dood_done_v1", CKEY="dood_clock_v1", SKEY="dood_pos_v1";
 function loadK(k){ try{return JSON.parse(localStorage.getItem(k))||{};}catch(e){return {};} }
 function saveK(k,o){ try{localStorage.setItem(k,JSON.stringify(o));}catch(e){} }
 function loadPrep(){ return loadK(PKEY); } function savePrep(o){ saveK(PKEY,o); }
@@ -1477,6 +1477,7 @@ function spZone(s){
 function render(i){
   cur = (i + SCENES.length) % SCENES.length;
   const s = SCENES[cur], act = ACTS[s.act], e = exOf(s), key = String(s.no);
+  saveK(SKEY,{no:key});
   if(!s.checklist) clockStart(dayOf(s));
 
   // top bar
@@ -2033,7 +2034,7 @@ function begin(){
   $("#app").classList.add("on");
   initAudio(); unlock();
   buildBoard(); loadSounds();
-  render(0); tInt=setInterval(tickTimer,1000);
+  render(Math.max(0,idxOf(loadK(SKEY).no))); tInt=setInterval(tickTimer,1000);
 }
 $("#beginBtn").addEventListener("click",begin);
 $("#splash").addEventListener("click",e=>{ if(e.target.id==="splash") begin(); });
@@ -2059,7 +2060,7 @@ stage.addEventListener("click",e=>{
   const gb=e.target.closest("[data-go]"); if(gb){ markDone(cur,true); render(+gb.dataset.go); return; }
   const cr=e.target.closest("[data-clockreset]"); if(cr){ if(confirm("Restart this day's clock from zero?")){ clockStart(cr.dataset.clockreset,true); tickTimer(); } return; }
   if(e.target.closest("[data-prepreset]")){ if(confirm("Clear every tick (checklists, Do now, scenes done) and both day clocks?")){
-    try{ [PKEY,DKEY,NKEY,CKEY,"dood_props_v1","dood_party_v1","dood_notes_v1","dood_floating_v1"].forEach(k=>localStorage.removeItem(k)); }catch(err){} render(cur); } return; }
+    try{ [PKEY,DKEY,NKEY,CKEY,SKEY,"dood_props_v1","dood_party_v1","dood_notes_v1","dood_floating_v1"].forEach(k=>localStorage.removeItem(k)); }catch(err){} render(cur); } return; }
   const hb=e.target.closest("[data-hpd]"); if(hb){ const row=hb.closest("[data-hpkey]"), key=row.dataset.hpkey, max=+row.dataset.max;
     const d=hb.dataset.hpd; HP[key] = d==="reset" ? max : Math.min(max, Math.max(+row.dataset.min, hpOf(key,max) + (+d)));
     row.querySelector(".hpv").textContent=HP[key]; row.classList.toggle("down",HP[key]<=0); return; }
