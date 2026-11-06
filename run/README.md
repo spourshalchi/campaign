@@ -107,18 +107,15 @@ needs no connection. If a file hasn't loaded, the original pads fall back to a l
 The board opens with **This cue**: that cue's sounds, numbered for `Shift`+`1`–`9`, and always in reach whatever Do now has scrolled to. Room pads latch on and off, fade in and out, and layer; stings are one-shots that overlap anything. **Silence** (or `Esc`) stops
 all of it, stings included. A limiter on the master catches heavy layering.
 
-To change a sound, edit [`sounds/src/make_sounds.py`](sounds/src/make_sounds.py) and run it: it renders each sound, masters it to
-its own loudness target, wraps each loop so the seam is sample-accurate, and rewrites `sounds/manifest.js`. It isn't part of the
-page and nothing at the table needs it. It needs `numpy` and `ffmpeg`. After a re-render, bump the `?v=` on the `manifest.js` script tag.
+The sounds were generated in ElevenLabs Sound Effects from the prompts in
+[`sounds/src/make_sounds.py`](sounds/src/make_sounds.py); the AIM chime is the AIM prop's own `imrcv.wav`, heard from down a hall. The raw
+generations are in `sounds/src/eleven/`. The script masters each one to its own loudness target, rolls off sub rumble a Bluetooth speaker
+can't play, wraps each loop so the seam is sample-accurate and rewrites `sounds/manifest.js`, so anything changed there means bumping the `?v=` on
+that script tag. It isn't part of the page and nothing at the table needs it. It needs `numpy` and `ffmpeg`.
 
-Every sound has an ElevenLabs prompt in that file. With `ELEVENLABS_API_KEY` set in your own environment:
-
-```bash
-python3 run/sounds/src/make_sounds.py --eleven --only crowd
-```
-
-That spends credits on one sound. `--all` in place of `--only` fetches the rest. Fetched audio lands in `sounds/src/eleven/` and
-wins over the render from then on, through the same mastering; delete a file there to go back.
+To replace a sound, drop a new `sounds/src/eleven/<name>.mp3` in and run `python3 run/sounds/src/make_sounds.py --only <name>`. Deleting
+that file falls back on the script's procedural version of the sound. With `ELEVENLABS_API_KEY` set in your own environment, `--eleven --only <name>`
+fetches a missing one from the prompt.
 
 ## Not on the landing page — on purpose
 

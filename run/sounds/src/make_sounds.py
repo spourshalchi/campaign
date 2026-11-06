@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """Run of Show soundboard: renders every sound, masters it, writes run/sounds/*.mp3 + manifest.js.
 
-  python3 make_sounds.py                     render everything
+  python3 make_sounds.py                     master everything
   python3 make_sounds.py --only house,wind   just these
   python3 make_sounds.py --eleven --only house      fetch this one from ElevenLabs (test one first)
-  python3 make_sounds.py --eleven --all             fetch every sound that has a prompt
 
---eleven reads ELEVENLABS_API_KEY from the environment. Fetched audio is kept in src/eleven/<name>.mp3
-and always wins over the procedural render, so re-running never spends credits twice. Delete a file
-there to go back to the procedural version. Needs numpy and ffmpeg. Not part of the page: nothing
-here loads at the table.
+Sound comes from src/eleven/<name>.mp3 when that file exists, and from the procedural render below when
+it doesn't. Those files were generated in ElevenLabs from the prompts in SOUNDS. --eleven fetches one over
+the API, reading ELEVENLABS_API_KEY from the environment, and never refetches a file already there: delete
+it to regenerate, or to fall back on the render. Needs numpy and ffmpeg. Not part of the page: nothing here
+loads at the table.
 """
 import argparse, json, os, re, subprocess, sys, tempfile, urllib.request, urllib.error, zlib
 import numpy as np
@@ -735,7 +735,12 @@ def trim(x):
 def master(name, kind, target, x):
     x = x - np.mean(x)
     x = (x if kind == "amb" else trim(x))
-    g = 10 ** ((target - lufs(x)) / 20); x = limit(x * g)
+    # a room's transients stay within 22 dB of its level, so a crackle or a drip can't jump out next to a sting
+    ceil = min(.74, 10 ** ((target + 22) / 20)) if kind == "amb" else .74
+    g = 10 ** ((target - lufs(x)) / 20)
+    for _ in range(3):
+        y = limit(x * g, ceil); g *= 10 ** ((target - lufs(y)) / 20)
+    x = limit(x * g, ceil)
     if kind == "amb":
         # the roll keeps a downbeat or clock tick from landing exactly on the seam
         p = N(PAD); body = np.roll(x, N(.137)); x = np.concatenate([body[-p:], body, body[:p]]); length = len(body) / SR
@@ -744,6 +749,20 @@ def master(name, kind, target, x):
     path = os.path.join(OUT, name + ".mp3")
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-", "-b:a", "80k", "-id3v2_version", "0", path], input=x.astype(np.float32).tobytes(), check=True)
     return length, os.path.getsize(path)
+
+# Loops with a beat keep the seam the model gave them: a long crossfade would smear the rhythm.
+RHYTHMIC = {"heart", "record", "gazebo", "set"}
+def arrange(name, x):
+    """Where a generation needs shaping to fit its scene."""
+    if name == "bell":      # the model gives one strike; the cue wants three tolls
+        y = np.zeros(N(2.3) * 2 + N(5)); strike = x[:N(2.3)].copy(); strike[-N(.5):] *= np.linspace(1, 0, N(.5))
+        tail = x[:N(5)].copy(); tail[-N(1):] *= np.linspace(1, 0, N(1))
+        add(y, strike, 0); add(y, strike, N(2.3)); add(y, tail, N(4.6)); return y
+    if name == "boo":       # "one boo, then the whole room"
+        lone = load_audio(os.path.join(ELEVEN, "boo1.mp3")); lone = trim(lone); lone = setrms(lone, rms(x) * .55)
+        gap = len(lone) + N(.6); y = np.zeros(gap + len(x)); add(y, lone, 0)
+        crowd = x.copy(); crowd[:N(.35)] *= np.linspace(0, 1, N(.35)); add(y, crowd, gap); return y
+    return x
 
 def fetch_eleven(name, prompt, dur, loop):
     key = os.environ.get("ELEVENLABS_API_KEY")
@@ -772,7 +791,13 @@ def main():
         if a.eleven and prompt and not os.path.exists(raw): fetch_eleven(name, prompt, dur, kind == "amb")
         r = np.random.default_rng(zlib.crc32(name.encode()))
         if os.path.exists(raw):
-            x = load_audio(raw); x = seamless(x) if kind == "amb" else x; src = "elevenlabs"
+            x = arrange(name, load_audio(raw)); src = "elevenlabs"
+            # generated audio carries a lot of sub rumble: a Bluetooth speaker can't play it, and it would eat the level
+            if kind == "amb":
+                x = seamless(x, .03 if name in RHYTHMIC else 1.0)
+                x = filt(x, lambda f: hp(f, 45 if name in ("heart", "set") else 75, 2))
+            else:
+                x = filt1(x, lambda f: hp(f, 45, 2))[:len(x)]
         else:
             x = fn(r); src = "render"
         length, size = master(name, kind, target, x)
