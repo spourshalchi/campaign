@@ -8,6 +8,9 @@
    creatures (chassis), pared down so Scott can run it at the table.
    Damage is fixed (no damage dice). Rolls and initiative stay at the table.
 
+   guide (finale fights): tokens, rounds [{k, say, who, sp}], other [[if, then]]: narrating the fight.
+   lines (finale fights): Spencer's in-fight lines [{who, t}].
+
    foe:  id, nm, n (how many), ac, hp, floor (lowest HP, if not 0), spd, chassis, cr, xp,
          say (one line of flavour), turn (1–3 steps), note (the one gimmick),
          drop (when it drops), hard / easy (the dials)
@@ -153,51 +156,95 @@ const FIGHTS = {
   },
 
   developer: {
-    day:"Sunday", name:"The developer breaches",
-    rule:"<b>The only lethal fight.</b> Ostrander seals the exits behind him, his own crew included. His death flips the vampires &mdash; no persuasion check.",
+    day:"Sunday", name:"The developer",
+    guide:{
+      tokens:"Thugs 1&ndash;3 between the party and the vampires. Ostrander and thugs 4&ndash;6 on the vampires. Lay Orlok, Dracula and Edward on their sides: pinned. Dracula next to Yobo, Edward where Bix can see him. Poe Boy and Stinky up on the decks: not in this fight.",
+      rounds:[
+        {k:"Round 1", who:"Thugs 1&ndash;3 block the party and swing at the nearest PC. Thugs 4&ndash;6 hold the vampires down, no rolls. Ostrander works on Orlok and ignores the party until someone hits him or reaches him.", say:"Three of them step into your way. Behind them, a stake comes down to rest on Orlok's chest.", sp:"Orlok: &ldquo;Boy. Help me.&rdquo; Edward: &ldquo;Twenty-four years.&rdquo;"},
+        {k:"Round 2", who:"Thugs 1&ndash;3 are on the party and starting to drop. Ostrander: Hold on whoever hit him, rod at anyone next to him.", say:"Dracula is frozen mid-flourish, cape out, an arm's length from Yobo. They've reached him. Somebody is measuring.", sp:"Poe Boy, on the mic: &ldquo;Oh, this is great. Keep going.&rdquo;"},
+        {k:"Round 3", who:"Thugs 1&ndash;3 mostly down. Ostrander is exposed.", say:"They've got to the quiet one. A mallet goes up over a stake on Edward's chest. He isn't looking at it. He's looking at Bix."},
+        {k:"Round 4 on", who:"Hold here. No vampire is ever actually killed. Ostrander goes down round 3 or 4.", say:"The mallet is still up. It's shaking."}
+      ],
+      other:[
+        ["They go for Poe Boy first","He can't drop below 1 HP and Stinky blocks. The vampires keep calling for help. He isn't going anywhere. Take the next round's line anyway."],
+        ["Nobody moves, or they try to talk","Ostrander doesn't stop. Orlok asks again. Take the next round's line anyway."],
+        ["They try to break the seal","It holds until he drops. Point them at the man with the clipboard."],
+        ["They go for thugs 4&ndash;6","Fine. Ostrander turns on whoever gets close."],
+        ["They leave","The doors are open and nobody stops them. Orlok calls after them."],
+        ["Russ heals a pinned vampire","That's <b>badge req 3</b>. If it doesn't happen here, it's still open at the booth."],
+        ["When he drops","Take off Ostrander and every thug. Stand the vampires up. Next card."]
+      ]},
+    lines:[
+      {who:"Orlok · pinned, to Russ", t:"Boy. Help me. <span class='ai'>🟡</span>"},
+      {who:"Edward · on seeing Ostrander's men", t:"Twenty-four years. <span class='ai'>🟡</span>"},
+      {who:"DJ Poe Boy · on the mic, during the fight", t:"Oh, this is great. Keep going. <span class='ai'>🟡</span>"},
+      {who:"The vampires · if they go for Poe Boy first", t:"Keep calling for help. <span class='ai'>🟡</span>"}
+    ],
+    rule:"<b>The only lethal fight.</b> Ostrander pins the vampires with a seal and ignores the party until they interfere. <b>The vampires are never actually killed.</b>",
     run:{
-      setup:"Ostrander walks in with six thugs and seals the exits behind him (narrate it; it costs him nothing). The vampires go for his thugs. Roll initiative.",
-      matchups:"The vampires take thugs 4–6 on the far side of the ballroom. The party faces Ostrander and thugs 1–3 at the breach. Poe Boy stays up on the decks, on the mic; he isn't in this fight.",
-      beats:["R1 · Thugs 1–3 rush the party. Ostrander hangs back by the door, barking orders, and Holds whoever hits him. End of round: a vampire kills thug 4.",
-             "R2 · Thugs 1–3 start dropping. End of round: the vampires kill thugs 5 and 6.",
-             "R3 · Ostrander is exposed: nobody left between him and the party.",
-             "R4 · He goes down. Stop. Silence."],
-      allyJob:"The vampires kill thug 4 at the end of round 1, and thugs 5 and 6 at the end of round 2. Narrate it, no rolls. Then they hold the room and leave Ostrander to the party.",
+      setup:"Ostrander and six thugs walk in with the crowd, go straight past the party and pin all three vampires with a seal (narrate it; it costs him nothing). Roll initiative when the party acts.",
+      matchups:"Thugs 1–3 block the party. Thugs 4–6 are on the vampires. Ostrander ignores the party until they interfere. Poe Boy stays up on the decks, on the mic; he isn't in this fight.",
+      beats:["R1 · Thugs 1–3 block and swing. A stake rests on Orlok's chest.",
+             "R2 · Thugs 1–3 start dropping. Dracula is pinned mid-flourish near Yobo.",
+             "R3 · Ostrander is exposed. A stake over Edward's chest, with Bix watching.",
+             "R4 · He goes down. Stop. Silence. The seal breaks."],
+      allyJob:"Pinned: the vampires don't act, and are never actually killed. When the seal breaks they finish thugs 4–6. Narrate it, no rolls.",
       win:"Drop Ostrander. The party has to do it, not the vampires.",
       ends:"Round 3 or 4, when he goes down. Stop. Let the room be quiet.",
-      losing:"If two PCs are down: Orlok and Dracula pin him to the wall. He loses his turns, and the next hit from a PC kills him."
+      losing:"If two PCs are down: the seal slips and Orlok gets a hand free. Ostrander loses his turns, and the next hit from a PC kills him."
     },
     foes:[
       {id:"ostrander", nm:"W. Ostrander", n:1, ac:15, hp:100, spd:"30", chassis:"Mage, no damage spells", cr:"6", xp:2300,
        say:"An adult with a clipboard. To him this is a contamination problem on a site he's paid for.",
-       turn:["<b>A PC hit him since his last turn?</b> Hold that PC: <b>DC 15 Wis save</b> or they lose their next turn, frozen.",
-             "Surveyor's rod at the nearest PC: <b>+6 to hit, 10 bludgeoning</b>.",
-             "Steps back behind his crew."],
+       turn:["<b>No PC has hit him or reached him?</b> Ignores the party and works on the vampires.",
+             "<b>A PC hit him since his last turn?</b> Hold that PC: <b>DC 15 Wis save</b> or they lose their next turn, frozen.",
+             "Surveyor's rod at a PC next to him: <b>+6 to hit, 10 bludgeoning</b>."],
        note:"The first 25 damage is his ward cracking: narrate it, it's in the 100. No damage spells. Doesn't swing at a PC who's down.",
-       drop:"He's dead. Stop. Silence. Then the vampires turn, no check. Any thug still standing drops his crowbar and backs against the wall.",
-       hard:"Orlok pins him for a round: he loses his turn.",
+       drop:"He's dead. Stop. Silence. The seal breaks: the vampires finish thugs 4–6, no rolls. Any of thugs 1–3 left drop their crowbars.",
+       hard:"He keeps ignoring the party for one more round, even after they hit him.",
        easy:"Add 25 HP (another layer of ward)."},
       {id:"thug", nm:"Thugs", n:6, ac:12, hp:16, spd:"30", chassis:"Tough", cr:"½", xp:100,
-       say:"A demolition crew. Hard hats, crowbars, sealed in with everyone else.",
-       turn:["<b>A PC on Ostrander?</b> Gets between them. Otherwise moves to the nearest PC.",
+       say:"A demolition crew. Hard hats, crowbars, stakes.",
+       turn:["<b>Thugs 4–6 stay on the vampires, no rolls, unless a PC reaches them.</b> Thugs 1–3: <b>a PC on Ostrander?</b> Gets between them. Otherwise moves to the nearest PC.",
              "Crowbar: <b>+4 to hit, 8 bludgeoning</b>."],
        note:"Doesn't swing at a PC who's down.",
        drop:"Dead. A hard hat rolls across the floor.",
-       hard:"The vampires kill one of thugs 1–3 as well.",
+       hard:"One of thugs 1–3 breaks and runs.",
        easy:"Give each 8 more HP (24)."}
     ],
-    alliesLabel:"Allies · end of each round, after everyone, no rolls",
+    alliesLabel:"Allies · pinned until the seal breaks, no rolls",
     allies:[
-      {nm:"Orlok, Dracula, Edward", act:"Kill thugs 4–6 on the far side: thug 4 at the end of round 1, thugs 5 and 6 at the end of round 2. Dracula plays to the crowd; Orlok is quick and tidy; Edward is efficient and doesn't look at anyone. Mark each one down."},
+      {nm:"Orlok, Dracula, Edward", act:"Pinned, so they don't act. When the seal breaks they finish thugs 4–6: Dracula plays to the crowd; Orlok is quick and tidy; Edward is efficient and doesn't look at anyone. Mark each one down."},
       {nm:"Angelique", act:"What she does at the finale is still open. <b>If she's with the party:</b> 8 piercing on a thug, no roll."}
     ]
   },
 
   booth: {
-    day:"Sunday", name:"The ballroom decks",
+    day:"Sunday", name:"The booth",
+    guide:{
+      tokens:"Ostrander and the thugs are off. Vampires standing, with the party. Lil Stinky at the decks, Poe Boy behind him. The USB is wherever the party left it.",
+      rounds:[
+        {k:"After &ldquo;Drop.&rdquo;", who:"Roll initiative. Party and vampires against Poe Boy and Stinky. The goal is the USB, not killing him.", say:"<b>What do you do?</b>"},
+        {k:"Round 1", who:"Poe Boy Commands the USB holder. Stinky gets back to the decks. One vampire acts: Orlok grips Stinky.", say:"One word, in somebody else's voice, and your hand opens. The drive hits the floor."},
+        {k:"Round 2", who:"Stinky swings at the USB holder and hits a vampire. Dracula carries the holder toward the decks.", say:"Stinky's sword catches a vampire. It smokes. It staggers."},
+        {k:"Round 3", who:"Stinky gets moved or drops. Someone plugs in. Edward pulls a PC clear.", say:"He's off the decks. There's the aux."},
+        {k:"Round 4", who:"The recording plays. Stinky sits down. Clear the map: the fight's over.", say:"Read the recording (scene card)."}
+      ],
+      other:[
+        ["Russ heals a vampire under fire","That's <b>badge req 3</b>, if it hasn't landed."],
+        ["They try to kill Poe Boy","He can't drop below 1 HP until the recording plays: on his knees, still on the mic. Point at the decks."],
+        ["They plug in with Stinky standing there","Nobody can while he's at the decks. Shove, grapple, a spell or a vampire moves him."],
+        ["The USB is still upstairs","Someone runs it down, about 2 rounds."],
+        ["It drags past round 4","Dracula lands the drive in a PC's hand at the decks."],
+        ["They hit Poe Boy after the recording","The floor is gone. At 0 HP he's knocked out, not killed."]
+      ]},
+    lines:[
+      {who:"DJ Poe Boy · each turn, on whoever holds the USB", t:"Drop."},
+      {who:"DJ Poe Boy · each turn, if nobody holds it, on the PC nearest the decks", t:"Flee."}
+    ],
     rule:"<b>The USB can't be destroyed</b> &mdash; Command (&ldquo;Drop.&rdquo;) only costs time. When it plays, <b>Stinky's oath breaks with no save.</b>",
     run:{
-      setup:"Ostrander is dead, the exits are still sealed and the vampires are with the party. Poe Boy and Lil Stinky hold the decks. The USB is wherever the party left it: if it's still in the old rig upstairs, someone runs it down (about 2 rounds).",
+      setup:"Ostrander is dead and the vampires are free. The party tells them about Marcus and the drive. Orlok: &ldquo;Let them play it.&rdquo; Poe Boy refuses: &ldquo;Drop.&rdquo; That's what turns them on him. Poe Boy and Lil Stinky hold the decks. The USB is wherever the party left it: if it's still in the old rig upstairs, someone runs it down (about 2 rounds).",
       matchups:"Lil Stinky holds the decks; Poe Boy stays behind them, on the mic. Orlok goes for Stinky, Dracula shadows whoever holds the USB, Edward hangs back to pull PCs clear. The party's job: get the USB to the decks and get Stinky off them.",
       beats:["R1 · The USB is on the move. Poe Boy Commands its holder: &ldquo;Drop.&rdquo;",
              "R2 · The party reaches the decks. Stinky swings at the holder and smokes a vampire (Russ's heal).",
@@ -214,14 +261,14 @@ const FIGHTS = {
        turn:["Command, one word, <b>DC 15 Wis save</b>. The PC holding the USB: &ldquo;Drop.&rdquo; (it lands at their feet). Nobody holding it: the PC nearest the decks, &ldquo;Flee.&rdquo; (they spend their next move running from him).",
              "Mic stand at anyone next to him: <b>+4 to hit, 4 bludgeoning</b>. Pathetic on purpose."],
        note:"<b>Can't drop below 1 HP until the recording plays</b>: at 1 he's on his knees behind the decks, still on the mic. +3 on his saves while Stinky is within 10 ft.",
-       drop:"He doesn't drop. Once the recording plays, his Command stops landing, the room boos and Dracula takes the mic. The fight runs into the early morning; cut to the driveway at sunrise.",
+       drop:"He doesn't drop until the recording plays. Then the floor ends, his Command stops landing, the room boos and Dracula takes the mic. At 0 HP he's knocked out, not killed. The fight runs into the early morning; cut to the driveway at sunrise.",
        hard:"He only Commands the PC holding the USB. No &ldquo;Flee.&rdquo;",
        easy:"He Commands two PCs a turn: &ldquo;Drop.&rdquo; and &ldquo;Flee.&rdquo;"},
       {id:"stinky", nm:"Lil Stinky", n:1, ac:18, hp:60, spd:"30", chassis:"Knight", cr:"3", xp:700,
        say:"Sincere. Not charmed: he believes his friend.",
        turn:["Back to the decks, next to Poe Boy.",
              "Longsword twice: <b>+5 to hit, 8 radiant</b> each. The PC holding the USB if he can reach them, otherwise the nearest vampire."],
-       note:"<b>Nobody can plug in while he's standing at the decks.</b> Shove him, grapple him, move him with a spell or a vampire, or drop him, then plug in. A vampire he hits smokes and staggers: that's Russ's heal for badge req 3.",
+       note:"<b>Nobody can plug in while he's standing at the decks.</b> Shove him, grapple him, move him with a spell or a vampire, or drop him, then plug in. A vampire he hits smokes and staggers: that's Russ's heal for badge req 3, if it hasn't landed.",
        drop:"At 0 HP he's on one knee, sword down: out of the fight, awake, and still hears the recording. When it plays, his oath breaks, no save. He sits down.",
        hard:"One swing, not two.",
        easy:"Add 20 HP (80)."}
