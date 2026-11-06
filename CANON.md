@@ -995,8 +995,8 @@ transitions above it binds nobody, but it's listed so the review queue can see i
 ---
 
 ### 8. The Run of Show soundboard — `run/sounds/`, 🟡 AI-made 2026-11-06
-Scott asked for better sound effects and ambience on the board (`Scott, 2026-11-06`). 41 of the 42 sounds were generated in ElevenLabs
-Sound Effects from the prompts in `run/sounds/src/make_sounds.py`; the AIM chime is the AIM prop's own sound. None of this changes the
+Scott asked for better sound effects and ambience on the board (`Scott, 2026-11-06`). 41 of the 43 sounds were generated in ElevenLabs
+Sound Effects from the prompts in `run/sounds/src/make_sounds.py`; the AIM chime is the AIM prop's own sound, and Library fight is below. None of this changes the
 script; what a sound implies about a scene is 🟡 until Scott has heard it:
 
 - **The '79 record** is a faint disco party on dusty vinyl, with far-off laughter. Canon only has dance music and the room remembering;
@@ -1005,6 +1005,9 @@ script; what a sound implies about a scene is 🟡 until Scott has heard it:
 - **Rooms with no sound described in canon:** the study (dead air, no clock running), the cellar (drips, straw, a sleeping fox, an owl
   shifting), the old rig (fan, CRT whine, drive chatter), the dawn lawn (birds, one far-off crow), the summoning room.
 - **The night wind** is the one exterior sound, with no rain: cue 6 has moonlight. Canon's rainy nights are the '79 cart and Bix's break-in.
+- **Library fight** (cue 3, background) is a 65 s loop Scott asked for (`Scott, 2026-11-06`): ElevenLabs Music, a mischievous pizzicato-and-drums
+  battle track at 132 BPM, with generated shears, rubber stamps, card catalogue drawers, paper, a book cart and one stern "shh" laid on its beat.
+  Canon has the stationery coming alive (`run/fights.js`); the "shh" is invented, and nobody in the scene is established as making it.
 - **Cue mapping** is a suggestion: cue 16 has no level-up sting because nobody reacts, and cue 11 has one for *Your True Voice*.
 
 ## Open questions worth settling

@@ -110,7 +110,7 @@ SCENES.push(
       {t:"Warn them to be careful, and mean it.", say:"&hellip;But be careful."}
     ], vc:"Helpful. Beyond these points, play her to taste."}
   ],
-  cues:["records","riser","paper","jump"] },
+  cues:["records","library","riser","paper","jump"] },
 
 { act:"town", no:4, title:"The gazebo", where:"Town · the bad kids",
   steps:[
