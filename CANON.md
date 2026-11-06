@@ -81,7 +81,7 @@ rather than assuming, because it touches what the bolt actually means for the pa
 | **The ending clock is glossed.** The fight runs into the early morning, then the driveway at sunrise. No seal mechanic: nothing has to lift Ostrander's seal on screen. *"Upton, honey?"* belongs to the driveway | Scott, 2026-11-06 |
 | **Rests.** Sunday starts at full HP and spell slots, plus one short rest before 3AM | Scott, 2026-11-06 |
 | **The class presentation has nothing to show.** There were plenty of witnesses, so no tape and no ancient Dutch artifact | Scott, 2026-11-06 |
-| **Marcus.** The school thought he ran away, and there were posters for a month | Scott, 2026-11-06 |
+| **Marcus.** The school ~~thought~~ thinks he ran away, and ~~there were posters for a month~~ the posters are still up: he's an active missing-kid story | Scott, 2026-11-06 |
 | **The survey memo.** Poe Boy brought it to the vampires as proof of the threat | Scott, 2026-11-06 |
 | **Driveway arrivals.** Vinny keeps insisting he's late for the card game, so the scout dad drives him up. The parents come because they've been wondering where their kids have been | Scott, 2026-11-06 |
 | **Russ gets the badge no matter what**, including if he misses a requirement or the player is absent | Scott, 2026-11-06 |
@@ -90,11 +90,15 @@ rather than assuming, because it touches what the bolt actually means for the pa
 | **Badge requirement 2: Orlok is not in the cellar, and Russ makes the sun himself.** It's night, so no daylight comes through the grate. Russ casts Daylight (3rd-level druid spell, available at level 5). Fallback if he didn't prepare it: Plant Growth or the Nature check, DC 14. The scene ends when the flowers open and he dresses the fox's leg | Scott, 2026-11-06 |
 | **The Daylight hints, none printed.** At the end-of-Saturday level-up, Scott mentions 3rd-level spells are open and names Daylight and Plant Growth. The printed ledger already says the seedlings lean to the grate. Through Speak with Animals, the fox says they want the sun and the old one can't give it to them | Scott, 2026-11-06 |
 | **The study door is an ordinary door, no puzzle.** It's swollen stiff and opens with a shove, no roll. 🟡 Nobody has opened it since 1931 because Orlok won't go into the room where he lost the house: that reason is not canon yet | Scott, 2026-11-06 |
+| **Marcus died much more recently.** Poe Boy is a super senior, so five years of dealings with the vampires made no sense. Marcus was Simone's age and at their school, and about their age when he died, not twelve. He bought the willow from Simone when they were both twelve and still had it in his backpack, which is why the tag stays in a twelve-year-old's pencil. The vampires still believe a company scout ran off, and Poe Boy still told them the window story | Scott, 2026-11-06 |
+| **MARCUS_HALE lands as ~~"that kid who ran away last year"~~ "the kid on the posters"**, someone the PCs would remember | Scott, 2026-11-06 |
+| **The scare moves more recent still, to about five weeks before Halloween** (first moved from 1999 to one year before the campaign, then again). The timeline: **March 2004** (🟡 month) Poe Boy's library checkout, curious about the house; **spring 2004** (🟡) he meets the vampires while sampling; **Sept 14, 2004** the survey memo, unchanged, the crew couldn't get in; **late September 2004** (🟡 month) he tells the vampires a company scout is coming next, which they believe because the survey crew just came, the test run before the big plan, and Marcus dies; **Halloween 2004** the campaign | Scott, 2026-11-06 |
+| **Poe Boy's checkout moves ~~from Oct 2000~~ to March 2004** (🟡 month; `MAR 09 2004` on the card), just before he meets the vampires and before Ostrander's Jul 2004 checkout. He was curious about the house before he ever met them | Scott, 2026-11-06 |
 | **Refusal 2 of 3 moves to Orlok's next appearance**, the start of the ballroom scene (cue 14 · i): Russ shows him the card and he still won't sign. 🟡 The placement is not canon yet | Scott, 2026-11-06 |
 | **Orlok's ledger dates stay as printed** (spring 2005, against a Halloween 2004 night). Scott: they won't notice | Scott, 2026-11-06 |
 | **The name on the backpack stays.** His name isn't a big reveal, so the USB isn't to be treated as a name reveal | Scott, 2026-11-06 |
 
-🟡 **Not canon yet, wording added to apply these:** the booth's last read-aloud (*"It runs on into the early morning. By the end, the ballroom windows have gone grey."*) the AIM cue's prompt to offer the short rest before the chime, refusal 2's placement at the start of cue 14 · i (before Poe Boy's lie), and the rewritten cue 7 and cue 12 settings and the Sunday recap line (*"The old one, patting along the wrong shelf"*). The study staying shut sits beside the monthly card game running until '33 (codex backstory), so those last games would have been played in another room; nothing says so yet. The driveway names only Poe Boy's parents, so the Run and codex say *their kid*.
+🟡 **Not canon yet, wording added to apply these:** the booth's last read-aloud (*"It runs on into the early morning. By the end, the ballroom windows have gone grey."*) the AIM cue's prompt to offer the short rest before the chime, refusal 2's placement at the start of cue 14 · i (before Poe Boy's lie), and the rewritten cue 7 and cue 12 settings and the Sunday recap line (*"The old one, patting along the wrong shelf"*). The study staying shut sits beside the monthly card game running until '33 (codex backstory), so those last games would have been played in another room; nothing says so yet. Also not canon yet: the months in the timeline (Poe Boy's March 2004 checkout, spring 2004, late September 2004); the optional fresh missing poster by the gym in cue 2, which is narration only, with no new printed prop; why nobody searched the mansion (he told no one where he was going, and the dare was only on AIM); and Angelique seeing him gone within days. "Old rig" and "original setup" stay: the machine is old hardware, and it was his first setup in the house, before the ballroom. The driveway names only Poe Boy's parents, so the Run and codex say *their kid*.
 
 **Still under discussion with Scott, unchanged here:** Poe Boy's lie, where Poe Boy is before 2:30 (with final-room access and what sends them there after AIM), and why Ostrander waits until 3AM.
 
@@ -342,7 +346,7 @@ Scott wrote these into **Sesh 8**. They are canon like anything else in the doc.
 | At the computer, he tells them to get the USB | Sesh 8 |
 | **In the backpack: the USB *and* the wishing willow** Simone gave him for the spell | Sesh 8 |
 | **They plug the USB in and it has his name on it** — that is when they ask if he's ⟨name⟩, and Simone and Angelique realise it's the same person | Sesh 8 |
-| **The dead kid is Marcus Hale.** He died in **1999 at about twelve** — the five years of listening to one person at a keyboard. The USB's volume label is **`MARCUS_HALE`** (FAT32 allows 11 characters) | Scott, 3 Nov |
+| **The dead kid is Marcus Hale.** He died ~~in **1999 at about twelve** — the five years of listening to one person at a keyboard~~ ~~in October 2003, a year of listening~~ **in late September 2004 (🟡 month) at about the party's age** — about a month of listening to one person at a keyboard. The USB's volume label is **`MARCUS_HALE`** (FAT32 allows 11 characters) | Scott, 3 Nov; moved: Scott, 2026-11-06 |
 | He does the file transfer and asks them to expose DJ Poe Boy | Sesh 8 |
 | **Then one last thing: can you get me out of here — use your magic to put my soul somewhere safe** | Sesh 8 |
 | Simone can't do it at her level. **Her patron appears, can do it, and asks a price** | Sesh 8 |
@@ -665,7 +669,7 @@ Not yet pasted into the Google Doc — **do that to make them official.** Until 
 | ✅ **The developer destroyed the 1937 library page** to scrub a documented vampire incident before developing the site. | 🟡 invented by the puzzle prop — **ratified by Scott** |
 | ✅ **It's a trap, not a ward — and it's Saturday's fight.** The bound volume is **intact** when the records keeper hands it over. Opening it springs the trap: the reading room's stationery animates and a pair of **archival shears** ignore the party and cut the article to pieces. *That* is where the torn-page prop comes from. **How fast they kill the shears sets the puzzle's difficulty.** The trap contains and erases; it does not kill — he's a businessman, not a murderer, which is what makes him frightening at 3AM when he *is* willing. | 🟡 **decided by Scott, 26 Aug 2026.** Replaces the ward. Reverses the 24 Aug doc paste twice: town is no longer combat-free, and Saturday's fight is no longer in the mansion — the mansion's moves to early Sunday |
 | ✅ **The developer is named W. Ostrander** — a proposal, but a live one: it's printed on the checkout card in `/puzzle/`. Still open: company, or family trust? | 🟡 **proposed 26 Aug 2026**, swap freely |
-| ✅ **There's a checkout card** in the back pocket of the volume, viewable in the prop. Three names: **E. Hoeck** (1938 — the blood-tie hook, currently pointed at **John**), **U. M. Livingsworth III** (Oct 2000 — Poe Boy's real name, which nobody will recognise until his mother says it in the driveway, and which meanwhile says he has been interested in this house for four years) and **W. Ostrander** (Jul 2004 — the developer). It proves two other people got here first and the party has met neither. | 🟡 **decided by Scott, 26 Aug 2026** |
+| ✅ **There's a checkout card** in the back pocket of the volume, viewable in the prop. Three names: **E. Hoeck** (1938 — the blood-tie hook, currently pointed at **John**), **U. M. Livingsworth III** (~~Oct 2000~~ March 2004, 🟡 month, `Scott, 2026-11-06` — Poe Boy's real name, which nobody will recognise until his mother says it in the driveway, and which meanwhile says he ~~has been interested in this house for four years~~ was interested in this house before he met the vampires) and **W. Ostrander** (Jul 2004 — the developer). It proves two other people got here first and the party has met neither. | 🟡 **decided by Scott, 26 Aug 2026** |
 | ✅ **"Dood" is both** — the builder's family surname *and* the Dutch pun. Cornelis Dood is a real person in the fiction. | Sesh 6 had the pun; the prop added the surname. Both now stand. |
 | ✅ **The party is level 4**, leveling to 5 at the end of day one. Sunday runs at level 5. | Sesh 8 says level 3 → 4. **Scott changed it to 4 → 5 on 7 Sep 2026** (the combat re-base) and reconfirmed it 1 Nov 2026. Not in the doc, and it overrides a doc line, so write it in |
 | ✅ **Races & classes are now IN DOC** — Spencer wrote Scott's picks into the doc as **Brainstorm Sesh 8**, which this ledger had not seen. They are no longer 🟡 anything. Sesh 8 also added Lil Stinky's oathbreak, which the codex had missed entirely. | 🟡 "Scott's pick, not in the doc yet" — **now doc** |
@@ -912,7 +916,7 @@ stay on this list until you two decide:
 - **AIM:** the screen name **`DJPoeBoy187`** (the `187` is a police homicide code — he'd have picked it
   at fourteen because it sounded hard, years before it meant anything), and **Poe Boy owning a cat**.
 - **AIM:** the Spirit's reaction to seeing that handle sign on — *"youre not typing like him"* — and the
-  idea that five years of listening to one person at a keyboard is how he tells them apart.
+  idea that ~~five years, then a year~~ about a month (`Scott, 2026-11-06`) of listening to one person at a keyboard is how he tells them apart.
 - **AIM, patron mode:** the goat's screen name **`GOAT`**, its inverted-cross badge, and every line it
   speaks. Scott set the staging (it joins the chat, the theme flips, the sounds distort); the voice is
   the prop's invention — serif, capitalised, punctuated, and it refuses to say what the money is for.
@@ -940,9 +944,20 @@ transitions above it binds nobody, but it's listed so the review queue can see i
 - **⏱ Behind / Ahead** lines per cue. One goes past existing text: when behind in 14 · i, Ostrander's remaining
   thugs die in the scramble once he drops.
 - **Opening the table** (card zero): each player introduces their character before cue 1.
-- **The Kit**: the Cast sheet (voice / wants / knows, summarised from the codex), the Party sheet's "if a player is
-  absent" lines (Yobo absent: the party-room door opens on Dracula's sulk), the Scott–Spencer handoff signal, and
-  the Improv rooms and spare names (generic, no plot). The 2024 rules summary and level-up steps are rules, not lore.
+- **The Scott–Spencer handoff signal** (card zero, Spencer's briefing).
+- **Less to maintain, information in the scene** (`Scott, 2026-11-06`). The Props tab and its tracker, the Kit's Party,
+  Cast, Rules and Improv tabs, the rules summary, the AC / HP / passive Perception boxes and the spotlight ticks are gone.
+  Scott's note on Improv read "we need anyhting in the improv tab", taken as "we don't need anything": the spare rooms
+  and names went with it, and it's his to reverse. Notes stayed. What moved into scenes, all 🟡:
+  - **Two DCs are new:** Yobo's gazebo Performance is DC 12 (made it: the crew buys it; missed: it wobbles and they
+    needle him), and in the party room DC 15 splits Dracula's high line from his low line. It still never opens the door.
+  - **The level-up card** after cue 9: the level 4 to 5 steps by class (rules, not lore), and "3rd-level spells are
+    open, Daylight and Plant Growth" said to Cody, because cue 12 relies on it.
+  - **Lines from the Cast sheet:** Vinny (cue 2), Poe Boy and Angelique (cue 4), Orlok and Edward (cue 6), the
+    Total Party Kill concert fund (cue 13), Dracula as witness on the settlement (cue 10), Ostrander and the Galleria
+    (14 · i), Stinky's voice (14 · ii). Summarised from the codex and CANON; none is a new fact.
+  - **Absent-player lines** on cues 4, 10, 11 and 13 (John, Julia, John, Simone). Bix's and Russ's were
+    already covered on cues 11 and 15.
 
 ---
 
@@ -964,7 +979,7 @@ script; what a sound implies about a scene is 🟡 until Scott has heard it:
 > The In Person Session adds eleven more — see **Still open from this session** in its section near the top.
 
 1. ~~Is the Gjenganger in?~~ — **retired in Sesh 8 by displacement.** Orlok took its backstory, the corridor was cut, and Saturday's mansion fight is a botched summoning. Scott and Spencer are aligned on it (3 Nov).
-2. ~~Who is the dead kid? Name, year~~ — **answered 3 Nov: Marcus Hale, died 1999 at about twelve.** The name
+2. ~~Who is the dead kid? Name, year~~ — **answered 3 Nov: Marcus Hale, died ~~1999 at about twelve; October 2003~~ late September 2004 (🟡 month) at about the party's age (`Scott, 2026-11-06`).** The name
    lands as the USB's volume label, `MARCUS_HALE` (Sesh 8 put it on the USB). Still worth a note: enough of
    a life that the table feels it. `Scott, 3 Nov`.
 3. ~~Does the 1937 Crier become canon, get rewritten to the doc's 1973 Frisian version, or stay a prop that nobody has to believe?~~
@@ -982,7 +997,7 @@ script; what a sound implies about a scene is 🟡 until Scott has heard it:
 11. ~~The crowd~~ — **resolved 25 Aug.** See the two-tier guest list at the top. Remaining: how the crowd gets through a bolted door at 3AM.
 12. **The developer's name.** He is now the third faction and the death the room stops for. ~~Company, or family trust?~~ —
     **company: Hudson Crossing Development Corp.** (the survey, signed off `Scott, 3 Nov`). *W. Ostrander* is still a proposal.
-13. ~~**The dead kid's name.**~~ — **answered 3 Nov: Marcus Hale, 1999.** It comes off the **USB** when they
+13. ~~**The dead kid's name.**~~ — **answered 3 Nov: Marcus Hale, ~~1999; October 2003~~ late September 2004 (🟡 month; `Scott, 2026-11-06`).** It comes off the **USB** when they
     plug it in (Sesh 8), labelled `MARCUS_HALE`. `Scott, 3 Nov`.
 14. ~~**New reasons for the cellar and the choke-point corridor**~~ — **answered in Sesh 8.** The corridor is
     cut entirely. The cellar is where Vinny kept the liquor from 1920 to 1933 and where the vampires keep

@@ -24,9 +24,10 @@ the night one moment at a time, with everything you need to run that moment on s
 ## What's on each slide
 
 **Card zero is the pre-session checklist**: iPads and laptop, the print run, the room, the props bag
-(every prop, packed in hand-over order), and what to hand out before play. **Sunday** gets its own
-before-you-start card (level 5, rests, what's already out, the recap). Both have a button to restart
-that day's clock; card zero has **Reset everything for the next run**.
+(every prop, packed in hand-over order), and what to hand out before play. **Cue 9's Next button leads
+to the level-up card**: the level 4 to 5 steps by class, and the nudge to Cody about Daylight and Plant
+Growth. **Sunday** gets its own before-you-start card (level 5, rests, the recap). Both checklists have a
+button to restart that day's clock; card zero has **Reset everything for the next run**.
 
 Every other cue is split into two colour-coded zones on one screen; on a wide enough screen each
 zone scrolls on its own, and below 700px they stack.
@@ -34,25 +35,25 @@ zone scrolls on its own, and below 700px they stack.
 **SCOTT · narrate** (gold, left), top to bottom:
 - **Do now** — a tickable card: every **✋ hand-over** for this cue (from the `PROPS` registry), the
   **📱 iPad → item N** bar, **⚔ tokens out** on fight cues, set-up (`EXEC.do`), and the cue's sound
-  buttons. Anything not ticked on an earlier cue comes back at the top as **Missed**; the two floating
-  finds come back as **Last chance** on the AIM-room cue.
-- **🗂 Floating** — on every mansion cue: the sticky note and the site survey.
+  buttons.
+- **🗂 Floating** — on every mansion cue: the sticky note and the site survey. The AIM-room cue's Do now
+  has a last call for both.
 - **Setting**, **Pacing** (numbered, ending on the line the scene ends on), **Read aloud**.
 - **🎯 Leave knowing** — the must-land reveals, nothing else. **➜ Next** — how to get out, with jump
   buttons. On Sunday the buttons are a room picker: the rooms not yet done, then the AIM room.
 - **🛟 Rescues** — 🪢 if stuck, ↪ backup path, and stall / split / skip / off-script lines.
 - **⚔ Combat** — Running this fight, then a turn card per enemy with a tap HP tracker (kept while you
   flip cues, reset on reload).
-- **Potential skill checks**, then **Reference**: every reveal, reminders and notes.
+- **Potential skill checks**, each with its DC or marked *no roll*, then **Reference**: every reveal,
+  reminders and notes.
 
 **SPENCER · voice** (pink, right): his lines, IF blocks, and each NPC with a one-line voicing and the
 🔓 reveals they deliver or react to.
 
-### The ticks are the props tracker
-Ticks are saved on the device (`localStorage`; the page still works if storage is blocked). Ticking a
-hand-over on any cue marks that prop as out everywhere. **Props** in the top bar shows what's missed,
-what's still in the bag and what's out. **Index** is the run sheet: every cue with its planned start,
-and a done box. Moving forward with › (or a Next button) marks the cue done.
+### Ticks and the run sheet
+Ticks are saved on the device (`localStorage`; the page still works if storage is blocked). **Index** is
+the run sheet: every cue with its planned start, and a done box. Moving forward with › (or a Next button)
+marks the cue done.
 
 ### The clock
 One clock per day, saved on the device. It starts on the first cue you open that day and says how far
@@ -60,25 +61,17 @@ ahead or behind the rough plan (`EXEC.mins`) you are. Tap it to pause. A clock m
 starts again, so a read-through the night before doesn't count. The thin bar under the top bar is the
 day's cues: done, here, to come.
 
-### The Kit
-**Kit** in the top bar (`K`; `N` jumps straight to notes) holds what you reach for mid-scene:
-- **Party** — each PC's player, class, arc and beats (with cue buttons), boxes for AC / HP / passive
-  Perception filled in from the sheets, a spotlight tick per day, and what to do if a player is absent.
-  Cues with a PC's beat show a ★ chip with their name in the slide head.
-- **Cast** — every NPC on one screen: voice, what they want, what they know or keep back.
-- **Rules** — a DC table, every check this weekend (pulled from the cues), the level 4 → 5 steps, and
-  the 2024 rulings most likely to come up.
-- **Notes** — a quick line for what players did, promised or named, stamped with the cue. Saturday's
-  notes show on Sunday's start card as callbacks.
-- **Improv** — spare rooms and names for when the party goes off the map.
+### Notes
+**Notes** in the top bar (`N`) takes a quick line for what players did, promised or named, stamped with the
+cue. Saturday's notes show on Sunday's start card as callbacks.
 
 Each cue's Rescues also carry **⏱ Behind** (what to compress) and **⏱ Ahead** (what to stretch); the
 clock lights up whichever applies.
 
 ### Spencer's view
 `/run/?spencer` (or the link on the splash) opens a phone view with no audio: every cue's lines, IF
-blocks, NPCs and reveals in one scroll with jump chips, a **By NPC** tab that regroups everything
-each NPC says and reveals across the weekend, and the **Cast** sheet.
+blocks, NPCs and reveals in one scroll with jump chips, and a **By NPC** tab that regroups everything
+each NPC says and reveals across the weekend.
 
 ## Controls
 
@@ -89,11 +82,12 @@ each NPC says and reveals across the weekend, and the **Cast** sheet.
 | `7`–`0`, `g` `p` `c` `l` | Fire a sting (AIM, jump, braaam, 3AM bell, riser, speakers on, scratch, level-up) |
 | `Shift`+`1`–`9` | The current cue's sounds, in the order its Do now lists them |
 | `i` | Run sheet (jump anywhere, tick cues done) |
+| `n` | Notes |
 | `d` | Roll a d20 (flat / advantage / disadvantage) |
 | `f` | Fullscreen |
 | `Esc` | Close an overlay, or silence all sound |
 
-The top bar has ‹ › cue buttons beside the counter, the day clock, and Props, Index and Full, all
+The top bar has ‹ › cue buttons beside the counter, the day clock, and Notes, Index and Full, all
 44px, so it's fully touch-usable on the iPad. Nothing floats over the reading area.
 
 ## The soundboard
@@ -126,8 +120,8 @@ Home Screen from Safari for a fullscreen booth.
 ## Editing the content
 
 It's a single self-contained `index.html` plus `fights.js`. In the `<script>`:
-- `SCENES` — the cues: setting, pace, read, rev, talk, npcs and so on.
-- `PROPS` — every physical prop, who gets it and on which cue. Add a prop here, not on a scene.
+- `SCENES` — the cues: setting, pace, read, rev, talk, npcs and so on. The level-up card is the scene `L5`.
+- `PROPS` — every physical prop, who gets it and on which cue. Add a prop here, not on a scene; it feeds
+  the cue's Do now and the props bag on card zero.
 - `EXEC` — the table layer, keyed by scene no.: `mins`, `do`, `land`, `next` / `go`, `save`.
 - `IPAD` — the players' iPad items.
-- `PARTY`, `CAST`, `RULES` / `DCS` / `LEVEL5`, `IMPROV` — the Kit.
