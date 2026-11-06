@@ -442,10 +442,10 @@
 </div>
 
 <script src="fights.js?v=19"></script>
-<script src="scenes/pre.js?v=3"></script>
+<script src="scenes/pre.js?v=4"></script>
 <script src="scenes/town.js?v=13"></script>
 <script src="scenes/night.js?v=13"></script>
-<script src="scenes/sunday.js?v=12"></script>
+<script src="scenes/sunday.js?v=13"></script>
 <script src="scenes/finale.js?v=10"></script>
 <script src="sounds/manifest.js?v=4"></script>
 <script>
@@ -501,11 +501,11 @@ function doRow(key,html){ const on=!!loadK(DKEY)[key];
   return `<button class="do-i${on?" done":""}" data-do="${key}"><span class="box">✓</span><span class="dt">${html}</span></button>`; }
 const handRow = (p,more) => doRow("prop:"+p.id, `<b>✋ ${p.nm}</b> &rarr; ${p.to}`+(p.only?` <span class="only">${p.only}</span>`:"")+(p.how?`<span class="how">${p.how}</span>`:"")+(more?`<span class="st-x">${more}</span>`:""));
 
-/* Sunday's room picker: the rooms not yet done, then the AIM room (and the reserve) once all three are */
+/* Sunday's room picker: the rooms not yet done, then the AIM room once all three are */
 function roomsGo(){
   const here=String(SCENES[cur].no), left=["10","11","12"].filter(n=>n!==here && !isDone(n));
   const scare = (here!=="S" && here!=="12" && !isDone("S") && !isDone("12")) ? [idxOf("S")] : [];
-  return left.length ? [...left.map(idxOf), ...scare] : [idxOf(13), idxOf("R")];
+  return left.length ? [...left.map(idxOf), ...scare] : [idxOf(13)];
 }
 function roomsLine(){
   return `<p class="rooms">Rooms: ${["10","11","12"].map(n=>{ const s=SCENES[idxOf(n)];
