@@ -673,6 +673,7 @@ SOUNDS = [
  ("candle", "amb", -33, amb_candle,  "Close candle flames fluttering and softly crackling in a silent room.", 18),
  ("class",  "amb", -31, amb_class,   "Near-empty high school classroom: old steam radiators clanking and ticking, faint fluorescent hum, a muffled hallway far away. No clear speech.", 26),
  ("hall",   "amb", -27, amb_hall,    "Busy American high school hallway between classes: metal lockers slamming, sneakers squeaking on linoleum, unintelligible teenage chatter.", 24),
+ ("library","amb", -27, lambda r: sys.exit("library needs src/eleven/library.mp3 (ElevenLabs Music, prompt in library_fight)"), None, None),
  ("records","amb", -36, amb_records, "A silent records archive reading room: faint lamp buzz, slow wall clock ticking, an occasional page turning. Very quiet.", 24),
  ("gazebo", "amb", -29, amb_gazebo,  "Outdoors at dusk beside a school: light cold breeze, a tinny boombox playing an instrumental hip-hop beat a few metres away, distant traffic. No vocals, no crickets.", 22),
  ("creak",  "amb", -30, amb_creak,   "Dark upstairs corridor of an old wooden house: slow footsteps and floorboards creaking, low room tone. No voices.", 26),
@@ -708,6 +709,60 @@ SOUNDS = [
  ("car",    "one", -18, st_car,      "An old family car rolling slowly up a gravel driveway, stopping; engine off; car door opens and shuts.", 7),
  ("bloom",  "one", -21, st_bloom,    "Soft magical shimmer, warm rising bells, a flower opening in light. Gentle, three seconds.", 3.5),
 ]
+
+# ------------------------------------------------------------------ the library fight
+# src/eleven/library.mp3 came from eleven_music_v2_5, 75 s, instrumental:
+#   "Playful, mischievous fantasy RPG battle music at a steady 132 BPM in D minor: urgent pizzicato strings, a galloping
+#    low frame drum and a sly bassoon melody, with paper rustling swells and sharp scissor snips ticking in time as
+#    percussion, heavy wooden drawers slamming on the big accents, rubber-stamp thuds on the backbeat. Tense and bouncy,
+#    mid-level energy held evenly from start to finish with no intro, no ending and no fade, dry, uncluttered mix that
+#    leaves room for a voice talking over it."
+# The lib_* stems are eleven_text_to_sound_v2 one-shots: the room itself, laid on the music's own beat grid.
+LIB_BEAT = 60 / 132
+LIB_START = 3.580         # a strong beat 1; measured, 36 bars on it matches itself best
+LIB_BARS = 36
+LIB_XF = .12              # the two sides of the seam line up, so this needn't smear the beat
+def lib_stem(name, a, b, level, ref):
+    y = load_audio(os.path.join(ELEVEN, "lib_" + name + ".mp3"))[N(a):N(b)]
+    y = filt1(y, lambda f: hp(f, 90, 1))[:len(y)]; return fades(setrms(y, ref * 10 ** (level / 20)), .001, min(.06, len(y) / SR / 3))
+def library_fight(x):
+    r = np.random.default_rng(132)
+    # the loop: 36 bars out of the middle, closed with the music that really follows the last bar
+    L = N(LIB_BARS * 4 * LIB_BEAT); s = N(LIB_START)
+    m = seamless(x[s:s + L + 16 + N(LIB_XF)], LIB_XF)
+    # a gentle dip where consonants live, so narration stays clear on top
+    m = filt(m, lambda f: 1 - .25 * bp(f, 1200, 3500, 2))
+    ref = rms(m); n = len(m); y = np.zeros(n)
+    def at(bar, beat=1, sixteenth=0): return (bar * 4 + beat - 1) * LIB_BEAT + sixteenth * LIB_BEAT / 4
+    snip = lib_stem("snip", .165, .52, -7, ref); stamp = lib_stem("stamp", 0, .22, -5, ref); drawer = lib_stem("drawer", .225, .95, 0, ref)
+    paper = lib_stem("paper", .25, 2.3, -13, ref); cart = lib_stem("cart", .1, 2.6, -15, ref); shh = lib_stem("shh", 0, 1.42, -6, ref)
+    def nudged(ev, pitch, gain):
+        i = np.arange(0, len(ev) - 1, pitch); return np.interp(i, np.arange(len(ev)), ev) * gain
+    def hit(ev, t, gain=1.0, wobble=.03):
+        place(y, nudged(ev, 1 + wobble * r.uniform(-1, 1), gain * r.uniform(.85, 1.1)), N(t))
+    # card catalogue drawers: the big hits, every 8 bars, and a double before the last stretch
+    for b in (0, 8, 16, 24, 32): hit(drawer, at(b))
+    hit(drawer, at(23, 3), .7); hit(drawer, at(23, 4), .85)
+    # rubber stamps on the backbeat, in and out so it never turns into a click track
+    for b in [*range(4, 8), *range(12, 16), *range(20, 24), *range(28, 32), 34, 35]:
+        hit(stamp, at(b, 2)); hit(stamp, at(b, 4))
+    # shears on the off-beats, with a double snip closing every fourth bar
+    for b in [*range(8, 12), *range(12, 16), 16, 17, *range(24, 26), *range(28, 32)]:
+        for beat in (1, 2, 3, 4):
+            if beat == 1 or r.random() < .75: hit(snip, at(b, beat, 2), .9)
+    for b in (3, 7, 11, 15, 19, 23, 31, 35):
+        hit(snip, at(b, 4, 2)); hit(snip, at(b, 4, 3), .8)
+    # paper flurries swell into three of the slams and scatter off the fourth
+    for b in (8, 24, 32): place(y, paper, N(at(b) - len(paper) / SR + .05))
+    place(y, paper[::-1] * .9, N(at(16) + .05))
+    # the cart rattles past, twice
+    for b in (18, 33):
+        c = cart * np.sin(np.linspace(0, np.pi, len(cart))) ** 1.2; place(y, c, N(at(b, 2)))
+    # the shush: everything flinches for a bar, then carries on anyway
+    t0 = at(26, 3); place(y, shh, N(t0))
+    d = np.ones(n); a0, a1, a2, a3 = N(t0 - .05), N(t0 + .03), N(at(27, 3) - .2), N(at(27, 3))
+    d[a0:a1] = np.linspace(1, .5, a1 - a0); d[a1:a2] = .5; d[a2:a3] = np.linspace(.5, 1, a3 - a2)
+    return m * d + y
 
 # ------------------------------------------------------------------ mastering
 def load_audio(path):
@@ -752,6 +807,8 @@ def master(name, kind, target, x):
 
 # Loops with a beat keep the seam the model gave them: a long crossfade would smear the rhythm.
 RHYTHMIC = {"heart", "record", "gazebo", "set"}
+LOOPED = {"library"}    # arrange() has already closed the loop
+LOW_CUT = {"heart": 45, "set": 45, "library": 60}
 def arrange(name, x):
     """Where a generation needs shaping to fit its scene."""
     if name == "bell":      # the model gives one strike; the cue wants three tolls
@@ -762,6 +819,7 @@ def arrange(name, x):
         lone = load_audio(os.path.join(ELEVEN, "boo1.mp3")); lone = trim(lone); lone = setrms(lone, rms(x) * .55)
         gap = len(lone) + N(.6); y = np.zeros(gap + len(x)); add(y, lone, 0)
         crowd = x.copy(); crowd[:N(.35)] *= np.linspace(0, 1, N(.35)); add(y, crowd, gap); return y
+    if name == "library": return library_fight(x)
     return x
 
 def fetch_eleven(name, prompt, dur, loop):
@@ -794,8 +852,8 @@ def main():
             x = arrange(name, load_audio(raw)); src = "elevenlabs"
             # generated audio carries a lot of sub rumble: a Bluetooth speaker can't play it, and it would eat the level
             if kind == "amb":
-                x = seamless(x, .03 if name in RHYTHMIC else 1.0)
-                x = filt(x, lambda f: hp(f, 45 if name in ("heart", "set") else 75, 2))
+                if name not in LOOPED: x = seamless(x, .03 if name in RHYTHMIC else 1.0)
+                x = filt(x, lambda f: hp(f, LOW_CUT.get(name, 75), 2))
             else:
                 x = filt1(x, lambda f: hp(f, 45, 2))[:len(x)]
         else:
