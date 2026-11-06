@@ -813,7 +813,7 @@ const SCENES = [
     "These are the five who <b>missed the senior-skip-day memo</b>, and they feel lame about it. <span class='ai'>🟡</span>",
     "If they march up the hill early: the front is <b>still boarded at this hour</b> and turns them back. The boards come off during the day.",
     "<b>If they don't bite, hand a detour to a PC:</b> tell <b>Bix</b> the Records Keeper knows old names; tell <b>Gnomey</b> the old crew at the gazebo will already know.",
-    "<b>Optional, in passing:</b> by the gym, a faded missing poster is still taped up: <b>Marcus Hale</b>, last October. The kid who ran away. Don't dwell on it. <span class='ai'>🟡</span>"
+    "<b>Optional, in passing:</b> by the gym, a fresh missing poster: <b>Marcus Hale</b>, last seen in September. The kid who ran away. Don't dwell on it. <span class='ai'>🟡</span>"
   ],
   talk:[
     {who:"Great Uncle Vinny · on Gnomey's flip phone", t:"Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch."}
@@ -919,7 +919,7 @@ const SCENES = [
     {by:"Angelique", who:"Players", t:"learn Angelique is inside and hiding from something. Not what, and not why she came."}
   ],
   npcs:[
-    {nm:"Angelique", vc:"A frightened stranger who won't say why she came. Worth far more than an exposition tap. Her reason (don't say it yet): last year she typed some of Poe Boy's AIM messages to a kid, thinking it was a prank; the kid stopped coming to school; and she feels a pull to this house. She came to find out."}
+    {nm:"Angelique", vc:"A frightened stranger who won't say why she came. Worth far more than an exposition tap. Her reason (don't say it yet): last month she typed some of Poe Boy's AIM messages to a kid, thinking it was a prank; the kid stopped coming to school; and she feels a pull to this house. She came to find out."}
   ],
   reminders:[
     {t:"The doors bolting is canon &mdash; state it flatly, once. It doesn't need justifying.", k:"rule"}
@@ -1232,8 +1232,8 @@ const SCENES = [
     {by:"scott", who:"Simone", t:"pulls the <b>wishing willow</b> from the bag &mdash; the one she sold at twelve: <i>I want Angelique to notice me</i>. This is the willow kid."},
     {by:"scott", who:"Angelique", t:"learns why she knew him: the willow worked. Spencer plays her reaction."},
     {by:"The Spirit", who:"Players", t:"hear him name <b>Angelique</b> as the girl messaging him, if they ask who she was. True: she typed some of those messages for Poe Boy and thought it was a prank (Sesh 7). She's suspected what they were for since he stopped coming to school. Spencer plays it."},
-    {by:"scott", who:"Players", t:"get this if they ask what happened to him: last October the school thought he <b>ran away</b>, and there were posters for a month."},
-    {by:"scott", who:"Players", t:"learn who he is when the drive mounts: <b>MARCUS_HALE</b>, that kid who ran away last year. Simone and Angelique realise it's the same boy."},
+    {by:"scott", who:"Players", t:"get this if they ask what happened to him: last month he went missing. The school thinks he <b>ran away</b>, and the posters are still up. Nobody searched the mansion: he told no one where he was going, and the dare was only on AIM. <span class='ai'>🟡</span>"},
+    {by:"scott", who:"Players", t:"learn who he is when the drive mounts: <b>MARCUS_HALE</b>, the kid on the posters. Simone and Angelique realise it's the same boy."},
     {by:"scott", who:"Players", t:"get the recording, <code>scream_test_03_GOOD.wav</code>. Nobody else has heard it yet."},
     {by:"The Devil (Goat)", who:"Simone", t:"learns the price of getting him out: her piggy bank. Asked what for, the goat says only <b>&ldquo;No.&rdquo;</b>"}
   ],
@@ -1491,7 +1491,7 @@ const EXEC = {
   "13":{mins:40,
     late:"Paraphrase the chat. Never cut the bag, the drive or the goat.",
     do:["Short rest not taken yet? Offer it before the chime.","Angelique not with them? She's at the AIM door when the chime plays.","When the table is ready: AIM chime (7), then the lock clicks."],
-    land:["<b>Poe Boy</b> shut the door on him: killed by a human.","<b>MARCUS_HALE</b>: that kid who ran away last year. Simone and Angelique realise it's the same boy.","They hold <b>the recording</b> on the USB."],
+    land:["<b>Poe Boy</b> shut the door on him: killed by a human.","<b>MARCUS_HALE</b>: the kid on the posters. Simone and Angelique realise it's the same boy.","They hold <b>the recording</b> on the USB."],
     next:"Every speaker comes on: 3AM. No break from here to the driveway.", go:["14 · i"],
     save:[["Skip","They leave the USB behind: it stays where it is. In phase 2 someone runs it down."]]},
   "14 · i":{mins:45,
@@ -1556,7 +1556,7 @@ const CAST = [
   {nm:"Orlok", cues:[6,7,"14 · i",15], voice:"Patient, very polite, cold. One word stops Dracula.", wants:"To be left alone in his house; the scare to save it.", knows:"The house isn't his: he lost it to Vinny in 1931, and he won't go into the room where it happened. Won't sign Russ's card until the driveway. Won't explain the doors."},
   {nm:"Dracula", cues:[6,11,"14 · ii"], voice:"Campy, theatrical, hands-on, delighted. Kind in the party room.", wants:"A real audience.", knows:"Witnessed the 1931 settlement (not a notary). Sees through Yobo."},
   {nm:"Edward", cues:[6,8,15], voice:"Watches Bix. Never approaches. No jokes when he finally talks.", wants:"To be left alone.", knows:"Bix is his son, and the whole timeline. Tells it only in the driveway."},
-  {nm:"The Spirit (Marcus Hale)", cues:[13,"14 · ii",16], voice:"Frightened, types lowercase, comes apart at Poe Boy's handle.", wants:"His bag; then out.", knows:"Poe Boy shut the door. Angelique was the girl messaging him. Died last October at about their age; the school thought he ran away."},
+  {nm:"The Spirit (Marcus Hale)", cues:[13,"14 · ii",16], voice:"Frightened, types lowercase, comes apart at Poe Boy's handle.", wants:"His bag; then out.", knows:"Poe Boy shut the door. Angelique was the girl messaging him. Died last month at about their age. The school thinks he ran away; the posters are still up."},
   {nm:"The Devil (Goat)", cues:[13], voice:"Serif, capitals, full stops.", wants:"Her piggy bank.", knows:"Asked what for: &ldquo;No.&rdquo;"},
   {nm:"W. Ostrander", cues:["14 · i"], voice:"An adult with a clipboard. Solves problems by sealing them.", wants:"The site cleared for the Galleria.", knows:"Nothing about what's in the house."},
   {nm:"Lil Stinky", cues:["14 · ii",16], voice:"Stoner, bad rapper, honest to a fault.", wants:"To help his best friend.", knows:"Nothing. He believes Poe Boy until the recording."},
