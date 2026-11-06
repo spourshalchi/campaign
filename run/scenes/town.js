@@ -87,7 +87,7 @@ SCENES.push(
     {ipad:1, do:"&#128241; <b>Item 1:</b> tap the difficulty the combat page shows (Easy, Medium or Hard), then hand over the torn page."},
     {stuck:"If the jigsaw stalls past ten minutes: <b>Spencer's turn</b>, the Records Keeper tells them what the page says."},
     {do:"They solve it and read what the town says about the Dood house: no shutter opened by day, a light most nights, music, a lost beagle home with its leg in a splint, hens with two small marks at the neck, the hardware store's oldest account paid from a tin on the gatepost. In the back pocket, the checkout card: <b>U.M. Livingsworth III</b>, <b>V. Soprano 1938</b>, <b>W. Ostrander</b>."},
-    {rev:{who:"Gnomey", t:"may clock his own family name, <b>Soprano</b>, on the card. Don't push it."}},
+    {note:"Gnomey may clock his own family name, <b>Soprano</b>, on the card. Don't push it."},
     {tick:"Players' iPad back to its home page."},
     {do:"<b>Spencer's turn:</b> the Records Keeper, now it's reassembled."},
     {check:{skill:"Insight", dc:"13", note:"Tell that her &ldquo;be careful&rdquo; is sincere."}},

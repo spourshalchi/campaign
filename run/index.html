@@ -183,12 +183,6 @@
   .ifb .ifs{margin:0 0 8px;font-size:14.5px;color:var(--ink)}
   .ifb .ifo{margin:0;font-size:14px;color:var(--mut)}
 
-  /* 🔓 reveals */
-  .rev{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;line-height:1.45;color:var(--ink);
-    background:rgba(84,200,148,.08);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:7px 10px;margin-bottom:6px}
-  .rev .rk{flex:0 0 auto}
-  .rev .rt{flex:1;min-width:0}
-  .rev .rt b{color:var(--green)}
 
   /* teleprompter read box */
   .read{position:relative;background:
@@ -227,8 +221,8 @@
   ol.steps > li.sub{counter-increment:none;margin-left:46px;padding:2px 0 2px 12px;background:transparent;border:none;border-left:2px solid var(--edge);border-radius:0;font-size:14.5px;color:var(--mut)}
   ol.steps > li.sub::before{content:none}
   ol.steps > li.sub.rule{border-left-color:var(--blood)}
-  ol.steps > li.sub.nt,ol.steps > li.sub.rv{padding-left:0;border-left:none}
-  ol.steps > li.sub .net,ol.steps > li.sub .rev{margin:0}
+  ol.steps > li.sub.nt{padding-left:0;border-left:none}
+  ol.steps > li.sub .net{margin:0}
   ol.steps > li.sub b{color:var(--ink)}
   .st-x{display:block;margin-top:4px;font-size:15px;line-height:1.5;color:var(--ink);font-weight:400}
   .st-open{display:inline-flex;align-items:center;min-height:44px;margin-top:6px;padding:0 14px;border-radius:9px;background:#fff;color:#0a246a;font-size:15px;font-weight:800;text-decoration:none}
@@ -378,7 +372,6 @@
   .spc-gap b{display:block;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
   .spc-say{display:block;margin-top:4px;padding-left:10px;border-left:2px solid var(--pink);font-family:var(--f-disp);font-size:17px;line-height:1.4;color:#ffd6ee}
   .spc-say i{display:block;font-family:var(--f-mono);font-style:normal;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--pink)}
-  .spc-r{margin:9px 0 0;font-size:14px;line-height:1.4;color:var(--mut)} .spc-r b{color:var(--ink)}
   .spc .ifb{margin:10px 0 0}
   .wn{margin:0;font-size:15px;line-height:1.45;color:var(--ink)}
   .gos{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
@@ -403,7 +396,7 @@
 <div id="splash">
   <div class="kick">Dungeon Master · Run of Show</div>
   <h1>Dood Mansion</h1>
-  <p class="sub">A cue-to-cue prompt book for running the two-night haunt. Read-aloud, beats, checks, hand-overs, reveals and a live soundboard — everything you need to run the moment.</p>
+  <p class="sub">A cue-to-cue prompt book for running the two-night haunt. Read-aloud, beats, checks, hand-overs and a live soundboard — everything you need to run the moment.</p>
   <button class="go" id="beginBtn">Take the booth &rsaquo;</button>
   <p class="hint">
     <kbd>&larr;</kbd> <kbd>&rarr;</kbd> turn cues &nbsp;·&nbsp; <kbd>1</kbd>&ndash;<kbd>0</kbd> soundboard &nbsp;·&nbsp; <kbd>⇧1</kbd>&ndash;<kbd>⇧9</kbd> this cue's sounds &nbsp;·&nbsp;
@@ -449,8 +442,8 @@
 </div>
 
 <script src="fights.js?v=19"></script>
-<script src="scenes/pre.js?v=2"></script>
-<script src="scenes/town.js?v=12"></script>
+<script src="scenes/pre.js?v=3"></script>
+<script src="scenes/town.js?v=13"></script>
 <script src="scenes/night.js?v=13"></script>
 <script src="scenes/sunday.js?v=12"></script>
 <script src="scenes/finale.js?v=10"></script>
@@ -520,8 +513,6 @@ function roomsLine(){
     return `<span class="${isDone(n)?"rd":here?"rh":""}">${isDone(n)?"✓":here?"&#9656;":"&#9744;"} ${s.title.replace(/^The /,"")}</span>`; }).join(" · ")}</p>`;
 }
 
-/* Spencer's zone: dialogue, then each NPC with voicing and what they reveal */
-const revRow = r => `<div class="rev"><span class="rk">🔓</span><span class="rt"><b>${r.who}</b> ${r.t}</span></div>`;
 /* Spencer's panel: one card per person. Name, who they are, then what to say in order, with each sample line
    on its point. A point is a string or {t, say}; lines in talk and fight.lines find their person from "Name · when",
    and their point by shared words, so {t, say} is only needed to place one by hand. */
@@ -533,17 +524,13 @@ const SP_STOP = new Set("the and that this with your you they them their have fr
 const spWords = t => new Set((t.replace(/<[^>]+>|&\w+;/g," ").toLowerCase().match(/[a-z']{3,}/g)||[]).filter(w=>!SP_STOP.has(w)).map(w=>w.slice(0,5)));
 function spZone(s){
   const cards=new Map();
-  const card = nm => { if(!cards.has(nm)) cards.set(nm,{nm,items:[],ifs:[],revs:[]}); return cards.get(nm); };
+  const card = nm => { if(!cards.has(nm)) cards.set(nm,{nm,items:[],ifs:[]}); return cards.get(nm); };
   (s.npcs||[]).forEach(n=>{ const c=card(spName(n.nm)); c.vc=n.vc;
     c.items=(n.pts||[]).map(p=>typeof p==="string"?{t:p,lines:[]}:p.at?p:{t:p.t,lines:p.say?[].concat(p.say).map(l=>({t:l})):[]}); });
   // sample lines: onto the point they share the most words with, otherwise their own step, in scene order
   (s.talk||[]).concat((s.fight&&s.fight.lines)||[]).forEach(l=>{ const {nm,ctx}=spWho(l.who), c=card(nm), w=spWords(l.t+" "+ctx);
     let best=null, top=1; c.items.filter(it=>it.t).forEach(it=>{ const pw=spWords(it.t); let n=0; w.forEach(x=>{ if(pw.has(x)) n++; }); if(n>top){ top=n; best=it; } });
     if(best) best.lines.push({t:l.t,ctx}); else c.items.push({lines:[{t:l.t,ctx}]}); });
-  // reveals land in the card of whoever delivers them; "spencer" means whoever the text names, or the scene
-  (s.rev||[]).filter(r=>r.by!=="scott").forEach(r=>{ const by=spWho(r.by).nm;
-    const nm = by.toLowerCase()!=="spencer" ? by : ([...cards.keys()].find(k=>r.t.includes(k))||"In this scene");
-    card(nm).revs.push(r); });
   if(s.ifblock){ const b=s.ifblock; card(spWho(b.lines[0].who).nm).ifs.push(b); }
   const say = l => `<span class="spc-say">${l.ctx?`<i>${l.ctx}</i>`:""}${l.t}</span>`;
   // {at} starts a labelled moment and restarts the numbers; {at, gap} is a moment with nothing to say
@@ -554,8 +541,7 @@ function spZone(s){
     flush(); return out; };
   const brief = s.spBrief?`<div class="block"><p class="h">Spencer's briefing</p><ul class="rem">${s.spBrief.map(b=>`<li>${b}</li>`).join("")}</ul></div>`:"";
   return brief+[...cards.values()].map(c=>`<div class="spc"><p class="spc-n">${c.nm}</p>`+(c.vc?`<p class="spc-v">${c.vc}</p>`:"")+list(c.items)+
-    c.ifs.map(b=>`<div class="ifb"><p class="ifw">${b.when}</p><p class="ifs">${b.say}</p>`+list(b.lines.map(l=>({lines:[{t:l.t,ctx:spWho(l.who).ctx}]})))+(b.otherwise?`<p class="ifo">${b.otherwise}</p>`:"")+`</div>`).join("")+
-    c.revs.map(r=>`<p class="spc-r"><b>${r.who}</b> ${r.t}</p>`).join("")+`</div>`).join("");
+    c.ifs.map(b=>`<div class="ifb"><p class="ifw">${b.when}</p><p class="ifs">${b.say}</p>`+list(b.lines.map(l=>({lines:[{t:l.t,ctx:spWho(l.who).ctx}]})))+(b.otherwise?`<p class="ifo">${b.otherwise}</p>`:"")+`</div>`).join("")+`</div>`).join("");
 }
 
 function render(i){
@@ -601,11 +587,10 @@ function render(i){
   const fightHTML = s.fight ? `<a class="fightlink" data-combat href="combat/?f=${Object.keys(FIGHTS).find(k=>FIGHTS[k]===s.fight)}">`+
     `<span class="fk">⚔ Run this fight</span><span class="fn">${s.fight.name}</span></a>` : "";
 
-  // the scene as one ordered list. Sub-rows (notes, reveals, fallbacks) hang off the step above them.
+  // the scene as one ordered list. Sub-rows (notes, fallbacks) hang off the step above them.
   const net = (cls,k,t) => `<div class="net${cls}"><span class="nk">${k}</span><span>${t}</span></div>`;
   const stepHTML = (st,k) => {
     if(st.note) return `<li class="sub${st.k==="rule"?" rule":""}">${st.note}</li>`;
-    if(st.rev) return `<li class="sub rv">${revRow(st.rev)}</li>`;
     if(st.stuck) return `<li class="sub nt">${net("","🪢 If stuck",st.stuck)}</li>`;
     if(st.backup) return `<li class="sub nt">${net(" bk","↪ Backup path",st.backup)}</li>`;
     if(st.end) return `<li class="end"><b>Ends</b> ${st.end}</li>`;

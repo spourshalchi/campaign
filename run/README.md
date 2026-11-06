@@ -18,12 +18,12 @@ zone scrolls on its own, and below 700px they stack.
 **SCOTT · narrate** (gold, left), top to bottom:
 - **One numbered list, in the order Scott does things** (`steps`): sounds to tap in place, read-alouds,
   instructions, checks with their DC, **✋** hand-overs and set-up lines with a tick box, **📱** digital props
-  with an open button, tokens, and a big link to the fight's page, `combat/?f=<key>`, which opens over the stage so the soundboard stays up. Notes, reveals, **🪢 If stuck** and **↪ Backup path**
+  with an open button, tokens, and a big link to the fight's page, `combat/?f=<key>`, which opens over the stage so the soundboard stays up. Notes, **🪢 If stuck** and **↪ Backup path**
   lines hang off the step they belong to.
 - **➜ Next** — how to get out, with jump buttons. On Sunday the buttons are a room picker: the rooms not yet
   done, then the AIM room.
 
-**SPENCER · voice** (pink, right): one card per person: their name, who they are and how they sound, then a numbered list of what to say in order, with each sample line on its point. IF blocks and reveals sit inside the same card.
+**SPENCER · voice** (pink, right): one card per person: their name, who they are and how they sound, then a numbered list of what to say in order, with each sample line on its point. IF blocks sit inside the same card.
 
 ### Ticks and moving between cues
 Ticks are saved on the device (`localStorage`; the page still works if storage is blocked). ‹ › step through
@@ -86,7 +86,7 @@ loaded in this order:
 | `scenes/finale.js` | Cues 14 to 16 |
 
 Each scene is one object: `steps` is Scott's list; `next` and `go` are the Next text and its jump buttons (`go:"rooms"` is
-Sunday's room picker); `talk`, `ifblock`, `rev`, `npcs` and `spBrief` are Spencer's panel: on an NPC, `vc` is one short line on who they are and `pts` is what to say, in order: each a full instruction starting with a verb, with any facts it needs in a nested `<ul>` in the same string. A line in `talk` goes on the point it shares the most words with; use `{t:"point", say:"line"}` in `pts` to place one by hand. Where a scene has distinct moments, mark them in `pts`: `{at:"When they arrive"}` starts a labelled moment and restarts the numbers, and `{at:"The fight", gap:"Scott runs it, nothing for you."}` is a moment with nothing to say;
+Sunday's room picker); `talk`, `ifblock`, `npcs` and `spBrief` are Spencer's panel: on an NPC, `vc` is one short line on who they are and `pts` is what to say, in order: each a full instruction starting with a verb, with any facts it needs in a nested `<ul>` in the same string. A line in `talk` goes on the point it shares the most words with; use `{t:"point", say:"line"}` in `pts` to place one by hand. Where a scene has distinct moments, mark them in `pts`: `{at:"When they arrive"}` starts a labelled moment and restarts the numbers, and `{at:"The fight", gap:"Scott runs it, nothing for you."}` is a moment with nothing to say;
 `cues` fills the soundboard's This cue row. To add a prop, add it to `PROPS` and a `{hand:id}` step on its scene.
 
 **After editing a content file, bump that file's `?v=` on its script tag in `index.html`**, or an iPad that already has

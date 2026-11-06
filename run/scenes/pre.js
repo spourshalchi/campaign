@@ -40,8 +40,8 @@ const PROPS = [
    {say,who} read aloud · {do} an instruction · {snd,t} sounds to tap · {hand,do} a prop to hand over
    {tick} a set-up line with a box · {check} a check and its DC · {ipad,do} a digital prop to open
    {tok} tokens out · {fight} the fight · {slot,t} a prompt list · {end} how the scene ends
-   Sub-rows that hang off the step above: {note,k} · {rev} · {stuck} · {backup}
-   talk, ifblock, rev, npcs and spBrief are Spencer's panel. cues are the soundboard's This cue row. */
+   Sub-rows that hang off the step above: {note,k} · {stuck} · {backup}
+   talk, ifblock, npcs and spBrief are Spencer's panel. cues are the soundboard's This cue row. */
 const SCENES = [
 
 { act:"set", no:"PREP", title:"Pre-session checklist", where:"Card zero · tick as you go · saved on this laptop",
@@ -71,7 +71,7 @@ const SCENES = [
     "<b>Your zone is the pink one on the right</b>, on every cue.",
     "<b>Points</b> at the top are what each NPC has to get across, in order.",
     "<b>Lines</b> are yours to say. <b>IF blocks</b> (dashed) only play if their condition happened.",
-    "Each <b>NPC</b> has a one-line voicing. A <b>🔓 Reveal</b> under an NPC is something they let slip, or something they learn and react to.",
+    "Each <b>NPC</b> has a one-line voicing.",
     "Scott narrates, runs checks and the enemy turns; you voice everyone else.",
     "<b>Handoff:</b> when Scott says an NPC's name and looks at you, you're on. Tap the table when a moment needs a roll or a check, and Scott takes it."
   ],
