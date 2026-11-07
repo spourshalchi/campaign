@@ -164,7 +164,7 @@
     background: rgba(8,5,3,.86);
   }
   #cardveil.show { display: flex; }
-  #ccard {
+  .ccard {
     position: relative;
     width: 100%; max-width: 340px;
     background: #e8dcc0; color: #2b2116;
@@ -173,29 +173,29 @@
     transform: rotate(-.8deg);
     border: 1px solid #c9b98d;
   }
-  #ccard h3 {
+  .ccard h3 {
     margin: 0 0 2px; font-size: 13px; font-variant: small-caps;
     letter-spacing: .1em; text-align: center; font-weight: normal;
   }
-  #ccard .sub {
+  .ccard .sub {
     margin: 0 0 12px; text-align: center;
     font-size: 10.5px; letter-spacing: .08em; color: #6b5238;
     border-bottom: 1px solid #b9a684; padding-bottom: 8px;
   }
-  #ccard table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
-  #ccard th {
+  .ccard table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  .ccard th {
     text-align: left; font-size: 9.5px; letter-spacing: .12em;
     text-transform: uppercase; color: #7a6244; font-weight: normal;
     padding-bottom: 5px; border-bottom: 1px solid #b9a684;
   }
-  #ccard td { padding: 6px 0; border-bottom: 1px dotted #bfae8d; vertical-align: top; }
-  #ccard td.d { width: 42%; font-variant-numeric: tabular-nums; color: #55442e; }
-  #ccard td.n { font-family: "Bradley Hand", "Segoe Script", cursive; font-size: 15px; }
-  #ccard tr.gap td {
+  .ccard td { padding: 6px 0; border-bottom: 1px dotted #bfae8d; vertical-align: top; }
+  .ccard td.d { width: 42%; font-variant-numeric: tabular-nums; color: #55442e; }
+  .ccard td.n { font-family: "Bradley Hand", "Segoe Script", cursive; font-size: 15px; }
+  .ccard tr.gap td {
     text-align: center; color: #8a7355; font-style: italic;
     font-size: 11.5px; border-bottom: 1px dotted #bfae8d; padding: 10px 0;
   }
-  #ccard tr.recent td.n { color: #1d1710; }
+  .ccard tr.recent td.n { color: #1d1710; }
   #card-close {
     position: absolute; top: -14px; right: -14px;
     width: 40px; height: 40px; border-radius: 50%;
@@ -477,6 +477,62 @@
     box-shadow: 0 4px 14px rgba(0,0,0,0.6);
   }
   #reader-close:active { background: #4a3322; }
+
+  /* Page 2 and the pocket card, side by side once the page is turned.
+     The sheet opens centred, then slides left as the card comes in.
+     Narrow screens stack the card under the sheet and show a peek of it
+     at the bottom edge until it scrolls into view. */
+  #reader-row { position: relative; max-width: 660px; margin: 0 auto; }
+  #reader-card-col { max-width: 340px; margin: 34px auto 0; }
+  #reader .ccard { max-width: none; }
+  #reader .ccard h3 { font-size: 16px; }
+  #reader .ccard .sub { font-size: 12.5px; }
+  #reader .ccard th { font-size: 11.5px; }
+  #reader .ccard td { font-size: 14px; padding: 7px 0; }
+  #reader .ccard td.n { font-size: 18px; }
+  #reader .ccard tr.gap td { font-size: 13px; }
+
+  #card-peek {
+    position: fixed; left: 50%; bottom: 0; z-index: 4;
+    width: min(340px, calc(100% - 48px)); height: 112px;
+    padding: 0; border: 0; background: none;
+    overflow: hidden; cursor: pointer; touch-action: manipulation;
+    transform: translate(-50%, 110%);
+    transition: transform 0.6s cubic-bezier(.2,.75,.25,1);
+  }
+  #card-peek .ccard {
+    pointer-events: none; transform: translateY(14px) rotate(-.8deg);
+    box-shadow: 0 -6px 26px rgba(0,0,0,.7), 0 0 0 1px #9c8862;
+  }
+  #reader.split #card-peek { transform: translate(-50%, 0); }
+  #reader.split #card-peek.away { transform: translate(-50%, 110%); }
+
+  @media (min-width: 960px) {
+    #reader-row {
+      display: flex; align-items: flex-start; gap: 28px;
+      max-width: calc(660px + 28px + 320px);
+    }
+    #reader-sheet {
+      flex: 1 1 660px; min-width: 0;
+      transform: translateX(174px);   /* (card + gap) / 2: centred until the split */
+      transition: transform 0.75s cubic-bezier(.2,.75,.25,1);
+    }
+    #reader-card-col {
+      flex: 0 0 320px; max-width: none;
+      /* clears the close button */
+      margin: 58px 0 0;
+      position: -webkit-sticky; position: sticky;
+      top: calc(var(--safe-top) + 76px);
+      opacity: 0; transform: translateX(70px) rotate(3deg);
+      transition: opacity 0.5s ease 0.15s, transform 0.75s cubic-bezier(.2,.75,.25,1) 0.1s;
+    }
+    #reader.split #reader-sheet { transform: none; }
+    #reader.split #reader-card-col { opacity: 1; transform: none; }
+    #card-peek { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #reader-sheet, #reader-card-col, #card-peek { transition: none; }
+  }
 
   /* ---------- shared page-2 newsprint styling ---------- */
   .page2 {
@@ -762,9 +818,14 @@
        button's position:fixed resolve against the sheet instead of the
        viewport and park it on top of the folio line. -->
   <button id="reader-close" aria-label="close">&times;</button>
-  <div id="reader-sheet">
-    <div id="reader-body" class="page2"></div>
+  <div id="reader-row">
+    <div id="reader-sheet">
+      <div id="reader-body" class="page2"></div>
+    </div>
+    <!-- The pocket card, cloned in from #ccard. -->
+    <div id="reader-card-col"></div>
   </div>
+  <button id="card-peek" aria-label="the card from the back pocket"></button>
 </div>
 
 <!-- ===== Debug ===== -->
@@ -805,7 +866,7 @@
      texture.
      ============================================================ -->
 <div id="cardveil">
-  <div id="ccard">
+  <div id="ccard" class="ccard">
     <button id="card-close" aria-label="close">&times;</button>
     <h3>Transyltown Hall of Records</h3>
     <p class="sub">Bound Periodicals &mdash; Crier, 1937</p>
@@ -1490,14 +1551,41 @@ function tearReaderSheet() {
   $sheet.style.webkitClipPath = path;
 }
 
+// The pocket card rides along with page 2: beside it on a wide screen,
+// under it (with a peek at the bottom edge) on a narrow one.
+const $readerCardCol = document.getElementById("reader-card-col");
+const $cardPeek = document.getElementById("card-peek");
+let splitTimer = null;
+(function mountReaderCard() {
+  const src = document.getElementById("ccard");
+  for (const target of [$readerCardCol, $cardPeek]) {
+    const c = src.cloneNode(true);
+    c.removeAttribute("id");
+    c.querySelector("#card-close").remove();
+    target.replaceChildren(c);
+  }
+  $cardPeek.addEventListener("click", () =>
+    $reader.scrollTo({ top: $reader.scrollHeight, behavior: "smooth" }));
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver((entries) => {
+      $cardPeek.classList.toggle("away", entries[0].isIntersecting);
+    }, { root: $reader, threshold: 0.2 }).observe($readerCardCol);
+  }
+})();
+
 function openReader() {
+  $reader.classList.remove("split");
   $reader.classList.add("show");
   $reader.scrollTop = 0;
   $flipHint.classList.remove("show");
+  if (splitTimer) clearTimeout(splitTimer);
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  splitTimer = setTimeout(() => $reader.classList.add("split"), still ? 0 : 700);
 }
 
 function closeReader() {
-  $reader.classList.remove("show");
+  if (splitTimer) { clearTimeout(splitTimer); splitTimer = null; }
+  $reader.classList.remove("show", "split");
 }
 
 function enableFlipDrag() {
