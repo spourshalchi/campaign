@@ -142,7 +142,7 @@
 </head>
 <body>
 <div id="page"></div>
-<script src="../fights.js?v=20"></script>
+<script src="../fights.js?v=21"></script>
 <script>
 "use strict";
 const $ = s => document.querySelector(s);
@@ -213,7 +213,7 @@ function stepTrack(f){
     `<div class="hp-b"><button data-tad="-1">&minus;1 cut</button><button data-tad="1">+1 cut</button></div>`+
     `<div class="tiers">${t.tiers.map(([m,nm],i,a)=>`<span class="tier" data-tier="${nm}">${i===0?`Up to ${m} cuts`:i===a.length-1?`${a[i-1][0]+1} cuts`:`${a[i-1][0]+1}&ndash;${m} cuts`} = ${nm}</span>`).join("")}</div>`+
     `<p class="small">${t.use}</p>`+
-    `<div class="tally-full" hidden>${t.full} ${goBtn("s-end","Go to step 5: Ending")}</div></div>` : "";
+    `<div class="tally-full" hidden>${t.full}</div></div>` : "";
   const hpRow = (x,i) => `<div class="hp" data-hp="${x.id}:${i}" data-max="${x.hp}" data-min="${x.floor||0}" data-of="Started at ${x.hp}. AC ${x.ac}.">`+
     `<div class="hp-t"><span class="hp-n">${hpName(x,i)}: HP</span><span class="hp-v"></span><span class="hp-of"></span></div>`+
     `<div class="hp-b"><span class="hp-g"><span class="hp-k">Subtract</span><button data-d="-1">&minus;1</button><button data-d="-5">&minus;5</button><button data-d="-10">&minus;10</button></span>`+
@@ -225,6 +225,7 @@ function stepTrack(f){
     (x.endsFight?goBtn("s-end","Go to step 5: Ending"):"")+`</div>`;
   return step("s-track",4,"HP and trackers",
     tally+f.foes.map(group).join("")+
+    (t&&t.allDown?`<div class="all-down" hidden>${goBtn("s-end","All down. Go to step 5: Ending")}</div>`:"")+
     `<button class="reset" id="reset">Reset: put all HP${t?" and "+t.label.toLowerCase():""} back to the start</button>`);
 }
 
@@ -254,7 +255,8 @@ function paint(f){
     $$("[data-tally] .tv").forEach(el=>{ el.textContent=v; });
     $$("[data-tier]").forEach(el=>el.classList.toggle("on",el.dataset.tier===tier));
     $$("[data-tier-now]").forEach(el=>{ el.textContent=tier; });
-    $(".tally-full").hidden = v<tallyMax(f.tally); }
+    $(".tally-full").hidden = v<tallyMax(f.tally);
+    if(f.tally.allDown) $(".all-down").hidden = !f.foes.every(x=>Array.from({length:x.n},(_,i)=>hpOf(`${x.id}:${i}`,x.hp)<=0).every(Boolean)); }
 }
 function setVal(k,v){ const all=load(); (all[key]=all[key]||{})[k]=v; save(all); }
 

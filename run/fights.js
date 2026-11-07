@@ -14,7 +14,7 @@
    Read-aloud lines: sp means Spencer voices it; {note} is a plain line for Scott.
    lines: Spencer's in-fight lines [{who, t}], for his cards on the Run of Show.
 
-   tally: label, foe (whose turn taps it), start, tiers [[up to, name]], use, full
+   tally: label, foe (whose turn taps it), start, tiers [[up to, name]], use, full, allDown (the fight ends when every foe is down)
    foe:  id, nm, one (singular, if n>1), n (how many), ac, hp, floor (lowest HP, if not 0), spd, chassis, cr, xp,
          when (from which round), say (what to say each turn), turn (1-3 steps), sayIf (lines on one of those steps),
          note (on its turn), hpnote (on its HP tracker), drop (when it drops), endsFight, hard / easy (the dials)
@@ -27,17 +27,18 @@ const FIGHTS = {
     day:"Saturday", cue:3, name:"The trap in the binding",
     start:{
       read:[{who:"They open it", t:"The binding splits and a pair of shears comes out of the spine. <i>Snick.</i> A strip of the article falls to the table."},{note:"That's the first cut. It's already on the tally."}],
-      map:["The article on a reading table.","Shears 1 and 2 either side of it, one lane each.","The swarm at the card catalogue, the cart by the stacks.","Ask who's guarding the article, and put those tokens in the lanes."]
+      announce:"The shears aren't after you, they're after the page. Spend your action standing in a lane and that pair can't cut. Or spend it fighting. It isn't over until everything's down.",
+      map:["The article on a reading table.","Shears 1 and 2 either side of it, one lane each.","The swarm at the card catalogue, the cart by the stacks.","Put a PC's token in a lane when they guard it."]
     },
     rounds:[
-      {k:"Round 1", say:"They aren't coming for you. They're going for the page. Behind you, one squeaky wheel starts to roll.", do:"On my turn: the shears and the cart. The swarm waits."},
+      {k:"Round 1", say:"They aren't coming for you. They're going for the page. Behind you, one squeaky wheel starts to roll.", do:"On my turn: the cart, then the shears. The swarm waits."},
       {k:"Round 2", say:"The card catalogue drawers slide open all at once, and then it's snowing.", do:"On my turn: the swarm joins in."},
-      {k:"Round 3 and after", do:"Keep going until the second pair of shears drops, or the cuts tally is full. Then step 5. <b>Going badly?</b> The shears finish the page: tap the cuts up to full."}
+      {k:"Round 3 and after", do:"Keep going until all four are down, then step 5. Both pairs of shears down? The cuts stop and the fight goes on. <b>Going badly?</b> Use the too-hard dials."}
     ],
     end:{
-      when:"The second pair of shears drops, or the cuts tally is full.",
+      when:"The shears, the swarm and the cart are all down.",
       read:[
-        {who:"Everything drops", t:"The shears snap shut and clatter to the floor. The cards settle. The cart tips over and spills its books. The room is very quiet."},
+        {who:"The last one drops", t:"The shears lie shut on the floor. The cards have settled. The cart is on its side, its books spilled. The room is very quiet."},
         {note:"Clear the map."},
         {who:"Records Keeper · after the fight", sp:1, t:"Well. Don't just stand there. Get every scrap and put it back together."},
         {note:"<b>Item 1 on the iPad:</b> tap <b data-tier-now></b>, the difficulty shown by the cuts. Then hand over the torn page."}
@@ -46,34 +47,34 @@ const FIGHTS = {
     },
     turnIntro:"All the enemies go together, in this order. Skip any that are down. A PC at 0 HP is out cold and stable.",
     tally:{label:"Cuts on the article", foe:"shears", start:1, tiers:[[2,"Easy"],[4,"Medium"],[99,"Hard"]],
-      use:"The highlighted one is the difficulty to tap on Item 1 after the fight. Fire on the article is one more cut.",
-      full:"The page is done. Everything drops."},
+      use:"The highlighted one is the difficulty to tap on Item 1 after the fight. Fire on the article is one more cut. Cuts stop at 5.",
+      allDown:1,
+      full:"That's the most it can be cut. The shears have nothing left to cut, but the fight goes on until everything's down."},
     foes:[
-      {id:"shears", nm:"Archival shears", n:2, ac:14, hp:20, spd:"fly 30", chassis:"Flying Sword", cr:"½", xp:100,
+      {id:"cart", nm:"The book cart", n:1, ac:14, hp:22, spd:"30", chassis:"Animated Armor", cr:"1", xp:200,
+       say:"One squeaky wheel and a full load of bound newspapers.",
+       turn:["Rolls at a PC guarding a lane (or the nearest PC).",
+             "Ram: <b>+5 to hit, 9 bludgeoning</b>, and that PC is pushed 10 ft. If they were guarding, that lane is open for the shears this turn."],
+       drop:"A wheel comes off; it tips over and spills its books.",
+       hard:"It stops pushing: damage only.",
+       easy:"Add 8 HP (30)."},
+      {id:"shears", nm:"Archival shears", one:"Shears", n:2, ac:14, hp:12, spd:"fly 30", chassis:"Flying Sword", cr:"½", xp:100,
        say:"A dry snick-snick, like someone trimming coupons.",
-       turn:["<b>A PC between it and the article?</b> Snip that PC: <b>+5 to hit, 6 slashing</b>. No cut this turn.",
-             "<b>Nobody in the way?</b> It flies to the article and cuts. No roll. <b>Tap +1 cut.</b>"],
-       note:"Whoever holds the volume is in the way.",
-       drop:"It snaps shut and clatters to the floor. When the second pair drops, the rest of the stationery drops too.",
-       endsFight:1,
+       turn:["<b>A PC guarding this lane?</b> It rattles against them and backs off. No cut, no damage.",
+             "<b>Nobody guarding?</b> It flies to the article and cuts. No roll. <b>Tap +1 cut.</b>"],
+       note:"The shears never attack anyone. A guard is a PC who spent their action standing in that lane, and it lasts until the shears' next turn.",
+       drop:"It snaps shut and clatters to the floor. That lane's cuts stop. The fight goes on.",
        hard:"One pair jams in the binding for a round: no cut that turn.",
-       easy:"Give each pair 8 more HP (28)."},
-      {id:"cards", nm:"Swarm of index cards", n:1, ac:12, hp:22, spd:"fly 30", chassis:"Swarm of Insects", cr:"½", xp:100,
+       easy:"Give each pair 6 more HP (18)."},
+      {id:"cards", nm:"Swarm of index cards", n:1, ac:12, hp:16, spd:"fly 30", chassis:"Swarm of Insects", cr:"½", xp:100,
        say:"The card catalogue drawers spit out a blizzard.",
-       turn:["Moves onto the PC blocking a shears lane (or the nearest PC).",
+       turn:["Moves onto a PC guarding a lane (or the nearest PC).",
              "Paper cuts: <b>+5 to hit, 7 slashing</b>."],
        when:"From round 2",
        hpnote:"<b>Fire does double.</b>",
        drop:"The cards settle like snow and lie still.",
-       hard:"Under 11 HP it does 4, not 7.",
-       easy:"Add 10 HP (32)."},
-      {id:"cart", nm:"The book cart", n:1, ac:14, hp:33, spd:"30", chassis:"Animated Armor", cr:"1", xp:200,
-       say:"One squeaky wheel and a full load of bound newspapers.",
-       turn:["Rolls at the PC blocking a shears lane (or the nearest PC).",
-             "Ram: <b>+5 to hit, 9 bludgeoning</b>, and that PC is pushed 10 ft, out of the lane."],
-       drop:"A wheel comes off; it tips over and spills its books.",
-       hard:"It stops pushing: damage only.",
-       easy:"Add 10 HP (43)."}
+       hard:"Under 8 HP it does 4, not 7.",
+       easy:"Add 8 HP (24)."}
     ]
   },
 
