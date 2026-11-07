@@ -182,7 +182,6 @@ const goBtn = (id,label) => `<button class="go" data-jump="${id}">${label}</butt
 /* ---- pieces ---- */
 const said = l => l.note ? `<p class="line">${l.note}</p>` :
   `<div class="say${l.sp?" sp":""}"><span class="who">${l.sp?"Spencer · ":"Say"+(l.who?" · ":"")}${l.who||""}</span><p>${l.t}</p></div>`;
-const small = (k,v) => v ? `<p class="small"><b>${k}</b> ${v}</p>` : "";
 const step = (id,n,title,body) => `<section class="step" id="${id}"><h2 class="step-h"><span class="step-n">${n}</span>${title}</h2>${body}</section>`;
 const hpName = (x,i) => x.n>1 ? `${x.one||x.nm} ${i+1}` : x.nm;
 
@@ -273,7 +272,7 @@ function stepTurn(f){
     (x.sayIf||[]).map(said).join("")+
     (x.note?`<p class="small">${x.note}</p>`:"")+
     (f.tally&&f.tally.foe===x.id?`<div class="mini" data-tally><span>${f.tally.label}</span><b class="tv"></b><button data-tad="1">+1 cut</button></div>`:"")+
-    small("Too hard?",x.hard)+small("Too easy?",x.easy)+`</div>`;
+    (x.hard||x.easy?`<p class="small">${x.hard?`<b>Too hard?</b> ${x.hard} `:""}${x.easy?`<b>Too easy?</b> ${x.easy}`:""}</p>`:"")+`</div>`;
   const allies = f.allies ? `<div class="allies"><p class="allies-h">${f.alliesLabel||"Allies"}</p>`+
     f.allies.map(a=>`<div class="ally"><b>${a.nm}</b>${a.act}${a.tok?`<span class="ally-t"><b>Token:</b> ${a.tok}</span>`:""}</div>`).join("")+
     (f.allyNote?`<p class="small">${f.allyNote}</p>`:"")+`</div>` : "";
