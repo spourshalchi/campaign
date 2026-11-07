@@ -46,7 +46,6 @@ const FIGHTS = {
           {s:"rect", a:"A1", b:"L10", nm:"The room", l:0, say:"This is the reading room of the hall of records."},
           {s:"rect", a:"D5", b:"I5", nm:"The reading table", l:"Reading table", lp:"H5", say:"This long table is where she set the volume down."},
           {s:"x", a:"F5", nm:"The article", l:"Article", lp:"E5", say:"This X is the article, lying open on the table."},
-          {s:"line", a:"F2", b:"F4", also:[["F6","F8"]], nm:"The shears' runs", l:0, say:"These two lines are the shears' straight runs to the page, one from each side."},
           {s:"rect", a:"K2", b:"L5", nm:"The card catalogue", l:"Card|catalogue", say:"This block on the wall is the card catalogue."},
           {s:"rect", a:"A7", b:"C9", nm:"The stacks", l:"Stacks", say:"These are the stacks, shelves of bound newspapers."},
           {s:"rect", a:"J8", b:"L9", nm:"The Records Keeper's desk", l:"Keeper's|desk", say:"This is the Records Keeper's desk."}
@@ -61,8 +60,7 @@ const FIGHTS = {
           {at:"D6", nm:"Simone", l:"Simone", k:"pc"},
           {at:"E6", nm:"Yobo", l:"Yobo", k:"pc"},
           {at:"G6", nm:"Russ", l:"Russ", k:"pc"}
-        ]},
-      map:["The shears fly straight to the article. Nobody can block them."]
+        ]}
     },
     rounds:[
       {k:"Every round", do:"Keep going until all four are down, then step 5. Both pairs of shears down? The cuts stop and the fight goes on. <b>Going badly?</b> Use the too-hard dials."}
@@ -79,9 +77,9 @@ const FIGHTS = {
     },
     turnIntro:"All the enemies go together, in this order. Skip any that are down. A PC at 0 HP is out cold and stable.",
     tally:{label:"Cuts on the article", foe:"shears", start:1, max:5, tiers:[[2,"Easy"],[3,"Medium"],[99,"Hard"]],
-      use:"The highlighted one is the difficulty to tap on Item 1 after the fight. Fire on the article is one more cut. Cuts stop at 5.",
+      use:"The highlighted one is the difficulty to tap on Item 1 after the fight. Fire on the article is one more cut.",
       allDown:1,
-      full:"That's the most it can be cut. The shears have nothing left to cut, but the fight goes on until everything's down."},
+      full:"The shears stop cutting. Keep fighting until everything's down."},
     foes:[
       {id:"cart", nm:"The book cart", n:1, ac:14, hp:18, spd:"30", chassis:"Animated Armor", cr:"1", xp:200,
        turn:["Rolls at the nearest PC.",
@@ -89,9 +87,9 @@ const FIGHTS = {
        drop:"A wheel comes off; it tips over and spills its books.",
        hard:"It stops pushing: damage only.",
        easy:"Add 6 HP (24)."},
-      {id:"shears", nm:"Archival shears", one:"Shears", n:2, ac:14, hp:16, spd:"fly 30", chassis:"Flying Sword", cr:"½", xp:100,
+      {id:"shears", nm:"Archival shears", n:2, ac:14, hp:16, spd:"fly 30", chassis:"Flying Sword", cr:"½", xp:100,
        turn:["Each pair still up flies to the article and cuts. No roll. <b>Tap +1 cut for each.</b>"],
-       note:"The shears never attack anyone, and nothing blocks them. Only dropping them stops the cuts.",
+       note:"Nothing blocks them.",
        drop:"It snaps shut and clatters to the floor. That pair's cuts stop. The fight goes on.",
        hard:"One pair jams in the binding for a round: no cut that turn.",
        easy:"Give each pair 6 more HP (22)."},
@@ -228,7 +226,7 @@ const FIGHTS = {
              "<b>A PC hit him since his last turn?</b> Hold that PC: <b>DC 15 Wis save</b> or they lose their next turn, frozen.",
              "Surveyor's rod at a PC next to him: <b>+6 to hit, 10 bludgeoning</b>."],
        note:"Doesn't swing at a PC who's down.",
-       hpnote:"The first 15 damage is his ward cracking: narrate it, it's in the 60.",
+       hpnote:"The first 15 damage cracks his ward. Say so as it goes.",
        drop:"He's dead. The seal breaks: the vampires finish thugs 4–6, no rolls. Any of thugs 1–3 left drop their crowbars.",
        endsFight:1,
        hard:"He keeps ignoring the party for one more round, even after they hit him.",
@@ -317,7 +315,7 @@ const FIGHTS = {
       {id:"poeboy", nm:"DJ Poe Boy", n:1, ac:15, hp:60, floor:1, spd:"30", chassis:"Cultist Fanatic, more HP", cr:"4", xp:1100,
        sayIf:[{who:"DJ Poe Boy · on whoever holds the USB", sp:1, t:"Drop."},{who:"DJ Poe Boy · nobody holding it, on the PC nearest the decks", sp:1, t:"Flee."}],
        turn:["Command, one word, <b>DC 15 Wis save</b>. The PC holding the USB: &ldquo;Drop.&rdquo; (it lands at their feet). Nobody holding it: the PC nearest the decks, &ldquo;Flee.&rdquo; (they spend their next move running from him).",
-             "Mic stand at anyone next to him: <b>+4 to hit, 4 bludgeoning</b>. Pathetic on purpose."],
+             "Mic stand at anyone next to him: <b>+4 to hit, 4 bludgeoning</b>."],
        hpnote:"<b>Stops at 1 HP.</b> At 1 he's on his knees behind the decks, still on the mic. Point at the decks. +3 on his saves while Stinky is within 10 ft, until Stinky turns.",
        drop:"After the recording, the next PC hit knocks him out, not killed. That ends the fight.",
        endsFight:1,
