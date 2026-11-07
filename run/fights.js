@@ -66,7 +66,7 @@ const FIGHTS = {
         ]}
     },
     rounds:[
-      {k:"Every round", do:"Keep going until all four are down, then step 5. Both pairs of shears down? The cuts stop and the fight goes on. <b>Going badly?</b> Use the too-hard dials."}
+      {k:"Every round", do:"Keep going until all four are down, then step 4: Ending. Both pairs of shears down? The cuts stop and the fight goes on. <b>Going badly?</b> Use the too-hard dials."}
     ],
     end:{
       when:"The shears, the swarm and the cart are all down.",
@@ -135,7 +135,7 @@ const FIGHTS = {
     },
     rounds:[
       {k:"Round 1", do:"The sealed door doesn't open tonight. If they study the thing: Arcana DC 14, human-made and incomplete."},
-      {k:"Round 2 and after", do:"<b>Two PCs down?</b> It tears through the wall toward the sealed door and comes apart on the threshold. Go to step 5."}
+      {k:"Round 2 and after", do:"<b>Two PCs down?</b> It tears through the wall toward the sealed door and comes apart on the threshold. Go to step 4: Ending."}
     ],
     end:{
       when:"It drops.",
@@ -291,7 +291,7 @@ const FIGHTS = {
        sp:[{who:"Angelique · to the party", t:"Aux is round the back of the mixer, left side. I'm on the poster. I know this stage."}]},
       {k:"Round 2", do:"Allies this round: Dracula, Angelique."},
       {k:"Round 3", do:"Allies this round: Edward, Angelique. <b>Not played by the end of this round?</b> Dracula lands the drive in a PC's hand at the decks, and it plays."},
-      {k:"A PC at the decks plugs in the USB", do:"Their action. Go to step 5."}
+      {k:"A PC at the decks plugs in the USB", do:"Their action. Go to step 4: Ending."}
     ],
     end:{
       when:"The USB hits the decks.",
