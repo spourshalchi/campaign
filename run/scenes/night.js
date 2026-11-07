@@ -38,37 +38,30 @@ SCENES.push(
     {end:"on Orlok's dismissal, with the party scattering to look for a way out."}
   ],
   next:"On Orlok's dismissal, they go looking for a way out: cue 7.", go:["7"],
+  flow:[
+    {at:"Overheard, while they hide"},
+    {who:"Dracula", t:"Tell the others that five came, just as the boy said.<ul><li>Never say who the boy is.</li></ul>", say:"Five. He said five, and there are five. The boy's finally learning to count."},
+    {who:"Edward", t:"Point out that one of them is a child.", say:"One of them is a child."},
+    {who:"Dracula", t:"Answer Edward that they're all children, and that's the point.", say:"They're all children. That's rather the point."},
+    {who:"Orlok", t:"Ask whether the meals have been fed.", say:"Have our meals been fed?"},
+    {who:"Dracula", t:"Tell Orlok the meals haven't been fed yet, as far as you know.", say:"Not yet I don't think."},
+    {who:"Orlok", t:"Tell Dracula to see to it before you begin.", say:"See to it before we begin. I won't have them distracted."},
+    {at:"While they explore", gap:"Scott runs it, nothing for you."},
+    {at:"The swoop"},
+    {who:"Dracula", t:"Taunt them while Scott narrates the grabbing and shoving.<ul><li>If they hit you, laugh.</li></ul>", say:["Oh, very good. Again.","Come now, you can run faster than that.","Don't stop, you're doing wonderfully."]},
+    {who:"Dracula", if:"If they ask whether this is part of the party", t:"Say yes, delighted.", say:"Part of the party? Yes. Oh, absolutely yes."},
+    {who:"Edward", t:"Watch Bix and leave the grabbing to the others. Refuse to approach anyone or answer them."},
+    {who:"Orlok", t:"Stay out of it until Scott cues you."},
+    {at:"The end, when Scott cues you"},
+    {who:"Orlok", t:"Stop Dracula with one quiet word.", say:"Enough."},
+    {who:"Dracula", t:"Let go the instant Orlok speaks."},
+    {who:"Orlok", t:"Deliver the dismissal as a threat, very politely.", say:"The night is young. It would be terribly rude to be finished with you already&hellip; Go on. Have a look around. We'll find you when we're ready."},
+    {who:"Orlok", t:"Refuse to explain anything.<ul><li>Say nothing about the doors, the meals or the boy.</li></ul>"}
+  ],
   npcs:[
-    {nm:"Dracula", pts:[
-      {at:"Overheard, while they hide"},
-      {t:"Tell the others that five came, just as the boy said.<ul><li>Never say who the boy is.</li></ul>", say:"Five. He said five, and there are five. The boy's finally learning to count."},
-      {t:"Answer Edward that they're all children, and that's the point.", say:"They're all children. That's rather the point."},
-      {t:"Tell Orlok the meals haven't been fed yet, as far as you know.", say:"Not yet I don't think."},
-      {at:"While they explore", gap:"Scott runs it, nothing for you."},
-      {at:"The swoop"},
-      {t:"Taunt them while Scott narrates the grabbing and shoving.<ul><li>If they hit you, laugh.</li></ul>", say:["Oh, very good. Again.","Come now, you can run faster than that.","Don't stop, you're doing wonderfully."]},
-      {t:"Say yes, delighted, if they ask whether this is part of the party.", say:"Part of the party? Yes. Oh, absolutely yes."},
-      "Let go the instant Orlok speaks."
-    ], vc:"Campy, theatrical, lays hands on them and enjoys it far too much. Play it like a rehearsal."},
-    {nm:"Orlok", pts:[
-      {at:"Overheard, while they hide"},
-      {t:"Ask whether the meals have been fed, after Dracula's &ldquo;That's rather the point.&rdquo;", say:"Have our meals been fed?"},
-      {t:"Tell Dracula to see to it before you begin.", say:"See to it before we begin. I won't have them distracted."},
-      {at:"While they explore", gap:"Scott runs it, nothing for you."},
-      {at:"The swoop", gap:"Scott narrates it, nothing for you until he cues you."},
-      {at:"The end, when Scott cues you"},
-      {t:"Stop Dracula with one quiet word.", say:"Enough."},
-      {t:"Deliver the dismissal as a threat, very politely.", say:"The night is young. It would be terribly rude to be finished with you already&hellip; Go on. Have a look around. We'll find you when we're ready."},
-      "Refuse to explain anything.<ul><li>Say nothing about the doors, the meals or the boy.</li></ul>"
-    ], vc:"Patient and very polite, even while doing something awful."},
-    {nm:"Edward", pts:[
-      {at:"Overheard, while they hide"},
-      {t:"Point out that one of them is a child, after Dracula's &ldquo;learning to count.&rdquo;", say:"One of them is a child."},
-      {at:"While they explore", gap:"Scott runs it, nothing for you."},
-      {at:"The swoop"},
-      "Watch Bix and leave the grabbing to the others.",
-      "Refuse to approach anyone or answer them."
-    ], vc:"The younger voice."}
+    {nm:"Dracula", vc:"Campy, theatrical, lays hands on them and enjoys it far too much. Play it like a rehearsal."},
+    {nm:"Orlok", vc:"Patient and very polite, even while doing something awful."},
+    {nm:"Edward", vc:"The younger voice."}
   ],
   cues:["drone","heart","steps","swoop","jump","braaam"] },
 

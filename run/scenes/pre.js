@@ -41,7 +41,7 @@ const PROPS = [
    {tick} a set-up line with a box · {check} a check and its DC · {ipad,do} a digital prop to open
    {tok} tokens out · {fight} the fight · {slot,t} a prompt list · {end} how the scene ends
    Sub-rows that hang off the step above: {note,k} · {stuck} · {backup}
-   talk, ifblock, npcs and spBrief are Spencer's panel. cues are the soundboard's This cue row. */
+   flow (or talk), ifblock, npcs and spBrief are Spencer's panel. cues are the soundboard's This cue row. */
 const SCENES = [
 
 { act:"set", no:"PREP", title:"Pre-session checklist", where:"Card zero · tick as you go · saved on this laptop",

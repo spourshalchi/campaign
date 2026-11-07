@@ -89,5 +89,20 @@ Each scene is one object: `steps` is Scott's list; a `say` step with `go` gets i
 Sunday's room picker); `talk`, `ifblock`, `npcs` and `spBrief` are Spencer's panel: on an NPC, `vc` is one short line on who they are and `pts` is what to say, in order: each a full instruction starting with a verb, with any facts it needs in a nested `<ul>` in the same string. A line in `talk` goes on the point it shares the most words with; use `{t:"point", say:"line"}` in `pts` to place one by hand. Where a scene has distinct moments, mark them in `pts`: `{at:"When they arrive"}` starts a labelled moment and restarts the numbers, and `{at:"The fight", gap:"Scott runs it, nothing for you."}` is a moment with nothing to say;
 `cues` fills the soundboard's This cue row. To add a prop, add it to `PROPS` and a `{hand:id}` step on its scene.
 
+**Scenes where several people talk, or anything that has to read in order, use `flow`.** Spencer's panel then shows Who's here (each `npcs` entry needs only `nm` and `vc`), then one timeline, top to bottom:
+
+```js
+flow:[
+  {at:"Overheard, while they hide"},                 // a labelled moment; the numbers restart
+  {who:"Dracula", t:"What to get across.", say:"The line."},   // say can be an array of lines
+  {who:"Edward", t:"What to get across.", say:"The line."},
+  {at:"While they explore", gap:"Scott runs it, nothing for you."},  // a moment with nothing to say
+  {who:"Dracula", if:"If they ask whether this is part of the party", t:"Say yes.", say:"The line."}  // conditional step
+],
+npcs:[{nm:"Dracula", vc:"One short line on who they are."}, {nm:"Edward", vc:"..."}],
+```
+
+Put the lines in `flow` and drop them from `talk` and from `pts`. A scene without `flow` keeps its cards.
+
 **After editing a content file, bump that file's `?v=` on its script tag in `index.html`**, or an iPad that already has
 it will keep the old copy.

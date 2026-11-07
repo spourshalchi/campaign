@@ -373,6 +373,13 @@
   .spc-say{display:block;margin-top:4px;padding-left:10px;border-left:2px solid var(--pink);font-family:var(--f-disp);font-size:17px;line-height:1.4;color:#ffd6ee}
   .spc-say i{display:block;font-family:var(--f-mono);font-style:normal;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--pink)}
   .spc .ifb{margin:10px 0 0}
+  .whos-h{margin:0 0 6px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+  .whos-r{margin:0 0 5px;font-size:14.5px;line-height:1.4;color:var(--mut)} .whos-r:last-child{margin-bottom:0}
+  .whos-r b{margin-right:7px;font-size:16px;color:var(--pink)}
+  .spc > .spc-at:first-child,.spc > .spc-gap:first-child{margin-top:0}
+  .tl-w{display:block;font-size:14px;font-weight:800;letter-spacing:.04em;color:var(--pink)}
+  .tl-c{display:block;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--gold)}
+  .tl-if{padding:6px 8px;border:1px dashed var(--pink);border-radius:8px}
   .wn{margin:0;font-size:15px;line-height:1.45;color:var(--ink)}
   .gos{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
   .gobtn{min-height:44px;padding:6px 14px;border-radius:9px;border:1px solid var(--gold);background:#2a2210;color:#ffe9b8;
@@ -444,7 +451,7 @@
 <script src="fights.js?v=22"></script>
 <script src="scenes/pre.js?v=5"></script>
 <script src="scenes/town.js?v=14"></script>
-<script src="scenes/night.js?v=16"></script>
+<script src="scenes/night.js?v=17"></script>
 <script src="scenes/sunday.js?v=15"></script>
 <script src="scenes/finale.js?v=10"></script>
 <script src="sounds/manifest.js?v=4"></script>
@@ -521,6 +528,19 @@ const spWho = who => { const [a,...r]=who.split("·"), [n,...c]=a.split(","), nm
   return {nm:SP_ALIAS[nm]||nm, ctx:[c.join(",").trim(),...r.map(x=>x.trim())].filter(Boolean).join(" · ")}; };
 const SP_STOP = new Set("the and that this with your you they them their have from what when then into about for are was his her him she not but who all".split(" "));
 const spWords = t => new Set((t.replace(/<[^>]+>|&\w+;/g," ").toLowerCase().match(/[a-z']{3,}/g)||[]).filter(w=>!SP_STOP.has(w)).map(w=>w.slice(0,5)));
+/* A converted scene: who's here, then one timeline in the order things happen. See flow in run/README.md. */
+function spFlow(s,say){
+  const lines = l => [].concat(l||[]).map(t=>say({t})).join("");
+  const li = it => `<li class="${it.if?"tl-if":""}">${it.if?`<span class="tl-c">${it.if}</span>`:""}${it.who?`<span class="tl-w">${it.who}</span>`:""}${it.t||""}${lines(it.say)}</li>`;
+  let out="", run=[]; const flush=()=>{ if(run.length) out+=`<ol class="spc-l tl">${run.map(li).join("")}</ol>`; run=[]; };
+  const left=(s.talk||[]).concat((s.fight&&s.fight.lines)||[]).map(l=>{ const w=spWho(l.who); return {who:w.nm,t:w.ctx,say:l.t}; });
+  s.flow.concat(left).forEach(it=>{ if(!it.at){ run.push(it); return; } flush();
+    out+=it.gap?`<p class="spc-gap"><b>${it.at}</b>${it.gap}</p>`:`<p class="spc-at">${it.at}</p>`; });
+  flush();
+  if(s.ifblock){ const b=s.ifblock; out+=`<div class="ifb"><p class="ifw">${b.when}</p><p class="ifs">${b.say}</p><ol class="spc-l tl">${b.lines.map(l=>{ const w=spWho(l.who); return li({who:w.nm,t:w.ctx,say:l.t}); }).join("")}</ol>${b.otherwise?`<p class="ifo">${b.otherwise}</p>`:""}</div>`; }
+  const here=(s.npcs||[]).length?`<div class="spc whos"><p class="whos-h">Who's here</p>${s.npcs.map(n=>`<p class="whos-r"><b>${spName(n.nm)}</b>${n.vc||""}</p>`).join("")}</div>`:"";
+  return here+`<div class="spc">${out}</div>`;
+}
 function spZone(s){
   const cards=new Map();
   const card = nm => { if(!cards.has(nm)) cards.set(nm,{nm,items:[],ifs:[]}); return cards.get(nm); };
@@ -539,6 +559,7 @@ function spZone(s){
       out+=it.gap?`<p class="spc-gap"><b>${it.at}</b>${it.gap}</p>`:`<p class="spc-at">${it.at}</p>`; });
     flush(); return out; };
   const brief = s.spBrief?`<div class="block"><p class="h">Spencer's briefing</p><ul class="rem">${s.spBrief.map(b=>`<li>${b}</li>`).join("")}</ul></div>`:"";
+  if(s.flow) return brief+spFlow(s,say);
   return brief+[...cards.values()].map(c=>`<div class="spc"><p class="spc-n">${c.nm}</p>`+(c.vc?`<p class="spc-v">${c.vc}</p>`:"")+list(c.items)+
     c.ifs.map(b=>`<div class="ifb"><p class="ifw">${b.when}</p><p class="ifs">${b.say}</p>`+list(b.lines.map(l=>({lines:[{t:l.t,ctx:spWho(l.who).ctx}]})))+(b.otherwise?`<p class="ifo">${b.otherwise}</p>`:"")+`</div>`).join("")+`</div>`).join("");
 }
