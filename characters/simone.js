@@ -2,7 +2,7 @@ character({
   id:"simone", player:"Simone", name:"Simone's Warlock", color:"#5a1f2e",
   tag:"Tiefling Warlock. Love spells and revenge spells, reasonable rates.",
   line:"Tiefling, Charlatan background, warlock. You never run out of Eldritch Blast.",
-  intro:"Warlock is yours. Species and name aren't settled. Every warlock gets their power from a patron, and yours stays between you and Scott: it's on your printed handout. Everything marked <span class='rec'>Recommended</span> is a suggestion.",
+  intro:"Warlock is yours. Your species isn't settled. Every warlock gets their power from a patron, and yours stays between you and Scott: it's on your printed handout. Everything marked <span class='rec'>Recommended</span> is a suggestion.",
   scores:{str:8, dex:14, con:14, int:10, wis:13, cha:18},
   saves:["wis","cha"],
   skills:["Deception","Sleight of Hand","Arcana","Intimidation","Persuasion","Insight","Investigation"],
