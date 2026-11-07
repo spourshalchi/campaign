@@ -9,13 +9,7 @@ character({
   jack:true,
   hpBonusPerLevel:2,
   ac:m => 11 + m.dex,
-  speed:"30 ft",
   spellAbility:"cha",
-  attacks:[
-    {nm:"Vicious Mockery", ability:"spell", save:"Wis", dmg:"1d6", type:"psychic", note:"Cantrip. Range 60 ft. On a failed save, its next attack has Disadvantage."},
-    {nm:"Dagger", ability:"dex", dmg:"1d4", addMod:true, type:"piercing", note:"Melee, or thrown 20/60."}
-  ],
-  level5dmg:{"Vicious Mockery":"2d6 psychic"},
   steps:[
     {h:"Step 1: class", items:[
       {k:"Class", pick:"Bard", rec:1, why:"Your concept leans this way, and it's the class of being loud on stage. You also get the most skills of anyone here."},

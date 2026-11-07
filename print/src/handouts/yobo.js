@@ -75,7 +75,6 @@ handout("yobo", {
     ]
   },
   level5:[
-    "Hit points go up by 9.",
     "<b>Bardic Inspiration becomes a d8.</b> With <b>Font of Inspiration</b> it comes back on a Short Rest too, and you can spend a spell slot to get one back.",
     "<b>2 level 3 slots.</b> Prepare 9 spells instead of 7. Try <b>Hypnotic Pattern</b> and <b>Fear</b>.",
     "Vicious Mockery does 2d6."

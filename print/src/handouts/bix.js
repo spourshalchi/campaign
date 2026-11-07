@@ -88,7 +88,6 @@ handout("bix", {
     ]
   },
   level5:[
-    "Hit points go up by 7.",
     "<b>2 level 3 slots.</b> Prepare 9 spells instead of 7. Try <b>Call Lightning</b> and <b>Moonbeam</b>.",
     "Your circle adds <b>Plant Growth</b> and <b>Revivify</b> for free, always prepared.",
     "Produce Flame and Thorn Whip roll two dice. Flame Seed becomes 1d6 + 3, your spirit has 30 hit points, and Fury of the Small adds 3, three times a day.",

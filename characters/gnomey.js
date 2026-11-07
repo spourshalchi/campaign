@@ -8,13 +8,6 @@ character({
   expertise:["Stealth","Deception"],
   initProf:true,
   ac:m => 11 + m.dex,
-  speed:"30 ft",
-  attacks:[
-    {nm:"Shortsword", ability:"dex", dmg:"1d6", addMod:true, type:"piercing", note:"Vex: a hit gives Advantage on your next attack against that target."},
-    {nm:"Dagger, in the other hand", ability:"dex", dmg:"1d4", type:"piercing", note:"Nick: a free extra attack when you attack with the shortsword. No Dex on the damage."},
-    {nm:"Dagger, thrown", ability:"dex", dmg:"1d4", addMod:true, type:"piercing", note:"Range 20/60."},
-    {nm:"Shortbow", ability:"dex", dmg:"1d6", addMod:true, type:"piercing", note:"Range 80/320. Two hands, so no dagger."}
-  ],
   steps:[
     {h:"Step 1: class", items:[
       {k:"Class", pick:"Rogue", why:"Yours already. Rogues do one big hit a turn and are hard to pin down."},

@@ -54,7 +54,6 @@ handout("gnomey", {
     ]
   },
   level5:[
-    "Hit points go up by 8.",
     "Sneak Attack becomes <b>3d6</b>. Your round-1 Assassinate bonus becomes 5.",
     "New reaction and new tricks: the two cards below.",
     "Nothing here needs choosing: your build stays the same."

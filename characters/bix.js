@@ -7,16 +7,7 @@ character({
   skills:["Medicine","Religion","Nature","Perception"],
   skillBonus:{Nature:"wis", Arcana:"wis"},
   ac:m => 11 + m.dex + 2,
-  speed:"30 ft",
   spellAbility:"wis",
-  attacks:[
-    {nm:"Produce Flame", ability:"spell", dmg:"1d8", type:"fire", note:"Cantrip. Range 60 ft. Bonus action to light it, then your action to throw it."},
-    {nm:"Flame Seed (spirit)", ability:"spell", dmg:"1d6 +2", type:"fire", note:"Your spirit's attack. Range 60 ft. Uses your bonus action."},
-    {nm:"Thorn Whip", ability:"spell", dmg:"1d6", type:"piercing", note:"Cantrip. Range 30 ft. Pulls the target 10 ft toward you."},
-    {nm:"Scorching Ray", ability:"spell", dmg:"2d6 each", type:"fire", note:"Level 2 spell. Three rays, each with its own attack roll."},
-    {nm:"Quarterstaff", ability:"str", dmg:"1d6", addMod:true, type:"bludgeoning", note:"Only when you've really run out of options."}
-  ],
-  level5dmg:{"Produce Flame":"2d8 fire", "Flame Seed (spirit)":"1d6 +3 fire", "Thorn Whip":"2d6 piercing"},
   steps:[
     {h:"Step 1: class", items:[
       {k:"Class", pick:"Druid", why:"Yours already. A caster who pulls power from nature, and in your case from burning it down."},

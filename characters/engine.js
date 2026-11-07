@@ -1,7 +1,7 @@
 /* Character creation for the shared iPad: pick a character, see how to build them step by step.
    Nothing here or in characters/<id>.js may be private: the iPad is passed around the table. Features,
    spells and a good turn are on each player's printed handout (print/src/handouts/).
-   calc() and attacks() work every number out from the ability scores, level and proficiencies; the handouts use them too. */
+   calc() works every number out from the ability scores, level and proficiencies; the handouts use it too. */
 "use strict";
 const ROSTER = [["gnomey","Gnomey Soprano","Julia"],["bix","Bix Grimlor","Will"],["yobo","Yobo","John"],["russ","Russ","Cody"],["simone","Simone's Warlock","Simone"]];
 const ABIL = ["str", "dex", "con", "int", "wis", "cha"];
@@ -34,15 +34,6 @@ function calc(pc, level) {
     spellAtk: sa ? pb + m[sa] : null, spellDC: sa ? 8 + pb + m[sa] : null};
 }
 
-function attacks(pc, c) {
-  return (pc.attacks || []).map(a => {
-    const ab = a.ability === "spell" ? pc.spellAbility : a.ability;
-    const hit = a.save ? `DC ${c.spellDC} ${a.save}` : sign(c.m[ab] + c.pb);
-    const dmg = a.dmg + (a.addMod ? ` ${sign(c.m[ab])}` : "") + " " + a.type;
-    return {nm:a.nm, hit, dmg, note:a.note || ""};
-  });
-}
-
 function steps(pc) {
   return pc.steps.map(g => `<h3>${g.h}</h3>` + g.items.map(i =>
     `<div class="step"><div class="lab">${i.k}</div><div><p><b>${i.pick}</b>${i.rec ? ` <span class="rec">Recommended</span>` : ""}</p>${i.why ? `<p class="why">${i.why}</p>` : ""}</div></div>`).join("")).join("");
@@ -71,8 +62,8 @@ const CHARACTERS = {};
 function character(pc) { CHARACTERS[pc.id] = pc; if (typeof document !== "undefined" && !window.PRINT_MODE) render(pc); }
 if (typeof document !== "undefined" && !window.PRINT_MODE) {
   const id = new URLSearchParams(location.search).get("p");
-  if (ROSTER.some(r => r[0] === id)) { const s = document.createElement("script"); s.src = `${id}.js?v=5`; document.body.appendChild(s); }
+  if (ROSTER.some(r => r[0] === id)) { const s = document.createElement("script"); s.src = `${id}.js?v=6`; document.body.appendChild(s); }
   else picker();
   document.addEventListener("touchmove", e => { if (e.scale && e.scale !== 1) e.preventDefault(); }, {passive:false});
 }
-if (typeof module !== "undefined") module.exports = {calc, attacks, mod, sign, character, CHARACTERS};
+if (typeof module !== "undefined") module.exports = {calc, mod, sign, character, CHARACTERS};

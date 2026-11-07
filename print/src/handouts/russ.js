@@ -95,7 +95,6 @@ handout("russ", {
     ]
   },
   level5:[
-    "Hit points go up by 7.",
     "<b>2 level 3 slots.</b> Prepare 9 spells instead of 7. <b>Add Daylight and Plant Growth.</b>",
     "Your circle adds Lightning Bolt for free: 8d6 down a 100-ft line, Dex save, half on a save.",
     "Produce Flame, Thorn Whip, Starry Wisp and Shocking Grasp roll two dice.",

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!--
   PRINT: each player's handout: a good turn, what every feature and spell does, and what changes at level 5.
+  No stat block: AC, hit points, scores, saves, skills and attacks are on each player's filled official sheet.
   Handed to one player only, so Simone's names her patron. The shared iPad page (characters/) leaves that out.
   One Letter sheet at a time, 1-sided, two columns with a gutter down the middle so it can fold in half.
   Each header prints the player's build link; print/build.py passes the site address as ?site=.
@@ -27,9 +28,6 @@
   .hd .pg{font:10pt/1.2 var(--f-ui);color:#333;white-space:nowrap}
   .hd .who b{display:block;white-space:nowrap;font:700 9pt/1.3 var(--f-type);color:var(--a)}
   .priv{margin:0 0 .08in;padding:.03in .08in;border:1.5pt solid var(--a);font:700 10pt/1.3 var(--f-ui);color:var(--a)}
-  .vit{display:flex;gap:.06in;margin:0 0 .1in}
-  .vit div{flex:1;padding:.02in .04in;border:1pt solid #111;border-radius:3pt;text-align:center;font:8pt/1.2 var(--f-ui)}
-  .vit b{display:block;font:700 14pt/1.1 var(--f-type)}
   .colsw{flex:1;min-height:0;display:flex;gap:.4in}
   .col{flex:1;min-width:0;height:100%;overflow:hidden}
   h3{margin:0 0 .04in;font:700 10pt/1.2 var(--f-ui);letter-spacing:.05em;text-transform:uppercase;color:var(--a)}
@@ -45,8 +43,6 @@
   .turn li,.ul li{margin-bottom:.015in}
   .opt{font-size:9.5pt;line-height:1.24;margin:0 0 .03in}
   .opt b{font-family:var(--f-ui);font-size:9pt}
-  table{width:100%;border-collapse:collapse;font:9pt/1.25 var(--f-ui)}
-  td,th{padding:.015in .03in;border-bottom:.5pt solid #777;text-align:left;vertical-align:top}
   @media print{
     @page{size:letter portrait;margin:0}
     body{background:#fff;padding:0;display:block}
@@ -73,21 +69,18 @@ function blocks(pc, h){
   if(h.powersIntro) out.push(`<p class="opt">${h.powersIntro}</p>`);
   h.features.forEach((f,i)=>out.push((i?"":`<h3>Features</h3>`)+card(f)));
   (h.spells||[]).forEach(g=>g.list.forEach((x,i)=>out.push((i?"":`<h3>${g.h}</h3>${g.intro?`<p class="opt">${g.intro}</p>`:""}`)+card(x))));
-  const a5 = attacks(pc,c5).map(x=>`<tr><td>${x.nm}</td><td>${x.hit}</td><td>${(pc.level5dmg&&pc.level5dmg[x.nm])||x.dmg}</td></tr>`).join("");
   out.push(`<h3>At level 5: end of Saturday</h3><ul class="ul"><li>Proficiency +3: attacks, save DCs, proficient skills and saves go up by 1, Expertise skills by 2.</li><li>Hit points ${calc(pc,4).hp} &rarr; ${c5.hp}.${pc.spellAbility?` Spell attack ${sign(c5.spellAtk)}, save DC ${c5.spellDC}.`:""}</li>${h.level5.map(s=>`<li>${s}</li>`).join("")}</ul>`);
   (h.level5cards||[]).forEach(x=>out.push(card(x)));
-  out.push(`<table><tr><th>Attack at level 5</th><th>To hit</th><th>Damage</th></tr>${a5}</table>`);
   return out;
 }
 const body = document.body;
 const SITE = new URLSearchParams(location.search).get("site");
 ROSTER.forEach(([id,nm,player])=>{
-  const pc = CHARACTERS[id], h = HANDOUTS[id], c = calc(pc,4), made = [];
+  const pc = CHARACTERS[id], h = HANDOUTS[id], made = [];
   const newPage = () => {
     const p = document.createElement("div"); p.className="page"; p.style.setProperty("--a",pc.color);
     p.innerHTML = `<div class="hd"><h1>${nm}</h1><span class="who">${player} · level 4 · ${pc.tag}${SITE?`<b>${SITE}/characters/?p=${id}</b>`:""}</span><span class="pg"></span></div>`+
       (h.private?`<p class="priv">${h.private}</p>`:"")+
-      (made.length?"":`<div class="vit">`+[["AC",c.ac],["HP",c.hp],["Init",sign(c.init)],["Speed",pc.speed.replace(" ft","")]].concat(pc.spellAbility?[["Spell atk",sign(c.spellAtk)],["Save DC",c.spellDC]]:[]).map(([k,v])=>`<div>${k}<b>${v}</b></div>`).join("")+`</div>`)+
       `<div class="colsw"><div class="col"></div><div class="col"></div></div>`;
     body.appendChild(p); made.push(p); return p;
   };

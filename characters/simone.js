@@ -6,14 +6,7 @@ character({
   saves:["wis","cha"],
   skills:["Deception","Sleight of Hand","Arcana","Intimidation","Persuasion","Insight","Investigation"],
   ac:m => 13 + m.dex,
-  speed:"30 ft",
   spellAbility:"cha",
-  attacks:[
-    {nm:"Eldritch Blast", ability:"spell", dmg:"1d10 +4", type:"force", note:"Cantrip. Range 120 ft. Add 1d6 necrotic if the target is Hexed. A hit can push it 10 ft."},
-    {nm:"Fire Bolt", ability:"spell", dmg:"1d10", type:"fire", note:"Tiefling cantrip. Range 120 ft. Eldritch Blast is nearly always better."},
-    {nm:"Dagger", ability:"dex", dmg:"1d4", addMod:true, type:"piercing", note:"Melee, or thrown 20/60."}
-  ],
-  level5dmg:{"Eldritch Blast":"1d10 +4 force, two beams", "Fire Bolt":"2d10 fire"},
   steps:[
     {h:"Step 1: class", items:[
       {k:"Class", pick:"Warlock", why:"Yours already. Your magic comes from a deal. You don't get many spells, but you never run out of Eldritch Blast."},

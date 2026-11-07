@@ -6,16 +6,7 @@ character({
   saves:["int","wis"],
   skills:["Stealth","Survival","Nature","Insight"],
   ac:m => 12 + Math.min(m.dex, 2) + 2,
-  speed:"30 ft",
   spellAbility:"wis",
-  attacks:[
-    {nm:"Produce Flame", ability:"spell", dmg:"1d8", type:"fire", note:"Cantrip. Range 60 ft. Bonus action to light it, then your action to throw it."},
-    {nm:"Thorn Whip", ability:"spell", dmg:"1d6", type:"piercing", note:"Cantrip. Range 30 ft. Pulls the target 10 ft toward you."},
-    {nm:"Moonbeam", ability:"spell", save:"Con", dmg:"2d10", type:"radiant", note:"Level 2 spell. Half on a save. Hits again whenever someone enters it or ends a turn in it."},
-    {nm:"Shortbow", ability:"dex", dmg:"1d6", addMod:true, type:"piercing", note:"Range 80/320. No slot needed, but your cantrips hit harder."},
-    {nm:"Quarterstaff", ability:"str", dmg:"1d6", addMod:true, type:"bludgeoning", note:"Two hands: 1d8. For when you're out of everything."}
-  ],
-  level5dmg:{"Produce Flame":"2d8 fire", "Thorn Whip":"2d6 piercing"},
   steps:[
     {h:"Step 1: class", items:[
       {k:"Class", pick:"Druid", why:"Yours already. Every 2024 druid always has Speak with Animals prepared, which is exactly what you want."},

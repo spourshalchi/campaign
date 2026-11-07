@@ -89,7 +89,6 @@ handout("simone", {
     ]
   },
   level5:[
-    "Hit points go up by 7.",
     "<b>Eldritch Blast fires two beams</b>, each with its own attack, Hex die and push.",
     "Your slots become <b>level 3</b>. Everything from them gets stronger: Burning Hands does 5d6, Scorching Ray 4 rays, Hex lasts 8 hours.",
     "Your patron adds <b>Fireball</b> and <b>Stinking Cloud</b>, always prepared. Your species adds <b>Darkness</b>, free once per Long Rest.",
