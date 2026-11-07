@@ -17,14 +17,17 @@ SCENES.push(
   ],
   steps:[
     {say:"Last night. A card in your locker: <b>Dood Mansion, 8 PM</b>. A trap in the hall of records, and a page cut to ribbons. The house on the hill, the boards off the door &mdash; and the door bolting behind you. Three voices in the hall: <i>&ldquo;He said five, and there are five.&rdquo;</i> Something about meals. <i>&ldquo;We'll find you when we're ready.&rdquo;</i> The old one, patting along the wrong shelf. The pale one, watching Bix. And behind a warm door upstairs, something half-made that you put down &mdash; and somewhere in the house a screen typed <b>&ldquo;is someone there&rdquo;</b>, and went dark.", who:"Previously &middot; or let a player tell it"},
-    {do:"<b>Study first</b> (cue 10). Then the party room (11) and the cellar (12), either order."},
+    {do:"<b>Study first</b> if you can. Then the party room and the cellar, either order."},
     {do:"<b>The AIM room (13) is always last.</b> Fire the chime once all three rooms are done."},
     {do:"<b>The ballroom stays locked until 2:30.</b> No roll opens it."},
     {do:"The party gets <b>one short rest</b> before 3AM."},
     {do:"<b>Break</b> after the three rooms, before the AIM door. From the AIM room to the driveway runs straight."},
-    {end:"when they walk into the first room."}
+    {end:"when they walk into the first room."},
+    {say:"Down the hall, you try the handles. One door won't turn, but it isn't locked. It's just stuck.", who:"To the study · first if you can"},
+    {say:"Down the hall, the smell of old wax is coming from under one of the doors. It isn't locked.", who:"To the party room"},
+    {say:"Down the hall, a low door stands ajar, and a smell of straw is coming up from below.", who:"To the cellar"}
   ],
-  next:"Into the first room. Study first if you can.", go:"rooms",
+  next:"Where they go:", go:"rooms",
   npcs:[],
   cues:[] },
 
@@ -41,9 +44,12 @@ SCENES.push(
     {do:"Julia decides who Gnomey tells. Don't push it."},
     {note:"Keep the <b>printed deed</b> hidden.", k:"rule"},
     {say:"He's read it three times. The man who won this house is his great-uncle &mdash; and whoever holds the deed owns it. The deed isn't here."},
-    {end:"on the read-aloud: he's read it three times, and the deed isn't here."}
+    {end:"on the read-aloud: he's read it three times, and the deed isn't here."},
+    {say:"Down the hall, the smell of old wax is coming from under one of the doors. It isn't locked.", who:"To the party room · if they haven't been"},
+    {say:"Down the hall, a low door stands ajar, and a smell of straw is coming up from below.", who:"To the cellar · if they haven't been"},
+    {say:"That's every door in this house that will open. There's only the one left: the one with the poster, at the end of the upstairs hall. You head up.", who:"Into the AIM scene · once all three rooms are done"}
   ],
-  next:"He's read it three times (read-aloud). Next room.", go:"rooms",
+  next:"Where they go:", go:"rooms",
   npcs:[
     {nm:"Nobody to voice here", vc:"The room is empty. Gnomey reads alone."}
   ],
@@ -67,9 +73,12 @@ SCENES.push(
     {do:"<b>Either way, Spencer's turn:</b> he performed true, Dracula bows them out. He stayed masked, Dracula sulks and steps aside, and the debuff stays."},
     {note:"A confession earlier doesn't flip it: only performing as himself here does."},
     {say:"The needle lifts. The echoes thin to nothing, and the room is dust and bottles again."},
-    {end:"when the needle lifts and the echoes fade, with Dracula bowing them out or sulking aside."}
+    {end:"when the needle lifts and the echoes fade, with Dracula bowing them out or sulking aside."},
+    {say:"Down the hall, you try the handles. One door won't turn, but it isn't locked. It's just stuck.", who:"To the study · if they haven't been"},
+    {say:"Down the hall, a low door stands ajar, and a smell of straw is coming up from below.", who:"To the cellar · if they haven't been"},
+    {say:"That's every door in this house that will open. There's only the one left: the one with the poster, at the end of the upstairs hall. You head up.", who:"Into the AIM scene · once all three rooms are done"}
   ],
-  next:"The needle lifts (read-aloud). Next room.", go:"rooms",
+  next:"Where they go:", go:"rooms",
   npcs:[
     {nm:"Dracula", pts:[
       {at:"The photograph", gap:"Scott runs it, nothing for you."},
@@ -103,9 +112,12 @@ SCENES.push(
     {snd:["bloom"], t:"The flowers open"},
     {say:"The dead white seedlings lift, and open gold."},
     {do:"Russ dresses the fox's leg with one. <b>Badge req 2.</b>"},
-    {end:"when the flowers open and Russ dresses the fox's leg."}
+    {end:"when the flowers open and Russ dresses the fox's leg."},
+    {say:"Down the hall, you try the handles. One door won't turn, but it isn't locked. It's just stuck.", who:"To the study · if they haven't been"},
+    {say:"Down the hall, the smell of old wax is coming from under one of the doors. It isn't locked.", who:"To the party room · if they haven't been"},
+    {say:"That's every door in this house that will open. There's only the one left: the one with the poster, at the end of the upstairs hall. You head up.", who:"Into the AIM scene · once all three rooms are done"}
   ],
-  next:"The flowers open and Russ dresses the fox's leg. Next room.", go:"rooms",
+  next:"Where they go:", go:"rooms",
   npcs:[
     {nm:"The fox", pts:[
       {t:"Tell Russ the old one mends you.", say:"The old one mends me."},
