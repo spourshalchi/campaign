@@ -13,7 +13,7 @@ Output (in print/):
     3-deed.pdf          the deed, on its own: cream or parchment cardstock
     4-plain.pdf         plain or ivory paper: the site assessment, the Articles of Settlement, Orlok's ledger
     5-poster.pdf        Spencer's DJ poster, on plain white paper
-    8-backstory-reprint.pdf  just Simone's and Yobo's backstory cards with crop marks, on cardstock
+    8-player-handouts.pdf  the Simone and Yobo backstory reprint with crop marks, then each player's handout, on cardstock
     photo-4x6.jpg       the party-room photograph, full bleed, as a Staples 4x6 photo print (1200x1800, 300dpi)
     previews/           a JPEG (or PNG) of every page, shown on print/index.html
 
@@ -81,7 +81,7 @@ def photo_print(base):
 
 def write_manifest():
     manifest = {stem: sorted(os.path.basename(f) for f in glob.glob(os.path.join(PREVIEWS, stem + "-*.*")))
-                for stem in ("cardstock", "photo", "deed", "plain", "poster", "reprint")}
+                for stem in ("cardstock", "photo", "deed", "plain", "poster", "handouts")}
     with open(os.path.join(PREVIEWS, "manifest.json"), "w") as f:
         json.dump(manifest, f, indent=1)
 
@@ -150,7 +150,9 @@ def main():
     w = PdfWriter()
     for pg in reprint.pages:
         w.add_page(pg)
-    w.write(os.path.join(OUT, "8-backstory-reprint.pdf"))
+    for pg in page("print/src/handouts.html").pages:
+        w.add_page(pg)
+    w.write(os.path.join(OUT, "8-player-handouts.pdf"))
 
     # 3 — the deed on its own, for cream or parchment cardstock
     w = PdfWriter()
@@ -181,7 +183,7 @@ def main():
     previews("3-deed.pdf", "deed")
     previews("4-plain.pdf", "plain")
     previews("5-poster.pdf", "poster")
-    previews("8-backstory-reprint.pdf", "reprint")
+    previews("8-player-handouts.pdf", "handouts")
     write_manifest()
 
     counts = {"invite sheets": len(invite.pages), "badge": len(badge.pages),

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+  PRINT: each player's handout: a good turn, what every feature and spell does, and what changes at level 5.
+  Handed to one player only, so Simone's names her patron. The shared iPad page (characters/) leaves that out.
+  One Letter sheet at a time, 1-sided, two columns with a gutter down the middle so it can fold in half.
+  PRINT ONLY: print/build.py puts these after the backstory reprint in print/8-player-handouts.pdf.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Handouts">
+<meta name="theme-color" content="#14121a">
+<title>Player Handouts</title>
+<style>
+  :root{ --f-type:"Courier New",Courier,monospace; --f-ui:"Helvetica Neue",Helvetica,Arial,sans-serif; --f-body:Georgia,"Times New Roman",serif; }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:#14121a;padding:16px;display:flex;flex-direction:column;align-items:center;gap:14px;font-family:var(--f-body);color:#111;overscroll-behavior:none}
+  .page{width:8.5in;height:11in;padding:.35in .4in;background:#fff;display:flex;flex-direction:column;overflow:hidden;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .hd{display:flex;align-items:baseline;gap:.15in;padding-bottom:.05in;border-bottom:3pt solid var(--a);margin-bottom:.1in}
+  .hd h1{margin:0;font:700 21pt/1 var(--f-type);color:var(--a)}
+  .hd .who{flex:1;font:10pt/1.2 var(--f-ui);color:#333}
+  .hd .pg{font:10pt/1.2 var(--f-ui);color:#333;white-space:nowrap}
+  .priv{margin:0 0 .08in;padding:.03in .08in;border:1.5pt solid var(--a);font:700 10pt/1.3 var(--f-ui);color:var(--a)}
+  .vit{display:flex;gap:.06in;margin:0 0 .1in}
+  .vit div{flex:1;padding:.02in .04in;border:1pt solid #111;border-radius:3pt;text-align:center;font:8pt/1.2 var(--f-ui)}
+  .vit b{display:block;font:700 14pt/1.1 var(--f-type)}
+  .colsw{flex:1;min-height:0;display:flex;gap:.4in}
+  .col{flex:1;min-width:0;height:100%;overflow:hidden}
+  h3{margin:0 0 .04in;font:700 10pt/1.2 var(--f-ui);letter-spacing:.05em;text-transform:uppercase;color:var(--a)}
+  .blk{margin:0 0 .08in}
+  .card{padding:.04in .07in;border:1pt solid #555;border-radius:4pt}
+  .card h4{margin:0;font:700 11pt/1.2 var(--f-type)}
+  .meta{margin:0 0 .015in;font:8.5pt/1.25 var(--f-ui);color:#333}
+  .card p{margin:0 0 .015in;font-size:9.5pt;line-height:1.24}
+  .use b{color:var(--a)}
+  .turn{padding:.06in .08in;border:2pt solid var(--a);border-radius:5pt}
+  .turn h4{margin:0 0 .03in;font:700 12.5pt/1.2 var(--f-type);color:var(--a)}
+  .turn ol,.ul{margin:0;padding-left:.17in;font-size:9.5pt;line-height:1.24}
+  .turn li,.ul li{margin-bottom:.015in}
+  .opt{font-size:9.5pt;line-height:1.24;margin:0 0 .03in}
+  .opt b{font-family:var(--f-ui);font-size:9pt}
+  table{width:100%;border-collapse:collapse;font:9pt/1.25 var(--f-ui)}
+  td,th{padding:.015in .03in;border-bottom:.5pt solid #777;text-align:left;vertical-align:top}
+  @media print{
+    @page{size:letter portrait;margin:0}
+    body{background:#fff;padding:0;display:block}
+    .page{break-after:page}
+    .page:last-child{break-after:auto}
+  }
+</style>
+</head>
+<body>
+<script>window.PRINT_MODE = true; const HANDOUTS = {}; function handout(id, data){ HANDOUTS[id] = data; }</script>
+<script src="../../characters/engine.js"></script>
+<script src="../../characters/gnomey.js"></script><script src="../../characters/bix.js"></script><script src="../../characters/yobo.js"></script><script src="../../characters/russ.js"></script><script src="../../characters/simone.js"></script>
+<script src="handouts/gnomey.js"></script><script src="handouts/bix.js"></script><script src="handouts/yobo.js"></script><script src="handouts/russ.js"></script><script src="handouts/simone.js"></script>
+<script>
+"use strict";
+const card = x => `<div class="card"><h4>${x.nm}</h4>${x.meta?`<p class="meta">${x.meta}</p>`:""}<p>${x.does}</p>${x.use?`<p class="use"><b>Use it when</b> ${x.use}</p>`:""}</div>`;
+function blocks(pc, h){
+  const t = h.turn, c5 = calc(pc,5), out = [];
+  if(h.patronLine) out.push(`<p class="opt">${h.patronLine}</p>`);
+  out.push(`<div class="turn"><h4>A good turn: ${t.title}</h4><ol>${t.steps.map(s=>`<li>${s}</li>`).join("")}</ol></div>`);
+  out.push(`<h3>If things look different</h3>${t.options.slice(0,1).map(([a,b])=>`<p class="opt"><b>${a}:</b> ${b}</p>`).join("")}`);
+  t.options.slice(1).forEach(([a,b])=>out.push(`<p class="opt"><b>${a}:</b> ${b}</p>`));
+  out.push(`<h3>Bonus actions and reactions</h3><ul class="ul">${t.extras.map(s=>`<li>${s}</li>`).join("")}</ul>`);
+  if(h.powersIntro) out.push(`<p class="opt">${h.powersIntro}</p>`);
+  h.features.forEach((f,i)=>out.push((i?"":`<h3>Features</h3>`)+card(f)));
+  (h.spells||[]).forEach(g=>g.list.forEach((x,i)=>out.push((i?"":`<h3>${g.h}</h3>${g.intro?`<p class="opt">${g.intro}</p>`:""}`)+card(x))));
+  const a5 = attacks(pc,c5).map(x=>`<tr><td>${x.nm}</td><td>${x.hit}</td><td>${(pc.level5dmg&&pc.level5dmg[x.nm])||x.dmg}</td></tr>`).join("");
+  out.push(`<h3>At level 5: end of Saturday</h3><ul class="ul"><li>Proficiency +3: attacks, save DCs, proficient skills and saves go up by 1, Expertise skills by 2.</li><li>Hit points ${calc(pc,4).hp} &rarr; ${c5.hp}.${pc.spellAbility?` Spell attack ${sign(c5.spellAtk)}, save DC ${c5.spellDC}.`:""}</li>${h.level5.map(s=>`<li>${s}</li>`).join("")}</ul>`);
+  (h.level5cards||[]).forEach(x=>out.push(card(x)));
+  out.push(`<table><tr><th>Attack at level 5</th><th>To hit</th><th>Damage</th></tr>${a5}</table>`);
+  return out;
+}
+const body = document.body;
+ROSTER.forEach(([id,nm,player])=>{
+  const pc = CHARACTERS[id], h = HANDOUTS[id], c = calc(pc,4), made = [];
+  const newPage = () => {
+    const p = document.createElement("div"); p.className="page"; p.style.setProperty("--a",pc.color);
+    p.innerHTML = `<div class="hd"><h1>${nm}</h1><span class="who">${player} · level 4 · ${pc.tag}</span><span class="pg"></span></div>`+
+      (h.private?`<p class="priv">${h.private}</p>`:"")+
+      (made.length?"":`<div class="vit">`+[["AC",c.ac],["HP",c.hp],["Init",sign(c.init)],["Speed",pc.speed.replace(" ft","")]].concat(pc.spellAbility?[["Spell atk",sign(c.spellAtk)],["Save DC",c.spellDC]]:[]).map(([k,v])=>`<div>${k}<b>${v}</b></div>`).join("")+`</div>`)+
+      `<div class="colsw"><div class="col"></div><div class="col"></div></div>`;
+    body.appendChild(p); made.push(p); return p;
+  };
+  let page = newPage(), ci = 0, col = page.querySelectorAll(".col")[0];
+  blocks(pc,h).forEach(html=>{
+    const b = document.createElement("div"); b.className="blk"; b.innerHTML=html; col.appendChild(b);
+    if(col.scrollHeight>col.clientHeight){
+      b.remove();
+      if(ci===0){ ci=1; }
+      else { page=newPage(); ci=0; }
+      col = page.querySelectorAll(".col")[ci]; col.appendChild(b);
+    }
+  });
+  made.forEach((p,i)=>{ p.querySelector(".pg").textContent = `sheet ${i+1} of ${made.length}`; });
+});
+document.addEventListener("touchmove", e => { if (e.scale && e.scale !== 1) e.preventDefault(); }, {passive:false});
+</script>
+</body>
+</html>

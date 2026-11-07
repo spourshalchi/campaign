@@ -1,8 +1,9 @@
-/* Character folder: one player's data file per ?p=<id>. Only that player's file loads, so one
-   player's page holds nothing from anyone else's. Every number on the sheet is worked out here
-   from the ability scores, level and proficiencies in the data file; none is typed by hand. */
+/* Character creation for the shared iPad: pick a character, see how to build them and their sheet.
+   Nothing here or in characters/<id>.js may be private: the iPad is passed around the table. Features,
+   spells and a good turn are on each player's printed handout (print/src/handouts/).
+   Every number on the sheet is worked out here from the ability scores, level and proficiencies. */
 "use strict";
-const IDS = ["gnomey", "bix", "yobo", "russ", "simone"];
+const ROSTER = [["gnomey","Gnomey Soprano","Julia"],["bix","Bix Grimlor","Will"],["yobo","Yobo","John"],["russ","Russ","Cody"],["simone","Simone's Warlock","Simone"]];
 const ABIL = ["str", "dex", "con", "int", "wis", "cha"];
 const ABIL_NAME = {str:"Strength", dex:"Dexterity", con:"Constitution", int:"Intelligence", wis:"Wisdom", cha:"Charisma"};
 const SKILLS = {"Acrobatics":"dex","Animal Handling":"wis","Arcana":"int","Athletics":"str","Deception":"cha","History":"int","Insight":"wis","Intimidation":"cha",
@@ -42,7 +43,6 @@ function attacks(pc, c) {
   });
 }
 
-const esc = s => s;
 function steps(pc) {
   return pc.steps.map(g => `<h3>${g.h}</h3>` + g.items.map(i =>
     `<div class="step"><div class="lab">${i.k}</div><div><p><b>${i.pick}</b>${i.rec ? ` <span class="rec">Recommended</span>` : ""}</p>${i.why ? `<p class="why">${i.why}</p>` : ""}</div></div>`).join("")).join("");
@@ -70,59 +70,27 @@ function sheet(pc) {
     <h3>Attacks</h3>
     <table><tr><th>Attack</th><th>To hit</th><th>Damage</th></tr>${attacks(pc, c).map(a => `<tr><td>${a.nm}${a.note ? `<br><span class="why">${a.note}</span>` : ""}</td><td class="n">${a.hit}</td><td class="n">${a.dmg}</td></tr>`).join("")}</table>
     ${pc.slots ? `<h3>Spell slots</h3><table><tr><th>Level</th><th>Slots</th><th>Comes back on</th></tr>${pc.slots.map(s => `<tr><td>${s.lvl}</td><td class="n">${"&#9711; ".repeat(s.n)}</td><td>${s.back}</td></tr>`).join("")}</table>` : ""}
+    ${pc.spellSheet ? `<h3>Spells</h3><table>${pc.spellSheet.map(g => `<tr><td><b>${g.h}</b></td><td>${g.list}</td></tr>`).join("")}</table>` : ""}
     <div class="cols">
       <div><h3>Features</h3><ul>${pc.featureList.map(f => `<li>${f}</li>`).join("")}</ul></div>
       <div><h3>Proficiencies and languages</h3><ul>${pc.training.map(f => `<li>${f}</li>`).join("")}</ul>
         <h3>Equipment</h3><ul>${pc.gear.map(f => `<li>${f}</li>`).join("")}</ul></div>
-    </div>`;
-}
-
-const card = x => `<div class="card"><h4>${x.nm}</h4>${x.meta ? `<p class="meta">${x.meta}</p>` : ""}<p>${x.does}</p>${x.use ? `<p class="use"><b>Use it when</b> ${x.use}</p>` : ""}</div>`;
-function powers(pc) {
-  return `<h2>${pc.spells ? "Spells and features" : "Features"}</h2>
-    ${pc.powersIntro ? `<p class="why">${pc.powersIntro}</p>` : ""}
-    <h3>Class and species features</h3><div class="cards">${pc.features.map(card).join("")}</div>
-    ${(pc.spells || []).map(g => `<h3>${g.h}</h3>${g.intro ? `<p class="why">${g.intro}</p>` : ""}<div class="cards">${g.list.map(card).join("")}</div>`).join("")}`;
-}
-
-function turn(pc) {
-  const t = pc.turn;
-  return `<h2>A good turn</h2>
-    <div class="turn"><h4>${t.title}</h4><ol>${t.steps.map(s => `<li>${s}</li>`).join("")}</ol></div>
-    <h3>If things look different</h3>${t.options.map(([a, b]) => `<div class="ask"><b>${a}</b><span>${b}</span></div>`).join("")}
-    <h3>Bonus actions and reactions</h3><ul>${t.extras.map(s => `<li>${s}</li>`).join("")}</ul>
-    <p class="why">You get one action, one bonus action if you have something to use it on, your movement, and one reaction per round. You don't have to use all of them.</p>`;
-}
-
-function five(pc) {
-  const c = calc(pc, 5), a = attacks(pc, c);
-  return `<h2>Level 5</h2>
-    <p>You reach level 5 at the end of Saturday. Your proficiency bonus goes from +2 to +3, so every attack, save DC, proficient skill and proficient save goes up by 1 (Expertise skills go up by 2).</p>
-    <div class="grid vitals">
-      <div class="box"><span class="k">Hit Points</span><span class="v">${c.hp}</span><span class="s">add ${c.hpPerLevel}</span></div>
-      <div class="box"><span class="k">Initiative</span><span class="v">${sign(c.init)}</span><span class="s">&nbsp;</span></div>
-      ${pc.spellAbility ? `<div class="box"><span class="k">Spell Attack</span><span class="v">${sign(c.spellAtk)}</span><span class="s">&nbsp;</span></div><div class="box"><span class="k">Spell Save DC</span><span class="v">${c.spellDC}</span><span class="s">&nbsp;</span></div>` : ""}
     </div>
-    <h3>What's new</h3><ul>${pc.level5.map(s => `<li>${s}</li>`).join("")}</ul>
-    ${pc.level5cards ? `<div class="cards">${pc.level5cards.map(card).join("")}</div>` : ""}
-    <h3>Attacks at level 5</h3><table><tr><th>Attack</th><th>To hit</th><th>Damage</th></tr>${a.map(x => `<tr><td>${x.nm}</td><td class="n">${x.hit}</td><td class="n">${(pc.level5dmg && pc.level5dmg[x.nm]) || x.dmg}</td></tr>`).join("")}</table>`;
+    <p class="why">What each feature${pc.spellSheet ? " and spell" : ""} does, and what a good turn looks like, is on your printed handout from Scott.</p>`;
 }
 
 function render(pc) {
-  document.title = pc.name + " · Character Folder";
+  document.title = pc.name + " · Make Your Character";
   document.documentElement.style.setProperty("--accent", pc.color);
-  const tabs = [["build", "Build it"], ["sheet", "Sheet"], ["powers", pc.spells ? "Spells & features" : "Features"], ["turn", "A good turn"], ["five", "Level 5"]];
+  const tabs = [["build", "Build it"], ["sheet", "Sheet"]];
   document.getElementById("app").innerHTML =
-    `<div class="head"><p class="kick">Character folder · for ${pc.player}</p><h1>${pc.name}</h1><p class="sub">${pc.tag}</p></div>
+    `<div class="nav"><a class="backlink" href="./">&lsaquo; All characters</a></div>
+    <div class="head"><p class="kick">Make your character · ${pc.player}</p><h1>${pc.name}</h1><p class="sub">${pc.tag}</p></div>
     <div class="tabs">${tabs.map(([k, l], i) => `<button data-t="${k}" class="${i ? "" : "on"}">${l}</button>`).join("")}</div>
     <div class="sheet">
       <section id="build" class="on"><h2>Building ${pc.name}, step by step</h2>${pc.intro ? `<div class="note">${pc.intro}</div>` : ""}${steps(pc)}<p class="why" style="margin-top:12px">Hit points: 8 + Con at level 1, then ${calc(pc, 4).hpPerLevel} more each level after that${pc.hpBonusPerLevel ? ", counting Tough" : ""}, using your Con at level 4.</p></section>
       <section id="sheet">${sheet(pc)}</section>
-      <section id="powers">${powers(pc)}</section>
-      <section id="turn">${turn(pc)}</section>
-      <section id="five">${five(pc)}</section>
     </div>
-    <button class="printbtn" onclick="window.print()">Print this folder</button>
     <p class="foot">A recommended build under the 2024 rules: change anything you like with Scott. Rules are summarised in our own words, so check the Player's Handbook or D&amp;D Beyond for the full wording.</p>`;
   document.querySelector(".tabs").addEventListener("click", e => {
     const b = e.target.closest("[data-t]"); if (!b) return;
@@ -132,11 +100,19 @@ function render(pc) {
   });
 }
 
+function picker() {
+  document.getElementById("app").innerHTML =
+    `<div class="nav"><a class="backlink" href="../">&lsaquo; Home</a></div>
+    <div class="head"><p class="kick">Make your character</p><h1>Who are you playing?</h1><p class="sub">A recommended level 4 build and a filled-out sheet for each of you, under the 2024 rules.</p></div>
+    <div class="who">${ROSTER.map(([id, nm, pl]) => `<a href="?p=${id}"><b>${nm}</b><span>${pl}</span></a>`).join("")}</div>`;
+}
+
 const CHARACTERS = {};
-function character(pc) { CHARACTERS[pc.id] = pc; if (typeof document !== "undefined") render(pc); }
-if (typeof document !== "undefined") {
+function character(pc) { CHARACTERS[pc.id] = pc; if (typeof document !== "undefined" && !window.PRINT_MODE) render(pc); }
+if (typeof document !== "undefined" && !window.PRINT_MODE) {
   const id = new URLSearchParams(location.search).get("p");
-  if (IDS.includes(id)) { const s = document.createElement("script"); s.src = `${id}.js?v=2`; document.body.appendChild(s); }
+  if (ROSTER.some(r => r[0] === id)) { const s = document.createElement("script"); s.src = `${id}.js?v=3`; document.body.appendChild(s); }
+  else picker();
   document.addEventListener("touchmove", e => { if (e.scale && e.scale !== 1) e.preventDefault(); }, {passive:false});
 }
 if (typeof module !== "undefined") module.exports = {calc, attacks, mod, sign, character, CHARACTERS};
