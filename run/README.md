@@ -82,7 +82,7 @@ loaded in this order:
 | `scenes/pre.js` | `IPAD` (the players' iPad items), `PROPS` (every physical prop, who gets it and on which cue) and the pre-session card. The step kinds are listed at the top of `const SCENES` here |
 | `scenes/town.js` | Scene 0 and cues 1 to 4 |
 | `scenes/night.js` | Cues 5 to 9 and the level-up card |
-| `scenes/sunday.js` | Sunday's start card, cues 10 to 13 and Dracula's scare |
+| `scenes/sunday.js` | Sunday's start card and cues 10 to 13 |
 | `scenes/finale.js` | Cues 14 to 16 |
 
 Each scene is one object: `steps` is Scott's list; `next` and `go` are the Next text and its jump buttons (`go:"rooms"` is
