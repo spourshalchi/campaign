@@ -231,7 +231,7 @@ const FIGHTS = {
       {who:"DJ Poe Boy · on the mic, during the fight", t:"Oh, this is great. Keep going."}
     ],
     foes:[
-      {id:"ostrander", nm:"W. Ostrander", n:1, ac:15, hp:60, spd:"30", chassis:"Mage, no damage spells", cr:"6", xp:2300,
+      {id:"ostrander", nm:"W. Ostrander", n:1, ac:15, hp:100, spd:"30", chassis:"Mage, no damage spells", cr:"6", xp:2300,
        sv:[-1,2,0,6,4,0], grab:"Acrobatics +2", pp:14, cast:"Hold: <b>DC 15 Wis</b>. If he casts anything else: save DC 15, spell attack +7.",
        sayIf:[{who:"W. Ostrander · when a PC reaches him", sp:1, t:"This site's paid for. Step back."}],
        turn:["<b>No PC has hit him or reached him?</b> Ignores the party and works on the vampires.",
@@ -291,7 +291,9 @@ const FIGHTS = {
        do:"Stinky's first swing goes through a vampire, no roll. <b>Kelvin heals it:</b> badge req 3, if it hasn't landed. Allies this round: Orlok, Angelique.",
        sp:[{who:"Angelique · to the party", t:"Aux is round the back of the mixer, left side. I'm on the poster. I know this stage."}]},
       {k:"Round 2", do:"Allies this round: Dracula, Angelique."},
-      {k:"Round 3", do:"Allies this round: Edward, Angelique. <b>Not played by the end of this round?</b> Dracula lands the drive in a PC's hand at the decks, and it plays."},
+      {k:"Round 3", do:"Allies this round: Edward, Angelique."},
+      {k:"Round 4", do:"Allies this round: Orlok, Angelique."},
+      {k:"Round 5", do:"Allies this round: Dracula, Angelique. <b>Not played by the end of this round?</b> Dracula lands the drive in a PC's hand at the decks, and it plays."},
       {k:"A PC at the decks plugs in the USB", do:"Their action. Go to step 4: Ending."}
     ],
     end:{
@@ -335,7 +337,7 @@ const FIGHTS = {
        endsFight:1,
        hard:"He only Commands the PC holding the USB. No &ldquo;Flee.&rdquo;",
        easy:"He Commands two PCs a turn: &ldquo;Drop.&rdquo; and &ldquo;Flee.&rdquo;"},
-      {id:"stinky", nm:"Lil Stinky", n:1, ac:18, hp:40, spd:"30", chassis:"Knight", cr:"3", xp:700,
+      {id:"stinky", nm:"Lil Stinky", n:1, ac:18, hp:70, spd:"30", chassis:"Knight", cr:"3", xp:700,
        sv:[3,0,4,0,2,2], grab:"Athletics +3", pp:10, cimm:"Frightened",
        sayIf:[{who:"Lil Stinky · holding the decks", sp:1, t:"He's my best friend, man. Back up."}],
        turn:["Back to the decks, next to Poe Boy.",
@@ -343,7 +345,7 @@ const FIGHTS = {
        note:"<b>Nobody can plug in while he's standing at the decks.</b> Shove him, grapple him, move him with a spell or a vampire, or drop him, then plug in. A vampire he hits smokes and staggers.",
        drop:"At 0 HP he's on one knee, sword down: out of the fight, awake, and still hears the recording. When it plays, his oath breaks, no save, and he gets up on the party's side: see the allies in step 3.",
        hard:"One swing, not two.",
-       easy:"Add 20 HP (60)."}
+       easy:"Add 20 HP (90)."}
     ],
     alliesLabel:"Allies · end of each round, no rolls",
     allies:[
