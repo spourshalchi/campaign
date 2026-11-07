@@ -100,7 +100,6 @@ SCENES.push(
     {say:"What do you do?"},
     {say:"Russ, you've got that requirements card in your pocket. &ldquo;Lend a hand with something out of reach.&rdquo;", who:"If nobody moves · glance at Cody"},
     {do:"<b>Someone hands them over:</b> no roll. <b>Spencer's turn:</b> Orlok takes them without a word of thanks."},
-    {check:{skill:"Insight", dc:"12", note:"<b>Call it</b> for whoever handed them over, as Orlok takes them. <b>Success:</b> say that Orlok looks at them a beat too long, as if deciding something."}},
     {do:"<b>Russ shows the card</b>, even if someone else handed them over: <b>Spencer's turn:</b> Orlok refuses to sign. Refusal 1 of 3."},
     {do:"<b>Nobody helps:</b> Orlok keeps patting, and they can pass by. Don't force it: Russ's badge is safe either way."},
     {say:"Behind you, the house goes dark in every direction.", who:"Moving on"},
