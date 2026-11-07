@@ -9,7 +9,7 @@
    Digital props only: anything printed is a hand-over, never an iPad item. */
 const IPAD = {
   1:{room:"The Library",    prop:"the torn Crier page",                 path:"/puzzle/",
-     when:"After the fight: on the setup screen, tap the difficulty the combat page shows. Then hand it over."},
+     when:"Opens on the setup screen."},
   2:{room:"The Computer",   prop:"AIM, the Spirit",                     path:"/aim/",
      when:"Opens as <b>Marcus Hale</b>; the drive mounts as <code>MARCUS_HALE</code>. To force the name, open <code>/aim/?name=Marcus%20Hale</code>."}
 };
@@ -69,9 +69,9 @@ const SCENES = [
   ],
   spBrief:[
     "<b>Your zone is the pink one on the right</b>, on every cue.",
-    "<b>Points</b> at the top are what each NPC has to get across, in order.",
-    "<b>Lines</b> are yours to say. <b>IF blocks</b> (dashed) only play if their condition happened.",
-    "Each <b>NPC</b> has a one-line voicing.",
+    "<b>Who's here</b> at the top has a one-line voicing for each NPC.",
+    "<b>Below that, read top to bottom</b>, in the order things happen. Each step says who's talking and what to get across, with a line you can use.",
+    "<b>Steps marked If</b> only play if that happened.",
     "Scott narrates, runs checks and the enemy turns; you voice everyone else.",
     "<b>Handoff:</b> when Scott says an NPC's name and looks at you, you're on. Tap the table when a moment needs a roll or a check, and Scott takes it."
   ],
