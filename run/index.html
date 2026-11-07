@@ -453,7 +453,7 @@
 <script src="scenes/town.js?v=15"></script>
 <script src="scenes/night.js?v=18"></script>
 <script src="scenes/sunday.js?v=16"></script>
-<script src="scenes/finale.js?v=12"></script>
+<script src="scenes/finale.js?v=13"></script>
 <script src="sounds/manifest.js?v=4"></script>
 <script>
 "use strict";
@@ -533,7 +533,8 @@ function spFlow(s,say){
   const lines = l => [].concat(l||[]).map(t=>say({t})).join("");
   const li = it => `<li class="${it.if?"tl-if":""}">${it.if?`<span class="tl-c">${it.if}</span>`:""}${it.who?`<span class="tl-w">${it.who}</span>`:""}${it.t||""}${lines(it.say)}</li>`;
   let out="", run=[]; const flush=()=>{ if(run.length) out+=`<ol class="spc-l tl">${run.map(li).join("")}</ol>`; run=[]; };
-  const left=(s.talk||[]).concat((s.fight&&s.fight.lines)||[]).map(l=>{ const w=spWho(l.who); return {who:w.nm,t:w.ctx,say:l.t}; });
+  const said=s.flow.flatMap(it=>[].concat(it.say||[])); // a fight line already in the timeline isn't repeated after it
+  const left=(s.talk||[]).concat(((s.fight&&s.fight.lines)||[]).filter(l=>!said.includes(l.t))).map(l=>{ const w=spWho(l.who); return {who:w.nm,t:w.ctx,say:l.t}; });
   s.flow.concat(left).forEach(it=>{ if(!it.at){ run.push(it); return; } flush();
     out+=it.gap?`<p class="spc-gap"><b>${it.at}</b>${it.gap}</p>`:`<p class="spc-at">${it.at}</p>`; });
   flush();
