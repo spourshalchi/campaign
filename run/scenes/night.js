@@ -7,7 +7,7 @@ SCENES.push(
   steps:[
     {snd:["wind","drone"]},
     {say:"The top of the hill: an empty road, no cars, no light in any window. The boards are off the front door, pried away and stacked neat against the porch rail &mdash; the only thing about this house that's changed in decades. Inside, the hall breathes out cold, dusty air.", who:"Setting"},
-    {do:"They walk in and <b>the doors bolt behind them</b>. Locked in."},
+    {do:"When they go in, <b>the doors bolt behind them</b>. Locked in."},
     {note:"State it flatly, once.", k:"rule"},
     {snd:["bolt","steps"], t:"The bolt and the footsteps"},
     {say:"That's a bolt throwing behind you. Footsteps overhead. What do you do?"},
@@ -42,9 +42,9 @@ SCENES.push(
     {check:{skill:"Optional save", dc:"13", note:"<b>Call it</b> when a vampire goes for a PC. <b>Str or Dex</b> to slip a grab or stay standing, <b>Wis</b> to shake off the fear. <b>Success:</b> they slip free. <b>Failure:</b> they're pinned, shoved across the room, or frozen for a moment. Nobody's hurt."}},
     {do:"After a couple of these, or the moment it stops being fun: <b>Spencer's turn:</b> Orlok's one word. Everything stops."},
     {do:"<b>Spencer's turn:</b> the dismissal."},
-    {end:"on Orlok's dismissal, with the party scattering to look for a way out."}
+    {end:"on Orlok's dismissal."}
   ],
-  next:"On Orlok's dismissal, they go looking for a way out: cue 7.", go:["7"],
+  next:"On Orlok's dismissal: cue 7.", go:["7"],
   flow:[
     {at:"Overheard, while they hide"},
     {who:"Dracula", t:"Tell the others that five came, just as the boy said.<ul><li>Never say who the boy is.</li></ul>", say:"Five. He said five, and there are five. The boy's finally learning to count."},
@@ -76,31 +76,33 @@ SCENES.push(
   steps:[
     {snd:["creak","drone","heart"]},
     {say:"The upper floors in the dark: long corridors, doors that won't open, floorboards that answer every step. Every so often, at the end of a hall or in a doorway you've just passed, the same pale figure is standing very still.", who:"Setting"},
-    {do:"Let them explore. <b>They catch Edward watching them</b>, glimmering in the moonlight from a window, and it's Bix he's looking at. If they speak to him, he doesn't answer."},
-    {say:"You're looking for a way out. Everyone roll Investigation.", who:"The look-around"},
+    {say:"At the far end of the corridor he stands in the moonlight from a window, glimmering faintly. He isn't looking at all of you. He's looking at Bix. What do you do?", who:"First sighting"},
+    {note:"If they speak to him, he doesn't answer."},
+    {say:"As you look around, everyone roll Investigation.", who:"The look-around"},
     {check:{skill:"Investigation", dc:"12", note:"<b>Call it</b> as the look-around, everyone rolls. <b>Success:</b> the site survey. <b>Miss:</b> the highest roll finds it anyway."}},
     {hand:"survey", do:"&#9995; <b>The printed survey</b>, to whoever finds it: on a table in a room off the hall, among the vampires' things."},
-    {do:"<b>They catch him at it a second time.</b> Play it as horror."},
+    {say:"You glance back. He's in the doorway you just passed, very still, still looking at Bix.", who:"Second sighting"},
     {note:"<b>If they try the ballroom:</b> heavy doors, locked, and no roll or spell opens them. Cables run under the door."},
     {note:"<b>If they look for Poe Boy:</b> he isn't in the house."},
     {note:"If they reach the locked door at the end of the upstairs hall, narrate the poster (the first read-aloud on cue 13). That's as far as they get."},
-    {end:"on the second time they catch him. Keep them exploring."}
+    {end:"on the second sighting."}
   ],
-  next:"They keep exploring, and Russ finds Orlok: cue 8.", go:["8"],
+  next:"Moving on through the house, they come upon Orlok: cue 8.", go:["8"],
   npcs:[
-    {nm:"Edward", pts:["Stand still and watch Bix each time they catch you.<ul><li>They catch you twice. Scott narrates it. You have no lines tonight.</li></ul>","Ignore anything they say to you.","Refuse to approach or explain."], vc:"Silent, very still."}
+    {nm:"Edward", pts:["Stand still and watch Bix each time Scott narrates you.<ul><li>It happens twice. You have no lines tonight.</li></ul>","Ignore anything they say to you.","Refuse to approach or explain."], vc:"Silent, very still."}
   ],
   cues:["creak","drone","heart"] },
 
-{ act:"night", no:8, title:"Russ and the spectacles", where:"Off the main hall · Russ",
+{ act:"night", no:8, title:"Russ and the spectacles", where:"A side room",
   steps:[
     {snd:["drone"]},
-    {say:"Off the main hall, a tall cabinet stands against the wall. On top of it, a pair of wire spectacles. Below them Orlok is patting slowly along the wrong shelf.", who:"Setting"},
-    {do:"While they're exploring, Russ is the one who finds him. Orlok can't see without the spectacles."},
-    {do:"Russ reaches up and hands the spectacles over. <b>No roll.</b>"},
-    {check:{skill:"Insight (Russ)", dc:"12", note:"<b>Call it</b> as Orlok takes the spectacles. <b>Success:</b> say that Orlok looks at him a beat too long, as if deciding something."}},
-    {do:"Russ points at &ldquo;verified by your elder&rdquo;. <b>Spencer's turn:</b> Orlok refuses to sign."},
-    {say:"Spectacles handed over, not a word of thanks. Behind him the house goes dark in every direction."},
+    {say:"As you move through the house together, you come upon Orlok in a side room. He's patting slowly along the shelf of a tall cabinet and missing, peering at nothing. On top of the cabinet, in plain sight, a pair of wire spectacles, well out of his hand's path. He doesn't see them, and he doesn't ask for anything.", who:"Setting"},
+    {say:"What do you do?"},
+    {say:"Russ, you've got that requirements card in your pocket. &ldquo;Lend a hand with something out of reach.&rdquo;", who:"If nobody moves · glance at Cody"},
+    {do:"<b>Someone hands them over:</b> no roll. <b>Spencer's turn:</b> Orlok takes them without a word of thanks."},
+    {do:"<b>Russ shows the card</b>, even if someone else handed them over: <b>Spencer's turn:</b> Orlok refuses to sign. Refusal 1 of 3."},
+    {do:"<b>Nobody helps:</b> Orlok keeps patting, and they can pass by. Don't force it: Russ's badge is safe either way."},
+    {say:"Behind you, the house goes dark in every direction.", who:"Moving on"},
     {snd:["breath","riser"], t:"The warm door"},
     {say:"A door on the top floor you haven't tried is warm to the touch &mdash; and something on the other side of it is breathing.", who:"Routing them on"},
     {end:"at the warm, breathing door &mdash; straight into the summoning."}
@@ -108,11 +110,15 @@ SCENES.push(
   next:"The warm, breathing door (read-aloud): cue 9.", go:["9"],
   npcs:[
     {nm:"Orlok", pts:[
-      "Keep patting along the wrong shelf until Russ acts.<ul><li>Dracula put your spectacles on top of the cabinet, and you can't see without them.</li></ul>",
-      {t:"Refuse to ask for help, even when he offers it.", say:"Nothing that concerns you."},
-      "Take the spectacles without a word of thanks.",
-      {t:"Refuse to sign when Russ shows you the card.<ul><li>He'll point at &ldquo;verified by your elder&rdquo;. Give him a flat no.</li></ul>", say:["No.","I said no."]},
-      "Stay cold and give him nothing back."
+      {at:"When they come upon you"},
+      "Keep patting along the shelf, missing, and don't look up.<ul><li>Dracula put your spectacles on top of the cabinet, and you can't see without them.</li></ul>",
+      {t:"Refuse to ask for help, even if they offer it.", say:"Nothing that concerns you."},
+      {at:"If someone hands you the spectacles"},
+      "Take them without a word of thanks.",
+      {at:"If Russ shows you the card"},
+      {t:"Refuse to sign it.<ul><li>Russ will point at &ldquo;Verified by your elder&rdquo;. Give a flat no.</li></ul>", say:["No.","I said no."]},
+      {at:"If nobody helps"},
+      "Keep patting, and let them go."
     ], vc:"Cold and dignified, and very polite about it."}
   ],
   cues:["drone","breath","riser"] },
@@ -120,7 +126,7 @@ SCENES.push(
 { act:"night", no:9, title:"The botched summoning", where:"The sealed room · combat",
   steps:[
     {snd:["summon","heart"]},
-    {say:"The door gives, and the air in the sealed room is hot and close. Chalk lines across the floorboards, candle stubs burned down to nothing &mdash; and in the middle of it, something half-made drags itself upright.", who:"Setting"},
+    {say:"The door gives, and the air in the sealed room is hot and close. Chalk lines across the floorboards, candle stubs burned down to nothing &mdash; and in the middle of it, something half-made drags itself upright.", who:"Setting · when they open it"},
     {do:"&#9876; <b>Fight.</b> Roll initiative."},
     {tok:1},
     {snd:["jump","braaam"], t:"In the fight"},
