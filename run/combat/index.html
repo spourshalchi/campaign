@@ -69,6 +69,31 @@
   .act ul{margin:4px 0 0;padding-left:20px}
   .act li{margin-bottom:2px}
 
+  /* 1: the map: a working diagram, 1 square = 1 inch on the mat */
+  .map-size{margin:4px 0 8px}
+  .map-w{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px;border-radius:8px;background:#0d0a14}
+  .map-w svg{display:block;width:100%;min-width:540px;height:auto}
+  .m-grid{stroke:#3a3350;stroke-width:1;fill:none}
+  .m-co{fill:var(--mut);font:700 13px var(--f-body);text-anchor:middle;dominant-baseline:central}
+  .m-zone{fill:rgba(91,155,213,.16);stroke:var(--blue);stroke-width:1.5;stroke-dasharray:6 4}
+  .m-s{fill:none;stroke:#efe9fb;stroke-width:3;stroke-linecap:round}
+  .m-s.base{stroke:#8d84a6;stroke-width:2}
+  .m-l{fill:#fff;font:700 13px var(--f-body);text-anchor:middle;dominant-baseline:central;paint-order:stroke;stroke:#0d0a14;stroke-width:4px;stroke-linejoin:round}
+  .m-l.base{fill:#b3a8cc}
+  .m-t{stroke-width:2}
+  .m-t.m-foe{fill:#a92a40;stroke:#ffb3bf}
+  .m-t.m-ally{fill:#c79a2e;stroke:#ffe6a6}
+  .m-t.m-pc{fill:#2f6aa8;stroke:#b6d8f5}
+  .m-t.side{stroke-dasharray:5 4;stroke-width:3}
+  .m-tl{fill:#fff;font:700 9.5px var(--f-body);text-anchor:middle;dominant-baseline:central}
+  .m-tl.m-ally{fill:#1a1206}
+  .draw{margin:0;padding-left:24px}
+  .act .draw li{margin-bottom:10px}
+  .draw-say{display:block;margin-top:2px;font-family:var(--f-disp);font-size:17.5px;line-height:1.35;color:var(--amber)}
+  .tk-k{font-weight:800}
+  .tk-foe{color:#ffb3bf}.tk-ally{color:var(--gold)}.tk-pc{color:#9cc8ee}
+  .tk{margin:0 0 6px}
+
   /* 2: the rounds */
   .rnd{margin:0 0 12px;padding:9px 12px;border-left:4px solid var(--blood);background:var(--panel);border-radius:0 10px 10px 0}
   .rnd-k{margin:0 0 6px;font-weight:800;font-size:17px;color:#fff}
@@ -82,8 +107,6 @@
   .foe-m{font-size:14px;color:var(--mut)}
   .chip{font:700 14px var(--f-mono);color:var(--green)}
   .chip.down{color:var(--blood);text-decoration:line-through}
-  .foe-say{margin:0 0 6px;font-family:var(--f-disp);font-size:17px;line-height:1.35;color:var(--amber)}
-  .foe-sayk{font:700 12.5px var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-right:4px}
   .foe ul{margin:0;padding:0;list-style:none}
   .foe li{margin:0 0 6px;font-size:16px}
   .foe li b{color:var(--rose)}
@@ -97,7 +120,6 @@
   .ally > b{display:block;color:var(--gold)}
   .ally-t{display:block;margin-top:3px;font-size:14.5px;color:var(--mut)}
   .ally-t b{color:var(--gold)}
-  .ally-s{display:block;margin-top:3px;font-family:var(--f-disp);font-size:17px;line-height:1.35;color:var(--amber)}
 
   /* 4: the trackers */
   .trk{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:0 0 10px}
@@ -142,7 +164,7 @@
 </head>
 <body>
 <div id="page"></div>
-<script src="../fights.js?v=21"></script>
+<script src="../fights.js?v=24"></script>
 <script>
 "use strict";
 const $ = s => document.querySelector(s);
@@ -164,6 +186,62 @@ const small = (k,v) => v ? `<p class="small"><b>${k}</b> ${v}</p>` : "";
 const step = (id,n,title,body) => `<section class="step" id="${id}"><h2 class="step-h"><span class="step-n">${n}</span>${title}</h2>${body}</section>`;
 const hpName = (x,i) => x.n>1 ? `${x.one||x.nm} ${i+1}` : x.nm;
 
+/* ---- the set-up map: squares are letter + number, A1 top left ---- */
+const COL = "ABCDEFGHIJKLMNOP", SQ = 44, MG = 26;
+const cx = c => COL.indexOf(c[0]), cy = c => +c.slice(1)-1;
+const mid = c => [MG+cx(c)*SQ+SQ/2, MG+cy(c)*SQ+SQ/2];
+function block(a,b){ const x=MG+cx(a)*SQ, y=MG+cy(a)*SQ; return {x,y,w:(cx(b)-cx(a)+1)*SQ,h:(cy(b)-cy(a)+1)*SQ}; }
+function shape(d,base){
+  const cl = `m-s${base?" base":""}`;
+  const one = (a,b) => {
+    if(d.s==="rect"){ const r=block(a,b); return `<rect class="${cl}" x="${r.x+3}" y="${r.y+3}" width="${r.w-6}" height="${r.h-6}" rx="2"/>`; }
+    if(d.s==="circle"){ const r=block(a,b); return `<ellipse class="${cl}" cx="${r.x+r.w/2}" cy="${r.y+r.h/2}" rx="${r.w/2-3}" ry="${r.h/2-3}"/>`; }
+    if(d.s==="line"){ const [x1,y1]=mid(a), [x2,y2]=mid(b); return `<line class="${cl}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`; }
+    if(d.s==="x"){ const [x,y]=mid(a), k=13; return `<path class="${cl}" d="M${x-k} ${y-k}L${x+k} ${y+k}M${x+k} ${y-k}L${x-k} ${y+k}"/>`; }
+    if(d.s==="dot"){ const [x,y]=mid(a); return `<circle class="${cl}" cx="${x}" cy="${y}" r="7"/>`; }
+    return "";
+  };
+  const pairs = d.s==="dot" ? d.at.map(a=>[a]) : [[d.a,d.b],...(d.also||[])];
+  const lab = d.l===0 ? "" : (()=>{ const [x,y] = d.lp ? mid(d.lp) : (()=>{ const r=block(d.a,d.b||d.a); return [r.x+r.w/2,r.y+r.h/2]; })();
+    const ls=(d.l||d.nm).split("|");
+    return ls.map((w,i)=>`<text class="m-l${base?" base":""}" x="${x}" y="${y+(i-(ls.length-1)/2)*16}">${w}</text>`).join(""); })();
+  return pairs.map(([a,b])=>one(a,b)).join("")+lab;
+}
+function token(t){
+  const n=t.size||1, x=MG+cx(t.at)*SQ+SQ*n/2, y=MG+cy(t.at)*SQ+SQ*n/2, ls=t.l.split(" "), dy=12;
+  return `<circle class="m-t m-${t.k}${t.side?" side":""}" cx="${x}" cy="${y}" r="${SQ*n/2-3}"/>`+
+    ls.map((w,i)=>`<text class="m-tl m-${t.k}" x="${x}" y="${y+(i-(ls.length-1)/2)*dy}">${w}</text>`).join("");
+}
+function mapSvg(g){
+  const w=MG+g.cols*SQ+6, h=MG+g.rows*SQ+6; let lines="", co="";
+  for(let i=0;i<=g.cols;i++) lines+=`<line class="m-grid" x1="${MG+i*SQ}" y1="${MG}" x2="${MG+i*SQ}" y2="${MG+g.rows*SQ}"/>`;
+  for(let i=0;i<=g.rows;i++) lines+=`<line class="m-grid" x1="${MG}" y1="${MG+i*SQ}" x2="${MG+g.cols*SQ}" y2="${MG+i*SQ}"/>`;
+  for(let i=0;i<g.cols;i++) co+=`<text class="m-co" x="${MG+i*SQ+SQ/2}" y="13">${COL[i]}</text>`;
+  for(let i=0;i<g.rows;i++) co+=`<text class="m-co" x="13" y="${MG+i*SQ+SQ/2}">${i+1}</text>`;
+  const zone = g.party ? (()=>{ const r=block(g.party.a,g.party.b); return `<rect class="m-zone" x="${r.x}" y="${r.y}" width="${r.w}" height="${r.h}"/>`; })() : "";
+  return `<div class="map-w"><svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Set-up map">${lines}${co}${zone}`+
+    (g.base||[]).map(d=>shape(d,1)).join("")+(g.draw||[]).map(d=>shape(d)).join("")+g.tokens.map(token).join("")+`</svg></div>`;
+}
+function drawText(d){
+  const also = (d.also||[]).map(([a,b])=>`, and another from ${a} to ${b}`).join("");
+  if(d.s==="rect") return `Draw a rectangle from ${d.a} to ${d.b}${also}.`;
+  if(d.s==="line") return `Draw a straight line from ${d.a} to ${d.b}${also}.`;
+  if(d.s==="circle") return `Draw a circle that fills the block from ${d.a} to ${d.b}.`;
+  if(d.s==="x") return `Draw an X on ${d.a}.`;
+  if(d.s==="dot") return `Draw a small circle on each of ${d.at.slice(0,-1).join(", ")} and ${d.at[d.at.length-1]}.`;
+  return "";
+}
+function mapHTML(g){
+  const size = `<p class="map-size">Use a block ${g.cols} squares across (A to ${COL[g.cols-1]}) and ${g.rows} down (1 to ${g.rows}). A1 is the top left square.</p>`;
+  const draw = (g.draw||[]).length ? `<p class="sub-h">${g.base?"Then draw, and say":"Draw, and say as you draw"}</p><ol class="draw">${g.draw.map(d=>
+    `<li><b>${d.nm}.</b> ${drawText(d)}${d.say?`<span class="draw-say">${d.say}</span>`:""}</li>`).join("")}</ol>` : "";
+  const groups = [["foe","Enemies"],["ally","Allies"],["pc","The party"]];
+  const place = t => `${t.nm} ${t.size?`${t.at} to ${COL[cx(t.at)+t.size-1]}${cy(t.at)+t.size}`:t.at}${t.side?" (on its side)":""}`;
+  const toks = groups.map(([k,lab])=>{ const ts=g.tokens.filter(t=>t.k===k);
+    return ts.length?`<p class="tk"><span class="tk-k tk-${k}">${lab}:</span> ${ts.map(place).join(", ")}.${k==="pc"&&g.party?` Or anywhere they like from ${g.party.a} to ${g.party.b}.`:""}</p>`:""; }).join("");
+  return (g.base?"":size)+(g.lead?`<p class="map-size">${g.lead}</p>`:"")+mapSvg(g)+draw+`<p class="sub-h">Tokens</p>${toks}`;
+}
+
 /* ---- 1. start the fight ---- */
 function stepStart(f){
   const s = f.start;
@@ -172,13 +250,13 @@ function stepStart(f){
     (s.read||[]).map(said).join("")+
     act("Announce: roll for initiative", s.announce||"")+
     act("Record initiative", "Write down each player's roll. Roll once for all the enemies together.")+
-    act("Set up the combat map", `<ul>${s.map.map(t=>`<li>${t}</li>`).join("")}</ul>`));
+    act("Set up the combat map", (s.grid?mapHTML(s.grid):"")+(s.map&&s.map.length?`<ul>${s.map.map(t=>`<li>${t}</li>`).join("")}</ul>`:"")));
 }
 
 /* ---- 2. round by round ---- */
 function stepRounds(f){
   const round = r => `<div class="rnd"><p class="rnd-k">${r.k}</p>`+
-    (r.say?said({t:r.say}):"")+(r.do?`<p class="line">${r.do}</p>`:"")+
+    (r.do?`<p class="line">${r.do}</p>`:"")+
     (r.sp||[]).map(l=>said({...l,sp:1})).join("")+`</div>`;
   return step("s-rounds",2,"Round by round",
     f.rounds.map(round).join(""));
@@ -190,15 +268,14 @@ const tallyMax = t => t.tiers[t.tiers.length-2][0]+1;
 function stepTurn(f){
   const chips = x => Array.from({length:x.n},(_,i)=>`<span class="chip" data-chip="${x.id}:${i}" data-max="${x.hp}"></span>`).join("");
   const foe = x => `<div class="foe" data-foe="${x.id}"><div class="foe-h"><span class="foe-n">${x.nm}${x.n>1?` &times;${x.n}`:""}</span>`+
-      `<span class="foe-m">${x.when?x.when+" · ":""}speed ${x.spd}</span>${chips(x)}</div>`+
-    (x.say?`<p class="foe-say"><span class="foe-sayk">Say</span> ${x.say}</p>`:"")+
+      `<span class="foe-m">speed ${x.spd}</span>${chips(x)}</div>`+
     `<ul>${x.turn.map(t=>`<li>${t}</li>`).join("")}</ul>`+
     (x.sayIf||[]).map(said).join("")+
     (x.note?`<p class="small">${x.note}</p>`:"")+
     (f.tally&&f.tally.foe===x.id?`<div class="mini" data-tally><span>${f.tally.label}</span><b class="tv"></b><button data-tad="1">+1 cut</button></div>`:"")+
     small("Too hard?",x.hard)+small("Too easy?",x.easy)+`</div>`;
   const allies = f.allies ? `<div class="allies"><p class="allies-h">${f.alliesLabel||"Allies"}</p>`+
-    f.allies.map(a=>`<div class="ally"><b>${a.nm}</b>${a.act}${a.tok?`<span class="ally-t"><b>Token:</b> ${a.tok}</span>`:""}${a.say?`<span class="ally-s">${a.say}</span>`:""}</div>`).join("")+
+    f.allies.map(a=>`<div class="ally"><b>${a.nm}</b>${a.act}${a.tok?`<span class="ally-t"><b>Token:</b> ${a.tok}</span>`:""}</div>`).join("")+
     (f.allyNote?`<p class="small">${f.allyNote}</p>`:"")+`</div>` : "";
   return step("s-turn",3,"On my turn",
     `<p class="line">${f.turnIntro||"All the enemies go together, in this order. Skip any that are down."}</p>`+

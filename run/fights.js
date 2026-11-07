@@ -8,32 +8,64 @@
    table. Damage is fixed (no damage dice). Rolls and initiative stay at the table.
 
    cue:   the Run of Show scene this fight belongs to.
-   start: read [{who, t, sp}], announce, map [lines]: opening the fight.
-   rounds: [{k, say, do, sp:[{who, t}]}]: what to narrate each round.
+   start: read [{who, t, sp}], announce, grid (the set-up map), map [lines]: opening the fight.
+   grid:  cols, rows, party {a, b}, lead, base [shapes already drawn], draw [shapes], tokens. Squares are letter + number, A1 top left.
+          shape: s (rect, line, circle, x, dot), a, b, also [[a, b]], at [squares, for dot], nm, l (label on the map, | for a new line; 0 for none), lp (label's square), say.
+          token: at, nm, l (label on the map), k (foe, ally, pc), size (2 for a 2-inch token), side (laid on its side).
+   rounds: [{k, do, sp:[{who, t}]}]: what to do each round, and Spencer's lines. Scott voices the fight himself.
    end:   when, read [{who, t, sp} or {note}], next: closing the fight.
    Read-aloud lines: sp means Spencer voices it; {note} is a plain line for Scott.
    lines: Spencer's in-fight lines [{who, t}], for his cards on the Run of Show.
 
    tally: label, foe (whose turn taps it), start, tiers [[up to, name]], use, full, allDown (the fight ends when every foe is down)
    foe:  id, nm, one (singular, if n>1), n (how many), ac, hp, floor (lowest HP, if not 0), spd, chassis, cr, xp,
-         when (from which round), say (what to say each turn), turn (1-3 steps), sayIf (lines on one of those steps),
+         turn (1-3 steps), sayIf (Spencer's lines on one of those steps),
          note (on its turn), hpnote (on its HP tracker), drop (when it drops), endsFight, hard / easy (the dials)
    turnIntro: replaces the opening line of "On my turn".
-   ally: nm, act (one thing, no roll), tok (where the token goes), say (one line of narration)
+   ally: nm, act (one thing, no roll), tok (where the token goes)
    ===================================================================== */
+/* The ballroom: drawn once for the developer, still on the table for the booth. */
+const BALLROOM = [
+  {s:"rect", a:"A1", b:"L12", nm:"The room", l:0, say:"This is the ballroom."},
+  {s:"rect", a:"D1", b:"I3", nm:"The stage", l:"Stage", lp:"H1", say:"This big block at the far end is the stage."},
+  {s:"rect", a:"E2", b:"H2", nm:"The decks", l:"Decks", say:"This bar across it is the decks."},
+  {s:"line", a:"A2", b:"C2", also:[["J2","L2"]], nm:"The cables", l:"Cables", lp:"B1", say:"These lines are the cables, running off into the walls."},
+  {s:"rect", a:"A5", b:"B11", also:[["K5","L11"]], nm:"The crowd", l:"Crowd", say:"These two blocks are the crowd, every face turned up and smiling."},
+  {s:"x", a:"F12", nm:"The doors", l:"Doors", lp:"H12", say:"This X is the ballroom doors, standing open."}
+];
+
 const FIGHTS = {
 
   library: {
     day:"Saturday", cue:3, name:"The trap in the binding",
     start:{
-      read:[{who:"They open it", t:"The binding splits and a pair of shears comes out of the spine. <i>Snick.</i> A strip of the article falls to the table."},{note:"That's the first cut. It's already on the tally."}],
+      read:[{who:"They open it", t:"The binding splits and a pair of shears comes out of the spine. <i>Snick.</i> A strip of the article falls to the table. A second pair comes out after it. The card catalogue drawers spit out a blizzard of index cards, and a book cart starts to roll on one squeaky wheel."},{note:"That's the first cut. It's already on the tally."}],
       announce:"The shears aren't after you, they're after the page. Spend your action standing in a lane and that pair can't cut. Or spend it fighting. It isn't over until everything's down.",
-      map:["The article on a reading table.","Shears 1 and 2 either side of it, one lane each.","The swarm at the card catalogue, the cart by the stacks.","Put a PC's token in a lane when they guard it."]
+      grid:{cols:12, rows:10, party:{a:"C4",b:"H6"},
+        draw:[
+          {s:"rect", a:"A1", b:"L10", nm:"The room", l:0, say:"This is the reading room of the hall of records."},
+          {s:"rect", a:"D5", b:"I5", nm:"The reading table", l:"Reading table", lp:"H5", say:"This long table is where she set the volume down."},
+          {s:"x", a:"F5", nm:"The article", l:"Article", lp:"E5", say:"This X is the article, lying open on the table."},
+          {s:"line", a:"F2", b:"F4", also:[["F6","F8"]], nm:"The two lanes", l:0, say:"These two lines are the straight runs to the page, one from each side."},
+          {s:"rect", a:"K2", b:"L5", nm:"The card catalogue", l:"Card|catalogue", say:"This block on the wall is the card catalogue."},
+          {s:"rect", a:"A7", b:"C9", nm:"The stacks", l:"Stacks", say:"These are the stacks, shelves of bound newspapers."},
+          {s:"rect", a:"J8", b:"L9", nm:"The Records Keeper's desk", l:"Keeper's|desk", say:"This is the Records Keeper's desk."}
+        ],
+        tokens:[
+          {at:"F2", nm:"Archival shears 1", l:"Shears 1", k:"foe"},
+          {at:"F8", nm:"Archival shears 2", l:"Shears 2", k:"foe"},
+          {at:"J3", nm:"Swarm of index cards", l:"Swarm", k:"foe"},
+          {at:"D8", nm:"The book cart", l:"Cart", k:"foe"},
+          {at:"E4", nm:"Bix", l:"Bix", k:"pc"},
+          {at:"G4", nm:"Gnomey", l:"Gnomey", k:"pc"},
+          {at:"D6", nm:"Simone", l:"Simone", k:"pc"},
+          {at:"E6", nm:"Yobo", l:"Yobo", k:"pc"},
+          {at:"G6", nm:"Russ", l:"Russ", k:"pc"}
+        ]},
+      map:["Put a PC's token in a lane when they guard it."]
     },
     rounds:[
-      {k:"Round 1", say:"They aren't coming for you. They're going for the page. Behind you, one squeaky wheel starts to roll.", do:"On my turn: the cart, then the shears. The swarm waits."},
-      {k:"Round 2", say:"The card catalogue drawers slide open all at once, and then it's snowing.", do:"On my turn: the swarm joins in."},
-      {k:"Round 3 and after", do:"Keep going until all four are down, then step 5. Both pairs of shears down? The cuts stop and the fight goes on. <b>Going badly?</b> Use the too-hard dials."}
+      {k:"Every round", do:"Keep going until all four are down, then step 5. Both pairs of shears down? The cuts stop and the fight goes on. <b>Going badly?</b> Use the too-hard dials."}
     ],
     end:{
       when:"The shears, the swarm and the cart are all down.",
@@ -52,14 +84,12 @@ const FIGHTS = {
       full:"That's the most it can be cut. The shears have nothing left to cut, but the fight goes on until everything's down."},
     foes:[
       {id:"cart", nm:"The book cart", n:1, ac:14, hp:22, spd:"30", chassis:"Animated Armor", cr:"1", xp:200,
-       say:"One squeaky wheel and a full load of bound newspapers.",
        turn:["Rolls at a PC guarding a lane (or the nearest PC).",
              "Ram: <b>+5 to hit, 9 bludgeoning</b>, and that PC is pushed 10 ft. If they were guarding, that lane is open for the shears this turn."],
        drop:"A wheel comes off; it tips over and spills its books.",
        hard:"It stops pushing: damage only.",
        easy:"Add 8 HP (30)."},
       {id:"shears", nm:"Archival shears", one:"Shears", n:2, ac:14, hp:12, spd:"fly 30", chassis:"Flying Sword", cr:"½", xp:100,
-       say:"A dry snick-snick, like someone trimming coupons.",
        turn:["<b>A PC guarding this lane?</b> It rattles against them and backs off. No cut, no damage.",
              "<b>Nobody guarding?</b> It flies to the article and cuts. No roll. <b>Tap +1 cut.</b>"],
        note:"The shears never attack anyone. A guard is a PC who spent their action standing in that lane, and it lasts until the shears' next turn.",
@@ -67,10 +97,8 @@ const FIGHTS = {
        hard:"One pair jams in the binding for a round: no cut that turn.",
        easy:"Give each pair 6 more HP (18)."},
       {id:"cards", nm:"Swarm of index cards", n:1, ac:12, hp:16, spd:"fly 30", chassis:"Swarm of Insects", cr:"½", xp:100,
-       say:"The card catalogue drawers spit out a blizzard.",
        turn:["Moves onto a PC guarding a lane (or the nearest PC).",
              "Paper cuts: <b>+5 to hit, 7 slashing</b>."],
-       when:"From round 2",
        hpnote:"<b>Fire does double.</b>",
        drop:"The cards settle like snow and lie still.",
        hard:"Under 8 HP it does 4, not 7.",
@@ -82,11 +110,29 @@ const FIGHTS = {
     day:"Saturday", cue:9, name:"The botched summoning",
     start:{
       read:[{t:"Two fragments of chalk peel up off the floor lines."}],
-      map:["The 2&Prime; summoning in the middle of the chalk circle.","Fragments 1 and 2 on the floor lines around it."]
+      grid:{cols:10, rows:8, party:{a:"B7",b:"H8"},
+        draw:[
+          {s:"rect", a:"A1", b:"J8", nm:"The room", l:0, say:"This is the sealed room, hot and close."},
+          {s:"circle", a:"D3", b:"G6", nm:"The chalk circle", l:0, say:"This circle is chalk, and something half-made is dragging itself up out of it."},
+          {s:"line", a:"A4", b:"C4", also:[["H5","J5"]], nm:"The floor lines", l:"Floor line", lp:"B3", say:"These lines are chalk too, running out across the floorboards."},
+          {s:"dot", at:["C2","H2","C6","H6"], nm:"The candle stubs", l:0, say:"These little circles are candle stubs, burned down to nothing."},
+          {s:"x", a:"I1", nm:"The way to the sealed door", l:"Way to the|sealed door", lp:"G1", say:"This X is the way out, toward the sealed door down the hall."},
+          {s:"x", a:"E8", nm:"The warm door", l:"Warm door", lp:"G8", say:"This X is the warm door you just came through."}
+        ],
+        tokens:[
+          {at:"E4", nm:"The botched summoning (the 2-inch token)", l:"Botched summoning", k:"foe", size:2},
+          {at:"B4", nm:"Ritual fragment 1", l:"Frag 1", k:"foe"},
+          {at:"I5", nm:"Ritual fragment 2", l:"Frag 2", k:"foe"},
+          {at:"C7", nm:"Bix", l:"Bix", k:"pc"},
+          {at:"D7", nm:"Gnomey", l:"Gnomey", k:"pc"},
+          {at:"E7", nm:"Simone", l:"Simone", k:"pc"},
+          {at:"F7", nm:"Yobo", l:"Yobo", k:"pc"},
+          {at:"G7", nm:"Russ", l:"Russ", k:"pc"}
+        ]}
     },
     rounds:[
-      {k:"Round 1", say:"It isn't looking at you. It's dragging itself toward the door, toward something down the hall, and the chalk on the floor has started to crawl.", do:"The sealed door doesn't open tonight. If they study the thing: Arcana DC 14, human-made and incomplete."},
-      {k:"Round 2 and after", say:"It goes through whoever's in the way like they're furniture.", do:"<b>Two PCs down?</b> It tears through the wall toward the sealed door and comes apart on the threshold. Go to step 5."}
+      {k:"Round 1", do:"The sealed door doesn't open tonight. If they study the thing: Arcana DC 14, human-made and incomplete."},
+      {k:"Round 2 and after", do:"<b>Two PCs down?</b> It tears through the wall toward the sealed door and comes apart on the threshold. Go to step 5."}
     ],
     end:{
       when:"It drops.",
@@ -103,18 +149,15 @@ const FIGHTS = {
     },
     foes:[
       {id:"summon", nm:"The botched summoning", n:1, ac:13, hp:60, spd:"30", chassis:"Flesh Golem, scaled down", cr:"4", xp:1100,
-       say:"It keeps clawing toward the sealed door down the hall.",
        turn:["Lurches toward the sealed door down the hall. It can't leave the room.",
              "Claws twice at whoever is between it and the door, or the nearest PC: <b>+6 to hit, 8 slashing</b> each.",
              "<b>Once, the first time it's under 30 HP:</b> Unfinished Word. Every PC within 15 ft makes a <b>DC 13 Wis save</b>: 8 psychic, half on a save."],
-       sayIf:[{who:"When it uses the Unfinished Word", t:"The hole in its chest turns toward you and it tries to say something. It doesn't get to the end of it. You feel it anyway."}],
-       note:"Never attacks a PC at 0 HP.",
+       note:"Never attacks a PC at 0 HP. The Unfinished Word: it tries to say something and can't get to the end of it.",
        drop:"The fragments crumble with it.",
        endsFight:1,
        hard:"It spends a turn clawing at the door instead of a PC.",
        easy:"Add 15 HP (75)."},
       {id:"frag", nm:"Ritual fragments", one:"Ritual fragment", n:2, ac:12, hp:7, spd:"30", chassis:"Shadow, no Strength drain", cr:"¼", xp:50,
-       say:"Chalk scrawls, crawling.",
        turn:["Fragment 1 goes for whoever is hitting the summoning. Fragment 2 goes for the back line.",
              "Grab: <b>+4 to hit, 5 necrotic</b>."],
        drop:"Crumbles to chalk dust.",
@@ -132,16 +175,38 @@ const FIGHTS = {
         {who:"After Ostrander's line", t:"<b>What do you do?</b>"}
       ],
       announce:"When the party acts.",
-      map:["Thugs 1&ndash;3 between the party and the vampires.","Ostrander and thugs 4&ndash;6 on the vampires.","Orlok, Dracula and Edward on their sides: pinned. Dracula next to Yobo, Edward where Bix can see him.","Poe Boy and Stinky up on the decks. They're not in this fight.","Angelique with the party."]
+      grid:{cols:12, rows:12, party:{a:"C9",b:"I11"}, draw:BALLROOM,
+        tokens:[
+          {at:"F1", nm:"DJ Poe Boy", l:"Poe Boy", k:"foe"},
+          {at:"F3", nm:"Lil Stinky", l:"Stinky", k:"foe"},
+          {at:"F5", nm:"W. Ostrander", l:"Ostr.", k:"foe"},
+          {at:"E8", nm:"Thug 1", l:"Thug 1", k:"foe"},
+          {at:"F8", nm:"Thug 2", l:"Thug 2", k:"foe"},
+          {at:"G8", nm:"Thug 3", l:"Thug 3", k:"foe"},
+          {at:"E5", nm:"Thug 4", l:"Thug 4", k:"foe"},
+          {at:"C8", nm:"Thug 5", l:"Thug 5", k:"foe"},
+          {at:"I7", nm:"Thug 6", l:"Thug 6", k:"foe"},
+          {at:"F6", nm:"Orlok", l:"Orlok", k:"ally", side:1},
+          {at:"D8", nm:"Dracula", l:"Dracula", k:"ally", side:1},
+          {at:"H7", nm:"Edward", l:"Edward", k:"ally", side:1},
+          {at:"F10", nm:"Angelique", l:"Angel.", k:"ally"},
+          {at:"D9", nm:"Yobo", l:"Yobo", k:"pc"},
+          {at:"E9", nm:"Gnomey", l:"Gnomey", k:"pc"},
+          {at:"F9", nm:"Simone", l:"Simone", k:"pc"},
+          {at:"G9", nm:"Russ", l:"Russ", k:"pc"},
+          {at:"H9", nm:"Bix", l:"Bix", k:"pc"}
+        ]},
+      map:["Poe Boy and Stinky stay up on the stage. They're not in this fight."]
     },
     rounds:[
-      {k:"Round 1", say:"Three of them step into your way. Behind them, a stake comes down to rest on Orlok's chest.",
-       do:"The seal holds until Ostrander drops. <b>They go for Poe Boy?</b> He can't drop below 1 HP and Stinky blocks.",
+      {k:"Round 1",
+       do:"A stake rests on Orlok's chest. The seal holds until Ostrander drops. <b>They go for Poe Boy?</b> He can't drop below 1 HP and Stinky blocks.",
        sp:[{who:"Orlok · pinned, to Russ", t:"Boy. Help me."},{who:"Edward · on seeing Ostrander's men", t:"Twenty-five years."}]},
-      {k:"Round 2", say:"Dracula is frozen mid-flourish, cape out, an arm's length from Yobo. Somebody is measuring. They've got to the quiet one. A mallet goes up over a stake on Edward's chest. He isn't looking at it. He's looking at Bix.",
+      {k:"Round 2",
+       do:"They've moved on to Edward: a mallet up over a stake on his chest. He's looking at Bix, not at it. Dracula stays frozen an arm's length from Yobo.",
        sp:[{who:"DJ Poe Boy · on the mic", t:"Oh, this is great. Keep going."}]},
-      {k:"Round 3", say:"The mallet is still up. It's shaking.",
-       do:"<b>Ostrander still up at the end of this round, or two PCs down?</b> The seal slips and Orlok gets a hand free. Ostrander loses his turns, and the next hit from a PC kills him."}
+      {k:"Round 3",
+       do:"The mallet is still up, and shaking. <b>Ostrander still up at the end of this round, or two PCs down?</b> The seal slips and Orlok gets a hand free. Ostrander loses his turns, and the next hit from a PC kills him."}
     ],
     end:{
       when:"Ostrander drops.",
@@ -170,7 +235,6 @@ const FIGHTS = {
        hard:"He keeps ignoring the party for one more round, even after they hit him.",
        easy:"Add 15 HP (another layer of ward)."},
       {id:"thug", nm:"Thugs", one:"Thug", n:6, ac:12, hp:11, spd:"30", chassis:"Tough", cr:"½", xp:100,
-       say:"A demolition crew. Hard hats, crowbars, stakes.",
        turn:["<b>Thugs 4–6 stay on the vampires, no rolls, unless a PC reaches them.</b> Thugs 1–3 all go for the same PC: <b>a PC on Ostrander?</b> That one. Otherwise the nearest.",
              "Crowbar: <b>+4 to hit, 8 bludgeoning</b>."],
        note:"Doesn't swing at a PC who's down.",
@@ -182,8 +246,7 @@ const FIGHTS = {
     allies:[
       {nm:"Orlok, Dracula, Edward", act:"Pinned until the seal breaks, so they don't act. When the seal breaks they finish thugs 4–6: Dracula plays to the crowd; Orlok is quick and tidy; Edward is efficient and doesn't look at anyone. Mark each one down. <b>Russ heals one:</b> badge req 3. If it doesn't happen here, it's still open at the booth."},
       {nm:"Angelique", act:"Each round, after everyone: takes a hard hat's face and taps the thug on the most-hurt PC on the shoulder. He loses his next attack.",
-       tok:"Next to that thug.",
-       say:"A man in a hard hat taps him on the shoulder. He turns, and the face under the hat slides into Angelique's."}
+       tok:"Next to that thug."}
     ]
   },
 
@@ -200,13 +263,24 @@ const FIGHTS = {
         {who:"The objective", t:"Get the USB to the decks and get on aux."}
       ],
       announce:"After &ldquo;Drop.&rdquo; Party and vampires against Poe Boy and Stinky.",
-      map:["Take Ostrander and the thugs off.","Vampires standing, with the party. Angelique with the party.","Lil Stinky at the decks, Poe Boy behind him.","The USB wherever the party left it. Still upstairs? Someone runs it down, about 2 rounds."]
+      grid:{cols:12, rows:12, base:BALLROOM, lead:"It's the same ballroom, so leave the drawing as it is. Only these change.",
+        draw:[
+          {s:"x", a:"E1", nm:"The aux, once Angelique has said where it is", l:"Aux", lp:"D1", say:"This X is the aux, round the back of the mixer."}
+        ],
+        tokens:[
+          {at:"F1", nm:"DJ Poe Boy", l:"Poe Boy", k:"foe"},
+          {at:"F3", nm:"Lil Stinky", l:"Stinky", k:"foe"},
+          {at:"F6", nm:"Orlok", l:"Orlok", k:"ally"},
+          {at:"D8", nm:"Dracula", l:"Dracula", k:"ally"},
+          {at:"H7", nm:"Edward", l:"Edward", k:"ally"}
+        ]},
+      map:["Take Ostrander and all six thugs off.","Stand Orlok, Dracula and Edward up where they are.","Leave the party and Angelique where they ended.","The USB goes wherever the party left it. Still upstairs? Someone runs it down, about 2 rounds."]
     },
     rounds:[
-      {k:"Round 1", say:"One word, in somebody else's voice, and your hand opens. The drive hits the floor. Stinky's sword catches a vampire. It smokes. It staggers.",
+      {k:"Round 1",
        do:"Stinky's first swing goes through a vampire, no roll. <b>Russ heals it:</b> badge req 3, if it hasn't landed. Allies this round: Orlok, Angelique.",
        sp:[{who:"Angelique · to the party", t:"Aux is round the back of the mixer, left side. I'm on the poster. I know this stage."}]},
-      {k:"Round 2", say:"He's off the decks. There's the aux.", do:"Allies this round: Dracula, Angelique."},
+      {k:"Round 2", do:"Allies this round: Dracula, Angelique."},
       {k:"Round 3", do:"Allies this round: Edward, Angelique. <b>Not played by the end of this round?</b> Dracula lands the drive in a PC's hand at the decks, and it plays."},
       {k:"A PC at the decks plugs in the USB", do:"Their action. Go to step 5."}
     ],
@@ -265,14 +339,11 @@ const FIGHTS = {
       {nm:"Dracula", act:"Swoops: carries the PC holding the USB 30 ft toward the decks."},
       {nm:"Edward", act:"Pulls one PC 30 ft out of trouble. No opportunity attacks."},
       {nm:"Angelique", act:"Every round until the recording: wears Poe Boy's face beside the USB holder (nobody holding it: the PC nearest the decks). That PC has advantage on the save against his Command.",
-       tok:"Next to that PC.",
-       say:"Two Poe Boys now, and one of them is shaking his head at you."},
+       tok:"Next to that PC."},
       {nm:"Angelique, after the recording", act:"Every round: her own face, her own knife. 8 piercing on Poe Boy.",
-       tok:"Next to Poe Boy.",
-       say:"No borrowed face this time. She walks up to him looking like herself."},
+       tok:"Next to Poe Boy."},
       {nm:"Lil Stinky, after the recording", act:"Every round: one swing at Poe Boy, 8 slashing, no roll. Poe Boy can't get past him off the decks. No HP from here: at 0 he gets up anyway.",
-       tok:"Turn him round, next to Poe Boy, between him and the way off the decks.",
-       say:"The light goes out of the sword. He turns around and looks at his best friend."}
+       tok:"Turn him round, next to Poe Boy, between him and the way off the decks."}
     ],
     allyNote:"They don't drop and have no HP to track. Their hits stop Poe Boy at 1 HP: a PC lands the last one."
   }
