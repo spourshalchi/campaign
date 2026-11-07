@@ -107,6 +107,9 @@
   .foe-m{font-size:14px;color:var(--mut)}
   .chip{font:700 14px var(--f-mono);color:var(--green)}
   .chip.down{color:var(--blood);text-decoration:line-through}
+  .def{margin:0 0 8px;padding:6px 8px;border-left:3px solid var(--line);font-size:15px;line-height:1.35}
+  .def p{margin:0 0 2px}
+  .def b{color:var(--ink)}
   .foe ul{margin:0;padding:0;list-style:none}
   .foe li{margin:0 0 6px;font-size:16px}
   .foe li b{color:var(--rose)}
@@ -164,7 +167,7 @@
 </head>
 <body>
 <div id="page"></div>
-<script src="../fights.js?v=26"></script>
+<script src="../fights.js?v=27"></script>
 <script>
 "use strict";
 const $ = s => document.querySelector(s);
@@ -265,9 +268,17 @@ function stepRounds(f){
 const tierName = (t,v) => (t.tiers.find(([m])=>v<=m)||t.tiers[t.tiers.length-1])[1];
 const tallyMax = t => t.max||t.tiers[t.tiers.length-2][0]+1;
 function stepTurn(f){
+  const sg = n => (n<0?"&minus;":"+")+Math.abs(n);
+  const defs = x => !x.sv ? "" : `<div class="def"><p><b>AC ${x.ac} · HP ${x.hp}${x.floor?` (can't drop below ${x.floor})`:""}</b></p>`+
+    `<p><b>Saves:</b> ${["STR","DEX","CON","INT","WIS","CHA"].map((k,i)=>`${k} ${sg(x.sv[i])}`).join(" · ")}</p>`+
+    `<p><b>Grapple / shove:</b> ${x.grab} · <b>Passive Perception</b> ${x.pp}</p>`+
+    (x.cast?`<p><b>Spells:</b> ${x.cast}</p>`:"")+
+    (x.res?`<p><b>Resists:</b> ${x.res}</p>`:"")+(x.imm?`<p><b>Immune:</b> ${x.imm}</p>`:"")+(x.vul?`<p><b>Vulnerable:</b> ${x.vul}</p>`:"")+
+    (x.cimm?`<p><b>Can't be:</b> ${x.cimm}</p>`:"")+
+    (!x.res&&!x.imm&&!x.vul&&!x.cimm?`<p>No resistances or immunities.</p>`:"")+`</div>`;
   const chips = x => Array.from({length:x.n},(_,i)=>`<span class="chip" data-chip="${x.id}:${i}" data-max="${x.hp}"></span>`).join("");
   const foe = x => `<div class="foe" data-foe="${x.id}"><div class="foe-h"><span class="foe-n">${x.nm}${x.n>1?` &times;${x.n}`:""}</span>`+
-      `<span class="foe-m">speed ${x.spd}</span>${chips(x)}</div>`+
+      `<span class="foe-m">speed ${x.spd}</span>${chips(x)}</div>`+defs(x)+
     `<ul>${x.turn.map(t=>`<li>${t}</li>`).join("")}</ul>`+
     (x.sayIf||[]).map(said).join("")+
     (x.note?`<p class="small">${x.note}</p>`:"")+

@@ -21,6 +21,8 @@
    foe:  id, nm, one (singular, if n>1), n (how many), ac, hp, floor (lowest HP, if not 0), spd, chassis, cr, xp,
          turn (1-3 steps), sayIf (Spencer's lines on one of those steps),
          note (on its turn), hpnote (on its HP tracker), drop (when it drops), endsFight, hard / easy (the dials)
+         sv: saving throw bonuses [STR, DEX, CON, INT, WIS, CHA]; grab (Athletics or Acrobatics for grapple and shove);
+         pp (passive Perception); res, imm, vul (damage), cimm (conditions); cast (spell DC or attack bonus)
    turnIntro: replaces the opening line of "On my turn".
    ally: nm, act (one thing, no roll), tok (where the token goes)
    ===================================================================== */
@@ -82,18 +84,21 @@ const FIGHTS = {
       full:"The shears stop cutting. Keep fighting until everything's down."},
     foes:[
       {id:"cart", nm:"The book cart", n:1, ac:14, hp:18, spd:"30", chassis:"Animated Armor", cr:"1", xp:200,
+       sv:[2,0,1,-5,-4,-5], grab:"Athletics +2", pp:6, imm:"Poison, Psychic", cimm:"Blinded, Charmed, Deafened, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned",
        turn:["Rolls at the nearest PC.",
              "Ram: <b>+5 to hit, 9 bludgeoning</b>, and that PC is pushed 10 ft."],
        drop:"A wheel comes off; it tips over and spills its books.",
        hard:"It stops pushing: damage only.",
        easy:"Add 6 HP (24)."},
       {id:"shears", nm:"Archival shears", n:2, ac:14, hp:16, spd:"fly 30", chassis:"Flying Sword", cr:"½", xp:100,
+       sv:[1,4,0,-5,-3,-5], grab:"Acrobatics +2", pp:7, imm:"Poison, Psychic", cimm:"Blinded, Charmed, Deafened, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned",
        turn:["Each pair still up flies to the article and cuts. No roll. <b>Tap +1 cut for each.</b>"],
        note:"Nothing blocks them.",
        drop:"It snaps shut and clatters to the floor. That pair's cuts stop. The fight goes on.",
        hard:"One pair jams in the binding for a round: no cut that turn.",
        easy:"Give each pair 6 more HP (22)."},
       {id:"cards", nm:"Swarm of index cards", n:1, ac:12, hp:14, spd:"fly 30", chassis:"Swarm of Insects", cr:"½", xp:100,
+       sv:[-4,1,0,-5,-2,-5], grab:"Acrobatics +1", pp:8, vul:"Fire (double damage)", cimm:"Charmed, Frightened, Grappled, Paralyzed, Petrified, Prone, Restrained, Stunned",
        turn:["Moves onto the nearest PC.",
              "Paper cuts: <b>+5 to hit, 7 slashing</b>."],
        hpnote:"<b>Fire does double.</b>",
