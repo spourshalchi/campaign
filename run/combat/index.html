@@ -164,7 +164,7 @@
 </head>
 <body>
 <div id="page"></div>
-<script src="../fights.js?v=24"></script>
+<script src="../fights.js?v=25"></script>
 <script>
 "use strict";
 const $ = s => document.querySelector(s);
@@ -264,7 +264,7 @@ function stepRounds(f){
 
 /* ---- 3. on my turn: every enemy, then the allies ---- */
 const tierName = (t,v) => (t.tiers.find(([m])=>v<=m)||t.tiers[t.tiers.length-1])[1];
-const tallyMax = t => t.tiers[t.tiers.length-2][0]+1;
+const tallyMax = t => t.max||t.tiers[t.tiers.length-2][0]+1;
 function stepTurn(f){
   const chips = x => Array.from({length:x.n},(_,i)=>`<span class="chip" data-chip="${x.id}:${i}" data-max="${x.hp}"></span>`).join("");
   const foe = x => `<div class="foe" data-foe="${x.id}"><div class="foe-h"><span class="foe-n">${x.nm}${x.n>1?` &times;${x.n}`:""}</span>`+
@@ -288,7 +288,7 @@ function stepTrack(f){
   const tally = t ? `<div class="trk tally" data-tally>`+
     `<div class="hp-t"><span class="hp-n">${t.label}: tally</span><span class="tv"></span></div>`+
     `<div class="hp-b"><button data-tad="-1">&minus;1 cut</button><button data-tad="1">+1 cut</button></div>`+
-    `<div class="tiers">${t.tiers.map(([m,nm],i,a)=>`<span class="tier" data-tier="${nm}">${i===0?`Up to ${m} cuts`:i===a.length-1?`${a[i-1][0]+1} cuts`:`${a[i-1][0]+1}&ndash;${m} cuts`} = ${nm}</span>`).join("")}</div>`+
+    `<div class="tiers">${t.tiers.map(([m,nm],i,a)=>`<span class="tier" data-tier="${nm}">${i===0?`Up to ${m} cuts`:i===a.length-1?`${a[i-1][0]+1===tallyMax(t)?a[i-1][0]+1:(a[i-1][0]+1)+" or more"} cuts`:`${a[i-1][0]+1===m?m:(a[i-1][0]+1)+"&ndash;"+m} cuts`} = ${nm}</span>`).join("")}</div>`+
     `<p class="small">${t.use}</p>`+
     `<div class="tally-full" hidden>${t.full}</div></div>` : "";
   const hpRow = (x,i) => `<div class="hp" data-hp="${x.id}:${i}" data-max="${x.hp}" data-min="${x.floor||0}" data-of="Started at ${x.hp}. AC ${x.ac}.">`+
