@@ -12,9 +12,9 @@ SCENES.push(
     {say:"Who's your character? Their name, one thing you'd notice about them from across the room, and one thing everyone at school knows about them.", who:"Say to each player in turn"},
     {tick:"<b>Bix Grimlor</b> &middot; Will"},
     {tick:"<b>Gnomey Soprano</b> &middot; Julia"},
-    {tick:"<b>Simone's warlock</b> &middot; Simone<span class=\"how\">no in-world name needed</span>"},
+    {tick:"<b>Dark Wind</b> &middot; Simone"},
     {tick:"<b>Yobo</b> &middot; John"},
-    {tick:"<b>Russ</b> &middot; Cody"},
+    {tick:"<b>Kelvin</b> &middot; Cody"},
     {say:"This is Transyltown, New York, a charming little suburb in the Hudson Valley. There's a hall of records, a scout troop, and a fantasy high school, where the five of you are super seniors: in your twenties, and this is supposed to be your last year. It's Halloween, 2004. On the hill at the edge of town there's an abandoned Dutch mansion. Its front door has been boarded up for decades, and the local kids throw rocks at the windows on dares. A kid from your school went missing about a month ago. Everyone says he ran away. The posters are still up. You all have History together. You know each other by sight and reputation, even if you've never really talked.", who:"The opening · read aloud", go:"1"}
   ],
   npcs:[],

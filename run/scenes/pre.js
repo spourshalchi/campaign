@@ -20,7 +20,7 @@ const IPAD = {
    on card zero. */
 const PROPS = [
   {id:"backstory",  nm:"Backstory cards",               to:"one per player",        cue:0,  how:"Give them a minute to read."},
-  {id:"reqcard",    nm:"Russ's requirements card",      to:"Cody (Russ)",           cue:0},
+  {id:"reqcard",    nm:"Kelvin's requirements card",      to:"Cody (Kelvin)",           cue:0},
   {id:"invites",    nm:"Invite cards",                  to:"one per player",        cue:2,  how:"Spencer's card, one in each locker. No host named."},
   {id:"weight",     nm:"<i>The Weight of Your Lies</i>",to:"John (Yobo)",           cue:4,  how:"face-down, the moment the crew asks for a Dolly riff. Disadvantage on Performance, advantage on Deception."},
   {id:"survey",     nm:"Site survey",                   to:"the table",             cue:7,  how:"to whoever finds it, from the look-around."},
@@ -32,7 +32,7 @@ const PROPS = [
   {id:"willow",     nm:"The wishing willow",            to:"whoever opens the bag", cue:13, how:"from the bag: <i>I want Angelique to notice me</i>."},
   {id:"usb",        nm:"USB stick <code>MARCUS_HALE</code>", to:"the table",        cue:13, how:"when the drive mounts and he uploads the file."},
   {id:"tickets",    nm:"Concert tickets",               to:"Simone",                cue:15, how:"from Upton's mother's hand."},
-  {id:"badge",      nm:"The badge",                     to:"Cody (Russ)",           cue:15, how:"from the troop leader, once Orlok signs."},
+  {id:"badge",      nm:"The badge",                     to:"Cody (Kelvin)",           cue:15, how:"from the troop leader, once Orlok signs."},
   {id:"deed",       nm:"The deed",                      to:"Julia (Gnomey)",        cue:15, how:"from Vinny."}
 ];
 
@@ -52,7 +52,7 @@ const SCENES = [
       {id:"laptop", t:"<b>Run of Show open</b>, sound up, soundboard tested (one ambience, one sting). Ticks reset (bottom of this card)."}
     ]},
     {g:"Print run", items:[
-      {id:"print", t:"<b>Print run picked up and cut</b> (<code>/print/</code>): invites, backstory cards, Russ's card, the badge, the willow's tag, the concert tickets, Yobo's two cards, battle tokens, the deed, the survey, the settlement, Orlok's ledger, character sheets."},
+      {id:"print", t:"<b>Print run picked up and cut</b> (<code>/print/</code>): invites, backstory cards, Kelvin's card, the badge, the willow's tag, the concert tickets, Yobo's two cards, battle tokens, the deed, the survey, the settlement, Orlok's ledger, character sheets."},
       {id:"backstory-reprint", t:"<b>Reprinted Simone and Yobo backstory cards</b> (<code>8-backstory-reprint.pdf</code>, cut on the crop marks). Use these, not the old two."},
       {id:"photo", t:"<b>The photograph</b>: a Staples 4&times;6 photo print of <code>print/photo-4x6.jpg</code>, glossy or lustre. Same-day at most stores."},
       {id:"usb", t:"<b>USB stick</b> labelled <code>MARCUS_HALE</code>."},

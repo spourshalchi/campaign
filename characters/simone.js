@@ -1,7 +1,7 @@
 character({
-  id:"simone", player:"Simone", name:"Simone's Warlock", color:"#5a1f2e",
+  id:"simone", player:"Simone", name:"Dark Wind", color:"#5a1f2e",
   tag:"Tiefling Warlock. Love spells and revenge spells, reasonable rates.",
-  intro:"Warlock is yours. Your species isn't settled. Every warlock gets their power from a patron, and yours stays between you and Scott: it's on your printed handout. Everything marked <span class='rec'>Recommended</span> is a suggestion.",
+  intro:"Tiefling and Warlock are yours. Every warlock gets their power from a patron, and yours stays between you and Scott: it's on your printed handout. Everything marked <span class='rec'>Recommended</span> is a suggestion.",
   scores:{str:8, dex:14, con:14, int:10, wis:13, cha:18},
   saves:["wis","cha"],
   skills:["Deception","Sleight of Hand","Arcana","Intimidation","Persuasion","Insight","Investigation"],
@@ -15,7 +15,8 @@ character({
     {h:"Step 2: origin", items:[
       {k:"Background", pick:"Charlatan", rec:1, why:"You sell love spells and revenge spells to classmates. It boosts Charisma and Con, gives Deception, Sleight of Hand, a Forgery Kit and the Skilled feat."},
       {k:"Skilled choices", pick:"Persuasion, Insight, Investigation", rec:1, why:"Reading a customer and closing the sale."},
-      {k:"Species", pick:"Tiefling, Infernal legacy", rec:1, why:"Feared and misunderstood suits you. It adds Fire Resistance, Fire Bolt, Hellish Rebuke and Darkness. Human also works if you'd rather look ordinary."},
+      {k:"Species", pick:"Tiefling", why:"Yours already. Feared and misunderstood suits you."},
+      {k:"Fiendish legacy", pick:"Infernal", rec:1, why:"It adds Fire Resistance, Fire Bolt, Hellish Rebuke and Darkness."},
       {k:"Tiefling size and ability", pick:"Medium, Charisma", rec:1, why:"Legacy spells use Charisma, same as the rest of your magic."},
       {k:"Languages", pick:"Common, Draconic, Elvish", rec:1, why:"Everyone gets Common plus two."}
     ]},

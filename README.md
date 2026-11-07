@@ -77,7 +77,7 @@ Everything to print lives in the **print kit at [`print/`](print/)**: seven Stap
 
 | File | Paper | What's in it |
 |---|---|---|
-| `print/1-cardstock.pdf` | Letter cardstock, colour, 1-sided, 1 copy | Invitations ×6, Russ's card, the badge, the concert tickets, the backstory cards, Yobo's two secret cards, the battle tokens |
+| `print/1-cardstock.pdf` | Letter cardstock, colour, 1-sided, 1 copy | Invitations ×6, Kelvin's card, the badge, the concert tickets, the backstory cards, Yobo's two secret cards, the battle tokens |
 | `print/photo-4x6.jpg` | Staples photo print: 4×6, glossy or lustre, 1 print (same-day at most stores) | The photograph (Will's trait is painted in) |
 | `print/3-deed.pdf` | Letter cardstock, cream or parchment, colour, 1-sided, 1 copy | The deed |
 | `print/4-plain.pdf` | Letter ivory or plain, colour, 1-sided, 1 copy | The developer's site assessment, the Articles of Settlement, Orlok's ledger |

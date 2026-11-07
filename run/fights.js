@@ -57,9 +57,9 @@ const FIGHTS = {
           {at:"D8", nm:"The book cart", l:"Cart", k:"foe"},
           {at:"E4", nm:"Bix", l:"Bix", k:"pc"},
           {at:"G4", nm:"Gnomey", l:"Gnomey", k:"pc"},
-          {at:"D6", nm:"Simone", l:"Simone", k:"pc"},
+          {at:"D6", nm:"Dark Wind", l:"Dark Wind", k:"pc"},
           {at:"E6", nm:"Yobo", l:"Yobo", k:"pc"},
-          {at:"G6", nm:"Russ", l:"Russ", k:"pc"}
+          {at:"G6", nm:"Kelvin", l:"Kelvin", k:"pc"}
         ]}
     },
     rounds:[
@@ -122,9 +122,9 @@ const FIGHTS = {
           {at:"I5", nm:"Ritual fragment 2", l:"Frag 2", k:"foe"},
           {at:"C7", nm:"Bix", l:"Bix", k:"pc"},
           {at:"D7", nm:"Gnomey", l:"Gnomey", k:"pc"},
-          {at:"E7", nm:"Simone", l:"Simone", k:"pc"},
+          {at:"E7", nm:"Dark Wind", l:"Dark Wind", k:"pc"},
           {at:"F7", nm:"Yobo", l:"Yobo", k:"pc"},
-          {at:"G7", nm:"Russ", l:"Russ", k:"pc"}
+          {at:"G7", nm:"Kelvin", l:"Kelvin", k:"pc"}
         ]}
     },
     rounds:[
@@ -189,8 +189,8 @@ const FIGHTS = {
           {at:"F10", nm:"Angelique", l:"Angel.", k:"ally"},
           {at:"D9", nm:"Yobo", l:"Yobo", k:"pc"},
           {at:"E9", nm:"Gnomey", l:"Gnomey", k:"pc"},
-          {at:"F9", nm:"Simone", l:"Simone", k:"pc"},
-          {at:"G9", nm:"Russ", l:"Russ", k:"pc"},
+          {at:"F9", nm:"Dark Wind", l:"Dark Wind", k:"pc"},
+          {at:"G9", nm:"Kelvin", l:"Kelvin", k:"pc"},
           {at:"H9", nm:"Bix", l:"Bix", k:"pc"}
         ]},
       map:["Poe Boy and Stinky stay up on the stage. They're not in this fight."]
@@ -198,7 +198,7 @@ const FIGHTS = {
     rounds:[
       {k:"Round 1",
        do:"A stake rests on Orlok's chest. The seal holds until Ostrander drops. <b>They go for Poe Boy?</b> He can't drop below 1 HP and Stinky blocks.",
-       sp:[{who:"Orlok · pinned, to Russ", t:"Boy. Help me."},{who:"Edward · on seeing Ostrander's men", t:"Twenty-five years."}]},
+       sp:[{who:"Orlok · pinned, to Kelvin", t:"Boy. Help me."},{who:"Edward · on seeing Ostrander's men", t:"Twenty-five years."}]},
       {k:"Round 2",
        do:"They've moved on to Edward: a mallet up over a stake on his chest. He's looking at Bix, not at it. Dracula stays frozen an arm's length from Yobo.",
        sp:[{who:"DJ Poe Boy · on the mic", t:"Oh, this is great. Keep going."}]},
@@ -215,7 +215,7 @@ const FIGHTS = {
       next:"Straight to the booth: cue 14 &middot; ii."
     },
     lines:[
-      {who:"Orlok · pinned, to Russ", t:"Boy. Help me."},
+      {who:"Orlok · pinned, to Kelvin", t:"Boy. Help me."},
       {who:"Edward · on seeing Ostrander's men", t:"Twenty-five years."},
       {who:"DJ Poe Boy · on the mic, during the fight", t:"Oh, this is great. Keep going."}
     ],
@@ -241,7 +241,7 @@ const FIGHTS = {
     ],
     alliesLabel:"Allies · no rolls",
     allies:[
-      {nm:"Orlok, Dracula, Edward", act:"Pinned until the seal breaks, so they don't act. When the seal breaks they finish thugs 4–6: Dracula plays to the crowd; Orlok is quick and tidy; Edward is efficient and doesn't look at anyone. Mark each one down. <b>Russ heals one:</b> badge req 3. If it doesn't happen here, it's still open at the booth."},
+      {nm:"Orlok, Dracula, Edward", act:"Pinned until the seal breaks, so they don't act. When the seal breaks they finish thugs 4–6: Dracula plays to the crowd; Orlok is quick and tidy; Edward is efficient and doesn't look at anyone. Mark each one down. <b>Kelvin heals one:</b> badge req 3. If it doesn't happen here, it's still open at the booth."},
       {nm:"Angelique", act:"Each round, after everyone: takes a hard hat's face and taps the thug on the most-hurt PC on the shoulder. He loses his next attack.",
        tok:"Next to that thug."}
     ]
@@ -275,7 +275,7 @@ const FIGHTS = {
     },
     rounds:[
       {k:"Round 1",
-       do:"Stinky's first swing goes through a vampire, no roll. <b>Russ heals it:</b> badge req 3, if it hasn't landed. Allies this round: Orlok, Angelique.",
+       do:"Stinky's first swing goes through a vampire, no roll. <b>Kelvin heals it:</b> badge req 3, if it hasn't landed. Allies this round: Orlok, Angelique.",
        sp:[{who:"Angelique · to the party", t:"Aux is round the back of the mixer, left side. I'm on the poster. I know this stage."}]},
       {k:"Round 2", do:"Allies this round: Dracula, Angelique."},
       {k:"Round 3", do:"Allies this round: Edward, Angelique. <b>Not played by the end of this round?</b> Dracula lands the drive in a PC's hand at the decks, and it plays."},

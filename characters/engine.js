@@ -2,7 +2,7 @@
    Nothing here or in characters/<id>.js may be private: the iPad is passed around the table.
    calc() works every number out from the ability scores, level and proficiencies. */
 "use strict";
-const ROSTER = [["gnomey","Gnomey Soprano","Julia"],["bix","Bix Grimlor","Will"],["yobo","Yobo","John"],["russ","Russ","Cody"],["simone","Simone's Warlock","Simone"]];
+const ROSTER = [["gnomey","Gnomey Soprano","Julia"],["bix","Bix Grimlor","Will"],["yobo","Yobo","John"],["kelvin","Kelvin","Cody"],["simone","Dark Wind","Simone"]];
 const ABIL = ["str", "dex", "con", "int", "wis", "cha"];
 const ABIL_NAME = {str:"Strength", dex:"Dexterity", con:"Constitution", int:"Intelligence", wis:"Wisdom", cha:"Charisma"};
 const SKILLS = {"Acrobatics":"dex","Animal Handling":"wis","Arcana":"int","Athletics":"str","Deception":"cha","History":"int","Insight":"wis","Intimidation":"cha",
@@ -60,8 +60,9 @@ function picker() {
 const CHARACTERS = {};
 function character(pc) { CHARACTERS[pc.id] = pc; if (typeof document !== "undefined" && !window.PRINT_MODE) render(pc); }
 if (typeof document !== "undefined" && !window.PRINT_MODE) {
-  const id = new URLSearchParams(location.search).get("p");
-  if (ROSTER.some(r => r[0] === id)) { const s = document.createElement("script"); s.src = `${id}.js?v=6`; document.body.appendChild(s); }
+  let id = new URLSearchParams(location.search).get("p");
+  if (id === "russ") { id = "kelvin"; history.replaceState(null, "", "?p=kelvin"); }
+  if (ROSTER.some(r => r[0] === id)) { const s = document.createElement("script"); s.src = `${id}.js?v=7`; document.body.appendChild(s); }
   else picker();
   document.addEventListener("touchmove", e => { if (e.scale && e.scale !== 1) e.preventDefault(); }, {passive:false});
 }

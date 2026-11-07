@@ -971,8 +971,8 @@
           },
           {
             "id": "simone",
-            "name": "Simone's Warlock",
-            "sub": "Simone · Warlock",
+            "name": "Dark Wind",
+            "sub": "Simone · Tiefling Warlock",
             "g": "player",
             "x": 120,
             "y": 370,
@@ -1739,8 +1739,8 @@
             },
             {
               "key": "simone",
-              "title": "Simone's Warlock",
-              "subtitle": "Simone · Warlock",
+              "title": "Dark Wind",
+              "subtitle": "Simone · Tiefling Warlock",
               "group": "Players",
               "accent": "#5b9bd5",
               "status": "doc",
@@ -1749,13 +1749,13 @@
                 {
                   "id": "codex::node::simone::name",
                   "label": "Name",
-                  "text": "Simone's Warlock",
+                  "text": "Dark Wind",
                   "path": "codex/index.html :: NODES[id=simone].name"
                 },
                 {
                   "id": "codex::node::simone::sub",
                   "label": "Subtitle",
-                  "text": "Simone · Warlock",
+                  "text": "Simone · Tiefling Warlock",
                   "path": "codex/index.html :: NODES[id=simone].sub"
                 },
                 {

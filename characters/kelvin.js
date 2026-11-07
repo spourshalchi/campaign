@@ -1,5 +1,5 @@
 character({
-  id:"russ", player:"Cody", name:"Russ", color:"#2f6b3a",
+  id:"kelvin", player:"Cody", name:"Kelvin", color:"#2f6b3a",
   tag:"Firbolg Druid. Wilderness Scouts of Transyltown, Troop 187. Always prepared.",
   intro:"Firbolg and Druid are already yours. Firbolg comes from an older book, not the 2024 Player's Handbook. We use it under the 2024 rules: your ability bonuses come from your background, not your species. Scott has the final say. Everything marked <span class='rec'>Recommended</span> is a suggestion.",
   scores:{str:8, dex:14, con:14, int:13, wis:18, cha:10},
