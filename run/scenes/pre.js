@@ -23,7 +23,7 @@ const PROPS = [
   {id:"reqcard",    nm:"Russ's requirements card",      to:"Cody (Russ)",           cue:0},
   {id:"invites",    nm:"Invite cards",                  to:"one per player",        cue:2,  how:"Spencer's card, one in each locker. No host named."},
   {id:"weight",     nm:"<i>The Weight of Your Lies</i>",to:"John (Yobo)",           cue:4,  how:"face-down, the moment the crew asks for a Dolly riff. Disadvantage on Performance, advantage on Deception."},
-  {id:"survey",     nm:"Site survey",                   to:"the table",             cue:8,  how:"to whoever finds it, from the look-around."},
+  {id:"survey",     nm:"Site survey",                   to:"the table",             cue:7,  how:"to whoever finds it, from the look-around."},
   {id:"sticky",     nm:"Sticky note <code>Fluffy123</code>", to:"the table",        cue:9,  how:"to whoever finds it, after the fight and before the screen wakes. They keep it for Sunday."},
   {id:"settlement", nm:"Articles of Settlement",        to:"Julia (Gnomey), alone", cue:10, how:"from the strongbox."},
   {id:"photo",      nm:"The photograph (4&times;6)",    to:"Will (Bix)",            cue:11, how:"say nothing."},
@@ -40,8 +40,8 @@ const PROPS = [
    {say,who} read aloud · {do} an instruction · {snd,t} sounds to tap · {hand,do} a prop to hand over
    {tick} a set-up line with a box · {check} a check and its DC · {ipad,do} a digital prop to open
    {tok} tokens out · {fight} the fight · {slot,t} a prompt list · {end} how the scene ends
-   Sub-rows that hang off the step above: {note,k} · {rev} · {stuck} · {backup}
-   talk, ifblock, rev, npcs and spBrief are Spencer's panel. cues are the soundboard's This cue row. */
+   Sub-rows that hang off the step above: {note,k} · {stuck} · {backup}
+   talk, ifblock, npcs and spBrief are Spencer's panel. cues are the soundboard's This cue row. */
 const SCENES = [
 
 { act:"set", no:"PREP", title:"Pre-session checklist", where:"Card zero · tick as you go · saved on this laptop",
@@ -59,7 +59,7 @@ const SCENES = [
       {id:"sticky-made", t:"<b>Sticky note</b> <code>Fluffy123</code>, handwritten. <b>The wishing willow</b>, handmade, with its tag tied on."}
     ]},
     {g:"The room", items:[
-      {id:"table", t:"<b>At the table</b>: character sheets, dice, battle map, the token bag sorted by fight (library, summoning, finale, reserve)."},
+      {id:"table", t:"<b>At the table</b>: character sheets, dice, battle map, the token bag sorted by fight (library, summoning, finale)."},
       {id:"seat", t:"<b>Your seat</b>: Run of Show in front of you, the props bag at your feet in the order below, the hidden three (deed, tickets, badge) in a separate envelope."}
     ]},
     {g:"Props bag &middot; packed in hand-over order", pack:true},
@@ -71,7 +71,7 @@ const SCENES = [
     "<b>Your zone is the pink one on the right</b>, on every cue.",
     "<b>Points</b> at the top are what each NPC has to get across, in order.",
     "<b>Lines</b> are yours to say. <b>IF blocks</b> (dashed) only play if their condition happened.",
-    "Each <b>NPC</b> has a one-line voicing. A <b>🔓 Reveal</b> under an NPC is something they let slip, or something they learn and react to.",
+    "Each <b>NPC</b> has a one-line voicing.",
     "Scott narrates, runs checks and the enemy turns; you voice everyone else.",
     "<b>Handoff:</b> when Scott says an NPC's name and looks at you, you're on. Tap the table when a moment needs a roll or a check, and Scott takes it."
   ],

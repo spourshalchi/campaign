@@ -122,46 +122,6 @@ const FIGHTS = {
     ]
   },
 
-  reserve: {
-    day:"Sunday", cue:"R", name:"The circle stirs",
-    start:{
-      read:[{t:"Last night's room is cold now. One of the chalk lines is moving."}],
-      map:["The 2&Prime; summoning token is the remnant, in the half-drawn circle.","Fragments 1 and 2 on the floor lines."]
-    },
-    rounds:[
-      {k:"Round 1", say:"What's left of last night's thing pulls itself up out of the floorboards. Half of what it was, and still wrong."},
-      {k:"Round 2", do:"The fragments crumble. Take them off. <b>Eating the clock, or two PCs down?</b> It smears apart on its own. Go to step 5."}
-    ],
-    end:{
-      when:"It drops.",
-      read:[
-        {who:"It drops", t:"Chalk dust. The circle is just a drawing now."},
-        {note:"Clear the map."}
-      ],
-      next:"On to the AIM door: cue 13."
-    },
-    foes:[
-      {id:"remnant", nm:"The remnant", n:1, ac:14, hp:70, spd:"30", chassis:"Flesh Golem", cr:"6", xp:2300,
-       say:"Half of last night's thing, still wrong.",
-       turn:["Moves to the nearest PC. It can't leave the room.",
-             "Claws twice: <b>+7 to hit, 9 slashing</b> each.",
-             "<b>Once, the first time it's under 35 HP:</b> Unfinished Word. Every PC within 15 ft makes a <b>DC 14 Wis save</b>: 10 psychic, half on a save."],
-       sayIf:[{who:"When it uses the Unfinished Word", t:"It tries the same word as last night. It gets no further with it, and it hurts more."}],
-       note:"Never attacks a PC at 0 HP.",
-       drop:"The fragments crumble with it.",
-       endsFight:1,
-       hard:"It spends a turn scrabbling at the floor lines.",
-       easy:"Add 20 HP (90)."},
-      {id:"frag2", nm:"Ritual fragments", one:"Ritual fragment", n:2, ac:12, hp:10, spd:"30", chassis:"Shadow, no Strength drain", cr:"¼", xp:50,
-       say:"The same chalk scrawls.",
-       turn:["Goes for the nearest PC.",
-             "Grab: <b>+5 to hit, 6 necrotic</b>."],
-       drop:"Crumbles to chalk dust.",
-       hard:"One of them smears out and stops.",
-       easy:"Give each 5 more HP (15)."}
-    ]
-  },
-
   developer: {
     day:"Sunday", cue:"14 · i", name:"The developer",
     start:{

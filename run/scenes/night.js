@@ -38,7 +38,7 @@ SCENES.push(
     {do:"<b>Spencer's turn:</b> the dismissal."},
     {end:"on Orlok's dismissal, with the party scattering to look for a way out."}
   ],
-  next:"On Orlok's dismissal, Russ finds Orlok at the cabinet: cue 7.", go:["7"],
+  next:"On Orlok's dismissal, they go looking for a way out: cue 7.", go:["7"],
   npcs:[
     {nm:"Dracula", pts:[
       {at:"Overheard, while they hide"},
@@ -75,30 +75,7 @@ SCENES.push(
   ],
   cues:["drone","heart","steps","swoop","jump","braaam"] },
 
-{ act:"night", no:7, title:"Russ and the spectacles", where:"Off the main hall · Russ",
-  steps:[
-    {snd:["drone"]},
-    {say:"Off the main hall, a tall cabinet stands against the wall. On top of it, a pair of wire spectacles. Below them Orlok is patting slowly along the wrong shelf.", who:"Setting"},
-    {do:"Russ is the one who finds him, right after the dismissal. Orlok can't see without the spectacles."},
-    {do:"Russ reaches up and hands the spectacles over. <b>No roll.</b>"},
-    {check:{skill:"Insight (Russ)", dc:"12", note:"<b>Call it</b> as Orlok takes the spectacles. <b>Success:</b> say that Orlok looks at him a beat too long, as if deciding something."}},
-    {do:"Russ points at &ldquo;verified by your elder&rdquo;. <b>Spencer's turn:</b> Orlok refuses to sign."},
-    {say:"Spectacles handed over, not a word of thanks. Behind him the house goes dark in every direction."},
-    {end:"on the read-aloud: no thanks, and the house dark in every direction. Turn them loose to explore."}
-  ],
-  next:"No thanks, the house dark in every direction (read-aloud). Turn them loose: cue 8.", go:["8"],
-  npcs:[
-    {nm:"Orlok", pts:[
-      "Keep patting along the wrong shelf until Russ acts.<ul><li>Dracula put your spectacles on top of the cabinet, and you can't see without them.</li></ul>",
-      {t:"Refuse to ask for help, even when he offers it.", say:"Nothing that concerns you."},
-      "Take the spectacles without a word of thanks.",
-      {t:"Refuse to sign when Russ shows you the card.<ul><li>He'll point at &ldquo;verified by your elder&rdquo;. Give him a flat no.</li></ul>", say:["No.","I said no."]},
-      "Stay cold and give him nothing back."
-    ], vc:"Cold and dignified, and very polite about it."}
-  ],
-  cues:["drone"] },
-
-{ act:"night", no:8, title:"Edward spies on them", where:"The upper floors · Bix",
+{ act:"night", no:7, title:"Edward spies on them", where:"The upper floors · Bix",
   steps:[
     {snd:["creak","drone","heart"]},
     {say:"The upper floors in the dark: long corridors, doors that won't open, floorboards that answer every step. Every so often, at the end of a hall or in a doorway you've just passed, the same pale figure is standing very still.", who:"Setting"},
@@ -110,15 +87,38 @@ SCENES.push(
     {note:"<b>If they try the ballroom:</b> heavy doors, locked, and no roll or spell opens them. Cables run under the door."},
     {note:"<b>If they look for Poe Boy:</b> he isn't in the house."},
     {note:"If they reach the locked door at the end of the upstairs hall, narrate the poster (the first read-aloud on cue 13). That's as far as they get."},
+    {end:"on the second time they catch him. Keep them exploring."}
+  ],
+  next:"They keep exploring, and Russ finds Orlok: cue 8.", go:["8"],
+  npcs:[
+    {nm:"Edward", pts:["Stand still and watch Bix each time they catch you.<ul><li>They catch you twice. Scott narrates it. You have no lines tonight.</li></ul>","Ignore anything they say to you.","Refuse to approach or explain."], vc:"Silent, very still."}
+  ],
+  cues:["creak","drone","heart"] },
+
+{ act:"night", no:8, title:"Russ and the spectacles", where:"Off the main hall · Russ",
+  steps:[
+    {snd:["drone"]},
+    {say:"Off the main hall, a tall cabinet stands against the wall. On top of it, a pair of wire spectacles. Below them Orlok is patting slowly along the wrong shelf.", who:"Setting"},
+    {do:"While they're exploring, Russ is the one who finds him. Orlok can't see without the spectacles."},
+    {do:"Russ reaches up and hands the spectacles over. <b>No roll.</b>"},
+    {check:{skill:"Insight (Russ)", dc:"12", note:"<b>Call it</b> as Orlok takes the spectacles. <b>Success:</b> say that Orlok looks at him a beat too long, as if deciding something."}},
+    {do:"Russ points at &ldquo;verified by your elder&rdquo;. <b>Spencer's turn:</b> Orlok refuses to sign."},
+    {say:"Spectacles handed over, not a word of thanks. Behind him the house goes dark in every direction."},
     {snd:["breath","riser"], t:"The warm door"},
     {say:"A door on the top floor you haven't tried is warm to the touch &mdash; and something on the other side of it is breathing.", who:"Routing them on"},
     {end:"at the warm, breathing door &mdash; straight into the summoning."}
   ],
   next:"The warm, breathing door (read-aloud): cue 9.", go:["9"],
   npcs:[
-    {nm:"Edward", pts:["Stand still and watch Bix each time they catch you.<ul><li>They catch you twice. Scott narrates it. You have no lines tonight.</li></ul>","Ignore anything they say to you.","Refuse to approach or explain."], vc:"Silent, very still."}
+    {nm:"Orlok", pts:[
+      "Keep patting along the wrong shelf until Russ acts.<ul><li>Dracula put your spectacles on top of the cabinet, and you can't see without them.</li></ul>",
+      {t:"Refuse to ask for help, even when he offers it.", say:"Nothing that concerns you."},
+      "Take the spectacles without a word of thanks.",
+      {t:"Refuse to sign when Russ shows you the card.<ul><li>He'll point at &ldquo;verified by your elder&rdquo;. Give him a flat no.</li></ul>", say:["No.","I said no."]},
+      "Stay cold and give him nothing back."
+    ], vc:"Cold and dignified, and very polite about it."}
   ],
-  cues:["creak","drone","heart","breath","riser"] },
+  cues:["drone","breath","riser"] },
 
 { act:"night", no:9, title:"The botched summoning", where:"The sealed room · combat",
   steps:[
