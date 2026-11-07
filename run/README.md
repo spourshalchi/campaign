@@ -85,7 +85,7 @@ loaded in this order:
 | `scenes/sunday.js` | Sunday's start card and cues 10 to 13 |
 | `scenes/finale.js` | Cues 14 to 16 |
 
-Each scene is one object: `steps` is Scott's list; `next` and `go` are the Next text and its jump buttons (`go:"rooms"` is
+Each scene is one object: `steps` is Scott's list; a `say` step with `go` gets its own jump button, for either-or choices; `next` and `go` are the Next text and its jump buttons (`go:"rooms"` is
 Sunday's room picker); `talk`, `ifblock`, `npcs` and `spBrief` are Spencer's panel: on an NPC, `vc` is one short line on who they are and `pts` is what to say, in order: each a full instruction starting with a verb, with any facts it needs in a nested `<ul>` in the same string. A line in `talk` goes on the point it shares the most words with; use `{t:"point", say:"line"}` in `pts` to place one by hand. Where a scene has distinct moments, mark them in `pts`: `{at:"When they arrive"}` starts a labelled moment and restarts the numbers, and `{at:"The fight", gap:"Scott runs it, nothing for you."}` is a moment with nothing to say;
 `cues` fills the soundboard's This cue row. To add a prop, add it to `PROPS` and a `{hand:id}` step on its scene.
 
