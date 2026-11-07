@@ -1,13 +1,12 @@
 character({
   id:"yobo", player:"John", name:"Yobo", color:"#8a2f6b",
-  tag:"Human College of Lore Bard. The biggest personality in the theatre department.",
-  intro:"Bard is what you're leaning toward, so it's our recommendation too. Species and subclass aren't settled, so they're marked <span class='rec'>Recommended</span>.",
+  tag:"Tabaxi College of Lore Bard. The biggest personality in the theatre department.",
+  intro:"Tabaxi is yours. Bard is what you're leaning toward, so it's our recommendation too. Tabaxi comes from an older book, not the 2024 Player's Handbook. We use it under the 2024 rules: your ability bonuses come from your background, not your species. Scott has the final say. Everything marked <span class='rec'>Recommended</span> is a suggestion.",
   scores:{str:8, dex:15, con:14, int:10, wis:12, cha:18},
   saves:["dex","cha"],
-  skills:["Acrobatics","Performance","Insight","Deception","Persuasion","Intimidation","Perception","Investigation","Arcana"],
+  skills:["Acrobatics","Performance","Perception","Stealth","Deception","Persuasion","Intimidation","Insight","Investigation","Arcana"],
   expertise:["Performance","Deception"],
   jack:true,
-  hpBonusPerLevel:2,
   ac:m => 11 + m.dex,
   spellAbility:"cha",
   steps:[
@@ -17,8 +16,7 @@ character({
     ]},
     {h:"Step 2: origin", items:[
       {k:"Background", pick:"Entertainer", rec:1, why:"Theatre kid. It boosts Charisma and Dex, gives Performance, Acrobatics and an instrument, and the Musician feat."},
-      {k:"Species", pick:"Human", rec:1, why:"Nothing strange, just the most popular guy in school. You get an extra skill, a free Origin feat and a reroll each day."},
-      {k:"Human choices", pick:"Skill: Insight. Feat: Tough", rec:1, why:"Reading a room is half the act. Tough makes up for your low AC."},
+      {k:"Species", pick:"Tabaxi", why:"Yours already. From Monsters of the Multiverse, so skip its ability bonuses and use your background's. You keep Darkvision, Feline Agility (double your speed for a turn), Cat's Claws (a climb speed and 1d6 claws) and Cat's Talent (Perception and Stealth)."},
       {k:"Languages", pick:"Common, Elvish, Gnomish", rec:1, why:"Everyone gets Common plus two."}
     ]},
     {h:"Step 3: ability scores", items:[
@@ -29,7 +27,7 @@ character({
     {h:"Step 4: level by level", items:[
       {k:"Level 1", pick:"Spellcasting, Bardic Inspiration", why:"Skills: Deception, Persuasion, Intimidation. Cantrips: Vicious Mockery, Prestidigitation. Prepare 4: Healing Word, Dissonant Whispers, Faerie Fire, Charm Person. Three instruments: lute, guitar, drum."},
       {k:"Level 2", pick:"Expertise, Jack of All Trades", why:"Expertise in Performance and Deception. Prepare 5: Thunderwave for now. Slots: 3 level 1."},
-      {k:"Level 3", pick:"Subclass: College of Lore", rec:1, why:"You tear people down for a living, and Cutting Words is exactly that as a rule. Three more skills: Perception, Investigation, Arcana. Prepare 6: swap Thunderwave for Shatter, add Hold Person. Slots: 4 level 1, 2 level 2."},
+      {k:"Level 3", pick:"Subclass: College of Lore", rec:1, why:"You tear people down for a living, and Cutting Words is exactly that as a rule. Three more skills: Insight, Investigation, Arcana. Reading a room is half the act. Prepare 6: swap Thunderwave for Shatter, add Hold Person. Slots: 4 level 1, 2 level 2."},
       {k:"Level 4", pick:"Ability Score Improvement: +1 Cha, +1 Con", rec:1, why:"Cha 18 raises every spell, and Con 14 adds hit points. A third cantrip, Minor Illusion. Prepare 7, adding Suggestion. Level 2 slots go to 3."}
     ]}
   ]
