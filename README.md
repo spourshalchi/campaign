@@ -83,7 +83,7 @@ Everything to print lives in the **print kit at [`print/`](print/)**: seven Stap
 | `print/4-plain.pdf` | Letter ivory or plain, colour, 1-sided, 1 copy | The developer's site assessment, the Articles of Settlement, Orlok's ledger |
 | `print/5-poster.pdf` | Letter plain white, colour, 1-sided, 1 copy | Spencer's DJ poster |
 | `print/8-backstory-reprint.pdf` | Letter cardstock, colour, 1-sided, 1 copy; cut on the crop marks | Simone's and Yobo's backstory card reprint, for anyone who printed the cardstock order before their Public and Private sections |
-| Filled character sheets, on Scott's computer in `~/Documents/D&D character sheets (filled)/` (not in the repo), plus the [blank official 2024 sheet](https://media.dndbeyond.com/compendium-images/free-rules/downloads/2024-character-sheet.pdf) for spares | Letter plain white, B&W, 2-sided, actual size; 1 of each filled sheet + 3 blank | One filled sheet per player, two pages each. Simone's names her patron, so it's hers alone |
+| Filled character sheets, on Scott's computer in `~/Documents/D&D character sheets (filled)/` (not in the repo), plus the [blank official 2024 sheet](https://media.dndbeyond.com/compendium-images/free-rules/downloads/2024-character-sheet.pdf) for spares | Letter plain white, B&W, 2-sided, actual size; 1 of each filled sheet + 3 blank | One filled sheet per player, two pages each |
 
 Rebuild after any prop change (needs Google Chrome, `pypdf` and ImageMagick); it remakes the PDFs and `photo-4x6.jpg`:
 

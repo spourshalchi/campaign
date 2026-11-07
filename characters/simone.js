@@ -1,7 +1,7 @@
 character({
   id:"simone", player:"Simone", name:"Dark Wind", color:"#5a1f2e",
   tag:"Tiefling Warlock. Love spells and revenge spells, reasonable rates.",
-  intro:"Tiefling and Warlock are yours. Every warlock gets their power from a patron, and yours stays between you and Scott: it's on your printed handout. Everything marked <span class='rec'>Recommended</span> is a suggestion.",
+  intro:"Tiefling and Warlock are yours. Every warlock gets their power from a patron. Who yours really is stays between you and Scott: it's on your backstory card. Everything marked <span class='rec'>Recommended</span> is a suggestion.",
   scores:{str:8, dex:14, con:14, int:10, wis:13, cha:18},
   saves:["wis","cha"],
   skills:["Deception","Sleight of Hand","Arcana","Intimidation","Persuasion","Insight","Investigation"],
@@ -28,7 +28,7 @@ character({
     {h:"Step 4: level by level", items:[
       {k:"Level 1", pick:"Pact Magic, 1 invocation", why:"Skills: Arcana and Intimidation, on top of your background's. Cantrips: Eldritch Blast, Mage Hand. Spells: Hex, Charm Person. Invocation: Armor of Shadows, so you can skip armor. You have 1 slot."},
       {k:"Level 2", pick:"Magical Cunning, 2 more invocations", why:"Agonizing Blast is the big one: it adds your Charisma to every blast. Repelling Blast is the fun one. Prepare Armor of Agathys as your third spell. You have 2 slots."},
-      {k:"Level 3", pick:"Subclass: your patron", why:"Your patron's feature and its always-prepared spells are on your printed handout. Your species adds Hellish Rebuke. Prepare Misty Step as your fourth. Your 2 slots become level 2."},
+      {k:"Level 3", pick:"Subclass: Great Old One Patron", why:"Yours already. These are the powers your patron gives you. <b>Always prepared, on top of your own picks:</b> Detect Thoughts (read what someone is thinking), Dissonant Whispers (a whisper only they hear: psychic damage, and they run), Phantasmal Force (an illusion only they can see) and Tasha's Hideous Laughter (they fall over laughing). <b>Awakened Mind:</b> as a bonus action, link minds with someone you can see within 30 ft and talk to each other silently. It lasts 4 minutes at level 4 and works up to 4 miles apart. <b>Psychic Spells:</b> any warlock spell that deals damage can deal psychic damage instead, and you can cast enchantments and illusions with no words or gestures, so nobody sees you do it. Charm Person and Hold Person are enchantments. Your species adds Hellish Rebuke. Prepare Misty Step as your fourth. Your 2 slots become level 2."},
       {k:"Level 4", pick:"Ability Score Improvement: +1 Cha, +1 Wis", rec:1, why:"Cha 18 raises every spell and blast. The other point has no big home, and Wis 13 is the likeliest to help later. A third cantrip: Minor Illusion. Prepare Hold Person as your fifth."}
     ]}
   ]

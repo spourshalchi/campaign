@@ -62,7 +62,7 @@ function character(pc) { CHARACTERS[pc.id] = pc; if (typeof document !== "undefi
 if (typeof document !== "undefined" && !window.PRINT_MODE) {
   let id = new URLSearchParams(location.search).get("p");
   if (id === "russ") { id = "kelvin"; history.replaceState(null, "", "?p=kelvin"); }
-  if (ROSTER.some(r => r[0] === id)) { const s = document.createElement("script"); s.src = `${id}.js?v=9`; document.body.appendChild(s); }
+  if (ROSTER.some(r => r[0] === id)) { const s = document.createElement("script"); s.src = `${id}.js?v=10`; document.body.appendChild(s); }
   else picker();
   document.addEventListener("touchmove", e => { if (e.scale && e.scale !== 1) e.preventDefault(); }, {passive:false});
 }
