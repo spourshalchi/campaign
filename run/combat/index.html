@@ -85,7 +85,7 @@
   .m-t.m-ally{fill:#c79a2e;stroke:#ffe6a6}
   .m-t.m-pc{fill:#2f6aa8;stroke:#b6d8f5}
   .m-t.side{stroke-dasharray:5 4;stroke-width:3}
-  .m-tl{fill:#fff;font:700 10px var(--f-body);text-anchor:middle;dominant-baseline:central}
+  .m-tl{fill:#fff;font:700 9.5px var(--f-body);text-anchor:middle;dominant-baseline:central}
   .m-tl.m-ally{fill:#1a1206}
   .draw{margin:0;padding-left:24px}
   .act .draw li{margin-bottom:10px}
@@ -167,7 +167,7 @@
 </head>
 <body>
 <div id="page"></div>
-<script src="../fights.js?v=22"></script>
+<script src="../fights.js?v=23"></script>
 <script>
 "use strict";
 const $ = s => document.querySelector(s);
@@ -236,7 +236,7 @@ function drawText(d){
 }
 function mapHTML(g){
   const size = `<p class="map-size">Use a block ${g.cols} squares across (A to ${COL[g.cols-1]}) and ${g.rows} down (1 to ${g.rows}). A1 is the top left square.</p>`;
-  const draw = (g.draw||[]).length ? `<p class="sub-h">Draw, and say as you draw</p><ol class="draw">${g.draw.map(d=>
+  const draw = (g.draw||[]).length ? `<p class="sub-h">${g.base?"Then draw, and say":"Draw, and say as you draw"}</p><ol class="draw">${g.draw.map(d=>
     `<li><b>${d.nm}.</b> ${drawText(d)}${d.say?`<span class="draw-say">${d.say}</span>`:""}</li>`).join("")}</ol>` : "";
   const groups = [["foe","Enemies"],["ally","Allies"],["pc","The party"]];
   const place = t => `${t.nm} ${t.size?`${t.at} to ${COL[cx(t.at)+t.size-1]}${cy(t.at)+t.size}`:t.at}${t.side?" (on its side)":""}`;

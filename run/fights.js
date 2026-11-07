@@ -24,6 +24,16 @@
    turnIntro: replaces the opening line of "On my turn".
    ally: nm, act (one thing, no roll), tok (where the token goes), say (one line of narration)
    ===================================================================== */
+/* The ballroom: drawn once for the developer, still on the table for the booth. */
+const BALLROOM = [
+  {s:"rect", a:"A1", b:"L12", nm:"The room", l:0, say:"This is the ballroom."},
+  {s:"rect", a:"D1", b:"I3", nm:"The stage", l:"Stage", lp:"H1", say:"This big block at the far end is the stage."},
+  {s:"rect", a:"E2", b:"H2", nm:"The decks", l:"Decks", say:"This bar across it is the decks."},
+  {s:"line", a:"A2", b:"C2", also:[["J2","L2"]], nm:"The cables", l:"Cables", lp:"B1", say:"These lines are the cables, running off into the walls."},
+  {s:"rect", a:"A5", b:"B11", also:[["K5","L11"]], nm:"The crowd", l:"Crowd", say:"These two blocks are the crowd, every face turned up and smiling."},
+  {s:"x", a:"F12", nm:"The doors", l:"Doors", lp:"H12", say:"This X is the ballroom doors, standing open."}
+];
+
 const FIGHTS = {
 
   library: {
@@ -106,7 +116,25 @@ const FIGHTS = {
     day:"Saturday", cue:9, name:"The botched summoning",
     start:{
       read:[{t:"Two fragments of chalk peel up off the floor lines."}],
-      map:["The 2&Prime; summoning in the middle of the chalk circle.","Fragments 1 and 2 on the floor lines around it."]
+      grid:{cols:10, rows:8, party:{a:"B7",b:"H8"},
+        draw:[
+          {s:"rect", a:"A1", b:"J8", nm:"The room", l:0, say:"This is the sealed room, hot and close."},
+          {s:"circle", a:"D3", b:"G6", nm:"The chalk circle", l:0, say:"This circle is chalk, and something half-made is dragging itself up out of it."},
+          {s:"line", a:"A4", b:"C4", also:[["H5","J5"]], nm:"The floor lines", l:"Floor line", lp:"B3", say:"These lines are chalk too, running out across the floorboards."},
+          {s:"dot", at:["C2","H2","C6","H6"], nm:"The candle stubs", l:0, say:"These little circles are candle stubs, burned down to nothing."},
+          {s:"x", a:"I1", nm:"The way to the sealed door", l:"Way to the|sealed door", lp:"G1", say:"This X is the way out, toward the sealed door down the hall."},
+          {s:"x", a:"E8", nm:"The warm door", l:"Warm door", lp:"G8", say:"This X is the warm door you just came through."}
+        ],
+        tokens:[
+          {at:"E4", nm:"The botched summoning (the 2-inch token)", l:"Botched summoning", k:"foe", size:2},
+          {at:"B4", nm:"Ritual fragment 1", l:"Frag 1", k:"foe"},
+          {at:"I5", nm:"Ritual fragment 2", l:"Frag 2", k:"foe"},
+          {at:"C7", nm:"Bix", l:"Bix", k:"pc"},
+          {at:"D7", nm:"Gnomey", l:"Gnomey", k:"pc"},
+          {at:"E7", nm:"Simone", l:"Simone", k:"pc"},
+          {at:"F7", nm:"Yobo", l:"Yobo", k:"pc"},
+          {at:"G7", nm:"Russ", l:"Russ", k:"pc"}
+        ]}
     },
     rounds:[
       {k:"Round 1", say:"It isn't looking at you. It's dragging itself toward the door, toward something down the hall, and the chalk on the floor has started to crawl.", do:"The sealed door doesn't open tonight. If they study the thing: Arcana DC 14, human-made and incomplete."},
@@ -156,7 +184,28 @@ const FIGHTS = {
         {who:"After Ostrander's line", t:"<b>What do you do?</b>"}
       ],
       announce:"When the party acts.",
-      map:["Thugs 1&ndash;3 between the party and the vampires.","Ostrander and thugs 4&ndash;6 on the vampires.","Orlok, Dracula and Edward on their sides: pinned. Dracula next to Yobo, Edward where Bix can see him.","Poe Boy and Stinky up on the decks. They're not in this fight.","Angelique with the party."]
+      grid:{cols:12, rows:12, party:{a:"C9",b:"I11"}, draw:BALLROOM,
+        tokens:[
+          {at:"F1", nm:"DJ Poe Boy", l:"Poe Boy", k:"foe"},
+          {at:"F3", nm:"Lil Stinky", l:"Stinky", k:"foe"},
+          {at:"F5", nm:"W. Ostrander", l:"Ostr.", k:"foe"},
+          {at:"E8", nm:"Thug 1", l:"Thug 1", k:"foe"},
+          {at:"F8", nm:"Thug 2", l:"Thug 2", k:"foe"},
+          {at:"G8", nm:"Thug 3", l:"Thug 3", k:"foe"},
+          {at:"E5", nm:"Thug 4", l:"Thug 4", k:"foe"},
+          {at:"C8", nm:"Thug 5", l:"Thug 5", k:"foe"},
+          {at:"I7", nm:"Thug 6", l:"Thug 6", k:"foe"},
+          {at:"F6", nm:"Orlok", l:"Orlok", k:"ally", side:1},
+          {at:"D8", nm:"Dracula", l:"Dracula", k:"ally", side:1},
+          {at:"H7", nm:"Edward", l:"Edward", k:"ally", side:1},
+          {at:"F10", nm:"Angelique", l:"Angel.", k:"ally"},
+          {at:"D9", nm:"Yobo", l:"Yobo", k:"pc"},
+          {at:"E9", nm:"Gnomey", l:"Gnomey", k:"pc"},
+          {at:"F9", nm:"Simone", l:"Simone", k:"pc"},
+          {at:"G9", nm:"Russ", l:"Russ", k:"pc"},
+          {at:"H9", nm:"Bix", l:"Bix", k:"pc"}
+        ]},
+      map:["Poe Boy and Stinky stay up on the stage. They're not in this fight."]
     },
     rounds:[
       {k:"Round 1", say:"Three of them step into your way. Behind them, a stake comes down to rest on Orlok's chest.",
@@ -224,7 +273,18 @@ const FIGHTS = {
         {who:"The objective", t:"Get the USB to the decks and get on aux."}
       ],
       announce:"After &ldquo;Drop.&rdquo; Party and vampires against Poe Boy and Stinky.",
-      map:["Take Ostrander and the thugs off.","Vampires standing, with the party. Angelique with the party.","Lil Stinky at the decks, Poe Boy behind him.","The USB wherever the party left it. Still upstairs? Someone runs it down, about 2 rounds."]
+      grid:{cols:12, rows:12, base:BALLROOM, lead:"It's the same ballroom, so leave the drawing as it is. Only these change.",
+        draw:[
+          {s:"x", a:"E1", nm:"The aux, once Angelique has said where it is", l:"Aux", lp:"D1", say:"This X is the aux, round the back of the mixer."}
+        ],
+        tokens:[
+          {at:"F1", nm:"DJ Poe Boy", l:"Poe Boy", k:"foe"},
+          {at:"F3", nm:"Lil Stinky", l:"Stinky", k:"foe"},
+          {at:"F6", nm:"Orlok", l:"Orlok", k:"ally"},
+          {at:"D8", nm:"Dracula", l:"Dracula", k:"ally"},
+          {at:"H7", nm:"Edward", l:"Edward", k:"ally"}
+        ]},
+      map:["Take Ostrander and all six thugs off.","Stand Orlok, Dracula and Edward up where they are.","Leave the party and Angelique where they ended.","The USB goes wherever the party left it. Still upstairs? Someone runs it down, about 2 rounds."]
     },
     rounds:[
       {k:"Round 1", say:"One word, in somebody else's voice, and your hand opens. The drive hits the floor. Stinky's sword catches a vampire. It smokes. It staggers.",
