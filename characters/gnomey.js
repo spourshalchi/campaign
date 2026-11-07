@@ -1,6 +1,6 @@
 character({
   id:"gnomey", player:"Julia", name:"Gnomey Soprano", color:"#7a2d1f",
-  tag:"Gnome Rogue. Cute, unseeming, secretly deadly.",
+  tag:"Gnome Rogue. Cute, unassuming, secretly deadly.",
   line:"Small gnome, Criminal background, Assassin rogue. You act first and you hit hard once.",
   intro:"Gnome and Rogue are already yours. Everything marked <span class='rec'>Recommended</span> is a suggestion: swap it if something else sounds more fun.",
   scores:{str:8, dex:18, con:16, int:12, wis:10, cha:13},

@@ -113,7 +113,7 @@ const CHARACTERS = {};
 function character(pc) { CHARACTERS[pc.id] = pc; if (typeof document !== "undefined" && !window.PRINT_MODE) render(pc); }
 if (typeof document !== "undefined" && !window.PRINT_MODE) {
   const id = new URLSearchParams(location.search).get("p");
-  if (ROSTER.some(r => r[0] === id)) { const s = document.createElement("script"); s.src = `${id}.js?v=3`; document.body.appendChild(s); }
+  if (ROSTER.some(r => r[0] === id)) { const s = document.createElement("script"); s.src = `${id}.js?v=4`; document.body.appendChild(s); }
   else picker();
   document.addEventListener("touchmove", e => { if (e.scale && e.scale !== 1) e.preventDefault(); }, {passive:false});
 }
