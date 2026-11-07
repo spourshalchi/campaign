@@ -62,6 +62,7 @@ Sunday's three rooms run in any order and are all paper. Item 2 opens AIM with t
 | Ledger | `ledger/` | **Print only at the table.** Orlok's register of patients: one printed page, found on the lectern in the cellar. It shows the clinic and points at the Sun's-mercy. The web page is the DM's copy, with a short DM brief under it. |
 | Codex | `codex/` | DM-facing campaign reference — to-do list, relationship web, backstory, story flow, cast, weekend plan, and **combat encounters with the XP budgets**. Not a player prop, and deliberately not tiled on the landing page so it can't be opened at the table by accident. |
 | Run of Show | `run/` | DM-facing **day-of view** — the codex's story flow turned into an arrow-key prompt book. Each cue is split into a **Scott · narrate** zone (✋ hand-overs, the iPad item, read-aloud, beats, checks) and a **Spencer · voice** zone (lines and NPC voicing), with 🔓 reveal markers and a **synthesized soundboard** (ambience + stings, no files). Combat is run at the table; the cue just names the fight and its story rule. Also DM-only and not tiled. See [run/README.md](run/README.md). |
+| Character folder | `characters/` | Player-facing recommended level 4 builds, one page per player at `?p=<id>`, loading only that player's file: step-by-step creation, sheet, spells and features, a good turn, level 5. Links are in the codex; not tiled, so players get theirs from Scott |
 
 ### Not built yet
 

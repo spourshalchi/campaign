@@ -116,7 +116,7 @@ function render(pc) {
     `<div class="head"><p class="kick">Character folder · for ${pc.player}</p><h1>${pc.name}</h1><p class="sub">${pc.tag}</p></div>
     <div class="tabs">${tabs.map(([k, l], i) => `<button data-t="${k}" class="${i ? "" : "on"}">${l}</button>`).join("")}</div>
     <div class="sheet">
-      <section id="build" class="on"><h2>Building ${pc.name}, step by step</h2>${pc.intro ? `<div class="note">${pc.intro}</div>` : ""}${steps(pc)}</section>
+      <section id="build" class="on"><h2>Building ${pc.name}, step by step</h2>${pc.intro ? `<div class="note">${pc.intro}</div>` : ""}${steps(pc)}<p class="why" style="margin-top:12px">Hit points: 8 + Con at level 1, then ${calc(pc, 4).hpPerLevel} more each level after that${pc.hpBonusPerLevel ? ", counting Tough" : ""}, using your Con at level 4.</p></section>
       <section id="sheet">${sheet(pc)}</section>
       <section id="powers">${powers(pc)}</section>
       <section id="turn">${turn(pc)}</section>
@@ -136,7 +136,7 @@ const CHARACTERS = {};
 function character(pc) { CHARACTERS[pc.id] = pc; if (typeof document !== "undefined") render(pc); }
 if (typeof document !== "undefined") {
   const id = new URLSearchParams(location.search).get("p");
-  if (IDS.includes(id)) { const s = document.createElement("script"); s.src = `${id}.js?v=1`; document.body.appendChild(s); }
+  if (IDS.includes(id)) { const s = document.createElement("script"); s.src = `${id}.js?v=2`; document.body.appendChild(s); }
   document.addEventListener("touchmove", e => { if (e.scale && e.scale !== 1) e.preventDefault(); }, {passive:false});
 }
 if (typeof module !== "undefined") module.exports = {calc, attacks, mod, sign, character, CHARACTERS};
