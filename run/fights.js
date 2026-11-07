@@ -17,7 +17,7 @@
    Read-aloud lines: sp means Spencer voices it; {note} is a plain line for Scott.
    lines: Spencer's in-fight lines [{who, t}], for his cards on the Run of Show.
 
-   tally: label, foe (whose turn taps it), start, tiers [[up to, name]], use, full, allDown (the fight ends when every foe is down)
+   tally: label, foe (whose turn taps it), start, max, tiers [[up to, name]], use, full, allDown (the fight ends when every foe is down)
    foe:  id, nm, one (singular, if n>1), n (how many), ac, hp, floor (lowest HP, if not 0), spd, chassis, cr, xp,
          turn (1-3 steps), sayIf (Spencer's lines on one of those steps),
          note (on its turn), hpnote (on its HP tracker), drop (when it drops), endsFight, hard / easy (the dials)
@@ -40,13 +40,13 @@ const FIGHTS = {
     day:"Saturday", cue:3, name:"The trap in the binding",
     start:{
       read:[{who:"They open it", t:"The binding splits and a pair of shears comes out of the spine. <i>Snick.</i> A strip of the article falls to the table. A second pair comes out after it. The card catalogue drawers spit out a blizzard of index cards, and a book cart starts to roll on one squeaky wheel."},{note:"That's the first cut. It's already on the tally."}],
-      announce:"The shears aren't after you, they're after the page. Spend your action standing in a lane and that pair can't cut. Or spend it fighting. It isn't over until everything's down.",
+      announce:"The shears aren't after you, they're after the page. Every pair still up cuts it every round. It isn't over until everything's down.",
       grid:{cols:12, rows:10, party:{a:"C4",b:"H6"},
         draw:[
           {s:"rect", a:"A1", b:"L10", nm:"The room", l:0, say:"This is the reading room of the hall of records."},
           {s:"rect", a:"D5", b:"I5", nm:"The reading table", l:"Reading table", lp:"H5", say:"This long table is where she set the volume down."},
           {s:"x", a:"F5", nm:"The article", l:"Article", lp:"E5", say:"This X is the article, lying open on the table."},
-          {s:"line", a:"F2", b:"F4", also:[["F6","F8"]], nm:"The two lanes", l:0, say:"These two lines are the straight runs to the page, one from each side."},
+          {s:"line", a:"F2", b:"F4", also:[["F6","F8"]], nm:"The shears' runs", l:0, say:"These two lines are the shears' straight runs to the page, one from each side."},
           {s:"rect", a:"K2", b:"L5", nm:"The card catalogue", l:"Card|catalogue", say:"This block on the wall is the card catalogue."},
           {s:"rect", a:"A7", b:"C9", nm:"The stacks", l:"Stacks", say:"These are the stacks, shelves of bound newspapers."},
           {s:"rect", a:"J8", b:"L9", nm:"The Records Keeper's desk", l:"Keeper's|desk", say:"This is the Records Keeper's desk."}
@@ -62,7 +62,7 @@ const FIGHTS = {
           {at:"E6", nm:"Yobo", l:"Yobo", k:"pc"},
           {at:"G6", nm:"Russ", l:"Russ", k:"pc"}
         ]},
-      map:["Put a PC's token in a lane when they guard it."]
+      map:["The shears fly straight to the article. Nobody can block them."]
     },
     rounds:[
       {k:"Every round", do:"Keep going until all four are down, then step 5. Both pairs of shears down? The cuts stop and the fight goes on. <b>Going badly?</b> Use the too-hard dials."}
@@ -78,31 +78,30 @@ const FIGHTS = {
       next:"They put the whole page back together, then read it."
     },
     turnIntro:"All the enemies go together, in this order. Skip any that are down. A PC at 0 HP is out cold and stable.",
-    tally:{label:"Cuts on the article", foe:"shears", start:1, tiers:[[2,"Easy"],[4,"Medium"],[99,"Hard"]],
+    tally:{label:"Cuts on the article", foe:"shears", start:1, max:5, tiers:[[2,"Easy"],[3,"Medium"],[99,"Hard"]],
       use:"The highlighted one is the difficulty to tap on Item 1 after the fight. Fire on the article is one more cut. Cuts stop at 5.",
       allDown:1,
       full:"That's the most it can be cut. The shears have nothing left to cut, but the fight goes on until everything's down."},
     foes:[
-      {id:"cart", nm:"The book cart", n:1, ac:14, hp:22, spd:"30", chassis:"Animated Armor", cr:"1", xp:200,
-       turn:["Rolls at a PC guarding a lane (or the nearest PC).",
-             "Ram: <b>+5 to hit, 9 bludgeoning</b>, and that PC is pushed 10 ft. If they were guarding, that lane is open for the shears this turn."],
+      {id:"cart", nm:"The book cart", n:1, ac:14, hp:18, spd:"30", chassis:"Animated Armor", cr:"1", xp:200,
+       turn:["Rolls at the nearest PC.",
+             "Ram: <b>+5 to hit, 9 bludgeoning</b>, and that PC is pushed 10 ft."],
        drop:"A wheel comes off; it tips over and spills its books.",
        hard:"It stops pushing: damage only.",
-       easy:"Add 8 HP (30)."},
-      {id:"shears", nm:"Archival shears", one:"Shears", n:2, ac:14, hp:12, spd:"fly 30", chassis:"Flying Sword", cr:"½", xp:100,
-       turn:["<b>A PC guarding this lane?</b> It rattles against them and backs off. No cut, no damage.",
-             "<b>Nobody guarding?</b> It flies to the article and cuts. No roll. <b>Tap +1 cut.</b>"],
-       note:"The shears never attack anyone. A guard is a PC who spent their action standing in that lane, and it lasts until the shears' next turn.",
-       drop:"It snaps shut and clatters to the floor. That lane's cuts stop. The fight goes on.",
+       easy:"Add 6 HP (24)."},
+      {id:"shears", nm:"Archival shears", one:"Shears", n:2, ac:14, hp:16, spd:"fly 30", chassis:"Flying Sword", cr:"½", xp:100,
+       turn:["Each pair still up flies to the article and cuts. No roll. <b>Tap +1 cut for each.</b>"],
+       note:"The shears never attack anyone, and nothing blocks them. Only dropping them stops the cuts.",
+       drop:"It snaps shut and clatters to the floor. That pair's cuts stop. The fight goes on.",
        hard:"One pair jams in the binding for a round: no cut that turn.",
-       easy:"Give each pair 6 more HP (18)."},
-      {id:"cards", nm:"Swarm of index cards", n:1, ac:12, hp:16, spd:"fly 30", chassis:"Swarm of Insects", cr:"½", xp:100,
-       turn:["Moves onto a PC guarding a lane (or the nearest PC).",
+       easy:"Give each pair 6 more HP (22)."},
+      {id:"cards", nm:"Swarm of index cards", n:1, ac:12, hp:14, spd:"fly 30", chassis:"Swarm of Insects", cr:"½", xp:100,
+       turn:["Moves onto the nearest PC.",
              "Paper cuts: <b>+5 to hit, 7 slashing</b>."],
        hpnote:"<b>Fire does double.</b>",
        drop:"The cards settle like snow and lie still.",
-       hard:"Under 8 HP it does 4, not 7.",
-       easy:"Add 8 HP (24)."}
+       hard:"Under 7 HP it does 4, not 7.",
+       easy:"Add 6 HP (20)."}
     ]
   },
 
