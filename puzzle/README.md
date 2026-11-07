@@ -105,7 +105,9 @@ outcome is in their hands.
 
 ## The checkout card
 
-In the pocket at the back of the volume, viewable from the splash screen. It shows
+In the pocket at the back of the volume: a link on the splash screen, and it comes up
+beside page 2 once the page is turned (under it, with a peek at the bottom edge, on a
+narrow screen). It shows
 the book sat untouched for decades, and then three borrowers:
 
 - **E. Hoeck**, 1938 — texture: kin of Pieter Hoeck, whose beagle came home splinted
