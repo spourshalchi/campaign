@@ -1,4 +1,4 @@
-/* Sunday: the start card, the rooms (10 to 13, Dracula's scare).
+/* Sunday: the start card and the rooms (10 to 13).
    Read by run/index.html, loaded in order after scenes/pre.js. Steps and fields: see run/README.md.
    After editing, bump this file's ?v= on its script tag in run/index.html. */
 SCENES.push(
@@ -19,7 +19,6 @@ SCENES.push(
     {say:"Last night. A card in your locker: <b>Dood Mansion, 8 PM</b>. A trap in the hall of records, and a page cut to ribbons. The house on the hill, the boards off the door &mdash; and the door bolting behind you. Three voices in the hall: <i>&ldquo;He said five, and there are five.&rdquo;</i> Something about meals. <i>&ldquo;We'll find you when we're ready.&rdquo;</i> The old one, patting along the wrong shelf. The pale one, watching Bix. And behind a warm door upstairs, something half-made that you put down &mdash; and somewhere in the house a screen typed <b>&ldquo;is someone there&rdquo;</b>, and went dark.", who:"Previously &middot; or let a player tell it"},
     {do:"<b>Study first</b> (cue 10). Then the party room (11) and the cellar (12), either order."},
     {do:"<b>The AIM room (13) is always last.</b> Fire the chime once all three rooms are done."},
-    {do:"<b>Dracula's scare (S)</b> is optional: between rooms, before the cellar."},
     {do:"<b>The ballroom stays locked until 2:30.</b> No roll opens it."},
     {do:"The party gets <b>one short rest</b> before 3AM."},
     {do:"<b>Break</b> after the three rooms, before the AIM door. From the AIM room to the driveway runs straight."},
@@ -90,31 +89,6 @@ SCENES.push(
     ], vc:"This room is his shrine to the best night of his unlife. Campy and theatrical, then drop it for one line when he says he knows the mask. He isn't only mocking Yobo; play that under the camp."}
   ],
   cues:["candle","needle","record","cheer","levelup"] },
-
-{ act:"sunday", no:"S", title:"Dracula's scare", where:"Sunday · optional · between rooms, before the cellar",
-  steps:[
-    {do:"<b>Optional.</b> Run it between rooms, before the cellar. Skip it if you're short on time."},
-    {snd:["drone"]},
-    {say:"The hall between rooms. A draught from nowhere. The candles start going out, one at a time, coming toward you. Something large unfolds from the ceiling.", who:"Setting"},
-    {snd:["swoop","jump"], t:"The swoop"},
-    {do:"<b>Spencer's turn:</b> Dracula swoops with full theatrics. No damage."},
-    {check:{skill:"Insight", dc:"10", note:"<b>Call it</b> when he swoops. <b>Success:</b> his heart isn't in it. <b>Miss or nobody rolls:</b> the collapse still plays."}},
-    {do:"<b>Someone is kind to him or unimpressed: tell Spencer.</b> It collapses on the spot, and he leaves."},
-    {end:"when it collapses and he leaves."}
-  ],
-  next:"He leaves. Next room.", go:"rooms",
-  npcs:[
-    {nm:"Dracula", pts:[
-      {at:"The swoop"},
-      {t:"Swoop in and tell them you're ready.", say:"We said we'd find you when we were ready. We are ready. Scream!"},
-      {t:"Demand a scream, big and theatrical.<ul><li>Touch nobody. No damage.</li></ul>", say:"Scream, I said! Louder! I can do this all night!"},
-      {at:"When someone is kind or unimpressed"},
-      {t:"Stop dead.<ul><li>Scott tells you if you miss it. You're hurt, not angry.</li></ul>", say:"Oh. Well. That's very nice of you. You weren't supposed to be nice."},
-      {t:"Tell them you had a whole thing planned.", say:"No? Nothing? Fine. I had a whole thing planned."},
-      "Leave without another word."
-    ], vc:"Full theatrics, then none."}
-  ],
-  cues:["drone","swoop","jump"] },
 
 { act:"sunday", no:12, title:"The infirmary", where:"The cellar · Cody · badge req 2 of 3",
   steps:[
