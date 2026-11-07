@@ -31,14 +31,13 @@ SCENES.push(
     {end:"on the bell: four minutes to their lockers. Cut straight to cue 2."}
   ],
   next:"On the bell, smash cut to the lockers.", go:["2"],
-  talk:[
-    {who:"History Teacher · to the five of them", t:"So you five are who I've got today. Congratulations, you're a group."},
-    {who:"History Teacher · the project", t:"Local history and folklore. Something from this town. You'll present it to the class."},
-    {who:"History Teacher · on the way out", t:"And I want a primary source, not the internet."},
-    {who:"History Teacher · if they ask where everyone is", t:"Senior skip day. Apparently nobody told you."}
+  flow:[
+    {who:"History Teacher", t:"Put the five of them into a group.", say:"So you five are who I've got today. Congratulations, you're a group."},
+    {who:"History Teacher", t:"Explain what the project is.<ul><li>The subject: local history and folklore, from this town.</li><li>Why this group: they're the only seniors in class, because everyone else is out on skip day.</li><li>What's due: they present it out loud, back to this class.</li><li>The rule: it needs a primary source, not the internet.</li></ul>", say:["Local history and folklore. Something from this town. You'll present it to the class.","And I want a primary source, not the internet."]},
+    {who:"History Teacher", if:"If they ask where everyone is", t:"Tell them it's senior skip day.", say:"Senior skip day. Apparently nobody told you."}
   ],
   npcs:[
-    {nm:"History Teacher", pts:["Put the five of them into a group.", "Explain what the project is.<ul><li>The subject: local history and folklore, from this town.</li><li>Why this group: they're the only seniors in class, because everyone else is out on skip day.</li><li>What's due: they present it out loud, back to this class.</li><li>The rule: it needs a primary source, not the internet.</li></ul>"], vc:"Assigns the project."}
+    {nm:"History Teacher", vc:"Assigns the project."}
   ],
   cues:["class","schoolbell"] },
 
@@ -58,8 +57,18 @@ SCENES.push(
     {say:"You head outside, to the gazebo by the school.", who:"If they pick the gazebo", go:"4"},
     {say:"The front door is still boarded up at this hour. You can't get in that way, so you head back down.", who:"If they march up the hill early"}
   ],
+  flow:[
+    {who:"Great Uncle Vinny", t:"Sound confused, and talk as if it's 1931."},
+    {who:"Great Uncle Vinny", t:"Ask Gnomey if it's the fourteenth."},
+    {who:"Great Uncle Vinny", t:"Tell him there's a card game up the hill tonight and that Cornelis owes you a rematch.", say:"Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch."},
+    {who:"Great Uncle Vinny", t:"Insist you're late, and don't explain anything they ask, including who Cornelis is."},
+    {who:"Great Uncle Vinny", if:"If Gnomey says who it is", t:"Talk to him as if he's still twelve.", say:"That you, kid? Twelve years old and you've got a crew."},
+    {who:"Great Uncle Vinny", if:"If they say it's 2004", t:"Refuse to hear it.", say:"Don't tell me what year it is. I'm late."},
+    {who:"Great Uncle Vinny", if:"If they ask who Cornelis is", t:"Repeat that he owes you a rematch.", say:"Cornelis owes me a rematch, that's who."},
+    {who:"Great Uncle Vinny", if:"If they ask about Dood, or when it's time to hang up", t:"Say you can't talk, and hang up.", say:"Can't talk, kid. I'm late for the card game."}
+  ],
   npcs:[
-    {nm:"Great Uncle Vinny (phone)", pts:["Sound confused, and talk as if it's 1931.", "Ask Gnomey if it's the fourteenth.", {t:"Tell him there's a card game up the hill tonight and that Cornelis owes you a rematch.", say:"Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch."}, {t:"Insist you're late, and don't explain anything they ask, including who Cornelis is.", say:["<i>If Gnomey says who it is</i>That you, kid? Twelve years old and you've got a crew.","<i>If they say it's 2004</i>Don't tell me what year it is. I'm late.","<i>If they ask who Cornelis is</i>Cornelis owes me a rematch, that's who.","<i>If they ask about Dood, or to hang up</i>Can't talk, kid. I'm late for the card game."]}], vc:"Ancient and mostly gone, and sure it's 1931."}
+    {nm:"Great Uncle Vinny (phone)", vc:"Ancient and mostly gone, and sure it's 1931."}
   ],
   cues:["hall","phone"] },
 
@@ -86,20 +95,21 @@ SCENES.push(
     {say:"You step outside. Whoever's wearing a watch &mdash; it's <b>ten to eight</b>. That's the time on the card. You walk up the hill.", who:"If they've already been to the gazebo", go:"5"}
   ],
   fight:FIGHTS.library,
+  flow:[
+    {at:"When they arrive"},
+    {who:"Records Keeper", t:"Answer their question about Dood by fetching the bound 1937 volume of the Crier and handing it over intact.", say:"That's an old name. Try the Crier, 1937. I'll get you the bound volume."},
+    {at:"The fight", gap:"Scott runs it, nothing for you."},
+    {at:"After the fight"},
+    {who:"Records Keeper", t:"Tell them to put the page back together, every piece.", say:"Well. Don't just stand there. Get every scrap and put it back together."},
+    {at:"Only if Scott says the jigsaw has stalled"},
+    {who:"Records Keeper", t:"Tell them what the page says about the Dood house.<ul><li>No shutter is opened by day, and a light burns most nights.</li><li>There's music on still nights.</li><li>A lost beagle came home with its leg set in a splint.</li></ul>", say:"I remember that page. No shutter opened by day, a light most nights, music on still nights. And a lost beagle that came home with its leg in a splint."},
+    {at:"Once they've reassembled it"},
+    {who:"Records Keeper", t:"Explain that even pieced together, a cut-up page won't count as a primary source.", say:"That won't pass for a primary source now."},
+    {who:"Records Keeper", t:"Tell them that if they want one now, it's the house itself.", say:"If you want one, it's the house itself."},
+    {who:"Records Keeper", t:"Warn them to be careful, and mean it.", say:"&hellip;But be careful."}
+  ],
   npcs:[
-    {nm:"Records Keeper", pts:[
-      {at:"When they arrive"},
-      {t:"Answer their question about Dood by fetching the bound 1937 volume of the Crier and handing it over intact.", say:"That's an old name. Try the Crier, 1937. I'll get you the bound volume."},
-      {at:"The fight", gap:"Scott runs it, nothing for you."},
-      {at:"After the fight"},
-      {t:"Tell them to put the page back together, every piece.", say:"Well. Don't just stand there. Get every scrap and put it back together."},
-      {at:"Only if Scott says the jigsaw has stalled"},
-      {t:"Tell them what the page says about the Dood house.<ul><li>No shutter is opened by day, and a light burns most nights.</li><li>There's music on still nights.</li><li>A lost beagle came home with its leg set in a splint.</li></ul>", say:"I remember that page. No shutter opened by day, a light most nights, music on still nights. And a lost beagle that came home with its leg in a splint."},
-      {at:"Once they've reassembled it"},
-      {t:"Explain that even pieced together, a cut-up page won't count as a primary source.", say:"That won't pass for a primary source now."},
-      {t:"Tell them that if they want one now, it's the house itself.", say:"If you want one, it's the house itself."},
-      {t:"Warn them to be careful, and mean it.", say:"&hellip;But be careful."}
-    ], vc:"Helpful. Beyond these points, play her to taste."}
+    {nm:"Records Keeper", vc:"Helpful. Beyond these points, play her to taste."}
   ],
   cues:["records","library","riser","paper","jump"] },
 
@@ -107,7 +117,7 @@ SCENES.push(
   steps:[
     {snd:["gazebo"]},
     {say:"The gazebo by the school, where the bad kids smoke. A haze of cigarette smoke, a boombox on the rail, and DJ Poe Boy holding court with his crew &mdash; Angelique among them, not quite looking at you.", who:"Setting"},
-    {do:"<b>Spencer's turn:</b> Poe Boy, the crew and Angelique."},
+    {do:"<b>Spencer's turn:</b> Poe Boy and Angelique."},
     {do:"They ask about the house or the cards. <b>Spencer's turn:</b> Poe Boy. Then call Insight DC 14."},
     {check:{skill:"Insight", dc:"14", note:"Sense the &ldquo;once&rdquo; is a lie, or that Angelique is holding something back."}},
     {hand:"weight", do:"<b>Spencer's turn:</b> the crew. &#9995; When they ask for the riff, hand John the secret <b>The Weight of Your Lies</b> card (printed): disadvantage on Performance, advantage on Deception."},
@@ -116,31 +126,26 @@ SCENES.push(
     {say:"You leave the gazebo and head into town, to the hall of records.", who:"If they haven't been to the hall of records", go:"3"},
     {say:"Whoever's wearing a watch &mdash; it's <b>ten to eight</b>. That's the time on the card. You walk up the hill.", who:"If they've already been to the hall of records", go:"5"}
   ],
-  talk:[
-    {who:"DJ Poe Boy · asked about the house, with a shrug", t:"Been up there once."},
-    {who:"DJ Poe Boy · pushed on it", t:"Nothing to see. Just some old house."},
-    {who:"DJ Poe Boy · shown the card", t:"Cool card."},
-    {who:"DJ Poe Boy · if they ask whose party it is", t:"Who knows."},
-    {who:"DJ Poe Boy · to Gnomey", t:"Still mad about the silly bandz?"},
-    {who:"Angelique · when the crew looks away", t:"You shouldn't&hellip; never mind. Forget it."}
+  flow:[
+    {at:"When they walk up"},
+    {who:"DJ Poe Boy", t:"Needle Gnomey about the silly bandz if he's in front of you.<ul><li>He ran with your crew in middle school.</li><li>He walked out when he caught you skimming his cut.</li></ul>", say:"Still mad about the silly bandz?"},
+    {who:"Angelique", t:"Try to warn them, then stop yourself because the crew is standing right there.<ul><li>All that gets out is a side-eye and a swallowed half-sentence.</li></ul>", say:"<i>When the crew looks away</i>You shouldn't&hellip; never mind. Forget it."},
+    {who:"Angelique", t:"Say nothing more than that."},
+    {at:"When they ask about the house or the cards"},
+    {who:"DJ Poe Boy", t:"Say you've been up there once, with a shrug.", say:"Been up there once."},
+    {who:"DJ Poe Boy", if:"If they push on it", t:"Play the house down as nothing to see.", say:"Nothing to see. Just some old house."},
+    {who:"DJ Poe Boy", t:"Stay cool about the cards.<ul><li>Don't say you sent them.</li><li>Don't say it's your party.</li></ul>", say:["<i>Shown the card</i>Cool card.","<i>If they ask whose party it is</i>Who knows."]},
+    {at:"When they notice Yobo"},
+    {who:"The crew", t:"Recognize Yobo as the Dolly Parton guy.<ul><li>Everyone at school believes his grandmother is Dolly Parton.</li></ul>"},
+    {who:"The crew", t:"Ask him to do a little riff.", say:"You're the Dolly Parton guy &mdash; do a little riff."},
+    {at:"After his Performance roll, when Scott tells you the result"},
+    {who:"The crew", if:"If he made it", t:"Buy it.", say:"Okay. That's Dolly's grandkid, all right."},
+    {who:"The crew", if:"If he missed", t:"Needle him.", say:"That's it? That's Dolly Parton's grandkid?"}
   ],
   npcs:[
-    {nm:"DJ Poe Boy", pts:[
-      {at:"When they walk up"},
-      "Needle Gnomey about the silly bandz if he's in front of you.<ul><li>He ran with your crew in middle school.</li><li>He walked out when he caught you skimming his cut.</li></ul>",
-      {at:"When they ask about the house or the cards"},
-      "Say you've been up there once, with a shrug.",
-      "Play the house down as nothing to see.",
-      "Stay cool about the cards.<ul><li>Don't say you sent them.</li><li>Don't say it's your party.</li></ul>"
-    ], vc:"Kenku &mdash; <b>voice him only in borrowed / sampled lines.</b> Glamour-charming, subversive, real cred."},
-    {nm:"Angelique", pts:["Try to warn them, then stop yourself because the crew is standing right there.<ul><li>All that gets out is a side-eye and a swallowed half-sentence.</li></ul>", "Say nothing more than that."], vc:"Changeling, trad goth. Wants them warned, can't say it out loud. A side-eye and a held breath, not exposition."},
-    {nm:"The crew", pts:[
-      {at:"When they notice Yobo"},
-      "Recognize Yobo as the Dolly Parton guy.<ul><li>Everyone at school believes his grandmother is Dolly Parton.</li></ul>",
-      {t:"Ask him to do a little riff.", say:"You're the Dolly Parton guy &mdash; do a little riff."},
-      {at:"After his Performance roll"},
-      {t:"React when Scott tells you the result.<ul><li>If he made it, buy it.</li><li>If he missed, needle him.</li></ul>", say:["<i>If he makes the roll</i>Okay. That's Dolly's grandkid, all right.","<i>If he misses</i>That's it? That's Dolly Parton's grandkid?"]}
-    ], vc:"Poe Boy's bad kids, smoking at the gazebo."}
+    {nm:"DJ Poe Boy", vc:"Kenku &mdash; <b>voice him only in borrowed / sampled lines.</b> Glamour-charming, subversive, real cred."},
+    {nm:"Angelique", vc:"Changeling, trad goth. Wants them warned, can't say it out loud. A side-eye and a held breath, not exposition."},
+    {nm:"The crew", vc:"Poe Boy's bad kids, smoking at the gazebo."}
   ],
   cues:["gazebo"] }
 
