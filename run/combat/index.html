@@ -167,7 +167,7 @@
 </head>
 <body>
 <div id="page"></div>
-<script src="../fights.js?v=27"></script>
+<script src="../fights.js?v=28"></script>
 <script>
 "use strict";
 const $ = s => document.querySelector(s);
@@ -271,6 +271,7 @@ function stepTurn(f){
   const sg = n => (n<0?"&minus;":"+")+Math.abs(n);
   const defs = x => !x.sv ? "" : `<div class="def"><p><b>AC ${x.ac} · HP ${x.hp}${x.floor?` (can't drop below ${x.floor})`:""}</b></p>`+
     `<p><b>Saves:</b> ${["STR","DEX","CON","INT","WIS","CHA"].map((k,i)=>`${k} ${sg(x.sv[i])}`).join(" · ")}</p>`+
+    (x.aura?`<p><b>Saves with Stinky within 10 ft</b> (+${x.aura} added, until Stinky turns): ${["STR","DEX","CON","INT","WIS","CHA"].map((k,i)=>`${k} ${sg(x.sv[i]+x.aura)}`).join(" · ")}</p>`:"")+
     `<p><b>Grapple / shove:</b> ${x.grab} · <b>Passive Perception</b> ${x.pp}</p>`+
     (x.cast?`<p><b>Spells:</b> ${x.cast}</p>`:"")+
     (x.res?`<p><b>Resists:</b> ${x.res}</p>`:"")+(x.imm?`<p><b>Immune:</b> ${x.imm}</p>`:"")+(x.vul?`<p><b>Vulnerable:</b> ${x.vul}</p>`:"")+

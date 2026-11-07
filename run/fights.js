@@ -22,7 +22,8 @@
          turn (1-3 steps), sayIf (Spencer's lines on one of those steps),
          note (on its turn), hpnote (on its HP tracker), drop (when it drops), endsFight, hard / easy (the dials)
          sv: saving throw bonuses [STR, DEX, CON, INT, WIS, CHA]; grab (Athletics or Acrobatics for grapple and shove);
-         pp (passive Perception); res, imm, vul (damage), cimm (conditions); cast (spell DC or attack bonus)
+         pp (passive Perception); res, imm, vul (damage), cimm (conditions); cast (spell DC or attack bonus);
+         aura (added to every save while Stinky is within 10 ft, shown as a second Saves line)
    turnIntro: replaces the opening line of "On my turn".
    ally: nm, act (one thing, no roll), tok (where the token goes)
    ===================================================================== */
@@ -151,6 +152,8 @@ const FIGHTS = {
     },
     foes:[
       {id:"summon", nm:"The botched summoning", n:1, ac:13, hp:60, spd:"30", chassis:"Flesh Golem, scaled down", cr:"4", xp:1100,
+       sv:[4,-1,4,-2,0,-3], grab:"Athletics +4", pp:10, cast:"Unfinished Word: <b>DC 13 Wis</b>, already on its turn.",
+       imm:"Poison", cimm:"Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned",
        turn:["Lurches toward the sealed door down the hall. It can't leave the room.",
              "Claws twice at whoever is between it and the door, or the nearest PC: <b>+6 to hit, 8 slashing</b> each.",
              "<b>Once, the first time it's under 30 HP:</b> Unfinished Word. Every PC within 15 ft makes a <b>DC 13 Wis save</b>: 8 psychic, half on a save."],
@@ -160,6 +163,8 @@ const FIGHTS = {
        hard:"It spends a turn clawing at the door instead of a PC.",
        easy:"Add 15 HP (75)."},
       {id:"frag", nm:"Ritual fragments", one:"Ritual fragment", n:2, ac:12, hp:7, spd:"30", chassis:"Shadow, no Strength drain", cr:"¼", xp:50,
+       sv:[-2,2,1,-2,0,-1], grab:"Acrobatics +2", pp:10, vul:"Radiant (double damage)", imm:"Necrotic, Poison",
+       cimm:"Exhaustion, Frightened, Grappled, Paralyzed, Petrified, Poisoned, Prone, Restrained",
        turn:["Fragment 1 goes for whoever is hitting the summoning. Fragment 2 goes for the back line.",
              "Grab: <b>+4 to hit, 5 necrotic</b>."],
        drop:"Crumbles to chalk dust.",
@@ -226,6 +231,7 @@ const FIGHTS = {
     ],
     foes:[
       {id:"ostrander", nm:"W. Ostrander", n:1, ac:15, hp:60, spd:"30", chassis:"Mage, no damage spells", cr:"6", xp:2300,
+       sv:[-1,2,0,6,4,0], grab:"Acrobatics +2", pp:14, cast:"Hold: <b>DC 15 Wis</b>. If he casts anything else: save DC 15, spell attack +7.",
        sayIf:[{who:"W. Ostrander · when a PC reaches him", sp:1, t:"This site's paid for. Step back."}],
        turn:["<b>No PC has hit him or reached him?</b> Ignores the party and works on the vampires.",
              "<b>A PC hit him since his last turn?</b> Hold that PC: <b>DC 15 Wis save</b> or they lose their next turn, frozen.",
@@ -237,6 +243,7 @@ const FIGHTS = {
        hard:"He keeps ignoring the party for one more round, even after they hit him.",
        easy:"Add 15 HP (another layer of ward)."},
       {id:"thug", nm:"Thugs", one:"Thug", n:6, ac:12, hp:11, spd:"30", chassis:"Tough", cr:"½", xp:100,
+       sv:[2,0,2,0,0,0], grab:"Athletics +2", pp:10,
        turn:["<b>Thugs 4–6 stay on the vampires, no rolls, unless a PC reaches them.</b> Thugs 1–3 all go for the same PC: <b>a PC on Ostrander?</b> That one. Otherwise the nearest.",
              "Crowbar: <b>+4 to hit, 8 bludgeoning</b>."],
        note:"Doesn't swing at a PC who's down.",
@@ -318,6 +325,7 @@ const FIGHTS = {
     ],
     foes:[
       {id:"poeboy", nm:"DJ Poe Boy", n:1, ac:15, hp:60, floor:1, spd:"30", chassis:"Cultist Fanatic, more HP", cr:"4", xp:1100,
+       sv:[0,2,1,0,2,1], aura:3, grab:"Acrobatics +2", pp:12, cast:"Command: <b>DC 15 Wis</b>.",
        sayIf:[{who:"DJ Poe Boy · on whoever holds the USB", sp:1, t:"Drop."},{who:"DJ Poe Boy · nobody holding it, on the PC nearest the decks", sp:1, t:"Flee."}],
        turn:["Command, one word, <b>DC 15 Wis save</b>. The PC holding the USB: &ldquo;Drop.&rdquo; (it lands at their feet). Nobody holding it: the PC nearest the decks, &ldquo;Flee.&rdquo; (they spend their next move running from him).",
              "Mic stand at anyone next to him: <b>+4 to hit, 4 bludgeoning</b>."],
@@ -327,6 +335,7 @@ const FIGHTS = {
        hard:"He only Commands the PC holding the USB. No &ldquo;Flee.&rdquo;",
        easy:"He Commands two PCs a turn: &ldquo;Drop.&rdquo; and &ldquo;Flee.&rdquo;"},
       {id:"stinky", nm:"Lil Stinky", n:1, ac:18, hp:40, spd:"30", chassis:"Knight", cr:"3", xp:700,
+       sv:[3,0,4,0,2,2], grab:"Athletics +3", pp:10, cimm:"Frightened",
        sayIf:[{who:"Lil Stinky · holding the decks", sp:1, t:"He's my best friend, man. Back up."}],
        turn:["Back to the decks, next to Poe Boy.",
              "Longsword twice: <b>+5 to hit, 8 radiant</b> each. The PC holding the USB if he can reach them, otherwise the nearest vampire."],
