@@ -1,7 +1,6 @@
 /* Character creation for the shared iPad: pick a character, see how to build them step by step.
-   Nothing here or in characters/<id>.js may be private: the iPad is passed around the table. Features,
-   spells and a good turn are on each player's printed handout (print/src/handouts/).
-   calc() works every number out from the ability scores, level and proficiencies; the handouts use it too. */
+   Nothing here or in characters/<id>.js may be private: the iPad is passed around the table.
+   calc() works every number out from the ability scores, level and proficiencies. */
 "use strict";
 const ROSTER = [["gnomey","Gnomey Soprano","Julia"],["bix","Bix Grimlor","Will"],["yobo","Yobo","John"],["russ","Russ","Cody"],["simone","Simone's Warlock","Simone"]];
 const ABIL = ["str", "dex", "con", "int", "wis", "cha"];

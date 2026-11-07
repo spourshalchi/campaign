@@ -13,14 +13,14 @@ Output (in print/):
     3-deed.pdf          the deed, on its own: cream or parchment cardstock
     4-plain.pdf         plain or ivory paper: the site assessment, the Articles of Settlement, Orlok's ledger
     5-poster.pdf        Spencer's DJ poster, on plain white paper
-    8-player-handouts.pdf  the Simone and Yobo backstory reprint with crop marks, then each player's handout, on cardstock
+    8-backstory-reprint.pdf  Simone's and Yobo's reworked backstory cards with crop marks, on cardstock
     photo-4x6.jpg       the party-room photograph, full bleed, as a Staples 4x6 photo print (1200x1800, 300dpi)
     previews/           a JPEG (or PNG) of every page, shown on print/index.html
 
 Needs Google Chrome (headless, for print-to-PDF and the photo screenshot), pypdf and ImageMagick. Each prop's own
 @media print rules decide its layout, so fix a prop's print CSS, not this file.
 """
-import argparse, functools, glob, http.server, json, os, re, shutil, socket, subprocess, sys, tempfile, threading
+import argparse, functools, glob, http.server, json, os, shutil, socket, subprocess, sys, tempfile, threading
 from urllib.parse import urlencode
 
 from pypdf import PdfReader, PdfWriter
@@ -81,7 +81,7 @@ def photo_print(base):
 
 def write_manifest():
     manifest = {stem: sorted(os.path.basename(f) for f in glob.glob(os.path.join(PREVIEWS, stem + "-*.*")))
-                for stem in ("cardstock", "photo", "deed", "plain", "poster", "handouts")}
+                for stem in ("cardstock", "photo", "deed", "plain", "poster", "reprint")}
     with open(os.path.join(PREVIEWS, "manifest.json"), "w") as f:
         json.dump(manifest, f, indent=1)
 
@@ -99,13 +99,6 @@ def previews(pdf_name, stem):
         for png in sorted(glob.glob(prefix + "-*.png")):
             subprocess.run([magick, png, "-quality", "82", png[:-4] + ".jpg"], check=True)
             os.remove(png)
-
-
-def site():
-    """The Pages address, owner.github.io/repo, from the git remote, so the repo name lives nowhere in the code."""
-    url = subprocess.run(["git", "remote", "get-url", "origin"], capture_output=True, text=True, cwd=ROOT).stdout.strip()
-    owner, repo = re.search(r"github\.com[:/]([^/]+)/([^/]+?)(?:\.git)?$", url).groups()
-    return f"{owner.lower()}.github.io/{repo}"
 
 
 def main():
@@ -157,9 +150,7 @@ def main():
     w = PdfWriter()
     for pg in reprint.pages:
         w.add_page(pg)
-    for pg in page("print/src/handouts.html", urlencode({"site": site()})).pages:
-        w.add_page(pg)
-    w.write(os.path.join(OUT, "8-player-handouts.pdf"))
+    w.write(os.path.join(OUT, "8-backstory-reprint.pdf"))
 
     # 3 — the deed on its own, for cream or parchment cardstock
     w = PdfWriter()
@@ -190,7 +181,7 @@ def main():
     previews("3-deed.pdf", "deed")
     previews("4-plain.pdf", "plain")
     previews("5-poster.pdf", "poster")
-    previews("8-player-handouts.pdf", "handouts")
+    previews("8-backstory-reprint.pdf", "reprint")
     write_manifest()
 
     counts = {"invite sheets": len(invite.pages), "badge": len(badge.pages),
