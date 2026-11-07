@@ -443,9 +443,9 @@
 
 <script src="fights.js?v=21"></script>
 <script src="scenes/pre.js?v=5"></script>
-<script src="scenes/town.js?v=13"></script>
+<script src="scenes/town.js?v=14"></script>
 <script src="scenes/night.js?v=14"></script>
-<script src="scenes/sunday.js?v=14"></script>
+<script src="scenes/sunday.js?v=15"></script>
 <script src="scenes/finale.js?v=10"></script>
 <script src="sounds/manifest.js?v=4"></script>
 <script>
@@ -593,7 +593,7 @@ function render(i){
     if(st.stuck) return `<li class="sub nt">${net("","🪢 If stuck",st.stuck)}</li>`;
     if(st.backup) return `<li class="sub nt">${net(" bk","↪ Backup path",st.backup)}</li>`;
     if(st.end) return `<li class="end"><b>Ends</b> ${st.end}</li>`;
-    if(st.say) return `<li class="bx"><div class="read"><div class="rl">${st.who||"Read aloud"}</div><p>${st.say}</p></div></li>`;
+    if(st.say){ const g=st.go?idxOf(st.go):-1; return `<li class="bx"><div class="read"><div class="rl">${st.who||"Read aloud"}</div><p>${st.say}</p>${g>=0?`<div class="gos"><button class="gobtn" data-go="${g}">&rarr; ${noLabel(SCENES[g])} · ${SCENES[g].title}</button></div>`:""}</div></li>`; }
     if(st.snd) return `<li class="bx sd"><span class="sd-l">${st.t||(st.snd.every(isBgSound)?"Background":"Sound")}</span><div class="cuepills">${st.snd.map(cuePill).join("")}</div></li>`;
     if(st.check){ const c=st.check; return `<li class="bx"><div class="check"><div class="cd"><span class="skill">${c.skill}</span>`+
       `<span class="dc">${/^\d/.test(c.dc)?`DC ${c.dc}`:`<span class="sug">${c.dc}</span>`}</span></div><div class="cn">${c.note}</div></div></li>`; }

@@ -53,22 +53,13 @@ SCENES.push(
     {snd:["phone"], t:"Vinny's call"},
     {say:"Gnomey, as you read that name, your flip phone rings. It's your Great Uncle Vinny, the family's old bootlegger. He's ancient now, in a home, and mostly gone.", who:"Narrate"},
     {do:"<b>Spencer's turn:</b> Vinny's call. Then let it sit there unexplained."},
-    {do:"They pick where to dig: the <b>hall of records</b> (cue 3) or the <b>gazebo</b> (cue 4), in either order."},
-    {note:"<b>If they don't bite, hand a detour to a PC:</b> tell <b>Bix</b> the Records Keeper knows old names; tell <b>Gnomey</b> the old crew at the gazebo will already know."},
-    {note:"If they march up the hill early: the front is <b>still boarded at this hour</b> and turns them back."},
-    {say:"It's barely noon. The card says <b>eight</b>. And not one of you has ever heard the name <b>Dood</b> before."},
-    {end:"on the read-aloud: barely noon, the card says eight, and nobody's heard of Dood."}
-  ],
-  next:"They pick the hall of records or the gazebo, either order. Whichever comes second ends on cue 4's &ldquo;ten to eight&rdquo; line.", go:["3","4"],
-  talk:[
-    {who:"Great Uncle Vinny · on Gnomey's flip phone", t:"Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch."},
-    {who:"If Gnomey says who it is", t:"That you, kid? Twelve years old and you've got a crew."},
-    {who:"If they say it's 2004", t:"Don't tell me what year it is. I'm late."},
-    {who:"If they ask who Cornelis is", t:"Cornelis owes me a rematch, that's who."},
-    {who:"If they ask about Dood, or to hang up", t:"Can't talk, kid. I'm late for the card game."}
+    {say:"It's barely noon. The card says <b>eight</b>. And not one of you has ever heard the name <b>Dood</b> before. If anyone in town knows a name that old, it's the Records Keeper at the hall of records. If anything's going on at that house, the bad kids at the gazebo will already know. Where do you go first?", who:"The choice"},
+    {say:"You leave school and head into town, to the hall of records.", who:"If they pick the hall of records", go:"3"},
+    {say:"You head outside, to the gazebo by the school.", who:"If they pick the gazebo", go:"4"},
+    {say:"The front door is still boarded up at this hour. You can't get in that way, so you head back down.", who:"If they march up the hill early"}
   ],
   npcs:[
-    {nm:"Great Uncle Vinny (phone)", pts:["Sound confused, and talk as if it's 1931.", "Ask Gnomey if it's the fourteenth.", "Tell him there's a card game up the hill tonight and that Cornelis owes you a rematch.", "Insist you're late, and don't explain anything they ask, including who Cornelis is."], vc:"Ancient and mostly gone, and sure it's 1931."}
+    {nm:"Great Uncle Vinny (phone)", pts:["Sound confused, and talk as if it's 1931.", "Ask Gnomey if it's the fourteenth.", {t:"Tell him there's a card game up the hill tonight and that Cornelis owes you a rematch.", say:"Is it the fourteenth? I got a card game up the hill tonight. Cornelis owes me a rematch."}, {t:"Insist you're late, and don't explain anything they ask, including who Cornelis is.", say:["<i>If Gnomey says who it is</i>That you, kid? Twelve years old and you've got a crew.","<i>If they say it's 2004</i>Don't tell me what year it is. I'm late.","<i>If they ask who Cornelis is</i>Cornelis owes me a rematch, that's who.","<i>If they ask about Dood, or to hang up</i>Can't talk, kid. I'm late for the card game."]}], vc:"Ancient and mostly gone, and sure it's 1931."}
   ],
   cues:["hall","phone"] },
 
@@ -91,9 +82,9 @@ SCENES.push(
     {tick:"Players' iPad back to its home page."},
     {do:"<b>Spencer's turn:</b> the Records Keeper, now it's reassembled."},
     {check:{skill:"Insight", dc:"13", note:"Tell that her &ldquo;be careful&rdquo; is sincere."}},
-    {end:"when her &ldquo;be careful&rdquo; has landed."}
+    {say:"You leave the hall of records and head back to the gazebo by the school.", who:"If they haven't been to the gazebo", go:"4"},
+    {say:"You step outside. Whoever's wearing a watch &mdash; it's <b>ten to eight</b>. That's the time on the card. You walk up the hill.", who:"If they've already been to the gazebo", go:"5"}
   ],
-  next:"Her &ldquo;be careful&rdquo; lands. Gazebo next, or up the hill if they've been. If this is the second stop, end on the &ldquo;ten to eight&rdquo; line from cue 4.", go:["4","5"],
   fight:FIGHTS.library,
   npcs:[
     {nm:"Records Keeper", pts:[
@@ -122,10 +113,9 @@ SCENES.push(
     {hand:"weight", do:"<b>Spencer's turn:</b> the crew. &#9995; When they ask for the riff, hand John the secret <b>The Weight of Your Lies</b> card (printed): disadvantage on Performance, advantage on Deception."},
     {check:{skill:"Performance", dc:"12", note:"<b>Yobo only, in secret, at disadvantage.</b> Hand him <i>The Weight of Your Lies</i> first. Made it: the crew buys it. Missed: it wobbles and they needle him."}},
     {note:"<b>Don't hint at how to lose the card's effect.</b>"},
-    {say:"Whoever's wearing a watch &mdash; it's <b>ten to eight</b>. That's the time on the card."},
-    {end:"on the clock: ten to eight, the time on the card."}
+    {say:"You leave the gazebo and head into town, to the hall of records.", who:"If they haven't been to the hall of records", go:"3"},
+    {say:"Whoever's wearing a watch &mdash; it's <b>ten to eight</b>. That's the time on the card. You walk up the hill.", who:"If they've already been to the hall of records", go:"5"}
   ],
-  next:"Ten to eight (read-aloud), and they walk up the hill. Library still to do? Go there first and save the clock line for its end.", go:["5","3"],
   talk:[
     {who:"DJ Poe Boy · asked about the house, with a shrug", t:"Been up there once."},
     {who:"DJ Poe Boy · pushed on it", t:"Nothing to see. Just some old house."},
