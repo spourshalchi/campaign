@@ -112,7 +112,7 @@ const FIGHTS = {
   summoning: {
     day:"Saturday", cue:9, name:"The botched summoning",
     start:{
-      read:[{t:"Two fragments of chalk peel up off the floor lines."}],
+      read:[{t:"Three fragments of chalk peel up off the floor lines."}],
       grid:{cols:10, rows:8, party:{a:"B7",b:"H8"},
         draw:[
           {s:"rect", a:"A1", b:"J8", nm:"The room", l:0, say:"This is the sealed room, hot and close."},
@@ -126,6 +126,7 @@ const FIGHTS = {
           {at:"E4", nm:"The botched summoning (the 2-inch token)", l:"Botched summoning", k:"foe", size:2},
           {at:"B4", nm:"Ritual fragment 1", l:"Frag 1", k:"foe"},
           {at:"I5", nm:"Ritual fragment 2", l:"Frag 2", k:"foe"},
+          {at:"A2", nm:"Ritual fragment 3", l:"Frag 3", k:"foe"},
           {at:"C7", nm:"Bix", l:"Bix", k:"pc"},
           {at:"D7", nm:"Gnomey", l:"Gnomey", k:"pc"},
           {at:"E7", nm:"Dark Wind", l:"Dark Wind", k:"pc"},
@@ -151,25 +152,25 @@ const FIGHTS = {
       next:"The night ends when the screen dies. Level up: cue L5."
     },
     foes:[
-      {id:"summon", nm:"The botched summoning", n:1, ac:13, hp:60, spd:"30", chassis:"Flesh Golem, scaled down", cr:"4", xp:1100,
+      {id:"summon", nm:"The botched summoning", n:1, ac:13, hp:200, spd:"30", chassis:"Flesh Golem, more HP, lighter claws", cr:"6", xp:2300,
        sv:[4,-1,4,-2,0,-3], grab:"Athletics +4", pp:10, cast:"Unfinished Word: <b>DC 13 Wis</b>, already on its turn.",
        imm:"Poison", cimm:"Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned",
        turn:["Lurches toward the sealed door down the hall. It can't leave the room.",
-             "Claws twice at whoever is between it and the door, or the nearest PC: <b>+6 to hit, 8 slashing</b> each.",
-             "<b>Once, the first time it's under 30 HP:</b> Unfinished Word. Every PC within 15 ft makes a <b>DC 13 Wis save</b>: 8 psychic, half on a save."],
+             "Claws twice at whoever is between it and the door, or the nearest PC: <b>+6 to hit, 6 slashing</b> each.",
+             "<b>Once, the first time it's under 50 HP:</b> Unfinished Word. Every PC within 15 ft makes a <b>DC 13 Wis save</b>: 8 psychic, half on a save."],
        note:"Never attacks a PC at 0 HP. The Unfinished Word: it tries to say something and can't get to the end of it.",
        drop:"The fragments crumble with it.",
        endsFight:1,
        hard:"It spends a turn clawing at the door instead of a PC.",
-       easy:"Add 15 HP (75)."},
-      {id:"frag", nm:"Ritual fragments", one:"Ritual fragment", n:2, ac:12, hp:7, spd:"30", chassis:"Shadow, no Strength drain", cr:"¼", xp:50,
+       easy:"Add 30 HP (230)."},
+      {id:"frag", nm:"Ritual fragments", one:"Ritual fragment", n:3, ac:12, hp:12, spd:"30", chassis:"Shadow, no Strength drain", cr:"¼", xp:50,
        sv:[-2,2,1,-2,0,-1], grab:"Acrobatics +2", pp:10, vul:"Radiant (double damage)", imm:"Necrotic, Poison",
        cimm:"Exhaustion, Frightened, Grappled, Paralyzed, Petrified, Poisoned, Prone, Restrained",
-       turn:["Fragment 1 goes for whoever is hitting the summoning. Fragment 2 goes for the back line.",
+       turn:["Fragments 1 and 2 go for whoever is hitting the summoning. Fragment 3 goes for the back line.",
              "Grab: <b>+4 to hit, 5 necrotic</b>."],
        drop:"Crumbles to chalk dust.",
        hard:"One of them smears out and stops. Mark it down.",
-       easy:"Give each 5 more HP (12)."}
+       easy:"Give each 5 more HP (17)."}
     ]
   },
 
