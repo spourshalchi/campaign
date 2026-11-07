@@ -83,19 +83,21 @@ function render(pc) {
   document.title = pc.name + " · Make Your Character";
   document.documentElement.style.setProperty("--accent", pc.color);
   const tabs = [["build", "Build it"], ["sheet", "Sheet"]];
+  const tab = new URLSearchParams(location.search).get("t") === "sheet" ? "sheet" : "build";
   document.getElementById("app").innerHTML =
     `<div class="nav"><a class="backlink" href="./">&lsaquo; All characters</a></div>
     <div class="head"><p class="kick">Make your character · ${pc.player}</p><h1>${pc.name}</h1><p class="sub">${pc.tag}</p></div>
-    <div class="tabs">${tabs.map(([k, l], i) => `<button data-t="${k}" class="${i ? "" : "on"}">${l}</button>`).join("")}</div>
+    <div class="tabs">${tabs.map(([k, l]) => `<button data-t="${k}" class="${k === tab ? "on" : ""}">${l}</button>`).join("")}</div>
     <div class="sheet">
-      <section id="build" class="on"><h2>Building ${pc.name}, step by step</h2>${pc.intro ? `<div class="note">${pc.intro}</div>` : ""}${steps(pc)}<p class="why" style="margin-top:12px">Hit points: 8 + Con at level 1, then ${calc(pc, 4).hpPerLevel} more each level after that${pc.hpBonusPerLevel ? ", counting Tough" : ""}, using your Con at level 4.</p></section>
-      <section id="sheet">${sheet(pc)}</section>
+      <section id="build" class="${tab === "build" ? "on" : ""}"><h2>Building ${pc.name}, step by step</h2>${pc.intro ? `<div class="note">${pc.intro}</div>` : ""}${steps(pc)}<p class="why" style="margin-top:12px">Hit points: 8 + Con at level 1, then ${calc(pc, 4).hpPerLevel} more each level after that${pc.hpBonusPerLevel ? ", counting Tough" : ""}, using your Con at level 4.</p></section>
+      <section id="sheet" class="${tab === "sheet" ? "on" : ""}">${sheet(pc)}</section>
     </div>
     <p class="foot">A recommended build under the 2024 rules: change anything you like with Scott. Rules are summarised in our own words, so check the Player's Handbook or D&amp;D Beyond for the full wording.</p>`;
   document.querySelector(".tabs").addEventListener("click", e => {
     const b = e.target.closest("[data-t]"); if (!b) return;
     document.querySelectorAll(".tabs button").forEach(x => x.classList.toggle("on", x === b));
     document.querySelectorAll("section").forEach(s => s.classList.toggle("on", s.id === b.dataset.t));
+    history.replaceState(null, "", `?p=${pc.id}${b.dataset.t === "sheet" ? "&t=sheet" : ""}`);
     window.scrollTo(0, 0);
   });
 }

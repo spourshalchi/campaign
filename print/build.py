@@ -20,7 +20,7 @@ Output (in print/):
 Needs Google Chrome (headless, for print-to-PDF and the photo screenshot), pypdf and ImageMagick. Each prop's own
 @media print rules decide its layout, so fix a prop's print CSS, not this file.
 """
-import argparse, functools, glob, http.server, json, os, shutil, socket, subprocess, sys, tempfile, threading
+import argparse, functools, glob, http.server, json, os, re, shutil, socket, subprocess, sys, tempfile, threading
 from urllib.parse import urlencode
 
 from pypdf import PdfReader, PdfWriter
@@ -101,6 +101,13 @@ def previews(pdf_name, stem):
             os.remove(png)
 
 
+def site():
+    """The Pages address, owner.github.io/repo, from the git remote, so the repo name lives nowhere in the code."""
+    url = subprocess.run(["git", "remote", "get-url", "origin"], capture_output=True, text=True, cwd=ROOT).stdout.strip()
+    owner, repo = re.search(r"github\.com[:/]([^/]+)/([^/]+?)(?:\.git)?$", url).groups()
+    return f"{owner.lower()}.github.io/{repo}"
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     for k in ("band", "tour", "venue", "city", "date", "time"):
@@ -150,7 +157,7 @@ def main():
     w = PdfWriter()
     for pg in reprint.pages:
         w.add_page(pg)
-    for pg in page("print/src/handouts.html").pages:
+    for pg in page("print/src/handouts.html", urlencode({"site": site()})).pages:
         w.add_page(pg)
     w.write(os.path.join(OUT, "8-player-handouts.pdf"))
 
