@@ -107,8 +107,6 @@
   .foe-m{font-size:14px;color:var(--mut)}
   .chip{font:700 14px var(--f-mono);color:var(--green)}
   .chip.down{color:var(--blood);text-decoration:line-through}
-  .foe-say{margin:0 0 6px;font-family:var(--f-disp);font-size:17px;line-height:1.35;color:var(--amber)}
-  .foe-sayk{font:700 12.5px var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-right:4px}
   .foe ul{margin:0;padding:0;list-style:none}
   .foe li{margin:0 0 6px;font-size:16px}
   .foe li b{color:var(--rose)}
@@ -122,7 +120,6 @@
   .ally > b{display:block;color:var(--gold)}
   .ally-t{display:block;margin-top:3px;font-size:14.5px;color:var(--mut)}
   .ally-t b{color:var(--gold)}
-  .ally-s{display:block;margin-top:3px;font-family:var(--f-disp);font-size:17px;line-height:1.35;color:var(--amber)}
 
   /* 4: the trackers */
   .trk{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:0 0 10px}
@@ -167,7 +164,7 @@
 </head>
 <body>
 <div id="page"></div>
-<script src="../fights.js?v=23"></script>
+<script src="../fights.js?v=24"></script>
 <script>
 "use strict";
 const $ = s => document.querySelector(s);
@@ -259,7 +256,7 @@ function stepStart(f){
 /* ---- 2. round by round ---- */
 function stepRounds(f){
   const round = r => `<div class="rnd"><p class="rnd-k">${r.k}</p>`+
-    (r.say?said({t:r.say}):"")+(r.do?`<p class="line">${r.do}</p>`:"")+
+    (r.do?`<p class="line">${r.do}</p>`:"")+
     (r.sp||[]).map(l=>said({...l,sp:1})).join("")+`</div>`;
   return step("s-rounds",2,"Round by round",
     f.rounds.map(round).join(""));
@@ -271,15 +268,14 @@ const tallyMax = t => t.tiers[t.tiers.length-2][0]+1;
 function stepTurn(f){
   const chips = x => Array.from({length:x.n},(_,i)=>`<span class="chip" data-chip="${x.id}:${i}" data-max="${x.hp}"></span>`).join("");
   const foe = x => `<div class="foe" data-foe="${x.id}"><div class="foe-h"><span class="foe-n">${x.nm}${x.n>1?` &times;${x.n}`:""}</span>`+
-      `<span class="foe-m">${x.when?x.when+" · ":""}speed ${x.spd}</span>${chips(x)}</div>`+
-    (x.say?`<p class="foe-say"><span class="foe-sayk">Say</span> ${x.say}</p>`:"")+
+      `<span class="foe-m">speed ${x.spd}</span>${chips(x)}</div>`+
     `<ul>${x.turn.map(t=>`<li>${t}</li>`).join("")}</ul>`+
     (x.sayIf||[]).map(said).join("")+
     (x.note?`<p class="small">${x.note}</p>`:"")+
     (f.tally&&f.tally.foe===x.id?`<div class="mini" data-tally><span>${f.tally.label}</span><b class="tv"></b><button data-tad="1">+1 cut</button></div>`:"")+
     small("Too hard?",x.hard)+small("Too easy?",x.easy)+`</div>`;
   const allies = f.allies ? `<div class="allies"><p class="allies-h">${f.alliesLabel||"Allies"}</p>`+
-    f.allies.map(a=>`<div class="ally"><b>${a.nm}</b>${a.act}${a.tok?`<span class="ally-t"><b>Token:</b> ${a.tok}</span>`:""}${a.say?`<span class="ally-s">${a.say}</span>`:""}</div>`).join("")+
+    f.allies.map(a=>`<div class="ally"><b>${a.nm}</b>${a.act}${a.tok?`<span class="ally-t"><b>Token:</b> ${a.tok}</span>`:""}</div>`).join("")+
     (f.allyNote?`<p class="small">${f.allyNote}</p>`:"")+`</div>` : "";
   return step("s-turn",3,"On my turn",
     `<p class="line">${f.turnIntro||"All the enemies go together, in this order. Skip any that are down."}</p>`+
