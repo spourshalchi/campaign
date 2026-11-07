@@ -8,7 +8,10 @@
    table. Damage is fixed (no damage dice). Rolls and initiative stay at the table.
 
    cue:   the Run of Show scene this fight belongs to.
-   start: read [{who, t, sp}], announce, map [lines]: opening the fight.
+   start: read [{who, t, sp}], announce, grid (the set-up map), map [lines]: opening the fight.
+   grid:  cols, rows, party {a, b}, lead, base [shapes already drawn], draw [shapes], tokens. Squares are letter + number, A1 top left.
+          shape: s (rect, line, circle, x, dot), a, b, also [[a, b]], at [squares, for dot], nm, l (label on the map, | for a new line; 0 for none), lp (label's square), say.
+          token: at, nm, l (label on the map), k (foe, ally, pc), size (2 for a 2-inch token), side (laid on its side).
    rounds: [{k, say, do, sp:[{who, t}]}]: what to narrate each round.
    end:   when, read [{who, t, sp} or {note}], next: closing the fight.
    Read-aloud lines: sp means Spencer voices it; {note} is a plain line for Scott.
@@ -28,7 +31,28 @@ const FIGHTS = {
     start:{
       read:[{who:"They open it", t:"The binding splits and a pair of shears comes out of the spine. <i>Snick.</i> A strip of the article falls to the table."},{note:"That's the first cut. It's already on the tally."}],
       announce:"The shears aren't after you, they're after the page. Spend your action standing in a lane and that pair can't cut. Or spend it fighting. It isn't over until everything's down.",
-      map:["The article on a reading table.","Shears 1 and 2 either side of it, one lane each.","The swarm at the card catalogue, the cart by the stacks.","Put a PC's token in a lane when they guard it."]
+      grid:{cols:12, rows:10, party:{a:"C4",b:"H6"},
+        draw:[
+          {s:"rect", a:"A1", b:"L10", nm:"The room", l:0, say:"This is the reading room of the hall of records."},
+          {s:"rect", a:"D5", b:"I5", nm:"The reading table", l:"Reading table", lp:"H5", say:"This long table is where she set the volume down."},
+          {s:"x", a:"F5", nm:"The article", l:"Article", lp:"E5", say:"This X is the article, lying open on the table."},
+          {s:"line", a:"F2", b:"F4", also:[["F6","F8"]], nm:"The two lanes", l:0, say:"These two lines are the straight runs to the page, one from each side."},
+          {s:"rect", a:"K2", b:"L5", nm:"The card catalogue", l:"Card|catalogue", say:"This block on the wall is the card catalogue."},
+          {s:"rect", a:"A7", b:"C9", nm:"The stacks", l:"Stacks", say:"These are the stacks, shelves of bound newspapers."},
+          {s:"rect", a:"J8", b:"L9", nm:"The Records Keeper's desk", l:"Keeper's|desk", say:"This is the Records Keeper's desk."}
+        ],
+        tokens:[
+          {at:"F2", nm:"Archival shears 1", l:"Shears 1", k:"foe"},
+          {at:"F8", nm:"Archival shears 2", l:"Shears 2", k:"foe"},
+          {at:"J3", nm:"Swarm of index cards", l:"Swarm", k:"foe"},
+          {at:"D8", nm:"The book cart", l:"Cart", k:"foe"},
+          {at:"E4", nm:"Bix", l:"Bix", k:"pc"},
+          {at:"G4", nm:"Gnomey", l:"Gnomey", k:"pc"},
+          {at:"D6", nm:"Simone", l:"Simone", k:"pc"},
+          {at:"E6", nm:"Yobo", l:"Yobo", k:"pc"},
+          {at:"G6", nm:"Russ", l:"Russ", k:"pc"}
+        ]},
+      map:["Put a PC's token in a lane when they guard it."]
     },
     rounds:[
       {k:"Round 1", say:"They aren't coming for you. They're going for the page. Behind you, one squeaky wheel starts to roll.", do:"On my turn: the cart, then the shears. The swarm waits."},
