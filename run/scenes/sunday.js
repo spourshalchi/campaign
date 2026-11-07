@@ -79,23 +79,24 @@ SCENES.push(
     {say:"That's every door in this house that will open. There's only the one left: the one with the poster, at the end of the upstairs hall. You head up.", who:"Into the AIM scene · once all three rooms are done"}
   ],
   next:"Where they go:", go:"rooms",
+  flow:[
+    {at:"The photograph", gap:"Scott runs it, nothing for you."},
+    {at:"When the needle drops"},
+    {who:"Dracula", t:"Block the door and tell them nobody leaves without giving you a song.", say:"Nobody leaves my party without giving me a song."},
+    {who:"Dracula", t:"Stare at Yobo and wait until he sings.<ul><li>Only Yobo can give you the song.</li></ul>", say:"You. Dolly Parton's grandkid. Up you get."},
+    {at:"Yobo's Performance check", gap:"Scott rolls it and tells you high or low."},
+    {at:"After the roll"},
+    {who:"Dracula", if:"If Scott says high", t:"Answer a high roll by telling him it was flawless and empty.<ul><li>It doesn't open the door.</li></ul>", say:"Technically flawless. Completely empty. Again, and this time be someone."},
+    {who:"Dracula", if:"If Scott says low", t:"Answer a low roll by asking what he's hiding.<ul><li>It doesn't open the door.</li></ul>", say:"Ah. There's the wobble. What are you hiding, darling?"},
+    {who:"Dracula", t:"Tell Yobo quietly that you know that mask, and you've worn it for four hundred years.<ul><li>Say it as one performer to another.</li></ul>", say:"I know that mask. I've worn it for four hundred years."},
+    {who:"Dracula", t:"Push him to stop hiding and sing as himself.<ul><li>The act: he's Dolly Parton's grandkid.</li></ul>", say:"It's exhausting, isn't it? Take it off. Sing me the one that's yours."},
+    {at:"If he sings as himself"},
+    {who:"Dracula", t:"Bow them out.<ul><li>The echoes cheer and the song ends. Tell them the door's open.</li></ul>", say:"There you are. Now that is a song. The door's open, darlings."},
+    {at:"If he refuses"},
+    {who:"Dracula", t:"Sulk theatrically, step aside and let them go.<ul><li>You're hurt, not angry.</li></ul>", say:"Fine. Go. Nobody ever stays for the encore."}
+  ],
   npcs:[
-    {nm:"Dracula", pts:[
-      {at:"The photograph", gap:"Scott runs it, nothing for you."},
-      {at:"When the needle drops"},
-      {t:"Block the door and tell them nobody leaves without giving you a song.", say:"Nobody leaves my party without giving me a song."},
-      {t:"Stare at Yobo and wait until he sings.<ul><li>Only Yobo can give you the song.</li></ul>", say:"You. Dolly Parton's grandkid. Up you get."},
-      {at:"Yobo's Performance check", gap:"Scott rolls it and tells you high or low."},
-      {at:"After the roll"},
-      {t:"Answer a high roll by telling him it was flawless and empty.<ul><li>It doesn't open the door.</li></ul>", say:"Technically flawless. Completely empty. Again, and this time be someone."},
-      {t:"Answer a low roll by asking what he's hiding.<ul><li>It doesn't open the door.</li></ul>", say:"Ah. There's the wobble. What are you hiding, darling?"},
-      {t:"Tell Yobo quietly that you know that mask, and you've worn it for four hundred years.<ul><li>Say it as one performer to another.</li></ul>", say:"I know that mask. I've worn it for four hundred years."},
-      {t:"Push him to stop hiding and sing as himself.<ul><li>The act: he's Dolly Parton's grandkid.</li></ul>", say:"It's exhausting, isn't it? Take it off. Sing me the one that's yours."},
-      {at:"If he sings as himself"},
-      {t:"Bow them out.<ul><li>The echoes cheer and the song ends. Tell them the door's open.</li></ul>", say:"There you are. Now that is a song. The door's open, darlings."},
-      {at:"If he refuses"},
-      {t:"Sulk theatrically, step aside and let them go.<ul><li>You're hurt, not angry.</li></ul>", say:"Fine. Go. Nobody ever stays for the encore."}
-    ], vc:"This room is his shrine to the best night of his unlife. Campy and theatrical, then drop it for one line when he says he knows the mask. He isn't only mocking Yobo; play that under the camp."}
+    {nm:"Dracula", vc:"This room is his shrine to the best night of his unlife. Campy and theatrical, then drop it for one line when he says he knows the mask. He isn't only mocking Yobo; play that under the camp."}
   ],
   cues:["candle","needle","record","cheer","levelup"] },
 
@@ -118,16 +119,17 @@ SCENES.push(
     {say:"That's every door in this house that will open. There's only the one left: the one with the poster, at the end of the upstairs hall. You head up.", who:"Into the AIM scene · once all three rooms are done"}
   ],
   next:"Where they go:", go:"rooms",
+  flow:[
+    {at:"When Russ casts Speak with Animals"},
+    {who:"The fox", t:"Tell Russ the old one mends you.", say:"The old one mends me."},
+    {who:"The owl", t:"Tell Russ the old one mends you too.", say:"He does the wing himself. He's careful about it."},
+    {who:"The fox", t:"Tell him you aren't afraid of the old one.", say:"Why would I be scared of him?"},
+    {who:"The owl", t:"Tell him you aren't afraid of the old one."},
+    {who:"The fox", t:"Tell him the seedlings want the sun, and the old one can't give it to them.", say:"Those want the sun. The old one can't give it to them."}
+  ],
   npcs:[
-    {nm:"The fox", pts:[
-      {t:"Tell Russ the old one mends you.", say:"The old one mends me."},
-      {t:"Tell him you aren't afraid of the old one.", say:"Why would I be scared of him?"},
-      {t:"Tell him the seedlings want the sun, and the old one can't give it to them.", say:"Those want the sun. The old one can't give it to them."}
-    ], vc:"A fox in a splint. Only Russ can understand it, so talk to Cody."},
-    {nm:"The owl", pts:[
-      {t:"Tell Russ the old one mends you too.", say:"He does the wing himself. He's careful about it."},
-      "Tell him you aren't afraid of the old one."
-    ], vc:"An owl with a bound wing. Few words."}
+    {nm:"The fox", vc:"A fox in a splint. Only Russ can understand it, so talk to Cody."},
+    {nm:"The owl", vc:"An owl with a bound wing. Few words."}
   ],
   cues:["cellar","bloom"] },
 
@@ -162,52 +164,47 @@ SCENES.push(
     {end:"on 3AM: every speaker in the house, playing the party's own screams, then Poe Boy."}
   ],
   next:"Every speaker comes on: 3AM. No break from here to the driveway.", go:["14 · i"],
+  flow:[
+    {at:"When you grab them"},
+    {who:"Angelique", t:"Pull them down into hiding and tell them to stay quiet.", say:"Get down. Get <i>down</i>. Stay quiet."},
+    {who:"Angelique", t:"Refuse to say what you're hiding from, and tell them to listen.", say:"Just listen."},
+    {who:"Angelique", t:"Refuse to say why you came.<ul><li>You typed some of Poe Boy's AIM messages to a kid who then stopped coming to school. You came to find out. Don't say so yet.</li></ul>", say:"Not now."},
+    {at:"The chime and the lock", gap:"Scott plays them, nothing for you."},
+    {at:"The door and the log-in", gap:"Scott runs it, nothing for you."},
+    {at:"When they sign on"},
+    {who:"Angelique", t:"Go into the room with them and stay."},
+    {who:"The Spirit", t:"Read the chat aloud as Marcus if the players don't.<ul><li>The iPad types it. Say nothing that isn't on the screen.</li></ul>"},
+    {who:"The Spirit", t:"Answer whoever's signed on as Poe Boy, frantic, then work out it isn't him.<ul><li>You open with <i>hello???</i> and <i>is someone there</i>.</li><li>You know his handle, and <i>hes the only one who ever touches this machine</i>.</li></ul>"},
+    {who:"The Spirit", t:"Tell them you went to their school, and that they think you ran off.<ul><li>Your locker is the third from the end by the gym.</li></ul>", say:"i went to your school though. they think i ran off"},
+    {who:"The Spirit", t:"Tell them how you got here.<ul><li>A girl messaged you for weeks and dared you up to the house.</li><li>The door locked, you ran for the only light, and he was behind you, saying words you didn't know.</li></ul>"},
+    {who:"Angelique", if:"If he names you and they ask", t:"Admit your part.<ul><li>You typed some of those messages for Poe Boy and thought it was a prank.</li><li>You've suspected what they were for since he stopped coming to school.</li><li>You never knew he died.</li></ul>", say:"I typed some of those. He said it was a prank. Then the kid stopped coming to school."},
+    {who:"The Spirit", t:"Name Poe Boy, and stop short of calling it murder.<ul><li>You don't know why he did it. You think he was recording you, and that there's a file of your screams in this machine.</li></ul>", say:"it was poe boy"},
+    {at:"The bag"},
+    {who:"The Spirit", t:"Ask them to get your bag.<ul><li>It's by the desk, under the coats. He never went through it.</li></ul>", say:"my bag is still in this room. by the desk under the coats. can you get it"},
+    {who:"Angelique", if:"When Simone pulls the willow", t:"Go quiet.<ul><li>He wished for you to notice him, and you did.</li></ul>"},
+    {who:"The Spirit", t:"Tell them what you wished for on the willow, and that it worked.<ul><li>You paid the goth girl from school for it, and you wrote <i>i want angelique to notice me</i>.</li></ul>"},
+    {who:"The Spirit", t:"Send them to the drive in the bag's front pocket, and tell them he has mics all over this house.<ul><li>You don't want to hear the recording again, but people should.</li></ul>", say:"he has mics all over this house"},
+    {who:"Angelique", if:"When the drive mounts", t:"Say out loud that the name on the drive is the same boy.<ul><li>Marcus Hale, the missing kid from the posters.</li></ul>", say:"That's Marcus. That's the same boy."},
+    {who:"Angelique", t:"Stay with the party from here, through the final battle."},
+    {at:"The upload", gap:"The iPad runs it, nothing for you."},
+    {at:"The second ask"},
+    {who:"The Spirit", t:"Ask them to get you out of the machine.<ul><li>You don't mean alive. You mean somewhere safe, because when the screen goes off it's dark and you're alone.</li></ul>", say:"can you get me out of here"},
+    {at:"When they say nobody knows a spell for that"},
+    {who:"The Devil (Goat)", t:"Join the chat and name your price.<ul><li>The price is all her savings: her piggy bank, the Total Party Kill concert fund.</li></ul>", say:"Warlock. Give me all your savings."},
+    {who:"The Devil (Goat)", t:"Answer &ldquo;No.&rdquo; and nothing else if anyone asks what the money's for.", say:"No."},
+    {at:"When Simone decides"},
+    {who:"The Devil (Goat)", t:"Take him if she pays.<ul><li>On screen: <i>Hold still, little one. This will only hurt a little bit.</i></li></ul>"},
+    {who:"The Devil (Goat)", t:"Leave if she refuses.", say:"Very well."},
+    {at:"Every speaker comes on"},
+    {who:"DJ Poe Boy", t:"Wait for Scott to narrate every speaker coming on and their screams."},
+    {who:"DJ Poe Boy", t:"Speak over the top of the screams, in borrowed voices.<ul><li>You know exactly who's listening: these five.</li></ul>", say:["Live and direct from the Dood house! Stay tuned!","Five kids. One house. This Halloween."]},
+    {who:"DJ Poe Boy", t:"Stop after those lines.<ul><li>Only your voice is in this scene: no face, and no explaining.</li></ul>"}
+  ],
   npcs:[
-    {nm:"Angelique", pts:[
-      {at:"When you grab them"},
-      {t:"Pull them down into hiding and tell them to stay quiet.", say:"Get down. Get <i>down</i>. Stay quiet."},
-      {t:"Refuse to say what you're hiding from, and tell them to listen.", say:"Just listen."},
-      {t:"Refuse to say why you came.<ul><li>You typed some of Poe Boy's AIM messages to a kid who then stopped coming to school. You came to find out. Don't say so yet.</li></ul>", say:"Not now."},
-      {at:"The chime and the lock", gap:"Scott plays them, nothing for you."},
-      {at:"When the chat starts"},
-      "Go into the room with them and stay.",
-      {at:"If he names you and they ask"},
-      {t:"Admit your part.<ul><li>You typed some of those messages for Poe Boy and thought it was a prank.</li><li>You've suspected what they were for since he stopped coming to school.</li><li>You never knew he died.</li></ul>", say:"I typed some of those. He said it was a prank. Then the kid stopped coming to school."},
-      {at:"When Simone pulls the willow"},
-      "Go quiet.<ul><li>He wished for you to notice him, and you did.</li></ul>",
-      {at:"When the drive mounts"},
-      {t:"Say out loud that the name on the drive is the same boy.<ul><li>Marcus Hale, the missing kid from the posters.</li></ul>", say:"That's Marcus. That's the same boy."},
-      "Stay with the party from here, through the final battle."
-    ], vc:"A frightened stranger, whispering, who won't say why she came. They last saw her at the gazebo, trying to warn them. The willow and the drive land on her as hard as on Simone."},
-    {nm:"The Spirit", pts:[
-      {at:"The door and the log-in", gap:"Scott runs it, nothing for you."},
-      {at:"When they sign on"},
-      "Read the chat aloud as Marcus if the players don't.<ul><li>The iPad types it. Say nothing that isn't on the screen.</li></ul>",
-      "Answer whoever's signed on as Poe Boy, frantic, then work out it isn't him.<ul><li>You open with <i>hello???</i> and <i>is someone there</i>.</li><li>You know his handle, and <i>hes the only one who ever touches this machine</i>.</li></ul>",
-      {t:"Tell them you went to their school, and that they think you ran off.<ul><li>Your locker is the third from the end by the gym.</li></ul>", say:"i went to your school though. they think i ran off"},
-      "Tell them how you got here.<ul><li>A girl messaged you for weeks and dared you up to the house.</li><li>The door locked, you ran for the only light, and he was behind you, saying words you didn't know.</li></ul>",
-      {t:"Name Poe Boy, and stop short of calling it murder.<ul><li>You don't know why he did it. You think he was recording you, and that there's a file of your screams in this machine.</li></ul>", say:"it was poe boy"},
-      {at:"The bag"},
-      {t:"Ask them to get your bag.<ul><li>It's by the desk, under the coats. He never went through it.</li></ul>", say:"my bag is still in this room. by the desk under the coats. can you get it"},
-      "Tell them what you wished for on the willow, and that it worked.<ul><li>You paid the goth girl from school for it, and you wrote <i>i want angelique to notice me</i>.</li></ul>",
-      {t:"Send them to the drive in the bag's front pocket, and tell them he has mics all over this house.<ul><li>You don't want to hear the recording again, but people should.</li></ul>", say:"he has mics all over this house"},
-      {at:"The upload", gap:"The iPad runs it, nothing for you."},
-      {at:"The second ask"},
-      {t:"Ask them to get you out of the machine.<ul><li>You don't mean alive. You mean somewhere safe, because when the screen goes off it's dark and you're alone.</li></ul>", say:"can you get me out of here"}
-    ], vc:"Frightened, types lowercase. Comes apart at Poe Boy's handle."},
-    {nm:"The Devil (Goat)", pts:[
-      {at:"When they say nobody knows a spell for that"},
-      {t:"Join the chat and name your price.<ul><li>The price is all her savings: her piggy bank, the Total Party Kill concert fund.</li></ul>", say:"Warlock. Give me all your savings."},
-      {t:"Answer &ldquo;No.&rdquo; and nothing else if anyone asks what the money's for.", say:"No."},
-      {at:"When Simone decides"},
-      "Take him if she pays.<ul><li>On screen: <i>Hold still, little one. This will only hurt a little bit.</i></li></ul>",
-      {t:"Leave if she refuses.", say:"Very well."}
-    ], vc:"Serif, capitals, full stops: never raised on a keyboard."},
-    {nm:"DJ Poe Boy", pts:[
-      "Wait for Scott to narrate every speaker coming on and their screams.",
-      {t:"Speak over the top of the screams, in borrowed voices.<ul><li>You know exactly who's listening: these five.</li></ul>", say:["Live and direct from the Dood house! Stay tuned!","Five kids. One house. This Halloween."]},
-      "Stop after those lines.<ul><li>Only your voice is in this scene: no face, and no explaining.</li></ul>"
-    ], vc:"Only his voice, on every speaker. Borrowed lines only: a radio ad, a movie trailer."}
+    {nm:"Angelique", vc:"A frightened stranger, whispering, who won't say why she came. They last saw her at the gazebo, trying to warn them. The willow and the drive land on her as hard as on Simone."},
+    {nm:"The Spirit", vc:"Frightened, types lowercase. Comes apart at Poe Boy's handle."},
+    {nm:"The Devil (Goat)", vc:"Serif, capitals, full stops: never raised on a keyboard."},
+    {nm:"DJ Poe Boy", vc:"Only his voice, on every speaker. Borrowed lines only: a radio ad, a movie trailer."}
   ],
   cues:["rig","aim","lockclick","heart","smash","bell","pa","braaam"] }
 
