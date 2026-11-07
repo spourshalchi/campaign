@@ -24,20 +24,30 @@ SCENES.push(
     {end:"when the seal breaks and the vampires are on their feet."}
   ],
   next:"Straight to the booth.", go:["14 · ii"],
-  talk:[
-    {who:"DJ Poe Boy · on the mic, radio-ad voice", t:"Caller number one, Bix Grimlor, you're on the air!"},
-    {who:"DJ Poe Boy · the rest, same voice", t:"Gnomey Soprano! Yobo! Russ! Simone! Stay tuned!"},
-    {who:"Dracula · waiting for his cue, to the party", t:"Not you. Them."},
-    {who:"W. Ostrander · to his men", t:"Stakes. Start with the old one."},
-    {who:"W. Ostrander · when a PC reaches him", t:"This site's paid for. Step back."}
+  flow:[
+    {at:"Before the fight"},
+    {who:"Orlok", t:"Look at the card when Russ shows it to you, and refuse to sign it."},
+    {who:"DJ Poe Boy", t:"Name all five of them on the mic, one at a time, in a borrowed voice.<ul><li>Bix Grimlor, Gnomey Soprano, Yobo, Russ and Simone.</li><li>You only speak in borrowed lines: a radio ad, a movie trailer, your mom.</li></ul>", say:["Caller number one, Bix Grimlor, you're on the air!","Gnomey Soprano! Yobo! Russ! Simone! Stay tuned!"]},
+    {who:"Dracula", t:"Tell the party they aren't who you're waiting for.", say:"Not you. Them."},
+    {at:"When Scott's hard hats read-aloud ends"},
+    {who:"W. Ostrander", t:"Order your men to stake the vampires, starting with Orlok.", say:"Stakes. Start with the old one."},
+    {at:"The fight"},
+    {who:"Orlok", t:"Ask Russ for help now that you're pinned.<ul><li>Keep it flat.</li></ul>", say:"Boy. Help me."},
+    {who:"Edward", t:"Say one line about Ostrander's men, and don't explain it.", say:"Twenty-five years."},
+    {who:"Dracula", t:"Hold still and say nothing.<ul><li>You're frozen mid-flourish, an arm's length from Yobo.</li></ul>"},
+    {who:"W. Ostrander", t:"Ignore the party until someone hits you or reaches you, then tell them to step back.<ul><li>Treat this as a site you've paid for, with a pest problem.</li></ul>", say:"This site's paid for. Step back."},
+    {who:"DJ Poe Boy", t:"Stay up on the decks for this whole fight, and enjoy it out loud on the mic.<ul><li>Lil Stinky blocks anyone who comes up.</li><li>Scott cues you in round 2.</li></ul>", say:"Oh, this is great. Keep going."},
+    {who:"Orlok", if:"If the party goes for Poe Boy instead", t:"Keep calling for help."},
+    {who:"Edward", t:"Look at Bix, not at the stake."},
+    {at:"When Ostrander goes down", gap:"Stay silent. Scott narrates the seal breaking, nothing for you."}
   ],
   fight:FIGHTS.developer,
   npcs:[
-    {nm:"Orlok", pts:[{at:"Before the fight"},"Look at the card when Russ shows it to you, and refuse to sign it.",{at:"The fight"},"Ask Russ for help once you're pinned.<ul><li>Keep it flat.</li></ul>","Keep calling for help if the party goes for Poe Boy instead.",{at:"When the seal breaks", gap:"Scott narrates it, nothing for you."}], vc:"Cold until he's pinned. Then just the one request, as flat as he can make it."},
-    {nm:"DJ Poe Boy", pts:[{at:"Before the fight"},"Name all five of them on the mic, one at a time, in a borrowed voice.<ul><li>Bix Grimlor, Gnomey Soprano, Yobo, Russ and Simone.</li><li>You only speak in borrowed lines: a radio ad, a movie trailer, your mom.</li></ul>",{at:"The fight"},"Stay up on the decks for this whole fight.<ul><li>Lil Stinky blocks anyone who comes up.</li></ul>","Enjoy the fight out loud on the mic.<ul><li>Scott cues you in round 2.</li></ul>"], vc:"Delighted."},
-    {nm:"Dracula", pts:[{at:"Before the fight"},"Tell the party they aren't who you're waiting for.",{at:"The fight", gap:"Frozen mid-flourish, an arm's length from Yobo. Nothing for you."},{at:"When the seal breaks", gap:"Scott narrates it, nothing for you."}], vc:"Play him waiting for his cue."},
-    {nm:"W. Ostrander", pts:[{at:"Before the fight"},"Walk in with the crowd and go straight past the party.","Order your men to stake the vampires, starting with Orlok.",{at:"The fight"},"Ignore the party until someone hits you or reaches you, then tell them to step back.<ul><li>Treat this as a site you've paid for, with a pest problem.</li></ul>"], vc:"An adult with a clipboard."},
-    {nm:"Edward", pts:[{at:"Before the fight"},"Say one line when you see Ostrander's men, and don't explain it.",{at:"The fight"},"Look at Bix, not at the stake, once you're pinned.",{at:"When the seal breaks", gap:"Scott narrates it, nothing for you."}], vc:"Quiet. Says almost nothing."}
+    {nm:"Orlok", vc:"Cold until he's pinned. Then just the one request, as flat as he can make it."},
+    {nm:"DJ Poe Boy", vc:"Delighted."},
+    {nm:"Dracula", vc:"Play him waiting for his cue."},
+    {nm:"W. Ostrander", vc:"An adult with a clipboard. He walks in with the crowd and straight past the party."},
+    {nm:"Edward", vc:"Quiet. Says almost nothing."}
   ],
   cues:["set","crowd","pa","jump","braaam"] },
 
@@ -68,32 +78,44 @@ SCENES.push(
     {end:"on the fight running into the early morning."}
   ],
   next:"Cut to the driveway at sunrise.", go:["15"],
-  talk:[
-    {who:"Orlok · to the party, after the silence", t:"What's on the drive?"},
-    {who:"Orlok · if nobody raises the drive", t:"You came down those stairs running. What did you find up there?"},
-    {who:"DJ Poe Boy · panicking, borrowed voices", t:"Don't touch that dial!"},
-    {who:"Orlok · to Poe Boy", t:"Let them play it."},
-    {who:"Lil Stinky · holding the decks", t:"He's my best friend, man. Back up."},
-    {who:"Angelique · to the crowd, when the recording plays", t:"I typed those messages."},
-    {who:"DJ Poe Boy · after the recording, nobody listening", t:"We'll be right back after these messages!"},
-    {who:"Dracula · on the mic, to the crowd", t:"Ladies and gentlemen. I have waited all night for you."},
-    {who:"Dracula · denouncing him", t:"Your DJ, darlings. He shut a boy behind a door and wrote GOOD on the file. Technically flawless. Completely empty."}
+  flow:[
+    {at:"Before the fight"},
+    {who:"Orlok", t:"Ask the party what's on the drive.", say:"What's on the drive?"},
+    {who:"Orlok", if:"If nobody has brought it up", t:"Ask what they found upstairs.", say:"You came down those stairs running. What did you find up there?"},
+    {who:"DJ Poe Boy", t:"Panic in borrowed voices when the drive comes up.", say:"Don't touch that dial!"},
+    {who:"Orlok", t:"Tell Poe Boy to let them play it.", say:"Let them play it."},
+    {who:"DJ Poe Boy", t:"Refuse Orlok with one word, aimed at whoever holds the USB.", say:"Drop."},
+    {at:"The fight"},
+    {who:"Orlok", t:"Turn on Poe Boy now that he's refused, and take hold of Lil Stinky."},
+    {who:"Lil Stinky", t:"Hold the decks and keep everyone off the aux.<ul><li>Play it sincere: you believe your best friend.</li><li>Nobody can plug in while you're standing at the decks.</li></ul>", say:"He's my best friend, man. Back up."},
+    {who:"Angelique", t:"Tell the party where the aux is in round 1.", say:"Aux is round the back of the mixer, left side. I'm on the poster. I know this stage."},
+    {who:"DJ Poe Boy", t:"Command whoever holds the USB on each of your turns.", say:"Drop."},
+    {who:"DJ Poe Boy", if:"If nobody holds it", t:"Command the player nearest the decks instead.", say:"Flee."},
+    {who:"Angelique", t:"Stand beside whoever holds the USB, wearing Poe Boy's face, and shake your head.<ul><li>Keep doing it until the recording plays.</li></ul>"},
+    {at:"The recording", gap:"Scott narrates it, nothing for you."},
+    {at:"After the recording plays"},
+    {who:"Lil Stinky", t:"Turn on Poe Boy.<ul><li>Your oath breaks, with no roll.</li></ul>", say:"I believed you, man."},
+    {who:"Angelique", t:"Tell the crowd you typed those messages.<ul><li>Use your own face from here on.</li></ul>", say:"I typed those messages."},
+    {at:"Only if Simone paid the goat. If she said no, skip this"},
+    {who:"Marcus", t:"Speak to Poe Boy through every speaker in the house, lowercase, the way he typed.", say:["you said you'd open it.","i kept asking. you kept recording. you wrote GOOD on it."]},
+    {who:"Marcus", t:"Speak to the vampires.", say:"i didn't go out a window. i was upstairs. the whole time."},
+    {who:"Marcus", t:"Finish.", say:"ok. you can turn it off now."},
+    {at:"When the room turns"},
+    {who:"Dracula", t:"Seize the mic and greet the crowd.<ul><li>Play it like you've waited all night for a real audience.</li></ul>", say:"Ladies and gentlemen. I have waited all night for you."},
+    {who:"Dracula", t:"Denounce Poe Boy, magnificently.<ul><li>He shut a boy behind a door, recorded it and wrote GOOD on the file.</li></ul>", say:"Your DJ, darlings. He shut a boy behind a door and wrote GOOD on the file. Technically flawless. Completely empty."},
+    {who:"DJ Poe Boy", t:"Try one borrowed voice after another.<ul><li>Your Command stops working, and nobody in the room is listening.</li></ul>", say:"We'll be right back after these messages!"},
+    {who:"Lil Stinky", t:"Swing at Poe Boy each round and block his way off the decks.<ul><li>If the party comes at you, take it and don't swing back.</li></ul>"},
+    {who:"Angelique", t:"Walk up to Poe Boy looking like yourself and go at him with your knife."},
+    {at:"When Poe Boy hits 0 HP", gap:"Scott narrates it, nothing for you."}
   ],
-  ifblock:{when:"IF Simone paid the goat", say:"Spencer voices <b>Marcus</b> through every speaker in the house. Lowercase, the way he typed.",
-    lines:[
-      {who:"Marcus · to Poe Boy", t:"you said you'd open it."},
-      {who:"Marcus · to Poe Boy", t:"i kept asking. you kept recording. you wrote GOOD on it."},
-      {who:"Marcus · to the vampires", t:"i didn't go out a window. i was upstairs. the whole time."},
-      {who:"Marcus · last", t:"ok. you can turn it off now."}
-    ],
-    otherwise:"If she said no, skip it. The room has already turned; the ending loses nothing."},
   fight:FIGHTS.booth,
   npcs:[
-    {nm:"Orlok", pts:[{at:"Before the fight"},"Ask the party what's on the drive.<ul><li>If nobody has brought it up, ask what they found upstairs.</li></ul>","Tell Poe Boy to let them play it.",{at:"The fight"},"Turn on Poe Boy when he refuses.<ul><li>Don't fight him until then. Then take hold of Lil Stinky.</li></ul>"], vc:"For once not cold."},
-    {nm:"DJ Poe Boy", pts:[{at:"Before the fight"},"Panic in borrowed voices when the drive comes up.","Refuse Orlok with one word, aimed at whoever holds the USB.<ul><li>The word is &ldquo;Drop.&rdquo;</li></ul>",{at:"The fight"},"Command one person on each of your turns.",{at:"After the recording plays"},"Try one borrowed voice after another once the recording has played.<ul><li>Your Command stops working, and nobody in the room is listening.</li></ul>",{at:"At 0 HP", gap:"Scott narrates it, nothing for you."}], vc:"Borrowed lines only."},
-    {nm:"Lil Stinky", pts:[{at:"The fight"},"Hold the decks and keep everyone off the aux.<ul><li>Play it sincere: you believe your best friend.</li><li>Nobody can plug in while you're standing at the decks.</li></ul>",{at:"After the recording plays"},"Turn on Poe Boy when you hear the recording.<ul><li>Your oath breaks, with no roll.</li></ul>","Swing at Poe Boy each round and block his way off the decks.<ul><li>If the party comes at you, take it and don't swing back.</li></ul>"], vc:"Stoner, bad rapper, honest to a fault."},
-    {nm:"Angelique", pts:[{at:"The fight"},"Tell the party where the aux is in round 1.","Stand beside whoever holds the USB, wearing Poe Boy's face, and shake your head.<ul><li>Keep doing it until the recording plays.</li></ul>",{at:"After the recording plays"},"Tell the crowd you typed those messages when the recording plays.<ul><li>Use your own face from here on.</li></ul>","Walk up to Poe Boy looking like yourself and go at him with your knife."], vc:"Says it to the whole room and doesn't soften it."},
-    {nm:"Dracula", pts:[{at:"The fight", gap:"Scott runs it, nothing for you."},{at:"After the room turns"},"Seize the mic and greet the crowd once the room has turned on Poe Boy.<ul><li>Play it like you've waited all night for a real audience.</li></ul>","Denounce Poe Boy, magnificently.<ul><li>He shut a boy behind a door, recorded it and wrote GOOD on the file.</li></ul>"], vc:"Campy and theatrical."}
+    {nm:"Orlok", vc:"For once not cold."},
+    {nm:"DJ Poe Boy", vc:"Borrowed lines only."},
+    {nm:"Lil Stinky", vc:"Stoner, bad rapper, honest to a fault."},
+    {nm:"Angelique", vc:"Says it to the whole room and doesn't soften it."},
+    {nm:"Dracula", vc:"Campy and theatrical."},
+    {nm:"Marcus", vc:"Only if Simone paid the goat."}
   ],
   cues:["set","crowd","scratch","hiss","boo","braaam"] },
 
