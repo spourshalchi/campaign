@@ -661,7 +661,7 @@ const FLOW = [
         ]}}},
 
   {n:3,title:"The library & hall of records",where:"Town · the clincher",par:"town",body:"The big in-town stop, and where the clincher lives. Here the party gets <b>the town’s talk about the Dood house</b> and the <b>Records Keeper’s nudge</b>. Once the page is in pieces she tells them their primary source is gone — so to technically have one, they’d have to go see the house themselves. <i>“But be careful.”</i> The warning is why they go.<br><br><b>And this is where Saturday’s fight is.</b> The bound volume is intact when she hands it over; opening it springs Ostrander’s trap and the reading room’s stationery comes to life and goes for the article. By the time it’s dealt with the page is in pieces — <b>which is where the torn-page prop comes from</b>. In the back pocket of the volume: a checkout card with four names, one of them Poe Boy’s real one. <b>Springing the trap also summons Ostrander</b> — it tells him someone has been in his records, and he drives out to the house that night.",
-    enc:"⚔ Saturday’s town fight — <b>the trap in the binding</b> (500 XP): <b>two pairs of archival shears</b> that ignore the party and cut the article, a <b>swarm of index cards</b>, and a <b>book cart</b>. Two shears means two cuts a round until they drop, and the number of cuts sets the torn-page puzzle’s difficulty.",
+    enc:"⚔ Saturday’s town fight — <b>the trap in the binding</b> (850 XP, three or four rounds): <b>two pairs of archival shears</b> that ignore the party and cut the article, a <b>swarm of index cards</b>, and a <b>book cart</b>. Two shears means two cuts a round until they drop, and the number of cuts sets the torn-page puzzle’s difficulty.",
     bridge:{cue:"The lore’s in the bag, the page is in pieces, and the Records Keeper’s “But be careful” is ringing in their ears.",
       note:"The records hall gives them the lore, the nudge up the hill and Saturday’s fight; the gazebo gives them the host. Either can come first.",
       q:"This changes the plan twice over — town is no longer combat-free, and Saturday’s fight is no longer in the mansion; the mansion’s fight moves to early Sunday."}},
@@ -916,7 +916,7 @@ const CBUDGET = {
 };
 const CENC = [
   {act:"Saturday · town",title:"The trap in the binding",st:"built",stl:"Statted",c:"#9a6ff0",   p:"The volume is <b>intact</b> when the records keeper hands it over. Opening it springs the developer's trap: the reading room's stationery gets up, and a pair of <b>archival shears</b> ignore the party entirely and go for the article. By the time the shears are down, the page is in pieces — <b>which is where the torn-page prop comes from.</b>",
-   math:[["Budget · 5 PCs at level 4","1,250 low / 2,500 high"],["Archival shears ×2 · AC 14, HP 16 (CR ½)","200 XP"],["Swarm of index cards · AC 12, HP 14 (CR ½)","100 XP"],["The book cart · AC 14, HP 18 (CR 1)","200 XP"],["Total","500 XP · 2.5 CR"]],
+   math:[["Budget · 5 PCs at level 4","1,250 low / 2,500 high"],["Archival shears ×2 · AC 14, HP 16 (CR ½)","200 XP"],["Swarm of index cards · AC 12, HP 45 (CR 1)","200 XP"],["The book cart · AC 14, HP 60 (CR 2)","450 XP"],["Total","850 XP · 4 CR"]],
    verdict:"Well below the low line on purpose. The shears never attack anyone, so only the swarm and the cart (300 XP) are aimed at the party, and the only way to save the page is to drop the shears fast. It's a <b>puzzle-fight, not a budget fight</b>: the pressure is the cut count. It ends when all four are down, in two to four rounds.",
    note:"<b>The shears don't attack people.</b> Every pair still up cuts the article on the enemy turn, and nothing blocks them. Dropping them stops the cuts, and the fight goes on against whatever's left.<br><br><b>Two shears means two cuts a round.</b> Dropping one halves the pressure on the page right away.<br><br><b>The first cut is the trigger, not an action</b> — they come out of the spine as the trap fires, before initiative. The page always gets cut at least once, with no fudging.<br><br><b>Count the cuts; that's the puzzle.</b> The combat page's cut counter shows which difficulty to tap. The prop opens on a <b>setup screen</b> — tap it and hand the iPad over. Up to two cuts is Easy, three is Medium, four or five is Hard, and cuts stop at five. There's no timer: it's a jigsaw, and the difficulty they earned in the fight is the whole tension.<br><br>It <b>contains and erases; it does not kill</b>. He's a businessman scrubbing a stigmatised property, not a murderer, and he wouldn't leave something lethal in a public library. That's what makes him frightening eight hours later, when he is willing."},
 
@@ -1457,7 +1457,7 @@ const TODO_LIST = [
   "c": "Combat",
   "built": 1,
   "done": 1,
-  "note": "500 XP in the records hall: <b>two pairs of archival shears</b> that ignore the party and go for the article, a swarm of index cards, and a book cart. Two shears means two cuts a round until they drop. <b>The first cut is the trigger, not an action</b>, so the page always gets cut at least once. <b>Count the cuts</b> and the prop's setup screen turns that into a difficulty \u2014 the first time a fight in this campaign wires directly into a prop. <b>Reverses the plan twice:</b> town is no longer combat-free and Saturday's fight is no longer in the mansion."
+  "note": "850 XP in the records hall: <b>two pairs of archival shears</b> that ignore the party and go for the article, a swarm of index cards, and a book cart. Two shears means two cuts a round until they drop. <b>The first cut is the trigger, not an action</b>, so the page always gets cut at least once. <b>Count the cuts</b> and the prop's setup screen turns that into a difficulty \u2014 the first time a fight in this campaign wires directly into a prop. <b>Reverses the plan twice:</b> town is no longer combat-free and Saturday's fight is no longer in the mansion."
  },
  {
   "id": "h7",
@@ -1778,7 +1778,7 @@ const TODO_LIST = [
   "ans": "Statted: six fight cards on the Run of Show (cues 3, 6, 9, R, 14 i and 14 ii)",
   "note": "Every fight has a stat line now, on its own combat page, <code>/run/combat/</code>, linked from its Run of Show scene. Each fight opens with who takes whom and what each round looks like. Each card is a script: AC · HP · speed, what it does on its turn, a tap-to-subtract HP counter, what happens when it drops, and a too-hard / too-easy dial. Each fight opens with setup, win condition, roughly when it ends, and an exit that isn't a TPK. The <b>Combat section</b> carries the budget math against the final numbers.",
   "steps": [
-   "Saturday's town fight \u2014 shears ×2, the swarm and the cart, 500 XP at level 4. The cut counter shows which difficulty to tap.",
+   "Saturday's town fight \u2014 shears ×2, the swarm and the cart, 850 XP at level 4, three or four rounds. The cut counter shows which difficulty to tap.",
    "Saturday's mansion fight \u2014 the botched summoning plus three fragments, 2,450 XP at level 4, four or five rounds. It never attacks a downed PC.",
    "The developer: Ostrander plus six thugs, 2,900 XP at level 5. Seal (narrated), a ward folded into his HP, Hold, a rod. No damage spells.",
    "The booth: Poe Boy (Command, can't drop below 1 until the recording plays) and Lil Stinky (guards the decks, Aura of Protection), 1,800 XP, with three vampire allies acting one a round.",
@@ -1795,7 +1795,7 @@ const TODO_LIST = [
   "note": "Four fights, two Saturday and two Sunday. What is left is the placement argument.",
   "steps": [
    "<b>Town is combat-free by decision</b>, not omission.",
-   "<b>Saturday's fight is now in town</b> \u2014 the trap in the bound volume, 500 XP. That leaves the mansion with no combat until Sunday morning.",
+   "<b>Saturday's fight is now in town</b> \u2014 the trap in the bound volume, 850 XP. That leaves the mansion with no combat until Sunday morning.",
    "Sunday's investigation stretch is the study, the party room and the cellar in any order, then the locked computer room last \u2014 and every PC has a room (Yobo shares the party room, Cody has the cellar infirmary).",
    "The finale is two fights in one continuous sequence, so it covers the whole back end.",
    "Sanity check: no stretch should run much past ninety minutes with neither a fight nor a puzzle paying off. Use hazards and chases rather than a fourth combat \u2014 they cost ten minutes, not fifty."

@@ -84,13 +84,13 @@ const FIGHTS = {
       allDown:1,
       full:"The shears stop cutting. Keep fighting until everything's down."},
     foes:[
-      {id:"cart", nm:"The book cart", n:1, ac:14, hp:18, spd:"30", chassis:"Animated Armor", cr:"1", xp:200,
+      {id:"cart", nm:"The book cart", n:1, ac:14, hp:60, spd:"30", chassis:"Animated Armor, more HP", cr:"2", xp:450,
        sv:[2,0,1,-5,-4,-5], grab:"Athletics +2", pp:6, imm:"Poison, Psychic", cimm:"Blinded, Charmed, Deafened, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned",
        turn:["Rolls at the nearest PC.",
              "Ram: <b>+5 to hit, 9 bludgeoning</b>, and that PC is pushed 10 ft."],
        drop:"A wheel comes off; it tips over and spills its books.",
        hard:"It stops pushing: damage only.",
-       easy:"Add 6 HP (24)."},
+       easy:"Add 15 HP (75)."},
       {id:"shears", nm:"Archival shears", n:2, ac:14, hp:16, spd:"fly 30", chassis:"Flying Sword", cr:"½", xp:100,
        sv:[1,4,0,-5,-3,-5], grab:"Acrobatics +2", pp:7, imm:"Poison, Psychic", cimm:"Blinded, Charmed, Deafened, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned",
        turn:["Each pair still up flies to the article and cuts. No roll. <b>Tap +1 cut for each.</b>"],
@@ -98,14 +98,14 @@ const FIGHTS = {
        drop:"It snaps shut and clatters to the floor. That pair's cuts stop. The fight goes on.",
        hard:"One pair jams in the binding for a round: no cut that turn.",
        easy:"Give each pair 6 more HP (22)."},
-      {id:"cards", nm:"Swarm of index cards", n:1, ac:12, hp:14, spd:"fly 30", chassis:"Swarm of Insects", cr:"½", xp:100,
+      {id:"cards", nm:"Swarm of index cards", n:1, ac:12, hp:45, spd:"fly 30", chassis:"Swarm of Insects, more HP", cr:"1", xp:200,
        sv:[-4,1,0,-5,-2,-5], grab:"Acrobatics +1", pp:8, vul:"Fire (double damage)", cimm:"Charmed, Frightened, Grappled, Paralyzed, Petrified, Prone, Restrained, Stunned",
        turn:["Moves onto the nearest PC.",
              "Paper cuts: <b>+5 to hit, 7 slashing</b>."],
        hpnote:"<b>Fire does double.</b>",
        drop:"The cards settle like snow and lie still.",
-       hard:"Under 7 HP it does 4, not 7.",
-       easy:"Add 6 HP (20)."}
+       hard:"Under 20 HP it does 4, not 7.",
+       easy:"Add 10 HP (55)."}
     ]
   },
 
