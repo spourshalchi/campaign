@@ -44,7 +44,6 @@ SCENES.push(
       {at:"Overheard, while they hide"},
       {t:"Tell the others that five came, just as the boy said.<ul><li>Never say who the boy is.</li></ul>", say:"Five. He said five, and there are five. The boy's finally learning to count."},
       {t:"Answer Edward that they're all children, and that's the point.", say:"They're all children. That's rather the point."},
-      {t:"Mention, if you like, that the boy says they come for the music and stay for you.", say:"The boy says they come for the music and stay for us."},
       {t:"Tell Orlok the meals haven't been fed yet, as far as you know.", say:"Not yet I don't think."},
       {t:"Say the rehearsal line, only if Scott says they made their Perception.", say:"It's only the rehearsal, and you missed your entrance."},
       {at:"While they explore", gap:"Scott runs it, nothing for you."},
