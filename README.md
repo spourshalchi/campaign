@@ -62,7 +62,7 @@ Sunday's three rooms run in any order and are all paper. Item 2 opens AIM with t
 | Ledger | `ledger/` | **Print only at the table.** Orlok's register of patients: one printed page, found on the lectern in the cellar. It shows the clinic and points at the Sun's-mercy. The web page is the DM's copy, with a short DM brief under it. |
 | Codex | `codex/` | DM-facing campaign reference — to-do list, relationship web, backstory, story flow, cast, weekend plan, and **combat encounters with the XP budgets**. Not a player prop, and deliberately not tiled on the landing page so it can't be opened at the table by accident. |
 | Run of Show | `run/` | DM-facing **day-of view** — the codex's story flow turned into an arrow-key prompt book. Each cue is split into a **Scott · narrate** zone (✋ hand-overs, the iPad item, read-aloud, beats, checks) and a **Spencer · voice** zone (lines and NPC voicing), with 🔓 reveal markers and a **synthesized soundboard** (ambience + stings, no files). Combat is run at the table; the cue just names the fight and its story rule. Also DM-only and not tiled. See [run/README.md](run/README.md). |
-| Make Your Character | `characters/` | Tile on the iPad home, shared at the table: step-by-step level 4 creation and a filled-out sheet for each player, nothing private. Their features, spells and good-turn cards are printed handouts |
+| Make Your Character | `characters/` | Tile on the iPad home, shared at the table: step-by-step level 4 creation for each player, nothing private. Their features, spells and good-turn cards are printed handouts |
 
 ### Not built yet
 
@@ -73,7 +73,7 @@ Sunday's three rooms run in any order and are all paper. Item 2 opens AIM with t
 
 ## Print list
 
-Everything to print lives in the **print kit at [`print/`](print/)**: seven Staples orders (cardstock, the deed on cream cardstock, plain paper, the poster, blank character sheets, the player handouts and one photo print), with the exact settings to pick and a cutting guide. The codex to-do **"Print list — everything to take to Staples"** tracks what's in hand.
+Everything to print lives in the **print kit at [`print/`](print/)**: seven Staples orders (cardstock, the deed on cream cardstock, plain paper, the poster, the filled character sheets, the player handouts and one photo print), with the exact settings to pick and a cutting guide. The codex to-do **"Print list — everything to take to Staples"** tracks what's in hand.
 
 | File | Paper | What's in it |
 |---|---|---|
@@ -83,7 +83,7 @@ Everything to print lives in the **print kit at [`print/`](print/)**: seven Stap
 | `print/4-plain.pdf` | Letter ivory or plain, colour, 1-sided, 1 copy | The developer's site assessment, the Articles of Settlement, Orlok's ledger |
 | `print/5-poster.pdf` | Letter plain white, colour, 1-sided, 1 copy | Spencer's DJ poster |
 | `print/8-player-handouts.pdf` | Letter cardstock, colour, 1-sided, 1 copy; page 1 cut on the crop marks | Simone's and Yobo's backstory card reprint, then each player's handout: a good turn, features and spells, level 5 |
-| [Official 2024 character sheet](https://media.dndbeyond.com/compendium-images/free-rules/downloads/2024-character-sheet.pdf) (linked, not in the repo) | Letter plain white, B&W, 2-sided, 8 copies | Blank character sheets: 5 players + 3 spares |
+| Filled character sheets, on Scott's computer in `~/Documents/D&D character sheets (filled)/` (not in the repo), plus the [blank official 2024 sheet](https://media.dndbeyond.com/compendium-images/free-rules/downloads/2024-character-sheet.pdf) for spares | Letter plain white, B&W, 2-sided, actual size; 1 of each filled sheet + 3 blank | One filled sheet per player, two pages each. Simone's names her patron, so it's hers alone |
 
 Rebuild after any prop change (needs Google Chrome, `pypdf` and ImageMagick); it remakes the PDFs and `photo-4x6.jpg`:
 

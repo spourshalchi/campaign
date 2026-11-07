@@ -1,13 +1,12 @@
 character({
   id:"bix", player:"Will", name:"Bix Grimlor", color:"#b5431a",
   tag:"Goblin Circle of Wildfire Druid. Burns things so better things can grow.",
-  line:"Small goblin, Hermit background, Circle of Wildfire druid. You and a little fire spirit set the room on fire together.",
   intro:"Goblin and Wildfire Druid are already yours. Both come from older books, not the 2024 Player's Handbook. We use them under the 2024 rules: your ability bonuses come from your background, not your species, and the circle starts at level 3 when 2024 druids pick a circle. Scott has the final say on anything older. Everything marked <span class='rec'>Recommended</span> is a suggestion.",
   scores:{str:8, dex:14, con:14, int:13, wis:18, cha:10},
   saves:["int","wis"],
   skills:["Medicine","Religion","Nature","Perception"],
   skillBonus:{Nature:"wis", Arcana:"wis"},
-  ac:m => 11 + m.dex + 2, acNote:"leather + Dex + shield",
+  ac:m => 11 + m.dex + 2,
   speed:"30 ft",
   spellAbility:"wis",
   attacks:[
@@ -18,15 +17,6 @@ character({
     {nm:"Quarterstaff", ability:"str", dmg:"1d6", addMod:true, type:"bludgeoning", note:"Only when you've really run out of options."}
   ],
   level5dmg:{"Produce Flame":"2d8 fire", "Flame Seed (spirit)":"1d6 +3 fire", "Thorn Whip":"2d6 piercing"},
-  slots:[{lvl:"1st", n:4, back:"Long Rest"}, {lvl:"2nd", n:3, back:"Long Rest"}],
-  featureList:["Summon Wildfire Spirit","Wild Shape, 2 uses","Wild Companion","Primal Order: Magician","Druidic","Healer (Origin feat)","Fury of the Small, 2 uses","Nimble Escape","Fey Ancestry","Darkvision 60 ft"],
-  training:["Armor: light, shields","Weapons: simple","Tools: Herbalism Kit","Languages: Common, Goblin, Gnomish, Druidic"],
-  gear:["Leather armor, shield","Sickle, quarterstaff (your druidic focus)","Herbalism Kit, Healer's Kit (10 uses)","Explorer's Pack, bedroll, lamp, 3 flasks of oil, a book, traveler's clothes","20 GP"],
-  spellSheet:[
-    {h:"Cantrips", list:"Produce Flame, Thorn Whip, Guidance, Druidcraft"},
-    {h:"Level 1", list:"Burning Hands, Cure Wounds, Healing Word, Faerie Fire, Entangle, Thunderwave, Speak with Animals"},
-    {h:"Level 2", list:"Scorching Ray, Flaming Sphere, Heat Metal, Spike Growth, Barkskin"}
-  ],
   steps:[
     {h:"Step 1: class", items:[
       {k:"Class", pick:"Druid", why:"Yours already. A caster who pulls power from nature, and in your case from burning it down."},

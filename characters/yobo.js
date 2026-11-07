@@ -1,7 +1,6 @@
 character({
   id:"yobo", player:"John", name:"Yobo", color:"#8a2f6b",
   tag:"Human College of Lore Bard. The biggest personality in the theatre department.",
-  line:"Human, Entertainer background, College of Lore bard. You boost your friends and tear down everyone else.",
   intro:"Bard is what you're leaning toward, so it's our recommendation too. Species and subclass aren't settled, so they're marked <span class='rec'>Recommended</span>.",
   scores:{str:8, dex:15, con:14, int:10, wis:12, cha:18},
   saves:["dex","cha"],
@@ -9,7 +8,7 @@ character({
   expertise:["Performance","Deception"],
   jack:true,
   hpBonusPerLevel:2,
-  ac:m => 11 + m.dex, acNote:"leather + Dex",
+  ac:m => 11 + m.dex,
   speed:"30 ft",
   spellAbility:"cha",
   attacks:[
@@ -17,15 +16,6 @@ character({
     {nm:"Dagger", ability:"dex", dmg:"1d4", addMod:true, type:"piercing", note:"Melee, or thrown 20/60."}
   ],
   level5dmg:{"Vicious Mockery":"2d6 psychic"},
-  slots:[{lvl:"1st", n:4, back:"Long Rest"}, {lvl:"2nd", n:3, back:"Long Rest"}],
-  featureList:["Bardic Inspiration, d6, 4 uses","Cutting Words","Expertise: Performance, Deception","Jack of All Trades","Bonus Lore skills","Musician (Origin feat)","Tough (Human Versatile)","Resourceful: Heroic Inspiration each Long Rest"],
-  training:["Armor: light","Weapons: simple","Tools: lute, guitar, drum, fiddle, flute, hand drum","Languages: Common, Elvish, Gnomish"],
-  gear:["Leather armor","2 daggers","Lute, your spellcasting focus","Entertainer's Pack, 2 costumes, mirror, perfume, traveler's clothes","30 GP"],
-  spellSheet:[
-    {h:"Cantrips", list:"Vicious Mockery, Minor Illusion, Prestidigitation"},
-    {h:"Level 1", list:"Healing Word, Dissonant Whispers, Faerie Fire, Charm Person"},
-    {h:"Level 2", list:"Shatter, Hold Person, Suggestion"}
-  ],
   steps:[
     {h:"Step 1: class", items:[
       {k:"Class", pick:"Bard", rec:1, why:"Your concept leans this way, and it's the class of being loud on stage. You also get the most skills of anyone here."},

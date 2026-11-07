@@ -1,12 +1,11 @@
 character({
   id:"simone", player:"Simone", name:"Simone's Warlock", color:"#5a1f2e",
   tag:"Tiefling Warlock. Love spells and revenge spells, reasonable rates.",
-  line:"Tiefling, Charlatan background, warlock. You never run out of Eldritch Blast.",
   intro:"Warlock is yours. Your species isn't settled. Every warlock gets their power from a patron, and yours stays between you and Scott: it's on your printed handout. Everything marked <span class='rec'>Recommended</span> is a suggestion.",
   scores:{str:8, dex:14, con:14, int:10, wis:13, cha:18},
   saves:["wis","cha"],
   skills:["Deception","Sleight of Hand","Arcana","Intimidation","Persuasion","Insight","Investigation"],
-  ac:m => 13 + m.dex, acNote:"Armor of Shadows + Dex",
+  ac:m => 13 + m.dex,
   speed:"30 ft",
   spellAbility:"cha",
   attacks:[
@@ -15,15 +14,6 @@ character({
     {nm:"Dagger", ability:"dex", dmg:"1d4", addMod:true, type:"piercing", note:"Melee, or thrown 20/60."}
   ],
   level5dmg:{"Eldritch Blast":"1d10 +4 force, two beams", "Fire Bolt":"2d10 fire"},
-  slots:[{lvl:"2nd (all your slots)", n:2, back:"Short or Long Rest"}],
-  featureList:["Pact Magic: 2 slots, level 2","Patron feature: on your handout","Eldritch Invocations: Armor of Shadows, Agonizing Blast, Repelling Blast","Magical Cunning","Skilled (Origin feat)","Fire Resistance","Tiefling legacy: Fire Bolt, Hellish Rebuke","Thaumaturgy","Darkvision 60 ft"],
-  training:["Armor: light","Weapons: simple","Tools: Forgery Kit","Languages: Common, Draconic, Elvish"],
-  gear:["Leather armor, for when you can't be bothered with Armor of Shadows","Sickle, 2 daggers","Arcane focus (an orb)","A book of occult lore, Scholar's Pack","Forgery Kit, costume, fine clothes","30 GP, for now. It's going in the piggy bank."],
-  spellSheet:[
-    {h:"Cantrips", list:"Eldritch Blast, Mage Hand, Minor Illusion, Fire Bolt, Thaumaturgy"},
-    {h:"Spells you chose", list:"Hex, Armor of Agathys, Charm Person, Misty Step, Hold Person"},
-    {h:"Free from your species", list:"Hellish Rebuke"}
-  ],
   steps:[
     {h:"Step 1: class", items:[
       {k:"Class", pick:"Warlock", why:"Yours already. Your magic comes from a deal. You don't get many spells, but you never run out of Eldritch Blast."},

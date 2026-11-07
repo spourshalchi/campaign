@@ -1,12 +1,11 @@
 character({
   id:"russ", player:"Cody", name:"Russ", color:"#2f6b3a",
   tag:"Firbolg Druid. Wilderness Scouts of Transyltown, Troop 187. Always prepared.",
-  line:"Firbolg, Guide background, Circle of the Land druid. You heal your friends, talk to animals and know the outdoors.",
   intro:"Firbolg and Druid are already yours. Firbolg comes from an older book, not the 2024 Player's Handbook. We use it under the 2024 rules: your ability bonuses come from your background, not your species. Scott has the final say. Everything marked <span class='rec'>Recommended</span> is a suggestion.",
   scores:{str:8, dex:14, con:14, int:13, wis:18, cha:10},
   saves:["int","wis"],
   skills:["Stealth","Survival","Nature","Insight"],
-  ac:m => 12 + Math.min(m.dex, 2) + 2, acNote:"hide + Dex + shield",
+  ac:m => 12 + Math.min(m.dex, 2) + 2,
   speed:"30 ft",
   spellAbility:"wis",
   attacks:[
@@ -17,15 +16,6 @@ character({
     {nm:"Quarterstaff", ability:"str", dmg:"1d6", addMod:true, type:"bludgeoning", note:"Two hands: 1d8. For when you're out of everything."}
   ],
   level5dmg:{"Produce Flame":"2d8 fire", "Thorn Whip":"2d6 piercing"},
-  slots:[{lvl:"1st", n:4, back:"Long Rest"}, {lvl:"2nd", n:3, back:"Long Rest"}],
-  featureList:["Land's Aid","Circle Spells: temperate","Wild Shape, 2 uses","Wild Companion","Primal Order: Warden","Druidic","Magic Initiate (Origin feat)","Speech of Beast and Leaf","Firbolg Magic","Hidden Step, 2 uses","Powerful Build"],
-  training:["Armor: light, medium, shields","Weapons: simple, martial","Tools: Herbalism Kit, Cartographer's Tools","Languages: Common, Elvish, Giant, Druidic"],
-  gear:["Hide armor, shield","Sickle, quarterstaff (your druidic focus)","Shortbow, quiver, 20 arrows","Herbalism Kit, Cartographer's Tools","Explorer's Pack, bedroll, tent, traveler's clothes","2 GP"],
-  spellSheet:[
-    {h:"Cantrips", list:"Produce Flame, Guidance, Thorn Whip, Starry Wisp, Mending, Shocking Grasp"},
-    {h:"Level 1", list:"Speak with Animals, Healing Word, Cure Wounds, Goodberry, Thunderwave, Entangle, Sleep"},
-    {h:"Level 2", list:"Moonbeam, Pass without Trace, Barkskin, Misty Step"}
-  ],
   steps:[
     {h:"Step 1: class", items:[
       {k:"Class", pick:"Druid", why:"Yours already. Every 2024 druid always has Speak with Animals prepared, which is exactly what you want."},

@@ -1,15 +1,13 @@
 character({
   id:"gnomey", player:"Julia", name:"Gnomey Soprano", color:"#7a2d1f",
   tag:"Gnome Rogue. Cute, unassuming, secretly deadly.",
-  line:"Small gnome, Criminal background, Assassin rogue. You act first and you hit hard once.",
   intro:"Gnome and Rogue are already yours. Everything marked <span class='rec'>Recommended</span> is a suggestion: swap it if something else sounds more fun.",
   scores:{str:8, dex:18, con:16, int:12, wis:10, cha:13},
   saves:["dex","int"],
-  saveNote:"Gnomish Cunning: Advantage on every Intelligence, Wisdom and Charisma save.",
   skills:["Sleight of Hand","Stealth","Deception","Investigation","Perception","Persuasion"],
   expertise:["Stealth","Deception"],
   initProf:true,
-  ac:m => 11 + m.dex, acNote:"leather + Dex",
+  ac:m => 11 + m.dex,
   speed:"30 ft",
   attacks:[
     {nm:"Shortsword", ability:"dex", dmg:"1d6", addMod:true, type:"piercing", note:"Vex: a hit gives Advantage on your next attack against that target."},
@@ -17,9 +15,6 @@ character({
     {nm:"Dagger, thrown", ability:"dex", dmg:"1d4", addMod:true, type:"piercing", note:"Range 20/60."},
     {nm:"Shortbow", ability:"dex", dmg:"1d6", addMod:true, type:"piercing", note:"Range 80/320. Two hands, so no dagger."}
   ],
-  featureList:["Sneak Attack, 2d6 once per turn","Assassinate: first-round bonus","Cunning Action","Steady Aim","Expertise: Stealth, Deception","Weapon Mastery: shortsword (Vex), dagger (Nick)","Alert (Origin feat)","Gnomish Cunning","Rock Gnome: Mending, Prestidigitation","Darkvision 60 ft","Thieves' Cant"],
-  training:["Armor: light","Weapons: simple, plus martial weapons with Finesse or Light","Tools: Thieves' Tools, Disguise Kit, Poisoner's Kit","Languages: Common, Gnomish, Goblin, Elvish, Thieves' Cant"],
-  gear:["Leather armor","Shortsword, 2 daggers from the class, 2 more from the background","Shortbow, quiver, 20 arrows","Thieves' Tools, Disguise Kit, Poisoner's Kit","Crowbar, 2 pouches, Burglar's Pack, traveler's clothes","24 GP"],
   steps:[
     {h:"Step 1: class", items:[
       {k:"Class", pick:"Rogue", why:"Yours already. Rogues do one big hit a turn and are hard to pin down."},
