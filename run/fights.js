@@ -152,12 +152,12 @@ const FIGHTS = {
       next:"The night ends when the screen dies. Level up: cue L5."
     },
     foes:[
-      {id:"summon", nm:"The botched summoning", n:1, ac:13, hp:200, spd:"30", chassis:"Flesh Golem, more HP, lighter claws", cr:"6", xp:2300,
+      {id:"summon", nm:"The botched summoning", n:1, ac:13, hp:200, spd:"30", chassis:"Flesh Golem, more HP, one light claw", cr:"6", xp:2300,
        sv:[4,-1,4,-2,0,-3], grab:"Athletics +4", pp:10, cast:"Unfinished Word: <b>DC 13 Wis</b>, already on its turn.",
        imm:"Poison", cimm:"Charmed, Exhaustion, Frightened, Paralyzed, Petrified, Poisoned",
        turn:["Lurches toward the sealed door down the hall. It can't leave the room.",
-             "Claws twice at whoever is between it and the door, or the nearest PC: <b>+6 to hit, 6 slashing</b> each.",
-             "<b>Once, the first time it's under 50 HP:</b> Unfinished Word. Every PC within 15 ft makes a <b>DC 13 Wis save</b>: 8 psychic, half on a save."],
+             "Claws once at whoever is between it and the door, or the nearest PC: <b>+6 to hit, 6 slashing</b>.",
+             "<b>Once, the first time it's under 50 HP:</b> Unfinished Word. Every PC within 15 ft makes a <b>DC 13 Wis save</b>: 4 psychic, half on a save."],
        note:"Never attacks a PC at 0 HP. The Unfinished Word: it tries to say something and can't get to the end of it.",
        drop:"The fragments crumble with it.",
        endsFight:1,
@@ -167,7 +167,7 @@ const FIGHTS = {
        sv:[-2,2,1,-2,0,-1], grab:"Acrobatics +2", pp:10, vul:"Radiant (double damage)", imm:"Necrotic, Poison",
        cimm:"Exhaustion, Frightened, Grappled, Paralyzed, Petrified, Poisoned, Prone, Restrained",
        turn:["Fragments 1 and 2 go for whoever is hitting the summoning. Fragment 3 goes for the back line.",
-             "Grab: <b>+4 to hit, 5 necrotic</b>."],
+             "Grab: <b>+4 to hit, 3 necrotic</b>."],
        drop:"Crumbles to chalk dust.",
        hard:"One of them smears out and stops. Mark it down.",
        easy:"Give each 5 more HP (17)."}
