@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nordic Souls — Arcane Mage Checklist</title>
+<style>
+  :root{
+    --bg:#111015;
+    --panel:#1a1820;
+    --panel2:#211e29;
+    --text:#f5f0e8;
+    --muted:#b8adbd;
+    --gold:#d7b46a;
+    --purple:#8e71c7;
+    --green:#73b38d;
+    --line:#342e3d;
+    --danger:#c97a7a;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:linear-gradient(180deg,#0e0d12,#15121a 45%,#0f0e13);
+    color:var(--text); font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:24px 16px 80px}
+  header{
+    padding:28px 22px;border:1px solid var(--line);border-radius:20px;
+    background:linear-gradient(145deg,#211d29,#17151c);
+    box-shadow:0 16px 40px rgba(0,0,0,.25); margin-bottom:18px;
+  }
+  h1{margin:0 0 6px;font-size:clamp(30px,6vw,54px);line-height:1.02;letter-spacing:-1.5px}
+  .subtitle{color:var(--gold);font-weight:700}
+  .desc{color:var(--muted);margin-top:12px;max-width:720px}
+  .progress-wrap{margin-top:22px}
+  .progress-top{display:flex;justify-content:space-between;color:var(--muted);font-size:14px;margin-bottom:7px}
+  .bar{height:10px;background:#2a2531;border-radius:99px;overflow:hidden}
+  .fill{height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--gold));transition:.25s}
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}
+  .card{
+    border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:16px;
+  }
+  .card h3{margin:0 0 8px;font-size:16px;color:var(--gold)}
+  .card p{margin:0;color:var(--muted)}
+  .pill{
+    display:inline-block;padding:4px 8px;border-radius:999px;background:#2c2636;
+    color:#d8cbea;font-size:12px;margin:2px 4px 2px 0
+  }
+  section{
+    margin-top:16px;border:1px solid var(--line);border-radius:18px;background:var(--panel);overflow:hidden
+  }
+  section > button{
+    width:100%;border:0;background:transparent;color:var(--text);padding:17px 18px;text-align:left;
+    display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:800;cursor:pointer
+  }
+  .hour{color:var(--gold)}
+  .section-body{padding:0 16px 16px}
+  .task{
+    display:flex;gap:11px;align-items:flex-start;padding:11px 4px;border-top:1px solid #292431
+  }
+  .task:first-child{border-top:0}
+  input[type="checkbox"]{
+    appearance:none;width:22px;height:22px;min-width:22px;border:2px solid #756783;border-radius:6px;
+    margin-top:1px;display:grid;place-items:center;cursor:pointer;background:#151219
+  }
+  input[type="checkbox"]:checked{background:var(--green);border-color:var(--green)}
+  input[type="checkbox"]:checked::after{content:"✓";color:#0e1711;font-weight:900;font-size:15px}
+  .task label{cursor:pointer;flex:1}
+  .task.done label{color:#8f8795;text-decoration:line-through}
+  .note{
+    margin:12px 0 2px;padding:12px 14px;border-left:4px solid var(--purple);background:var(--panel2);
+    border-radius:8px;color:#d8d0dc
+  }
+  .warning{border-left-color:var(--danger)}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+  .btn{
+    border:1px solid var(--line);background:#221d29;color:var(--text);padding:9px 12px;border-radius:10px;
+    cursor:pointer;font-weight:700
+  }
+  .btn:hover{background:#2a2432}
+  .footer{margin-top:28px;color:#8f8795;font-size:13px;text-align:center}
+  @media(max-width:680px){.grid{grid-template-columns:1fr}.wrap{padding-top:12px}header{padding:22px 18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="subtitle">NORDIC SOULS • SPELLSIPHON • SURVIVAL</div>
+    <h1>Arcane Mage<br/>Starting Checklist</h1>
+    <div class="desc">
+      A first-10-hours route built around a Breton magic-first Spellsiphon character:
+      conjuration for control, robes + Alteration for defense, Restoration for support,
+      and Starfrost survival without turning the run into a chore.
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-top"><span>Overall progress</span><span id="pct">0%</span></div>
+      <div class="bar"><div class="fill" id="fill"></div></div>
+    </div>
+    <div class="controls">
+      <button class="btn" onclick="expandAll()">Expand all</button>
+      <button class="btn" onclick="collapseAll()">Collapse all</button>
+      <button class="btn" onclick="resetAll()">Reset checklist</button>
+    </div>
+  </header>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Build</h3>
+      <p>
+        <span class="pill">Breton</span>
+        <span class="pill">Mage class</span>
+        <span class="pill">Faithful trait</span>
+        <span class="pill">Mage Stone</span>
+        <span class="pill">Mara later</span>
+      </p>
+    </div>
+    <div class="card">
+      <h3>Skill priorities</h3>
+      <p>Destruction + Conjuration first → Restoration → Alteration → Enchanting later.</p>
+    </div>
+    <div class="card">
+      <h3>Core combat loop</h3>
+      <p>Flesh spell → summon → normal magic → Spellsiphon → Ward when pressured.</p>
+    </div>
+    <div class="card">
+      <h3>Don't worry about yet</h3>
+      <p>Archery perks, heavy crafting, advanced Spellsiphon combos, vampirism/werewolf.</p>
+    </div>
+  </div>
+
+  <section>
+    <button onclick="toggle(this)"><span><span class="hour">Hour 0–1</span> • Helgen → Riverwood</span><span>▾</span></button>
+    <div class="section-body">
+      <div class="task"><input type="checkbox"><label>Choose <b>Breton → Mage → Faithful</b> if you have not finalized character creation.</label></div>
+      <div class="task"><input type="checkbox"><label>Wait for Nordic Souls' configuration setup to finish before rushing forward.</label></div>
+      <div class="task"><input type="checkbox"><label>Take the vanilla Helgen start.</label></div>
+      <div class="task"><input type="checkbox"><label><b>Side with Hadvar.</b> This does not commit you to the Imperials.</label></div>
+      <div class="task"><input type="checkbox"><label>Prioritize robes, spell tomes, potions, food and valuable/light loot; ignore heavy junk.</label></div>
+      <div class="task"><input type="checkbox"><label>Use Flames / Healing / Oakflesh rather than worrying about Spellsiphon yet.</label></div>
+      <div class="task"><input type="checkbox"><label>At the Guardian Stones, take the <b>Mage Stone</b>.</label></div>
+      <div class="task"><input type="checkbox"><label>Reach Riverwood and talk to Alvor.</label></div>
+      <div class="task"><input type="checkbox"><label>Turn <b>Survival Mode</b> on once you're safely in Riverwood.</label></div>
+      <div class="note">Goal: finish Helgen cleanly, establish robes + Mage Stone + survival, and avoid burying yourself in new systems immediately.</div>
+    </div>
+  </section>
+
+  <section>
+    <button onclick="toggle(this)"><span><span class="hour">Hour 1–2</span> • Spellsiphon + Redcap</span><span>▾</span></button>
+    <div class="section-body">
+      <div class="task"><input type="checkbox"><label>Go to the <b>Sleeping Giant Inn</b>.</label></div>
+      <div class="task"><input type="checkbox"><label>Start the guided <b>Spellsiphon</b> tutorial.</label></div>
+      <div class="task"><input type="checkbox"><label>Use the Meditation Space and focus only on <b>Draw, Ward and Bind</b>.</label></div>
+      <div class="task"><input type="checkbox"><label>Practice: Draw → attack → Ward → Draw again until it feels natural.</label></div>
+      <div class="task"><input type="checkbox"><label>Create a tiny Wheeler with Healing, Oakflesh, potion, one normal spell and later your summon.</label></div>
+      <div class="task"><input type="checkbox"><label>Look for the notice pointing you toward <b>Anise's Cabin</b>.</label></div>
+      <div class="task"><input type="checkbox"><label>Go to Anise's Cabin and begin <b>Redcap's</b> introduction.</label></div>
+      <div class="task"><input type="checkbox"><label>Recruit Redcap and talk to him periodically for his custom commentary.</label></div>
+      <div class="note">Redcap is your first deliberate taste of Nordic Souls' added follower/story content and gives your fragile mage a front line.</div>
+    </div>
+  </section>
+
+  <section>
+    <button onclick="toggle(this)"><span><span class="hour">Hour 2–3</span> • First real field test</span><span>▾</span></button>
+    <div class="section-body">
+      <div class="task"><input type="checkbox"><label>Explore around Riverwood and fight a few low-risk wildlife encounters.</label></div>
+      <div class="task"><input type="checkbox"><label>Gather ingredients as you travel and cook/eat naturally with Starfrost/Gourmet.</label></div>
+      <div class="task"><input type="checkbox"><label>Do <b>Embershard Mine</b> as your first proper dungeon.</label></div>
+      <div class="task"><input type="checkbox"><label>Let Redcap engage first; use Oakflesh before combat.</label></div>
+      <div class="task"><input type="checkbox"><label>Spend Magicka on normal spells, then transition into Spellsiphon while Magicka recovers.</label></div>
+      <div class="task"><input type="checkbox"><label>Notice new bandit variants and unfamiliar equipment rather than optimizing every drop.</label></div>
+      <div class="task"><input type="checkbox"><label>Return to Riverwood to eat/sleep if survival needs call for it.</label></div>
+      <div class="note">This is where Nordic Souls' Lawless, Sentinel, Huntsman, survival and Spellsiphon start feeling like one coherent game.</div>
+    </div>
+  </section>
+
+  <section>
+    <button onclick="toggle(this)"><span><span class="hour">Hour 3–4</span> • Whiterun build setup</span><span>▾</span></button>
+    <div class="section-body">
+      <div class="task"><input type="checkbox"><label>Walk to Whiterun and report the dragon attack.</label></div>
+      <div class="task"><input type="checkbox"><label>Visit Farengar.</label></div>
+      <div class="task"><input type="checkbox"><label>Buy a <b>Conjuration summon</b> you can cast comfortably.</label></div>
+      <div class="task"><input type="checkbox"><label>Browse Mysticism/Dareni spells, but buy only one or two that genuinely fit your loadout.</label></div>
+      <div class="task"><input type="checkbox"><label>Keep an eye out for robes/gear with <b>Magicka Regeneration</b>.</label></div>
+      <div class="task"><input type="checkbox"><label>Disenchant useful effects before selling the first copy of an enchanted item.</label></div>
+      <div class="task"><input type="checkbox"><label>Visit the Temple of Kynareth for a temporary Divine blessing.</label></div>
+      <div class="task"><input type="checkbox"><label>Visit Whiterun's Hall of the Dead and meet <b>Garm</b>.</label></div>
+      <div class="task"><input type="checkbox"><label>Try the follower-ordering controls once so you understand Nordic Souls' follower framework.</label></div>
+      <div class="note">Do not detour across the map for Mara yet. Switch to Mara naturally later when you reach Riften or Solitude.</div>
+    </div>
+  </section>
+
+  <section>
+    <button onclick="toggle(this)"><span><span class="hour">Hour 4–5</span> • Bleak Falls Barrow</span><span>▾</span></button>
+    <div class="section-body">
+      <div class="task"><input type="checkbox"><label>Get The Golden Claw quest if you haven't already.</label></div>
+      <div class="task"><input type="checkbox"><label>Prepare food, potions, summon, Oakflesh and your small Wheeler before leaving.</label></div>
+      <div class="task"><input type="checkbox"><label>Start <b>Bleak Falls Barrow</b>.</label></div>
+      <div class="task"><input type="checkbox"><label>Pay attention to Nordic Souls' changed draugr behavior and variants.</label></div>
+      <div class="task"><input type="checkbox"><label>Against groups: summon first, then let followers create space.</label></div>
+      <div class="task"><input type="checkbox"><label>Use Ward as your defensive answer instead of panic-switching equipment.</label></div>
+      <div class="task"><input type="checkbox"><label>Experiment with Bound Weapon only if Draw + Ward already feel comfortable.</label></div>
+      <div class="task"><input type="checkbox"><label>Get the Word Wall + Dragonstone and return the Golden Claw if time permits.</label></div>
+    </div>
+  </section>
+
+  <section>
+    <button onclick="toggle(this)"><span><span class="hour">Hour 5–6</span> • Become Dragonborn</span><span>▾</span></button>
+    <div class="section-body">
+      <div class="task"><input type="checkbox"><label>Deliver the Dragonstone and start <b>Dragon Rising</b>.</label></div>
+      <div class="task"><input type="checkbox"><label>Treat Mirmulnir as a real fight: summon, followers/guards tank, stay mobile.</label></div>
+      <div class="task"><input type="checkbox"><label>Notice Nordic Souls' Dragon War changes rather than expecting the vanilla tutorial-dragon fight.</label></div>
+      <div class="task"><input type="checkbox"><label>Absorb your first dragon soul and check any new Word/Shout progression effects.</label></div>
+      <div class="task"><input type="checkbox"><label>Keep survival supplies stocked before leaving Whiterun again.</label></div>
+    </div>
+  </section>
+
+  <section>
+    <button onclick="toggle(this)"><span><span class="hour">Hour 6–8</span> • High Hrothgar + Stormcrown</span><span>▾</span></button>
+    <div class="section-body">
+      <div class="task"><input type="checkbox"><label>Head toward Ivarstead and High Hrothgar instead of fast-traveling around the experience.</label></div>
+      <div class="task"><input type="checkbox"><label>Bring food and warmer gear so Starfrost matters on the mountain.</label></div>
+      <div class="task"><input type="checkbox"><label>Complete the Greybeards' first training.</label></div>
+      <div class="task"><input type="checkbox"><label>Once formally recognized as Dragonborn, inspect <b>Stormcrown's Dragonborn perk tree</b>.</label></div>
+      <div class="task"><input type="checkbox"><label>Choose one Shout-related direction that sounds fun rather than planning the whole tree.</label></div>
+    </div>
+  </section>
+
+  <section>
+    <button onclick="toggle(this)"><span><span class="hour">Hour 8–10</span> • College of Winterhold</span><span>▾</span></button>
+    <div class="section-body">
+      <div class="task"><input type="checkbox"><label>Travel to Winterhold and join the <b>College of Winterhold</b>.</label></div>
+      <div class="task"><input type="checkbox"><label>Do the expanded introductory magic lessons instead of rushing straight into Saarthal.</label></div>
+      <div class="task"><input type="checkbox"><label>Browse College merchants for a better summon, Flesh spell, Restoration and one interesting offensive spell.</label></div>
+      <div class="task"><input type="checkbox"><label>Keep your Wheeler small; don't buy spells just because they're new.</label></div>
+      <div class="task"><input type="checkbox"><label>Continue advancing Spellsiphon gradually rather than unlocking every advanced mechanic at once.</label></div>
+      <div class="task"><input type="checkbox"><label>Sleep/eat at the College or Winterhold and end the first 10-hour block there.</label></div>
+      <div class="note">After this point: stay at the College for a while, then make your first deliberate Riften trip to adopt Mara and explore more custom follower/content options.</div>
+    </div>
+  </section>
+
+  <section>
+    <button onclick="toggle(this)"><span><span class="hour">Ongoing</span> • Build priorities</span><span>▾</span></button>
+    <div class="section-body">
+      <div class="task"><input type="checkbox"><label>Prioritize early perks in Destruction, Conjuration, Restoration and Alteration rather than weapon trees.</label></div>
+      <div class="task"><input type="checkbox"><label>Wear robes and pursue Mage Robes / Mage Armor style Alteration perks.</label></div>
+      <div class="task"><input type="checkbox"><label>Pick up Magicka Regeneration bonuses whenever they fit; they synergize strongly with Spellsiphon.</label></div>
+      <div class="task"><input type="checkbox"><label>Eventually switch religion to <b>Mara</b> and acquire an Amulet of Mara.</label></div>
+      <div class="task"><input type="checkbox"><label>Level Enchanting later; don't grind it in the opening hours.</label></div>
+      <div class="task"><input type="checkbox"><label>Use Alchemy naturally from gathered ingredients; don't turn it into a money exploit.</label></div>
+      <div class="task"><input type="checkbox"><label>Keep bow use optional/fun rather than building around Archery perks.</label></div>
+      <div class="task"><input type="checkbox"><label>Delay vampirism/werewolf until the core mage build is established.</label></div>
+      <div class="note warning">Big quest mods such as Vigilant/Unslaad are better saved for later. Let your character identity develop before jumping into the huge modded storylines.</div>
+    </div>
+  </section>
+
+  <div class="footer">Your progress is saved locally in this browser/device.</div>
+</div>
+
+<script>
+const key = "nordicSoulsChecklist-v1";
+const boxes = [...document.querySelectorAll('input[type="checkbox"]')];
+
+function save(){
+  localStorage.setItem(key, JSON.stringify(boxes.map(b=>b.checked)));
+  update();
+}
+function load(){
+  const state = JSON.parse(localStorage.getItem(key) || "[]");
+  boxes.forEach((b,i)=>{ if(typeof state[i] === "boolean") b.checked = state[i]; });
+  update();
+}
+function update(){
+  boxes.forEach(b => b.closest('.task').classList.toggle('done', b.checked));
+  const done = boxes.filter(b=>b.checked).length;
+  const pct = boxes.length ? Math.round(done/boxes.length*100) : 0;
+  document.getElementById('pct').textContent = pct + "%";
+  document.getElementById('fill').style.width = pct + "%";
+}
+boxes.forEach(b=>b.addEventListener('change', save));
+
+function toggle(btn){
+  const body = btn.nextElementSibling;
+  const hidden = body.style.display === "none";
+  body.style.display = hidden ? "" : "none";
+  btn.lastElementChild.textContent = hidden ? "▾" : "▸";
+}
+function expandAll(){
+  document.querySelectorAll('.section-body').forEach(x=>x.style.display="");
+  document.querySelectorAll('section > button span:last-child').forEach(x=>x.textContent="▾");
+}
+function collapseAll(){
+  document.querySelectorAll('.section-body').forEach(x=>x.style.display="none");
+  document.querySelectorAll('section > button span:last-child').forEach(x=>x.textContent="▸");
+}
+function resetAll(){
+  if(confirm("Reset every checkbox?")){
+    boxes.forEach(b=>b.checked=false);
+    save();
+  }
+}
+load();
+</script>
+</body>
+</html>
