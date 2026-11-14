@@ -87,8 +87,17 @@
   .btn{border:1px solid var(--line);background:#221d29;color:var(--text);padding:9px 12px;border-radius:10px;cursor:pointer;font-weight:700;font:inherit;font-weight:700}
   .btn:hover{background:#2a2432}
   .btn.danger{border-color:#5a3434;color:#f0c6c6}
-  .toggle{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:14px;cursor:pointer}
-  body.hide-sa .task.sa, body.hide-sa .sa-section, body.hide-sa .sa-note, body.hide-sa .sa-card, body.hide-sa .sa-progress{display:none}
+  .filter{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;flex-wrap:wrap}
+  .seg{border:0;background:#221d29;color:var(--muted);padding:9px 12px;font:inherit;font-weight:700;cursor:pointer}
+  .seg + .seg{border-left:1px solid var(--line)}
+  .seg[aria-pressed="true"]{background:var(--teal-bg);color:var(--text)}
+  .seg:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+  .filter-label{color:var(--muted);font-size:14px}
+  .sa-source{display:none}
+  .sa-where{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:16px 4px 4px}
+  .sa-where:first-child{margin-top:0}
+  body.view-route #saTop, body.view-route .task.sa, body.view-route .sa-note, body.view-route .sa-card, body.view-route .sa-progress{display:none}
+  body.view-sa section:not(#saTop), body.view-sa .grid .card:not(.sa-card), body.view-sa .route-progress{display:none}
   .footer{margin-top:28px;color:#8f8795;font-size:13px;text-align:center}
   @media(max-width:680px){.grid{grid-template-columns:1fr}.wrap{padding-block:12px 80px}header{padding:22px 18px}}
   @media(prefers-reduced-motion:reduce){.fill{transition:none}}
@@ -107,7 +116,7 @@
       SpellAim tests (teal) are placed where the route naturally exercises them.
     </div>
     <div class="progress-wrap">
-      <div>
+      <div class="route-progress">
         <div class="progress-top"><span>Overall progress</span><span id="pct">0%</span></div>
         <div class="bar"><div class="fill" id="fill"></div></div>
       </div>
@@ -121,7 +130,14 @@
       <button class="btn" id="collapseBtn" type="button">Collapse all</button>
       <button class="btn" id="resetBtn" type="button">Reset checklist</button>
       <button class="btn danger" id="resetConfirm" type="button" hidden>Yes, untick everything</button>
-      <label class="toggle"><input type="checkbox" id="showSa" checked> Show SpellAim tests</label>
+    </div>
+    <div class="controls">
+      <span class="filter-label" id="filterLabel">Show</span>
+      <div class="filter" role="group" aria-labelledby="filterLabel">
+        <button class="seg" type="button" data-view="all" aria-pressed="true">Everything</button>
+        <button class="seg" type="button" data-view="route" aria-pressed="false">Route only</button>
+        <button class="seg" type="button" data-view="sa" aria-pressed="false">SpellAim only</button>
+      </div>
     </div>
   </header>
 
@@ -158,7 +174,12 @@
     </div>
   </div>
 
-  <section class="sa-section">
+  <section class="sa-section" id="saTop">
+    <button type="button"><span><span class="hour">SpellAim tests</span> • all in one place</span><span>▾</span></button>
+    <div class="section-body" id="saTopBody"></div>
+  </section>
+
+  <section class="sa-section sa-source">
     <button type="button"><span><span class="hour">Before you play</span> • SpellAim setup</span><span>▾</span></button>
     <div class="section-body">
       <div class="task sa" data-id="sa-app"><input type="checkbox" id="sa-app"><label for="sa-app"><span class="tag">SpellAim</span>Start the SpellAim app and check both Joy-Cons are connected.</label></div>
@@ -320,6 +341,24 @@
 (function(){
   const LOCAL_KEY = "arcaneMageChecklist-v2";
   const DOC_PATH = "progress/main";
+  // Gather every SpellAim item into the top section, grouped by where in the route it comes up.
+  // The copies share their item id with the originals, so ticking either one ticks both.
+  const topBody = document.getElementById('saTopBody');
+  document.querySelectorAll('section:not(#saTop)').forEach(sec => {
+    const items = sec.querySelectorAll('.task.sa, .note.sa-note');
+    if (!items.length) return;
+    const where = document.createElement('div');
+    where.className = 'sa-where';
+    where.textContent = sec.querySelector('button > span').textContent.trim();
+    topBody.appendChild(where);
+    items.forEach(el => {
+      const copy = el.cloneNode(true);
+      copy.querySelectorAll('[id]').forEach(n => { n.id += '-top'; });
+      copy.querySelectorAll('label[for]').forEach(l => { l.htmlFor += '-top'; });
+      topBody.appendChild(copy);
+    });
+  });
+
   const tasks = [...document.querySelectorAll('.task[data-id]')];
   const boxes = tasks.map(t => t.querySelector('input[type="checkbox"]'));
   const saveNote = document.getElementById('saveNote');
@@ -337,14 +376,16 @@
   }
   function update(){
     tasks.forEach((t,i) => t.classList.toggle('done', boxes[i].checked));
-    const doneCount = boxes.filter(b => b.checked).length;
-    const pct = boxes.length ? Math.round(doneCount / boxes.length * 100) : 0;
+    const done = state();
+    const allIds = [...new Set(tasks.map(t => t.dataset.id))];
+    const saIds = [...new Set(tasks.filter(t => t.classList.contains('sa')).map(t => t.dataset.id))];
+    const doneCount = allIds.filter(id => done[id]).length;
+    const pct = allIds.length ? Math.round(doneCount / allIds.length * 100) : 0;
     document.getElementById('pct').textContent = pct + "%";
     document.getElementById('fill').style.width = pct + "%";
-    const sa = tasks.filter(t => t.classList.contains('sa'));
-    const saDone = sa.filter(t => t.querySelector('input').checked).length;
-    document.getElementById('saCount').textContent = saDone + " / " + sa.length;
-    document.getElementById('saFill').style.width = (sa.length ? saDone / sa.length * 100 : 0) + "%";
+    const saDone = saIds.filter(id => done[id]).length;
+    document.getElementById('saCount').textContent = saDone + " / " + saIds.length;
+    document.getElementById('saFill').style.width = (saIds.length ? saDone / saIds.length * 100 : 0) + "%";
   }
   function saveLocal(done){
     try { localStorage.setItem(LOCAL_KEY, JSON.stringify(done)); } catch (e) {}
@@ -372,7 +413,11 @@
     saveLocal(done);
     saveRemote();
   }
-  boxes.forEach(b => b.addEventListener('change', onChange));
+  boxes.forEach((b,i) => b.addEventListener('change', () => {
+    const id = tasks[i].dataset.id;
+    tasks.forEach((t,j) => { if (t.dataset.id === id) boxes[j].checked = b.checked; });
+    onChange();
+  }));
 
   // Collapsible sections
   document.querySelectorAll('section > button').forEach(btn => {
@@ -409,15 +454,18 @@
     onChange();
   });
 
-  // Show or hide SpellAim tests
-  const showSa = document.getElementById('showSa');
-  try { if (localStorage.getItem(LOCAL_KEY + "-hideSa") === "1") showSa.checked = false; } catch (e) {}
-  function applySa(){
-    document.body.classList.toggle('hide-sa', !showSa.checked);
-    try { localStorage.setItem(LOCAL_KEY + "-hideSa", showSa.checked ? "0" : "1"); } catch (e) {}
+  // Filter: everything, the route only, or SpellAim tests only
+  const segs = [...document.querySelectorAll('.seg')];
+  function setView(view){
+    document.body.classList.remove('view-all', 'view-route', 'view-sa');
+    document.body.classList.add('view-' + view);
+    segs.forEach(s => s.setAttribute('aria-pressed', String(s.dataset.view === view)));
+    try { localStorage.setItem(LOCAL_KEY + "-view", view); } catch (e) {}
   }
-  showSa.addEventListener('change', applySa);
-  applySa();
+  segs.forEach(s => s.addEventListener('click', () => setView(s.dataset.view)));
+  let startView = "all";
+  try { startView = localStorage.getItem(LOCAL_KEY + "-view") || "all"; } catch (e) {}
+  setView(["all", "route", "sa"].includes(startView) ? startView : "all");
 
   // Load: device copy first, then the saved copy on your account
   // Carry over ticks from the first version of this page (saved by position, route items only)
