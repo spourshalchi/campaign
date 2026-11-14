@@ -95,7 +95,8 @@
   .filter-label{color:var(--muted);font-size:14px}
   .sa-source{display:none}
   .sa-where{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:16px 4px 4px}
-  .sa-where:first-child{margin-top:0}
+  .sa-group:first-child .sa-where{margin-top:0}
+  body.hide-done .task.done{display:none}
   body.view-route #saTop, body.view-route .task.sa, body.view-route .sa-note, body.view-route .sa-card, body.view-route .sa-progress{display:none}
   body.view-sa section:not(#saTop), body.view-sa .grid .card:not(.sa-card), body.view-sa .route-progress{display:none}
   .footer{margin-top:28px;color:#8f8795;font-size:13px;text-align:center}
@@ -137,6 +138,9 @@
         <button class="seg" type="button" data-view="all" aria-pressed="true">Everything</button>
         <button class="seg" type="button" data-view="route" aria-pressed="false">Route only</button>
         <button class="seg" type="button" data-view="sa" aria-pressed="false">SpellAim only</button>
+      </div>
+      <div class="filter">
+        <button class="seg" type="button" id="hideDone" aria-pressed="false">Hide done</button>
       </div>
     </div>
   </header>
@@ -350,20 +354,35 @@
   document.querySelectorAll('section:not(#saTop)').forEach(sec => {
     const items = sec.querySelectorAll('.task.sa, .note.sa-note');
     if (!items.length) return;
+    const group = document.createElement('div');
+    group.className = 'sa-group';
     const where = document.createElement('div');
     where.className = 'sa-where';
     where.textContent = sec.querySelector('button > span').textContent.trim();
-    topBody.appendChild(where);
+    group.appendChild(where);
     items.forEach(el => {
       const copy = el.cloneNode(true);
       copy.querySelectorAll('[id]').forEach(n => { n.id += '-top'; });
       copy.querySelectorAll('label[for]').forEach(l => { l.htmlFor += '-top'; });
-      topBody.appendChild(copy);
+      group.appendChild(copy);
     });
+    topBody.appendChild(group);
   });
 
   const tasks = [...document.querySelectorAll('.task[data-id]')];
+  tasks.forEach((t,i) => { t.dataset.order = i; });
   const boxes = tasks.map(t => t.querySelector('input[type="checkbox"]'));
+
+  // Ticked items sink to the bottom of their list (notes stay last); unticking puts them back in route order
+  function sinkDone(){
+    document.querySelectorAll('.section-body, .sa-group').forEach(box => {
+      const items = [...box.children].filter(c => c.classList.contains('task'));
+      if (!items.length) return;
+      const anchor = [...box.children].find(c => c.classList.contains('note')) || null;
+      items.sort((a,b) => (Number(a.classList.contains('done')) - Number(b.classList.contains('done'))) || (a.dataset.order - b.dataset.order));
+      items.forEach(it => box.insertBefore(it, anchor));
+    });
+  }
   const saveNote = document.getElementById('saveNote');
   let docRef = null;
   let writing = false, pending = false;
@@ -389,6 +408,7 @@
     const saDone = saIds.filter(id => done[id]).length;
     document.getElementById('saCount').textContent = saDone + " / " + saIds.length;
     document.getElementById('saFill').style.width = (saIds.length ? saDone / saIds.length * 100 : 0) + "%";
+    sinkDone();
   }
   function saveLocal(done){
     try { localStorage.setItem(LOCAL_KEY, JSON.stringify(done)); } catch (e) {}
@@ -469,6 +489,18 @@
   let startView = "all";
   try { startView = localStorage.getItem(LOCAL_KEY + "-view") || "all"; } catch (e) {}
   setView(["all", "route", "sa"].includes(startView) ? startView : "all");
+
+  // Hide done
+  const hideBtn = document.getElementById('hideDone');
+  function setHide(on){
+    document.body.classList.toggle('hide-done', on);
+    hideBtn.setAttribute('aria-pressed', String(on));
+    try { localStorage.setItem(LOCAL_KEY + "-hideDone", on ? "1" : "0"); } catch (e) {}
+  }
+  hideBtn.addEventListener('click', () => setHide(!document.body.classList.contains('hide-done')));
+  let startHide = false;
+  try { startHide = localStorage.getItem(LOCAL_KEY + "-hideDone") === "1"; } catch (e) {}
+  setHide(startHide);
 
   // Load: device copy first, then the saved copy on your account
   // Carry over ticks from the first version of this page (saved by position, route items only)
