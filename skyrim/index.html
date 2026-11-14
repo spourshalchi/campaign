@@ -97,6 +97,10 @@
   .sa-where{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:16px 4px 4px}
   .sa-group:first-child .sa-where{margin-top:0}
   body.hide-done .task.done{display:none}
+  .task.wip label{opacity:.55}
+  .task.wip input[type="checkbox"]{cursor:not-allowed;opacity:.5}
+  .tag.wip{color:#e0a85a;border-color:#4a3a22}
+  .note.wip-note{border-left-color:#e0a85a}
   body.view-route #saTop, body.view-route .task.sa, body.view-route .sa-note, body.view-route .sa-card, body.view-route .sa-progress{display:none}
   body.view-sa section:not(#saTop), body.view-sa .grid .card:not(.sa-card), body.view-sa .route-progress{display:none}
   .footer{margin-top:28px;color:#8f8795;font-size:13px;text-align:center}
@@ -220,12 +224,13 @@
     <button type="button"><span><span class="hour">Hour 1–2</span> • Spellsiphon + Redcap</span><span>▾</span></button>
     <div class="section-body">
       <div class="task" data-id="h1-1"><input type="checkbox" id="h1-1"><label for="h1-1">Go to the <b>Sleeping Giant Inn</b>.</label></div>
-      <div class="task sa" data-id="sa-btps-none"><input type="checkbox" id="sa-btps-none"><label for="sa-btps-none"><span class="tag">SpellAim</span>With no cursor on anything, walk up to things in the inn. Better Third Person Selection suggests them as usual.</label></div>
-      <div class="task sa" data-id="sa-btps-point"><input type="checkbox" id="sa-btps-point"><label for="sa-btps-point"><span class="tag">SpellAim</span>Point a cursor at a different item, door or person: the prompt text, its position and the outline all switch to it.</label></div>
-      <div class="task sa" data-id="sa-btps-a"><input type="checkbox" id="sa-btps-a"><label for="sa-btps-a"><span class="tag">SpellAim</span>Press <b>A</b>: it acts on what's highlighted.</label></div>
-      <div class="task sa" data-id="sa-btps-f12"><input type="checkbox" id="sa-btps-f12"><label for="sa-btps-f12"><span class="tag">SpellAim</span><b>F12</b> cycles, and the prompt and outline follow it. The prompt doesn't flicker.</label></div>
-      <div class="task sa" data-id="sa-pull-int"><input type="checkbox" id="sa-pull-int"><label for="sa-pull-int"><span class="tag">SpellAim</span>The cursor eases onto nearby interactables and sticks a little, and a quick flick breaks free.</label></div>
-      <div class="task sa" data-id="sa-books"><input type="checkbox" id="sa-books"><label for="sa-books"><span class="tag">SpellAim</span>Read a book: hold Home and flick <b>next ×5, then previous ×5</b>. Every page turns the right way.</label></div>
+      <div class="note sa-note wip-note"><b>Cursor picking is being fixed</b> (pointing at objects, F12 cycling, the pull). The fix is ready and goes in when you next quit Skyrim, so skip these for now.</div>
+      <div class="task sa wip" data-id="sa-btps-none"><input type="checkbox" id="sa-btps-none" disabled><label for="sa-btps-none"><span class="tag wip">Being fixed</span>With no cursor on anything, walk up to things in the inn. Better Third Person Selection suggests them as usual.</label></div>
+      <div class="task sa wip" data-id="sa-btps-point"><input type="checkbox" id="sa-btps-point" disabled><label for="sa-btps-point"><span class="tag wip">Being fixed</span>Point a cursor at a different item, door or person: the prompt text, its position and the outline all switch to it.</label></div>
+      <div class="task sa wip" data-id="sa-btps-a"><input type="checkbox" id="sa-btps-a" disabled><label for="sa-btps-a"><span class="tag wip">Being fixed</span>Press <b>A</b>: it acts on what's highlighted.</label></div>
+      <div class="task sa wip" data-id="sa-btps-f12"><input type="checkbox" id="sa-btps-f12" disabled><label for="sa-btps-f12"><span class="tag wip">Being fixed</span><b>F12</b> cycles, and the prompt and outline follow it. The prompt doesn't flicker.</label></div>
+      <div class="task sa wip" data-id="sa-pull-int"><input type="checkbox" id="sa-pull-int" disabled><label for="sa-pull-int"><span class="tag wip">Being fixed</span>The cursor eases onto nearby interactables and sticks a little, and a quick flick breaks free.</label></div>
+      <div class="task sa" data-id="sa-books"><input type="checkbox" id="sa-books"><label for="sa-books"><span class="tag">SpellAim</span>Read a book: hold Home and flick. It's now <b>reversed</b>: flick <b>left for the next page</b>, <b>right for the previous</b>. Do next ×5 and previous ×5; every one turns the right way.</label></div>
       <div class="task" data-id="h1-2"><input type="checkbox" id="h1-2"><label for="h1-2">Start the guided <b>Spellsiphon</b> tutorial.</label></div>
       <div class="task" data-id="h1-3"><input type="checkbox" id="h1-3"><label for="h1-3">Use the Meditation Space and focus only on <b>Draw, Ward and Bind</b>.</label></div>
       <div class="task" data-id="h1-4"><input type="checkbox" id="h1-4"><label for="h1-4">Practice: Draw → attack → Ward → Draw again until it feels natural.</label></div>
@@ -262,7 +267,7 @@
     <div class="section-body">
       <div class="task" data-id="h3-1"><input type="checkbox" id="h3-1"><label for="h3-1">Walk to Whiterun and report the dragon attack.</label></div>
       <div class="task" data-id="h3-2"><input type="checkbox" id="h3-2"><label for="h3-2">Visit Farengar.</label></div>
-      <div class="task sa" data-id="sa-clutter"><input type="checkbox" id="sa-clutter"><label for="sa-clutter"><span class="tag">SpellAim</span>On a cluttered table (Farengar's, or a shop counter), use the cursor to pick out one item among many. The prompt follows the cursor.</label></div>
+      <div class="task sa wip" data-id="sa-clutter"><input type="checkbox" id="sa-clutter" disabled><label for="sa-clutter"><span class="tag wip">Being fixed</span>On a cluttered table (Farengar's, or a shop counter), use the cursor to pick out one item among many. The prompt follows the cursor.</label></div>
       <div class="task" data-id="h3-3"><input type="checkbox" id="h3-3"><label for="h3-3">Buy a <b>Conjuration summon</b> you can cast comfortably.</label></div>
       <div class="task" data-id="h3-4"><input type="checkbox" id="h3-4"><label for="h3-4">Browse Mysticism/Dareni spells, but buy only one or two that genuinely fit your loadout.</label></div>
       <div class="task" data-id="h3-5"><input type="checkbox" id="h3-5"><label for="h3-5">Keep an eye out for robes/gear with <b>Magicka Regeneration</b>.</label></div>
