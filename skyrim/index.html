@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Nordic Souls — Arcane Mage Checklist</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <style>
+  [hidden]{display:none!important}
+  /* Layout: one centred column of collapsible hour sections; SpellAim tests are woven in, marked with a teal tag. Single dark theme by design. */
   :root{
     --bg:#111015;
     --panel:#1a1820;
@@ -14,91 +17,111 @@
     --gold:#d7b46a;
     --purple:#8e71c7;
     --green:#73b38d;
+    --teal:#5fb8b0;
+    --teal-bg:#1b2a2b;
     --line:#342e3d;
     --danger:#c97a7a;
+    --box:#151219;
+    --box-line:#756783;
+    color-scheme:dark;
   }
   *{box-sizing:border-box}
   body{
-    margin:0; background:linear-gradient(180deg,#0e0d12,#15121a 45%,#0f0e13);
+    margin:0; background:var(--bg);
+    background-image:linear-gradient(180deg,#0e0d12,#15121a 45%,#0f0e13);
     color:var(--text); font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   }
-  .wrap{max-width:920px;margin:0 auto;padding:24px 16px 80px}
+  .wrap{
+    max-width:920px;margin:0 auto;padding-block:24px 80px;
+    padding-left:max(16px, env(safe-area-inset-left, 0px));
+    padding-right:max(16px, env(safe-area-inset-right, 0px));
+  }
   header{
     padding:28px 22px;border:1px solid var(--line);border-radius:20px;
     background:linear-gradient(145deg,#211d29,#17151c);
     box-shadow:0 16px 40px rgba(0,0,0,.25); margin-bottom:18px;
   }
-  h1{margin:0 0 6px;font-size:clamp(30px,6vw,54px);line-height:1.02;letter-spacing:-1.5px}
-  .subtitle{color:var(--gold);font-weight:700}
+  h1{margin:0 0 6px;font-size:clamp(30px,6vw,54px);line-height:1.02;letter-spacing:-1.5px;text-wrap:balance}
+  .subtitle{color:var(--gold);font-weight:700;letter-spacing:.04em}
   .desc{color:var(--muted);margin-top:12px;max-width:720px}
-  .progress-wrap{margin-top:22px}
-  .progress-top{display:flex;justify-content:space-between;color:var(--muted);font-size:14px;margin-bottom:7px}
+  .progress-wrap{margin-top:22px;display:grid;gap:12px}
+  .progress-top{display:flex;justify-content:space-between;color:var(--muted);font-size:14px;margin-bottom:7px;font-variant-numeric:tabular-nums}
   .bar{height:10px;background:#2a2531;border-radius:99px;overflow:hidden}
-  .fill{height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--gold));transition:.25s}
+  .fill{height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--gold));transition:width .25s}
+  .fill.sa{background:var(--teal)}
   .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0}
-  .card{
-    border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:16px;
-  }
+  .card{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:16px;min-width:0}
   .card h3{margin:0 0 8px;font-size:16px;color:var(--gold)}
   .card p{margin:0;color:var(--muted)}
-  .pill{
-    display:inline-block;padding:4px 8px;border-radius:999px;background:#2c2636;
-    color:#d8cbea;font-size:12px;margin:2px 4px 2px 0
-  }
-  section{
-    margin-top:16px;border:1px solid var(--line);border-radius:18px;background:var(--panel);overflow:hidden
-  }
+  .card.sa-card{border-color:#2f4a49;background:var(--teal-bg)}
+  .card.sa-card h3{color:var(--teal)}
+  .pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#2c2636;color:#d8cbea;font-size:12px;margin:2px 4px 2px 0}
+  section{margin-top:16px;border:1px solid var(--line);border-radius:18px;background:var(--panel);overflow:hidden}
+  section.sa-section{border-color:#2f4a49}
   section > button{
     width:100%;border:0;background:transparent;color:var(--text);padding:17px 18px;text-align:left;
-    display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:800;cursor:pointer
+    display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:18px;font-weight:800;cursor:pointer
   }
+  section > button:focus-visible,.btn:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
   .hour{color:var(--gold)}
+  .sa-section .hour{color:var(--teal)}
   .section-body{padding:0 16px 16px}
-  .task{
-    display:flex;gap:11px;align-items:flex-start;padding:11px 4px;border-top:1px solid #292431
-  }
+  .task{display:flex;gap:11px;align-items:flex-start;padding:11px 4px;border-top:1px solid #292431}
   .task:first-child{border-top:0}
+  .task.sa{background:var(--teal-bg);border-radius:10px;padding:11px 10px;margin:4px 0;border-top:0}
+  .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);border:1px solid #2f4a49;border-radius:6px;padding:0 6px;margin-right:6px;vertical-align:1px}
+  .tag.eye{color:var(--gold);border-color:#4a3f2a}
   input[type="checkbox"]{
-    appearance:none;width:22px;height:22px;min-width:22px;border:2px solid #756783;border-radius:6px;
-    margin-top:1px;display:grid;place-items:center;cursor:pointer;background:#151219
+    appearance:none;width:22px;height:22px;min-width:22px;border:2px solid var(--box-line);border-radius:6px;
+    margin-top:1px;display:grid;place-items:center;cursor:pointer;background:var(--box)
   }
+  .task.sa input[type="checkbox"]{border-color:#4f8f89}
   input[type="checkbox"]:checked{background:var(--green);border-color:var(--green)}
   input[type="checkbox"]:checked::after{content:"✓";color:#0e1711;font-weight:900;font-size:15px}
-  .task label{cursor:pointer;flex:1}
+  .task label{cursor:pointer;flex:1;min-width:0}
   .task.done label{color:#8f8795;text-decoration:line-through}
-  .note{
-    margin:12px 0 2px;padding:12px 14px;border-left:4px solid var(--purple);background:var(--panel2);
-    border-radius:8px;color:#d8d0dc
-  }
+  .note{margin:12px 0 2px;padding:12px 14px;border-left:4px solid var(--purple);background:var(--panel2);border-radius:8px;color:#d8d0dc}
+  .note.sa-note{border-left-color:var(--teal)}
   .warning{border-left-color:var(--danger)}
-  .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
-  .btn{
-    border:1px solid var(--line);background:#221d29;color:var(--text);padding:9px 12px;border-radius:10px;
-    cursor:pointer;font-weight:700
-  }
+  .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;align-items:center}
+  .btn{border:1px solid var(--line);background:#221d29;color:var(--text);padding:9px 12px;border-radius:10px;cursor:pointer;font-weight:700;font:inherit;font-weight:700}
   .btn:hover{background:#2a2432}
+  .btn.danger{border-color:#5a3434;color:#f0c6c6}
+  .toggle{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:14px;cursor:pointer}
+  body.hide-sa .task.sa, body.hide-sa .sa-section, body.hide-sa .sa-note, body.hide-sa .sa-card, body.hide-sa .sa-progress{display:none}
   .footer{margin-top:28px;color:#8f8795;font-size:13px;text-align:center}
-  @media(max-width:680px){.grid{grid-template-columns:1fr}.wrap{padding-top:12px}header{padding:22px 18px}}
+  @media(max-width:680px){.grid{grid-template-columns:1fr}.wrap{padding-block:12px 80px}header{padding:22px 18px}}
+  @media(prefers-reduced-motion:reduce){.fill{transition:none}}
 </style>
+
 </head>
 <body>
 <div class="wrap">
   <header>
-    <div class="subtitle">NORDIC SOULS • SPELLSIPHON • SURVIVAL</div>
-    <h1>Arcane Mage<br/>Starting Checklist</h1>
+    <div class="subtitle">NORDIC SOULS • SPELLSIPHON • SURVIVAL • SPELLAIM</div>
+    <h1>Arcane Mage<br>Starting Checklist</h1>
     <div class="desc">
       A first-10-hours route built around a Breton magic-first Spellsiphon character:
       conjuration for control, robes + Alteration for defense, Restoration for support,
       and Starfrost survival without turning the run into a chore.
+      SpellAim tests (teal) are placed where the route naturally exercises them.
     </div>
     <div class="progress-wrap">
-      <div class="progress-top"><span>Overall progress</span><span id="pct">0%</span></div>
-      <div class="bar"><div class="fill" id="fill"></div></div>
+      <div>
+        <div class="progress-top"><span>Overall progress</span><span id="pct">0%</span></div>
+        <div class="bar"><div class="fill" id="fill"></div></div>
+      </div>
+      <div class="sa-progress">
+        <div class="progress-top"><span>SpellAim tests</span><span id="saCount">0 / 0</span></div>
+        <div class="bar"><div class="fill sa" id="saFill"></div></div>
+      </div>
     </div>
     <div class="controls">
-      <button class="btn" onclick="expandAll()">Expand all</button>
-      <button class="btn" onclick="collapseAll()">Collapse all</button>
-      <button class="btn" onclick="resetAll()">Reset checklist</button>
+      <button class="btn" id="expandBtn" type="button">Expand all</button>
+      <button class="btn" id="collapseBtn" type="button">Collapse all</button>
+      <button class="btn" id="resetBtn" type="button">Reset checklist</button>
+      <button class="btn danger" id="resetConfirm" type="button" hidden>Yes, untick everything</button>
+      <label class="toggle"><input type="checkbox" id="showSa" checked> Show SpellAim tests</label>
     </div>
   </header>
 
@@ -125,179 +148,321 @@
       <h3>Don't worry about yet</h3>
       <p>Archery perks, heavy crafting, advanced Spellsiphon combos, vampirism/werewolf.</p>
     </div>
+    <div class="card sa-card">
+      <h3>SpellAim: how to report</h3>
+      <p>Tick a test when it works. If something's off, just tell Claude what happened and roughly when. It reads the game and app logs.</p>
+    </div>
+    <div class="card sa-card">
+      <h3>SpellAim: known open</h3>
+      <p>The stuck bow (a bow on your back or "no arrows" after switching to spells). If it happens, tell Claude right away.</p>
+    </div>
   </div>
 
-  <section>
-    <button onclick="toggle(this)"><span><span class="hour">Hour 0–1</span> • Helgen → Riverwood</span><span>▾</span></button>
+  <section class="sa-section">
+    <button type="button"><span><span class="hour">Before you play</span> • SpellAim setup</span><span>▾</span></button>
     <div class="section-body">
-      <div class="task"><input type="checkbox"><label>Choose <b>Breton → Mage → Faithful</b> if you have not finalized character creation.</label></div>
-      <div class="task"><input type="checkbox"><label>Wait for Nordic Souls' configuration setup to finish before rushing forward.</label></div>
-      <div class="task"><input type="checkbox"><label>Take the vanilla Helgen start.</label></div>
-      <div class="task"><input type="checkbox"><label><b>Side with Hadvar.</b> This does not commit you to the Imperials.</label></div>
-      <div class="task"><input type="checkbox"><label>Prioritize robes, spell tomes, potions, food and valuable/light loot; ignore heavy junk.</label></div>
-      <div class="task"><input type="checkbox"><label>Use Flames / Healing / Oakflesh rather than worrying about Spellsiphon yet.</label></div>
-      <div class="task"><input type="checkbox"><label>At the Guardian Stones, take the <b>Mage Stone</b>.</label></div>
-      <div class="task"><input type="checkbox"><label>Reach Riverwood and talk to Alvor.</label></div>
-      <div class="task"><input type="checkbox"><label>Turn <b>Survival Mode</b> on once you're safely in Riverwood.</label></div>
+      <div class="task sa" data-id="sa-app"><input type="checkbox" id="sa-app"><label for="sa-app"><span class="tag">SpellAim</span>Start the SpellAim app and check both Joy-Cons are connected.</label></div>
+      <div class="task sa" data-id="sa-calib"><input type="checkbox" id="sa-calib"><label for="sa-calib"><span class="tag">SpellAim</span>Calibrate for the TV with <b>C + Y</b>. Point at each dot and hold steady before pressing ZR. Afterwards, both cursors land where you point.</label></div>
+      <div class="task sa" data-id="sa-hints"><input type="checkbox" id="sa-hints"><label for="sa-hints"><span class="tag">SpellAim</span>The motion hints stay up until the move works, and the thumbnail looks normal.</label></div>
+      <div class="task sa" data-id="sa-fps"><input type="checkbox" id="sa-fps"><label for="sa-fps"><span class="tag eye">You judge</span>Throughout the run, notice any FPS dips. The plugin logs FPS every second, so just mention roughly when.</label></div>
+      <div class="note sa-note">Hold-to-calibrate (point and hold, no ZR) is being built. Until it's installed, hold each dot steady for a moment before pressing ZR.</div>
+    </div>
+  </section>
+
+  <section>
+    <button type="button"><span><span class="hour">Hour 0–1</span> • Helgen → Riverwood</span><span>▾</span></button>
+    <div class="section-body">
+      <div class="task" data-id="h0-1"><input type="checkbox" id="h0-1"><label for="h0-1">Choose <b>Breton → Mage → Faithful</b> if you have not finalized character creation.</label></div>
+      <div class="task" data-id="h0-2"><input type="checkbox" id="h0-2"><label for="h0-2">Wait for Nordic Souls' configuration setup to finish before rushing forward.</label></div>
+      <div class="task" data-id="h0-3"><input type="checkbox" id="h0-3"><label for="h0-3">Take the vanilla Helgen start.</label></div>
+      <div class="task" data-id="h0-4"><input type="checkbox" id="h0-4"><label for="h0-4"><b>Side with Hadvar.</b> This does not commit you to the Imperials.</label></div>
+      <div class="task" data-id="h0-5"><input type="checkbox" id="h0-5"><label for="h0-5">Prioritize robes, spell tomes, potions, food and valuable/light loot; ignore heavy junk.</label></div>
+      <div class="task" data-id="h0-6"><input type="checkbox" id="h0-6"><label for="h0-6">Use Flames / Healing / Oakflesh rather than worrying about Spellsiphon yet.</label></div>
+      <div class="task sa" data-id="sa-autocast"><input type="checkbox" id="sa-autocast"><label for="sa-autocast"><span class="tag">SpellAim</span>Auto cast: the spell name, or the reason a cast failed, shows in Skyrim's message area (top left), not on the cursor.</label></div>
+      <div class="task sa" data-id="sa-stream"><input type="checkbox" id="sa-stream"><label for="sa-stream"><span class="tag">SpellAim</span>Flames has the shared stream rumble. Check that Frostbite and Sparks feel the same when you get them.</label></div>
+      <div class="task sa" data-id="sa-clean"><input type="checkbox" id="sa-clean"><label for="sa-clean"><span class="tag eye">You judge</span>Rumble feels clean: crisp clicks, and weight only on releases and ward hits. Compare with Clean/Classic in the app's Try spell feels.</label></div>
+      <div class="task" data-id="h0-7"><input type="checkbox" id="h0-7"><label for="h0-7">At the Guardian Stones, take the <b>Mage Stone</b>.</label></div>
+      <div class="task" data-id="h0-8"><input type="checkbox" id="h0-8"><label for="h0-8">Reach Riverwood and talk to Alvor.</label></div>
+      <div class="task" data-id="h0-9"><input type="checkbox" id="h0-9"><label for="h0-9">Turn <b>Survival Mode</b> on once you're safely in Riverwood.</label></div>
       <div class="note">Goal: finish Helgen cleanly, establish robes + Mage Stone + survival, and avoid burying yourself in new systems immediately.</div>
     </div>
   </section>
 
   <section>
-    <button onclick="toggle(this)"><span><span class="hour">Hour 1–2</span> • Spellsiphon + Redcap</span><span>▾</span></button>
+    <button type="button"><span><span class="hour">Hour 1–2</span> • Spellsiphon + Redcap</span><span>▾</span></button>
     <div class="section-body">
-      <div class="task"><input type="checkbox"><label>Go to the <b>Sleeping Giant Inn</b>.</label></div>
-      <div class="task"><input type="checkbox"><label>Start the guided <b>Spellsiphon</b> tutorial.</label></div>
-      <div class="task"><input type="checkbox"><label>Use the Meditation Space and focus only on <b>Draw, Ward and Bind</b>.</label></div>
-      <div class="task"><input type="checkbox"><label>Practice: Draw → attack → Ward → Draw again until it feels natural.</label></div>
-      <div class="task"><input type="checkbox"><label>Create a tiny Wheeler with Healing, Oakflesh, potion, one normal spell and later your summon.</label></div>
-      <div class="task"><input type="checkbox"><label>Look for the notice pointing you toward <b>Anise's Cabin</b>.</label></div>
-      <div class="task"><input type="checkbox"><label>Go to Anise's Cabin and begin <b>Redcap's</b> introduction.</label></div>
-      <div class="task"><input type="checkbox"><label>Recruit Redcap and talk to him periodically for his custom commentary.</label></div>
+      <div class="task" data-id="h1-1"><input type="checkbox" id="h1-1"><label for="h1-1">Go to the <b>Sleeping Giant Inn</b>.</label></div>
+      <div class="task sa" data-id="sa-btps-none"><input type="checkbox" id="sa-btps-none"><label for="sa-btps-none"><span class="tag">SpellAim</span>With no cursor on anything, walk up to things in the inn. Better Third Person Selection suggests them as usual.</label></div>
+      <div class="task sa" data-id="sa-btps-point"><input type="checkbox" id="sa-btps-point"><label for="sa-btps-point"><span class="tag">SpellAim</span>Point a cursor at a different item, door or person: the prompt text, its position and the outline all switch to it.</label></div>
+      <div class="task sa" data-id="sa-btps-a"><input type="checkbox" id="sa-btps-a"><label for="sa-btps-a"><span class="tag">SpellAim</span>Press <b>A</b>: it acts on what's highlighted.</label></div>
+      <div class="task sa" data-id="sa-btps-f12"><input type="checkbox" id="sa-btps-f12"><label for="sa-btps-f12"><span class="tag">SpellAim</span><b>F12</b> cycles, and the prompt and outline follow it. The prompt doesn't flicker.</label></div>
+      <div class="task sa" data-id="sa-pull-int"><input type="checkbox" id="sa-pull-int"><label for="sa-pull-int"><span class="tag">SpellAim</span>The cursor eases onto nearby interactables and sticks a little, and a quick flick breaks free.</label></div>
+      <div class="task sa" data-id="sa-books"><input type="checkbox" id="sa-books"><label for="sa-books"><span class="tag">SpellAim</span>Read a book: hold Home and flick <b>next ×5, then previous ×5</b>. Every page turns the right way.</label></div>
+      <div class="task" data-id="h1-2"><input type="checkbox" id="h1-2"><label for="h1-2">Start the guided <b>Spellsiphon</b> tutorial.</label></div>
+      <div class="task" data-id="h1-3"><input type="checkbox" id="h1-3"><label for="h1-3">Use the Meditation Space and focus only on <b>Draw, Ward and Bind</b>.</label></div>
+      <div class="task" data-id="h1-4"><input type="checkbox" id="h1-4"><label for="h1-4">Practice: Draw → attack → Ward → Draw again until it feels natural.</label></div>
+      <div class="task sa" data-id="sa-gestures"><input type="checkbox" id="sa-gestures"><label for="sa-gestures"><span class="tag">SpellAim</span>While practicing, try gestures: push and a big swipe up are never read as circle. A shape it can't recognise gets the double buzz, not a wrong spell.</label></div>
+      <div class="task" data-id="h1-5"><input type="checkbox" id="h1-5"><label for="h1-5">Create a tiny Wheeler with Healing, Oakflesh, potion, one normal spell and later your summon.</label></div>
+      <div class="task" data-id="h1-6"><input type="checkbox" id="h1-6"><label for="h1-6">Look for the notice pointing you toward <b>Anise's Cabin</b>.</label></div>
+      <div class="task" data-id="h1-7"><input type="checkbox" id="h1-7"><label for="h1-7">Go to Anise's Cabin and begin <b>Redcap's</b> introduction.</label></div>
+      <div class="task" data-id="h1-8"><input type="checkbox" id="h1-8"><label for="h1-8">Recruit Redcap and talk to him periodically for his custom commentary.</label></div>
       <div class="note">Redcap is your first deliberate taste of Nordic Souls' added follower/story content and gives your fragile mage a front line.</div>
     </div>
   </section>
 
   <section>
-    <button onclick="toggle(this)"><span><span class="hour">Hour 2–3</span> • First real field test</span><span>▾</span></button>
+    <button type="button"><span><span class="hour">Hour 2–3</span> • First real field test</span><span>▾</span></button>
     <div class="section-body">
-      <div class="task"><input type="checkbox"><label>Explore around Riverwood and fight a few low-risk wildlife encounters.</label></div>
-      <div class="task"><input type="checkbox"><label>Gather ingredients as you travel and cook/eat naturally with Starfrost/Gourmet.</label></div>
-      <div class="task"><input type="checkbox"><label>Do <b>Embershard Mine</b> as your first proper dungeon.</label></div>
-      <div class="task"><input type="checkbox"><label>Let Redcap engage first; use Oakflesh before combat.</label></div>
-      <div class="task"><input type="checkbox"><label>Spend Magicka on normal spells, then transition into Spellsiphon while Magicka recovers.</label></div>
-      <div class="task"><input type="checkbox"><label>Notice new bandit variants and unfamiliar equipment rather than optimizing every drop.</label></div>
-      <div class="task"><input type="checkbox"><label>Return to Riverwood to eat/sleep if survival needs call for it.</label></div>
+      <div class="task" data-id="h2-1"><input type="checkbox" id="h2-1"><label for="h2-1">Explore around Riverwood and fight a few low-risk wildlife encounters.</label></div>
+      <div class="task sa" data-id="sa-stick"><input type="checkbox" id="sa-stick"><label for="sa-stick"><span class="tag">SpellAim</span><b>Target stickiness:</b> on an enemy, the cursor stays on it a little, and a quick move breaks free.</label></div>
+      <div class="task sa" data-id="sa-pull-levels"><input type="checkbox" id="sa-pull-levels"><label for="sa-pull-levels"><span class="tag">SpellAim</span>Pull levels: <b>Medium</b> feels like your old High, and the new <b>High</b> is stronger.</label></div>
+      <div class="task" data-id="h2-2"><input type="checkbox" id="h2-2"><label for="h2-2">Gather ingredients as you travel and cook/eat naturally with Starfrost/Gourmet.</label></div>
+      <div class="task" data-id="h2-3"><input type="checkbox" id="h2-3"><label for="h2-3">Do <b>Embershard Mine</b> as your first proper dungeon.</label></div>
+      <div class="task sa" data-id="sa-lock-hum"><input type="checkbox" id="sa-lock-hum"><label for="sa-lock-hum"><span class="tag">SpellAim</span>Pick a lock in the mine: the closeness hum is strongest where the lock actually opens.</label></div>
+      <div class="task sa" data-id="sa-lock-snap"><input type="checkbox" id="sa-lock-snap"><label for="sa-lock-snap"><span class="tag eye">You judge</span>A pick snapping is one sharp hit right as it breaks, and you feel the lock opening.</label></div>
+      <div class="task sa" data-id="sa-lock-strain"><input type="checkbox" id="sa-lock-strain"><label for="sa-lock-strain"><span class="tag">SpellAim</span>Force the key at a wrong angle and feel the <b>strain buzz</b>.</label></div>
+      <div class="task" data-id="h2-4"><input type="checkbox" id="h2-4"><label for="h2-4">Let Redcap engage first; use Oakflesh before combat.</label></div>
+      <div class="task" data-id="h2-5"><input type="checkbox" id="h2-5"><label for="h2-5">Spend Magicka on normal spells, then transition into Spellsiphon while Magicka recovers.</label></div>
+      <div class="task" data-id="h2-6"><input type="checkbox" id="h2-6"><label for="h2-6">Notice new bandit variants and unfamiliar equipment rather than optimizing every drop.</label></div>
+      <div class="task" data-id="h2-7"><input type="checkbox" id="h2-7"><label for="h2-7">Return to Riverwood to eat/sleep if survival needs call for it.</label></div>
       <div class="note">This is where Nordic Souls' Lawless, Sentinel, Huntsman, survival and Spellsiphon start feeling like one coherent game.</div>
     </div>
   </section>
 
   <section>
-    <button onclick="toggle(this)"><span><span class="hour">Hour 3–4</span> • Whiterun build setup</span><span>▾</span></button>
+    <button type="button"><span><span class="hour">Hour 3–4</span> • Whiterun build setup</span><span>▾</span></button>
     <div class="section-body">
-      <div class="task"><input type="checkbox"><label>Walk to Whiterun and report the dragon attack.</label></div>
-      <div class="task"><input type="checkbox"><label>Visit Farengar.</label></div>
-      <div class="task"><input type="checkbox"><label>Buy a <b>Conjuration summon</b> you can cast comfortably.</label></div>
-      <div class="task"><input type="checkbox"><label>Browse Mysticism/Dareni spells, but buy only one or two that genuinely fit your loadout.</label></div>
-      <div class="task"><input type="checkbox"><label>Keep an eye out for robes/gear with <b>Magicka Regeneration</b>.</label></div>
-      <div class="task"><input type="checkbox"><label>Disenchant useful effects before selling the first copy of an enchanted item.</label></div>
-      <div class="task"><input type="checkbox"><label>Visit the Temple of Kynareth for a temporary Divine blessing.</label></div>
-      <div class="task"><input type="checkbox"><label>Visit Whiterun's Hall of the Dead and meet <b>Garm</b>.</label></div>
-      <div class="task"><input type="checkbox"><label>Try the follower-ordering controls once so you understand Nordic Souls' follower framework.</label></div>
+      <div class="task" data-id="h3-1"><input type="checkbox" id="h3-1"><label for="h3-1">Walk to Whiterun and report the dragon attack.</label></div>
+      <div class="task" data-id="h3-2"><input type="checkbox" id="h3-2"><label for="h3-2">Visit Farengar.</label></div>
+      <div class="task sa" data-id="sa-clutter"><input type="checkbox" id="sa-clutter"><label for="sa-clutter"><span class="tag">SpellAim</span>On a cluttered table (Farengar's, or a shop counter), use the cursor to pick out one item among many. The prompt follows the cursor.</label></div>
+      <div class="task" data-id="h3-3"><input type="checkbox" id="h3-3"><label for="h3-3">Buy a <b>Conjuration summon</b> you can cast comfortably.</label></div>
+      <div class="task" data-id="h3-4"><input type="checkbox" id="h3-4"><label for="h3-4">Browse Mysticism/Dareni spells, but buy only one or two that genuinely fit your loadout.</label></div>
+      <div class="task" data-id="h3-5"><input type="checkbox" id="h3-5"><label for="h3-5">Keep an eye out for robes/gear with <b>Magicka Regeneration</b>.</label></div>
+      <div class="task" data-id="h3-6"><input type="checkbox" id="h3-6"><label for="h3-6">Disenchant useful effects before selling the first copy of an enchanted item.</label></div>
+      <div class="task" data-id="h3-7"><input type="checkbox" id="h3-7"><label for="h3-7">Visit the Temple of Kynareth for a temporary Divine blessing.</label></div>
+      <div class="task" data-id="h3-8"><input type="checkbox" id="h3-8"><label for="h3-8">Visit Whiterun's Hall of the Dead and meet <b>Garm</b>.</label></div>
+      <div class="task" data-id="h3-9"><input type="checkbox" id="h3-9"><label for="h3-9">Try the follower-ordering controls once so you understand Nordic Souls' follower framework.</label></div>
+      <div class="task sa" data-id="sa-bow"><input type="checkbox" id="sa-bow"><label for="sa-bow"><span class="tag">SpellAim</span>If you carry a bow: draw it, then switch to spells with a favourites group or F4. No bow should stay in your hand or on your back, and no "no arrows". If one does, tell Claude straight away.</label></div>
       <div class="note">Do not detour across the map for Mara yet. Switch to Mara naturally later when you reach Riften or Solitude.</div>
     </div>
   </section>
 
   <section>
-    <button onclick="toggle(this)"><span><span class="hour">Hour 4–5</span> • Bleak Falls Barrow</span><span>▾</span></button>
+    <button type="button"><span><span class="hour">Hour 4–5</span> • Bleak Falls Barrow</span><span>▾</span></button>
     <div class="section-body">
-      <div class="task"><input type="checkbox"><label>Get The Golden Claw quest if you haven't already.</label></div>
-      <div class="task"><input type="checkbox"><label>Prepare food, potions, summon, Oakflesh and your small Wheeler before leaving.</label></div>
-      <div class="task"><input type="checkbox"><label>Start <b>Bleak Falls Barrow</b>.</label></div>
-      <div class="task"><input type="checkbox"><label>Pay attention to Nordic Souls' changed draugr behavior and variants.</label></div>
-      <div class="task"><input type="checkbox"><label>Against groups: summon first, then let followers create space.</label></div>
-      <div class="task"><input type="checkbox"><label>Use Ward as your defensive answer instead of panic-switching equipment.</label></div>
-      <div class="task"><input type="checkbox"><label>Experiment with Bound Weapon only if Draw + Ward already feel comfortable.</label></div>
-      <div class="task"><input type="checkbox"><label>Get the Word Wall + Dragonstone and return the Golden Claw if time permits.</label></div>
+      <div class="task" data-id="h4-1"><input type="checkbox" id="h4-1"><label for="h4-1">Get The Golden Claw quest if you haven't already.</label></div>
+      <div class="task" data-id="h4-2"><input type="checkbox" id="h4-2"><label for="h4-2">Prepare food, potions, summon, Oakflesh and your small Wheeler before leaving.</label></div>
+      <div class="task" data-id="h4-3"><input type="checkbox" id="h4-3"><label for="h4-3">Start <b>Bleak Falls Barrow</b>.</label></div>
+      <div class="task" data-id="h4-4"><input type="checkbox" id="h4-4"><label for="h4-4">Pay attention to Nordic Souls' changed draugr behavior and variants.</label></div>
+      <div class="task" data-id="h4-5"><input type="checkbox" id="h4-5"><label for="h4-5">Against groups: summon first, then let followers create space.</label></div>
+      <div class="task sa" data-id="sa-twohands"><input type="checkbox" id="sa-twohands"><label for="sa-twohands"><span class="tag">SpellAim</span>Against a group, aim each hand at a different draugr and cast both. Each spell hits its own target.</label></div>
+      <div class="task" data-id="h4-6"><input type="checkbox" id="h4-6"><label for="h4-6">Use Ward as your defensive answer instead of panic-switching equipment.</label></div>
+      <div class="task" data-id="h4-7"><input type="checkbox" id="h4-7"><label for="h4-7">Experiment with Bound Weapon only if Draw + Ward already feel comfortable.</label></div>
+      <div class="task" data-id="h4-8"><input type="checkbox" id="h4-8"><label for="h4-8">Get the Word Wall + Dragonstone and return the Golden Claw if time permits.</label></div>
     </div>
   </section>
 
   <section>
-    <button onclick="toggle(this)"><span><span class="hour">Hour 5–6</span> • Become Dragonborn</span><span>▾</span></button>
+    <button type="button"><span><span class="hour">Hour 5–6</span> • Become Dragonborn</span><span>▾</span></button>
     <div class="section-body">
-      <div class="task"><input type="checkbox"><label>Deliver the Dragonstone and start <b>Dragon Rising</b>.</label></div>
-      <div class="task"><input type="checkbox"><label>Treat Mirmulnir as a real fight: summon, followers/guards tank, stay mobile.</label></div>
-      <div class="task"><input type="checkbox"><label>Notice Nordic Souls' Dragon War changes rather than expecting the vanilla tutorial-dragon fight.</label></div>
-      <div class="task"><input type="checkbox"><label>Absorb your first dragon soul and check any new Word/Shout progression effects.</label></div>
-      <div class="task"><input type="checkbox"><label>Keep survival supplies stocked before leaving Whiterun again.</label></div>
+      <div class="task" data-id="h5-1"><input type="checkbox" id="h5-1"><label for="h5-1">Deliver the Dragonstone and start <b>Dragon Rising</b>.</label></div>
+      <div class="task" data-id="h5-2"><input type="checkbox" id="h5-2"><label for="h5-2">Treat Mirmulnir as a real fight: summon, followers/guards tank, stay mobile.</label></div>
+      <div class="task sa" data-id="sa-dragon"><input type="checkbox" id="sa-dragon"><label for="sa-dragon"><span class="tag eye">You judge</span>Aim at the flying dragon: stickiness helps you track it, and the frame rate holds up during the fight.</label></div>
+      <div class="task" data-id="h5-3"><input type="checkbox" id="h5-3"><label for="h5-3">Notice Nordic Souls' Dragon War changes rather than expecting the vanilla tutorial-dragon fight.</label></div>
+      <div class="task" data-id="h5-4"><input type="checkbox" id="h5-4"><label for="h5-4">Absorb your first dragon soul and check any new Word/Shout progression effects.</label></div>
+      <div class="task" data-id="h5-5"><input type="checkbox" id="h5-5"><label for="h5-5">Keep survival supplies stocked before leaving Whiterun again.</label></div>
     </div>
   </section>
 
   <section>
-    <button onclick="toggle(this)"><span><span class="hour">Hour 6–8</span> • High Hrothgar + Stormcrown</span><span>▾</span></button>
+    <button type="button"><span><span class="hour">Hour 6–8</span> • High Hrothgar + Stormcrown</span><span>▾</span></button>
     <div class="section-body">
-      <div class="task"><input type="checkbox"><label>Head toward Ivarstead and High Hrothgar instead of fast-traveling around the experience.</label></div>
-      <div class="task"><input type="checkbox"><label>Bring food and warmer gear so Starfrost matters on the mountain.</label></div>
-      <div class="task"><input type="checkbox"><label>Complete the Greybeards' first training.</label></div>
-      <div class="task"><input type="checkbox"><label>Once formally recognized as Dragonborn, inspect <b>Stormcrown's Dragonborn perk tree</b>.</label></div>
-      <div class="task"><input type="checkbox"><label>Choose one Shout-related direction that sounds fun rather than planning the whole tree.</label></div>
+      <div class="task" data-id="h6-1"><input type="checkbox" id="h6-1"><label for="h6-1">Head toward Ivarstead and High Hrothgar instead of fast-traveling around the experience.</label></div>
+      <div class="task" data-id="h6-2"><input type="checkbox" id="h6-2"><label for="h6-2">Bring food and warmer gear so Starfrost matters on the mountain.</label></div>
+      <div class="task" data-id="h6-3"><input type="checkbox" id="h6-3"><label for="h6-3">Complete the Greybeards' first training.</label></div>
+      <div class="task" data-id="h6-4"><input type="checkbox" id="h6-4"><label for="h6-4">Once formally recognized as Dragonborn, inspect <b>Stormcrown's Dragonborn perk tree</b>.</label></div>
+      <div class="task" data-id="h6-5"><input type="checkbox" id="h6-5"><label for="h6-5">Choose one Shout-related direction that sounds fun rather than planning the whole tree.</label></div>
     </div>
   </section>
 
   <section>
-    <button onclick="toggle(this)"><span><span class="hour">Hour 8–10</span> • College of Winterhold</span><span>▾</span></button>
+    <button type="button"><span><span class="hour">Hour 8–10</span> • College of Winterhold</span><span>▾</span></button>
     <div class="section-body">
-      <div class="task"><input type="checkbox"><label>Travel to Winterhold and join the <b>College of Winterhold</b>.</label></div>
-      <div class="task"><input type="checkbox"><label>Do the expanded introductory magic lessons instead of rushing straight into Saarthal.</label></div>
-      <div class="task"><input type="checkbox"><label>Browse College merchants for a better summon, Flesh spell, Restoration and one interesting offensive spell.</label></div>
-      <div class="task"><input type="checkbox"><label>Keep your Wheeler small; don't buy spells just because they're new.</label></div>
-      <div class="task"><input type="checkbox"><label>Continue advancing Spellsiphon gradually rather than unlocking every advanced mechanic at once.</label></div>
-      <div class="task"><input type="checkbox"><label>Sleep/eat at the College or Winterhold and end the first 10-hour block there.</label></div>
+      <div class="task" data-id="h8-1"><input type="checkbox" id="h8-1"><label for="h8-1">Travel to Winterhold and join the <b>College of Winterhold</b>.</label></div>
+      <div class="task" data-id="h8-2"><input type="checkbox" id="h8-2"><label for="h8-2">Do the expanded introductory magic lessons instead of rushing straight into Saarthal.</label></div>
+      <div class="task" data-id="h8-3"><input type="checkbox" id="h8-3"><label for="h8-3">Browse College merchants for a better summon, Flesh spell, Restoration and one interesting offensive spell.</label></div>
+      <div class="task" data-id="h8-4"><input type="checkbox" id="h8-4"><label for="h8-4">Keep your Wheeler small; don't buy spells just because they're new.</label></div>
+      <div class="task" data-id="h8-5"><input type="checkbox" id="h8-5"><label for="h8-5">Continue advancing Spellsiphon gradually rather than unlocking every advanced mechanic at once.</label></div>
+      <div class="task" data-id="h8-6"><input type="checkbox" id="h8-6"><label for="h8-6">Sleep/eat at the College or Winterhold and end the first 10-hour block there.</label></div>
       <div class="note">After this point: stay at the College for a while, then make your first deliberate Riften trip to adopt Mara and explore more custom follower/content options.</div>
     </div>
   </section>
 
   <section>
-    <button onclick="toggle(this)"><span><span class="hour">Ongoing</span> • Build priorities</span><span>▾</span></button>
+    <button type="button"><span><span class="hour">Ongoing</span> • Build priorities</span><span>▾</span></button>
     <div class="section-body">
-      <div class="task"><input type="checkbox"><label>Prioritize early perks in Destruction, Conjuration, Restoration and Alteration rather than weapon trees.</label></div>
-      <div class="task"><input type="checkbox"><label>Wear robes and pursue Mage Robes / Mage Armor style Alteration perks.</label></div>
-      <div class="task"><input type="checkbox"><label>Pick up Magicka Regeneration bonuses whenever they fit; they synergize strongly with Spellsiphon.</label></div>
-      <div class="task"><input type="checkbox"><label>Eventually switch religion to <b>Mara</b> and acquire an Amulet of Mara.</label></div>
-      <div class="task"><input type="checkbox"><label>Level Enchanting later; don't grind it in the opening hours.</label></div>
-      <div class="task"><input type="checkbox"><label>Use Alchemy naturally from gathered ingredients; don't turn it into a money exploit.</label></div>
-      <div class="task"><input type="checkbox"><label>Keep bow use optional/fun rather than building around Archery perks.</label></div>
-      <div class="task"><input type="checkbox"><label>Delay vampirism/werewolf until the core mage build is established.</label></div>
+      <div class="task" data-id="on-1"><input type="checkbox" id="on-1"><label for="on-1">Prioritize early perks in Destruction, Conjuration, Restoration and Alteration rather than weapon trees.</label></div>
+      <div class="task" data-id="on-2"><input type="checkbox" id="on-2"><label for="on-2">Wear robes and pursue Mage Robes / Mage Armor style Alteration perks.</label></div>
+      <div class="task" data-id="on-3"><input type="checkbox" id="on-3"><label for="on-3">Pick up Magicka Regeneration bonuses whenever they fit; they synergize strongly with Spellsiphon.</label></div>
+      <div class="task" data-id="on-4"><input type="checkbox" id="on-4"><label for="on-4">Eventually switch religion to <b>Mara</b> and acquire an Amulet of Mara.</label></div>
+      <div class="task" data-id="on-5"><input type="checkbox" id="on-5"><label for="on-5">Level Enchanting later; don't grind it in the opening hours.</label></div>
+      <div class="task" data-id="on-6"><input type="checkbox" id="on-6"><label for="on-6">Use Alchemy naturally from gathered ingredients; don't turn it into a money exploit.</label></div>
+      <div class="task" data-id="on-7"><input type="checkbox" id="on-7"><label for="on-7">Keep bow use optional/fun rather than building around Archery perks.</label></div>
+      <div class="task" data-id="on-8"><input type="checkbox" id="on-8"><label for="on-8">Delay vampirism/werewolf until the core mage build is established.</label></div>
       <div class="note warning">Big quest mods such as Vigilant/Unslaad are better saved for later. Let your character identity develop before jumping into the huge modded storylines.</div>
     </div>
   </section>
 
-  <div class="footer">Your progress is saved locally in this browser/device.</div>
+  <div class="footer" id="saveNote">Loading your progress…</div>
 </div>
 
 <script>
-const key = "nordicSoulsChecklist-v1";
-const boxes = [...document.querySelectorAll('input[type="checkbox"]')];
+(function(){
+  const LOCAL_KEY = "arcaneMageChecklist-v2";
+  const DOC_PATH = "progress/main";
+  const tasks = [...document.querySelectorAll('.task[data-id]')];
+  const boxes = tasks.map(t => t.querySelector('input[type="checkbox"]'));
+  const saveNote = document.getElementById('saveNote');
+  let docRef = null;
+  let writing = false, pending = false;
 
-function save(){
-  localStorage.setItem(key, JSON.stringify(boxes.map(b=>b.checked)));
-  update();
-}
-function load(){
-  const state = JSON.parse(localStorage.getItem(key) || "[]");
-  boxes.forEach((b,i)=>{ if(typeof state[i] === "boolean") b.checked = state[i]; });
-  update();
-}
-function update(){
-  boxes.forEach(b => b.closest('.task').classList.toggle('done', b.checked));
-  const done = boxes.filter(b=>b.checked).length;
-  const pct = boxes.length ? Math.round(done/boxes.length*100) : 0;
-  document.getElementById('pct').textContent = pct + "%";
-  document.getElementById('fill').style.width = pct + "%";
-}
-boxes.forEach(b=>b.addEventListener('change', save));
-
-function toggle(btn){
-  const body = btn.nextElementSibling;
-  const hidden = body.style.display === "none";
-  body.style.display = hidden ? "" : "none";
-  btn.lastElementChild.textContent = hidden ? "▾" : "▸";
-}
-function expandAll(){
-  document.querySelectorAll('.section-body').forEach(x=>x.style.display="");
-  document.querySelectorAll('section > button span:last-child').forEach(x=>x.textContent="▾");
-}
-function collapseAll(){
-  document.querySelectorAll('.section-body').forEach(x=>x.style.display="none");
-  document.querySelectorAll('section > button span:last-child').forEach(x=>x.textContent="▸");
-}
-function resetAll(){
-  if(confirm("Reset every checkbox?")){
-    boxes.forEach(b=>b.checked=false);
-    save();
+  function state(){
+    const done = {};
+    tasks.forEach((t,i) => { if (boxes[i].checked) done[t.dataset.id] = true; });
+    return done;
   }
-}
-load();
+  function apply(done){
+    tasks.forEach((t,i) => { boxes[i].checked = !!(done && done[t.dataset.id]); });
+    update();
+  }
+  function update(){
+    tasks.forEach((t,i) => t.classList.toggle('done', boxes[i].checked));
+    const doneCount = boxes.filter(b => b.checked).length;
+    const pct = boxes.length ? Math.round(doneCount / boxes.length * 100) : 0;
+    document.getElementById('pct').textContent = pct + "%";
+    document.getElementById('fill').style.width = pct + "%";
+    const sa = tasks.filter(t => t.classList.contains('sa'));
+    const saDone = sa.filter(t => t.querySelector('input').checked).length;
+    document.getElementById('saCount').textContent = saDone + " / " + sa.length;
+    document.getElementById('saFill').style.width = (sa.length ? saDone / sa.length * 100 : 0) + "%";
+  }
+  function saveLocal(done){
+    try { localStorage.setItem(LOCAL_KEY, JSON.stringify(done)); } catch (e) {}
+  }
+  function loadLocal(){
+    try { return JSON.parse(localStorage.getItem(LOCAL_KEY) || "{}"); } catch (e) { return {}; }
+  }
+  async function saveRemote(){
+    if (!docRef) return;
+    if (writing) { pending = true; return; }
+    writing = true;
+    try {
+      await docRef.set({ done: state(), updated: new Date().toISOString() });
+      saveNote.textContent = "Progress saved. Claude can see which SpellAim tests you've ticked.";
+    } catch (e) {
+      saveNote.textContent = "Couldn't save to your account just now. Progress is kept on this device.";
+    } finally {
+      writing = false;
+      if (pending) { pending = false; saveRemote(); }
+    }
+  }
+  function onChange(){
+    const done = state();
+    update();
+    saveLocal(done);
+    saveRemote();
+  }
+  boxes.forEach(b => b.addEventListener('change', onChange));
+
+  // Collapsible sections
+  document.querySelectorAll('section > button').forEach(btn => {
+    btn.setAttribute('aria-expanded', 'true');
+    btn.addEventListener('click', () => {
+      const body = btn.nextElementSibling;
+      body.hidden = !body.hidden;
+      btn.setAttribute('aria-expanded', String(!body.hidden));
+      btn.lastElementChild.textContent = body.hidden ? "▸" : "▾";
+    });
+  });
+  function setAll(open){
+    document.querySelectorAll('section > button').forEach(btn => {
+      btn.nextElementSibling.hidden = !open;
+      btn.setAttribute('aria-expanded', String(open));
+      btn.lastElementChild.textContent = open ? "▾" : "▸";
+    });
+  }
+  document.getElementById('expandBtn').addEventListener('click', () => setAll(true));
+  document.getElementById('collapseBtn').addEventListener('click', () => setAll(false));
+
+  // Reset with an in-page confirm step
+  const resetBtn = document.getElementById('resetBtn');
+  const resetConfirm = document.getElementById('resetConfirm');
+  let resetTimer = null;
+  resetBtn.addEventListener('click', () => {
+    resetConfirm.hidden = false;
+    clearTimeout(resetTimer);
+    resetTimer = setTimeout(() => { resetConfirm.hidden = true; }, 5000);
+  });
+  resetConfirm.addEventListener('click', () => {
+    resetConfirm.hidden = true;
+    boxes.forEach(b => b.checked = false);
+    onChange();
+  });
+
+  // Show or hide SpellAim tests
+  const showSa = document.getElementById('showSa');
+  try { if (localStorage.getItem(LOCAL_KEY + "-hideSa") === "1") showSa.checked = false; } catch (e) {}
+  function applySa(){
+    document.body.classList.toggle('hide-sa', !showSa.checked);
+    try { localStorage.setItem(LOCAL_KEY + "-hideSa", showSa.checked ? "0" : "1"); } catch (e) {}
+  }
+  showSa.addEventListener('change', applySa);
+  applySa();
+
+  // Load: device copy first, then the saved copy on your account
+  // Carry over ticks from the first version of this page (saved by position, route items only)
+  function migrateV1(){
+    try {
+      if (localStorage.getItem(LOCAL_KEY)) return null;
+      const old = JSON.parse(localStorage.getItem("nordicSoulsChecklist-v1") || "null");
+      if (!Array.isArray(old)) return null;
+      const route = tasks.filter(t => !t.classList.contains('sa'));
+      const done = {};
+      route.forEach((t,i) => { if (old[i] === true) done[t.dataset.id] = true; });
+      return done;
+    } catch (e) { return null; }
+  }
+  const migrated = migrateV1();
+  apply(migrated || loadLocal());
+  if (migrated) saveLocal(migrated);
+  saveNote.textContent = "Progress is kept on this device.";
+  (async () => {
+    if (!window.claude || !window.claude.use) return;
+    let db = null;
+    try { db = await window.claude.use("db"); } catch (e) { db = null; }
+    if (!db) return;
+    docRef = db.doc(DOC_PATH);
+    const timer = setTimeout(() => { saveNote.textContent = "Still connecting… progress is kept on this device meanwhile."; }, 10000);
+    try {
+      const snap = await docRef.get();
+      clearTimeout(timer);
+      if (snap.exists) {
+        const remote = (snap.data() || {}).done || {};
+        const local = state();
+        const merged = Object.assign({}, remote, local);
+        apply(merged);
+        saveLocal(merged);
+        if (Object.keys(merged).length !== Object.keys(remote).length) saveRemote();
+      } else if (Object.keys(state()).length) {
+        saveRemote();
+      }
+      saveNote.textContent = "Progress saved to your account. Claude can see which SpellAim tests you've ticked.";
+    } catch (e) {
+      clearTimeout(timer);
+      saveNote.textContent = "Couldn't reach your saved progress. Ticks are kept on this device.";
+    }
+  })();
+})();
 </script>
 </body>
 </html>
