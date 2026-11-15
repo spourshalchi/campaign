@@ -436,26 +436,18 @@ Let your character develop before diving in.</div>
 (function(){
   const LOCAL_KEY = "arcaneMageChecklist-v2";
   const DOC_PATH = "progress/main";
-  // Gather every SpellAim item into the top section, grouped by where in the route it comes up.
+  // Gather every SpellAim test into the top section as one flat list, in route order, with no group headings.
   // The copies share their item id with the originals, so ticking either one ticks both.
   const topBody = document.getElementById('saTopBody');
-  document.querySelectorAll('section:not(#saTop)').forEach(sec => {
-    const items = sec.querySelectorAll('.task.sa, .note.sa-note');
-    if (!items.length) return;
-    const group = document.createElement('div');
-    group.className = 'sa-group';
-    const where = document.createElement('div');
-    where.className = 'sa-where';
-    where.textContent = sec.querySelector('button > span').textContent.trim();
-    group.appendChild(where);
-    items.forEach(el => {
-      const copy = el.cloneNode(true);
-      copy.querySelectorAll('[id]').forEach(n => { n.id += '-top'; });
-      copy.querySelectorAll('label[for]').forEach(l => { l.htmlFor += '-top'; });
-      group.appendChild(copy);
-    });
-    topBody.appendChild(group);
+  const group = document.createElement('div');
+  group.className = 'sa-group';
+  document.querySelectorAll('section:not(#saTop) .task.sa').forEach(el => {
+    const copy = el.cloneNode(true);
+    copy.querySelectorAll('[id]').forEach(n => { n.id += '-top'; });
+    copy.querySelectorAll('label[for]').forEach(l => { l.htmlFor += '-top'; });
+    group.appendChild(copy);
   });
+  topBody.appendChild(group);
 
   const tasks = [...document.querySelectorAll('.task[data-id]')];
   tasks.forEach((t,i) => { t.dataset.order = i; });
