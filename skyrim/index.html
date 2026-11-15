@@ -102,6 +102,8 @@
   .tag.wip{color:#e0a85a;border-color:#4a3a22}
   .note.wip-note{border-left-color:#e0a85a}
   body.view-route #saTop, body.view-route .task.sa, body.view-route .sa-note, body.view-route .sa-card, body.view-route .sa-progress{display:none}
+  #mainList > .section-body{padding-top:6px}
+  body.view-all #saTop{display:none}
   body.view-sa section:not(#saTop), body.view-sa .grid .card:not(.sa-card), body.view-sa .route-progress{display:none}
   .footer{margin-top:28px;color:#8f8795;font-size:13px;text-align:center}
   @media(max-width:680px){.grid{grid-template-columns:1fr}.wrap{padding-block:12px 80px}header{padding:22px 18px}}
@@ -448,6 +450,28 @@ Let your character develop before diving in.</div>
     group.appendChild(copy);
   });
   topBody.appendChild(group);
+
+  // One big list: every route item goes into a single list in route order, with no hour headings.
+  // The route notes move to one Notes box at the end.
+  const routeSecs = [...document.querySelectorAll('section:not(#saTop)')];
+  const listSec = document.createElement('section');
+  listSec.id = 'mainList';
+  listSec.innerHTML = '<div class="section-body"></div>';
+  const listBody = listSec.firstElementChild;
+  const notesSec = document.createElement('section');
+  notesSec.id = 'notesBox';
+  notesSec.innerHTML = '<button type="button"><span><span class="hour">Notes</span> • tips for the route</span><span>▾</span></button><div class="section-body"></div>';
+  const notesBody = notesSec.lastElementChild;
+  if (routeSecs.length) {
+    routeSecs[0].before(listSec);
+    listSec.after(notesSec);
+    routeSecs.forEach(sec => {
+      sec.querySelectorAll('.section-body > *').forEach(el => {
+        (el.classList.contains('note') ? notesBody : listBody).appendChild(el);
+      });
+      sec.remove();
+    });
+  }
 
   const tasks = [...document.querySelectorAll('.task[data-id]')];
   tasks.forEach((t,i) => { t.dataset.order = i; });
