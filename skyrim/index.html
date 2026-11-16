@@ -4,9 +4,11 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Nordic Souls — Arcane Mage Checklist</title>
+<style>[hidden]{display:none!important}</style>
+</head>
+<body>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
-  [hidden]{display:none!important}
   /* Layout: one centred column of collapsible hour sections; SpellAim tests are woven in, marked with a teal tag. Single dark theme by design. */
   :root{
     --bg:#111015;
@@ -108,11 +110,52 @@
   .footer{margin-top:28px;color:#8f8795;font-size:13px;text-align:center}
   @media(max-width:680px){.grid{grid-template-columns:1fr}.wrap{padding-block:12px 80px}header{padding:22px 18px}}
   @media(prefers-reduced-motion:reduce){.fill{transition:none}}
+  /* Tabs: Nordic Souls (original page) | Lost Legacy: Learn & Enjoy | Lost Legacy: Build */
+  .tabs{position:sticky;top:0;z-index:5;display:flex;gap:6px;overflow-x:auto;
+    padding:10px max(16px, env(safe-area-inset-left, 0px));
+    background:rgba(14,13,18,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:0 0 auto;border:1px solid var(--line);background:#1d1924;color:var(--muted);
+    padding:8px 14px;border-radius:999px;font:inherit;font-size:14px;font-weight:800;cursor:pointer;white-space:nowrap}
+  .tab[aria-selected="true"]{background:linear-gradient(90deg,#3a2c55,#4a3a24);color:var(--text);border-color:#6b5a86}
+  .tab:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .ll-sec{margin-top:16px;border:1px solid var(--line);border-radius:18px;background:var(--panel);overflow:hidden}
+  .ll-sec > button{width:100%;border:0;background:transparent;color:var(--text);padding:17px 18px;text-align:left;
+    display:flex;justify-content:space-between;align-items:center;gap:10px;font:inherit;font-size:18px;font-weight:800;cursor:pointer}
+  .ll-sec > button:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+  .ll-sec .sub{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-top:2px}
+  .ll-body{padding:0 16px 16px}
+  .ll-task{display:flex;gap:11px;align-items:flex-start;padding:11px 4px;border-top:1px solid #292431}
+  .ll-task:first-child{border-top:0}
+  .ll-task label{cursor:pointer;flex:1;min-width:0}
+  .ll-task.done label{color:#8f8795;text-decoration:line-through}
+  .ll-task.sa{background:var(--teal-bg);border-radius:10px;padding:11px 10px;margin:4px 0;border-top:0}
+  .ll-task.sa input[type="checkbox"]{border-color:#4f8f89}
+  body.ll-hide-done .ll-task.done{display:none}
+  .tag.new{color:#e9c97e;border-color:#5a4a28}
+  .tag.learn{color:#b79be6;border-color:#463a5e}
+  .tag.build{color:#7fd3ff;border-color:#2c4a5c}
+  .tag.setup{color:#c9c0cf;border-color:#4a4452}
+  .ll-task ul,.note ul,.bcard ul{margin:6px 0 0;padding-left:20px}
+  .ll-task li,.bcard li{margin:2px 0}
+  .bcard{border:1px solid var(--line);background:var(--panel);border-radius:16px;padding:16px 18px;margin-top:14px}
+  .bcard h2{margin:0 0 8px;font-size:19px;color:var(--gold)}
+  .bcard h3{margin:14px 0 4px;font-size:15px;color:#d8cbea}
+  .bcard p{margin:6px 0;color:#ddd4e2}
+  .bcard .why{color:var(--muted);font-size:14px}
+  .kv{display:grid;grid-template-columns:minmax(90px,auto) 1fr;gap:6px 14px;margin-top:6px}
+  .kv dt{color:var(--gold);font-weight:800}
+  .kv dd{margin:0;color:#ddd4e2}
+  .legend{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:12px;color:var(--muted);font-size:13px}
 </style>
 
-</head>
-<body>
-<div class="wrap">
+<nav class="tabs" role="tablist" aria-label="Checklists">
+  <button class="tab" role="tab" id="tabbtn-ns" aria-controls="tab-ns" aria-selected="true" type="button">Nordic Souls</button>
+  <button class="tab" role="tab" id="tabbtn-ll" aria-controls="tab-ll" aria-selected="false" type="button">Lost Legacy · Learn &amp; Enjoy</button>
+  <button class="tab" role="tab" id="tabbtn-build" aria-controls="tab-build" aria-selected="false" type="button">Lost Legacy · Build</button>
+</nav>
+
+<div class="wrap" id="tab-ns" role="tabpanel" aria-labelledby="tabbtn-ns">
   <header>
     <div class="subtitle">NORDIC SOULS • SPELLSIPHON • SURVIVAL • SPELLAIM</div>
     <h1>Arcane Mage<br>Starting Checklist</h1>
@@ -235,14 +278,14 @@
       <div class="task sa" data-id="sa-btps-none"><input type="checkbox" id="sa-btps-none"><label for="sa-btps-none"><span class="tag">SpellAim</span>With no cursor on anything, walk up to things in the inn. Better Third Person Selection suggests them as usual.</label></div>
       <div class="task sa" data-id="sa-btps-point"><input type="checkbox" id="sa-btps-point"><label for="sa-btps-point"><span class="tag">SpellAim</span>Point a cursor at a different item, door or person: the prompt text, its position and the outline all switch to it.</label></div>
       <div class="task sa" data-id="sa-btps-a"><input type="checkbox" id="sa-btps-a"><label for="sa-btps-a"><span class="tag">SpellAim</span>Press <b>A</b>: it acts on what's highlighted.</label></div>
-      <div class="task sa" data-id="sa-btps-f12"><input type="checkbox" id="sa-btps-f12"><label for="sa-btps-f12"><span class="tag">SpellAim</span><b>F12</b> cycles, and the prompt and outline follow it. The prompt doesn't flicker.</label></div>
+      <div class="task sa" data-id="sa-btps-f12"><input type="checkbox" id="sa-btps-f12"><label for="sa-btps-f12"><span class="tag">SpellAim</span>The <b>right Joy-Con's bottom side button</b> (BTPS's cycle, F12) cycles, and the prompt and outline follow it. The prompt doesn't flicker.</label></div>
       <div class="task sa" data-id="sa-pull-int"><input type="checkbox" id="sa-pull-int"><label for="sa-pull-int"><span class="tag">SpellAim</span>Interact pull is now <b>off by default</b>: the cursor no longer gets sticky near chairs, doors or items. (Turn it back on in the MCM if you miss it.)</label></div>
       <div class="task sa" data-id="sa-books"><input type="checkbox" id="sa-books"><label for="sa-books"><span class="tag">SpellAim</span>Read a book: hold Home and flick. It's now <b>reversed</b>: flick <b>left for the next page</b>, <b>right for the previous</b>. Do next ×5 and previous ×5; every one turns the right way.</label></div>
       <div class="task" data-id="h1-2"><input type="checkbox" id="h1-2"><label for="h1-2">Start the guided <b>Spellsiphon</b> tutorial.</label></div>
       <div class="task" data-id="h1-3"><input type="checkbox" id="h1-3"><label for="h1-3">Use the Meditation Space and focus only on <b>Draw, Ward and Bind</b>.</label></div>
       <div class="task" data-id="h1-4"><input type="checkbox" id="h1-4"><label for="h1-4">Practice: Draw → attack → Ward → Draw again until it feels natural.</label></div>
       <div class="task sa" data-id="sa-gestures"><input type="checkbox" id="sa-gestures"><label for="sa-gestures"><span class="tag">SpellAim</span>While practicing, try gestures: push and a big swipe up are never read as circle. A shape it can't recognise gets the double buzz, not a wrong spell.</label></div>
-      <div class="task" data-id="h1-5"><input type="checkbox" id="h1-5"><label for="h1-5">Create a tiny Wheeler with Healing, Oakflesh, potion, one normal spell and later your summon.</label></div>
+      <div class="task" data-id="h1-5"><input type="checkbox" id="h1-5"><label for="h1-5">Create a tiny Wheeler (hold <b>B</b> to open it; the left stick steers it) with Healing, Oakflesh, potion, one normal spell and later your summon.</label></div>
       <div class="task" data-id="h1-6"><input type="checkbox" id="h1-6"><label for="h1-6">Look for the notice pointing you toward <b>Anise's Cabin</b>.</label></div>
       <div class="task" data-id="h1-7"><input type="checkbox" id="h1-7"><label for="h1-7">Go to Anise's Cabin and begin <b>Redcap's</b> introduction.</label></div>
       <div class="task" data-id="h1-8"><input type="checkbox" id="h1-8"><label for="h1-8">Recruit Redcap and talk to him periodically for his custom commentary.</label></div>
@@ -279,7 +322,7 @@
       <div class="task" data-id="h3-7"><input type="checkbox" id="h3-7"><label for="h3-7">Visit the Temple of Kynareth for a temporary Divine blessing.</label></div>
       <div class="task" data-id="h3-8"><input type="checkbox" id="h3-8"><label for="h3-8">Visit Whiterun's Hall of the Dead and meet <b>Garm</b>.</label></div>
       <div class="task" data-id="h3-9"><input type="checkbox" id="h3-9"><label for="h3-9">Try the follower-ordering controls once so you understand Nordic Souls' follower framework.</label></div>
-      <div class="task sa" data-id="sa-bow"><input type="checkbox" id="sa-bow"><label for="sa-bow"><span class="tag">SpellAim</span>If you carry a bow: draw it, then switch to spells with a favourites group or F4. No bow should stay in your hand or on your back, and no "no arrows". If one does, tell Claude straight away.</label></div>
+      <div class="task sa" data-id="sa-bow"><input type="checkbox" id="sa-bow"><label for="sa-bow"><span class="tag">SpellAim</span>If you carry a bow: draw it, then switch to spells with a favourites group (<b>left bottom side button</b>: tap group 2, double-tap group 3, hold group 4). No bow should stay in your hand or on your back, and no "no arrows". If one does, tell Claude straight away.</label></div>
       <div class="note">Do not detour across the map for Mara yet. Switch to Mara naturally later when you reach Riften or Solitude.</div>
     </div>
   </section>
@@ -333,7 +376,7 @@
       <div class="task sa" data-id="sa-lock-snap"><input type="checkbox" id="sa-lock-snap"><label for="sa-lock-snap"><span class="tag eye">You judge</span>A pick snapping is one sharp hit right as it breaks, and you feel the lock opening.</label></div>
       <div class="task sa" data-id="sa-lock-strain"><input type="checkbox" id="sa-lock-strain"><label for="sa-lock-strain"><span class="tag">SpellAim</span>Force the key at a wrong angle and feel the <b>strain buzz</b>.</label></div>
       <div class="task" data-id="h6-camp1"><input type="checkbox" id="h6-camp1"><label for="h6-camp1">Camp one night on the road: use Camping Supplies outdoors to build a campsite, sleep in the shelter, and cook a meal at the fire.</label></div>
-      <div class="task" data-id="h6-camp2"><input type="checkbox" id="h6-camp2"><label for="h6-camp2">Hold the activate button on your campfire: <b>Relax</b> (30 minutes) earns Camping XP, and <b>Ponder</b> opens the camping perk tree. <b>Revitalist</b> (Restoration 15% stronger near your own fire) and <b>Warm Fire</b> (faster regen) suit a mage.</label></div>
+      <div class="task" data-id="h6-camp2"><input type="checkbox" id="h6-camp2"><label for="h6-camp2">Hold <b>A</b> on your campfire: <b>Relax</b> (30 minutes) earns Camping XP, and <b>Ponder</b> opens the camping perk tree. <b>Revitalist</b> (Restoration 15% stronger near your own fire) and <b>Warm Fire</b> (faster regen) suit a mage.</label></div>
       <div class="task" data-id="h6-2"><input type="checkbox" id="h6-2"><label for="h6-2">Bring food and warmer gear so Starfrost matters on the mountain.</label></div>
       <div class="task" data-id="h6-cold"><input type="checkbox" id="h6-cold"><label for="h6-cold">In Starfrost, warmth comes from how heavy your armour is, so <b>robes barely keep you warm</b>. Before the 7,000 steps, eat a hot stew (+50 warmth) and <b>hold a torch</b> in your off hand while walking (+50). Stop at fires or the inn when you feel Cold. Casting a ward halves your chance of injury.</label></div>
       <div class="task" data-id="h6-nilheim"><input type="checkbox" id="h6-nilheim"><label for="h6-nilheim">If Telrav asks for help near Ivarstead, that's <b>Nilheim</b>. An expansion mod gives this vanilla ambush quest new dialogue choices, so read them.</label></div>
@@ -391,7 +434,7 @@
   </ul></label></div>
       <div class="task" data-id="on-ench"><input type="checkbox" id="on-ench"><label for="on-ench">Enchanting rules here (Thaumaturgy): <b>spell-cost reduction</b> only goes on the head or chest, and <b>spell power</b> only on a necklace or ring. Plan your disenchanting around that.</label></div>
       <div class="task" data-id="on-books"><input type="checkbox" id="on-books"><label for="on-books">Read every skill book as soon as you find it. Each one also makes that skill level 4% faster, up to 5 books per skill (Reading Is Good).</label></div>
-      <div class="task" data-id="on-bestiary"><input type="checkbox" id="on-bestiary"><label for="on-bestiary">Open the <b>Bestiary</b> with K on the iPad keyboard to read up on a new enemy type before you fight it.</label></div>
+      <div class="task" data-id="on-bestiary"><input type="checkbox" id="on-bestiary"><label for="on-bestiary">Open the <b>Bestiary</b> (keyboard only: K, on the iPad remote) to read up on a new enemy type before you fight it.</label></div>
       <div class="note warning">Rough danger by enemy type (Arena):
   <ul>
     <li><b>Fine at level 10:</b> bandits, draugr, animals, spriggans.</li>
@@ -432,6 +475,469 @@ Let your character develop before diving in.</div>
   </section>
 
   <div class="footer" id="saveNote">Loading your progress…</div>
+</div>
+
+<!-- ============ LOST LEGACY: LEARN & ENJOY ============ -->
+<div class="wrap" id="tab-ll" role="tabpanel" aria-labelledby="tabbtn-ll" hidden>
+  <header>
+    <div class="subtitle">LOST LEGACY 2.0.2 • LEGACY OF THE DRAGONBORN • SPELLSIPHON</div>
+    <h1>Learn &amp; Enjoy<br>Lost Legacy</h1>
+    <div class="desc">
+      A route that teaches each new system at the moment you need it, and keeps sending you to new or reworked content.
+      The opening is the comfy Riverwood → Embershard → Dragonstone loop. After that it heads into places Skyrim never had.
+    </div>
+    <div class="legend">
+      <span><span class="tag setup">Setup</span>do once</span>
+      <span><span class="tag learn">Learn</span>a system or control</span>
+      <span><span class="tag new">New</span>new or reworked content</span>
+      <span><span class="tag">SpellAim</span>quick check</span>
+    </div>
+    <div class="progress-wrap">
+      <div>
+        <div class="progress-top"><span>Progress</span><span id="llPct">0%</span></div>
+        <div class="bar"><div class="fill" id="llFill"></div></div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="btn" type="button" id="llExpand">Expand all</button>
+      <button class="btn" type="button" id="llCollapse">Collapse all</button>
+      <div class="filter"><button class="seg" type="button" id="llHideDone" aria-pressed="false">Hide done</button></div>
+    </div>
+  </header>
+
+  <div class="ll-sec">
+    <button type="button"><span><span class="hour">Before you launch</span> • install &amp; setup<span class="sub">About an hour, mostly Wabbajack downloading</span></span><span>▾</span></button>
+    <div class="ll-body">
+      <div class="ll-task" data-id="ll-wj"><input type="checkbox" id="ll-wj"><label for="ll-wj"><span class="tag setup">Setup</span>In Wabbajack, install <b>Lost Legacy</b>:
+        <ul><li>Install folder: <b>C:\Modlists\LostLegacy</b> (the fast NVMe). C: has 335GB free after clearing space, so about 150GB remains once it's installed.</li><li>Downloads folder: <b>D:\Modlists\LostLegacy-downloads</b> (the hard drive is fine for archives)</li></ul>
+        It's about 117GB to download and 185GB installed. It uses Steam's Skyrim, which is already on 1.7.104 as the list expects.</label></div>
+      <div class="ll-task" data-id="ll-pagefile"><input type="checkbox" id="ll-pagefile"><label for="ll-pagefile"><span class="tag setup">Setup</span>Set a <b>40GB pagefile</b>, which the list asks for. Do this yourself in Windows: System → Advanced system settings → Performance → Virtual memory. C: now has room for it.</label></div>
+      <div class="ll-task" data-id="ll-dotnet"><input type="checkbox" id="ll-dotnet"><label for="ll-dotnet"><span class="tag setup">Setup</span>Install the <b>.NET 5 runtime</b> if Wabbajack or the list asks for it.</label></div>
+      <div class="ll-task" data-id="ll-siphon"><input type="checkbox" id="ll-siphon"><label for="ll-siphon"><span class="tag setup">Setup</span><b>Spellsiphon 5.28</b> (installed for you as <b>[NoDelete] Spellsiphon</b>, with the Vokrii and Adamant patches and the dagger animation fix). Treat it as permanent: removing it later can corrupt saves.</label></div>
+      <div class="ll-task" data-id="ll-sa-mod"><input type="checkbox" id="ll-sa-mod"><label for="ll-sa-mod"><span class="tag setup">Setup</span>Add <b>[NoDelete] SpellAim</b> in MO2 the same way, near the bottom of the left pane.</label></div>
+      <div class="ll-task" data-id="ll-launch"><input type="checkbox" id="ll-launch"><label for="ll-launch"><span class="tag setup">Setup</span>Start MO2 and run <b>"Play Lost Legacy (SKSE)"</b>. Accept the registry-key popup. The first load takes a few minutes.</label></div>
+      <div class="ll-task sa" data-id="ll-sa-boot"><input type="checkbox" id="ll-sa-boot"><label for="ll-sa-boot"><span class="tag">SpellAim</span>First run on Skyrim 1.7.104: no "SpellAim only works on…" popup, and the in-game guide messages appear. Tell Claude either way; it reads SpellAim.log.</label></div>
+      <div class="ll-task" data-id="ll-gpp"><input type="checkbox" id="ll-gpp"><label for="ll-gpp"><span class="tag setup">Setup</span><b>Controller support</b> (installed for you): <b>[NoDelete] Gamepad++</b> 1.2.1 and the <b>Gamepad++ Vanilla Free D-pad</b> control map. <b>At first launch, test the D-pad.</b> If it still does vanilla favorites and hotkeys, Lost Legacy's own <code>ControlMap_Custom.txt</code> (mod "Lost Legacy - Controls") is overriding it. Tell Claude: the file gets backed up and switched off, then choose Reset Defaults in the Controls menu.</label></div>
+      <div class="ll-task" data-id="ll-gpp-map"><input type="checkbox" id="ll-gpp-map"><label for="ll-gpp-map"><span class="tag setup">Setup</span>In Mod Configuration (<b>Plus → System → Mod Configuration</b>), open <b>Gamepad++ → Presets</b> and choose <b>Restore Default Settings</b>. The default is now the prebuilt Lost Legacy layout (Load Preset doesn't list it):<ul><li><b>D-pad Left:</b> tap follower commands, hold Bestiary</li><li><b>D-pad Right:</b> tap zoom, hold shoulder swap</li><li><b>D-pad Up/Down:</b> left free, because QuickLoot scrolls with them</li><li><b>L bumper + D-pad:</b> SkyUI favorites groups 1–4</li></ul>Already on the pad: <b>right-stick click</b> locks on, <b>left-stick click + direction</b> dodges, <b>A while falling</b> opens the paraglider.</label></div>
+      <div class="ll-task sa" data-id="ll-sa-preset"><input type="checkbox" id="ll-sa-preset"><label for="ll-sa-preset"><span class="tag">SpellAim</span>Once the new SpellAim build is installed, open its <b>Presets</b> tab and pick <b>Lost Legacy</b> (it suggests it when you launch from C:\Modlists\LostLegacy). Then check:
+        <ul><li><b>Dodge:</b> click the left stick while moving.</li><li><b>Left bottom side button:</b> sneak. <b>Capture:</b> lantern. <b>D-pad Left/Right:</b> followers, Bestiary, zoom, shoulder swap. <b>Quicksave / quickload:</b> L + Plus / L + Minus.</li><li>A soft pulse when your stamina runs low.</li><li>MCM "pause while TDM locked" stops gyro aim while you're locked on.</li></ul></label></div>
+      <div class="ll-task" data-id="ll-mcm1"><input type="checkbox" id="ll-mcm1"><label for="ll-mcm1"><span class="tag setup">Setup</span><b>First-launch settings</b> (<b>Plus → System → Mod Configuration</b>):
+        <ul><li><b>SpellAim:</b> pick the <b>Lost Legacy</b> preset in the app, and in the MCM turn on "pause while TDM locked" if lock-on fights your aim.</li>
+        <li><b>SmoothCam:</b> pick a preset, then recalibrate SpellAim (C + Y).</li>
+        <li><b>SunHelm:</b> leave it off until Riverwood (step below).</li>
+        <li><b>Spellsiphon:</b> nothing to set. Just leave the <b>Refocus</b> power unused.</li>
+        <li><b>Quick Light:</b> if Spellsiphon's Ward glow is missing, its lantern is taking the light slot. Use the lantern only outside fights.</li></ul></label></div>
+      <div class="note">Do character creation and the first pass through the mod menus with keyboard and mouse: you can't type a name with a pad. After that, the couch works.</div>
+    </div>
+  </div>
+
+  <div class="ll-sec">
+    <button type="button"><span><span class="hour">Hour 0</span> • Helgen: make your character<span class="sub">See the Build tab for exact picks</span></span><span>▾</span></button>
+    <div class="ll-body">
+      <div class="ll-task" data-id="ll-create"><input type="checkbox" id="ll-create"><label for="ll-create"><span class="tag build">Build</span>You wake in a <b>Helgen inn room</b> (Alternate Perspective). Make a <b>High Elf</b>: +50 Magicka and 50% faster base regen (Morningstar). Optional: put a few level-ups into Health later, since Wildcat hits hard.</label></div>
+      <div class="ll-task" data-id="ll-class"><input type="checkbox" id="ll-class"><label for="ll-class"><span class="tag build">Build</span>Read the <b>"Select Class"</b> book (Classic Classes):<ul><li><b>Custom class</b>, ability <b>Potent</b> (Magicka regenerates 50% faster, the regen % that also powers Spellsiphon)</li><li>Majors: <b>Destruction, Alteration, Restoration, Conjuration, Enchanting, Illusion</b></li><li>Birthsign: <b>Lady</b> (Health and Magicka regen +25%)</li></ul>The class gives you starting spells for your magic majors. Note them; you'll swap to better ones soon.</label></div>
+      <div class="ll-task" data-id="ll-gear"><input type="checkbox" id="ll-gear"><label for="ll-gear">Take the starting gear from the containers in the room.</label></div>
+      <div class="ll-task" data-id="ll-start"><input type="checkbox" id="ll-start"><label for="ll-start"><span class="tag learn">Learn</span>Talk to the small <b>dragon statue</b> by the door and choose the default start (stay in Helgen). For the classic opening, rent a room from the innkeeper with <b>"Start Intro" (10 gold)</b> and sleep. The dragon attack starts.</label></div>
+      <div class="ll-task" data-id="b-guardian"><input type="checkbox" id="b-guardian"><label for="b-guardian"><span class="tag build">Build</span>On the road from Helgen to Riverwood, take the <b>Mage Stone</b> at the Guardian Stones (mage skills level faster). Ryn's Standing Stones puts enemies at some stone sites, so arrive ready to fight.</label></div>
+      <div class="ll-task" data-id="b-hands"><input type="checkbox" id="b-hands"><label for="b-hands"><span class="tag build">Build</span><b>Your two hands:</b> a <b>fire</b> spell in one and a <b>frost</b> spell in the other. Put both in favorites so a SpellAim gesture or L bumper + D-pad swaps them. The plan: hit the same enemy with both elements (Red Mage combos later).</label></div>
+      <div class="note">If the intro breaks, go behind the bar, down to the basement, up the ladder, and talk to the dragon head on the hill → "Teleport to Keep".</div>
+      <div class="ll-task" data-id="ll-f11"><input type="checkbox" id="ll-f11"><label for="ll-f11"><span class="tag learn">Learn</span>Your Lost Legacy controls (<b>C + B</b> shows the list in game):<ul><li><b>Left-stick click + a direction:</b> dodge</li><li><b>Left bottom side button:</b> sneak</li><li><b>Right-stick click:</b> lock on; flick the right stick to switch target</li><li><b>D-pad Left:</b> tap follower commands, hold Bestiary</li><li><b>D-pad Right:</b> tap zoom, hold shoulder swap</li><li><b>Capture:</b> lantern</li><li><b>L bumper + D-pad:</b> favorites groups 1–4</li><li><b>L + Plus / L + Minus:</b> quicksave / quickload</li><li><b>R bumper</b> (or the both-hands thrust gesture): shout, and Spellsiphon's Bind</li></ul></label></div>
+    </div>
+  </div>
+
+  <div class="ll-sec">
+    <button type="button"><span><span class="hour">Hours 0–2</span> • the comfy loop, learning combat<span class="sub">Helgen → Riverwood → Embershard Mine</span></span><span>▾</span></button>
+    <div class="ll-body">
+      <div class="ll-task" data-id="ll-tdm"><input type="checkbox" id="ll-tdm"><label for="ll-tdm"><span class="tag learn">Learn</span>In the Helgen escape, try <b>True Directional Movement</b>: your character runs whichever way you push. <b>Lock on</b> with a <b>right-stick click</b>, and an enemy health bar appears (TrueHUD).</label></div>
+      <div class="ll-task" data-id="ll-dodge"><input type="checkbox" id="ll-dodge"><label for="ll-dodge"><span class="tag learn">Learn</span><b>Dodge</b> (<b>left-stick click</b> while pushing a direction). <b>Wildcat</b> makes everyone hit harder, you included, so dodging beats trading blows. Keep some Stamina for it.</label></div>
+      <div class="ll-task sa" data-id="ll-sa-aim"><input type="checkbox" id="ll-sa-aim"><label for="ll-sa-aim"><span class="tag">SpellAim</span>Cast Flames at a Helgen enemy: it goes where you point. Then lock on with a <b>right-stick click</b> and cast again. Note whether the lock or your aim wins; SpellAim logs it.</label></div>
+      <div class="ll-task" data-id="ll-smooth"><input type="checkbox" id="ll-smooth"><label for="ll-smooth"><span class="tag learn">Learn</span>Once out of Helgen, open the MCM and try a <b>SmoothCam</b> preset ("Modern", "EasyEase" or the Valhalla-style "Elder Creed"). Pick the one that feels best for casting.</label></div>
+      <div class="ll-task sa" data-id="ll-sa-smooth"><input type="checkbox" id="ll-sa-smooth"><label for="ll-sa-smooth"><span class="tag">SpellAim</span>After picking a SmoothCam preset, recalibrate (C + Y). Point at something far away: does the cursor land on it?</label></div>
+      <div class="ll-task" data-id="ll-sunhelm"><input type="checkbox" id="ll-sunhelm"><label for="ll-sunhelm"><span class="tag learn">Learn</span>In Riverwood, turn <b>SunHelm</b> on (MCM, or sleep in a bed and accept the prompt). Keep it <b>light</b>: in its MCM, lower the hunger, thirst and fatigue rates a notch. You'll want a <b>waterskin</b>; fill it at any river or well.</label></div>
+      <div class="ll-task" data-id="ll-hyrule"><input type="checkbox" id="ll-hyrule"><label for="ll-hyrule"><span class="tag new">New</span><b>Relics of Hyrule</b> starts right in Riverwood: look around <b>Alvor's house</b> for a sword and a hint. It leads to Zelda-style relics and dungeons hidden across Skyrim.</label></div>
+      <div class="ll-task" data-id="ll-aviendha"><input type="checkbox" id="ll-aviendha"><label for="ll-aviendha"><span class="tag new">New</span>Walk out of Riverwood's <b>southeast gate</b> and up the path to meet <b>Aviendha</b> (The Wheel of Time). She's a fully voiced follower with about 10 quests of her own, and a good tank for a glass-cannon mage.</label></div>
+      <div class="ll-task" data-id="ll-siphon-book"><input type="checkbox" id="ll-siphon-book"><label for="ll-siphon-book"><span class="tag build">Build</span><b>Spellsiphon, your backup mode:</b> grab the <b>Spellsiphoning</b> book from the <b>Sleeping Giant Inn</b> bar (Riverwood) and read it to learn <b>Bind</b>.<ul><li>Bind is a Word of Power, so it goes in your <b>shout slot</b>: press the <b>R bumper</b>, or use SpellAim's both-hands thrust gesture.</li><li>Bind puts <b>Draw</b> and <b>Ward</b> in your hands. Draw for about 1 second: Life from enemies, World from the ground, Death from bodies.</li><li>Practise in the tutorial, then <b>re-equip your fire and frost spells</b>. That swap is the whole loop.</li></ul></label></div>
+      <div class="ll-task" data-id="b-refocus"><input type="checkbox" id="b-refocus"><label for="b-refocus"><span class="tag build">Build</span>In Spellsiphon's powers, leave <b>Refocus</b> off for now. It snaps your hands back to Draw and Ward after every other spell, which fights your main mode. Don't <b>Entangle</b> your fire or frost spells either: that removes them from normal casting.</label></div>
+      <div class="ll-task" data-id="b-cheese"><input type="checkbox" id="b-cheese"><label for="b-cheese"><span class="tag build">Build</span>Buy <b>cheese</b> and a pastry or two (Riverwood Trader, the inn). Gourmet's cheese, pastry and dessert buffs add <b>Magicka regen %</b> for 20 minutes. Eat one before every dungeon.</label></div>
+      <div class="ll-task" data-id="ll-quickloot"><input type="checkbox" id="ll-quickloot"><label for="ll-quickloot"><span class="tag learn">Learn</span><b>QuickLoot</b>: look at a container or body to see its contents without opening a menu. Loot the good stuff and keep walking.</label></div>
+      <div class="ll-task sa" data-id="ll-sa-loot"><input type="checkbox" id="ll-sa-loot"><label for="ll-sa-loot"><span class="tag">SpellAim</span>Point a cursor at a chest or body: QuickLoot opens for that one. Do the same in a cluttered shop to check BTPS follows the cursor.</label></div>
+      <div class="ll-task" data-id="ll-embershard"><input type="checkbox" id="ll-embershard"><label for="ll-embershard"><span class="tag learn">Learn</span>Clear <b>Embershard Mine</b>. With the <b>Experience</b> mod, finding and <b>clearing a location</b> gives XP, as do books and quests. Your level comes from exploring, not from grinding skills.</label></div>
+      <div class="ll-task" data-id="b-loop1"><input type="checkbox" id="b-loop1"><label for="b-loop1"><span class="tag build">Build</span><b>First real fights</b> in Embershard:<ol><li>Fire on the first bandit, frost on the same bandit.</li><li>When your Magicka is low, <b>Bind</b>, then Ward the hits and Draw Life from a bandit. Each element switch stacks <b>Woven Power</b> (+regen %).</li><li>Re-equip fire and frost and finish.</li></ol>Using Draw also levels <b>Destruction</b>, because Spellsiphon's attacks are Destruction spells.</label></div>
+      <div class="ll-task" data-id="b-dest10"><input type="checkbox" id="b-dest10"><label for="b-dest10"><span class="tag build">Build</span>At <b>Destruction 10</b> (base skill; the class bonus doesn't count), Spellsiphon unseals its first <b>Elemental</b> tome. Open it from your inventory and read it.</label></div>
+      <div class="ll-task" data-id="ll-books"><input type="checkbox" id="ll-books"><label for="ll-books"><span class="tag learn">Learn</span>Read every new book you find. Each one gives Experience XP, and <b>Dynamic Tome Identifier</b> tells you which spell a tome teaches before you read it.</label></div>
+      <div class="ll-task" data-id="ll-gourmet"><input type="checkbox" id="ll-gourmet"><label for="ll-gourmet"><span class="tag learn">Learn</span>Cook at the Sleeping Giant's pot (Gourmet). Food gives 20-minute regen buffs: meat for Health, veg for Stamina, and <b>pastries, cheese and desserts for Magicka regen</b>, which <b>raises Spellsiphon damage</b>. Fondue gives the most. Keep one cheese dish on you.</label></div>
+    </div>
+  </div>
+
+  <div class="ll-sec">
+    <button type="button"><span><span class="hour">Hours 2–4</span> • Whiterun &amp; the Dragonstone<span class="sub">Bleak Falls Barrow is reworked here</span></span><span>▾</span></button>
+    <div class="ll-body">
+      <div class="ll-task" data-id="ll-missives"><input type="checkbox" id="ll-missives"><label for="ll-missives"><span class="tag learn">Learn</span>In Whiterun, read the <b>Missives board</b>: small bounties and deliveries. Take one that's on your way, and you'll have money and XP coming in as you travel.</label></div>
+      <div class="ll-task" data-id="ll-merchant"><input type="checkbox" id="ll-merchant"><label for="ll-merchant"><span class="tag learn">Learn</span>Money is tighter with <b>Merchant</b>: inn beds and carriages cost 50 (100 for the far carriages) and lockpicks are scarce. Sell loot regularly.</label></div>
+      <div class="ll-task" data-id="ll-money"><input type="checkbox" id="ll-money"><label for="ll-money"><span class="tag learn">Learn</span><b>Making money:</b>
+        <ul><li>Missives bounties on your route</li><li>Brew and sell potions (Apothecary)</li><li><b>Disenchant, then sell</b> enchanted gear</li><li>Hunting pelts and fishing</li><li><b>Merchant crafting:</b> at a forge, make gold and silver goblets, bowls, candlesticks and plates to sell. There are more recipes at the tanning rack (verified: 91 recipes).</li><li>Dragon bones and scales</li><li>Speech perks: <b>Performer</b> (daily donations), <b>Hustler</b> (+25% sell), <b>Business Relation</b> (30% off at one merchant; pick your spell vendor)</li></ul>
+        <b>Save money:</b> camp instead of renting rooms, walk short trips, spend on spells first, and keep museum relics.</label></div>
+      <div class="ll-task" data-id="ll-survloop"><input type="checkbox" id="ll-survloop"><label for="ll-survloop"><span class="tag learn">Learn</span><b>Survival loop</b> (once SunHelm is on):
+        <ol><li><b>Morning:</b> a cooked meal plus cheese, and fill your waterskin.</li><li><b>Road:</b> sip water, pick ingredients, hunt.</li><li><b>Evening:</b> tent and fire, cook, read a book, pray to Julianos, sleep.</li><li><b>Cold places:</b> fires, hot food, a cloak.</li></ol>
+        Fast travel works normally (verified: no limiter is turned on). It passes time, so you arrive hungry, and Extended Encounters gives a 10% chance of an ambush on the way.</label></div>
+      <div class="ll-task" data-id="ll-tomes"><input type="checkbox" id="ll-tomes"><label for="ll-tomes"><span class="tag build">Build</span><b>Farengar</b> (Dragonsreach) — your first spell shop:<ul><li><b>Draining Touch</b> (Triumvirate, Novice Destruction): drains Health <i>and</i> Magicka. Your sustain spell. Confirmed in his stock.</li><li>Apocalypse Novice elemental spells, if he has them: <b>Blaze</b> (fire bolt), <b>Hailstone</b> (frost, also drains Stamina), <b>Crackle</b> (shock, drains Magicka).</li><li><b>Prepare for Adventure</b> (Apocalypse, Novice Alteration): makes a free set of basic enchanted mage gear, including a Destruction staff.</li></ul>Verified: Apocalypse adds its tomes to the vanilla spell-tome lists at game start, so any vanilla spell vendor can stock them. Stock is random, so check again after a couple of days.</label></div>
+      <div class="ll-task" data-id="b-perks1"><input type="checkbox" id="b-perks1"><label for="b-perks1"><span class="tag build">Build</span><b>First perks</b> (Vokriinator Black):<ul><li>Destruction Mastery</li><li>Alteration Mastery → <b>Initiate's Charm</b> (Alteration 20: cheaper spells in robes)</li><li>Restoration Mastery → <b>Descending Light</b> (Restoration 20: a Magicka surge when combat starts)</li></ul>Wear <b>robes</b> from now on.</label></div>
+      <div class="ll-task" data-id="b-wildheal"><input type="checkbox" id="b-wildheal"><label for="b-wildheal"><span class="tag build">Build</span>Pick up <b>Wild Healing</b> (Apocalypse, Novice Restoration): heals you, then a random ally. Keep it in favorites.</label></div>
+      <div class="ll-task" data-id="ll-bfb"><input type="checkbox" id="ll-bfb"><label for="ll-bfb"><span class="tag new">New</span><b>Bleak Falls Barrow</b> is rebuilt (Ryn's Bleak Falls Barrow) with more draugr variants (Draugr Upgrades). It isn't the dungeon you remember, so bring potions and use Ward when it gets busy.</label></div>
+      <div class="ll-task sa" data-id="b-bfbcombo"><input type="checkbox" id="b-bfbcombo"><label for="b-bfbcombo"><span class="tag build">Build</span><span class="tag">SpellAim</span>In Bleak Falls Barrow, aim each hand at a <b>different draugr</b>, then both hands at the <b>same</b> one. Fire plus frost on one target is the combo you're building toward.</label></div>
+      <div class="ll-task" data-id="ll-skyshard"><input type="checkbox" id="ll-skyshard"><label for="ll-skyshard"><span class="tag learn">Learn</span>Listen for a <b>humming</b> sound and look for a light beacon: that's a <b>Skyshard</b>. Every 3 you absorb give a perk point, and there are 108 across Skyrim. Detour for any you hear.</label></div>
+      <div class="ll-task" data-id="ll-dragon"><input type="checkbox" id="ll-dragon"><label for="ll-dragon"><span class="tag new">New</span>Fight <b>Mirmulnir</b> at the watchtower. With <b>Deadly Dragons</b> and Diverse Dragons it's a much harder fight: use the tower for cover and let the guards take hits. <b>Real Bosses</b> shows a boss health bar.</label></div>
+      <div class="ll-task" data-id="ll-wintersun"><input type="checkbox" id="ll-wintersun"><label for="ll-wintersun"><span class="tag learn">Learn</span>Gods (<b>Wintersun</b>): to <i>follow</i> a god, <b>sneak</b> (left bottom side button) and press <b>A</b> on its shrine; a normal activation only gives the blessing. Your build god is <b>Julianos</b> (spells cost less as favor grows, then get stronger). The Temple of the Divines in Solitude has his shrine, so wait until you get there and skip the racial-deity prompt for now. Pray daily with the Pray power.</label></div>
+      <div class="ll-task" data-id="ll-bestiary"><input type="checkbox" id="ll-bestiary"><label for="ll-bestiary"><span class="tag learn">Learn</span>Hold <b>D-pad Left</b> for the <b>Dragonborn's Bestiary</b>. Each kill fills in a creature's page, with its weaknesses.</label></div>
+      <div class="note">That's the opening loop done. From here on, the route heads into Lost Legacy's new content rather than the vanilla order.</div>
+    </div>
+  </div>
+
+  <div class="ll-sec">
+    <button type="button"><span><span class="hour">Hours 4–8</span> • Solitude: the museum<span class="sub">Legacy of the Dragonborn starts here</span></span><span>▾</span></button>
+    <div class="ll-body">
+      <div class="ll-task" data-id="ll-carriage"><input type="checkbox" id="ll-carriage"><label for="ll-carriage"><span class="tag learn">Learn</span>Take a carriage from Whiterun to Solitude (<b>Convenient Carriages</b>). Look at the <b>paper map</b> on the way: it's a hand-drawn style map, with Atlas markers for places you haven't found yet.</label></div>
+      <div class="ll-task" data-id="ll-gallery"><input type="checkbox" id="ll-gallery"><label for="ll-gallery"><span class="tag new">New</span>Find the <b>Dragonborn Gallery</b> next to the Blue Palace. Talk to the curator, <b>Auryen</b>, and do his first task to join. This museum has a display for nearly every unique item in the game: about 4,000 displays.</label></div>
+      <div class="ll-task" data-id="b-julianos"><input type="checkbox" id="b-julianos"><label for="b-julianos"><span class="tag build">Build</span>Solitude, <b>Temple of the Divines</b>: <b>sneak (left bottom side button) and press A on Julianos's shrine</b> to follow him.</label></div>
+      <div class="ll-task" data-id="b-rorlund"><input type="checkbox" id="b-rorlund"><label for="b-rorlund"><span class="tag build">Build</span>In the same temple, <b>Rorlund</b> sells Triumvirate's Cleric spells (confirmed in his stock):<ul><li><b>Solar Ray</b> (Novice): a fire and sun beam.</li><li><b>Holy Fire</b> (needs Destruction 25): fire and sun damage.</li></ul>Either makes a strong fire hand.</label></div>
+      <div class="ll-task" data-id="b-gourmetbook"><input type="checkbox" id="b-gourmetbook"><label for="b-gourmetbook"><span class="tag build">Build</span>Buy Gourmet <b>baking and cooking recipes</b>. They're sold by general and food merchants: Riverwood Trader, Belethor and Carlotta in Whiterun, and Odar and Bendt in Solitude (verified in the files). <b>Fondue</b> (goat, eidar or mammoth cheese) is in the higher-tier "Magicka" recipe list, so keep checking as you level. It's the biggest regen % food.</label></div>
+      <div class="ll-task" data-id="ll-curator"><input type="checkbox" id="ll-curator"><label for="ll-curator"><span class="tag learn">Learn</span>From now on, <b>keep unique items</b>. The <b>Curator's Companion</b> marks items the museum still needs. Drop them in the <b>auto-sorter</b> in the Curator's office and it shelves them for you.</label></div>
+      <div class="ll-task" data-id="ll-explorers"><input type="checkbox" id="ll-explorers"><label for="ll-explorers"><span class="tag new">New</span>Join the <b>Explorers' Society</b> at the museum. Its relic-hunting quests send you into dungeons across Skyrim, and more unlock as your display count grows.</label></div>
+      <div class="ll-task" data-id="ll-gladys"><input type="checkbox" id="ll-gladys"><label for="ll-gladys"><span class="tag new">New</span>At <b>Solitude Docks</b>, buy <b>Gladys the corgi</b> from the new merchant. She's a pet who comes with you.</label></div>
+      <div class="ll-task" data-id="ll-warden"><input type="checkbox" id="ll-warden"><label for="ll-warden"><span class="tag new">New</span>Arriving in a city can trigger <b>Warden of the Coast</b>, a 10–15 hour story with romanceable companions and five endings. Take it when it appears.</label></div>
+      <div class="ll-task" data-id="ll-fish"><input type="checkbox" id="ll-fish"><label for="ll-fish"><span class="tag learn">Learn</span>Try <b>fishing</b>: press <b>A</b> on a <b>Fishing Supplies</b> box (there's often one by docks) to start "Angler Acquaintances". Fish go into Gourmet recipes.</label></div>
+      <div class="ll-task" data-id="ll-paraglider"><input type="checkbox" id="ll-paraglider"><label for="ll-paraglider"><span class="tag new">New</span>Get the <b>paraglider</b>: leave Falkreath by its <b>east gate</b> toward the crossroads and meet <b>"Fred"</b>. Press <b>A</b> while falling to glide (third person). The <b>Tarhiel's Gale</b> updraft spell costs Magicka here.</label></div>
+    </div>
+  </div>
+
+  <div class="ll-sec">
+    <button type="button"><span><span class="hour">Levels 5–10</span> • out into the wilds<span class="sub">Camping, hunting, new islands</span></span><span>▾</span></button>
+    <div class="ll-body">
+      <div class="ll-task" data-id="ll-camp"><input type="checkbox" id="ll-camp"><label for="ll-camp"><span class="tag learn">Learn</span><b>Campfire</b>: buy a tent (general stores) and some firewood. In the wild, place the tent and a <b>fire ring</b> from your inventory, add fuel and tinder, then light it (Destruction makes it faster). You can pitch a camp anywhere and as often as you like: <b>several camps, no limit</b>.</label></div>
+      <div class="ll-task" data-id="b-apprentice"><input type="checkbox" id="b-apprentice"><label for="b-apprentice"><span class="tag build">Build</span><b>Switch stones:</b> the <b>Apprentice Stone</b> in the Hjaalmarch marshes near Morthal doubles your base Magicka regen, but you take 25% more magic damage. Spellsiphon's Ward blocks spells, so Bind when a mage shows up.</label></div>
+      <div class="ll-task" data-id="b-perks2"><input type="checkbox" id="b-perks2"><label for="b-perks2"><span class="tag build">Build</span><b>Perks around level 8–12:</b><ul><li><b>Mage Armor</b> (Alteration 30): armor spells 2× in robes</li><li><b>Catch Fire</b> or <b>Piercing Cold</b> (Destruction 35)</li><li><b>Spell Surge</b> (Destruction 35): cheaper dual casts</li><li><b>Respite</b> (Restoration 40): Spellsiphon's Ward checks for it and restores extra Stamina, so Ward breaks less often</li></ul></label></div>
+      <div class="ll-task" data-id="b-dest30"><input type="checkbox" id="b-dest30"><label for="b-dest30"><span class="tag build">Build</span>At <b>Destruction 30</b>, Spellsiphon unseals its next Elemental tome. That unlocks <b>Discharge</b>: 2 charges of a big elemental release.</label></div>
+      <div class="ll-task" data-id="ll-campperks"><input type="checkbox" id="ll-campperks"><label for="ll-campperks"><span class="tag learn">Learn</span>Press <b>A</b> on a lit fire → <b>Skills</b> to open the camping perk tree. Lighting fires earns points. A <b>large fire</b> gives a skill-gain buff, so stop at one before reading or training.</label></div>
+      <div class="ll-task" data-id="ll-hunt"><input type="checkbox" id="ll-hunt"><label for="ll-hunt"><span class="tag learn">Learn</span>Hunt (<b>Huntsman</b>): new animals, bones that grind into bone meal, and craftable bear traps. Cook the meat at your camp.</label></div>
+      <div class="ll-task" data-id="ll-baggage"><input type="checkbox" id="ll-baggage"><label for="ll-baggage"><span class="tag learn">Learn</span>Pick up a <b>backpack</b> (Baggage): +50 carry weight, but slower Stamina regen. You'll need the space for museum relics. Upgrade it at a forge later.</label></div>
+      <div class="ll-task" data-id="ll-clockwork"><input type="checkbox" id="ll-clockwork"><label for="ll-clockwork"><span class="tag new">New</span>At <b>level 5</b>, a stranger with a letter from "Camilla" will ambush you. That's <b>Clockwork</b>: a 3–5 hour mystery in a strange castle that becomes your <b>player home</b>. Once inside, you can't leave until you finish.</label></div>
+      <div class="ll-task" data-id="ll-northpoint"><input type="checkbox" id="ll-northpoint"><label for="ll-northpoint"><span class="tag new">New</span><b>Northpoint</b>: at Northpoint Landing west of Dawnstar, take the <b>sea charts</b> and use the rowboat. It's a Breton-style island to explore.</label></div>
+      <div class="ll-task" data-id="ll-icemoth"><input type="checkbox" id="ll-icemoth"><label for="ll-icemoth"><span class="tag new">New</span><b>Siege at Icemoth</b>: west of Northwatch Keep, read a dead mercenary's waterlogged journal, then take the boat from the Old Wooden Jetty to islands in the Sea of Ghosts.</label></div>
+      <div class="ll-task" data-id="ll-umbra"><input type="checkbox" id="ll-umbra"><label for="ll-umbra"><span class="tag new">New</span>If you find a book called <b>"There Is No Umbra"</b> (Farengar's desk sometimes has it), read it. It starts a three-chapter quest about a talking sword.</label></div>
+      <div class="ll-task" data-id="ll-pit"><input type="checkbox" id="ll-pit"><label for="ll-pit"><span class="tag new">New</span>In Windhelm, talk to the <b>doorman in the Docks District</b> to join the <b>Pit Fighters</b>, an underground arena with ranks. Good practice with Spellsiphon.</label></div>
+      <div class="ll-task" data-id="ll-helgi"><input type="checkbox" id="ll-helgi"><label for="ll-helgi"><span class="tag new">New</span>In Morthal, "Laid to Rest" is now <b>Finding Helgi and Laelette</b>, a longer, sadder ghost story. While there, find <b>Merlin the corgi</b> at the summoning circle just north of town.</label></div>
+      <div class="ll-task" data-id="ll-bruma"><input type="checkbox" id="ll-bruma"><label for="ll-bruma"><span class="tag new">New</span><b>Beyond Skyrim: Bruma</b>. Head south from Helgen to the <b>Pale Pass</b> gate (persuade the guard) and into Cyrodiil. A whole city and the Jerall Mountains, with 20+ hours of quests. It scales with you, so go whenever you like.</label></div>
+    </div>
+  </div>
+
+  <div class="ll-sec">
+    <button type="button"><span><span class="hour">Levels 10–15</span> • the big ones open up<span class="sub">Finish The Way of the Voice first</span></span><span>▾</span></button>
+    <div class="ll-body">
+      <div class="ll-task" data-id="ll-wotv"><input type="checkbox" id="ll-wotv"><label for="ll-wotv">Climb to High Hrothgar and finish <b>The Way of the Voice</b>. It unlocks several story mods. Watch the map for <b>Thunderchild</b> shout pillars.</label></div>
+      <div class="ll-task" data-id="ll-wyrm"><input type="checkbox" id="ll-wyrm"><label for="ll-wyrm"><span class="tag new">New</span><b>Wyrmstooth</b>: a courier, Theodyn Bienne, finds you at the Bannered Mare. A new island and a dragon hunt, 10–15 hours.</label></div>
+      <div class="ll-task" data-id="ll-cowl"><input type="checkbox" id="ll-cowl"><label for="ll-cowl"><span class="tag new">New</span><b>The Gray Cowl of Nocturnal</b>: steal anything to get a vision, then go to Seviana's house. Become the Gray Fox and pull heists in the Alik'r desert.</label></div>
+      <div class="ll-task" data-id="ll-falskaar"><input type="checkbox" id="ll-falskaar"><label for="ll-falskaar"><span class="tag new">New</span><b>Falskaar</b>: talk to <b>Jalamar</b> in Riften. A big new land with 26 quests, 20+ hours.</label></div>
+      <div class="ll-task" data-id="ll-midwood"><input type="checkbox" id="ll-midwood"><label for="ll-midwood"><span class="tag new">New</span><b>Midwood Isle</b>: a courier sends you to the Frozen Hearth in Winterhold. An island threatened by a daedra.</label></div>
+      <div class="ll-task" data-id="ll-moonpath"><input type="checkbox" id="ll-moonpath"><label for="ll-moonpath"><span class="tag new">New</span><b>Moonpath to Elsweyr</b>: once the museum has enough displays, Auryen gives you the quest, and a Khajiit caravan waits outside <b>Falkreath</b>. It takes you to the jungles of Elsweyr.</label></div>
+      <div class="ll-task" data-id="ll-carved"><input type="checkbox" id="ll-carved"><label for="ll-carved"><span class="tag new">New</span><b>Carved Brink</b>: a Khajiit at the Abandoned Grotto near Hillgrund's Tomb. A town carved into a gorge on the Hammerfell border, about 5 hours.</label></div>
+      <div class="ll-task" data-id="ll-college"><input type="checkbox" id="ll-college"><label for="ll-college"><span class="tag new">New</span><span class="tag build">Build</span>Join the <b>College of Winterhold</b> (quests are expanded) and shop:<ul><li><b>Enthir</b>: <b>Step Through Shadows</b> (Triumvirate, needs Alteration 25), a 150 ft dash. Confirmed in his stock.</li><li><b>Faralda</b> (Destruction): Apocalypse Apprentice spells such as <b>Creeping Cold</b>, <b>Fracture</b>, <b>Dragon's Teeth</b>, <b>Thundercrack</b> and <b>Rift Bolt</b> (shock that knocks the target back).</li><li><b>Tolfdir</b> (Alteration): <b>Ocato's Recital</b> (Apocalypse, Alteration 25). Store your armor spell in it and it casts free when combat starts.</li></ul>Finishing the College questline later unlocks <b>Isle of Artaeum</b>.</label></div>
+      <div class="ll-task" data-id="b-perks3"><input type="checkbox" id="b-perks3"><label for="b-perks3"><span class="tag build">Build</span><b>Perks around level 15–25:</b><ul><li><b>Elementalist</b> (Destruction 40): +5% per element switch</li><li><b>Rune Master</b> (Destruction 40): 3× runes, 75 ft farther</li><li><b>Ocato's Preparation</b> (Alteration 40): auto armor spell on entering combat</li><li><b>Fortification</b> (Alteration 45): +100 armor in robes</li></ul></label></div>
+      <div class="ll-task" data-id="b-runes"><input type="checkbox" id="b-runes"><label for="b-runes"><span class="tag build">Build</span>Start fights with <b>runes</b>: lay two or three where enemies will walk, then open with fire and frost.</label></div>
+      <div class="ll-task" data-id="ll-kagrenac"><input type="checkbox" id="ll-kagrenac"><label for="ll-kagrenac"><span class="tag new">New</span>After you get <b>Keening</b> (College questline), a courier starts <b>The Tools of Kagrenac</b>: recover Sunder and Wraithguard.</label></div>
+      <div class="ll-task" data-id="ll-aho"><input type="checkbox" id="ll-aho"><label for="ll-aho"><span class="tag new">New</span>At about <b>level 15</b>: <b>Project AHO</b>, a Dwemer and Falmer conspiracy underground (it starts when you choose to start it). Also <b>The Wheels of Lull</b>, a Dwemer airship chain that runs to about level 30.</label></div>
+    </div>
+  </div>
+
+  <div class="ll-sec">
+    <button type="button"><span><span class="hour">Levels 15–25</span> • bigger stories<span class="sub">Vanilla questlines are expanded too</span></span><span>▾</span></button>
+    <div class="ll-body">
+      <div class="ll-task" data-id="ll-vanillaexp"><input type="checkbox" id="ll-vanillaexp"><label for="ll-vanillaexp"><span class="tag new">New</span>Vanilla quests you know have been rewritten. Play these for a change: <b>House of Horrors</b>, <b>The Whispering Door</b>, <b>The Heart of Dibella</b>, <b>The Only Cure</b>, <b>Innocence Lost</b>, <b>Blood on the Ice</b> (Redux) and <b>Paarthurnax</b> (you get a real choice).</label></div>
+      <div class="ll-task" data-id="ll-vominheim"><input type="checkbox" id="ll-vominheim"><label for="ll-vominheim"><span class="tag new">New</span>At level 18, a courier brings "The Voice from Vominheim": the <b>Land of Vominheim</b>, a Witcher-style new land. It's best at 30+, so maybe later.</label></div>
+      <div class="ll-task" data-id="b-dest50"><input type="checkbox" id="b-dest50"><label for="b-dest50"><span class="tag build">Build</span><b>Destruction 50:</b><ul><li>Take <b>Static Drain</b> (shock hits absorb Magicka). Swap your frost hand to shock sometimes.</li><li>Buy Apocalypse Adept spells from Faralda: <b>Bolide</b> (a meteor that hits harder the farther it travels), <b>Ice Shiv</b> (3× from behind), <b>Electrosphere</b> and <b>Frost Nova</b>.</li><li>Spellsiphon unseals tome 3.</li></ul></label></div>
+      <div class="ll-task" data-id="b-familiar"><input type="checkbox" id="b-familiar"><label for="b-familiar"><span class="tag build">Build</span><b>Witch's Familiar</b> (Conjuration 50): your most-summoned atronach or familiar gets 2× duration, and while it's out you get +15% spell power and +50% regen %. Summon it before every fight.</label></div>
+      <div class="ll-task" data-id="ll-helgen"><input type="checkbox" id="ll-helgen"><label for="ll-helgen"><span class="tag new">New</span>At level 20, a courier brings the <b>Helgen Reborn</b> book: rebuild Helgen and raise your own militia.</label></div>
+      <div class="ll-task" data-id="b-redmage"><input type="checkbox" id="b-redmage"><label for="b-redmage"><span class="tag build">Build</span><b>Destruction 60: Red Mage.</b> Different elements on one target cause combo effects (fire and frost make armor brittle). This is what the two-hand setup has been building toward.</label></div>
+      <div class="ll-task" data-id="ll-sns"><input type="checkbox" id="ll-sns"><label for="ll-sns"><span class="tag new">New</span>After <b>The Mind of Madness</b> and at level 20+, an earthquake in Solitude starts <b>Saints &amp; Seducers: Extended Cut</b>, a return to the Shivering Isles.</label></div>
+      <div class="ll-task" data-id="ll-blackthorn"><input type="checkbox" id="ll-blackthorn"><label for="ll-blackthorn"><span class="tag new">New</span><b>Blackthorn</b>, in the Rift: a town you build yourself. Use the workbench in the <b>Blackthorn Trader</b> to start. A good use for the money you'll have by now.</label></div>
+      <div class="ll-task" data-id="ll-pdgems"><input type="checkbox" id="ll-pdgems"><label for="ll-pdgems"><span class="tag learn">Learn</span><b>Soul gems → perk points</b>: at a forge, turn filled soul gems into perk gems (e.g. 3 Grand = 4 points). Your bound weapons soul-trap with the Soul Raider perk, so they fill the gems for you.</label></div>
+    </div>
+  </div>
+
+  <div class="ll-sec">
+    <button type="button"><span><span class="hour">Level 25+</span> • the epics<span class="sub">Locked until 25 in this list</span></span><span>▾</span></button>
+    <div class="ll-body">
+      <div class="ll-task" data-id="ll-vigilant"><input type="checkbox" id="ll-vigilant"><label for="ll-vigilant"><span class="tag new">New</span><b>Vigilant</b>: talk to Altano at the Windpeak Inn in Dawnstar. Four dark acts with Souls-like bosses, 30+ hours. Then its sequels, <b>Glenmoril</b> (the orphan at Falkreath's gate) and <b>DAc0da</b> (panic outside the Bards College in Solitude).</label></div>
+      <div class="ll-task" data-id="b-dest75"><input type="checkbox" id="b-dest75"><label for="b-dest75"><span class="tag build">Build</span><b>Destruction 70–80:</b><ul><li>Spellsiphon's last tome unseals at 70.</li><li><b>Rune Master</b> 70: runes at any distance, +20%.</li><li><b>Augmented</b> Flames, Frost or Shock 80: pick your favourite element.</li><li>Expert spells from Faralda: <b>Lightning Strike</b>, <b>Shock Nova</b>, <b>Sleet Storm</b>, <b>Hot Potato</b>.</li></ul></label></div>
+      <div class="ll-task" data-id="ll-fc"><input type="checkbox" id="ll-fc"><label for="ll-fc"><span class="tag new">New</span><b>The Forgotten City</b>: a courier finds you, or go to the ruins in the southwest. A time-loop murder mystery, 6–8 hours.</label></div>
+      <div class="ll-task" data-id="ll-siren"><input type="checkbox" id="ll-siren"><label for="ll-siren"><span class="tag new">New</span><b>SIRENROOT</b>: start it at Elgrim's Elixirs in Riften. A puzzle-heavy underwater Ayleid expedition.</label></div>
+      <div class="ll-task" data-id="ll-unslaad"><input type="checkbox" id="ll-unslaad"><label for="ll-unslaad"><span class="tag new">New</span><b>Unslaad</b>: a doll on a cliff edge at High Hrothgar. A dream-world story. Save it until after Vigilant.</label></div>
+      <div class="ll-task" data-id="ll-undeath"><input type="checkbox" id="ll-undeath"><label for="ll-undeath"><span class="tag new">New</span>At <b>level 30</b>, a note in Markarth's <b>Silver-Blood Inn</b> starts <b>Undeath</b>: the path to becoming a lich. Very on-theme for a mage.</label></div>
+      <div class="ll-task" data-id="ll-lordbound"><input type="checkbox" id="ll-lordbound"><label for="ll-lordbound"><span class="tag new">New</span><b>Lordbound</b>: a Khajiit in Solitude or Whiterun is recruiting adventurers. A DLC-sized land between Skyrim and High Rock with three factions, 30–60+ hours. Your late-game big trip.</label></div>
+      <div class="ll-task" data-id="b-crown"><input type="checkbox" id="b-crown"><label for="b-crown"><span class="tag build">Build</span><b>Destruction 100: a Crown.</b><ul><li>Storms, Inferno or Winter: immune to that element, +35% to it, and a once-a-day storm, meteor or blizzard power</li><li>Master spells: <b>Flamestrike</b> (24 meteors), <b>Frozen Orb</b>, <b>Static Dome</b>, <b>Apocalypse</b>.</li></ul></label></div>
+    </div>
+  </div>
+
+  <div class="ll-sec">
+    <button type="button"><span><span class="hour">Followers</span> • pick up as you pass<span class="sub">Fully voiced companions; '  opens commands</span></span><span>▾</span></button>
+    <div class="ll-body">
+      <div class="ll-task" data-id="ll-f-inigo"><input type="checkbox" id="ll-f-inigo"><label for="ll-f-inigo"><span class="tag new">New</span><b>Inigo</b>: a Khajiit in the Riften jail, next to Sibbi Black-Briar. The fan favourite.</label></div>
+      <div class="ll-task" data-id="ll-f-lucien"><input type="checkbox" id="ll-f-lucien"><label for="ll-f-lucien"><span class="tag new">New</span><b>Lucien</b>: a bookish Imperial scholar at the Dead Man's Drink in Falkreath. A good fit for a museum run.</label></div>
+      <div class="ll-task" data-id="ll-f-auri"><input type="checkbox" id="ll-f-auri"><label for="ll-f-auri"><span class="tag new">New</span><b>Auri</b>: a Bosmer hunter at Evergreen Grove in Falkreath Hold.</label></div>
+      <div class="ll-task" data-id="ll-f-remiel"><input type="checkbox" id="ll-f-remiel"><label for="ll-f-remiel"><span class="tag new">New</span><b>Remiel</b>: a Dwemer tinkerer with a spider, at the Silver-Blood Inn in Markarth.</label></div>
+      <div class="ll-task" data-id="ll-f-hoth"><input type="checkbox" id="ll-f-hoth"><label for="ll-f-hoth"><span class="tag new">New</span><b>Hoth</b>: a Nord at the Moorside Inn in Morthal who finds work for you.</label></div>
+      <div class="ll-task" data-id="ll-f-cmd"><input type="checkbox" id="ll-f-cmd"><label for="ll-f-cmd"><span class="tag learn">Learn</span>Tap <b>D-pad Left</b> for <b>Swiftly Order Squad</b>: follow, wait, teleport. You can give followers a home with Settling of Squad.</label></div>
+    </div>
+  </div>
+
+  <div class="ll-sec">
+    <button type="button"><span><span class="hour">Ongoing</span> • systems worth learning<span class="sub">Pick these up whenever they come up</span></span><span>▾</span></button>
+    <div class="ll-body">
+      <div class="ll-task" data-id="ll-sorcerer"><input type="checkbox" id="ll-sorcerer"><label for="ll-sorcerer"><span class="tag learn">Learn</span><b>Sorcerer</b>: keep spare scrolls. At the College, research them to learn to craft them, and make your own staffs.</label></div>
+      <div class="ll-task" data-id="ll-summermyst"><input type="checkbox" id="ll-summermyst"><label for="ll-summermyst"><span class="tag learn">Learn</span><span class="tag build">Build</span><b>Summermyst</b>: disenchant every <b>Regenerate Magicka</b> item (it raises regen %) and every spell-cost item. Robes and jewelry are your enchant slots.</label></div>
+      <div class="ll-task" data-id="ll-honed"><input type="checkbox" id="ll-honed"><label for="ll-honed"><span class="tag learn">Learn</span><b>Honed Metal</b>: pay smiths and court mages to craft, temper or enchant gear for you. Useful while your own Enchanting is low.</label></div>
+      <div class="ll-task" data-id="ll-apothecary"><input type="checkbox" id="ll-apothecary"><label for="ll-apothecary"><span class="tag learn">Learn</span><span class="tag build">Build</span><b>Apothecary</b>: brew <b>Fortify Magicka Regeneration</b> potions (they raise regen %) and drink one before bosses. They stack with your food buff.</label></div>
+      <div class="ll-task" data-id="ll-brewer"><input type="checkbox" id="ll-brewer"><label for="ll-brewer"><span class="tag learn">Learn</span><b>Brewer</b>: brew your own drinks. Optional, but it makes inns and camps feel more lived in.</label></div>
+      <div class="ll-task" data-id="ll-horse"><input type="checkbox" id="ll-horse"><label for="ll-horse"><span class="tag learn">Learn</span>Buy a horse when walking gets old. <b>HorsePower</b> changes riding (more realistic handling). There's no call-horse key, so park it nearby.</label></div>
+      <div class="ll-task" data-id="ll-photo"><input type="checkbox" id="ll-photo"><label for="ll-photo"><span class="tag learn">Learn</span>Try <b>Photo Mode</b> once somewhere beautiful. The new lighting (Community Shaders) looks great at sunset.</label></div>
+    </div>
+  </div>
+
+  <div class="footer" id="llSaveNote">Progress is kept on this device.</div>
+</div>
+
+<!-- ============ LOST LEGACY: BUILD ============ -->
+<div class="wrap" id="tab-build" role="tabpanel" aria-labelledby="tabbtn-build" hidden>
+  <header>
+    <div class="subtitle">LOST LEGACY • DESTRUCTION MAGE + SPELLSIPHON BACKUP • CHECKED AGAINST THE MOD FILES</div>
+    <h1>The Storm Adept</h1>
+    <div class="desc">
+      An elemental mage who fights with runes and two-element combos, one element per hand, aimed separately with SpellAim.
+      When Magicka runs dry or enemies get too close, one Bind switches you to <b>Spellsiphon</b>: siphon, Ward and recover, then go back to casting.
+      Every number was read from the plugins in Lost Legacy 2.0.2 plus Spellsiphon 5.28.
+    </div>
+  </header>
+
+  <div class="bcard">
+    <h2>Get these, in this order</h2>
+    <ol>
+      <li><b>Spellsiphoning book</b>: Sleeping Giant Inn bar, Riverwood (free). Your backup mode.</li>
+      <li><b>Cheese and pastries</b>: Riverwood Trader or the inn. A regen % buff before every fight.</li>
+      <li><b>Draining Touch</b>: Farengar, Whiterun. Drains Health and Magicka. Confirmed in his stock.</li>
+      <li><b>One fire and one frost spell</b>: Farengar (Apocalypse Blaze and Hailstone if he has them), or keep your class's starting spells.</li>
+      <li><b>Wild Healing</b> (Apocalypse, Novice Restoration): any court mage or Colette at the College.</li>
+      <li><b>Julianos</b>: sneak and press A on his shrine at the Temple of the Divines, Solitude.</li>
+      <li><b>Solar Ray</b> or <b>Holy Fire</b>: Rorlund, the same temple. Confirmed.</li>
+      <li><b>Gourmet recipes</b>: Riverwood Trader, Belethor or Carlotta (Whiterun), Odar (Solitude). Fondue is the best, and appears in the higher-tier recipe stock.</li>
+      <li><b>Apprentice Stone</b>: Hjaalmarch marshes near Morthal, once you're comfortable.</li>
+      <li><b>Step Through Shadows</b>: Enthir at the College (Alteration 25). Confirmed.</li>
+      <li><b>Ocato's Recital</b>: Tolfdir at the College (Alteration 25).</li>
+      <li><b>Adept spells</b> (Bolide, Ice Shiv): Faralda, at Destruction 50.</li>
+    </ol>
+    <p class="why">"Confirmed" means it's in that merchant's stock in the mod files. Apocalypse tomes are added to every vanilla spell vendor's lists, so they can turn up at any of them; stock is random by day and level. The Spellsiphon book (Sleeping Giant Inn) and the Julianos shrine (Temple of the Divines) are verified in the files.</p>
+  </div>
+
+  <div class="bcard">
+    <h2>Backstory: Caelinwe, the Runaway Sapiarch</h2>
+    <p>Caelinwe is a High Elf (Altmer) from the <b>Summerset Isles</b>. She trained under the <b>Sapiarchs</b>, Summerset's master scholars. Like every Altmer mage she was taught to honour <b>Magnus</b>, the god of magic, and <b>Auri-El</b>, the elves' name for the dragon god Akatosh.</p>
+    <p>Summerset is now run by the <b>Thalmor</b>, the elf-supremacist government of the <b>Aldmeri Dominion</b>. After the Great War against the Empire, the Thalmor forced a treaty (the White-Gold Concordat) that <b>banned the worship of Talos</b>. Their Justiciars now hunt Talos worshippers across Skyrim. Caelinwe saw those she studied with recruited into that work, and she left. A Sapiarch-trained mage walking out on the Dominion is a deserter as far as the Thalmor are concerned.</p>
+    <p>She crossed into Skyrim in the middle of its <b>civil war</b> and took a room in <b>Helgen</b> under a plain name. That's where the game finds her (Alternate Perspective's inn start).</p>
+    <p>In Riverwood she finds a treatise on <b>Spellsiphoning</b> (the mod's own lore): an obscure art of drawing magic from the world instead of yourself. Nobody taught it on Summerset, which is exactly why she wants it.</p>
+    <h3>Hooks in the game</h3>
+    <ul>
+      <li><b>Julianos</b> is the Nine Divines' god of wisdom, logic and magic, and patron of mages. For an Altmer, choosing an Imperial Divine over Magnus is a quiet act of rebellion. She follows him at the Temple of the Divines in Solitude.</li>
+      <li><b>The Thalmor:</b> she avoids or opposes them every time. <i>Diplomatic Immunity</i> (the main quest's Thalmor Embassy party) is personal.</li>
+      <li><b>The College of Winterhold</b> takes in mages of any race, though Nords distrust it after the Great Collapse. It's the one place she belongs.</li>
+      <li><b>The Psijic Order</b> is an ancient order of mages from the Isle of Artaeum, older than the Thalmor, who answer to no government. Joining them (the <i>Isle of Artaeum</i> mod, after the College questline) is her endgame.</li>
+      <li><b>The Dragonborn Gallery:</b> she hands Auryen the relics the Thalmor would want.</li>
+      <li><b>The Crown</b> at Destruction 100: Storms.</li>
+    </ul>
+  </div>
+
+  <div class="bcard">
+    <h2>Lore in 60 seconds</h2>
+    <ul>
+      <li><b>Skyrim is at war with itself.</b> The <b>Stormcloaks</b> (Ulfric, Windhelm) want independence and Talos back. The <b>Imperial Legion</b> (General Tullius, Solitude) holds the Empire together. The <b>Thalmor</b> quietly want both sides worn down.</li>
+      <li><b>Nords distrust elves</b>, and High Elves most of all, because they look like Thalmor. Expect "knife-ear" comments, especially in <b>Windhelm</b>, the Stormcloak capital.</li>
+      <li><b>Nords distrust mages</b> too. Many blame the College for the collapse of Winterhold, the city it sits in.</li>
+      <li><b>The Nine Divines</b>: Akatosh, Arkay, Dibella, Julianos, Kynareth, Mara, Stendarr, Zenithar and Talos, the human hero-god the Thalmor banned. <b>Daedric Princes</b> such as Azura and Sanguine are powerful, older spirits outside the Divines.</li>
+      <li><b>You are Dragonborn</b>: born with a dragon's soul, so you can absorb dragon souls and learn shouts. The Greybeards of High Hrothgar teach the Voice.</li>
+    </ul>
+    <h3>How Caelinwe acts</h3>
+    <ul>
+      <li><b>Quiet and careful.</b> She doesn't announce where she's from. She reads every book (which fits Experience and Avid Reader), and asks before she fights.</li>
+      <li><b>Never helps the Thalmor.</b> She warns Talos worshippers they're being watched, and helps anyone hiding from Justiciars.</li>
+      <li><b>In the civil war</b> she leans <b>Imperial</b>. The Stormcloaks distrust elves, but she sees that a broken Empire helps the Thalmor most. Staying neutral is also in character.</li>
+      <li><b>Curious about forbidden magic</b> (Spellsiphon, Undeath, Daedric artifacts), but she turns down anything that hurts innocents.</li>
+      <li><b>Wary of Daedra</b>: she bargains with them, but doesn't worship them.</li>
+    </ul>
+  </div>
+
+  <div class="bcard">
+    <h2>Playing Caelinwe</h2>
+    <h3>Her arc in four acts</h3>
+    <ol>
+      <li><b>Hiding</b> (Helgen → Whiterun): wear a hood or circlet, keep to inns and roads, and give a fake name if asked. The less anyone knows, the better.</li>
+      <li><b>Belonging</b> (the College): the first place she drops the act. She shares what she knows and argues theory with the scholars.</li>
+      <li><b>Defiance</b> (Thalmor Embassy, Markarth): once she's strong enough, she stops hiding and starts working against the Thalmor.</li>
+      <li><b>Transcendence</b> (Psijics, Crown of Storms): she becomes something Summerset can't claim.</li>
+    </ol>
+
+    <h3>Daily habits</h3>
+    <ul>
+      <li><b>Pray to Julianos every day</b> (Wintersun's Pray power). Her one ritual.</li>
+      <li><b>Read every book</b> she finds, ideally by a campfire at night. It gives XP too (Experience, Avid Reader).</li>
+      <li><b>Prepare before every fight:</b> eat something (she's learning to like Nord cheese), cast armor, lay runes. A Sapiarch never walks in unprepared.</li>
+      <li><b>Treat Spellsiphon as a guilty secret.</b> Use it only when cornered, and never in front of College staff until she trusts them.</li>
+    </ul>
+
+    <h3>How she talks</h3>
+    <ul>
+      <li>Polite and precise. She persuades rather than threatens, and pays rather than steals.</li>
+      <li>When Nords call her "knife-ear", she lets it go. They aren't wrong to fear her people.</li>
+      <li>She never says she's Thalmor, and if asked she says plainly that she isn't.</li>
+    </ul>
+
+    <h3>Choices she'd make</h3>
+    <ul>
+      <li><b>Whiterun:</b> she stops to listen to Heimskr preaching Talos. Banned faith interests her, and she'd tip him.</li>
+      <li><b>Thalmor patrols on the roads</b> (with a prisoner): she frees the prisoner.</li>
+      <li><b>Markarth:</b> she distrusts Ondolemar, the Thalmor Justiciar, on sight and refuses his errands.</li>
+      <li><b>Civil war:</b> she sides with the <b>Imperials</b>, or stays out of it.</li>
+      <li><b>Paarthurnax:</b> spares him. Knowledge that old shouldn't be destroyed.</li>
+      <li><b>Azura's Star:</b> returns it to Azura's priestess, not the black-soul version. She won't trap people's souls.</li>
+      <li><b>Dark Brotherhood:</b> destroys them (and joins the <b>Penitus Oculatus</b> mod's follow-up).</li>
+      <li><b>Thieves Guild:</b> passes. Stealing doesn't fit her.</li>
+      <li><b>Companions:</b> respects them, but they're a Nord warrior hall, not her place.</li>
+      <li><b>Daedric quests:</b> takes them only when the Prince's price doesn't harm innocents. She'll bargain, but never bow.</li>
+    </ul>
+
+    <h3>Company she'd keep</h3>
+    <ul>
+      <li><b>Lucien</b> (Dead Man's Drink, Falkreath): a fellow scholar. The best fit.</li>
+      <li><b>Inigo</b> (Riften jail): another outsider Skyrim distrusts.</li>
+      <li><b>Aviendha</b> (outside Riverwood): a warrior with her own exile story.</li>
+    </ul>
+  </div>
+
+  <div class="bcard">
+    <h2>Why this pairing works</h2>
+    <ul>
+      <li><b>Spellsiphon unlocks</b> need your <b>base</b> Destruction or Conjuration at 10/30/50/70. A Destruction main gets them naturally.</li>
+      <li><b>Destruction perks</b> apply to Spellsiphon too: its Draw, World, Life and Death effects are Destruction-school in the plugin, and using them levels Destruction.</li>
+      <li><b>Regen % (MagickaRateMult)</b> helps both halves: it refills your Magicka <i>and</i> multiplies Spellsiphon damage. <b>Base regen</b> (High Elf, Apprentice Stone) only refills Magicka, which is still great for a caster.</li>
+      <li><b>Woven Power</b> from Spellsiphon raises regen %, so your backup mode refuels your main mode.</li>
+    </ul>
+  </div>
+
+  <div class="bcard">
+    <h2>Character creation</h2>
+    <dl class="kv">
+      <dt>Race</dt><dd><b>High Elf</b>: +50 Magicka and 50% faster base regen. (Breton if you'd rather absorb spells.)</dd>
+      <dt>Class</dt><dd><b>Select Class</b> book → custom. Ability: <b>Potent</b> (+50% regen %). Majors: <b>Destruction, Alteration, Restoration, Conjuration, Enchanting, Illusion</b>.</dd>
+      <dt>Birthsign</dt><dd><b>Lady</b>: +25% Health and Magicka regen %.</dd>
+      <dt>Stone</dt><dd>Take <b>Mage</b> at the Guardian Stones first. Then switch to <b>Apprentice</b> (in the Hjaalmarch marshes near Morthal): double base regen, but 25% weaker to magic. Spellsiphon's Ward blocks spells, which covers that weakness.</dd>
+      <dt>God</dt><dd><b>Julianos</b>: spells cost less as favor grows, then get stronger at full devotion. Follow him by sneaking (left bottom side button) and pressing <b>A</b> on his shrine.</dd>
+    </dl>
+    <p class="why">Avoid: the <b>Atronach Stone</b> (lowers regen %), <b>Magnus</b> (no regen), and Apprentice's Zeal on top of the Apprentice Stone (double magic weakness).</p>
+  </div>
+
+  <div class="bcard">
+    <h2>Main mode: Storm Adept</h2>
+    <p><b>Hands:</b> a fire spell in one, frost or shock in the other.</p>
+    <ol>
+      <li><b>Pre-fight:</b> Ocato's Preparation auto-casts your best armor spell. In robes, <b>Mage Armor</b> makes it 2× to 3× stronger.</li>
+      <li><b>Runes first:</b> Rune Master gives 3× as many runes, 75 ft farther away. Trap the path they'll take.</li>
+      <li><b>Combo:</b> hit one target with <b>two different elements</b>, one per hand. <b>Red Mage</b> triggers combo effects (fire plus frost makes armor brittle), and <b>Elementalist</b> adds +5% per switch.</li>
+      <li><b>Shock</b> refills you: <b>Static Drain</b> (Destruction 50) absorbs Magicka per hit.</li>
+    </ol>
+  </div>
+
+  <div class="bcard">
+    <h2>Backup mode: Spellsiphon</h2>
+    <p><b>When:</b> Magicka is low, an enemy reaches you, or a mage is pelting you.</p>
+    <ol>
+      <li><b>Bind</b> (<b>R bumper</b>, or SpellAim's both-hands thrust gesture) puts Draw and Ward in your hands.</li>
+      <li><b>Ward</b>: blocks spells, cuts physical damage by 80% and heals. Time it to knock attackers back.</li>
+      <li><b>Draw</b> Life from the enemy, World from the ground and Death from a body. Each switch stacks <b>Woven Power</b> (+regen %), so your Magicka refills while you fight.</li>
+      <li>Once you're topped up, equip your two element spells again (favorites or gestures) and return to main mode.</li>
+    </ol>
+    <p class="why"><b>Don't Entangle your main spells:</b> Entangle folds a spell into Draw <i>and removes it from normal casting</i>. Entangle only spare elemental spells, if any. Leave the <b>Refocus</b> power off too: it forces Draw and Ward back after every other spell.</p>
+    <p class="why"><b>Close-range option:</b> Bind with no element held gives a <b>bound sword</b>. It's a real one-handed sword, and its damage scales with Health. Use it to finish off a weakened enemy. Discharge Life with it to <b>stop time</b>.</p>
+  </div>
+
+  <div class="bcard">
+    <h2>Perks (Vokriinator Black, the actual trees)</h2>
+    <h3>Levels 1–15</h3>
+    <ul>
+      <li><b>Destruction:</b> Destruction Mastery. Spellsiphon's Draw, World, Life and Death are Destruction-school effects, so using them levels Destruction too.</li>
+      <li><b>Alteration:</b> Alteration Mastery → <b>Initiate's Charm</b> (20) → <b>Mage Armor</b> (30).</li>
+      <li><b>Restoration:</b> Restoration Mastery → <b>Descending Light</b> (20). A Magicka surge when combat starts.</li>
+    </ul>
+    <h3>Levels 15–30</h3>
+    <ul>
+      <li><b>Elementalist</b> (Destruction 40)</li>
+      <li><b>Rune Master</b> (Destruction 40)</li>
+      <li><b>Spell Surge</b> (Destruction 35): cheaper dual casts</li>
+      <li><b>Catch Fire</b> or <b>Piercing Cold</b> (35)</li>
+      <li><b>Ocato's Preparation</b> (Alteration 40)</li>
+      <li><b>Fortification</b> (Alteration 45): +100 armor in robes</li>
+      <li><b>Respite</b> (Restoration 40): Spellsiphon's Ward checks for it and restores Stamina, so Ward breaks less often.</li>
+    </ul>
+    <h3>Later</h3>
+    <ul>
+      <li><b>Static Drain</b> (Destruction 50): shock absorbs Magicka</li>
+      <li><b>Red Mage</b> (Destruction 60)</li>
+      <li><b>Witch's Familiar</b> (Conjuration 50): +50% regen % and +15% spell power while your familiar is out</li>
+      <li><b>Augmented</b> (one element at 80)</li>
+      <li><b>Rune Master 70</b> (any distance, +20%)</li>
+      <li>At Destruction 100, a <b>Crown</b> of Storms, Inferno or Winter: immune to that element, +35% to it, and a once-a-day storm, meteor or blizzard power.</li>
+    </ul>
+    <p class="why">Skip <b>Vancian Magic</b> (it stops casting until you rest) and <b>Blood Mage</b>.</p>
+  </div>
+
+  <div class="bcard">
+    <h2>Spells, gear &amp; buffs</h2>
+    <ul>
+      <li>Shop the College, Farengar and court mages for the new <b>Apocalypse, Arcanum, Storm Calling and Elemental Mastery</b> spells. Pick one fire and one frost or shock spell to start.</li>
+      <li><b>Step Through Shadows</b> (Triumvirate, Apprentice Alteration): a 150 ft dash. Enthir at the College sells it.</li>
+      <li>Wear robes. Disenchant every <b>Regenerate Magicka</b> item (Summermyst) and spell-cost item.</li>
+      <li>Keep a <b>Gourmet</b> cheese or pastry buff up for regen %, and drink <b>Fortify Magicka Regen</b> potions (Apothecary) before bosses.</li>
+      <li><b>Sorcerer:</b> keep a staff as a free cast when you're dry and can't Bind yet.</li>
+      <li>Spellsiphon's own tome unlocks come as your Destruction base skill passes 10, 30, 50 and 70. Read each "Elemental" tome when its seal breaks.</li>
+    </ul>
+  </div>
+
+  <div class="bcard">
+    <h2>Other builds considered</h2>
+    <ul>
+      <li><b>The Weaver</b> (Spellsiphon first): Draw and Ward, a life-linked bound sword with Discharge, and raised corpses. Breton, Potent, Lady, Sanguine. Use it if you'd rather Spellsiphon be the main thing.</li>
+      <li><b>Stormcaller</b> (Nord, greatsword, Thunderchild shouts): Windborne, Skald, Talos.</li>
+      <li><b>Hero of Hyrule</b> (sword, shield, bow, glider): timed blocks and Relics of Hyrule gear.</li>
+      <li><b>Moonfang</b> (Khajiit brawler and werewolf): Hand-to-Hand, Growl, Hircine.</li>
+    </ul>
+  </div>
+  <div class="bcard">
+    <h2>Verification status</h2>
+    <p class="why"><b>Verified against the installed game:</b></p>
+    <ul>
+      <li>No Lost Legacy patch changes the build's records (Potent, Lady, the stones, Highborn, Gourmet regen foods, every perk used).</li>
+      <li>The Spellsiphon book is in the Sleeping Giant Inn, and the Julianos shrine is in the Temple of the Divines.</li>
+      <li>Apocalypse tomes reach every vanilla spell vendor.</li>
+      <li>Gourmet recipe sellers, Merchant's crafting recipes, and that fast travel is on.</li>
+    </ul>
+    <p class="why"><b>Still open:</b></p>
+    <ul>
+      <li>Arcanum's spells and vendors</li>
+      <li>Classic Classes' starting spells (set by script, so check at character creation)</li>
+    </ul>
+    <p class="why"><b>To test in game:</b></p>
+    <ul>
+      <li>Does Bind count as a shout (Windborne)?</li>
+      <li>Do Respite and Forbidden Sanctuary affect Spellsiphon's Ward?</li>
+      <li>Is the D-pad free with Lost Legacy's control map?</li>
+    </ul>
+  </div>
+  <div class="footer">Checked against: Spellsiphon.esp and its scripts, Vokriinator Black's skill trees, Classic Classes, Evenstar, Morningstar, Wintersun, Gourmet, Path of Sorcery, Summermyst and Apothecary.</div>
 </div>
 
 <script>
@@ -648,6 +1154,97 @@ Let your character develop before diving in.</div>
       clearTimeout(timer);
       saveNote.textContent = "Couldn't reach your saved progress. Ticks are kept on this device.";
     }
+  })();
+})();
+</script>
+
+<script>
+// Tabs, plus the Lost Legacy checklist (its own progress, saved separately from the Nordic Souls one).
+(function(){
+  const TAB_KEY = "arcaneMageChecklist-tab";
+  const LL_KEY = "lostLegacyChecklist-v1";
+  const LL_DOC = "progress/lostlegacy";
+  const tabs = [...document.querySelectorAll('.tab')];
+  function showTab(id){
+    tabs.forEach(t => {
+      const on = t.getAttribute('aria-controls') === id;
+      t.setAttribute('aria-selected', String(on));
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    try { localStorage.setItem(TAB_KEY, id); } catch (e) {}
+  }
+  tabs.forEach(t => t.addEventListener('click', () => { showTab(t.getAttribute('aria-controls')); window.scrollTo(0, 0); }));
+  let start = "tab-ns";
+  try { start = localStorage.getItem(TAB_KEY) || "tab-ns"; } catch (e) {}
+  showTab(document.getElementById(start) ? start : "tab-ns");
+
+  const panel = document.getElementById('tab-ll');
+  const tasks = [...panel.querySelectorAll('.ll-task[data-id]')];
+  const boxes = tasks.map(t => t.querySelector('input[type="checkbox"]'));
+  const note = document.getElementById('llSaveNote');
+  let docRef = null, writing = false, pending = false;
+
+  function state(){ const d = {}; tasks.forEach((t,i) => { if (boxes[i].checked) d[t.dataset.id] = true; }); return d; }
+  function update(){
+    tasks.forEach((t,i) => t.classList.toggle('done', boxes[i].checked));
+    const n = tasks.filter((t,i) => boxes[i].checked).length;
+    const pct = tasks.length ? Math.round(n / tasks.length * 100) : 0;
+    document.getElementById('llPct').textContent = pct + "% · " + n + " / " + tasks.length;
+    document.getElementById('llFill').style.width = pct + "%";
+  }
+  function apply(d){ tasks.forEach((t,i) => { boxes[i].checked = !!(d && d[t.dataset.id]); }); update(); }
+  function saveLocal(d){ try { localStorage.setItem(LL_KEY, JSON.stringify(d)); } catch (e) {} }
+  function loadLocal(){ try { return JSON.parse(localStorage.getItem(LL_KEY) || "{}"); } catch (e) { return {}; } }
+  async function saveRemote(){
+    if (!docRef) return;
+    if (writing) { pending = true; return; }
+    writing = true;
+    try { await docRef.set({ done: state(), updated: new Date().toISOString() }); note.textContent = "Progress saved to your account."; }
+    catch (e) { note.textContent = "Couldn't save to your account just now. Progress is kept on this device."; }
+    finally { writing = false; if (pending) { pending = false; saveRemote(); } }
+  }
+  boxes.forEach(b => b.addEventListener('change', () => { update(); const d = state(); saveLocal(d); saveRemote(); }));
+
+  panel.querySelectorAll('.ll-sec > button').forEach(btn => {
+    btn.setAttribute('aria-expanded', 'true');
+    btn.addEventListener('click', () => {
+      const body = btn.nextElementSibling; body.hidden = !body.hidden;
+      btn.setAttribute('aria-expanded', String(!body.hidden));
+      btn.lastElementChild.textContent = body.hidden ? "▸" : "▾";
+    });
+  });
+  function setAll(open){
+    panel.querySelectorAll('.ll-sec > button').forEach(btn => {
+      btn.nextElementSibling.hidden = !open; btn.setAttribute('aria-expanded', String(open));
+      btn.lastElementChild.textContent = open ? "▾" : "▸";
+    });
+  }
+  document.getElementById('llExpand').addEventListener('click', () => setAll(true));
+  document.getElementById('llCollapse').addEventListener('click', () => setAll(false));
+  const hide = document.getElementById('llHideDone');
+  function setHide(on){
+    document.body.classList.toggle('ll-hide-done', on); hide.setAttribute('aria-pressed', String(on));
+    try { localStorage.setItem(LL_KEY + "-hideDone", on ? "1" : "0"); } catch (e) {}
+  }
+  hide.addEventListener('click', () => setHide(!document.body.classList.contains('ll-hide-done')));
+  let h = false; try { h = localStorage.getItem(LL_KEY + "-hideDone") === "1"; } catch (e) {}
+  setHide(h);
+
+  apply(loadLocal());
+  (async () => {
+    if (!window.claude || !window.claude.use) return;
+    let db = null;
+    try { db = await window.claude.use("db"); } catch (e) { db = null; }
+    if (!db) return;
+    docRef = db.doc(LL_DOC);
+    try {
+      const snap = await docRef.get();
+      if (snap.exists) {
+        const merged = Object.assign({}, (snap.data() || {}).done || {}, state());
+        apply(merged); saveLocal(merged); saveRemote();
+      } else if (Object.keys(state()).length) { saveRemote(); }
+      note.textContent = "Progress saved to your account.";
+    } catch (e) { note.textContent = "Couldn't reach your saved progress. Ticks are kept on this device."; }
   })();
 })();
 </script>
